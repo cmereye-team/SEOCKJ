@@ -1,32 +1,20 @@
 <script lang="ts" setup>
-const navbarLists = [
-  {
-    img: '@/assets/images/nvaIcon_1.png',
-    name: '',
-    link: ''
-  },
-  {
-    img: '@/assets/images/nvaIcon_2.png',
-    name: '',
-    link: ''
-  },
-  {
-    img: '@/assets/images/nvaIcon_3.png',
-    name: '',
-    link: ''
-  },
-  {
-    img: '@/assets/images/nvaIcon_4.png',
-    name: '',
-    link: ''
-  }
-]
+const navbarLists = []
 </script>
 
 <template>
   <div class="navbar-content">
-    <div class="navbar-content-in" v-for="(item,index) in navbarLists" :key="index">
-      <img src="@/assets/images/nvaIcon_4.png" alt="">
+    <div class="navbar-content-in">
+      <img src="@/assets/images/navIcon_1.png" alt="">
+    </div>
+    <div class="navbar-content-in">
+      <img src="@/assets/images/navIcon_2.png" alt="">
+    </div>
+    <div class="navbar-content-in">
+      <img src="@/assets/images/navIcon_3.png" alt="">
+    </div>
+    <div class="navbar-content-in">
+      <img src="@/assets/images/navIcon_4.png" alt="">
     </div>
   </div>
 </template>
