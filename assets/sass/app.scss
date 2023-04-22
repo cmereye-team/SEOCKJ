@@ -27,6 +27,7 @@
   background-color: theme('colors.slate.400');
 }
 html.dark {
+  font-size: 16px;
   ::-webkit-scrollbar-track {
     background: theme('colors.slate.800');
     border-left: 1px solid theme('colors.slate.700');
@@ -39,11 +40,14 @@ html.dark {
     background-color: theme('colors.slate.400');
   }
 }
+html{
+  font-size: 16px;
+}
 .bgColor{
   background: #FFCECB;
 }
 .pageCon{
-  width: 100vw;
+  width: 100%;
   max-width: 1450px;
   margin: 0 auto;
   // min-height: 100vh;
