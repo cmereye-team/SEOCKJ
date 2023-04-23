@@ -64,6 +64,7 @@ const menuLists = [
     <div class="header-content">
       <div class="header-content-bgImg">
         <img
+          class="pcShow"
           src="https://static.cmereye.com/imgs/2023/04/958c5d647ba584df.png"
           alt=""
         />
@@ -87,6 +88,19 @@ const menuLists = [
             {{ menuItem.name }}
           </div>
         </div>
+        <div class="icon">
+          <img src="@/assets/images/icon_6.png" >
+        </div>
+      </div>
+      <div class="header-content-mb">
+        <img
+          src="@/assets/images/header_bg.jpg"
+          alt=""
+        />
+        <div class="text">
+          全程式預約一體化診療服務，讓每一位顧客享受
+          <span>健康微笑之旅。</span>
+        </div>
       </div>
     </div>
   </header>
@@ -97,7 +111,7 @@ const menuLists = [
   width: 100%;
   box-sizing: border-box;
   position: relative;
-  background: #fff;
+  // background: #fff;
   &-bgImg {
     width: 100%;
     box-sizing: border-box;
@@ -181,6 +195,12 @@ const menuLists = [
         }
       }
     }
+    .icon{
+      display: none;
+    }
+  }
+  &-mb{
+    display: none;
   }
 }
 .header-content::after {
@@ -221,7 +241,7 @@ const menuLists = [
 }
 .header-content::before {
   content: '';
-  background-image: url(@/assets/images/back_wave02.png);
+  background-image: url(@/assets/images/back_wave03.png);
   background-repeat: repeat-x;
   background-position: center bottom;
   // background-size: auto 80px;
@@ -281,14 +301,67 @@ const menuLists = [
 }
 @media screen and (max-width: 768px) {
   .header-content {
-    &-in {
+    &-bgImg {
+      width: 100%;
       display: none;
+      img{
+        width: 100%;
+      }
+    }
+    &-in {
+      justify-content: space-between;
+      margin: 0;
+      .logo{
+        width: 150px;
+      }
+      .menu{
+        display: none;
+      }
+      .icon{
+        display: block;
+        width: 24px;
+        margin-right: 30px;
+      }
     }
     &-span {
       width: 70px;
       font-weight: 400;
       font-size: 20px;
+      right: 30px;
+      bottom: 60px;
     }
+    &-mb{
+      background: #fff;
+      display: block;
+      img{
+        width: 100%;
+      }
+      .text{
+        margin-top: 0;
+        font-style: normal;
+        font-weight: 500;
+        // font-size: 20px;
+        font-size: 1.25rem;
+        line-height: 160%;
+        color: #4D4D4D;
+        width: 210px;
+        padding-left: 30px;
+        margin-top: 30px;
+        span{
+          // font-size: 20px;
+          font-size: 1.25rem;
+          color: #FFCECB;
+        }
+      }
+    }
+  }
+  .header-content::after{
+    transform: rotate(180deg);
+    top: -30px;
+  }
+  .header-content::before{
+    transform: rotate(180deg);
+    top: -30px;
   }
 }
 </style>
