@@ -195,7 +195,7 @@ const menuLists = [
   left: 0px;
   bottom: 0;
   animation-name: wave1;
-  animation-duration: 10s;
+  animation-duration: 20s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   -webkit-animation-name: wave1;
@@ -232,7 +232,7 @@ const menuLists = [
   left: 0px;
   bottom: 0;
   animation-name: wave2;
-  animation-duration: 20s;
+  animation-duration: 10s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   -webkit-animation-name: wave2;

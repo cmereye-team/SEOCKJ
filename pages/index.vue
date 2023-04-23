@@ -1,27 +1,5 @@
 <script lang="ts" setup>
 const { t } = useLang()
-const dentalServicesLists = [
-  {
-    title: '全科牙科', // 全科牙科
-    // imgUrl: require('@/assets/images/dentalServices_bg01.jpg'),
-  },
-  {
-    title: '種植牙科', // 種植牙科
-    // imgUrl: require('@/assets/images/dentalServices_bg02.jpg'),
-  },
-  {
-    title: '矯齒牙科', // 矯齒牙科
-    // imgUrl: require('@/assets/images/dentalServices_bg03.jpg'),
-  },
-  {
-    title: '美容牙科', // 美容牙科、
-    // imgUrl: require('@/assets/images/dentalServices_bg04.jpg'),
-  },
-  {
-    title: '兒童牙科', // 兒童牙科
-    // imgUrl: require('@/assets/images/dentalServices_bg05.jpg'),
-  },
-]
 </script>
 
 <template>
@@ -49,43 +27,35 @@ const dentalServicesLists = [
     </div>
     <!-- 牙科服務 -->
     <!-- 全科牙科,種植牙科,矯齒牙科,美容牙科,兒童牙科 -->
-    <div class="index-dentalServices pageCon">
-      <div class="index_title">牙科服務</div>
+    <div class="index-dentalServices">
+      <div class="index_title pageCon">牙科服務</div>
       <div class="index-dentalServices-in">
-        <!-- <div
-          v-for="(
-            dentalServicesItem, dentalServicesIndex
-          ) in dentalServicesLists"
-          :key="dentalServicesIndex"
-        >
-          <img src="" alt="" />
-          <h3>{{ dentalServicesItem.title }}</h3>
-          <span></span>
-        </div> -->
-        <div class="dentalServices-box">
-          <img src="@/assets/images/dentalServices_bg01.jpg" alt="" />
-          <h3>全科牙科</h3>
-          <span>了解更多</span>
-        </div>
-        <div class="dentalServices-box">
-          <img src="@/assets/images/dentalServices_bg02.jpg" alt="" />
-          <h3>種植牙科</h3>
-          <span>了解更多</span>
-        </div>
-        <div class="dentalServices-box">
-          <img src="@/assets/images/dentalServices_bg03.jpg" alt="" />
-          <h3>矯齒牙科</h3>
-          <span>了解更多</span>
-        </div>
-        <div class="dentalServices-box">
-          <img src="@/assets/images/dentalServices_bg04.jpg" alt="" />
-          <h3>美容牙科</h3>
-          <span>了解更多</span>
-        </div>
-        <div class="dentalServices-box">
-          <img src="@/assets/images/dentalServices_bg05.jpg" alt="" />
-          <h3>兒童牙科</h3>
-          <span>了解更多</span>
+        <div class="dentalServices-box pageCon">
+          <div class="dentalServices-box-in">
+            <img src="@/assets/images/dentalServices_bg01.jpg" alt="" />
+            <h3>全科牙科</h3>
+            <span>了解更多</span>
+          </div>
+          <div class="dentalServices-box-in">
+            <img src="@/assets/images/dentalServices_bg02.jpg" alt="" />
+            <h3>種植牙科</h3>
+            <span>了解更多</span>
+          </div>
+          <div class="dentalServices-box-in">
+            <img src="@/assets/images/dentalServices_bg03.jpg" alt="" />
+            <h3>矯齒牙科</h3>
+            <span>了解更多</span>
+          </div>
+          <div class="dentalServices-box-in">
+            <img src="@/assets/images/dentalServices_bg04.jpg" alt="" />
+            <h3>美容牙科</h3>
+            <span>了解更多</span>
+          </div>
+          <div class="dentalServices-box-in">
+            <img src="@/assets/images/dentalServices_bg05.jpg" alt="" />
+            <h3>兒童牙科</h3>
+            <span>了解更多</span>
+          </div>
         </div>
       </div>
     </div>
@@ -101,11 +71,54 @@ const dentalServicesLists = [
       羅湖區、福田區、南山區、寶安區、龍華區
     </div>
     <!-- 個案分享 -->
-    <div class="index-caseSharing pageCon">
-      梁家棋 Joyce 種植牙齒療程 過程舒適無痛
-      人們都越來越重視牙齒的健康，所以對於缺牙問題大部分的人都會選擇及時進行修復，更多的人選擇了種植牙。
-      陳裳 Jason 安心、舒服、無痛 種植牙齒療程 蔡梓琪 Mandy 唔再怕同人合照喇
-      牙齒美白療程
+    <div class="index-caseSharing">
+      <div class="index_title pageCon">品牌理念</div>
+      <div class="index-caseSharing-in pageCon">
+        <div class="in-top">
+          <div class="in-top-l">
+            <!-- <video src=""></video> -->
+            <img src="@/assets/images/aboutUs_gb.jpg" alt="">
+          </div>
+          <div class="in-top-r">
+            <div class="name">梁家棋 Joyce</div>
+            <div class="skill">種植牙齒療程</div>
+            <div class="process">過程舒適無痛</div>
+            <div class="text">人們都越來越重視牙齒的健康，所以對於缺牙問題大部分的人都會選擇及時進行修復，更多的人選擇了種植牙。</div>
+            <div class="bg_box"></div>
+          </div>
+        </div>
+        <div class="in-cen">
+          <div class="in-cen-in">
+            <div class="in-cen-in-t">
+              <img src="@/assets/images/Jason.jpg" alt="">
+              <span class="text">安心、舒服、無痛</span>
+              <div>
+                <span class="name">陳裳 Jason</span>
+                <span class="skill">種植牙齒療程 </span>
+              </div>
+            </div>
+            <div class="in-cen-in-b">
+              人們都越來越重視牙齒的健康，所以對於缺牙問題大部分的人都會選擇及時進行修復，更多的人選擇了種植牙。
+            </div>
+          </div>
+          <div class="in-cen-in">
+            <div class="in-cen-in-t">
+              <img src="@/assets/images/Jason.jpg" alt="">
+              <span class="text">唔再怕同人合照喇 </span>
+              <div>
+                <span class="name">蔡梓琪 Mandy</span>
+                <span class="skill">牙齒美白療程 </span>
+              </div>
+            </div>
+            <div class="in-cen-in-b">
+              人們都越來越重視牙齒的健康，所以對於缺牙問題大部分的人都會選擇及時進行修復，更多的人選擇了種植牙。
+            </div>
+          </div>
+        </div>
+        <div class="in-bottom">
+          <span>了解更多</span>
+        </div>
+      </div>
     </div>
     <!-- 聯絡我們 -->
     <div class="index-contactUs pageCon">
@@ -140,6 +153,7 @@ const dentalServicesLists = [
 //   .title {
 //   }
 // }
+//品牌理念
 .index-brandConcept {
   width: 100%;
   height: 760px;
@@ -188,31 +202,222 @@ const dentalServicesLists = [
     // }
   }
 }
+//牙科服務
 .index-dentalServices {
   padding: 70px 0;
   width: 100%;
+  // background: linear-gradient(180deg, #FFF1F0 0%, rgba(255, 241, 240, 0) 100%);
+  // 
   &-in {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 50px;
+    background: linear-gradient(180deg, #FFF1F0 0%, rgba(255, 241, 240, 0) 100%);
+    padding: 80px 0;
+    margin-top: 30px;
     .dentalServices-box {
-      width: 280px;
-      height: 539px;
-      background: #ffffff;
-      box-shadow: 4px 4px 6px rgba(255, 163, 158, 0.25),
-        inset 1px -1px 0px #ffccc7;
-      border-radius: 10px;
-      overflow: hidden;
-      img {
-        width: 100%;
-      }
-      h3 {
-      }
-      span {
-        &::after {
-          content: '';
-          // width: ;
+      display: flex;
+      justify-content: space-between;
+      &-in{
+        cursor: pointer;
+        width: 280px;
+        height: 539px;
+        background: #ffffff;
+        box-shadow: 4px 4px 6px rgba(255, 163, 158, 0.25),
+          inset 1px -1px 0px #ffccc7;
+        border-radius: 10px;
+        overflow: hidden;
+        img {
+          width: 100%;
         }
+        h3 {
+          font-weight: 700;
+          // font-size: 30px;
+          font-size: 1.87rem;
+          line-height: 160%;
+          color: #4D4D4D;
+          text-indent: 15px;
+          margin-top: 34px;
+        }
+        span {
+          display: inline-block;
+          text-indent: 15px;
+          font-weight: 500;
+          // font-size: 15px;
+          font-size: 0.94rem;
+          line-height: 160%;
+          color: #4D4D4D;
+          margin-top: 30px;
+          position: relative;
+          &::after {
+            content: '';
+            background: url(@/assets/images/icon_4.png) no-repeat;
+            background-size: 100% 100%;
+            width: 15px;
+            height: 15px;
+            display: block;
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            // width: ;
+          }
+        }
+        &:hover{
+          h3{
+            color: #FFA09E;
+          }
+        }
+      }
+    }
+  }
+}
+//個案分享
+.index-caseSharing{
+  padding: 35px 0;
+  background: linear-gradient(180deg,rgba(255, 241, 240, 0) 0%,#FFF1F0 100%);
+  &-in{
+    margin-top: 45px;
+    .in-top{
+      display: flex;
+      &-l{
+        width: 55%;
+        z-index: 1;
+        img{
+          width: 100%;
+          height: 440px;
+          background: #FFF1F0;
+          box-shadow: 2px 4px 8px rgba(255, 120, 117, 0.35);
+        }
+      }
+      &-r{
+        flex: 1;
+        padding: 45px;
+        box-sizing: border-box;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .name{
+          font-weight: 600;
+          // font-size: 34px;
+          font-size: 2.12rem;
+          line-height: 160%;
+          color: #4D4D4D;
+          margin-top: 20px;
+        }
+        .skill{
+          font-weight: 700;
+          // font-size: 32px;
+          font-size: 2rem;
+          line-height: 160%;
+          color: #FFA09E;
+          text-indent: 40px;
+        }
+        .process{
+          font-weight: 700;
+          // font-size: 32px;
+          font-size: 2rem;
+          line-height: 160%;
+          color: #FFCECB;
+          margin-top: 70px;
+          z-index: 1;
+        }
+        .text{
+          font-weight: 500;
+          // font-size: 24px;
+          font-size: 1.5rem;
+          line-height: 160%;
+          color: #4D4D4D;
+          z-index: 1;
+        }
+        .bg_box{
+          background: #fff;
+          position: absolute;
+          width: 716px;
+          height: 252px;
+          right: 0;
+          bottom: -30px;
+          z-index: 0;
+        }
+      }
+    }
+    .in-cen{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 120px;
+      &-in{
+        width: 716px;
+        height: 252px;
+        background: #fff;
+        padding: 40px;
+        box-sizing: border-box;
+        &-t{
+          width: 100%;
+          position: relative;
+          img{
+            margin: 0 auto;
+            margin-top: -120px;
+            border-radius: 50%;
+            border: 8px solid #fff;
+          }
+          .text{
+            font-weight: 700;
+            // font-size: 28px;
+            font-size: 1.75rem;
+            line-height: 160%;
+            color: #FFCECB;
+            display: block;
+            margin-top: -30px;
+          }
+          &>div{
+            // float: right;
+            position: absolute;
+            right: -15px;
+            top: 100px;
+            .name{
+              font-weight: 600;
+              // font-size: 30px;
+              font-size: 1.87rem;
+              line-height: 160%;
+              color: #4D4D4D;
+              display: block;
+            }
+            .skill{
+              font-weight: 700;
+              // font-size: 28px;
+              font-size: 1.75rem;
+              line-height: 160%;
+              color: #FFA09E;
+              text-indent: 40px;
+              display: inline-block;
+            }
+          }
+        }
+        &-b{
+          width: 100%;
+          font-style: normal;
+          font-weight: 500;
+          // font-size: 20px;
+          font-size: 1.25rem;
+          line-height: 160%;
+          color: #4D4D4D;
+          margin-top: 10px;
+        }
+      }   
+    }
+    .in-bottom{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 35px;
+      span{
+        font-style: normal;
+        font-weight: 600;
+        font-size: 2rem;
+        line-height: 160%;
+        color: #FFFFFF;
+        text-align: center;
+        display: inline-block;
+        padding: 10px 70px;
+        background: #FFCECB;
       }
     }
   }
