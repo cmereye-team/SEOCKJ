@@ -1,5 +1,9 @@
 <script lang="ts" setup>
 const navbarLists = []
+let navLiBoxBool = ref(false)
+const toPageTop = () =>{
+  window.scrollTo(0,0);
+}
 </script>
 
 <template>
@@ -13,12 +17,24 @@ const navbarLists = []
     <div class="navbar-content-in">
       <img src="@/assets/images/navIcon_3.png" alt="" />
     </div>
-    <div class="navbar-content-in">
+    <div class="navbar-content-in" @click="toPageTop">
       <img src="@/assets/images/navIcon_4.png" alt="" />
     </div>
     <div class="navbar-content-mb">
-      <div>2828-2828</div>
-      <div>立即預約</div>
+      <div>
+        <img src="@/assets/images/icon_8.png">2828-2828
+      </div>
+      <div>
+        <div class="navBtn" @click="navLiBoxBool = !navLiBoxBool">立即預約</div>
+        <div class="navLiBox" :style="{bottom: (navLiBoxBool ? '200%' : '-100%')}">
+          <div>
+            WeChat
+          </div>
+          <div>
+            Whatsapp
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -28,11 +44,12 @@ const navbarLists = []
   position: fixed;
   right: 10vw;
   top: 30vh;
-  z-index: 20;
+  z-index: 50;
   &-in {
     width: 100%;
     height: 66px;
     margin-bottom: 20px;
+    cursor: pointer;
     img {
       width: 100%;
       height: 100%;
@@ -52,6 +69,7 @@ const navbarLists = []
     height: 62px;
     background: #FFDDDA;
     box-shadow: 0px -1.5px 0px rgba(255, 204, 199, 0.25);
+    z-index: 20;
     &-in{
       position: absolute;
       right: 30px;
@@ -75,8 +93,41 @@ const navbarLists = []
         font-size: 1.25rem;
         color: #FFFFFF;
         text-shadow: 0px 0px 8px rgba(255, 120, 117, 0.65);
+        position: relative;
+        img{
+          display: inline-block;
+          margin-top: -5px;
+        }
         &:first-child{
           border-right: 1px solid #fff;
+        }
+        .navBtn{
+          width: 100%;
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          z-index: 90;
+          background: #FFDDDA;
+        }
+        .navLiBox{
+          width: 100%;
+          height: 62px;
+          line-height: 62px;
+          position: absolute;
+          bottom: -100%;
+          left: 0;
+          transition: all .3s;
+          z-index: 19;
+          &>div{
+            background: #FFF1F0;
+            color: #FFDDDA;
+            text-shadow: none;
+            &:first-child{
+              border-radius: 10px 10px 0px 0px;
+              box-shadow: 0px -1.5px 0px rgba(255, 204, 199, 0.25);
+              border-bottom: 1px solid #fff;
+            }
+          }
         }
       }
     }

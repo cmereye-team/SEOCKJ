@@ -23,9 +23,17 @@ const menuLists = [
     link: '',
     child: [
       {
-        name: '品牌理念',
+        name: '牙科服務',
         link: '',
       },
+      {
+        name: '牙科服務',
+        link: '',
+      },
+      {
+        name: '牙科服務',
+        link: '',
+      }
     ],
   },
   {
@@ -33,7 +41,7 @@ const menuLists = [
     link: '',
     child: [
       {
-        name: '品牌理念',
+        name: '醫生團隊',
         link: '',
       },
     ],
@@ -48,12 +56,19 @@ const menuLists = [
     link: '',
     child: [
       {
-        name: '品牌理念',
+        name: '聯絡我們',
         link: '',
       },
+      {
+        name: '聯絡我們',
+        link: '',
+      }
     ],
   },
 ]
+ 
+
+let menuBoxBool = ref(false)
 </script>
 
 <template>
@@ -80,16 +95,20 @@ const menuLists = [
           /></nuxt-link>
         </div>
         <div class="menu">
-          <div
+          <div class="menuItem"
             v-for="(menuItem, menuIndex) in menuLists"
             :key="menuIndex"
             :class="menuItem.child.length ? 'triangleIcon' : ''"
           >
             {{ menuItem.name }}
+            <div class="menuChild" v-if="menuItem.child.length">
+              <div class="menuChild-item" v-for="(menuChildItem,menuChildIndex) in menuItem.child" :key="menuChildIndex">{{menuChildItem.name}}</div>
+            </div>
           </div>
         </div>
-        <div class="icon">
-          <img src="@/assets/images/icon_6.png" >
+        <div class="icon" @click="menuBoxBool = !menuBoxBool">
+          <img v-if="!menuBoxBool" src="@/assets/images/icon_6.png" >
+          <img v-else src="@/assets/images/icon_7.png" >
         </div>
       </div>
       <div class="header-content-mb">
@@ -102,6 +121,35 @@ const menuLists = [
           <span>健康微笑之旅。</span>
         </div>
       </div>
+      <div class="menuBox" :style="{top: (menuBoxBool ? '0' : '-100vh')}">
+        <div class="menuLists">
+          <div :class="item.child.length ? 'childIcon' : ''" v-for="(item, index) in menuLists" :key="index">
+            {{item.name}}
+          </div>
+        </div>
+        <div class="menuBox-btn">立即預約</div>
+        <div class="menuBox-phone">
+          <img src="@/assets/images/icon_11.png" >2828-2828
+        </div>
+        <div class="menuBox-icon">
+          <div class="menuBox-icon-in">
+            <nuxt-link to="https://www.facebook.com/smilepartner.cmer/?ref=page_internal-" target="_blank">
+              <img src="@/assets/images/icon_01.png" />
+            </nuxt-link>
+          </div>
+          <div class="menuBox-icon-in">
+            <nuxt-link to="https://www.instagram.com/cmersmilepartner/" target="_blank">
+              <img src="@/assets/images/icon_02.png" />
+            </nuxt-link>
+          </div>
+          <div class="menuBox-icon-in">
+            <nuxt-link to="https://www.youtube.com/@smilepartner_hk"  target="_blank">
+              <img src="@/assets/images/icon_03.png" />
+            </nuxt-link>
+          </div>
+        </div>
+      </div>
+      <div class="waterBg"></div>
     </div>
   </header>
 </template>
@@ -111,7 +159,6 @@ const menuLists = [
   width: 100%;
   box-sizing: border-box;
   position: relative;
-  // background: #fff;
   &-bgImg {
     width: 100%;
     box-sizing: border-box;
@@ -158,7 +205,7 @@ const menuLists = [
     margin: 32vw auto 0;
     padding: 20px 0 20px 20px;
     align-items: flex-end;
-    z-index: 9;
+    z-index: 40;
     position: relative;
     .logo {
       width: 290px;
@@ -169,7 +216,7 @@ const menuLists = [
       display: flex;
       justify-content: flex-end;
       align-items: flex-end;
-      & > div {
+      .menuItem {
         padding: 0 20px;
         cursor: pointer;
         font-size: 22px;
@@ -179,9 +226,9 @@ const menuLists = [
           color: #ffa09e;
           text-decoration-line: underline;
         }
-        // &:last-child{
-        //   padding: 0 0 0 20px;
-        // }
+        &:hover .menuChild{
+          display: flex;
+        }
         &.triangleIcon:after {
           content: '';
           width: 0px;
@@ -193,6 +240,35 @@ const menuLists = [
           left: 50%;
           transform: translateX(-50%);
         }
+        .menuChild{
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 150%;
+          z-index: 2;
+          display: none;
+          flex-direction: column;
+          transition: all .3s;
+          padding-top: 20px;
+          &-item{
+            width: 100%;
+            background: #FFF1F0;
+            text-align: center;
+            padding: 10px 20px 5px;
+            font-size: 1.25rem;
+            color: #FFDDDA;
+            transition: all .3s;
+            &:not(:last-child){
+              border-bottom: 1px solid #fff;
+            }
+            &:hover{
+              color: #fff;
+              background: #FFCECB;
+              text-shadow: 0px 0px 8px rgba(255, 120, 117, 0.65);
+            }
+          }
+        }
       }
     }
     .icon{
@@ -202,8 +278,12 @@ const menuLists = [
   &-mb{
     display: none;
   }
+  .waterBg{
+    position: relative;
+    z-index: 35;
+  }
 }
-.header-content::after {
+.waterBg::after {
   content: '';
   background-image: url(@/assets/images/back_wave01.png);
   background-repeat: repeat-x;
@@ -211,9 +291,9 @@ const menuLists = [
   height: 162px;
   width: 100%;
   position: absolute;
-  z-index: 0;
+  z-index: 35;
   left: 0px;
-  bottom: 0;
+  bottom: 0px;
   animation-name: wave1;
   animation-duration: 20s;
   animation-timing-function: linear;
@@ -239,7 +319,7 @@ const menuLists = [
     background-position: 1080px 20px;
   }
 }
-.header-content::before {
+.waterBg::before {
   content: '';
   background-image: url(@/assets/images/back_wave03.png);
   background-repeat: repeat-x;
@@ -248,9 +328,9 @@ const menuLists = [
   height: 162px;
   width: 100%;
   position: absolute;
-  z-index: 0;
+  z-index: 35;
   left: 0px;
-  bottom: 0;
+  bottom: 0px;
   animation-name: wave2;
   animation-duration: 10s;
   animation-timing-function: linear;
@@ -278,6 +358,10 @@ const menuLists = [
     background-position: 1080px bottom;
   }
 }
+.menuBox{
+  display: none;
+}
+
 @media (min-width: 768px) and (max-width: 1200px) {
   .header-content {
     &-in {
@@ -301,6 +385,8 @@ const menuLists = [
 }
 @media screen and (max-width: 768px) {
   .header-content {
+    // position: fixed;
+    // top: 0;
     &-bgImg {
       width: 100%;
       display: none;
@@ -309,6 +395,8 @@ const menuLists = [
       }
     }
     &-in {
+      position: fixed;
+      top: 0;
       justify-content: space-between;
       margin: 0;
       .logo{
@@ -344,7 +432,7 @@ const menuLists = [
         font-size: 1.25rem;
         line-height: 160%;
         color: #4D4D4D;
-        width: 210px;
+        width: 60vw;
         padding-left: 30px;
         margin-top: 30px;
         span{
@@ -354,14 +442,94 @@ const menuLists = [
         }
       }
     }
+    .waterBg{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
   }
-  .header-content::after{
+  .waterBg::after{
     transform: rotate(180deg);
+    // box-shadow: 0px 4px 8px rgba(77, 77, 77, 0.15);
+    filter: drop-shadow(0px 4px 8px rgba(77, 77, 77, 0.15));
     top: -30px;
   }
-  .header-content::before{
+  .waterBg::before{
     transform: rotate(180deg);
-    top: -30px;
+    top: -40px;
+  }
+  .menuBox{
+    position: fixed;
+    top: -100vh;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 30;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 160%;
+    color: #FFCECB;
+    transition: all .3s;
+    pointer-events: none;
+    .menuLists{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &>div{
+        text-align: left;
+        margin-top: 20px;
+        font-size: 1.125rem;
+        &.childIcon{
+          padding-left: 37px;
+        }
+        &.childIcon:after{
+          content: '';
+          width: 0;
+          left: 0;
+          display: inline-block;
+          border-top: 10px solid;
+          border-left: 8px solid;
+          border-right: 8px solid;
+          border-bottom: 10px solid;
+          border-color: #FFCECB transparent transparent transparent;
+          vertical-align: middle;
+          margin: 6px 10px 0;
+        }
+      }
+    }
+    &-btn{
+      margin-top: 71px;
+      // font-size: 20px;
+      font-size: 1.25rem;
+    }
+    &-phone{
+      font-weight: 400;
+      // font-size: 20px;
+      font-size: 1.25rem;
+      line-height: 23px;
+      margin-top: 20px;
+      img{
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: -5px;
+      }
+    }
+    &-icon{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+      &-in:not(:last-child){
+        margin-right: 25px;
+      }
+    }
   }
 }
 </style>

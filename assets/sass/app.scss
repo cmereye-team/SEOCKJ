@@ -49,10 +49,24 @@ html{
 .pageCon{
   width: 100%;
   max-width: 1450px;
+  // width: 75.625%;
   margin: 0 auto;
   // min-height: 100vh;
   // overflow: hidden;
 } 
+
+
+.mbBox{
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .pcBox{
+    display: none;
+  }
+  .mbBox{
+    display: block;
+  }
+}
 
 // animations
 @import 'animations/transitions';

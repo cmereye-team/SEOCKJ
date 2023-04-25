@@ -1,31 +1,61 @@
 <script lang="ts" setup>
 const { t } = useLang()
+let latestNewsCurrent = ref(1)
+let aboutUsCurrent = ref(1)
+let doctorTeamCurrent = ref(1)
 const doctorTeamTabDatas = [
   '羅湖區','福田區','南山區','寶安區','龍華區'
 ]
 const doctorLists = ['','','','','','','','','','','','']
+
+const onSlideChange = (swiper:any) => {
+  latestNewsCurrent.value = swiper.realIndex + 1
+}
+
+const onSlideAboutUsSwiperChange = (swiper:any) => {
+  aboutUsCurrent.value = swiper.realIndex + 1
+}
+
+const onSlideDoctorTeamSwiperChange = (swiper:any) => {
+  doctorTeamCurrent.value = swiper.realIndex + 1
+}
+
+const swiperOption = {
+  loop: true,
+  autoplay: true
+}
 </script>
 
 <template>
   <div class="indexPage">
-    <!-- <PageHeader /> -->
     <!-- 最新消息 -->
     <div class="index-latestNews">
       <div class="index_title pageCon">最新消息</div>
-      <div class="index-latestNews-in pageCon">
-        <div class="index-latestNews-in-l">
-          <img src="@/assets/images/banner_bg.jpg" alt="">
-        </div>
-        <div class="index-latestNews-in-r">
-          <img src="@/assets/images/icon_10.png" alt="">
-          <div class="btn">
-            <span>了解更多</span>
+      <Swiper
+        class="swiperBox pageCon"
+        :loop="true"
+        :autoplay="3000"
+        @slideChange="onSlideChange"
+      >
+        <SwiperSlide v-for="latestNewsItem in 4" :key="latestNewsItem">
+          <div class="index-latestNews-in">
+            <div class="index-latestNews-in-l">
+              <img src="@/assets/images/banner_bg.jpg" alt="">
+            </div>
+            <div class="index-latestNews-in-r">
+              <img src="@/assets/images/icon_10.png" alt="">
+              <div class="btn">
+                <span>了解更多</span>
+              </div>
+            </div>
           </div>
-          <div class="point">
-            <img src="@/assets/images/icon_09.png" alt="">
+        </SwiperSlide>
+        <div class="lineBox">
+          <div class="lineBox-in">
+            <PageSwiperPointLine :latestNewsNum="4" :latestNewsCurrent="latestNewsCurrent"></PageSwiperPointLine>
           </div>
         </div>
-      </div>
+      </Swiper>
     </div>
     <!-- 品牌理念 -->
     <div class="index-brandConcept">
@@ -53,27 +83,32 @@ const doctorLists = ['','','','','','','','','','','','']
       <div class="index-dentalServices-in">
         <div class="dentalServices-box pageCon">
           <div class="dentalServices-box-in">
-            <img src="@/assets/images/dentalServices_bg01.jpg" alt="" />
+            <img class="pcBox" src="@/assets/images/dentalServices_bg01.jpg" alt="">
+            <img class="mbBox" src="@/assets/images/dentalServices_bg06.jpg" alt="">
             <h3>全科牙科</h3>
             <span>了解更多</span>
           </div>
           <div class="dentalServices-box-in">
-            <img src="@/assets/images/dentalServices_bg02.jpg" alt="" />
+            <img class="pcBox" src="@/assets/images/dentalServices_bg02.jpg" alt="">
+            <img class="mbBox" src="@/assets/images/dentalServices_bg07.jpg" alt="">
             <h3>種植牙科</h3>
             <span>了解更多</span>
           </div>
           <div class="dentalServices-box-in">
-            <img src="@/assets/images/dentalServices_bg03.jpg" alt="" />
+            <img class="pcBox" src="@/assets/images/dentalServices_bg03.jpg" alt="">
+            <img class="mbBox" src="@/assets/images/dentalServices_bg08.jpg" alt="">
             <h3>矯齒牙科</h3>
             <span>了解更多</span>
           </div>
           <div class="dentalServices-box-in">
-            <img src="@/assets/images/dentalServices_bg04.jpg" alt="" />
+            <img class="pcBox" src="@/assets/images/dentalServices_bg04.jpg" alt="">
+            <img class="mbBox" src="@/assets/images/dentalServices_bg09.jpg" alt="">
             <h3>美容牙科</h3>
             <span>了解更多</span>
           </div>
           <div class="dentalServices-box-in">
-            <img src="@/assets/images/dentalServices_bg05.jpg" alt="" />
+            <img class="pcBox" src="@/assets/images/dentalServices_bg05.jpg" alt="">
+            <img class="mbBox" src="@/assets/images/dentalServices_bg10.jpg" alt="">
             <h3>兒童牙科</h3>
             <span>了解更多</span>
           </div>
@@ -83,17 +118,31 @@ const doctorLists = ['','','','','','','','','','','','']
     <!-- 關於我們 -->
     <div class="index-aboutUs">
       <div class="index_title pageCon">關於我們</div>
-      <div class="index-aboutUs-in pageCon">
-        <div class="index-aboutUs-in-l">
-          <img src="@/assets/images/aboutUs_gb.jpg" alt="">
-        </div>
-        <div class="index-aboutUs-in-r">
-          <div>科技護航，安全放心</div>
-          <span>優質的診療服務，在於醫生的專業素養，</span>
-          <span>"以及匹配的醫療設備的先進程度。愛康健從口腔檢查到臨床手術，全程採購主流牙科設備，與時俱進開展醫生職業技能培訓。我們信奉技術，加進口設備，才能有好的診療功效。"</span>
-          <img src="@/assets/images/icon_09.png" alt="">
-        </div>
-      </div>
+        <Swiper
+          class="swiperBox pageCon"
+          :loop="true"
+          :autoplay="{
+            delay: 3000,
+            disableOnInteraction: true,
+          }"
+          @slideChange="onSlideAboutUsSwiperChange"
+        >
+          <SwiperSlide v-for="slide in 4" :key="slide" >
+            <div class="index-aboutUs-in ">
+            <div class="index-aboutUs-in-l">
+              <img src="@/assets/images/aboutUs_gb.jpg" alt="">
+            </div>
+            <div class="index-aboutUs-in-r">
+              <div>科技護航，安全放心</div>
+              <span>優質的診療服務，在於醫生的專業素養，</span>
+              <span>"以及匹配的醫療設備的先進程度。愛康健從口腔檢查到臨床手術，全程採購主流牙科設備，與時俱進開展醫生職業技能培訓。我們信奉技術，加進口設備，才能有好的診療功效。"</span>
+            </div>
+            </div>
+          </SwiperSlide>  
+          <div class="aboutUs-lineBox">
+            <PageSwiperPointLine :latestNewsNum="4" :latestNewsCurrent="aboutUsCurrent"></PageSwiperPointLine>
+          </div>
+        </Swiper>
     </div>
     <!-- 醫生團隊 -->
     <div class="index-doctorTeam">
@@ -104,14 +153,28 @@ const doctorLists = ['','','','','','','','','','','','']
         </div>
       </div>
       <div class="index-doctorTeam-c pageCon">
-        <div class="doctorTeamPage">
-          <div v-for="(doctorItem,doctorIndex) in doctorLists" :key="doctorIndex">
-            <img src="@/assets/images/doctor_01.png" alt="">
-          </div>
-        </div>
+          <Swiper
+            class="swiperBox"
+            :loop="true"
+            :autoplay="{
+              delay: 3000,
+              disableOnInteraction: true,
+            }"
+            @slideChange="onSlideDoctorTeamSwiperChange"
+          >
+            <SwiperSlide v-for="slide in 3" :key="slide" >
+              <div class="doctorTeamPage">
+                <div class="doctorItem" v-for="(doctorItem,doctorIndex) in doctorLists" :key="doctorIndex">
+                  <img src="@/assets/images/doctor_01.png" alt="">
+                </div>
+              </div>
+            </SwiperSlide>
+          </Swiper>
       </div>
       <div class="index-doctorTeam-b pageCon">
-        <img src="@/assets/images/icon_09.png" alt="">
+        <div class="index-doctorTeam-b-in">
+          <PageSwiperPointLine :latestNewsNum="3" :latestNewsCurrent="doctorTeamCurrent"></PageSwiperPointLine>
+        </div>
       </div>
     </div>
     <!-- 個案分享 -->
@@ -199,11 +262,9 @@ const doctorLists = ['','','','','','','','','','','','']
           <div class="in-r">
             <img src="@/assets/images/icon_5.png" alt="">
           </div>
-          <!-- <img src="" alt=""> -->
         </div>
       </div>
     </div>
-    <!-- <PageFooter /> -->
   </div>
 </template>
 
@@ -227,16 +288,34 @@ const doctorLists = ['','','','','','','','','','','','']
 //最新消息
 .index-latestNews {
   padding: 90px 0 143px;
-  &-in{
+  .swiperBox{
+    width: 100%;
     margin-top: 45px;
-    // height: 550px;
+    overflow: hidden;
+    border-radius: 20px;
+    position: relative;
+    .lineBox{
+      width: 42%;
+      position: absolute;
+      bottom: 50px;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      z-index: 100;
+      &-in{
+        width: 423px;
+        margin: 0 auto;
+      }
+    }
+  }
+  &-in{
+    cursor: pointer;
     background: #FFDDDA;
     border-radius: 20px;
     overflow: hidden;
     display: flex;
     &-l{
       width: 58%;
-      // height: 100%;
       img{
         width: 100%;
         height: 100%;
@@ -246,10 +325,9 @@ const doctorLists = ['','','','','','','','','','','','']
       flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
       &>img{
-        margin: 80px 0;
+        margin: 116px 0 96px;
         width: 490px;
       }
       .btn{
@@ -264,10 +342,6 @@ const doctorLists = ['','','','','','','','','','','','']
         // line-height: 160%;
         text-align: center;
         color: #FFFFFF;
-      }
-      .point{
-        width: 200px;
-        margin-top: 30px;
       }
     }
   }
@@ -349,7 +423,8 @@ const doctorLists = ['','','','','','','','','','','','']
         border-radius: 10px;
         overflow: hidden;
         img {
-          width: 100%;
+          width: calc(100% - 1px);
+          margin-left: 2px;
         }
         h3 {
           font-weight: 700;
@@ -409,7 +484,7 @@ const doctorLists = ['','','','','','','','','','','','']
       flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      // justify-content: center;
       box-sizing: border-box;
       padding-left: 100px;
       div{
@@ -418,6 +493,7 @@ const doctorLists = ['','','','','','','','','','','','']
         line-height: 160%;
         color: #FFA09E;
         margin-bottom: 70px;
+        margin-top: 100px;
       }
       span{
         font-weight: 500;
@@ -425,10 +501,16 @@ const doctorLists = ['','','','','','','','','','','','']
         line-height: 160%;
         color: #4D4D4D;
       }
-      img{
-        width: 200px;
-        margin-top: 70px;
-      }
+    }
+  }
+  .swiperBox{
+    position: relative;
+    .aboutUs-lineBox{
+      position: absolute;
+      left: calc(55% + 100px);
+      bottom: 100px;
+      width: 423px;
+      z-index: 100;
     }
   }
 }
@@ -471,20 +553,28 @@ const doctorLists = ['','','','','','','','','','','','']
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      &>div{
+      .doctorItem{
+        cursor: pointer;
         width: 16.55%;
         mix-blend-mode: multiply;
         box-shadow: inset -1px -1px 0px #FFA39E;
+        transition: all .5s;
         // transform: matrix(-1, 0, 0, 1, 0, 0);
         img{
           width: 100%;
+        }
+        &:hover{
+          background: #FFDDDA;
         }
       }
     }
   }
   &-b{
-    img{
-      margin: 60px auto;
+    padding-top: 60px;
+    display: flex;
+    justify-content: center;
+    &-in{
+      width: 225px;
     }
   }
 }
@@ -627,6 +717,7 @@ const doctorLists = ['','','','','','','','','','','','']
       justify-content: center;
       margin-top: 35px;
       span{
+        cursor: pointer;
         font-style: normal;
         font-weight: 600;
         font-size: 2rem;
@@ -664,8 +755,8 @@ const doctorLists = ['','','','','','','','','','','','']
           border: 10px solid;
           border-color: #FFCECB transparent transparent transparent;
           position: absolute;
-          right: -20px;
-          top: 20px;
+          // right: -20px;
+          top: 10px;
         }
       }
       .contactUsAddressBox{
@@ -725,7 +816,6 @@ const doctorLists = ['','','','','','','','','','','','']
   .indexPage {
     width: 100%;
     background: #fff;
-    // padding: 50px 0;
     padding: 0;
   }
   .index_title {
@@ -738,8 +828,20 @@ const doctorLists = ['','','','','','','','','','','','']
   //最新消息
   .index-latestNews {
     padding: 90px 0 90px;
-    &-in{
+    .swiperBox{
       width: calc(100% - 60px);
+      margin-top: 35px;
+      overflow: hidden;
+      border-radius: 20px;
+      .lineBox{
+        width: 200px;
+        bottom: 34px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+    &-in{
+      width: 100%;
       box-sizing: border-box;
       height: auto;
       flex-direction: column;
@@ -757,6 +859,7 @@ const doctorLists = ['','','','','','','','','','','','']
           height: 40px;
           line-height: 40px;
           font-size: 1rem;
+          margin-bottom: 50px;
         }
       }
     }
@@ -807,14 +910,14 @@ const doctorLists = ['','','','','','','','','','','','']
     &-c{
       margin-top: 20px;
       .doctorTeamPage{
-        &>div{
+        .doctorItem{
           width: 33.33%;
         }
       }
     }
     &-b{
-      img{
-        margin: 20px auto;
+      &-in{
+        width: 134px;
       }
     }
   }
@@ -822,6 +925,7 @@ const doctorLists = ['','','','','','','','','','','','']
   .index-aboutUs{
     &-in{
       flex-direction: column;
+      margin-bottom: 50px;
       &-l{
         width: 100%;
       }
@@ -832,14 +936,23 @@ const doctorLists = ['','','','','','','','','','','','']
           margin-bottom: 0;
           font-weight: 600;
           font-size: 1.125rem;
+          margin-top: 0px;
         }
         span{
           text-align: center;
           font-size: 1rem;
         }
-        img{
-          margin-top: 30px;
-        }
+      }
+    }
+    .swiperBox{
+      position: relative;
+      .aboutUs-lineBox{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        bottom: 30px;
+        z-index: 100;
       }
     }
   }
@@ -860,8 +973,10 @@ const doctorLists = ['','','','','','','','','','','','']
             position: absolute;
             right: 0;
             top: 0;
-            width: auto;
-            height: 100%;
+            width: 50%;
+            // height: 100%;
+            height: calc(100% - 1px);
+            
           }
           h3{
             margin-top: 0;
@@ -880,6 +995,16 @@ const doctorLists = ['','','','','','','','','','','','']
           }
           &:last-child{
             margin-bottom: 0;
+          }
+          &::before{
+            content: '';
+            position: absolute;
+            top: 0px;
+            left: 50%;
+            width: 50%;
+            height: 99px;
+            z-index: 2;
+            background: linear-gradient(to right, #fff, rgba(0,0,0,0));
           }
         }
       }
@@ -956,6 +1081,12 @@ const doctorLists = ['','','','','','','','','','','','']
           padding: 0;
           box-shadow: 1px 1px 4px rgba(255, 163, 158, 0.45);
           color: #4D4D4D;
+          transition: all .3s;
+          &:hover{
+            background: #FFDDDA;
+            color: #FFFFFF;
+            text-shadow: 0px 0px 8px rgba(255, 120, 117, 0.65);
+          }
         }
       }
     }

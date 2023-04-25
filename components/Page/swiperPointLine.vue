@@ -1,0 +1,85 @@
+<script lang="ts" setup>
+defineProps({
+  // 个数
+  latestNewsNum: {
+    type: Number,
+    default: 3,
+  },
+  //默认选中
+  latestNewsCurrent:{
+    type: Number,
+    default: 1,
+  }
+})
+const handleSwiperItem = (idx: Number) => {
+  console.log(idx)
+}
+</script>
+
+<template>
+  <div class="point">
+    <div class="boxLine"></div>
+    <div class="boxLine-current" :style="{width:`${ (latestNewsCurrent-1) * 100/(latestNewsNum-1) }%`}"></div>
+    <div class="boxRound">
+      <div class="boxRound-in" v-for="boxRoundIndex in latestNewsNum" :key="boxRoundIndex" @click="handleSwiperItem(boxRoundIndex)">
+        <div v-show="boxRoundIndex <= latestNewsCurrent" class="current"></div>
+      </div>
+    </div>
+  </div>
+</template>
+<style lang="scss" scoped>
+  .point{
+    position: relative;
+    width: 100%;
+    .boxLine{
+      width: 100%;
+      height: 4px;
+      background: #FFF1F0;
+    }
+    .boxLine-current{
+      height: 4px;
+      background: #FFCECB;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      transition: all .5s;
+    }
+    .boxRound{
+      position: absolute;
+      top: -10px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+      &-in{
+        width: 24px;
+        height: 24px;
+        background: #FFF1F0;
+        border-radius: 50%;
+        .current{
+          width: 100%;
+          height: 100%;
+          background: #FFCECB;
+          border-radius: 50%;
+          transition: all .5s;
+        }
+      }
+    }
+  }
+@media screen and (max-width: 768px) {
+  .point{
+    .boxLine-current{
+      height: 2px;
+    }
+    .boxRound{
+      top: -6px;
+      &-in{
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }  
+}
+</style>

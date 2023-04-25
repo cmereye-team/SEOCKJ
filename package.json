@@ -67,5 +67,8 @@
     "**/*.{js,ts,vue,html}": [
       "pnpm lintfix"
     ]
+  },
+  "dependencies": {
+    "nuxt-swiper": "^1.1.0"
   }
 }

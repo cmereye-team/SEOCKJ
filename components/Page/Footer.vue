@@ -11,6 +11,8 @@ const navLists = [
   '個案分享',
   '聯絡我們',
 ]
+
+
 </script>
 
 <template>
@@ -30,13 +32,19 @@ const navLists = [
       </div>
       <div class="footer-content-icon">
         <div class="footer-content-icon-in">
-          <img src="@/assets/images/icon_1.png" />
+          <nuxt-link to="https://www.facebook.com/smilepartner.cmer/?ref=page_internal-" target="_blank">
+            <img src="@/assets/images/icon_1.png" />
+          </nuxt-link>
         </div>
         <div class="footer-content-icon-in">
-          <img src="@/assets/images/icon_2.png" />
+          <nuxt-link to="https://www.instagram.com/cmersmilepartner/" target="_blank">
+            <img src="@/assets/images/icon_2.png" />
+          </nuxt-link>
         </div>
         <div class="footer-content-icon-in">
-          <img src="@/assets/images/icon_3.png" />
+          <nuxt-link to="https://www.youtube.com/@smilepartner_hk" target="_blank">
+            <img src="@/assets/images/icon_3.png" />
+          </nuxt-link>
         </div>
       </div>
       <div class="w-30 md:absolute md:right-20 md:bottom-10">
@@ -89,6 +97,7 @@ const navLists = [
       padding: 0 12.5px;
       display: flex;
       align-items: center;
+      cursor: pointer;
       img {
         width: 100%;
       }
