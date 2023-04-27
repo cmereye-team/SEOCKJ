@@ -46,6 +46,11 @@ html{
 .bgColor{
   background: #FFCECB;
 }
+.bigPageCon{
+  width: 100%;
+  max-width: 1920px;
+  margin: auto;
+}
 .pageCon{
   width: 100%;
   max-width: 1450px;
@@ -54,17 +59,43 @@ html{
   // min-height: 100vh;
   // overflow: hidden;
 } 
+.index_title {
+  font-style: normal;
+  position: relative;
+  font-weight: 600;
+  // font-size: 30px;
+  font-size: 1.875rem;
+  line-height: 150%;
+  text-indent: 55px;
+  color: #4d4d4d;
+  background: url(@/assets/images/indexTitle_bg.png) no-repeat;
+}
 
 
+@media (min-width: 768px) and (max-width: 1450px) {
+  .pageCon{
+    width:  calc(100% - 60px);
+    // max-width: 1450px;
+    margin: 0 auto;
+  } 
+}
 .mbBox{
   display: none;
 }
+
 @media screen and (max-width: 768px) {
   .pcBox{
     display: none;
   }
   .mbBox{
     display: block;
+  }
+  .index_title {
+    width: calc(100% - 30px);
+    font-size: 1.25rem;
+    background-size: auto 100%;
+    text-indent: 40px;
+    margin-left: 30px;
   }
 }
 

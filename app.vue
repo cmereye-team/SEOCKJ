@@ -15,7 +15,7 @@ useHead({
     {
       hid: 'description',
       name: 'description',
-      content: 'Nuxt 3 Awesome Starter',
+      content: '爱康健',
     },
   ],
   link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
@@ -23,16 +23,16 @@ useHead({
 </script>
 
 <template>
-  <Html :class="`${theme === 'dark' ? 'dark' : ''}`" :lang="locale">
+  <Html>
     <Body
       class="antialiased duration-300 transition-colors text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-900 overscroll-y-none"
     >
       <NuxtLayout>
-        <!-- <NuxtLoadingIndicator :height="5" :duration="3000" :throttle="400" /> -->
-        <PageHeader />
+        
+        <!-- <PageHeader /> -->
         <NuxtPage />
-        <PageFooter />
-        <PageNavbar />
+        <!-- <PageFooter /> -->
+        <!-- <PageNavbar /> -->
       </NuxtLayout>
     </Body>
   </Html>

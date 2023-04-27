@@ -2,8 +2,18 @@
 const navbarLists = []
 let navLiBoxBool = ref(false)
 const toPageTop = () =>{
-  window.scrollTo(0,0);
+  // window.scrollTo(0,0);
+  let top = document.documentElement.scrollTop || document.body.scrollTop;
+  // 实现滚动效果 
+  const timeTop = setInterval(() => {
+      document.body.scrollTop = document.documentElement.scrollTop = top -= 50;
+      if (top <= 0) {
+          clearInterval(timeTop);
+      }
+  }, 10);
 }
+
+
 </script>
 
 <template>
@@ -50,9 +60,17 @@ const toPageTop = () =>{
     height: 66px;
     margin-bottom: 20px;
     cursor: pointer;
+    background: #FFDDDA;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     img {
-      width: 100%;
-      height: 100%;
+      width: 40px;
+      // height: 100%;
+    }
+    &:hover{
+      background: #FFA09E;
     }
   }
   &-mb{
@@ -76,6 +94,14 @@ const toPageTop = () =>{
       top: -64px;
       width: 34px;
       height: 34px;
+      background: #FFDDDA;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img{
+        width: 24px;
+      }
     }
     &-in::not(:last-child){
       display: none;
@@ -120,7 +146,8 @@ const toPageTop = () =>{
           z-index: 19;
           &>div{
             background: #FFF1F0;
-            color: #FFDDDA;
+            // color: #FFDDDA;
+            color: #FFA09E;
             text-shadow: none;
             &:first-child{
               border-radius: 10px 10px 0px 0px;

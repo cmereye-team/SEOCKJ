@@ -1,16 +1,25 @@
 <script lang="ts" setup>
-// export default defineComponent({
-//   layout: 'dashboard',
-// })
+
+defineProps({
+  headerBg: {
+    type: String,
+    default: 'https://static.cmereye.com/imgs/2023/04/c9531b6beee976eb.jpg',
+  },
+  titlePosition:{
+    type: String,
+    default: 'right'   //right & left
+  }
+})
+
 const menuLists = [
   {
     name: '主頁',
-    link: '',
+    link: '/',
     child: [],
   },
   {
     name: '最新消息',
-    link: '',
+    link: '/newsPage',
     child: [],
   },
   {
@@ -20,55 +29,70 @@ const menuLists = [
   },
   {
     name: '牙科服務',
-    link: '',
+    link: '/dentistryServices',
     child: [
       {
-        name: '牙科服務',
+        name: '全科牙科',
         link: '',
       },
       {
-        name: '牙科服務',
+        name: '種植牙科',
         link: '',
       },
       {
-        name: '牙科服務',
+        name: '矯齒牙科',
+        link: '',
+      },
+      {
+        name: '美容牙科',
+        link: '',
+      },
+      {
+        name: '兒童牙科',
         link: '',
       }
     ],
   },
   {
     name: '醫生團隊',
-    link: '',
+    link: '/doctorPage',
     child: [
       {
-        name: '醫生團隊',
+        name: '羅湖區',
+        link: '',
+      },
+      {
+        name: '福田區',
+        link: '',
+      },
+      {
+        name: '南山區',
+        link: '',
+      },
+      {
+        name: '寶安區',
+        link: '',
+      },
+      {
+        name: '龍華區',
         link: '',
       },
     ],
   },
   {
     name: '個案分享',
-    link: '',
+    link: '/aboutUs',
     child: [],
   },
   {
     name: '聯絡我們',
-    link: '',
-    child: [
-      {
-        name: '聯絡我們',
-        link: '',
-      },
-      {
-        name: '聯絡我們',
-        link: '',
-      }
-    ],
+    link: '/contactUs',
+    child: [],
   },
 ]
- 
 
 let menuBoxBool = ref(false)
+
 </script>
 
 <template>
@@ -76,17 +100,23 @@ let menuBoxBool = ref(false)
     <slot />
   </div> -->
   <header>
-    <div class="header-content">
+    <div class="header-content bigPageCon">
       <div class="header-content-bgImg">
         <img
-          class="pcShow"
-          src="https://static.cmereye.com/imgs/2023/04/958c5d647ba584df.png"
+          class="pcBox"
+          :src="headerBg"
           alt=""
         />
+        <div :class="['pcBox','bannerTitle',{ 'bannerTitleLeft': titlePosition === 'left'}]">
+          <span>重拾自信笑容</span>
+          <span>愛牙愛己，由你做起</span>
+        </div>
       </div>
-      <div class="header-content-span">
-        <span>你的口腔健康</span>
-        <span>我們專注</span>
+      <div class="header-content-bgImgBB pcBox">
+        <img
+          :src="headerBg"
+          alt=""
+        />
       </div>
       <div class="pageCon header-content-in">
         <div class="logo">
@@ -100,7 +130,9 @@ let menuBoxBool = ref(false)
             :key="menuIndex"
             :class="menuItem.child.length ? 'triangleIcon' : ''"
           >
+            <nuxt-link :to="menuItem.link">
             {{ menuItem.name }}
+            </nuxt-link>
             <div class="menuChild" v-if="menuItem.child.length">
               <div class="menuChild-item" v-for="(menuChildItem,menuChildIndex) in menuItem.child" :key="menuChildIndex">{{menuChildItem.name}}</div>
             </div>
@@ -155,54 +187,59 @@ let menuBoxBool = ref(false)
 </template>
 
 <style lang="scss" scoped>
+
 .header-content {
   width: 100%;
   box-sizing: border-box;
   position: relative;
   &-bgImg {
     width: 100%;
+    max-width: 1920px;
     box-sizing: border-box;
     position: fixed;
+    // position: relative;
     top: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: -1;
     img {
       width: 100%;
     }
-  }
-  &-span {
-    width: 126px;
-    // width: 8vw;
-    position: absolute;
-    font-weight: 500;
-    font-size: 36px;
-    line-height: 140%;
-    color: #000;
-    right: 25vw;
-    bottom: 13vw;
-    span {
-      padding: 10px 0;
-      height: auto;
-      background: #fff;
-      font-style: normal;
-      width: 40%;
-      text-align: center;
-      &:first-child {
-        float: left;
-        margin-top: 55px;
+    .bannerTitle{
+      font-weight: 700;
+      font-size: 3.125rem;
+      line-height: 160%;
+      color: #4D4D4D;
+      position: absolute;
+      left: 55%;
+      top: 30%;
+      span{
+        display: block;
+        &:last-child{
+          margin-left: 200px;
+        }
       }
-      &:last-child {
-        float: right;
+      &.bannerTitleLeft{
+        left: 13%;
       }
     }
   }
+  &-bgImgBB{
+    width: 100%;
+    opacity: 0;
+    // z-index: 1;
+    // background: none;
+  }
+  // &-span {
+    
+  // }
   &-in {
     width: 100%;
     max-width: 1490px;
     display: flex;
     background: #fff;
     box-sizing: border-box;
-    margin: 32vw auto 0;
+    margin: 0 auto;
     padding: 20px 0 20px 20px;
     align-items: flex-end;
     z-index: 40;
@@ -222,6 +259,10 @@ let menuBoxBool = ref(false)
         font-size: 22px;
         font-weight: 600;
         position: relative;
+        .router-link-exact-active{
+          color: #ffa09e;
+          text-decoration-line: underline;
+        }
         &:hover {
           color: #ffa09e;
           text-decoration-line: underline;
@@ -389,9 +430,33 @@ let menuBoxBool = ref(false)
     // top: 0;
     &-bgImg {
       width: 100%;
-      display: none;
-      img{
-        width: 100%;
+      // display: none;
+      // img{
+      //   width: 100%;
+      // }
+      .bannerTitle{
+        line-height: 140%;
+        color: #000;
+        width: 70px;
+        font-weight: 400;
+        font-size: 1.25rem;
+        right: 30px;
+        bottom: 60px;
+        span {
+          padding: 10px 0;
+          height: auto;
+          background: #fff;
+          font-style: normal;
+          width: 40%;
+          text-align: center;
+          &:first-child {
+            float: left;
+            margin-top: 55px;
+          }
+          &:last-child {
+            float: right;
+          }
+        }
       }
     }
     &-in {

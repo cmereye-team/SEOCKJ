@@ -18,7 +18,7 @@ const navLists = [
 <template>
   <footer class="bgColor">
     <!-- <section> -->
-    <div class="footer-content">
+    <div class="footer-content bigPageCon">
       <div class="footer-content-nav">
         <div v-for="(navItem, navIndex) in navLists" :key="navIndex">
           {{ navItem }}

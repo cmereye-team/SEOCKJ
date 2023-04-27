@@ -1,0 +1,193 @@
+
+
+
+<template>
+  <div class="index-contactUs pageCon">
+      <div class="index_title">聯絡我們</div>
+      <div class="index-contactUs-in ">
+        <div class="index-contactUs-in-l">
+          <h3>深圳愛康健口腔醫院（羅湖）</h3>
+          <span>醫院地址：深圳市羅湖區火車站大廈C區1-8樓</span>
+          <span>營業時間：9:00-18:00 （節假日照常應診）</span>
+          <span>諮詢電話： 0755-61302632 交通路線:</span>
+          <div class="contactUsAddressBox">
+            <div class="in-l">
+              <img src="@/assets/images/icon_5.png" alt="">
+            </div>
+            <div class="in-c">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29481.217675310527!2d114.02476072311399!3d22.535970303249012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3403f41aefc37f09%3A0x4782830b3613ad88!2z54ix5bq35YGl6b2_56eR!5e0!3m2!1szh-CN!2ssg!4v1682218578472!5m2!1szh-CN!2ssg" width="100%" height="100%" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="in-r">
+              <img src="@/assets/images/icon_5.png" alt="">
+            </div>
+          </div>
+          <span>巴士路線</span>
+          <span>羅湖火車站：1路、7路、12路、17路、38路、82路、83路、97路、101路、102路、205路、215路、306路、387路、E13路、M112路、M152路、M401路、M508路、N14路、N16路、N18路、N2路、N4路、N7路、高峰專線73號</span>
+          <span>地鐵路線</span>
+          <span>地鐵1號線“羅湖站”C出口； 地鐵9號線“人民南站” A1出口</span>
+        </div>
+        <div class="index-contactUs-in-r">
+          <div class="in-l">
+            <img src="@/assets/images/icon_5.png" alt="">
+          </div>
+          <div class="in-c">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29481.217675310527!2d114.02476072311399!3d22.535970303249012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3403f41aefc37f09%3A0x4782830b3613ad88!2z54ix5bq35YGl6b2_56eR!5e0!3m2!1szh-CN!2ssg!4v1682218578472!5m2!1szh-CN!2ssg" width="100%" height="100%" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div class="in-r">
+            <img src="@/assets/images/icon_5.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+</template>
+
+<style lang="scss" scoped>
+  .index-contactUs{
+  padding: 140px 0 0;
+  &-in{
+    display: flex;
+    margin-top: 46px;
+    &-l{
+      width: 40%;
+      padding-right: 80px;
+      box-sizing: border-box;
+      h3{
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 160%;
+        color: #FFCECB;
+        position: relative;
+        display: inline-block;
+        &:after {
+          content: '';
+          width: 0px;
+          height: 0px;
+          border: 10px solid;
+          border-color: #FFCECB transparent transparent transparent;
+          position: absolute;
+          // right: -20px;
+          top: 10px;
+        }
+      }
+      .contactUsAddressBox{
+        display: none;
+      }
+      span{
+        font-weight: 500;
+        // font-size: 20px;
+        font-size: 1.25rem;
+        line-height: 160%;
+        color: #4D4D4D;
+        display: block;
+        &:nth-of-type(4){
+          margin-top: 50px;
+        }
+        &:nth-of-type(5){
+          margin-top: 25px;
+        }
+        &:last-child{
+          margin-top: 25px;
+        }
+      }
+    }
+    &-r{
+      flex: 1;
+      height: 704px;
+      display: flex;
+      &>div{
+        height: 100%;
+      }
+      .in-l{
+        width: 80px;
+        background: #FFF1F0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .in-c{
+        flex: 1;
+      }
+      .in-r{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        background: #FFCECB;
+        img{
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .index-contactUs{
+    padding: 90px 0 0;
+    &-in{
+      flex-direction: column;
+      margin-top: 35px;
+      &-l{
+        padding: 0;
+        width: 100%;
+        h3{
+          font-size: 1.25rem;
+          padding: 0 30px;
+          box-sizing: border-box;
+          &:after {
+            content: '';
+            width: 0px;
+            height: 0px;
+            border: 10px solid;
+            border-color: #FFCECB transparent transparent transparent;
+            position: absolute;
+            right: -20px;
+            top: 10px;
+          }
+        }
+        .contactUsAddressBox{
+          display: flex;
+          height: 330px;
+          margin: 20px 0;
+          &>div{
+            height: 100%;
+          }
+          .in-l{
+            width: 30px;
+            background: #FFF1F0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .in-c{
+            flex: 1;
+          }
+          .in-r{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            background: #FFCECB;
+            img{
+              transform: rotate(180deg);
+            }
+          }
+        }
+        span{
+          padding: 0 30px;
+          box-sizing: border-box;
+          font-size: 1rem;
+          &:nth-of-type(4){
+            margin-top: 0px;
+          }
+        }
+      }
+      &-r{
+        display: none;
+      }
+    }
+  }
+}
+</style>
+
+
+
