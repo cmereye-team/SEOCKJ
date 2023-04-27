@@ -33,7 +33,8 @@ const swiperOption = {
             <span>28年專注你的口腔健康</span>
           </div>
           <div class="brandConceptBg">
-            <img src="@/assets/images/brandConcept_bg.jpg" alt="" />
+            <img class="pcBox" src="@/assets/images/brandConcept_bg.jpg" alt="" />
+            <img class="mbBox" src="https://static.cmereye.com/imgs/2023/04/d4c1df365750c9c6.jpg" alt="">
           </div>
           <div class="content">
             作為深圳口腔專科醫院，深圳愛康健口腔醫院秉承著“專科·專業”的服務宗旨，對醫療資源進行了科學、合理的整合。醫師團隊是畢業於國內知名口腔學院的專業人員；醫院各專業帶頭人，包括種植醫師、美學修復醫師、牙周病醫師等共同組成，帶領一批醫護人員一起構成愛康健口腔醫院的服務團隊。全程式預約一體化診療服務，讓每一位顧客享受健康微笑之旅。
@@ -50,32 +51,42 @@ const swiperOption = {
         <div class="index-dentalServices-in">
           <div class="dentalServices-box pageCon">
             <div class="dentalServices-box-in">
-              <img class="pcBox" src="@/assets/images/dentalServices_bg01.jpg" alt="">
-              <img class="mbBox" src="@/assets/images/dentalServices_bg06.jpg" alt="">
+              <div class="images">
+                <img class="pcBox" src="https://static.cmereye.com/imgs/2023/04/f76f7533f148b28f.jpg" alt="">
+                <img class="mbBox" src="https://static.cmereye.com/imgs/2023/04/4a393cf514e04325.jpg" alt="">
+              </div>
               <h3>全科牙科</h3>
               <span>了解更多</span>
             </div>
             <div class="dentalServices-box-in">
-              <img class="pcBox" src="@/assets/images/dentalServices_bg02.jpg" alt="">
-              <img class="mbBox" src="@/assets/images/dentalServices_bg07.jpg" alt="">
+              <div class="images">
+              <img class="pcBox" src="https://static.cmereye.com/imgs/2023/04/8ab832a4008bbe41.jpg" alt="">
+              <img class="mbBox" src="https://static.cmereye.com/imgs/2023/04/6b647f537779629d.jpg" alt="">
+              </div>
               <h3>種植牙科</h3>
               <span>了解更多</span>
             </div>
             <div class="dentalServices-box-in">
-              <img class="pcBox" src="@/assets/images/dentalServices_bg03.jpg" alt="">
-              <img class="mbBox" src="@/assets/images/dentalServices_bg08.jpg" alt="">
+              <div class="images">
+              <img class="pcBox" src="https://static.cmereye.com/imgs/2023/04/ddea98c028072525.jpg" alt="">
+              <img class="mbBox" src="https://static.cmereye.com/imgs/2023/04/d017f197ce790ac6.jpg" alt="">
+              </div>
               <h3>矯齒牙科</h3>
               <span>了解更多</span>
             </div>
             <div class="dentalServices-box-in">
-              <img class="pcBox" src="@/assets/images/dentalServices_bg04.jpg" alt="">
-              <img class="mbBox" src="@/assets/images/dentalServices_bg09.jpg" alt="">
+              <div class="images">
+              <img class="pcBox" src="https://static.cmereye.com/imgs/2023/04/c9adcbbc63580982.jpg" alt="">
+              <img class="mbBox" src="https://static.cmereye.com/imgs/2023/04/9c92afda6655eae2.jpg" alt="">
+              </div>
               <h3>美容牙科</h3>
               <span>了解更多</span>
             </div>
             <div class="dentalServices-box-in">
-              <img class="pcBox" src="@/assets/images/dentalServices_bg05.jpg" alt="">
-              <img class="mbBox" src="@/assets/images/dentalServices_bg10.jpg" alt="">
+              <div class="images">
+              <img class="pcBox" src="https://static.cmereye.com/imgs/2023/04/d6c26df971b3a3f1.jpg" alt="">
+              <img class="mbBox" src="https://static.cmereye.com/imgs/2023/04/40d24f9212839593.jpg" alt="">
+              </div>
               <h3>兒童牙科</h3>
               <span>了解更多</span>
             </div>
@@ -173,6 +184,9 @@ const swiperOption = {
     .brandConceptBg{
       width: 100%;
       display: none;
+      img{
+        width: 100%;
+      }
     }
     .content {
       width: 30%;
@@ -217,9 +231,12 @@ const swiperOption = {
           inset 1px -1px 0px #ffccc7;
         border-radius: 10px;
         overflow: hidden;
-        img {
+        .images{
           width: calc(100% - 1px);
           margin-left: 2px;
+          img{
+            width: 100%;
+          }
         }
         h3 {
           font-weight: 700;
@@ -362,7 +379,7 @@ const swiperOption = {
       }
       .content{
         width: 100%;
-        padding: 30px 30px 0;
+        padding: 0 30px;
         margin-top: 0px;
         box-sizing: border-box;
         font-size: 1rem;
@@ -407,14 +424,27 @@ const swiperOption = {
           height: 100px;
           margin-bottom: 10px;
           position: relative;
-          img{
+          .images{
             position: absolute;
             right: 0;
             top: 0;
-            width: 50%;
-            // height: 100%;
+            width: 60%;
+            height: 100%;
             height: calc(100% - 1px);
-            
+            img{
+              height: 100%;
+              width: auto;
+              float: right;
+            }
+            &::before{
+              content: '';
+              position: absolute;
+              top: 0px;
+              left: 0;
+              width: 100%;
+              height: 99px;
+              background: linear-gradient(to right, #fff 50%, rgba(0,0,0,0));
+            }
           }
           h3{
             margin-top: 0;
@@ -433,16 +463,6 @@ const swiperOption = {
           }
           &:last-child{
             margin-bottom: 0;
-          }
-          &::before{
-            content: '';
-            position: absolute;
-            top: 0px;
-            left: 50%;
-            width: 50%;
-            height: 99px;
-            z-index: 2;
-            background: linear-gradient(to right, #fff, rgba(0,0,0,0));
           }
         }
       }

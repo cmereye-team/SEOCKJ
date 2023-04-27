@@ -3,6 +3,16 @@
     <div class="caseSaringVideoItem-l">
       <!-- <video src=""></video> -->
       <img src="@/assets/images/aboutUs_gb.jpg" alt="">
+      <!-- <iframe
+        class="pcShow"
+        width="100%"
+        height="440"
+        src="https://www.youtube.com/embed/7_A3ae7q15E"
+        :title="$t('service.icl.film.title2')"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe> -->
     </div>
     <div class="caseSaringVideoItem-r">
       <div class="name">梁家棋 Joyce</div>

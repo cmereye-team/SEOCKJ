@@ -19,7 +19,8 @@ const onSlideChange = (swiper:any) => {
         <SwiperSlide v-for="latestNewsItem in 4" :key="latestNewsItem">
           <div class="index-latestNews-in">
             <div class="index-latestNews-in-l">
-              <img src="@/assets/images/banner_bg.jpg" alt="">
+              <img class="pcBox" src="https://static.cmereye.com/imgs/2023/04/af8ffdc3e6b0a67c.jpg" alt="">
+              <img class="mbBox" src="https://static.cmereye.com/imgs/2023/04/fbd42a968440461c.jpg" alt="">
             </div>
             <div class="index-latestNews-in-r">
               <img src="@/assets/images/icon_10.png" alt="">
@@ -80,8 +81,9 @@ const onSlideChange = (swiper:any) => {
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: space-between;
       &>img{
-        margin: 116px 0 96px;
+        margin: 116px 0 0;
         width: 490px;
       }
       .btn{
@@ -96,6 +98,7 @@ const onSlideChange = (swiper:any) => {
         // line-height: 160%;
         text-align: center;
         color: #FFFFFF;
+        margin-bottom: 100px;
       }
     }
   }

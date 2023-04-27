@@ -15,7 +15,8 @@
               <img src="@/assets/images/icon_5.png" alt="">
             </div>
             <div class="in-c">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29481.217675310527!2d114.02476072311399!3d22.535970303249012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3403f41aefc37f09%3A0x4782830b3613ad88!2z54ix5bq35YGl6b2_56eR!5e0!3m2!1szh-CN!2ssg!4v1682218578472!5m2!1szh-CN!2ssg" width="100%" height="100%" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29481.217675310527!2d114.02476072311399!3d22.535970303249012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3403f41aefc37f09%3A0x4782830b3613ad88!2z54ix5bq35YGl6b2_56eR!5e0!3m2!1szh-CN!2ssg!4v1682218578472!5m2!1szh-CN!2ssg" width="100%" height="100%" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+              <img src="https://static.cmereye.com/imgs/2023/04/3e6f553114c01879.jpg" alt="">
             </div>
             <div class="in-r">
               <img src="@/assets/images/icon_5.png" alt="">
@@ -31,7 +32,8 @@
             <img src="@/assets/images/icon_5.png" alt="">
           </div>
           <div class="in-c">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29481.217675310527!2d114.02476072311399!3d22.535970303249012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3403f41aefc37f09%3A0x4782830b3613ad88!2z54ix5bq35YGl6b2_56eR!5e0!3m2!1szh-CN!2ssg!4v1682218578472!5m2!1szh-CN!2ssg" width="100%" height="100%" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29481.217675310527!2d114.02476072311399!3d22.535970303249012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3403f41aefc37f09%3A0x4782830b3613ad88!2z54ix5bq35YGl6b2_56eR!5e0!3m2!1szh-CN!2ssg!4v1682218578472!5m2!1szh-CN!2ssg" width="100%" height="100%" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+            <img src="https://static.cmereye.com/imgs/2023/04/3e6f553114c01879.jpg" alt="">
           </div>
           <div class="in-r">
             <img src="@/assets/images/icon_5.png" alt="">
@@ -106,6 +108,10 @@
       }
       .in-c{
         flex: 1;
+        img{
+          width: 100%;
+          height: 100%;
+        }
       }
       .in-r{
         display: flex;
