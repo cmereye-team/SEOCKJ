@@ -37,9 +37,8 @@
 <style lang="scss" scoped>
   .aboutUs{
     background: #fff;
-    padding-bottom: 140px;
+    padding: 143px 0;
     &-in{
-      padding-top: 143px;
       background: linear-gradient(180deg, rgba(255, 241, 240, 0) 0%, #FFF1F0 44.27%, rgba(255, 241, 240, 0) 100%);
       &-video{
         margin-top: 59px;
@@ -54,7 +53,16 @@
   @media screen and (max-width: 768px) {
     .aboutUs{
       background: #fff;
-      padding-bottom: 90px;
+      padding: 90px 0;
+      &-in{
+        &-video{
+          margin-top: 30px;
+        }
+        &-image{
+          flex-direction: column;
+          margin-top: 0;
+        }
+      }
     }
   }
 </style>

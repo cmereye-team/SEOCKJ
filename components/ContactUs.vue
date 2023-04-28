@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 // const mapConShow = ref(window.innerWidth > 768)
-const mapConShow = false
+const mapConShow = ref(false)
 </script>
 
 

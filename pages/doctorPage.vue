@@ -9,7 +9,7 @@
       <div class="doctorPage-in pageCon">
         <div class="index_title">醫生團隊</div>
         <div class="doctorPage-in-text">醫療團隊 EXPERTS</div>
-        <div class="doctorPage-in-content">傾心打造貼心, 專業的牙科連鎖</div>
+        <div class="doctorPage-in-content"><span>傾心打造貼心,</span><span>專業的牙科連鎖</span></div>
         <div class="doctorPage-in-tabNav">
           <div class="doctorPage-in-tabNav-l">
             <span>主頁</span>
@@ -20,7 +20,7 @@
             <AreaTab />
           </div>
         </div>
-        <div class="doctorPage-in-lists">
+        <div class="doctorPage-in-lists pcBox">
           <div class="doctorItem" v-for="item in 5" :key="item">
             <div class="doctorItem-l">
               <img src="@/assets/images/doctor/doctor01.png" alt="">
@@ -41,6 +41,43 @@
                 了解更多<img src="@/assets/images/icon_04.png" />
               </div>
             </div>
+          </div>
+        </div>
+        <div class="mbDoctorList mbBox mbBox">
+          <div class="mbDoctorList-t">
+            <AreaTab />
+          </div>
+          <div class="mbDoctorList-c">
+            <div class="doctorPage-in-lists">
+              <div class="doctorItem" v-for="item in 5" :key="item">
+                <div class="doctorItem-l">
+                  <img src="@/assets/images/doctor/doctor01.png" alt="">
+                </div>
+                <div class="doctorItem-r">
+                  <div class="doctorItem-r-t">
+                    <div class="title">愛康健口腔醫院院長</div>
+                    <div class="btn">
+                      了解更多<img src="@/assets/images/icon_04.png" />
+                    </div>
+                  </div>
+                  <div class="org">
+                    機構：深圳愛康健口腔醫院,口腔牙周病科,口腔修復科,牙體牙髓科
+                  </div>
+                  <div class="expertise">
+                    擅長：種植修復，微創美學修復，全口咬合重建等；熟練應用口腔顯微鏡並在顯微放大設備下進行種植手術、牙周美學手術及各類修復操作。熟練處理牙周病及牙體缺失、四環素、氟斑牙的全口美學修...
+                  </div>
+                  <div class="name">
+                    <span>鞏賢平</span> 
+                    <span>主治醫師, 口腔醫學碩士</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mbDoctorList-b">
+            <span>主頁</span>
+            <span>醫生團隊</span>
+            <span>羅湖區</span>
           </div>
         </div>
       </div>
@@ -191,6 +228,139 @@
   @media screen and (max-width: 768px) {
     .doctorPage{
       padding-bottom: 90px;
+      &-in{
+        padding-top: 90px;
+        &-text{
+          margin-top: 34px;
+          font-size: 1.25rem;
+          font-weight: 600;
+          padding: 0 30px;
+        }
+        &-content{
+          font-size: 1.625rem;
+          padding: 0 30px;
+          margin-top: 13px;
+          span{
+            display: block;
+            &:last-child{
+              margin-left: 100px;
+            }
+          }
+        }
+        &-tabNav{
+          display: none;
+        }
+        .mbDoctorList{
+          &-c{
+            margin: 0 auto;
+            box-sizing: border-box;
+            width: calc(100% - 60px);
+            .doctorPage-in-lists{
+              width: 100%;
+              margin-top: 50px;
+              display: flex;
+              overflow-x: scroll;
+              scroll-snap-type: x mandatory;
+              &::-webkit-scrollbar{
+                height: 5px;
+              }
+              &::-webkit-scrollbar-thumb{
+                background: #FFA09E;
+                border: none;
+                height: 5px;
+              }
+              &::-webkit-scrollbar-track{
+                background: #FFF1F0;
+                height: 5px;
+              }
+              .doctorItem{
+                width: calc(100vw - 60px);
+                display: block;
+                flex-shrink: 0;
+                float: left;
+                height: auto;
+                margin: 30px 30px 30px 0;
+                scroll-snap-align: start;
+                &-l{
+                  width: 100%;
+                  padding-top: 100%;
+                  height: 0;
+                  img{
+                    width: 83%;
+                  }
+                }
+                &-r{
+                  padding-left: 0;
+                  margin-top: 19px;
+                  &-t{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  }
+                  .title{
+                    font-size: 1.25rem;
+                    font-weight: 600;
+                  }
+                  .org{
+                    font-weight: 500;
+                    font-size: 1rem;
+                    width: 100%;
+                    margin-top: 20px;
+                  }
+                  .expertise{
+                    margin-top: 25px;
+                    font-weight: 500;
+                    font-size: 1rem;
+                  }
+                  .name{
+                    font-weight: 600;
+                    font-size: 1.2rem;
+                    margin-top: 25px;
+                    span{
+                      margin-right: 20px;
+                      &:last-child{
+                        padding-left: 20px;
+                        border-left: 2px solid #4D4D4D;
+                      }
+                    }
+                  }
+                  .btn{
+                    font-size: 1rem;
+                    margin-top: 0;
+                    img{
+                      width: 14px;
+                      margin-left: 5px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          &-b{
+            font-weight: 400;
+            font-size: 1.25rem;
+            line-height: 160%;
+            color: #CBCBCB;
+            margin-top: 36px;
+            padding: 0 30px;
+            span{
+              &:not(:last-child)::after{
+                content: '';
+                width: 20px;
+                height: 2px;
+                margin: 0 10px;
+                background: #CBCBCB;
+                display: inline-block;
+                vertical-align: middle;
+                margin-top: -4px;
+              }
+              &:last-child{
+                color: #FFA09E;
+              }
+            }
+          }
+        }
+      }
     }
   }
 </style>

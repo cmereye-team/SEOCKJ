@@ -27,6 +27,9 @@
 <style lang="scss" scoped>
 .caseSaringVideoItem{
   display: flex;
+  // background: #fff no-repeat;
+  // background-size: 50% 252px;
+  // padding-left: 103px;
   &-l{
     width: 55%;
     z-index: 1;
@@ -88,6 +91,46 @@
 
 
 @media screen and (max-width: 768px) {
-  
+  .caseSaringVideoItem{
+    flex-direction: column-reverse;
+    padding: 0 30px;
+    &-l{
+      margin-top: 25px;
+      width: 100%;
+      img{
+        height: auto;
+      }
+    }
+    &-r{
+      width: 100%;
+      padding: 0;
+      .name{
+        font-size: 1.625rem;
+        margin-top: 0;
+      }
+      .skill{
+        font-size: 1.625rem;
+        margin-top: 0;
+        text-indent: 40px;
+      }
+      .process{
+        font-weight: 600;
+        font-size: 1.25rem;
+        margin-top: 26px;
+        z-index: 1;
+      }
+      .text{
+        font-size: 1rem;
+        z-index: 1;
+      }
+      .bg_box{
+        width: 345px;
+        height: 150px;
+        right: 0;
+        top: 90px;
+        z-index: 0;
+      }
+    }
+  }
 }
 </style>
