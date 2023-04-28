@@ -23,8 +23,8 @@ const newsLists = ref([
 let windowWidth = ref(window.innerWidth)
 window.addEventListener('resize', function() {
 //   // console.log(window.innerWidth);
-//   windowWidth.value = window.innerWidth
-  console.log(windowWidth)
+  // windowWidth.value = window.innerWidth
+  // console.log(windowWidth)
 })
 
 </script>

@@ -28,7 +28,7 @@ const menuLists = [
   },
   {
     name: '品牌理念',
-    link: '',
+    link: '/brandMind',
     child: [],
   },
   {

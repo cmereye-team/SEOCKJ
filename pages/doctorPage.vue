@@ -21,27 +21,27 @@
           </div>
         </div>
         <div class="doctorPage-in-lists">
-        <div class="doctorItem" v-for="item in 5" :key="item">
-          <div class="doctorItem-l">
-            <img src="@/assets/images/doctor/doctor01.png" alt="">
+          <div class="doctorItem" v-for="item in 5" :key="item">
+            <div class="doctorItem-l">
+              <img src="@/assets/images/doctor/doctor01.png" alt="">
+            </div>
+            <div class="doctorItem-r">
+              <div class="title">愛康健口腔醫院院長</div>
+              <div class="org">
+                機構：深圳愛康健口腔醫院,口腔牙周病科,口腔修復科,牙體牙髓科
+              </div>
+              <div class="expertise">
+                擅長：種植修復，微創美學修復，全口咬合重建等；熟練應用口腔顯微鏡並在顯微放大設備下進行種植手術、牙周美學手術及各類修復操作。熟練處理牙周病及牙體缺失、四環素、氟斑牙的全口美學修...
+              </div>
+              <div class="name">
+                <span>鞏賢平</span> 
+                <span>主治醫師, 口腔醫學碩士</span>
+              </div>
+              <div class="btn">
+                了解更多<img src="@/assets/images/icon_04.png" />
+              </div>
+            </div>
           </div>
-          <div class="doctorItem-r">
-            <div class="title">愛康健口腔醫院院長</div>
-            <div class="org">
-              機構：深圳愛康健口腔醫院,口腔牙周病科,口腔修復科,牙體牙髓科
-            </div>
-            <div class="expertise">
-              擅長：種植修復，微創美學修復，全口咬合重建等；熟練應用口腔顯微鏡並在顯微放大設備下進行種植手術、牙周美學手術及各類修復操作。熟練處理牙周病及牙體缺失、四環素、氟斑牙的全口美學修...
-            </div>
-            <div class="name">
-              <span>鞏賢平</span> 
-              <span>主治醫師, 口腔醫學碩士</span>
-            </div>
-            <div class="btn">
-              了解更多<img src="@/assets/images/icon_04.png" />
-            </div>
-          </div>
-        </div>
         </div>
       </div>
       <ContactUs />
@@ -100,7 +100,7 @@
       }
       &-lists{
         margin-top: 68px;
-        height: 1491px;
+        // height: 1491px;
         // overflow: hidden;
         // overflow-y: auto;
         .doctorItem{

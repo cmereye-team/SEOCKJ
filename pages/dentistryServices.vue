@@ -62,7 +62,7 @@ const stepLists = [
   ]
 ]
 
-const reasonLists = ['常見種植牙的原因傳統治療方法\n(牙套、牙橋及假牙托等)','無法修復缺牙的情況','缺牙影響儀容，嚴重甚至會令面部變形','缺牙容易令牙齒移位，影響咬合、發音','改善咀嚼問題，回復正常飲食']
+const reasonLists = ['常見種植牙的原因傳統治療方法(牙套、牙橋及假牙托等)','無法修復缺牙的情況','缺牙影響儀容，嚴重甚至會令面部變形','缺牙容易令牙齒移位，影響咬合、發音','改善咀嚼問題，回復正常飲食']
 
 
 
@@ -86,6 +86,9 @@ const reasonLists = ['常見種植牙的原因傳統治療方法\n(牙套、牙�
       <div class="introduce">
         <div class="index_title pageCon">牙科服務</div>
         <div class="introduce-in">
+          <div class="introduce-in-t mbBox">
+            <img src="https://static.cmereye.com/imgs/2023/04/78f038c56a4dc38b.jpg" alt="">
+          </div>
           <div class="introduce-in-l pageCon">
             <div class="title">種植牙科</div>
             <div class="text">種植牙，俗稱為「種牙」</div>
@@ -392,8 +395,161 @@ const reasonLists = ['常見種植牙的原因傳統治療方法\n(牙套、牙�
     }
   }
   @media screen and (max-width: 768px) {
-  .dentistryServices{
-      padding-bottom: 90px;
+    .dentistryServices{
+      padding: 90px 0;
+      .introduce{
+        &-in{
+          &-t{
+            width: 100%;
+            img{
+              width: 100%;
+            }
+          }
+          &-l{
+            padding-bottom: 50px;
+            background: none;
+            .title{
+              display: none;
+            }
+            .text{
+              font-size: 1.625rem;
+              padding: 0 30px;
+              margin-top: 0;
+            }
+            .content{
+              font-size: 1rem;
+              width: 85%;
+              padding: 0 30px;
+              margin-top: 30px;
+            }
+            .tabNav{
+              padding: 30px;
+              font-size: 1rem;
+              margin-top: 40px;
+            }
+          }
+        }
+      }
+      .reason{
+        width: 100%;
+        padding: 0 30px 90px;
+        box-sizing: border-box;
+        &-in{
+          width: 100%;
+          flex-direction: column;
+          &-l{
+            background-size: 204px 204px;
+            padding-left: 42px;
+            .text_one{
+              font-size: 1.25rem;
+              font-weight: 600;
+              margin-top: 53px;
+            }
+            .text_two{
+              font-size: 1.625rem;
+              margin-top: 13px;
+            }
+            .image{
+              width: 223px;
+              height: 223px;
+              margin-top: 20px;
+              margin-left: 60px;
+            }
+          }
+          &-r{
+            margin-top: 28px;
+            &>div{
+              font-weight: 500;
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+      .step{
+        background: linear-gradient(360deg, rgba(255, 241, 240, 0) 0%, rgba(255, 241, 240, 0.7) 12.5%, rgba(255, 241, 240, 0.7) 81.99%, rgba(255, 241, 240, 0) 100%);
+        padding: 0 30px;
+        &-in{
+          flex-direction: column;
+          padding: 23px 0 23px 24px;
+          margin-top: 28px;
+          &-box{
+            width: 100%;
+            .line{
+              width: 2px;
+              left: 7px;
+            }
+            .step-itemLists{
+              &-in{
+                height: auto;
+                margin-top: 34px;
+                padding-right: 10px;
+                .round{
+                  width: 16px;
+                  height: 16px;
+                  margin-top: 4px;
+                  margin-right: 7px;
+                }
+                .title{
+                  font-weight: 500;
+                  font-size: 1rem;
+                  margin-right: 12px;
+                }
+                .text{
+                  font-weight: 500;
+                  font-size: 1rem;
+                  padding-top: 0;
+                }
+                &:first-child{
+                  margin-bottom: 0px;
+                  margin-top: 0;
+                }
+                &:last-child{
+                  align-items: flex-start;
+                }
+              }
+            }
+            &:first-child{
+              padding-right: 0;
+              .line{
+                height: 120%;
+                // top: 50px;
+              }
+            }
+            &:last-child{
+              margin-left: 0;
+              margin-top: 34px;
+            }
+          }
+        }
+      }
+      .note{
+        &-in{
+          padding: 0 30px;
+          box-sizing: border-box;
+          margin-top: 18px;
+          &-ul{
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 0;
+            &-li{
+              width: 150px;
+              margin-right: 0;
+              font-size: 1.25rem;
+              margin-top: 10px;
+            }
+          }
+        }
+      }
+      &-title{
+        &-in{
+          font-weight: 600;
+          font-size: 1.625rem;
+        }
+        &-line{
+          width: 50px;
+          height: 3px;
+        }
+      }
     }
   }
 </style>
