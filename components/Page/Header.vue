@@ -5,6 +5,10 @@ defineProps({
     type: String,
     default: 'https://static.cmereye.com/imgs/2023/04/c9531b6beee976eb.jpg',
   },
+  mbBg:{
+    type: String,
+    default: 'https://static.cmereye.com/imgs/2023/04/b0d950232420bf46.jpg',
+  },
   titlePosition:{
     type: String,
     default: 'right'   //right & left
@@ -96,9 +100,6 @@ let menuBoxBool = ref(false)
 </script>
 
 <template>
-  <!-- <div class="lg:px-8 px-4 mb-6">
-    <slot />
-  </div> -->
   <header>
     <div class="header-content bigPageCon">
       <div class="header-content-bgImg">
@@ -107,9 +108,20 @@ let menuBoxBool = ref(false)
           :src="headerBg"
           alt=""
         />
-        <div :class="['pcBox','bannerTitle',{ 'bannerTitleLeft': titlePosition === 'left'}]">
-          <span>重拾自信笑容</span>
-          <span>愛牙愛己，由你做起</span>
+        <img
+          class="mbBox"
+          :src="mbBg"
+          alt=""
+        />
+        <div :class="['header-content-bgImg-in',{ 'bannerTitleLeft': titlePosition === 'left'}]">
+          <div class="bannerTitle">
+            <span>重拾自信笑容</span>
+            <span>愛牙愛己，由你做起</span>
+          </div>
+          <div class="text">
+            全程式預約一體化診療服務，讓每一位顧客享受
+            <span>健康微笑之旅。</span>
+          </div>
         </div>
       </div>
       <div class="header-content-bgImgBB pcBox">
@@ -143,20 +155,15 @@ let menuBoxBool = ref(false)
           <img v-else src="@/assets/images/icon_7.png" >
         </div>
       </div>
-      <div class="header-content-mb">
-        <img
-          src="@/assets/images/header_bg.jpg"
-          alt=""
-        />
-        <div class="text">
-          全程式預約一體化診療服務，讓每一位顧客享受
-          <span>健康微笑之旅。</span>
-        </div>
-      </div>
       <div class="menuBox" :style="{top: (menuBoxBool ? '0' : '-100vh')}">
         <div class="menuLists">
           <div :class="item.child.length ? 'childIcon' : ''" v-for="(item, index) in menuLists" :key="index">
-            {{item.name}}
+            <nuxt-link :to="item.link">
+              {{item.name}}
+              <!-- <div class="">
+
+              </div> -->
+            </nuxt-link>
           </div>
         </div>
         <div class="menuBox-btn">立即預約</div>
@@ -197,7 +204,6 @@ let menuBoxBool = ref(false)
     max-width: 1920px;
     box-sizing: border-box;
     position: fixed;
-    // position: relative;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -205,18 +211,33 @@ let menuBoxBool = ref(false)
     img {
       width: 100%;
     }
-    .bannerTitle{
-      font-weight: 700;
-      font-size: 3.125rem;
-      line-height: 160%;
-      color: #4D4D4D;
+    &-in{
       position: absolute;
       left: 55%;
       top: 30%;
-      span{
-        display: block;
-        &:last-child{
-          margin-left: 200px;
+      .bannerTitle{
+        font-weight: 700;
+        font-size: 3.125rem;
+        line-height: 160%;
+        color: #4D4D4D;
+        span{
+          display: block;
+          &:last-child{
+            margin-left: 200px;
+          }
+        }
+      }
+      .text{
+        margin-top: 32px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.75rem;
+        line-height: 160%;
+        color: #4D4D4D;
+        width: 73%;
+        span{
+          font-size: 1.75rem;
+          color: #FFCECB;
         }
       }
       &.bannerTitleLeft{
@@ -230,9 +251,6 @@ let menuBoxBool = ref(false)
     // z-index: 1;
     // background: none;
   }
-  // &-span {
-    
-  // }
   &-in {
     width: 100%;
     max-width: 1490px;
@@ -315,9 +333,6 @@ let menuBoxBool = ref(false)
     .icon{
       display: none;
     }
-  }
-  &-mb{
-    display: none;
   }
   .waterBg{
     position: relative;
@@ -403,6 +418,7 @@ let menuBoxBool = ref(false)
   display: none;
 }
 
+
 @media (min-width: 768px) and (max-width: 1200px) {
   .header-content {
     &-in {
@@ -426,35 +442,46 @@ let menuBoxBool = ref(false)
 }
 @media screen and (max-width: 768px) {
   .header-content {
-    // position: fixed;
-    // top: 0;
     &-bgImg {
-      width: 100%;
-      // display: none;
-      // img{
-      //   width: 100%;
-      // }
-      .bannerTitle{
-        line-height: 140%;
-        color: #000;
-        width: 70px;
-        font-weight: 400;
-        font-size: 1.25rem;
-        right: 30px;
-        bottom: 60px;
-        span {
-          padding: 10px 0;
-          height: auto;
-          background: #fff;
-          font-style: normal;
-          width: 40%;
-          text-align: center;
-          &:first-child {
-            float: left;
-            margin-top: 55px;
+      position: relative;
+      &-in{
+        position: static;
+        .bannerTitle{
+          position: absolute;
+          line-height: 140%;
+          color: #000;
+          font-weight: 400;
+          font-size: 1.25rem;
+          left: auto;
+          top: auto;
+          right: 30px;
+          bottom: 0;
+          span {
+            padding: 10px 2px;
+            background: #fff;
+            text-align: center;
+            writing-mode: tb-rl;
+            text-align: center;
+            letter-spacing: 7px;
+            vertical-align: middle;
+            &:first-child {
+              margin-left: 50px;
+            }
+            &:last-child {
+              margin-left: 0;
+              margin-top: -120px;
+            }
           }
-          &:last-child {
-            float: right;
+        }
+        .text{
+          left: 55%;
+          font-weight: 500;
+          font-size: 1.25rem;
+          width: 60vw;
+          padding-left: 30px;
+          margin-top: 30px;
+          span{
+            font-size: 1.25rem;
           }
         }
       }
@@ -482,30 +509,6 @@ let menuBoxBool = ref(false)
       font-size: 20px;
       right: 30px;
       bottom: 60px;
-    }
-    &-mb{
-      background: #fff;
-      display: block;
-      img{
-        width: 100%;
-      }
-      .text{
-        margin-top: 0;
-        font-style: normal;
-        font-weight: 500;
-        // font-size: 20px;
-        font-size: 1.25rem;
-        line-height: 160%;
-        color: #4D4D4D;
-        width: 60vw;
-        padding-left: 30px;
-        margin-top: 30px;
-        span{
-          // font-size: 20px;
-          font-size: 1.25rem;
-          color: #FFCECB;
-        }
-      }
     }
     .waterBg{
       position: fixed;

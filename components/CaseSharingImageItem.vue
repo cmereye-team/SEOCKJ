@@ -112,7 +112,7 @@
       background: linear-gradient(270deg, rgba(255, 241, 240, 0) 0.02%, rgba(255, 204, 199, 0.7) 90%);
     }
     &:last-child{
-      background: linear-gradient(270deg, rgba(255, 204, 199, 0.7) 0.02%, rgba(255, 241, 240, 0) 62%);
+      background: linear-gradient(270deg, rgba(255, 241, 240, 0.7) 0.02%, rgba(255, 241, 240, 0) 62%);
     }
   }
 }

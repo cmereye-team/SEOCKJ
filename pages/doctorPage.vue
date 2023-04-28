@@ -1,6 +1,10 @@
 <template>
   <div class="bigPageCon">
-    <PageHeader :headerBg="'https://static.cmereye.com/imgs/2023/04/3bb8b77175f2c68a.jpg'" :titlePosition="'left'" />
+    <PageHeader
+      :headerBg="'https://static.cmereye.com/imgs/2023/04/3bb8b77175f2c68a.jpg'"
+      :mbBg="'https://static.cmereye.com/imgs/2023/04/f044b7e9793c3038.jpg'"
+      :titlePosition="'left'"
+    />
     <div class="doctorPage">
       <div class="doctorPage-in pageCon">
         <div class="index_title">醫生團隊</div>
@@ -97,8 +101,8 @@
       &-lists{
         margin-top: 68px;
         height: 1491px;
-        overflow: hidden;
-        overflow-y: auto;
+        // overflow: hidden;
+        // overflow-y: auto;
         .doctorItem{
           width: 100%;
           height: 429px;

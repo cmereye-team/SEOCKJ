@@ -1,20 +1,41 @@
 <script lang="ts" setup>
 const { t } = useLang()
 
-let doctorTeamCurrent = ref(1)
-const doctorTeamTabDatas = [
-  '羅湖區','福田區','南山區','寶安區','龍華區'
-]
+
+//医生模块显示数据
 const doctorLists = ['','','','','','','','','','','','']
 
+//医生模块轮播图事件
+let doctorTeamCurrent = ref(1)
 const onSlideDoctorTeamSwiperChange = (swiper:any) => {
   doctorTeamCurrent.value = swiper.realIndex + 1
 }
 
-const swiperOption = {
-  loop: true,
-  autoplay: true
-}
+//牙科服务卡片数据
+const dentalServicesPagesList = [
+  {
+    title: '全科牙科',  //全科牙科
+    pcImg: 'https://static.cmereye.com/imgs/2023/04/f76f7533f148b28f.jpg',
+    mbImg: 'https://static.cmereye.com/imgs/2023/04/4a393cf514e04325.jpg'
+  },{
+    title: '種植牙科',  //種植牙科
+    pcImg: 'https://static.cmereye.com/imgs/2023/04/8ab832a4008bbe41.jpg',
+    mbImg: 'https://static.cmereye.com/imgs/2023/04/6b647f537779629d.jpg'
+  },{
+    title: '矯齒牙科',  //矯齒牙科
+    pcImg: 'https://static.cmereye.com/imgs/2023/04/ddea98c028072525.jpg',
+    mbImg: 'https://static.cmereye.com/imgs/2023/04/d017f197ce790ac6.jpg'
+  },{
+    title: '美容牙科',  //美容牙科
+    pcImg: 'https://static.cmereye.com/imgs/2023/04/c9adcbbc63580982.jpg',
+    mbImg: 'https://static.cmereye.com/imgs/2023/04/9c92afda6655eae2.jpg'
+  },{
+    title: '兒童牙科',  //兒童牙科
+    pcImg: 'https://static.cmereye.com/imgs/2023/04/d6c26df971b3a3f1.jpg',
+    mbImg: 'https://static.cmereye.com/imgs/2023/04/40d24f9212839593.jpg'
+  }
+]
+
 </script>
 
 <template>
@@ -50,44 +71,12 @@ const swiperOption = {
         <div class="index_title pageCon">牙科服務</div>
         <div class="index-dentalServices-in">
           <div class="dentalServices-box pageCon">
-            <div class="dentalServices-box-in">
+            <div class="dentalServices-box-in" v-for="(serviceCar,serviceCarIndex) in dentalServicesPagesList" :key="serviceCarIndex">
               <div class="images">
-                <img class="pcBox" src="https://static.cmereye.com/imgs/2023/04/f76f7533f148b28f.jpg" alt="">
-                <img class="mbBox" src="https://static.cmereye.com/imgs/2023/04/4a393cf514e04325.jpg" alt="">
+                <img class="pcBox" :src="serviceCar.pcImg" alt="">
+                <img class="mbBox" :src="serviceCar.mbImg" alt="">
               </div>
-              <h3>全科牙科</h3>
-              <span>了解更多</span>
-            </div>
-            <div class="dentalServices-box-in">
-              <div class="images">
-              <img class="pcBox" src="https://static.cmereye.com/imgs/2023/04/8ab832a4008bbe41.jpg" alt="">
-              <img class="mbBox" src="https://static.cmereye.com/imgs/2023/04/6b647f537779629d.jpg" alt="">
-              </div>
-              <h3>種植牙科</h3>
-              <span>了解更多</span>
-            </div>
-            <div class="dentalServices-box-in">
-              <div class="images">
-              <img class="pcBox" src="https://static.cmereye.com/imgs/2023/04/ddea98c028072525.jpg" alt="">
-              <img class="mbBox" src="https://static.cmereye.com/imgs/2023/04/d017f197ce790ac6.jpg" alt="">
-              </div>
-              <h3>矯齒牙科</h3>
-              <span>了解更多</span>
-            </div>
-            <div class="dentalServices-box-in">
-              <div class="images">
-              <img class="pcBox" src="https://static.cmereye.com/imgs/2023/04/c9adcbbc63580982.jpg" alt="">
-              <img class="mbBox" src="https://static.cmereye.com/imgs/2023/04/9c92afda6655eae2.jpg" alt="">
-              </div>
-              <h3>美容牙科</h3>
-              <span>了解更多</span>
-            </div>
-            <div class="dentalServices-box-in">
-              <div class="images">
-              <img class="pcBox" src="https://static.cmereye.com/imgs/2023/04/d6c26df971b3a3f1.jpg" alt="">
-              <img class="mbBox" src="https://static.cmereye.com/imgs/2023/04/40d24f9212839593.jpg" alt="">
-              </div>
-              <h3>兒童牙科</h3>
+              <h3>{{serviceCar.title}}</h3>
               <span>了解更多</span>
             </div>
           </div>

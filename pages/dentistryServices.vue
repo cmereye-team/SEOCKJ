@@ -76,7 +76,11 @@ const reasonLists = ['常見種植牙的原因傳統治療方法\n(牙套、牙�
 
 <template>
   <div class="bigPageCon">
-    <PageHeader :headerBg="'https://static.cmereye.com/imgs/2023/04/306827fc69c5113d.jpg'" :titlePosition="'left'" />
+    <PageHeader
+     :headerBg="'https://static.cmereye.com/imgs/2023/04/306827fc69c5113d.jpg'"
+     :mbBg="'https://static.cmereye.com/imgs/2023/04/90e1963571533efa.jpg'"
+     :titlePosition="'left'"
+    />
     <div class="dentistryServices">
       <!-- 介绍 -->
       <div class="introduce">

@@ -1,6 +1,10 @@
 <template>
   <div class="bigPageCon">
-    <PageHeader :headerBg="'https://static.cmereye.com/imgs/2023/04/2fc3c774fd9bc0aa.jpg'" :titlePosition="'left'" />
+    <PageHeader
+     :headerBg="'https://static.cmereye.com/imgs/2023/04/2fc3c774fd9bc0aa.jpg'"
+     :titlePosition="'left'"
+     :mbBg="'https://static.cmereye.com/imgs/2023/04/8ef2fe81c92fe697.jpg'"
+    />
     <div class="aboutUs">
       <div class="aboutUs-in">
         <div class="index_title pageCon">個案分享</div>

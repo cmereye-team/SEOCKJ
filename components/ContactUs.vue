@@ -1,15 +1,23 @@
-
+<script lang="ts" setup>
+const mapConShow = ref(false)
+</script>
 
 
 <template>
   <div class="index-contactUs pageCon">
-      <div class="index_title">聯絡我們</div>
-      <div class="index-contactUs-in ">
+      <!-- <div class="index_title">聯絡我們</div> -->
+      <div class="index-contactUs-t">
+        <div class="index_title">聯絡我們</div>
+        <div>
+          <AreaTab />
+        </div>
+      </div>
+      <div class="index-contactUs-in">
         <div class="index-contactUs-in-l">
           <h3>深圳愛康健口腔醫院（羅湖）</h3>
           <span>醫院地址：深圳市羅湖區火車站大廈C區1-8樓</span>
           <span>營業時間：9:00-18:00 （節假日照常應診）</span>
-          <span>諮詢電話： 0755-61302632 交通路線:</span>
+          <span>諮詢電話： 0755-61302632</span>
           <div class="contactUsAddressBox">
             <div class="in-l">
               <img src="@/assets/images/icon_5.png" alt="">
@@ -22,10 +30,11 @@
               <img src="@/assets/images/icon_5.png" alt="">
             </div>
           </div>
-          <span>巴士路線</span>
-          <span>羅湖火車站：1路、7路、12路、17路、38路、82路、83路、97路、101路、102路、205路、215路、306路、387路、E13路、M112路、M152路、M401路、M508路、N14路、N16路、N18路、N2路、N4路、N7路、高峰專線73號</span>
-          <span>地鐵路線</span>
-          <span>地鐵1號線“羅湖站”C出口； 地鐵9號線“人民南站” A1出口</span>
+          <span class="showIcon" @click="mapConShow = !mapConShow">交通路線:</span>
+          <span v-show="mapConShow">巴士路線</span>
+          <span v-show="mapConShow">羅湖火車站：1路、7路、12路、17路、38路、82路、83路、97路、101路、102路、205路、215路、306路、387路、E13路、M112路、M152路、M401路、M508路、N14路、N16路、N18路、N2路、N4路、N7路、高峰專線73號</span>
+          <span v-show="mapConShow">地鐵路線</span>
+          <span v-show="mapConShow">地鐵1號線“羅湖站”C出口； 地鐵9號線“人民南站” A1出口</span>
         </div>
         <div class="index-contactUs-in-r">
           <div class="in-l">
@@ -46,6 +55,10 @@
 <style lang="scss" scoped>
   .index-contactUs{
   padding: 140px 0 0;
+  &-t{
+    display: flex;
+    justify-content: space-between;
+  }
   &-in{
     display: flex;
     margin-top: 46px;
@@ -129,6 +142,9 @@
 @media screen and (max-width: 768px) {
   .index-contactUs{
     padding: 90px 0 0;
+    &-t{
+      flex-direction: column;
+    }
     &-in{
       flex-direction: column;
       margin-top: 35px;
@@ -184,6 +200,21 @@
           font-size: 1rem;
           &:nth-of-type(4){
             margin-top: 0px;
+          }
+          &.showIcon{
+            position: relative;
+            cursor: pointer;
+          }
+          &.showIcon::after{
+            content: '';
+            width: 0px;
+            height: 0px;
+            border: 7px solid;
+            border-color: #4D4D4D transparent transparent transparent;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 5px;
+            margin-top: 5px;
           }
         }
       }
