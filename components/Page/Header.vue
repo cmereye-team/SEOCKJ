@@ -33,7 +33,7 @@ const menuLists = [
   },
   {
     name: '牙科服務',
-    link: '/dentistryServices',
+    link: '',
     child: [
       {
         name: '全科牙科',
@@ -41,7 +41,7 @@ const menuLists = [
       },
       {
         name: '種植牙科',
-        link: '',
+        link: '/dentistryServices',
       },
       {
         name: '矯齒牙科',
@@ -59,11 +59,11 @@ const menuLists = [
   },
   {
     name: '醫生團隊',
-    link: '/doctorPage',
+    link: '',
     child: [
       {
         name: '羅湖區',
-        link: '',
+        link: '/doctorPage',
       },
       {
         name: '福田區',
@@ -96,6 +96,16 @@ const menuLists = [
 ]
 
 let menuBoxBool = ref(false)
+
+let menuActNum = ref(0)
+const handleMenu = (_idx: number) => {
+  if(menuActNum.value === _idx)
+    menuActNum.value = 0
+  else
+    menuActNum.value = _idx
+  // console.log(menuActNum)
+}
+
 
 </script>
 
@@ -146,7 +156,11 @@ let menuBoxBool = ref(false)
             {{ menuItem.name }}
             </nuxt-link>
             <div class="menuChild" v-if="menuItem.child.length">
-              <div class="menuChild-item" v-for="(menuChildItem,menuChildIndex) in menuItem.child" :key="menuChildIndex">{{menuChildItem.name}}</div>
+              <div class="menuChild-item" v-for="(menuChildItem,menuChildIndex) in menuItem.child" :key="menuChildIndex">
+                <nuxt-link :to="menuChildItem.link">
+                {{menuChildItem.name}}
+                </nuxt-link>
+              </div>
             </div>
           </div>
         </div>
@@ -157,13 +171,19 @@ let menuBoxBool = ref(false)
       </div>
       <div class="menuBox" :style="{top: (menuBoxBool ? '0' : '-100vh')}">
         <div class="menuLists">
-          <div :class="item.child.length ? 'childIcon' : ''" v-for="(item, index) in menuLists" :key="index">
+          <div :class="['menuLists-item',item.child.length ? 'childIcon' : '']" v-for="(item, index) in menuLists" :key="index">
             <nuxt-link :to="item.link">
-              {{item.name}}
-              <!-- <div class="">
-
-              </div> -->
+              <div @click="handleMenu(index)">
+                {{item.name}}
+              </div>
             </nuxt-link>
+            <div class="menuLists-childLists" v-if="item.child.length" v-show="menuActNum === index">
+              <div class="menuLists-childLists-item" v-for="(itemChild,itemChildIndex) in item.child" :key="itemChildIndex">
+                <nuxt-link :to="itemChild.link">
+                {{itemChild.name}}
+                </nuxt-link>
+              </div>
+            </div>
           </div>
         </div>
         <div class="menuBox-btn">立即預約</div>
@@ -194,7 +214,6 @@ let menuBoxBool = ref(false)
 </template>
 
 <style lang="scss" scoped>
-
 .header-content {
   width: 100%;
   box-sizing: border-box;
@@ -258,12 +277,13 @@ let menuBoxBool = ref(false)
     background: #fff;
     box-sizing: border-box;
     margin: 0 auto;
-    padding: 20px 0 20px 20px;
+    padding: 20px 0 0 20px;
     align-items: flex-end;
     z-index: 40;
     position: relative;
     .logo {
       width: 290px;
+      margin-bottom: 20px;
     }
     .menu {
       flex: 1;
@@ -277,6 +297,7 @@ let menuBoxBool = ref(false)
         font-size: 22px;
         font-weight: 600;
         position: relative;
+        padding-bottom: 20px;
         .router-link-exact-active{
           color: #ffa09e;
           text-decoration-line: underline;
@@ -288,45 +309,65 @@ let menuBoxBool = ref(false)
         &:hover .menuChild{
           display: flex;
         }
-        &.triangleIcon:after {
-          content: '';
-          width: 0px;
-          height: 0px;
-          border: 10px solid;
-          border-color: #4d4d4d transparent transparent transparent;
-          position: absolute;
-          bottom: -20px;
-          left: 50%;
-          transform: translateX(-50%);
-        }
         .menuChild{
           position: absolute;
           top: 100%;
           left: 50%;
           transform: translateX(-50%);
-          width: 150%;
+          width: 130%;
           z-index: 2;
           display: none;
           flex-direction: column;
           transition: all .3s;
-          padding-top: 20px;
+          padding: 0 20px;
+          box-sizing: border-box;
+          background: #FFFFFF;
+          box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
           &-item{
             width: 100%;
-            background: #FFF1F0;
+            // background: #FFF1F0;
             text-align: center;
             padding: 10px 20px 5px;
+            font-weight: 500;
             font-size: 1.25rem;
-            color: #FFDDDA;
+            color: #4d4d4d;
             transition: all .3s;
             &:not(:last-child){
-              border-bottom: 1px solid #fff;
+              border-bottom: 1px solid #FFF1F0;
             }
             &:hover{
-              color: #fff;
-              background: #FFCECB;
-              text-shadow: 0px 0px 8px rgba(255, 120, 117, 0.65);
+              color: #FFA09E;
+              // background: #FFCECB;
+              // text-shadow: 0px 0px 8px rgba(255, 120, 117, 0.65);
             }
           }
+          &::before{
+            content: '';
+            width: 0px;
+            height: 0px;
+            border: 10px solid;
+            border-color: transparent transparent #fff transparent;
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+        }
+      }
+      .triangleIcon:after {
+        content: '';
+        width: 0px;
+        height: 0px;
+        border: 10px solid;
+        border-color: #4d4d4d transparent transparent transparent;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .triangleIcon:hover{
+        &:after{
+          border-color: #ffa09e transparent transparent transparent;
         }
       }
     }
@@ -535,7 +576,7 @@ let menuBoxBool = ref(false)
     height: 100vh;
     background: #fff;
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
     flex-direction: column;
     z-index: 30;
@@ -544,31 +585,49 @@ let menuBoxBool = ref(false)
     line-height: 160%;
     color: #FFCECB;
     transition: all .3s;
-    pointer-events: none;
     .menuLists{
+      margin-top: 120px;
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      &>div{
+      &-item{
         text-align: left;
         margin-top: 20px;
         font-size: 1.125rem;
+        position: relative;
         &.childIcon{
-          padding-left: 37px;
+          // padding-left: 37px;
         }
         &.childIcon:after{
           content: '';
           width: 0;
-          left: 0;
+          height: 0;
           display: inline-block;
+          position: absolute;
+          right: -20px;
+          top: 7px;
           border-top: 10px solid;
           border-left: 8px solid;
           border-right: 8px solid;
           border-bottom: 10px solid;
           border-color: #FFCECB transparent transparent transparent;
           vertical-align: middle;
-          margin: 6px 10px 0;
+          // margin: 6px 10px 0;
+        }
+      }
+      &-childLists{
+        // display: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        font-weight: 500;
+        margin-top: 10px;
+        
+        &-item{
+          padding: 10px 0;
         }
       }
     }

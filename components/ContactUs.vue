@@ -1,6 +1,20 @@
 <script lang="ts" setup>
-// const mapConShow = ref(window.innerWidth > 768)
-const mapConShow = ref(false)
+const mapConShow = ref(true)
+
+onMounted(()=>{
+  getWindowResize()
+  window.addEventListener('resize',getWindowResize)
+})
+
+const getWindowResize = () => {
+  if(window.innerWidth > 768)
+    mapConShow.value = true
+  else
+    mapConShow.value = false
+  // console.log(mapConShow)
+}
+
+
 </script>
 
 
@@ -36,6 +50,10 @@ const mapConShow = ref(false)
           <span v-show="mapConShow">羅湖火車站：1路、7路、12路、17路、38路、82路、83路、97路、101路、102路、205路、215路、306路、387路、E13路、M112路、M152路、M401路、M508路、N14路、N16路、N18路、N2路、N4路、N7路、高峰專線73號</span>
           <span v-show="mapConShow">地鐵路線</span>
           <span v-show="mapConShow">地鐵1號線“羅湖站”C出口； 地鐵9號線“人民南站” A1出口</span>
+          <div class="mapBtn">
+            <div class="mapBtn-in">Google地圖</div>
+            <div class="mapBtn-in">百度地圖</div>
+          </div>
         </div>
         <div class="index-contactUs-in-r">
           <div class="in-l">
@@ -54,7 +72,7 @@ const mapConShow = ref(false)
 </template>
 
 <style lang="scss" scoped>
-  .index-contactUs{
+.index-contactUs{
   padding: 140px 0 0;
   &-t{
     display: flex;
@@ -103,6 +121,28 @@ const mapConShow = ref(false)
         }
         &:last-child{
           margin-top: 25px;
+        }
+      }
+      .mapBtn{
+        width: 100%;
+        margin-top: 60px;
+        display: flex;
+        justify-content: space-between;
+        &-in{
+          width: 240px;
+          background: #FFFFFF;
+          box-shadow: 1px 1px 4px #FFA09E;
+          border-radius: 40px;
+          font-family: 'Arial';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 2rem;
+          line-height: 160%;
+          text-align: center;
+          color: #FFA09E;
+          display: inline-block;
+          padding: 13px 0;
+          
         }
       }
     }
@@ -183,6 +223,10 @@ const mapConShow = ref(false)
           }
           .in-c{
             flex: 1;
+            img{
+              width: 100%;
+              height: 100%;
+            }
           }
           .in-r{
             display: flex;

@@ -19,14 +19,17 @@ const newsLists = ref([
   }
 ])
 
-// window.innerWidth
-// let windowWidth = ref(window.innerWidth)
 let windowWidth = ref(1920)
-window.addEventListener('resize', function() {
-//   // console.log(window.innerWidth);
-  // windowWidth.value = window.innerWidth
-  // console.log(windowWidth)
+
+onMounted(()=>{
+  getWindowWidth()
+  window.addEventListener('resize',getWindowWidth)
 })
+
+const getWindowWidth = () => {
+  windowWidth.value = window.innerWidth
+  // console.log(windowWidth)
+}
 
 </script>
 

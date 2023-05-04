@@ -1,32 +1,41 @@
 <script lang="ts" setup>
-
+// import { noteIcon } from '@/assets/images/dentistryServives/note'
+// require("@/assets/images/dentistryServives/note.png")
 const noteLists = [
   [
     {
-      name: '輕咬紗布止血'
+      name: '輕咬紗布止血',
+      img: 'icon00001'
     },
     {
-      name: '28小時內冰敷'
+      name: '28小時內冰敷',
+      img: 'icon00002'
     },
     {
-      name: '48小時內熱敷'
+      name: '48小時內熱敷',
+      img: 'icon00003'
     },
     {
-      name: '依指示按時服藥'
+      name: '依指示按時服藥',
+      img: 'icon00004'
     }
   ],
   [
     {
-      name: '避免飲酒及抽煙'
+      name: '避免飲酒及抽煙',
+      img: 'icon00005'
     },
     {
-      name: '進食流質食物'
+      name: '進食流質食物',
+      img: 'icon00006'
     },
     {
-      name: '避免激烈運動'
+      name: '避免激烈運動',
+      img: 'icon00007'
     },
     {
-      name: '謹記定期複診'
+      name: '謹記定期複診',
+      img: 'icon00008'
     }
   ]
 ]
@@ -146,7 +155,9 @@ const reasonLists = ['常見種植牙的原因傳統治療方法(牙套、牙橋
         <div class="note-in pageCon">
           <div class="note-in-ul" v-for="(note,noteIndex) in noteLists" :key="noteIndex">
             <div class="note-in-ul-li" v-for="(noteChild,noteChildIndex) in note" :key="noteChildIndex">
-              <img src="@/assets/images/note01.png" alt="">
+              <div class="image">
+                <img :src="`/_nuxt/assets/images/dentistryServives/note/${noteChild.img}.png`" alt="">
+              </div>
               <div>{{noteChild.name}}</div>
             </div>
           </div>
@@ -359,9 +370,21 @@ const reasonLists = ['常見種植牙的原因傳統治療方法(牙套、牙橋
           &-li{
             width: 184px;
             margin-right: 88px;
-            img{
+            .image{
               width: 100%;
+              height: 184px;
               margin-bottom: 12px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 10px;
+              background: #FFDDDA;
+              img{
+                // width: 80%;
+              }
+            }
+            &:nth-child(even)>.image{
+              background: #FFF1F0;
             }
             &:last-child{
               margin-right: 0;
@@ -372,6 +395,14 @@ const reasonLists = ['常見種植牙的原因傳統治療方法(牙套、牙橋
             line-height: 160%;
             color: #4D4D4D;
           }
+          &:last-child{
+            .note-in-ul-li:nth-child(odd)>.image{
+              background: #FFF1F0;
+            }
+            .note-in-ul-li:nth-child(even)>.image{
+              background: #FFDDDA;
+            }
+          } 
         }
       }
     }
@@ -536,6 +567,12 @@ const reasonLists = ['常見種植牙的原因傳統治療方法(牙套、牙橋
               margin-right: 0;
               font-size: 1.25rem;
               margin-top: 10px;
+              .image{
+                height: 150px;
+                img{
+                  width: 70%;
+                }
+              }
             }
           }
         }

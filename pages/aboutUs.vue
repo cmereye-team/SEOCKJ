@@ -61,6 +61,10 @@
         &-image{
           flex-direction: column;
           margin-top: 0;
+          
+        }
+        .aboutUs-in-image:nth-child(4){
+          margin-top: 50px;
         }
       }
     }
