@@ -35,6 +35,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    z-index: 1;
+    position: relative;
     .brandConcept-title {
       font-style: normal;
       font-weight: 700;
@@ -69,13 +71,24 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 60%;
+    width: 70%;
     height: 100%;
-    background: url(@/assets/images/brandConcept_bg.jpg) no-repeat center center;
+    background: url(@/assets/images/brandConcept_bg.jpg) no-repeat left center;
     background-size: cover;
+    z-index: 0;
   }
 }
 
+@media (min-width: 768px) and (max-width: 1452px) {
+  .index-brandConcept {
+    margin-top: 110px;
+    .brandConcept-left {
+      .content {
+        width: 40%;
+      }
+    }
+  }
+}
 
 @media screen and (max-width: 768px) {
   .index-brandConcept {

@@ -21,15 +21,15 @@ const onSlideAboutUsSwiperChange = (swiper:any) => {
         >
           <SwiperSlide v-for="slide in 4" :key="slide" >
             <div class="index-aboutUs-in ">
-            <div class="index-aboutUs-in-l">
-              <img class="pcBox" src="@/assets/images/aboutUs_gb.jpg" alt="">
-              <img class="mbBox" src="https://static.cmereye.com/imgs/2023/04/312ab3f184b7daf5.jpg" alt="">
-            </div>
-            <div class="index-aboutUs-in-r">
-              <div>科技護航，安全放心</div>
-              <span>優質的診療服務，在於醫生的專業素養，</span>
-              <span>"以及匹配的醫療設備的先進程度。愛康健從口腔檢查到臨床手術，全程採購主流牙科設備，與時俱進開展醫生職業技能培訓。我們信奉技術，加進口設備，才能有好的診療功效。"</span>
-            </div>
+              <div class="index-aboutUs-in-l">
+                <img class="pcBox" src="@/assets/images/aboutUs_gb.jpg" alt="">
+                <img class="mbBox" src="https://static.cmereye.com/imgs/2023/04/312ab3f184b7daf5.jpg" alt="">
+              </div>
+              <div class="index-aboutUs-in-r">
+                <div>科技護航，安全放心</div>
+                <span>優質的診療服務，在於醫生的專業素養，</span>
+                <span>"以及匹配的醫療設備的先進程度。愛康健從口腔檢查到臨床手術，全程採購主流牙科設備，與時俱進開展醫生職業技能培訓。我們信奉技術，加進口設備，才能有好的診療功效。"</span>
+              </div>
             </div>
           </SwiperSlide>  
           <div class="aboutUs-lineBox">
@@ -82,12 +82,55 @@ const onSlideAboutUsSwiperChange = (swiper:any) => {
       position: absolute;
       left: calc(55% + 100px);
       bottom: 100px;
-      width: 423px;
+      width: 324px;
       z-index: 100;
     }
   }
 }
-
+@media (min-width: 768px) and (max-width: 1452px) {
+  .index-aboutUs{
+    &-in{
+      &-r{
+        padding-left: 50px;
+        div{
+          font-size: 1.5rem;
+          margin-bottom: 50px;
+          margin-top: 70px;
+        }
+        span{
+          font-size: 1rem;
+        }
+      }
+    }
+    .swiperBox{
+      .aboutUs-lineBox{
+        left: calc(55% + 50px);
+        width: 20%;
+        bottom: 10%;
+      }
+    }
+  }
+}
+@media (min-width: 768px) and (max-width: 1000px) {
+  .index-aboutUs{
+    margin-top: 110px;
+    &-in{
+      &-r{
+        padding-left: 30px;
+        div{
+          margin-bottom: 10px;
+          margin-top: 30px;
+        }
+      }
+    }
+    .swiperBox{
+      .aboutUs-lineBox{
+        left: calc(55% + 30px);
+        bottom: 5%;
+      }
+    }
+  }
+}
 @media screen and (max-width: 768px) {
 //關於我們
   .index-aboutUs{

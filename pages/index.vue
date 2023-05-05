@@ -271,6 +271,27 @@ const dentalServicesPagesList = [
   }
 }
 
+@media (min-width: 768px) and (max-width: 1452px) {
+  .index-dentalServices {
+    padding: 110px 0 0;
+    &-in {
+      padding: 50px 0;
+      .dentalServices-box {
+        &-in{
+          width: 18%;
+          height: auto;
+          padding-bottom: 20px;
+          h3 {
+            font-size: 1.6rem;
+          }
+          span {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+}
 
 @media screen and (max-width: 768px) {
   .indexPage {

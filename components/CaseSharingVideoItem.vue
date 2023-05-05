@@ -54,6 +54,7 @@
       line-height: 160%;
       color: #4D4D4D;
       margin-top: 20px;
+      z-index: 1;
     }
     .skill{
       font-weight: 700;
@@ -61,6 +62,7 @@
       line-height: 160%;
       color: #FFA09E;
       text-indent: 40px;
+      z-index: 1;
     }
     .process{
       font-weight: 700;
@@ -89,6 +91,36 @@
   }
 }
 
+@media (min-width: 768px) and (max-width: 1452px) {
+  .caseSaringVideoItem{
+    &-l{
+      width: 45%;
+      img{
+        height: 350px;
+      }
+    }
+    &-r{
+      padding: 25px;
+      .name{
+        font-size: 1.8rem;
+        margin-top: 10px;
+      }
+      .skill{
+        font-size: 1.7rem;
+      }
+      .process{
+        font-size: 1.7rem;
+        margin-top: 50px;
+      }
+      .text{
+        font-size: 1.4rem;
+      }
+      .bg_box{
+        width: 109%;
+      }
+    }
+  }
+}
 
 @media screen and (max-width: 768px) {
   .caseSaringVideoItem{

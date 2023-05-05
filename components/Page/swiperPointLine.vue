@@ -1,4 +1,6 @@
+
 <script lang="ts" setup>
+import { defineProps } from "vue"
 defineProps({
   // 个数
   latestNewsNum: {
@@ -68,13 +70,33 @@ const handleSwiperItem = (idx: Number) => {
       }
     }
   }
-@media screen and (max-width: 768px) {
+@media (min-width: 1000px) and (max-width: 1452px) {
   .point{
+    .boxLine{
+      height: 3px;
+    }
+    .boxLine-current{
+      height: 3px;
+    }
+    .boxRound{
+      top: -8px;
+      &-in{
+        width: 20px;
+        height: 20px;
+      } 
+    }
+  }
+}
+@media screen and (max-width: 1000px) {
+  .point{
+    .boxLine{
+      height: 2px;
+    }
     .boxLine-current{
       height: 2px;
     }
     .boxRound{
-      top: -6px;
+      top: -7px;
       &-in{
         width: 16px;
         height: 16px;

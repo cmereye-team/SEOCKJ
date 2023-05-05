@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-
+import { defineProps } from "vue"
 defineProps({
   headerBg: {
     type: String,
@@ -325,7 +325,6 @@ const handleMenu = (_idx: number) => {
           box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
           &-item{
             width: 100%;
-            // background: #FFF1F0;
             text-align: center;
             padding: 10px 20px 5px;
             font-weight: 500;
@@ -337,8 +336,6 @@ const handleMenu = (_idx: number) => {
             }
             &:hover{
               color: #FFA09E;
-              // background: #FFCECB;
-              // text-shadow: 0px 0px 8px rgba(255, 120, 117, 0.65);
             }
           }
           &::before{
@@ -459,22 +456,92 @@ const handleMenu = (_idx: number) => {
   display: none;
 }
 
+@media (min-width: 768px) and (max-width: 1000px) {
+  .header-content {
+    &-bgImg {
+      &-in{
+        left: 50%;
+        top: 15%;
+        .bannerTitle{
+          font-size: 2.0rem;
+          line-height: 130%;
+          span{
+            display: block;
+            &:last-child{
+              margin-left: 10%;
+            }
+          }
+        }
+        .text{
+          margin-top: 1%;
+          font-size: 1.2rem;
+          line-height: 130%;
+          span{
+            font-size: 1.2rem;
+            color: #FFCECB;
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: 1000px) and (max-width: 1452px) {
+  .header-content {
+    &-bgImg {
+      &-in{
+        top: 20%;
+        .bannerTitle{
+          font-size: 2.5rem;
+          line-height: 130%;
+          span{
+            display: block;
+            &:last-child{
+              margin-left: 15%;
+            }
+          }
+        }
+        .text{
+          margin-top: 2%;
+          font-size: 1.4rem;
+          line-height: 130%;
+          span{
+            font-size: 1.4rem;
+            color: #FFCECB;
+          }
+        }
+      }
+    }
+  }
+}
 
 @media (min-width: 768px) and (max-width: 1200px) {
   .header-content {
     &-in {
-      // padding-left: 20px;
       .logo {
         width: 22%;
+        margin-bottom: 10px;
       }
       .menu {
-        & > div {
+        .menuItem {
           font-size: 100%;
-          padding: 0 2%;
+          padding: 0 2% 10px;
           &.triangleIcon:after {
-            border: 0.5rem solid;
-            bottom: -0.9rem;
+            border: 5px solid;
             border-color: #4d4d4d transparent transparent transparent;
+          }
+          .menuChild{
+            padding: 0 10px;
+            &-item{
+              font-size: 1rem;
+            }
+            &::before{
+              border: 5px solid;
+              border-color: transparent transparent #fff transparent;
+              position: absolute;
+              top: -10px;
+              left: 50%;
+              transform: translateX(-50%);
+            }
           }
         }
       }

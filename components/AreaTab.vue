@@ -38,6 +38,13 @@ var areaTabs = [
     }
   }
 }
+@media (min-width: 768px) and (max-width: 1452px) {
+  .areaTab{
+    &>div{
+      padding: 5px 10px 3px;
+    }
+  }
+}
 @media screen and (max-width: 768px) {
   .areaTab{
       margin-top: 34px;

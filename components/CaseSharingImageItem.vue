@@ -70,8 +70,32 @@
   }
 } 
 
+@media (min-width: 1000px) and (max-width: 1452px) {
+  .caseSaringImageItem{
+    width: 49%;
+    padding: 20px;
+    height: auto;
+    &-t{
+      .text{
+        font-size: 1.5rem;
+      }
+      &>div{
+        top: 50%;
+        .name{
+          font-size: 1.6rem;
+        }
+        .skill{
+          font-size: 1.5rem;
+        }
+      }
+    }
+    &-b{
 
-@media screen and (max-width: 768px) {
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
   .caseSaringImageItem{
     width: 100%;
     padding: 30px;

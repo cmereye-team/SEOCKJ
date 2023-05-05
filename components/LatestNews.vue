@@ -18,15 +18,15 @@ const onSlideChange = (swiper:any) => {
 </script>
 
 <template>
-  <div class="index-latestNews">
-      <div class="index-latestNews-t pageCon">
+  <div class="index-latestNews pageCon">
+      <div class="index-latestNews-t">
         <div class="index_title">最新消息</div>
         <div class="pcBox">
            <dropdownCon v-if="titleLeftShow" />
         </div>
       </div>
       <Swiper
-        class="swiperBox pageCon"
+        class="swiperBox"
         :loop="true"
         @slideChange="onSlideChange"
       >
@@ -75,7 +75,7 @@ const onSlideChange = (swiper:any) => {
       justify-content: center;
       z-index: 100;
       &-in{
-        width: 423px;
+        width: 324px;
         margin: 0 auto;
       }
     }
@@ -122,6 +122,40 @@ const onSlideChange = (swiper:any) => {
   &-t{
     display: flex;
     justify-content: space-between;
+  }
+}
+@media (min-width: 768px) and (max-width: 1452px) {
+  .index-latestNews {
+    .swiperBox{
+      .lineBox{
+        width: 42%;
+        bottom: 10%;
+        &-in{
+          width: 50%;
+          margin: 0 auto;
+        }
+      }
+    }
+    &-in{
+      &-l{
+        width: 58%;
+      }
+      &-r{
+        &>img{
+          margin: 20% 0 0;
+          width: 80%;
+        }
+        .btn{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 45%;
+          height: 14.5%;
+          margin-bottom: 20%;
+          font-size: 1.5rem;
+        }
+      }
+    }
   }
 }
 @media screen and (max-width: 768px) {
