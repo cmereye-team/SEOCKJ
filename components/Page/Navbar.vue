@@ -52,7 +52,7 @@ const toPageTop = () =>{
 .navbar-content {
   width: 66px;
   position: fixed;
-  right: 10vw;
+  right: 3vw;
   top: 30vh;
   z-index: 50;
   &-in {
@@ -75,6 +75,11 @@ const toPageTop = () =>{
   }
   &-mb{
     display: none;
+  }
+}
+@media (min-width: 1920px){
+  .navbar-content {
+    right: calc((100% - 1920px) / 2 + 90px);
   }
 }
 @media screen and (max-width: 768px) {

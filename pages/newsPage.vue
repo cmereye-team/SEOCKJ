@@ -192,6 +192,96 @@ const getWindowWidth = () => {
       }
     }
   }
+  @media (min-width: 768px) and (max-width: 1452px) {
+    .newsItem{
+      height: calc(30vw + 60px);
+      padding: 30px;
+      &-in{
+        &-l{
+          width: 30vw;
+        }
+        &-c{
+          .title{
+            height: 50px;
+            font-size: 2.5rem;
+            line-height: 130%;
+            border-left: 15px solid #FFCECB;
+          }
+          .content{
+            font-size: 1.4rem;
+          }
+          .time{
+            font-size: 1.4rem;
+          }
+          .btn{
+            width: 30%;
+            font-size: 1.5rem;
+            height: 60px;
+            line-height: 60px;
+          }
+        }
+        &-r{
+          width: 10vw;
+          height: 10vw;
+          span{
+            font-size: 30px;
+            width: 70%;
+            &:first-child{
+              border-bottom: 3px solid #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1200px) {
+    .newsItem{
+      height: calc(30vw + 60px);
+      padding: 30px;
+      &-in{
+        &-l{
+          width: 30vw;
+        }
+        &-c{
+          .title{
+            height: 3.5vw;
+            font-size: 3vw;
+            border-left: 10px solid #FFCECB;
+          }
+          .content{
+            font-size: 1rem;
+          }
+          .time{
+            font-size: 1rem;
+          }
+          .btn{
+            font-size: 2vw;
+            height: 5vw;
+            line-height: 5vw;
+          }
+        }
+        &-r{
+          span{
+            font-size: 20px;
+            &:first-child{
+              border-bottom: 2px solid #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1000px) {
+    .newsItem{
+      &-in{
+        &-c{
+          .title{
+            font-size: 2.5vw;
+          }
+        }
+      }
+    }
+  }
   @media screen and (max-width: 768px) {
     .newsPage{
       padding-bottom: 90px;

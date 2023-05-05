@@ -181,6 +181,43 @@ const getWindowResize = () => {
     }
   }
 }
+@media (min-width: 768px) and (max-width: 1452px) {
+  .index-contactUs{
+    padding: 110px 0 0;
+    &-in{
+      &-l{
+        padding-right: 30px;
+        span{
+          font-size: 1rem;
+          &:nth-of-type(4){
+            margin-top: 4vw;
+          }
+          &:nth-of-type(5){
+            margin-top: 2vw;
+          }
+          &:last-child{
+            margin-top: 2vw;
+          }
+        }
+        .mapBtn{
+          // padding: 0 30px;
+          margin-top: 45px;
+          &-in{
+            width: 45%;
+            max-width: 220px;
+            font-size: 1.3rem;
+          }
+        }
+      }
+      &-r{
+        height: 50vw;
+        .in-l,.in-r{
+          width: 50px;
+        }
+      }
+    }
+  }
+}
 @media screen and (max-width: 768px) {
   .index-contactUs{
     padding: 90px 0 0;
@@ -210,7 +247,7 @@ const getWindowResize = () => {
         }
         .contactUsAddressBox{
           display: flex;
-          height: 330px;
+          height: calc(100vw - 60px);
           margin: 20px 0;
           &>div{
             height: 100%;
