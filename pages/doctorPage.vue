@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 useHead({
-  title: "醫生團隊 -  愛康健"
+  title: "醫生團隊"
 })
 const doctorDetailLists = [
   {

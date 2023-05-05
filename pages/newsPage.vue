@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 useHead({
-  title: "最新消息 -  愛康健"
+  title: "最新消息"
 })
 const activeIndex = 0
 const handleNewsItem = (_idx:number) =>{

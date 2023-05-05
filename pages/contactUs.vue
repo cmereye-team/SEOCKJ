@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 useHead({
-  title: "聯絡我們 -  愛康健"
+  title: "聯絡我們"
 })
 </script>
 

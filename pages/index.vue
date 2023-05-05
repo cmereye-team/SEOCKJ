@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const { t } = useLang()
 useHead({
-  title: "主頁 -  愛康健"
+  title: "主頁"
 })
 
 //医生模块显示数据

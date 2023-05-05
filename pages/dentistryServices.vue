@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 useHead({
-  title: "牙科服務 -  愛康健"
+  title: "牙科服務"
 })
 
 
