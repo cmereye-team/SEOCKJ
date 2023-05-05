@@ -69,6 +69,7 @@
     ]
   },
   "dependencies": {
+    "@nuxtjs/google-fonts": "^3.0.0",
     "nuxt-swiper": "^1.1.0"
   }
 }

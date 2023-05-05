@@ -29,10 +29,10 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxt/content',
     '@vueuse/nuxt',
+    '@nuxtjs/google-fonts',
     'nuxt-windicss',
     'nuxt-swiper'
   ],
-
   // experimental features
   experimental: {
     reactivityTransform: false,

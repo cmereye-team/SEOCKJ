@@ -1,16 +1,30 @@
 <script lang="ts" setup>
+import { defineProps } from "vue"
+defineProps({
+  titleLeftShow:{
+    type: Boolean,
+    default: false
+  }
+})
+
+
 let latestNewsCurrent = ref(1)
 
+//走马灯事件
 const onSlideChange = (swiper:any) => {
   latestNewsCurrent.value = swiper.realIndex + 1
 }
-
 
 </script>
 
 <template>
   <div class="index-latestNews">
-      <div class="index_title pageCon">最新消息</div>
+      <div class="index-latestNews-t pageCon">
+        <div class="index_title">最新消息</div>
+        <div class="pcBox">
+           <dropdownCon v-if="titleLeftShow" />
+        </div>
+      </div>
       <Swiper
         class="swiperBox pageCon"
         :loop="true"
@@ -36,6 +50,9 @@ const onSlideChange = (swiper:any) => {
           </div>
         </div>
       </Swiper>
+      <div class="mbBox">
+         <dropdownCon  v-if="titleLeftShow" />
+      </div>
     </div>
 </template>
 
@@ -102,6 +119,10 @@ const onSlideChange = (swiper:any) => {
       }
     }
   }
+  &-t{
+    display: flex;
+    justify-content: space-between;
+  }
 }
 @media screen and (max-width: 768px) {
 //最新消息
@@ -141,6 +162,9 @@ const onSlideChange = (swiper:any) => {
           margin-bottom: 50px;
         }
       }
+    }
+    &-t{
+      flex-direction: column;
     }
   }
 }

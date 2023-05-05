@@ -50,7 +50,7 @@ const getWindowResize = () => {
           <span v-show="mapConShow">羅湖火車站：1路、7路、12路、17路、38路、82路、83路、97路、101路、102路、205路、215路、306路、387路、E13路、M112路、M152路、M401路、M508路、N14路、N16路、N18路、N2路、N4路、N7路、高峰專線73號</span>
           <span v-show="mapConShow">地鐵路線</span>
           <span v-show="mapConShow">地鐵1號線“羅湖站”C出口； 地鐵9號線“人民南站” A1出口</span>
-          <div class="mapBtn">
+          <div class="mapBtn" v-show="mapConShow">
             <div class="mapBtn-in">Google地圖</div>
             <div class="mapBtn-in">百度地圖</div>
           </div>
@@ -260,6 +260,14 @@ const getWindowResize = () => {
             vertical-align: middle;
             margin-left: 5px;
             margin-top: 5px;
+          }
+        }
+        .mapBtn{
+          padding: 0 30px;
+          margin-top: 30px;
+          &-in{
+            width: 150px;
+            font-size: 1.25rem;
           }
         }
       }

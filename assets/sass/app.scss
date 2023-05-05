@@ -7,7 +7,7 @@
 //Noto Serif HK
 
 body,div,span,h1,h2,h3,h4,h5,h6,p,li{
-  font-family: 'Noto Serif HK';
+  font-family: 'Noto Serif HK', serif;
 }
 
 
@@ -47,13 +47,13 @@ html.dark {
     background-color: theme('colors.slate.400');
   }
 }
-html{
+// html{
   // font-size: 16px;
   // -moz-text-size-adjust: 100%;
   // -webkit-text-size-adjust: 100%;
   // -ms-text-size-adjust: 100%;
   // text-size-adjust: 100%;
-}
+// }
 .bgColor{
   background: #FFCECB;
 }

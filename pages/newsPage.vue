@@ -41,7 +41,7 @@ const getWindowWidth = () => {
       :titlePosition="'left'"
     /> 
     <div class="newsPage">
-      <LatestNews />
+      <LatestNews :titleLeftShow="true" />
       <div class="newsBox pageCon">
         <div class="newsItem" v-for="(newItem,newIndex) in newsLists" :key="newIndex" @click="handleNewsItem(newIndex)">
           <div class="newsItem-in">
@@ -202,6 +202,10 @@ const getWindowWidth = () => {
       padding: 24px 24px 22px;
       height: auto;
       position: all .3s;
+      margin-top: 17px;
+      &:first-child{
+        margin-top: 0;
+      }
       &-in{
         flex-direction: column;
         position: relative;
