@@ -601,6 +601,7 @@ const handleMenu = (_idx: number) => {
       margin: 0;
       .logo{
         width: 150px;
+        margin-bottom: 0;
       }
       .menu{
         display: none;
