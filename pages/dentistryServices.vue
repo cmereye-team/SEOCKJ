@@ -1,6 +1,9 @@
 <script lang="ts" setup>
-// import { noteIcon } from '@/assets/images/dentistryServives/note'
-// require("@/assets/images/dentistryServives/note.png")
+useHead({
+  title: "牙科服務 -  愛康健"
+})
+
+
 const noteLists = [
   [
     {

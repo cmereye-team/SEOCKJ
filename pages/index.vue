@@ -1,9 +1,48 @@
 <script lang="ts" setup>
 const { t } = useLang()
-
+useHead({
+  title: "主頁 -  愛康健"
+})
 
 //医生模块显示数据
-const doctorLists = ['','','','','','','','','','','','']
+const doctorLists = [
+  {
+    imgUrl: 'doctor001',
+  },
+  {
+    imgUrl: 'doctor002',
+  },
+  {
+    imgUrl: 'doctor003',
+  },
+  {
+    imgUrl: 'doctor004',
+  },
+  {
+    imgUrl: 'doctor005',
+  },
+  {
+    imgUrl: 'doctor006',
+  },
+  {
+    imgUrl: 'doctor007',
+  },
+  {
+    imgUrl: 'doctor008',
+  },
+  {
+    imgUrl: 'doctor009',
+  },
+  {
+    imgUrl: 'doctor010',
+  },
+  {
+    imgUrl: 'doctor011',
+  },
+  {
+    imgUrl: 'doctor012',
+  },
+]
 
 //医生模块轮播图事件
 let doctorTeamCurrent = ref(1)
@@ -81,10 +120,10 @@ const dentalServicesPagesList = [
               }"
               @slideChange="onSlideDoctorTeamSwiperChange"
             >
-              <SwiperSlide v-for="slide in 3" :key="slide" >
+              <SwiperSlide v-for="slide in 1" :key="slide" >
                 <div class="doctorTeamPage">
                   <div class="doctorItem" v-for="(doctorItem,doctorIndex) in doctorLists" :key="doctorIndex">
-                    <img src="@/assets/images/doctor_01.png" alt="">
+                    <img :src="`/_nuxt/assets/images/doctor/${doctorItem.imgUrl}.png`" alt="">
                   </div>
                 </div>
               </SwiperSlide>
@@ -92,7 +131,7 @@ const dentalServicesPagesList = [
         </div>
         <div class="index-doctorTeam-b pageCon">
           <div class="index-doctorTeam-b-in">
-            <PageSwiperPointLine :latestNewsNum="3" :latestNewsCurrent="doctorTeamCurrent"></PageSwiperPointLine>
+            <PageSwiperPointLine :latestNewsNum="1" :latestNewsCurrent="doctorTeamCurrent"></PageSwiperPointLine>
           </div>
         </div>
       </div>

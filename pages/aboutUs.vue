@@ -1,3 +1,10 @@
+<script lang="ts" setup>
+useHead({
+  title: "個案分享 -  愛康健"
+})
+</script>
+
+
 <template>
   <div class="bigPageCon">
     <PageHeader

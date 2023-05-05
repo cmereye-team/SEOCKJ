@@ -1,3 +1,9 @@
+<script lang="ts" setup>
+useHead({
+  title: "品牌理念 -  愛康健"
+})
+</script>
+
 <template>
   <div class="bigPageCon">
     <PageHeader />

@@ -1,5 +1,7 @@
 <script lang="ts" setup>
-
+useHead({
+  title: "最新消息 -  愛康健"
+})
 const activeIndex = 0
 const handleNewsItem = (_idx:number) =>{
   newsLists.value[_idx].isShow = true

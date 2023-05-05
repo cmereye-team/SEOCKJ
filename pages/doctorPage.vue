@@ -1,3 +1,21 @@
+<script lang="ts" setup>
+useHead({
+  title: "醫生團隊 -  愛康健"
+})
+const doctorDetailLists = [
+  {
+    imgUrl: 'doctor01',
+  },
+  {
+    imgUrl: 'doctor02',
+  },
+  {
+    imgUrl: 'doctor03',
+  },
+]
+
+</script>
+
 <template>
   <div class="bigPageCon">
     <PageHeader
@@ -21,9 +39,9 @@
           </div>
         </div>
         <div class="doctorPage-in-lists pcBox">
-          <div class="doctorItem" v-for="item in 5" :key="item">
+          <div class="doctorItem" v-for="(item,index) in doctorDetailLists" :key="index">
             <div class="doctorItem-l">
-              <img src="@/assets/images/doctor/doctor01.png" alt="">
+              <img :src="`/_nuxt/assets/images/doctor/${item.imgUrl}.png`" alt="">
             </div>
             <div class="doctorItem-r">
               <div class="title">愛康健口腔醫院院長</div>
@@ -49,9 +67,9 @@
           </div>
           <div class="mbDoctorList-c">
             <div class="doctorPage-in-lists">
-              <div class="doctorItem" v-for="item in 5" :key="item">
+              <div class="doctorItem" v-for="(item,index) in doctorDetailLists" :key="index">
                 <div class="doctorItem-l">
-                  <img src="@/assets/images/doctor/doctor01.png" alt="">
+                  <img :src="`/_nuxt/assets/images/doctor/${item.imgUrl}.png`" alt="">
                 </div>
                 <div class="doctorItem-r">
                   <div class="doctorItem-r-t">

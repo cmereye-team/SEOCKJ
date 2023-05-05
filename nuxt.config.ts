@@ -33,6 +33,7 @@ export default defineNuxtConfig({
     'nuxt-windicss',
     'nuxt-swiper'
   ],
+
   // experimental features
   experimental: {
     reactivityTransform: false,

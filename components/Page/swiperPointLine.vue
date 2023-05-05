@@ -20,7 +20,7 @@ const handleSwiperItem = (idx: Number) => {
 
 <template>
   <div class="point">
-    <div class="boxLine"></div>
+    <div class="boxLine" v-show="latestNewsNum !== 1"></div>
     <div class="boxLine-current" :style="{width:`${ (latestNewsCurrent-1) * 100/(latestNewsNum-1) }%`}"></div>
     <div class="boxRound">
       <div class="boxRound-in" v-for="boxRoundIndex in latestNewsNum" :key="boxRoundIndex" @click="handleSwiperItem(boxRoundIndex)">
