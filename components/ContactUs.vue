@@ -92,6 +92,7 @@ const getWindowResize = () => {
         color: #FFCECB;
         position: relative;
         display: inline-block;
+        cursor: pointer;
         &:after {
           content: '';
           width: 0px;

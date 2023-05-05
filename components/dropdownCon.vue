@@ -83,26 +83,28 @@ const handleDropdownMonth = (_data: any) =>{
 }
 
 const aa = () => {
-  console.log('点击了下拉框')
+  // console.log('点击了下拉框')
   dropdownCategory.value = !dropdownCategory.value
 }
 
 onMounted(()=>{
   document.addEventListener('mouseup',(e:any)=>{
-    console.log('点击页面',e)
-    if(dropdownCategory.value){
-      let _con_1 = document.getElementById('category')
-      if(_con_1){
-        if(!_con_1.contains(e.target)){
-          dropdownCategory.value = false
+    // console.log('点击页面',e)
+    if(window.innerWidth>768){
+      if(dropdownCategory.value){
+        let _con_1 = document.getElementById('category')
+        if(_con_1){
+          if(!_con_1.contains(e.target)){
+            dropdownCategory.value = false
+          }
         }
       }
-    }
-    if(dropdownMonth.value){
-      let _con_2 = document.getElementById('month')
-      if(_con_2){
-        if(!_con_2.contains(e.target)){
-          dropdownMonth.value = false
+      if(dropdownMonth.value){
+        let _con_2 = document.getElementById('month')
+        if(_con_2){
+          if(!_con_2.contains(e.target)){
+            dropdownMonth.value = false
+          }
         }
       }
     }
