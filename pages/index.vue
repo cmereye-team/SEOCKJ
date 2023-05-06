@@ -7,42 +7,43 @@ useHead({
 //医生模块显示数据
 const doctorLists = [
   {
-    imgUrl: 'doctor001',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/05/516aeed6d967c676.png',
   },
   {
-    imgUrl: 'doctor002',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/05/80992f78106c7d53.png',
   },
   {
-    imgUrl: 'doctor003',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/05/1d3456ed3821c1c4.png',
   },
   {
-    imgUrl: 'doctor004',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/05/196b50324fc93fe4.png',
   },
   {
-    imgUrl: 'doctor005',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/05/1dbb3984575639ff.png',
   },
   {
-    imgUrl: 'doctor006',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/05/56e49b7148384404.png',
   },
   {
-    imgUrl: 'doctor007',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/05/34d614d0c682a526.png',
   },
   {
-    imgUrl: 'doctor008',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/05/1ef93f85ee9a633a.png',
   },
   {
-    imgUrl: 'doctor009',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/05/9784f0ad2629d595.png',
   },
   {
-    imgUrl: 'doctor010',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/05/88d453a0a618a07e.png',
   },
   {
-    imgUrl: 'doctor011',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/05/e860a5daa7853ce0.png',
   },
   {
-    imgUrl: 'doctor012',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/05/b77316390f0e14e2.png',
   },
 ]
+
 
 //医生模块轮播图事件
 let doctorTeamCurrent = ref(1)
@@ -123,7 +124,7 @@ const dentalServicesPagesList = [
               <SwiperSlide v-for="slide in 1" :key="slide" >
                 <div class="doctorTeamPage">
                   <div class="doctorItem" v-for="(doctorItem,doctorIndex) in doctorLists" :key="doctorIndex">
-                    <img :src="`/_nuxt/assets/images/doctor/${doctorItem.imgUrl}.png`" alt="">
+                    <img :src="doctorItem.imgUrl" alt="">
                   </div>
                 </div>
               </SwiperSlide>

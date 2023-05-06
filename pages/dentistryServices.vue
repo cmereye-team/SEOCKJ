@@ -8,37 +8,37 @@ const noteLists = [
   [
     {
       name: '輕咬紗布止血',
-      img: 'icon00001'
+      img: 'https://static.cmereye.com/imgs/2023/05/3df84ca0f998c8c0.png'
     },
     {
       name: '28小時內冰敷',
-      img: 'icon00002'
+      img: 'https://static.cmereye.com/imgs/2023/05/d3673c7df5e44e00.png'
     },
     {
       name: '48小時內熱敷',
-      img: 'icon00003'
+      img: 'https://static.cmereye.com/imgs/2023/05/7a60206e8f58b7e4.png'
     },
     {
       name: '依指示按時服藥',
-      img: 'icon00004'
+      img: 'https://static.cmereye.com/imgs/2023/05/951895bd4bbb436d.png'
     }
   ],
   [
     {
       name: '避免飲酒及抽煙',
-      img: 'icon00005'
+      img: 'https://static.cmereye.com/imgs/2023/05/8a2cf2b2976bbf5d.png'
     },
     {
       name: '進食流質食物',
-      img: 'icon00006'
+      img: 'https://static.cmereye.com/imgs/2023/05/3778c2175a77cfab.png'
     },
     {
       name: '避免激烈運動',
-      img: 'icon00007'
+      img: 'https://static.cmereye.com/imgs/2023/05/d52b8b6e7a3ba19d.png'
     },
     {
       name: '謹記定期複診',
-      img: 'icon00008'
+      img: 'https://static.cmereye.com/imgs/2023/05/f712b7d8611d5769.png'
     }
   ]
 ]
@@ -159,7 +159,7 @@ const reasonLists = ['常見種植牙的原因傳統治療方法(牙套、牙橋
           <div class="note-in-ul" v-for="(note,noteIndex) in noteLists" :key="noteIndex">
             <div class="note-in-ul-li" v-for="(noteChild,noteChildIndex) in note" :key="noteChildIndex">
               <div class="image">
-                <img :src="`/_nuxt/assets/images/dentistryServives/note/${noteChild.img}.png`" alt="">
+                <img :src="noteChild.img" alt="">
               </div>
               <div>{{noteChild.name}}</div>
             </div>

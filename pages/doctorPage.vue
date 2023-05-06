@@ -4,13 +4,13 @@ useHead({
 })
 const doctorDetailLists = [
   {
-    imgUrl: 'doctor01',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/05/86681f3a9fe6c1d3.png',
   },
   {
-    imgUrl: 'doctor02',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/05/03459bbf16883ac8.png',
   },
   {
-    imgUrl: 'doctor03',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/05/f1208f6a5c38f695.png',
   },
 ]
 
@@ -41,7 +41,7 @@ const doctorDetailLists = [
         <div class="doctorPage-in-lists pcBox">
           <div class="doctorItem" v-for="(item,index) in doctorDetailLists" :key="index">
             <div class="doctorItem-l">
-              <img :src="`/_nuxt/assets/images/doctor/${item.imgUrl}.png`" alt="">
+              <img :src="item.imgUrl" alt="">
             </div>
             <div class="doctorItem-r">
               <div class="title">愛康健口腔醫院院長</div>
@@ -69,7 +69,7 @@ const doctorDetailLists = [
             <div class="doctorPage-in-lists">
               <div class="doctorItem" v-for="(item,index) in doctorDetailLists" :key="index">
                 <div class="doctorItem-l">
-                  <img :src="`/_nuxt/assets/images/doctor/${item.imgUrl}.png`" alt="">
+                  <img :src="item.imgUrl" alt="">
                 </div>
                 <div class="doctorItem-r">
                   <div class="doctorItem-r-t">
