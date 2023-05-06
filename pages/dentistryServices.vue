@@ -181,12 +181,13 @@ const reasonLists = ['常見種植牙的原因傳統治療方法(牙套、牙橋
     .introduce{
       &-in{
         margin-top: 45px;
+        background: url(@/assets/images/dentistryServices_bg.jpg) no-repeat;
+        background-position: right top;
+        background-size: 75% auto;
         &-l{
           color: #4D4D4D;
           padding-bottom: 90px;
-          background: url(@/assets/images/dentistryServices_bg.jpg) no-repeat;
-          // background-size: 100% 100%;
-          background-position: right;
+          
           .title{
             font-weight: 700;
             font-size: 1.75rem;
@@ -382,9 +383,6 @@ const reasonLists = ['常見種植牙的原因傳統治療方法(牙套、牙橋
               justify-content: center;
               border-radius: 10px;
               background: #FFDDDA;
-              img{
-                // width: 80%;
-              }
             }
             &:nth-child(even)>.image{
               background: #FFF1F0;
@@ -425,6 +423,132 @@ const reasonLists = ['常見種植牙的原因傳統治療方法(牙套、牙橋
         height: 5px;
         background: #FFA09E;
         border-radius: 2px;
+      }
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1452px) {
+    .dentistryServices{
+      padding: 110px 0;
+      .introduce{
+        &-in{
+          margin-top: 3.5vw;
+          &-l{
+            padding-bottom: 7vw;
+            .title{
+              font-size: 1.75vw;
+            }
+            .text{
+              font-size: 3vw;
+              margin-top: .75vw;
+            }
+            .content{
+              font-size: 1.7vw;
+              width: 25vw;
+              margin-top: 5vw;
+            }
+            .tabNav{
+              font-size: 1.5vw;
+              margin-top: 6vw;
+            }
+          }
+        }
+      }
+      .reason{
+        padding: 3vw 0 8vw;
+        &-in{
+          &-l{
+            background-size: 19vw 19vw;
+            padding-left: 7vw;
+            .text_one{
+              font-size: 2vw;
+              margin-top: 5vw;
+            }
+            .text_two{
+              font-size: 3vw;
+              margin-top: 1.4vw;
+            }
+            .image{
+              width: 19vw;
+              height: 19vw;
+              margin-top: .5vw;
+              margin-left: 6vw;
+            }
+          }
+          &-r{
+            &>div{
+              font-size: 1.7vw;
+            }
+          }
+        }
+      }
+      .step{
+        padding: 6.5vw 0 7.5vw;
+        &-in{
+          padding: 3vw 4.8vw;
+          &-box{
+            .line{
+              width: .3vw;
+              top: 1.5vw;
+              left: .75vw;
+            }
+            .step-itemLists{
+              &-in{
+                height: 8vw;
+                .round{
+                  width: 1.7vw;
+                  height: 1.7vw;
+                  margin-right: .95vw;
+                  margin-top: .4vw;
+                }
+                .title{
+                  font-size: 1.9vw;
+                  margin-right: 1.9vw;
+                }
+                .text{
+                  font-size: 1.4vw;
+                  padding-top: .7vw;
+                }
+              }
+            }
+            &:first-child{
+              padding-right: 2.8vw;
+            }
+            &:last-child{
+              margin-left: 2.8vw;
+            }
+          }
+        }
+      }
+      .note{
+        &-in{
+          &-ul{
+            &-li{
+              margin-right: 6vw;
+            }
+          }
+        }
+      }
+      &-title{
+        &-in{
+          font-size: 3.4vw;
+        }
+        &-line{
+          width: 7vw;
+          height: 5px;
+        }
+      }
+    }
+  }
+  @media (min-width: 768px) and (max-width: 890px) {
+    .dentistryServices{
+      .note{
+        &-in{
+          &-ul{
+            &-li{
+              margin-right: 3vw;
+            }
+          }
+        }
       }
     }
   }

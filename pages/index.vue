@@ -83,7 +83,7 @@ const dentalServicesPagesList = [
     <PageHeader /> 
     <div class="indexPage">
     
-    <!-- 最新消息 -->
+      <!-- 最新消息 -->
       <LatestNews />
       <!-- 品牌理念 -->
       <brandConcept />

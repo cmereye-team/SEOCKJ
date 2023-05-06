@@ -51,7 +51,7 @@ var areaTabs = [
       margin-left: 30px;
       &>div{
         font-size: 1rem;
-        padding: 5px 10px;
+        padding: 4px 8.5px;
       }
     }
   }

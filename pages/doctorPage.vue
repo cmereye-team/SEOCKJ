@@ -243,6 +243,58 @@ const doctorDetailLists = [
       }
     }
   }
+  @media (min-width: 768px) and (max-width: 1452px) {
+    .doctorPage{
+      &-in{
+        &-lists{
+          .doctorItem{
+            height: 28vw;
+            &-l{
+              width: 28vw;
+              img{
+                width: 85%;
+              }
+            }
+            &-r{
+              padding-left: 3vw;
+              .title{
+                font-weight: 900;
+                font-size: 1.5vw;
+                line-height: 200%;
+              }
+              .org{
+                font-weight: 600;
+                font-size: 1.5vw;
+              }
+              .expertise{
+                font-weight: 600;
+                font-size: 1.5vw;
+              }
+              .name{
+                font-weight: 900;
+                font-size: 1.5vw;
+                line-height: 160%;
+                span{
+                  margin-right: 1.4vw;
+                  &:last-child{
+                    padding-left: 1.4vw;
+                  }
+                }
+              }
+              .btn{
+                font-size: 1.6vw;
+                margin-top: 4.8vw;
+                img{
+                  width: 1.4vw;
+                  margin-left: .75vw;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
   @media screen and (max-width: 768px) {
     .doctorPage{
       padding-bottom: 90px;
