@@ -1,5 +1,8 @@
 <script lang="ts" setup>
 import { defineProps } from "vue"
+import { useAppState } from '~/stores/appState'
+const route = useRoute()
+const appState = useAppState()
 defineProps({
   headerBg: {
     type: String,
@@ -33,7 +36,7 @@ const menuLists = [
   },
   {
     name: '牙科服務',
-    link: '',
+    link: `/dentistryServices/${appState.dentistryService}`,
     child: [
       {
         name: '全科牙科',
@@ -41,7 +44,7 @@ const menuLists = [
       },
       {
         name: '種植牙科',
-        link: '/dentistryServices',
+        link: '/dentistryServices/dentalImplant',
       },
       {
         name: '矯齒牙科',
@@ -59,7 +62,7 @@ const menuLists = [
   },
   {
     name: '醫生團隊',
-    link: '',
+    link: `/doctorPage`,
     child: [
       {
         name: '羅湖區',
@@ -67,19 +70,19 @@ const menuLists = [
       },
       {
         name: '福田區',
-        link: '',
+        link: '/doctorPage',
       },
       {
         name: '南山區',
-        link: '',
+        link: '/doctorPage',
       },
       {
         name: '寶安區',
-        link: '',
+        link: '/doctorPage',
       },
       {
         name: '龍華區',
-        link: '',
+        link: '/doctorPage',
       },
     ],
   },
@@ -106,6 +109,34 @@ const handleMenu = (_idx: number) => {
   // console.log(menuActNum)
 }
 
+const handleMenuChild = ( _menu:any, _idx: number) =>{
+  if(_menu.link.includes('doctorPage')){
+    appState.setCurNum(_idx)
+  }
+}
+const classNamefilter = ( _menu:any, _idx: number) => {
+  let className = ''
+  if(route.path === '/doctorPage'){
+    if(_menu.link.includes('doctorPage')){
+      if(appState.areaTabCurNum === _idx){
+        className = 'menuChildCurrent'
+      }
+    }
+  }else if(route.path.includes('/dentistryServices')){
+    if(_menu.link.includes(appState.dentistryService)){
+      className = 'menuChildCurrent'
+    }
+  }
+  
+  // console.log('menu',_menu)
+  // console.log('_idx',_idx)
+  // console.log('areaTabCurNum',appState.areaTabCurNum)
+  // console.log('className',className)
+  // else if(_menu.link.includes('dentistryServices')){
+  //   return 'servicesPageCurrent'
+  // }
+  return className
+}
 
 </script>
 
@@ -150,13 +181,12 @@ const handleMenu = (_idx: number) => {
           <div class="menuItem"
             v-for="(menuItem, menuIndex) in menuLists"
             :key="menuIndex"
-            :class="menuItem.child.length ? 'triangleIcon' : ''"
           >
-            <nuxt-link :to="menuItem.link">
+            <nuxt-link :class="menuItem.child.length ? 'triangleIcon' : ''" :to="menuItem.link">
             {{ menuItem.name }}
             </nuxt-link>
             <div class="menuChild" v-if="menuItem.child.length">
-              <div class="menuChild-item" v-for="(menuChildItem,menuChildIndex) in menuItem.child" :key="menuChildIndex">
+              <div :class="['menuChild-item', classNamefilter(menuChildItem,menuChildIndex)]" v-for="(menuChildItem,menuChildIndex) in menuItem.child" :key="menuChildIndex" @click="handleMenuChild(menuItem,menuChildIndex)">
                 <nuxt-link :to="menuChildItem.link">
                 {{menuChildItem.name}}
                 </nuxt-link>
@@ -172,7 +202,7 @@ const handleMenu = (_idx: number) => {
       <div class="menuBox" :style="{top: (menuBoxBool ? '0' : '-100vh')}">
         <div class="menuLists">
           <div :class="['menuLists-item',item.child.length ? 'childIcon' : '']" v-for="(item, index) in menuLists" :key="index">
-            <nuxt-link :to="item.link">
+            <nuxt-link :to="!item.child.length ? item.link : ''">
               <div @click="handleMenu(index)">
                 {{item.name}}
               </div>
@@ -292,19 +322,43 @@ const handleMenu = (_idx: number) => {
       justify-content: flex-end;
       align-items: flex-end;
       .menuItem {
-        padding: 0 20px;
+        padding: 0 0 20px;
         cursor: pointer;
         font-size: 22px;
         font-weight: 600;
         position: relative;
-        padding-bottom: 20px;
-        .router-link-exact-active{
+        &>a{
+          padding: 0 20px 20px;
+        }
+        .triangleIcon:after {
+          content: '';
+          width: 0px;
+          height: 0px;
+          border: 10px solid;
+          border-color: #4d4d4d transparent transparent transparent;
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        .triangleIcon:hover{
+          &:after{
+            border-color: #ffa09e transparent transparent transparent;
+          }
+        }
+        &>.router-link-exact-active{
           color: #ffa09e;
           text-decoration-line: underline;
+          &.triangleIcon:after{
+            border-color: #ffa09e transparent transparent transparent;
+          }
         }
         &:hover {
           color: #ffa09e;
           text-decoration-line: underline;
+          .triangleIcon:after{
+            border-color: #ffa09e transparent transparent transparent;
+          }
         }
         &:hover .menuChild{
           display: flex;
@@ -326,7 +380,7 @@ const handleMenu = (_idx: number) => {
           &-item{
             width: 100%;
             text-align: center;
-            padding: 10px 20px 5px;
+            padding: 10px 0 5px;
             font-weight: 500;
             font-size: 1.25rem;
             color: #4d4d4d;
@@ -335,6 +389,9 @@ const handleMenu = (_idx: number) => {
               border-bottom: 1px solid #FFF1F0;
             }
             &:hover{
+              color: #FFA09E;
+            }
+            &.menuChildCurrent{
               color: #FFA09E;
             }
           }
@@ -349,22 +406,6 @@ const handleMenu = (_idx: number) => {
             left: 50%;
             transform: translateX(-50%);
           }
-        }
-      }
-      .triangleIcon:after {
-        content: '';
-        width: 0px;
-        height: 0px;
-        border: 10px solid;
-        border-color: #4d4d4d transparent transparent transparent;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      .triangleIcon:hover{
-        &:after{
-          border-color: #ffa09e transparent transparent transparent;
         }
       }
     }
@@ -524,8 +565,12 @@ const handleMenu = (_idx: number) => {
       .menu {
         .menuItem {
           font-size: 100%;
-          padding: 0 2% 10px;
-          &.triangleIcon:after {
+          padding: 0 0 10px;
+          &>a{
+            padding: 0 1.3vw 10px;
+            box-sizing: border-box;
+          }
+          .triangleIcon:after {
             border: 5px solid;
             border-color: #4d4d4d transparent transparent transparent;
           }

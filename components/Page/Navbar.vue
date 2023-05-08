@@ -36,7 +36,7 @@ const toPageTop = () =>{
       </div>
       <div>
         <div class="navBtn" @click="navLiBoxBool = !navLiBoxBool">立即預約</div>
-        <div class="navLiBox" :style="{bottom: (navLiBoxBool ? '200%' : '-100%')}">
+        <div class="navLiBox" :style="{bottom: (navLiBoxBool ? '100%' : '-100%')}">
           <div>
             WeChat
           </div>
@@ -142,10 +142,10 @@ const toPageTop = () =>{
         }
         .navLiBox{
           width: 100%;
-          height: 62px;
+          height: 124px;
           line-height: 62px;
           position: absolute;
-          bottom: -100%;
+          bottom: -50%;
           left: 0;
           transition: all .3s;
           z-index: 19;

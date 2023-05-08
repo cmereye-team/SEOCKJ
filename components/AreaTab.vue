@@ -1,13 +1,18 @@
 <script lang="ts" setup>
-let curNum = ref(0)
+import { useAppState } from '~/stores/appState'
+
 var areaTabs = [
   '羅湖區','福田區','南山區','寶安區','龍華區'
 ]
+const appState = useAppState()
+const handleAreaTab = (_idx: number) => {
+  appState.setCurNum(_idx)
+}
 </script>
 
 <template>
   <div class="areaTab">
-    <div :class="curNum === areaTabIndex ? 'isCur' : ''" v-for=" (areaTab,areaTabIndex) in areaTabs" :key="areaTabIndex" @click="curNum = areaTabIndex">{{areaTab}}</div>
+    <div :class="appState.areaTabCurNum === areaTabIndex ? 'isCur' : ''" v-for=" (item,areaTabIndex) in areaTabs" :key="areaTabIndex" @click="handleAreaTab(areaTabIndex)">{{item}}</div>
   </div>
 </template>
 

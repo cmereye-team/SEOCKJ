@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { defineProps } from "vue"
+import { Autoplay } from 'swiper';
 defineProps({
   titleLeftShow:{
     type: Boolean,
@@ -25,12 +26,16 @@ const onSlideChange = (swiper:any) => {
            <dropdownCon v-if="titleLeftShow" />
         </div>
       </div>
-      <Swiper
+      <swiper
         class="swiperBox"
         :loop="true"
+        :modules="[Autoplay]"
+        :autoplay="{
+          delay: 2500,
+        }"
         @slideChange="onSlideChange"
       >
-        <SwiperSlide v-for="latestNewsItem in 4" :key="latestNewsItem">
+        <swiper-slide v-for="latestNewsItem in 4" :key="latestNewsItem">
           <div class="index-latestNews-in">
             <div class="index-latestNews-in-l">
               <img class="pcBox" src="https://static.cmereye.com/imgs/2023/04/af8ffdc3e6b0a67c.jpg" alt="">
@@ -43,7 +48,7 @@ const onSlideChange = (swiper:any) => {
               </div>
             </div>
           </div>
-        </SwiperSlide>
+        </swiper-slide>
         <div class="lineBox">
           <div class="lineBox-in">
             <PageSwiperPointLine :latestNewsNum="4" :latestNewsCurrent="latestNewsCurrent"></PageSwiperPointLine>
