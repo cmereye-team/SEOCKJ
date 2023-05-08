@@ -21,7 +21,7 @@ const handleAreaTab = (_idx: number) => {
   display: flex;
   border-radius: 5px;
   &>div{
-    padding: 10px 20px 5px;
+    padding: 5px 20px;
     cursor: pointer;
     background: #FFDDDA;
     font-weight: 500;

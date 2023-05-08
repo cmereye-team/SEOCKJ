@@ -42,7 +42,7 @@ const onSlideChange = (swiper:any) => {
               <img class="mbBox" src="https://static.cmereye.com/imgs/2023/04/fbd42a968440461c.jpg" alt="">
             </div>
             <div class="index-latestNews-in-r">
-              <img src="@/assets/images/icon_10.png" alt="">
+              <img src="https://static.cmereye.com/imgs/2023/05/a50d9e0246e0d460.png" alt="">
               <div class="btn">
                 <span>了解更多</span>
               </div>

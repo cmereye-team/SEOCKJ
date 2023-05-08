@@ -56,23 +56,28 @@ const dentalServicesPagesList = [
   {
     title: '全科牙科',  //全科牙科
     pcImg: 'https://static.cmereye.com/imgs/2023/04/f76f7533f148b28f.jpg',
-    mbImg: 'https://static.cmereye.com/imgs/2023/04/4a393cf514e04325.jpg'
+    mbImg: 'https://static.cmereye.com/imgs/2023/04/4a393cf514e04325.jpg',
+    link: ''
   },{
     title: '種植牙科',  //種植牙科
     pcImg: 'https://static.cmereye.com/imgs/2023/04/8ab832a4008bbe41.jpg',
-    mbImg: 'https://static.cmereye.com/imgs/2023/04/6b647f537779629d.jpg'
+    mbImg: 'https://static.cmereye.com/imgs/2023/04/6b647f537779629d.jpg',
+    link: '/dentistryServices/dentalImplant'
   },{
     title: '矯齒牙科',  //矯齒牙科
     pcImg: 'https://static.cmereye.com/imgs/2023/04/ddea98c028072525.jpg',
-    mbImg: 'https://static.cmereye.com/imgs/2023/04/d017f197ce790ac6.jpg'
+    mbImg: 'https://static.cmereye.com/imgs/2023/04/d017f197ce790ac6.jpg',
+    link: ''
   },{
     title: '美容牙科',  //美容牙科
     pcImg: 'https://static.cmereye.com/imgs/2023/04/c9adcbbc63580982.jpg',
-    mbImg: 'https://static.cmereye.com/imgs/2023/04/9c92afda6655eae2.jpg'
+    mbImg: 'https://static.cmereye.com/imgs/2023/04/9c92afda6655eae2.jpg',
+    link: ''
   },{
     title: '兒童牙科',  //兒童牙科
     pcImg: 'https://static.cmereye.com/imgs/2023/04/d6c26df971b3a3f1.jpg',
-    mbImg: 'https://static.cmereye.com/imgs/2023/04/40d24f9212839593.jpg'
+    mbImg: 'https://static.cmereye.com/imgs/2023/04/40d24f9212839593.jpg',
+    link: ''
   }
 ]
 
@@ -94,12 +99,14 @@ const dentalServicesPagesList = [
         <div class="index-dentalServices-in">
           <div class="dentalServices-box pageCon">
             <div class="dentalServices-box-in" v-for="(serviceCar,serviceCarIndex) in dentalServicesPagesList" :key="serviceCarIndex">
-              <div class="images">
-                <img class="pcBox" :src="serviceCar.pcImg" alt="">
-                <img class="mbBox" :src="serviceCar.mbImg" alt="">
-              </div>
-              <h3>{{serviceCar.title}}</h3>
-              <span>了解更多</span>
+              <nuxt-link :to="serviceCar.link">
+                <div class="images">
+                  <img class="pcBox" :src="serviceCar.pcImg" alt="">
+                  <img class="mbBox" :src="serviceCar.mbImg" alt="">
+                </div>
+                <h3>{{serviceCar.title}}</h3>
+                <span>了解更多</span>
+              </nuxt-link>
             </div>
           </div>
         </div>

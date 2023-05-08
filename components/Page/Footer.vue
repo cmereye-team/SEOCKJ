@@ -48,7 +48,7 @@ const navLists = [
         </div>
       </div>
       <div class="w-30 md:absolute md:right-20 md:bottom-10">
-        <img class="w-full" src="@/assets/images/logo.png" alt="" />
+        <img class="w-full" src="https://static.cmereye.com/imgs/2023/05/5e148b7d20c0be51.png" alt="" />
       </div>
     </div>
     <!-- </section> -->

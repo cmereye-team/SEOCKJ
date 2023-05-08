@@ -22,7 +22,7 @@ const onSlideAboutUsSwiperChange = (swiper:any) => {
           <SwiperSlide v-for="slide in 4" :key="slide" >
             <div class="index-aboutUs-in ">
               <div class="index-aboutUs-in-l">
-                <img class="pcBox" src="@/assets/images/aboutUs_gb.jpg" alt="">
+                <img class="pcBox" src="https://static.cmereye.com/imgs/2023/05/77e7c4e4a2376aa8.jpg" alt="">
                 <img class="mbBox" src="https://static.cmereye.com/imgs/2023/04/312ab3f184b7daf5.jpg" alt="">
               </div>
               <div class="index-aboutUs-in-r">

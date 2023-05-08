@@ -2,7 +2,7 @@
   <div class="caseSaringVideoItem">
     <div class="caseSaringVideoItem-l">
       <!-- <video src=""></video> -->
-      <img src="@/assets/images/aboutUs_gb.jpg" alt="">
+      <img src="https://static.cmereye.com/imgs/2023/05/77e7c4e4a2376aa8.jpg" alt="">
       <!-- <iframe
         class="pcShow"
         width="100%"

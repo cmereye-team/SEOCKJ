@@ -1,4 +1,7 @@
 <script lang="ts" setup>
+import { useAppState } from '~/stores/appState'
+const appState = useAppState()
+appState.setDentistryService('dentalImplant')
 useHead({
   title: "牙科服務"
 })
@@ -77,11 +80,6 @@ const reasonLists = ['常見種植牙的原因傳統治療方法(牙套、牙橋
 
 
 
-
-
-
-
-
 </script>
 
 
@@ -119,7 +117,7 @@ const reasonLists = ['常見種植牙的原因傳統治療方法(牙套、牙橋
             <div class="text_one">關於植牙</div>
             <div class="text_two">常見種植牙的原因？</div>
             <div class="image">
-              <img src="@/assets/images/dentalServices_reasonbg.jpg" alt="">
+              <img src="https://static.cmereye.com/imgs/2023/05/bab7e2cd0e553a7f.jpg" alt="">
             </div>
           </div>
           <div class="reason-in-r">
@@ -180,7 +178,7 @@ const reasonLists = ['常見種植牙的原因傳統治療方法(牙套、牙橋
     .introduce{
       &-in{
         margin-top: 45px;
-        background: url(@/assets/images/dentistryServices_bg.jpg) no-repeat;
+        background: url(https://static.cmereye.com/imgs/2023/05/24685e7fb53221e2.jpg) no-repeat;
         background-position: right top;
         background-size: 75% auto;
         &-l{

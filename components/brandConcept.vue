@@ -7,7 +7,6 @@
         <span>28年專注你的口腔健康</span>
       </div>
       <div class="brandConceptBg">
-        <!-- <img class="pcBox" src="@/assets/images/brandConcept_bg.jpg" alt="" /> -->
         <img class="mbBox" src="https://static.cmereye.com/imgs/2023/04/d4c1df365750c9c6.jpg" alt="">
       </div>
       <div class="content">
@@ -15,7 +14,6 @@
       </div>
     </div>
     <div class="brandConcept-right">
-      <!-- <img src="@/assets/images/brandConcept_bg.jpg" alt="" /> -->
     </div>
   </div>
 </template>
@@ -73,7 +71,7 @@
     right: 0;
     width: 70%;
     height: 100%;
-    background: url(@/assets/images/brandConcept_bg.jpg) no-repeat left center;
+    background: url(https://static.cmereye.com/imgs/2023/05/c8173ec71c34ec89.jpg) no-repeat left center;
     background-size: cover;
     z-index: 0;
   }

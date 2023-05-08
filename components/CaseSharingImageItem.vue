@@ -1,7 +1,7 @@
 <template>
   <div class="caseSaringImageItem">
     <div class="caseSaringImageItem-t">
-      <img src="@/assets/images/Jason.jpg" alt="">
+      <img src="https://static.cmereye.com/imgs/2023/05/d433466bb47da187.jpg" alt="">
       <span class="text">安心、舒服、無痛</span>
       <div>
         <span class="name">陳裳 Jason</span>
