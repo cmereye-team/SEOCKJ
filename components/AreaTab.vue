@@ -1,9 +1,6 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
 
-var areaTabs = [
-  '羅湖區','福田區','南山區','寶安區','龍華區'
-]
 const appState = useAppState()
 const handleAreaTab = (_idx: number) => {
   appState.setCurNum(_idx)
@@ -12,7 +9,7 @@ const handleAreaTab = (_idx: number) => {
 
 <template>
   <div class="areaTab">
-    <div :class="appState.areaTabCurNum === areaTabIndex ? 'isCur' : ''" v-for=" (item,areaTabIndex) in areaTabs" :key="areaTabIndex" @click="handleAreaTab(areaTabIndex)">{{item}}</div>
+    <div :class="appState.areaTabCurNum === areaTabIndex ? 'isCur' : ''" v-for=" (item,areaTabIndex) in appState.areaTabs" :key="areaTabIndex" @click="handleAreaTab(areaTabIndex)">{{item}}</div>
   </div>
 </template>
 
@@ -29,6 +26,7 @@ const handleAreaTab = (_idx: number) => {
     color: #fff;
     text-shadow: 0px 0px 8px rgba(255, 120, 117, 0.65);
     margin-left: 1px;
+    transition: all .5s;
     &:first-child{
       border-radius: 5px 0 0 5px;
     }

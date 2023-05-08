@@ -39,6 +39,16 @@ const doctorLists = [
       skilled: '电脑微创种植牙修复及治疗，对各种牙痛、牙龈出血、牙松动治疗及复杂牙拔除有丰富的临床经验。',
       educated: '口腔医学学士'
     },
+    // {
+    //   id: '4',
+    //   imgUrl: 'https://static.cmereye.com/imgs/2023/05/f1208f6a5c38f695.png',
+    //   name: '郑健',
+    //   org: '愛康健口腔醫院',
+    //   posts: '执业醫師',
+    //   job:'愛康健口腔醫院醫師',
+    //   skilled: '擅长麻醉、口腔种植各类上部修复。显微根管治疗，美学树脂充填，微创拔牙，牙体缺损及牙周治疗。',
+    //   educated: ''
+    // }
   ],
   // '福田區'
   [
@@ -80,7 +90,7 @@ const doctorLists = [
             <span>主頁</span>
             <!-- 醫生團隊 -->
             <span>醫生團隊</span>
-            <span>羅湖區</span>
+            <span>{{appState.areaTabs[appState.areaTabCurNum]}}</span>
           </div>
           <div>
             <AreaTab />

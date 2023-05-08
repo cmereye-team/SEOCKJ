@@ -184,8 +184,8 @@ const handleRightBtn = () => {
               <img src="@/assets/images/icon_5.png" alt="">
             </div>
             <div class="in-c">
-              <iframe :src="allAddressLists[appState.areaTabCurNum][currentAddress].addressUrl || ''" width="100%" height="100%" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-              <!-- <img src="https://static.cmereye.com/imgs/2023/04/3e6f553114c01879.jpg" alt=""> -->
+              <!-- <iframe :src="allAddressLists[appState.areaTabCurNum][currentAddress].addressUrl || ''" width="100%" height="100%" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+              <img src="https://static.cmereye.com/imgs/2023/04/3e6f553114c01879.jpg" alt="">
             </div>
             <div class="in-r" @click="handleRightBtn">
               <img src="@/assets/images/icon_5.png" alt="">
@@ -206,8 +206,8 @@ const handleRightBtn = () => {
             <img src="@/assets/images/icon_5.png" alt="">
           </div>
           <div class="in-c">
-            <iframe :src="allAddressLists[appState.areaTabCurNum][currentAddress].addressUrl || ''" width="100%" height="100%" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <!-- <img src="https://static.cmereye.com/imgs/2023/04/3e6f553114c01879.jpg" alt=""> -->
+            <!-- <iframe :src="allAddressLists[appState.areaTabCurNum][currentAddress].addressUrl || ''" width="100%" height="100%" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+            <img src="https://static.cmereye.com/imgs/2023/04/3e6f553114c01879.jpg" alt="">
           </div>
           <div class="in-r" @click="handleRightBtn">
             <img src="@/assets/images/icon_5.png" alt="">

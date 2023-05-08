@@ -78,6 +78,7 @@ const onSlideAboutUsSwiperChange = (swiper:any) => {
   }
   .swiperBox{
     position: relative;
+    cursor: pointer;
     .aboutUs-lineBox{
       position: absolute;
       left: calc(55% + 100px);

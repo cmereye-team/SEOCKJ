@@ -1,15 +1,94 @@
 <script lang="ts" setup>
-import { AppConfigInput } from '@nuxt/schema'
-import p from './../../package.json'
-const app = useAppConfig() as AppConfigInput
+
+import { useAppState } from '~/stores/appState'
+const appState = useAppState()
+// const navLists = [
+//   '主頁',
+//   '最新消息',
+//   '品牌理念',
+//   '牙科服務',
+//   '醫生團隊',
+//   '個案分享',
+//   '聯絡我們',
+// ]
 const navLists = [
-  '主頁',
-  '最新消息',
-  '品牌理念',
-  '牙科服務',
-  '醫生團隊',
-  '個案分享',
-  '聯絡我們',
+  {
+    name: '主頁',
+    link: '/',
+    child: [],
+  },
+  {
+    name: '最新消息',
+    link: '/newsPage',
+    child: [],
+  },
+  {
+    name: '品牌理念',
+    link: '/brandMind',
+    child: [],
+  },
+  {
+    name: '牙科服務',
+    link: `/dentistryServices/${appState.dentistryService}`,
+    child: [
+      {
+        name: '全科牙科',
+        link: '',
+      },
+      {
+        name: '種植牙科',
+        link: '/dentistryServices/dentalImplant',
+      },
+      {
+        name: '矯齒牙科',
+        link: '',
+      },
+      {
+        name: '美容牙科',
+        link: '',
+      },
+      {
+        name: '兒童牙科',
+        link: '',
+      }
+    ],
+  },
+  {
+    name: '醫生團隊',
+    link: `/doctorPage`,
+    child: [
+      {
+        name: '羅湖區',
+        link: '/doctorPage',
+      },
+      {
+        name: '福田區',
+        link: '/doctorPage',
+      },
+      {
+        name: '南山區',
+        link: '/doctorPage',
+      },
+      {
+        name: '寶安區',
+        link: '/doctorPage',
+      },
+      {
+        name: '龍華區',
+        link: '/doctorPage',
+      },
+    ],
+  },
+  {
+    name: '個案分享',
+    link: '/aboutUs',
+    child: [],
+  },
+  {
+    name: '聯絡我們',
+    link: '/contactUs',
+    child: [],
+  },
 ]
 
 
@@ -21,11 +100,15 @@ const navLists = [
     <div class="footer-content bigPageCon">
       <div class="footer-content-nav">
         <div v-for="(navItem, navIndex) in navLists" :key="navIndex">
-          {{ navItem }}
+          <nuxt-link :to="navItem.link">
+            {{ navItem.name }}
+          </nuxt-link>
         </div>
       </div>
       <div class="footer-content-logo_one">
-        <img src="@/assets/images/logo_2.png" alt="" />
+        <nuxt-link :to="'/'">
+          <img src="@/assets/images/logo_2.png" alt="" />
+        </nuxt-link>
       </div>
       <div class="footer-content-text">
         全程式預約一體化診療服務，讓每一位顧客享受健康微笑之旅。
@@ -48,7 +131,9 @@ const navLists = [
         </div>
       </div>
       <div class="w-30 md:absolute md:right-20 md:bottom-10">
-        <img class="w-full" src="https://static.cmereye.com/imgs/2023/05/5e148b7d20c0be51.png" alt="" />
+        <nuxt-link :to="'/'">
+          <img class="w-full" src="https://static.cmereye.com/imgs/2023/05/5e148b7d20c0be51.png" alt="" />
+        </nuxt-link>
       </div>
     </div>
     <!-- </section> -->
@@ -74,6 +159,7 @@ const navLists = [
       padding: 10px 20px;
       font-size: 22px;
       text-shadow: 0px 0px 4px rgba(255, 120, 117, 0.45);
+      cursor: pointer;
     }
   }
   &-logo_one {

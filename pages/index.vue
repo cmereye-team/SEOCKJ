@@ -128,7 +128,7 @@ const dentalServicesPagesList = [
               }"
               @slideChange="onSlideDoctorTeamSwiperChange"
             >
-              <SwiperSlide v-for="slide in 1" :key="slide" >
+              <SwiperSlide v-for="slide in 2" :key="slide" >
                 <div class="doctorTeamPage">
                   <div class="doctorItem" v-for="(doctorItem,doctorIndex) in doctorLists" :key="doctorIndex">
                     <img :src="doctorItem.imgUrl" alt="">
@@ -139,7 +139,7 @@ const dentalServicesPagesList = [
         </div>
         <div class="index-doctorTeam-b pageCon">
           <div class="index-doctorTeam-b-in">
-            <PageSwiperPointLine :latestNewsNum="1" :latestNewsCurrent="doctorTeamCurrent"></PageSwiperPointLine>
+            <PageSwiperPointLine :latestNewsNum="2" :latestNewsCurrent="doctorTeamCurrent"></PageSwiperPointLine>
           </div>
         </div>
       </div>
@@ -198,7 +198,10 @@ const dentalServicesPagesList = [
         .images{
           width: calc(100% - 1px);
           margin-left: 2px;
+          transition: all .3s;
+          overflow: hidden;
           img{
+            transition: all .3s;
             width: 100%;
           }
         }
@@ -210,6 +213,7 @@ const dentalServicesPagesList = [
           color: #4D4D4D;
           text-indent: 15px;
           margin-top: 34px;
+          transition: all .3s;
         }
         span {
           display: inline-block;
@@ -236,6 +240,12 @@ const dentalServicesPagesList = [
           }
         }
         &:hover{
+          .images{
+            transform: scale(1,1.1);
+            img{
+              transform: scale(1.1,1);
+            }
+          }
           h3{
             color: #FFA09E;
           }
