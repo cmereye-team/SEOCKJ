@@ -142,7 +142,7 @@ const classNamefilter = ( _menu:any, _idx: number) => {
 
 <template>
   <header>
-    <div class="header-content bigPageCon">
+    <div class="header-content ">
       <div class="header-content-bgImg">
         <img
           class="pcBox"

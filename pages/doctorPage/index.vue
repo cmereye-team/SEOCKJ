@@ -71,6 +71,7 @@ const doctorLists = [
 
 <template>
   <div class="bigPageCon">
+  <!-- <div> -->
     <PageHeader
       :headerBg="'https://static.cmereye.com/imgs/2023/04/3bb8b77175f2c68a.jpg'"
       :mbBg="'https://static.cmereye.com/imgs/2023/04/f044b7e9793c3038.jpg'"

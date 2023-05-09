@@ -37,6 +37,7 @@ const getWindowWidth = () => {
 
 <template>
   <div class="bigPageCon">
+  <!-- <div> -->
     <PageHeader
       :headerBg="'https://static.cmereye.com/imgs/2023/04/fbca451e1a8a9ba4.jpg'"
       :mbBg="'https://static.cmereye.com/imgs/2023/04/65b135487a85f4f0.jpg'"

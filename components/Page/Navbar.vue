@@ -79,7 +79,7 @@ const toPageTop = () =>{
 }
 @media (min-width: 1920px){
   .navbar-content {
-    right: calc((100% - 1920px) / 2 + 90px);
+    // right: calc((100% - 1920px) / 2 + 90px);
   }
 }
 @media screen and (max-width: 768px) {

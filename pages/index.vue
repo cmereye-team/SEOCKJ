@@ -1,8 +1,44 @@
 <script lang="ts" setup>
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+// if (process.client) {
+//     gsap.registerPlugin(MorphSVGPlugin);
+// }
+
+
 const { t } = useLang()
 useHead({
   title: "主頁"
 })
+
+onMounted(() => {
+  // gsap.registerPlugin(ScrollTrigger);
+  // gsap.to(".index_title", { x: 200 })
+  const anim = gsap.from(".index_title", {
+    opacity: 0, 
+    x: 100, 
+    duration: 3
+  });
+
+  ScrollTrigger.create({
+    trigger: ".index_title",
+    animation: anim,
+  })
+
+  // gsap.to(".dentalServices-box-in", {
+  //   // x: 400,
+  //   rotation: 360,
+  //   scrollTrigger: {
+  //     trigger: ".dentalServices-box-in",
+  //     start: "top center",
+  //     end: "top 300px",
+  //     scrub: true,
+  //     markers: true,
+  //     // id: "scrub"
+  //   }
+  // });
+});
 
 //医生模块显示数据
 const doctorLists = [
@@ -44,7 +80,6 @@ const doctorLists = [
   },
 ]
 
-
 //医生模块轮播图事件
 let doctorTeamCurrent = ref(1)
 const onSlideDoctorTeamSwiperChange = (swiper:any) => {
@@ -85,6 +120,7 @@ const dentalServicesPagesList = [
 
 <template>
   <div class="bigPageCon">
+  <!-- <div> -->
     <PageHeader /> 
     <div class="indexPage">
     

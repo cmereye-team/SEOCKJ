@@ -6,6 +6,7 @@ useHead({
 
 <template>
   <div class="bigPageCon">
+  <!-- <div> -->
     <PageHeader />
     <div class="brandMind">
       <brandConcept />
