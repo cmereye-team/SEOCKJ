@@ -3,7 +3,7 @@ import { defineProps } from "vue"
 import { useAppState } from '~/stores/appState'
 const route = useRoute()
 const appState = useAppState()
-const lsImgUrl = 'https://static.cmereye.com/imgs/2023/05/fdcfbb7e933b849d.png'
+const lsImgUrl = 'https://static.cmereye.com/imgs/2023/05/71929ca4c90a8d1e.png'
 const lsBgImgUrl = 'https://static.cmereye.com/imgs/2023/05/d8084e8da90409aa.jpg'
 defineProps({
   headerBg: {
