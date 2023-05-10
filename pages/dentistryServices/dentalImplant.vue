@@ -3,7 +3,7 @@ import { useAppState } from '~/stores/appState'
 const appState = useAppState()
 appState.setDentistryService('dentalImplant')
 useHead({
-  title: "牙科服務"
+  title: "種植牙科"
 })
 
 const noteLists = [

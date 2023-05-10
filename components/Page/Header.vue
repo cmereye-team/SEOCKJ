@@ -4,6 +4,7 @@ import { useAppState } from '~/stores/appState'
 const route = useRoute()
 const appState = useAppState()
 const lsImgUrl = 'https://static.cmereye.com/imgs/2023/05/fdcfbb7e933b849d.png'
+const lsBgImgUrl = 'https://static.cmereye.com/imgs/2023/05/d8084e8da90409aa.jpg'
 defineProps({
   headerBg: {
     type: String,
@@ -58,7 +59,7 @@ const menuLists = [
       },
       {
         name: '兒童牙科',
-        link: '',
+        link: '/dentistryServices/healthcare',
       }
     ],
   },
@@ -146,6 +147,7 @@ const classNamefilter = ( _menu:any, _idx: number) => {
   <header>
     <div class="header-content ">
       <div class="header-content-bgImg">
+        <img class="imgBgBox pcBox" :src="lsBgImgUrl" alt="">
         <div class="header-content-bgImg-imgInfo pageCon">
           <img
             :class="['pcBox',{ 'float-right': titlePosition === 'left'}]"
@@ -263,7 +265,7 @@ const classNamefilter = ( _menu:any, _idx: number) => {
     left: 50%;
     transform: translateX(-50%);
     z-index: -1;
-    background: #ccc;
+    // background: #ccc;
     &-imgInfo{
       &>img{
         width: 50%;
@@ -276,6 +278,14 @@ const classNamefilter = ( _menu:any, _idx: number) => {
       left: 50%;
       top: 0;
       transform: translateX(-50%);
+    }
+    .imgBgBox{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -2;
     }
     &>img {
       width: 100%;
