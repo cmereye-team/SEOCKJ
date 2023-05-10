@@ -3,10 +3,12 @@ import { defineProps } from "vue"
 import { useAppState } from '~/stores/appState'
 const route = useRoute()
 const appState = useAppState()
+const lsImgUrl = 'https://static.cmereye.com/imgs/2023/05/fdcfbb7e933b849d.png'
 defineProps({
   headerBg: {
     type: String,
     default: 'https://static.cmereye.com/imgs/2023/04/c9531b6beee976eb.jpg',
+    // default: 'https://static.cmereye.com/imgs/2023/05/fdcfbb7e933b849d.png'
   },
   mbBg:{
     type: String,
@@ -144,30 +146,34 @@ const classNamefilter = ( _menu:any, _idx: number) => {
   <header>
     <div class="header-content ">
       <div class="header-content-bgImg">
-        <img
-          class="pcBox"
-          :src="headerBg"
-          alt=""
-        />
+        <div class="header-content-bgImg-imgInfo pageCon">
+          <img
+            :class="['pcBox',{ 'float-right': titlePosition === 'left'}]"
+            :src="lsImgUrl"
+            alt=""
+          />
+        </div>
         <img
           class="mbBox"
           :src="mbBg"
           alt=""
         />
-        <div :class="['header-content-bgImg-in',{ 'bannerTitleLeft': titlePosition === 'left'}]">
-          <div class="bannerTitle">
-            <span>重拾自信笑容</span>
-            <span>愛牙愛己，由你做起</span>
-          </div>
-          <div class="text">
-            全程式預約一體化診療服務，讓每一位顧客享受
-            <span>健康微笑之旅。</span>
+        <div class="header-content-bgImg-textInfo pageCon">
+          <div :class="['header-content-bgImg-in',{ 'bannerTitleLeft': titlePosition === 'left'}]">
+            <div class="bannerTitle">
+              <span>重拾自信笑容</span>
+              <span>愛牙愛己，由你做起</span>
+            </div>
+            <div class="text">
+              全程式預約一體化診療服務，讓每一位顧客享受
+              <span>健康微笑之旅。</span>
+            </div>
           </div>
         </div>
       </div>
-      <div class="header-content-bgImgBB pcBox">
+      <div class="header-content-bgImgBB pageCon pcBox">
         <img
-          :src="headerBg"
+          :src="lsImgUrl"
           alt=""
         />
       </div>
@@ -250,15 +256,30 @@ const classNamefilter = ( _menu:any, _idx: number) => {
   position: relative;
   &-bgImg {
     width: 100%;
-    max-width: 1920px;
+    // max-width: 1920px;
     box-sizing: border-box;
     position: fixed;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
     z-index: -1;
-    img {
+    background: #ccc;
+    &-imgInfo{
+      &>img{
+        width: 50%;
+      }
+    }
+    &-textInfo{
+      position: absolute;
       width: 100%;
+      height: 100%;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+    }
+    &>img {
+      width: 100%;
+      // max-width: 1920px;
     }
     &-in{
       position: absolute;
@@ -290,19 +311,23 @@ const classNamefilter = ( _menu:any, _idx: number) => {
         }
       }
       &.bannerTitleLeft{
-        left: 13%;
+        left: 0%;
       }
     }
   }
   &-bgImgBB{
-    width: 100%;
+    // width: 100%;
     opacity: 0;
+    &>img{
+      width: 50%;
+    }
+    
     // z-index: 1;
     // background: none;
   }
   &-in {
     width: 100%;
-    max-width: 1490px;
+    // max-width: 1490px;
     display: flex;
     background: #fff;
     box-sizing: border-box;
@@ -502,7 +527,7 @@ const classNamefilter = ( _menu:any, _idx: number) => {
     &-bgImg {
       &-in{
         left: 50%;
-        top: 15%;
+        // top: 15%;
         .bannerTitle{
           font-size: 2.0rem;
           line-height: 130%;
@@ -525,12 +550,15 @@ const classNamefilter = ( _menu:any, _idx: number) => {
       }
     }
   }
+  .waterBg::after,.waterBg::before {
+    height: 140px;
+  }
 }
 @media (min-width: 1000px) and (max-width: 1452px) {
   .header-content {
     &-bgImg {
       &-in{
-        top: 20%;
+        top: 30%;
         .bannerTitle{
           font-size: 2.5rem;
           line-height: 130%;
@@ -597,6 +625,12 @@ const classNamefilter = ( _menu:any, _idx: number) => {
   .header-content {
     &-bgImg {
       position: relative;
+      &-textInfo{
+        position: static;
+        width: 100%;
+        background: #fff;
+        transform: none;
+      }
       &-in{
         position: static;
         .bannerTitle{
@@ -632,7 +666,8 @@ const classNamefilter = ( _menu:any, _idx: number) => {
           font-size: 1.25rem;
           width: 60vw;
           padding-left: 30px;
-          margin-top: 30px;
+          // margin-top: 30px;
+          margin-top: 0;
           span{
             font-size: 1.25rem;
           }

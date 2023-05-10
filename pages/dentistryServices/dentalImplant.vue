@@ -84,8 +84,8 @@ const reasonLists = ['常見種植牙的原因傳統治療方法(牙套、牙橋
 
 
 <template>
-  <div class="bigPageCon">
-  <!-- <div> -->
+  <div>
+  <!-- <div class="bigPageCon"> -->
     <PageHeader
      :headerBg="'https://static.cmereye.com/imgs/2023/04/306827fc69c5113d.jpg'"
      :mbBg="'https://static.cmereye.com/imgs/2023/04/90e1963571533efa.jpg'"
@@ -93,7 +93,7 @@ const reasonLists = ['常見種植牙的原因傳統治療方法(牙套、牙橋
     />
     <div class="dentistryServices">
       <!-- 介绍 -->
-      <div class="introduce">
+      <div class="introduce bigPageCon">
         <div class="index_title pageCon">牙科服務</div>
         <div class="introduce-in">
           <div class="introduce-in-t mbBox">

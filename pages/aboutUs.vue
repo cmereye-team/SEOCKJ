@@ -6,8 +6,8 @@ useHead({
 
 
 <template>
-  <div class="bigPageCon">
-  <!-- <div> -->
+  <div>
+  <!-- <div class="bigPageCon"> -->
     <PageHeader
      :headerBg="'https://static.cmereye.com/imgs/2023/04/2fc3c774fd9bc0aa.jpg'"
      :titlePosition="'left'"

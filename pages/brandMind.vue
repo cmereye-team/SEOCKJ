@@ -5,8 +5,8 @@ useHead({
 </script>
 
 <template>
-  <div class="bigPageCon">
-  <!-- <div> -->
+  <div>
+  <!-- <div class="bigPageCon"> -->
     <PageHeader />
     <div class="brandMind">
       <brandConcept />

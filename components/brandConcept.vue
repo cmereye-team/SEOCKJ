@@ -1,5 +1,5 @@
 <template>
-  <div class="index-brandConcept">
+  <div class="index-brandConcept bigPageCon">
     <div class="brandConcept-left pageCon">
       <div class="index_title">品牌理念</div>
       <div class="brandConcept-title">
