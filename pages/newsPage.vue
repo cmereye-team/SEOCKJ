@@ -40,6 +40,8 @@ const getWindowWidth = () => {
   <!-- <div class="bigPageCon"> -->
     <PageHeader
       :headerBg="'https://static.cmereye.com/imgs/2023/04/fbca451e1a8a9ba4.jpg'"
+      :headerImg="'https://static.cmereye.com/imgs/2023/05/c46fcc590da0ffdd.png'"
+      :headerBgImg="'https://static.cmereye.com/imgs/2023/05/de7105389a7f04b2.png'"
       :mbBg="'https://static.cmereye.com/imgs/2023/04/65b135487a85f4f0.jpg'"
       :titlePosition="'left'"
     /> 

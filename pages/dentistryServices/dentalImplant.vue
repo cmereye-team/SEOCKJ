@@ -7,42 +7,38 @@ useHead({
 })
 
 const noteLists = [
-  [
-    {
-      name: '輕咬紗布止血',
-      img: 'https://static.cmereye.com/imgs/2023/05/3df84ca0f998c8c0.png'
-    },
-    {
-      name: '28小時內冰敷',
-      img: 'https://static.cmereye.com/imgs/2023/05/d3673c7df5e44e00.png'
-    },
-    {
-      name: '48小時內熱敷',
-      img: 'https://static.cmereye.com/imgs/2023/05/7a60206e8f58b7e4.png'
-    },
-    {
-      name: '依指示按時服藥',
-      img: 'https://static.cmereye.com/imgs/2023/05/951895bd4bbb436d.png'
-    }
-  ],
-  [
-    {
-      name: '避免飲酒及抽煙',
-      img: 'https://static.cmereye.com/imgs/2023/05/8a2cf2b2976bbf5d.png'
-    },
-    {
-      name: '進食流質食物',
-      img: 'https://static.cmereye.com/imgs/2023/05/3778c2175a77cfab.png'
-    },
-    {
-      name: '避免激烈運動',
-      img: 'https://static.cmereye.com/imgs/2023/05/d52b8b6e7a3ba19d.png'
-    },
-    {
-      name: '謹記定期複診',
-      img: 'https://static.cmereye.com/imgs/2023/05/f712b7d8611d5769.png'
-    }
-  ]
+  {
+    name: '輕咬紗布止血',
+    img: 'https://static.cmereye.com/imgs/2023/05/d3673c7df5e44e00.png'
+  },
+  {
+    name: '28小時內冰敷',
+    img: 'https://static.cmereye.com/imgs/2023/05/951895bd4bbb436d.png'
+  },
+  {
+    name: '48小時內熱敷',
+    img: 'https://static.cmereye.com/imgs/2023/05/3df84ca0f998c8c0.png'
+  },
+  {
+    name: '依指示按時服藥',
+    img: 'https://static.cmereye.com/imgs/2023/05/7a60206e8f58b7e4.png'
+  },
+  {
+    name: '避免飲酒及抽煙',
+    img: 'https://static.cmereye.com/imgs/2023/05/8a2cf2b2976bbf5d.png'
+  },
+  {
+    name: '進食流質食物',
+    img: 'https://static.cmereye.com/imgs/2023/05/d52b8b6e7a3ba19d.png'
+  },
+  {
+    name: '避免激烈運動',
+    img: 'https://static.cmereye.com/imgs/2023/05/f712b7d8611d5769.png'
+  },
+  {
+    name: '謹記定期複診',
+    img: 'https://static.cmereye.com/imgs/2023/05/3778c2175a77cfab.png'
+  }
 ]
 
 const stepLists = [
@@ -89,6 +85,8 @@ const reasonLists = ['常見種植牙的原因傳統治療方法(牙套、牙橋
     <PageHeader
      :headerBg="'https://static.cmereye.com/imgs/2023/04/306827fc69c5113d.jpg'"
      :mbBg="'https://static.cmereye.com/imgs/2023/04/90e1963571533efa.jpg'"
+     :headerImg="'https://static.cmereye.com/imgs/2023/05/c46fcc590da0ffdd.png'"
+     :headerBgImg="'https://static.cmereye.com/imgs/2023/05/de7105389a7f04b2.png'"
      :titlePosition="'left'"
     />
     <div class="dentistryServices">
@@ -153,17 +151,16 @@ const reasonLists = ['常見種植牙的原因傳統治療方法(牙套、牙橋
           <div class="dentistryServices-title-in">種植牙後注意事項</div>
           <div class="dentistryServices-title-line"></div>
         </div>
-        <div class="note-in pageCon">
-          <div class="note-in-ul" v-for="(note,noteIndex) in noteLists" :key="noteIndex">
-            <div class="note-in-ul-li" v-for="(noteChild,noteChildIndex) in note" :key="noteChildIndex">
-              <div class="image">
-                <img :src="noteChild.img" alt="">
-              </div>
-              <div>{{noteChild.name}}</div>
+        <div class="noteCard pageCon">
+          <div class="noteCard-in" v-for="(note,noteIndex) in noteLists" :key="noteIndex">
+            <div class="noteCard-in-image">
+              <img :src="note.img" alt="">
             </div>
+            <div class="noteCard-in-name">{{note.name}}</div>
           </div>
         </div>
       </div>
+      <serviceCard />
       <ContactUs />
     </div>
     <PageFooter />
@@ -362,46 +359,48 @@ const reasonLists = ['常見種植牙的原因傳統治療方法(牙套、牙橋
     //注意事项
     .note{
       margin-top: 96px;
-      &-in{
-        margin-top: 54px;
+      .noteCard{
+        display: flex;
+        flex-wrap: wrap;
+        margin: 46px auto 0;
         width: 100%;
-        &-ul{
+        max-width: 1090px;
+        &-in{
+          cursor: pointer;
+          width: 25%;
           display: flex;
-          justify-content: center;
-          margin-top: 12px;
-          &-li{
-            width: 184px;
-            margin-right: 88px;
-            .image{
-              width: 100%;
-              height: 184px;
-              margin-bottom: 12px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              border-radius: 10px;
-              background: #FFDDDA;
+          flex-direction: column;
+          align-items: center;
+          padding: 0 45px;
+          box-sizing: border-box;
+          &-image{
+            width: 100%;
+            height: 0;
+            padding-top: 100%;
+            position: relative;
+            background: #FFF1F0;
+            border-radius: 10px;
+            img{
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%,-50%);
+              max-width: 90%;
+              max-height: 90%;
             }
-            &:nth-child(even)>.image{
-              background: #FFF1F0;
-            }
-            &:last-child{
-              margin-right: 0;
-            }
-            text-align: center;
+          }
+          &:nth-of-type(1)>&-image,&:nth-of-type(3)>&-image,&:nth-of-type(6)>&-image,&:nth-of-type(8)>&-image{
+            background: #FFDDDA;
+          }
+          &-name{
+            height: 64px;
+            line-height: 64px;
+            font-style: normal;
             font-weight: 600;
             font-size: 24px;
-            line-height: 160%;
             color: #4D4D4D;
+            text-align: center;
           }
-          &:last-child{
-            .note-in-ul-li:nth-child(odd)>.image{
-              background: #FFF1F0;
-            }
-            .note-in-ul-li:nth-child(even)>.image{
-              background: #FFDDDA;
-            }
-          } 
         }
       }
     }
@@ -518,10 +517,18 @@ const reasonLists = ['常見種植牙的原因傳統治療方法(牙套、牙橋
         }
       }
       .note{
-        &-in{
-          &-ul{
-            &-li{
-              margin-right: 6vw;
+        .noteCard{
+          &-in{
+            padding: 0 3vw;
+             &-image{
+              img{
+                max-width: 80%;
+                max-height: 80%;
+              }
+              &-name{
+                height: 60px;
+                line-height: 60px;
+              }
             }
           }
         }
@@ -679,25 +686,27 @@ const reasonLists = ['常見種植牙的原因傳統治療方法(牙套、牙橋
         }
       }
       .note{
-        &-in{
-          padding: 0 30px;
+        .noteCard{
+          padding: 0 21.5px;
           box-sizing: border-box;
-          margin-top: 18px;
-          &-ul{
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-top: 0;
-            &-li{
-              width: 150px;
-              margin-right: 0;
-              font-size: 1.25rem;
-              margin-top: 10px;
-              .image{
-                height: 150px;
-                img{
-                  width: 70%;
-                }
+          &-in{
+            width: 50%;
+            padding: 0 8.5px;
+            &-image{
+              img{
+                max-width: 70%;
+                max-height: 70%;
               }
+            }
+            &:nth-of-type(1)>&-image,&:nth-of-type(4)>&-image,&:nth-of-type(5)>&-image,&:nth-of-type(8)>&-image{
+              background: #FFDDDA;
+            }
+            &:nth-of-type(3)>&-image,&:nth-of-type(6)>&-image{
+              background: #FFF1F0;
+            }
+            &-name{
+              height: 56px;
+              line-height: 56px;
             }
           }
         }

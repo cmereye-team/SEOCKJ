@@ -10,6 +10,8 @@ useHead({
   <!-- <div class="bigPageCon"> -->
     <PageHeader
      :headerBg="'https://static.cmereye.com/imgs/2023/04/2fc3c774fd9bc0aa.jpg'"
+     :headerImg="'https://static.cmereye.com/imgs/2023/05/c46fcc590da0ffdd.png'"
+     :headerBgImg="'https://static.cmereye.com/imgs/2023/05/de7105389a7f04b2.png'"
      :titlePosition="'left'"
      :mbBg="'https://static.cmereye.com/imgs/2023/04/8ef2fe81c92fe697.jpg'"
     />

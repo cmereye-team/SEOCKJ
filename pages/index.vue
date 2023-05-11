@@ -2,11 +2,6 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-// if (process.client) {
-//     gsap.registerPlugin(MorphSVGPlugin);
-// }
-
-
 const { t } = useLang()
 useHead({
   title: "主頁"
@@ -14,30 +9,35 @@ useHead({
 
 onMounted(() => {
   // gsap.registerPlugin(ScrollTrigger);
-  // gsap.to(".index_title", { x: 200 })
-  const anim = gsap.from(".index_title", {
-    opacity: 0, 
-    x: 100, 
-    duration: 3
-  });
-
-  ScrollTrigger.create({
-    trigger: ".index_title",
-    animation: anim,
-  })
-
-  // gsap.to(".dentalServices-box-in", {
-  //   // x: 400,
-  //   rotation: 360,
-  //   scrollTrigger: {
-  //     trigger: ".dentalServices-box-in",
-  //     start: "top center",
-  //     end: "top 300px",
-  //     scrub: true,
-  //     markers: true,
-  //     // id: "scrub"
-  //   }
-  // });
+  // const animRightIn = (name: string) => {
+  //   return gsap.from(name, {
+  //     opacity: 0, 
+  //     x: 100, 
+  //     duration: 3
+  //   })
+  // }
+  // const animBottomIn = (name: string) => {
+  //   return gsap.from(name, {
+  //     opacity: 0, 
+  //     y: 100, 
+  //     duration: 3
+  //   })
+  // }
+  // ScrollTrigger.create({
+  //   trigger: ".index_title_1",
+  //   animation: animRightIn(".index_title_1"),
+  //   start: "bottom bottom",
+  // })
+  // ScrollTrigger.create({
+  //   trigger: ".index_title_2",
+  //   animation: animRightIn(".index_title_2"),
+  //   start: "bottom bottom",
+  // })
+  // ScrollTrigger.create({
+  //   trigger: ".dentalServices-box-in",
+  //   animation: animBottomIn(".dentalServices-box-in"),
+  //   start: "bottom bottom",
+  // })
 });
 
 //医生模块显示数据
@@ -130,8 +130,9 @@ const dentalServicesPagesList = [
       <brandConcept />
       <!-- 牙科服務 -->
       <!-- 全科牙科,種植牙科,矯齒牙科,美容牙科,兒童牙科 -->
-      <div class="index-dentalServices">
-        <div class="index_title pageCon">牙科服務</div>
+      <serviceCard :isIndexShow="true" />
+      <!-- <div class="index-dentalServices">
+        <div class="index_title_1 index_title pageCon">牙科服務</div>
         <div class="index-dentalServices-in">
           <div class="dentalServices-box pageCon">
             <div class="dentalServices-box-in" v-for="(serviceCar,serviceCarIndex) in dentalServicesPagesList" :key="serviceCarIndex">
@@ -146,13 +147,13 @@ const dentalServicesPagesList = [
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- 關於我們 -->
       <AboutUs />
       <!-- 醫生團隊 -->
       <div class="index-doctorTeam">
         <div class="index-doctorTeam-t pageCon">
-          <div class="index_title">醫生團隊</div>
+          <div class="index_title index_title_2">醫生團隊</div>
           <AreaTab />
         </div>
         <div class="index-doctorTeam-c pageCon">
@@ -210,86 +211,81 @@ const dentalServicesPagesList = [
   padding-bottom: 140px;
 }
 //牙科服務
-.index-dentalServices {
-  padding: 140px 0 0;
-  width: 100%;
-  // background: linear-gradient(180deg, #FFF1F0 0%, rgba(255, 241, 240, 0) 100%);
-  // 
-  &-in {
-    background: linear-gradient(180deg, #FFF1F0 0%, rgba(255, 241, 240, 0) 100%);
-    padding: 80px 0;
-    margin-top: 30px;
-    .dentalServices-box {
-      display: flex;
-      justify-content: space-between;
-      &-in{
-        cursor: pointer;
-        width: 280px;
-        height: 539px;
-        background: #ffffff;
-        box-shadow: 4px 4px 6px rgba(255, 163, 158, 0.25),
-          inset 1px -1px 0px #ffccc7;
-        border-radius: 10px;
-        overflow: hidden;
-        .images{
-          width: calc(100% - 1px);
-          margin-left: 2px;
-          transition: all .3s;
-          overflow: hidden;
-          img{
-            transition: all .3s;
-            width: 100%;
-          }
-        }
-        h3 {
-          font-weight: 700;
-          // font-size: 30px;
-          font-size: 1.87rem;
-          line-height: 160%;
-          color: #4D4D4D;
-          text-indent: 15px;
-          margin-top: 34px;
-          transition: all .3s;
-        }
-        span {
-          display: inline-block;
-          text-indent: 15px;
-          font-weight: 500;
-          // font-size: 15px;
-          font-size: 0.94rem;
-          line-height: 160%;
-          color: #4D4D4D;
-          margin-top: 30px;
-          position: relative;
-          &::after {
-            content: '';
-            background: url(@/assets/images/icon_4.png) no-repeat;
-            background-size: 100% 100%;
-            width: 15px;
-            height: 15px;
-            display: block;
-            position: absolute;
-            right: -20px;
-            top: 50%;
-            transform: translateY(-50%);
-            // width: ;
-          }
-        }
-        &:hover{
-          .images{
-            transform: scale(1,1.1);
-            img{
-              transform: scale(1.1,1);
-            }
-          }
-          h3{
-            color: #FFA09E;
-          }
-        }
-      }
-    }
-  }
-}
+// .index-dentalServices {
+//   padding: 140px 0 0;
+//   width: 100%;
+//   &-in {
+//     background: linear-gradient(180deg, #FFF1F0 0%, rgba(255, 241, 240, 0) 100%);
+//     padding: 80px 0;
+//     margin-top: 30px;
+//     .dentalServices-box {
+//       display: flex;
+//       justify-content: space-between;
+//       &-in{
+//         cursor: pointer;
+//         width: 280px;
+//         height: 539px;
+//         background: #ffffff;
+//         box-shadow: 4px 4px 6px rgba(255, 163, 158, 0.25),
+//           inset 1px -1px 0px #ffccc7;
+//         border-radius: 10px;
+//         overflow: hidden;
+//         .images{
+//           width: calc(100% - 1px);
+//           margin-left: 2px;
+//           transition: all .3s;
+//           overflow: hidden;
+//           img{
+//             transition: all .3s;
+//             width: 100%;
+//           }
+//         }
+//         h3 {
+//           font-weight: 700;
+//           font-size: 1.87rem;
+//           line-height: 160%;
+//           color: #4D4D4D;
+//           text-indent: 15px;
+//           margin-top: 34px;
+//           transition: all .3s;
+//         }
+//         span {
+//           display: inline-block;
+//           text-indent: 15px;
+//           font-weight: 500;
+//           font-size: 0.94rem;
+//           line-height: 160%;
+//           color: #4D4D4D;
+//           margin-top: 30px;
+//           position: relative;
+//           &::after {
+//             content: '';
+//             background: url(@/assets/images/icon_4.png) no-repeat;
+//             background-size: 100% 100%;
+//             width: 15px;
+//             height: 15px;
+//             display: block;
+//             position: absolute;
+//             right: -20px;
+//             top: 50%;
+//             transform: translateY(-50%);
+//           }
+//         }
+//         &:hover{
+//           .images{
+//             transform: scale(1,1.1);
+//             img{
+//               transform: scale(1.1,1);
+//             }
+//           }
+//           h3{
+//             color: #FFA09E;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 //醫生團隊
 .index-doctorTeam{
   margin: 140px 0;
@@ -365,25 +361,25 @@ const dentalServicesPagesList = [
 }
 
 @media (min-width: 768px) and (max-width: 1452px) {
-  .index-dentalServices {
-    padding: 110px 0 0;
-    &-in {
-      padding: 50px 0;
-      .dentalServices-box {
-        &-in{
-          width: 18%;
-          height: auto;
-          padding-bottom: 20px;
-          h3 {
-            font-size: 1.6rem;
-          }
-          span {
-            margin-top: 10px;
-          }
-        }
-      }
-    }
-  }
+  // .index-dentalServices {
+  //   padding: 110px 0 0;
+  //   &-in {
+  //     padding: 50px 0;
+  //     .dentalServices-box {
+  //       &-in{
+  //         width: 18%;
+  //         height: auto;
+  //         padding-bottom: 20px;
+  //         h3 {
+  //           font-size: 1.6rem;
+  //         }
+  //         span {
+  //           margin-top: 10px;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 }
 
 @media screen and (max-width: 768px) {
@@ -415,62 +411,62 @@ const dentalServicesPagesList = [
     }
   }
   //牙科服務
-  .index-dentalServices {
-    padding: 90px 0 0;
-    &-in {
-      background: linear-gradient(270deg, rgba(255, 204, 199, 0.7) 0.02%, rgba(255, 241, 240, 0) 62%);
-      padding: 16px 30px;
-      .dentalServices-box {
-        flex-direction: column;
-        &-in{
-          width: 100%;
-          height: 100px;
-          margin-bottom: 10px;
-          position: relative;
-          .images{
-            position: absolute;
-            right: 0;
-            top: 0;
-            width: 60%;
-            height: 100%;
-            height: calc(100% - 1px);
-            img{
-              height: 100%;
-              width: auto;
-              float: right;
-            }
-            &::before{
-              content: '';
-              position: absolute;
-              top: 0px;
-              left: 0;
-              width: 100%;
-              height: 99px;
-              background: linear-gradient(to right, #fff 50%, rgba(0,0,0,0));
-            }
-          }
-          h3{
-            margin-top: 0;
-            font-size: 1.25rem;
-            margin-top: 15px;
-          }
-          span{
-            margin-top: 20px;
-            font-size: .625rem;
-            &::after{
-              width: 9px;
-              height: 9px;
-              right: -12px;
-              top: 9px;
-            }
-          }
-          &:last-child{
-            margin-bottom: 0;
-          }
-        }
-      }
-    }
-  }
+  // .index-dentalServices {
+  //   padding: 90px 0 0;
+  //   &-in {
+  //     background: linear-gradient(270deg, rgba(255, 204, 199, 0.7) 0.02%, rgba(255, 241, 240, 0) 62%);
+  //     padding: 16px 30px;
+  //     .dentalServices-box {
+  //       flex-direction: column;
+  //       &-in{
+  //         width: 100%;
+  //         height: 100px;
+  //         margin-bottom: 10px;
+  //         position: relative;
+  //         .images{
+  //           position: absolute;
+  //           right: 0;
+  //           top: 0;
+  //           width: 60%;
+  //           height: 100%;
+  //           height: calc(100% - 1px);
+  //           img{
+  //             height: 100%;
+  //             width: auto;
+  //             float: right;
+  //           }
+  //           &::before{
+  //             content: '';
+  //             position: absolute;
+  //             top: 0px;
+  //             left: 0;
+  //             width: 100%;
+  //             height: 99px;
+  //             background: linear-gradient(to right, #fff 50%, rgba(0,0,0,0));
+  //           }
+  //         }
+  //         h3{
+  //           margin-top: 0;
+  //           font-size: 1.25rem;
+  //           margin-top: 15px;
+  //         }
+  //         span{
+  //           margin-top: 20px;
+  //           font-size: .625rem;
+  //           &::after{
+  //             width: 9px;
+  //             height: 9px;
+  //             right: -12px;
+  //             top: 9px;
+  //           }
+  //         }
+  //         &:last-child{
+  //           margin-bottom: 0;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
   //個案分享
   .index-caseSharing{
     padding: 0;

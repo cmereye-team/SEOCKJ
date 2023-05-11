@@ -1,15 +1,33 @@
+<script lang="ts" setup>
+import { defineProps } from "vue"
+defineProps({
+  userInfo:{
+    type: Object,
+    default(){
+      return {
+        text: '安心、舒服、無痛',
+        name: '陳裳 Jason',
+        skill: '種植牙齒療程',
+        context: '人們都越來越重視牙齒的健康，所以對於缺牙問題大部分的人都會選擇及時進行修復，更多的人選擇了種植牙。',
+        imgUrl: 'https://static.cmereye.com/imgs/2023/05/cf650f7fe68dfed5.jpg'
+      }
+    }
+  }
+})
+</script>
+
 <template>
   <div class="caseSaringImageItem">
     <div class="caseSaringImageItem-t">
-      <img src="https://static.cmereye.com/imgs/2023/05/d433466bb47da187.jpg" alt="">
-      <span class="text">安心、舒服、無痛</span>
+      <img :src="userInfo.imgUrl" alt="">
+      <span class="text">{{userInfo.text}}</span>
       <div>
-        <span class="name">陳裳 Jason</span>
-        <span class="skill">種植牙齒療程 </span>
+        <span class="name">{{userInfo.name}}</span>
+        <span class="skill">{{userInfo.skill}} </span>
       </div>
     </div>
     <div class="caseSaringImageItem-b">
-      人們都越來越重視牙齒的健康，所以對於缺牙問題大部分的人都會選擇及時進行修復，更多的人選擇了種植牙。
+      {{userInfo.context}}
     </div>
   </div>
 </template>

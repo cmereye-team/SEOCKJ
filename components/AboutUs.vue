@@ -5,6 +5,23 @@ const onSlideAboutUsSwiperChange = (swiper:any) => {
   aboutUsCurrent.value = swiper.realIndex + 1
 }
 
+const aboutUsLists = [
+  {
+    title: '科技護航，安全放心',
+    text: '優質的診療服務，在於醫生的專業素養，',
+    context: '以及匹配的醫療設備的先進程度。愛康健從口腔檢查到臨床手術，全程採購主流牙科設備，與時俱進開展醫生職業技能培訓。我們信奉技術，加進口設備，才能有好的診療功效。',
+    mbImg: 'https://static.cmereye.com/imgs/2023/04/312ab3f184b7daf5.jpg',
+    pcImg: 'https://static.cmereye.com/imgs/2023/05/77e7c4e4a2376aa8.jpg'
+  },
+  {
+    title: '嚴謹治療，為效果護航',
+    text: '',
+    context: '嚴格執行符合世界牙科聯盟(FDI)的診療標準，消毒隔離系統達到8個“一”無菌診療模式：一人一診室，一醫一助，一機一用，一次一消毒，消毒更全面。',
+    mbImg: 'https://static.cmereye.com/imgs/2023/05/57398ce56ec905ad.jpg',
+    pcImg: 'https://static.cmereye.com/imgs/2023/05/77e7c4e4a2376aa8.jpg'
+  }
+]
+
 
 </script>
 
@@ -19,21 +36,24 @@ const onSlideAboutUsSwiperChange = (swiper:any) => {
           }"
           @slideChange="onSlideAboutUsSwiperChange"
         >
-          <SwiperSlide v-for="slide in 4" :key="slide" >
+          <SwiperSlide v-for="(item,index) in aboutUsLists" :key="index" >
             <div class="index-aboutUs-in ">
               <div class="index-aboutUs-in-l">
-                <img class="pcBox" src="https://static.cmereye.com/imgs/2023/05/77e7c4e4a2376aa8.jpg" alt="">
-                <img class="mbBox" src="https://static.cmereye.com/imgs/2023/04/312ab3f184b7daf5.jpg" alt="">
+                <img class="pcBox" :src="item.pcImg" alt="">
+                <img class="mbBox" :src="item.mbImg" alt="">
               </div>
               <div class="index-aboutUs-in-r">
-                <div>科技護航，安全放心</div>
-                <span>優質的診療服務，在於醫生的專業素養，</span>
-                <span>"以及匹配的醫療設備的先進程度。愛康健從口腔檢查到臨床手術，全程採購主流牙科設備，與時俱進開展醫生職業技能培訓。我們信奉技術，加進口設備，才能有好的診療功效。"</span>
+                <!-- 科技護航，安全放心 -->
+                <div>{{item.title}}</div>
+                <!-- 優質的診療服務，在於醫生的專業素養， -->
+                <span>{{item.text}}</span>
+                <!-- 以及匹配的醫療設備的先進程度。愛康健從口腔檢查到臨床手術，全程採購主流牙科設備，與時俱進開展醫生職業技能培訓。我們信奉技術，加進口設備，才能有好的診療功效。 -->
+                <span>{{item.context}}</span>
               </div>
             </div>
           </SwiperSlide>  
           <div class="aboutUs-lineBox">
-            <PageSwiperPointLine :latestNewsNum="4" :latestNewsCurrent="aboutUsCurrent"></PageSwiperPointLine>
+            <PageSwiperPointLine :latestNewsNum="aboutUsLists.length" :latestNewsCurrent="aboutUsCurrent"></PageSwiperPointLine>
           </div>
         </Swiper>
     </div>

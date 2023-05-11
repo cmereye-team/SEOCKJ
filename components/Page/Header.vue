@@ -3,14 +3,21 @@ import { defineProps } from "vue"
 import { useAppState } from '~/stores/appState'
 const route = useRoute()
 const appState = useAppState()
-const lsImgUrl = 'https://static.cmereye.com/imgs/2023/05/71929ca4c90a8d1e.png'
-const lsBgImgUrl = 'https://static.cmereye.com/imgs/2023/05/d8084e8da90409aa.jpg'
+// const lsImgUrl = 'https://static.cmereye.com/imgs/2023/05/71929ca4c90a8d1e.png'
+// const lsBgImgUrl = 'https://static.cmereye.com/imgs/2023/05/d8084e8da90409aa.jpg'
 defineProps({
-  headerBg: {
+  headerImg: {
     type: String,
-    default: 'https://static.cmereye.com/imgs/2023/04/c9531b6beee976eb.jpg',
-    // default: 'https://static.cmereye.com/imgs/2023/05/fdcfbb7e933b849d.png'
+    default: 'https://static.cmereye.com/imgs/2023/05/71929ca4c90a8d1e.png',
   },
+  headerBgImg: {
+    type: String,
+    default: 'https://static.cmereye.com/imgs/2023/05/d8084e8da90409aa.jpg',
+  },
+  // headerBg: {
+  //   type: String,
+  //   default: 'https://static.cmereye.com/imgs/2023/04/c9531b6beee976eb.jpg',
+  // },
   mbBg:{
     type: String,
     default: 'https://static.cmereye.com/imgs/2023/04/b0d950232420bf46.jpg',
@@ -51,7 +58,7 @@ const menuLists = [
       },
       {
         name: '矯齒牙科',
-        link: '',
+        link: '/dentistryServices/orthodontics',
       },
       {
         name: '美容牙科',
@@ -101,6 +108,15 @@ const menuLists = [
   },
 ]
 
+const headerData = {
+  bannerTitleSpanOne: '重拾自信笑容',
+  bannerTitleSpanTwo: '愛牙愛己，由你做起',
+  bannerText: '全程式預約一體化診療服務，讓每一位顧客享受',
+  bannerTextSpan: '健康微笑之旅。',
+  menuBoxBtn: '立即預約',
+  menuBoxPhone: '2828-2828'
+}
+
 let menuBoxBool = ref(false)
 
 let menuActNum = ref(0)
@@ -147,11 +163,11 @@ const classNamefilter = ( _menu:any, _idx: number) => {
   <header>
     <div class="header-content ">
       <div class="header-content-bgImg">
-        <img class="imgBgBox pcBox" :src="lsBgImgUrl" alt="">
+        <img class="imgBgBox pcBox" :src="headerBgImg" alt="">
         <div class="header-content-bgImg-imgInfo pageCon">
           <img
             :class="['pcBox',{ 'float-right': titlePosition === 'left'}]"
-            :src="lsImgUrl"
+            :src="headerImg"
             alt=""
           />
         </div>
@@ -163,19 +179,23 @@ const classNamefilter = ( _menu:any, _idx: number) => {
         <div class="header-content-bgImg-textInfo pageCon">
           <div :class="['header-content-bgImg-in',{ 'bannerTitleLeft': titlePosition === 'left'}]">
             <div class="bannerTitle">
-              <span>重拾自信笑容</span>
-              <span>愛牙愛己，由你做起</span>
+              <!-- 重拾自信笑容 -->
+              <span>{{headerData.bannerTitleSpanOne}}</span>
+              <!-- 愛牙愛己，由你做起 -->
+              <span>{{headerData.bannerTitleSpanTwo}}</span>
             </div>
             <div class="text">
-              全程式預約一體化診療服務，讓每一位顧客享受
-              <span>健康微笑之旅。</span>
+              <!-- 全程式預約一體化診療服務，讓每一位顧客享受 -->
+              {{headerData.bannerText}}
+              <!-- 健康微笑之旅。 -->
+              <span>{{headerData.bannerTextSpan}}</span>
             </div>
           </div>
         </div>
       </div>
       <div class="header-content-bgImgBB pageCon pcBox">
         <img
-          :src="lsImgUrl"
+          :src="headerImg"
           alt=""
         />
       </div>
@@ -224,9 +244,11 @@ const classNamefilter = ( _menu:any, _idx: number) => {
             </div>
           </div>
         </div>
-        <div class="menuBox-btn">立即預約</div>
+        <!-- 立即預約 -->
+        <div class="menuBox-btn">{{headerData.menuBoxBtn}}</div>
         <div class="menuBox-phone">
-          <img src="@/assets/images/icon_11.png" >2828-2828
+          <!-- 2828-2828 -->
+          <img src="@/assets/images/icon_11.png" >{{headerData.menuBoxPhone}}
         </div>
         <div class="menuBox-icon">
           <div class="menuBox-icon-in">

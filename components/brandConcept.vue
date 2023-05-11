@@ -1,7 +1,50 @@
+<script lang="ts" setup>
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+onMounted(() => {
+  gsap.registerPlugin(ScrollTrigger);
+  const animRightIn = (name: string) => {
+    return gsap.from(name, {
+      opacity: 0, 
+      x: 100, 
+      duration: 2
+    })
+  }
+  const animBottomIn = (name: string) => {
+    return gsap.from(name, {
+      opacity: 0, 
+      y: 100, 
+      duration: 2
+    })
+  }
+  ScrollTrigger.create({
+    trigger: ".brandConcept-right",
+    animation: animRightIn(".brandConcept-right"),
+    start: "bottom bottom",
+  })
+  ScrollTrigger.create({
+    trigger: ".brandConceptTitle",
+    animation: animBottomIn(".brandConceptTitle"),
+    start: "bottom bottom",
+  })
+  ScrollTrigger.create({
+    trigger: ".brandConcept-title",
+    animation: animBottomIn(".brandConcept-title"),
+    start: "bottom bottom",
+  })
+  ScrollTrigger.create({
+    trigger: ".brandConceptContent",
+    animation: animBottomIn(".brandConceptContent"),
+    start: "bottom bottom",
+  })
+});
+</script>
+
+
 <template>
   <div class="index-brandConcept bigPageCon">
     <div class="brandConcept-left pageCon">
-      <div class="index_title">品牌理念</div>
+      <div class="index_title brandConceptTitle">品牌理念</div>
       <div class="brandConcept-title">
         <span>希瑪愛康健品牌</span>
         <span>28年專注你的口腔健康</span>
@@ -9,7 +52,7 @@
       <div class="brandConceptBg">
         <img class="mbBox" src="https://static.cmereye.com/imgs/2023/04/d4c1df365750c9c6.jpg" alt="">
       </div>
-      <div class="content">
+      <div class="content brandConceptContent">
         作為深圳口腔專科醫院，深圳愛康健口腔醫院秉承著“專科·專業”的服務宗旨，對醫療資源進行了科學、合理的整合。醫師團隊是畢業於國內知名口腔學院的專業人員；醫院各專業帶頭人，包括種植醫師、美學修復醫師、牙周病醫師等共同組成，帶領一批醫護人員一起構成愛康健口腔醫院的服務團隊。全程式預約一體化診療服務，讓每一位顧客享受健康微笑之旅。
       </div>
     </div>
