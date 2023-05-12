@@ -6,7 +6,6 @@ defineProps({
     default: false
   }
 })
-
 const servicesCardLists = [
   {
     name: '植牙',
@@ -24,29 +23,29 @@ const servicesCardLists = [
     link: '/service/rootCanal'
   },
   {
+    name: '隱適美',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/05/6c3e61117d540a66.png',
+    link: '/service/invisalign'
+  },
+  {
+    name: '瓷貼片',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/05/4fe83a037a03391d.png',
+    link: '/service/veneers'
+  },
+  {
     name: '杜牙根',
-    imgUrl: 'https://static.cmereye.com/imgs/2023/05/5e129af0339856f0.png',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/05/6c3e61117d540a66.png',
     link: '/service/healthcare'
   },
   {
     name: '兒童牙科(测试)',
-    imgUrl: 'https://static.cmereye.com/imgs/2023/05/5e129af0339856f0.png',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/05/4fe83a037a03391d.png',
     link: '/service/healthcare'
   },
   {
     name: '矯齒(测试)',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/5e129af0339856f0.png',
     link: '/service/orthodonticsCopySave'
-  },
-  {
-    name: '杜牙根',
-    imgUrl: 'https://static.cmereye.com/imgs/2023/05/5e129af0339856f0.png',
-    link: '/service/healthcare'
-  },
-  {
-    name: '杜牙根',
-    imgUrl: 'https://static.cmereye.com/imgs/2023/05/5e129af0339856f0.png',
-    link: '/service/healthcare'
   },
   {
     name: '杜牙根',

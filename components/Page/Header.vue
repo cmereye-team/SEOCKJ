@@ -61,6 +61,14 @@ const menuLists = [
         link: '/service/rootCanal',
       },
       {
+        name: '隱適美',
+        link: '/service/invisalign',
+      },
+      {
+        name: '瓷貼片',
+        link: '/service/veneers',
+      },
+      {
         name: '兒童牙科(测试)',
         link: '/service/healthcare',
       },
@@ -425,7 +433,7 @@ const classNamefilter = ( _menu:any, _idx: number) => {
           top: 100%;
           left: 50%;
           transform: translateX(-50%);
-          width: 130%;
+          min-width: 130%;
           z-index: 2;
           display: none;
           flex-direction: column;

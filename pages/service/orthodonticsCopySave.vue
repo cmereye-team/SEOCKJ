@@ -2,7 +2,7 @@
 import { Pagination } from 'swiper';
 import { useAppState } from '~/stores/appState'
 const appState = useAppState()
-appState.setDentistryService('orthodontics')
+appState.setDentistryService('orthodonticsCopySave')
 useHead({
   title: "矯齒牙科"
 })

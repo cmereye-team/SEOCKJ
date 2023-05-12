@@ -19,16 +19,24 @@ defineProps({
       <div class="dentistryServices-title-line"></div>
     </div>
     <div class="step-in pageCon">
-      <div class="step-in-box" v-for="(step,stepIndex) in stepData.stepLists" :key="stepIndex">
-        <div class="line"></div>
+      <!-- <div class="step-in-boxCon"> -->
+
+      <!-- :style="{
+          'width': (stepData.stepLists.length && `100/${stepData.stepLists.length}%`)
+        }" -->
+      <div class="step-in-box"
+        
+        v-for="(step,stepIndex) in stepData.stepLists" :key="stepIndex">
         <div class="step-itemLists">
           <div class="step-itemLists-in" v-for="(stepChild,stepChildIndex) in step" :key="stepChildIndex">
+            <div class="line"></div>
             <span class="round"></span>
             <span class="title">{{stepChild.title}}</span>
             <span class="text">{{stepChild.text}}</span>
           </div>
         </div>
       </div>
+      <!-- </div> -->
     </div>
   </div>
 </template>
@@ -46,30 +54,30 @@ defineProps({
         display: flex;
         padding: 44px 65px;
         box-sizing: border-box;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        min-height: 460px;
         &-box{
           width: 50%;
-          box-sizing: border-box;
-          position: relative;
-          .line{
-            width: 4px;
-            height: 80%;
-            background: #FFF1F0;
-            position: absolute;
-            top: 20px;
-            left: 10px;
-            z-index: 0;
-          }
+          height: 100%;
           .step-itemLists{
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            width: 100%;
             &-in{
-              // margin-bottom: 90px;
-              height: 120px;
+              padding-bottom: 90px;
               display: flex;
               align-items: flex-start;
               cursor: pointer;
+              position: relative;
+              .line{
+                width: 4px;
+                height: 100%;
+                background: #FFF1F0;
+                position: absolute;
+                top: 20px;
+                left: 10px;
+                z-index: 0;
+              }
               .round{
                 width: 24px;
                 height: 24px;
@@ -107,11 +115,16 @@ defineProps({
                   padding-top: 0;
                 }
               }
-              &:first-child{
-                margin-bottom: 30px;
+              &:last-child{
+                padding-bottom: 0;
               }
               &:hover .round{
                 background: #FFCECB;
+              }
+            }
+            &-in:last-child{
+              .line{
+                height: calc(50% - 24px);
               }
             }
           }
@@ -121,50 +134,51 @@ defineProps({
           &:last-child{
             margin-left: 40px;
           }
+          
         }
       }
     }
 
-@media (min-width: 768px) and (max-width: 1452px) {
-  .step{
-        padding: 6.5vw 0 7.5vw;
-        &-in{
-          padding: 3vw 4.8vw;
-          &-box{
-            .line{
-              width: .3vw;
-              top: 1.5vw;
-              left: .75vw;
-            }
-            .step-itemLists{
-              &-in{
-                height: 8vw;
-                .round{
-                  width: 1.7vw;
-                  height: 1.7vw;
-                  margin-right: .95vw;
-                  margin-top: .4vw;
-                }
-                .title{
-                  font-size: 1.9vw;
-                  margin-right: 1.9vw;
-                }
-                .text{
-                  font-size: 1.4vw;
-                  padding-top: .7vw;
-                }
-              }
-            }
-            &:first-child{
-              padding-right: 2.8vw;
-            }
-            &:last-child{
-              margin-left: 2.8vw;
-            }
-          }
-        }
-      }
-}
+// @media (min-width: 768px) and (max-width: 1452px) {
+//   .step{
+//         padding: 6.5vw 0 7.5vw;
+//         &-in{
+//           padding: 3vw 4.8vw;
+//           &-box{
+//             .line{
+//               width: .3vw;
+//               top: 1.5vw;
+//               left: .75vw;
+//             }
+//             .step-itemLists{
+//               &-in{
+//                 height: 8vw;
+//                 .round{
+//                   width: 1.7vw;
+//                   height: 1.7vw;
+//                   margin-right: .95vw;
+//                   margin-top: .4vw;
+//                 }
+//                 .title{
+//                   font-size: 1.9vw;
+//                   margin-right: 1.9vw;
+//                 }
+//                 .text{
+//                   font-size: 1.4vw;
+//                   padding-top: .7vw;
+//                 }
+//               }
+//             }
+//             &:first-child{
+//               padding-right: 2.8vw;
+//             }
+//             &:last-child{
+//               margin-left: 2.8vw;
+//             }
+//           }
+//         }
+//       }
+// }
 @media screen and (max-width: 768px) {
   .step{
         background: linear-gradient(360deg, rgba(255, 241, 240, 0) 0%, rgba(255, 241, 240, 0.7) 12.5%, rgba(255, 241, 240, 0.7) 81.99%, rgba(255, 241, 240, 0) 100%);
@@ -175,15 +189,15 @@ defineProps({
           margin-top: 28px;
           &-box{
             width: 100%;
-            .line{
-              width: 2px;
-              left: 7px;
-            }
             .step-itemLists{
               &-in{
                 height: auto;
-                margin-top: 34px;
                 padding-right: 10px;
+                padding-bottom: 40px;
+                .line{
+                  width: 2px;
+                  left: 7px;
+                }
                 .round{
                   width: 16px;
                   height: 16px;
@@ -206,19 +220,33 @@ defineProps({
                 }
                 &:last-child{
                   align-items: flex-start;
+                  padding-bottom: 40px;
+                  .round{
+                    margin-top: 4px;
+                  }
+                }
+              }
+              &-in:last-child{
+                .line{
+                  width: 2px;
+                  left: 7px;
+                  height: 100%;
                 }
               }
             }
             &:first-child{
               padding-right: 0;
-              .line{
-                height: 120%;
-                // top: 50px;
-              }
             }
             &:last-child{
               margin-left: 0;
-              margin-top: 34px;
+              .step-itemLists{
+                &-in:last-child{
+                  padding-bottom: 0;
+                  .line{
+                    display: none;
+                  }
+                }
+              }
             }
           }
         }

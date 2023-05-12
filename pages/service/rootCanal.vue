@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
 const appState = useAppState()
-appState.setDentistryService('orthodontics')
+appState.setDentistryService('rootCanal')
 useHead({
   title: "杜牙根"
 })
@@ -69,6 +69,30 @@ const stepData = {
   ]
 }
 
+const noteData = {
+  title: '療程後注意事項',
+  lists: [
+    {
+      name: '注意口腔衛生',
+    },
+    {
+      name: '避免吃堅硬食物，失去牙髓的牙齒不能承受過大的咬合力',
+    },
+    {
+      name: '牙齒失去牙髓後，有機會漸漸變黑，戴上牙套可保持美觀',
+    },
+    {
+      name: '杜牙根手術後，牙齒變得脆弱，需配戴牙套來保護牙齒，避免斷裂',
+    },
+    {
+      name: '定期覆診，檢查牙齒是否出現斷裂、二度感染、異常腫痛等問題',
+    },
+    {
+      name: '如發現臨時補牙物料脫落，須盡快見牙醫，以免唾液中的細菌滲入牙齒髓腔',
+    }
+  ]
+}
+
 </script>
 
 
@@ -83,9 +107,8 @@ const stepData = {
     <ServiceReason :reasonData="reasonData" />
     <!-- 六个步骤 -->
     <ServiceStep :stepData="stepData" />
-    <div class="second">
-      <div class="second-in"></div>
-    </div>
+    <!-- 注意事项 -->
+    <ServiceNote :noteData="noteData" />
     <serviceCard />
     <ContactUs />
   </div>
@@ -99,10 +122,4 @@ const stepData = {
 <style lang="scss" scoped>
 
 
-@media (min-width: 768px) and (max-width: 1452px) {}
-
-//md
-@media only screen and (max-width: 760px) {
-
-}
 </style>

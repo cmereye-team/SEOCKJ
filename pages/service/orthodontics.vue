@@ -32,6 +32,34 @@ const reasonData = {
   ]
 }
 
+const stepData = {
+  title: '矯齒(箍牙)過程',
+  stepLists: [
+    [
+      {
+        title: 'Step 1',
+        text: '醫生會先進行檢查及評估，確認矯齒的需要'
+      },
+      {
+        title: 'Step 2',
+        text: '拍攝牙齒外觀照片，包括全口腔及側面X光照片，以印製牙模'
+      },
+      {
+        title: 'Step 3',
+        text: '醫生講解情況及治療方案'
+      },
+      {
+        title: 'Step 4',
+        text: '配戴牙箍及定期覆診'
+      },
+      {
+        title: 'Step 5',
+        text: '矯齒完成後，需定期覆診，晚上佩戴固定器，防止牙齒移位'
+      }
+    ]
+  ]
+}
+
 
 </script>
 
@@ -45,6 +73,7 @@ const reasonData = {
     <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
     <!-- 原因 -->
     <ServiceReason :reasonData="reasonData" />
+    <ServiceStep :stepData="stepData" />
     <serviceCard />
     <ContactUs />
   </div>
