@@ -1082,6 +1082,9 @@ const drawBegin = (e:number) => {
     .jiaochi {
       text-align: left;
       color: #fff;
+      &>img{
+        margin: 0 auto;
+      }
       p {
         padding-left: 3vw;
         padding-top: 3vw;
