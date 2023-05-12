@@ -59,6 +59,12 @@ html.dark {
 .bgColor{
   background: #FFCECB;
 }
+.whitebgColor{
+  background: #ffffff;
+}
+.pageIn{
+  padding: 140px 0;
+}
 .bigPageCon{
   width: 100%;
   max-width: 1920px;
@@ -85,20 +91,58 @@ html.dark {
   background-position: 0px 5px;
   padding-bottom: 5px;
 }
-
-
-@media (min-width: 768px) and (max-width: 1450px) {
-  .pageCon{
-    width:  calc(100% - 60px);
-    // max-width: 1450px;
-    margin: 0 auto;
-  } 
+.dentistryServices{
+  &-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    &-in{
+      font-weight: 700;
+      font-size: 50px;
+      line-height: 160%;
+      color: #4D4D4D;
+    }
+    &-line{
+      width: 100px;
+      height: 5px;
+      background: #FFA09E;
+      border-radius: 2px;
+    }
+  }
 }
 .mbBox{
   display: none;
 }
 
+
+@media (min-width: 768px) and (max-width: 1450px) {
+  .pageIn{
+    padding: 120px 0;
+  }
+  .pageCon{
+    width:  calc(100% - 60px);
+    // max-width: 1450px;
+    margin: 0 auto;
+  } 
+  .dentistryServices{
+    &-title{
+      &-in{
+        font-size: 3.4vw;
+      }
+      &-line{
+        width: 7vw;
+        height: 5px;
+      }
+    }
+  }
+}
+
+
 @media screen and (max-width: 768px) {
+  .pageIn{
+    padding: 90px 0;
+  }
   .pcBox{
     display: none;
   }
@@ -112,6 +156,18 @@ html.dark {
     text-indent: 40px;
     margin-left: 30px;
     background-position: 0px 3px;
+  }
+  .dentistryServices{
+    &-title{
+      &-in{
+        font-weight: 600;
+        font-size: 1.625rem;
+      }
+      &-line{
+        width: 50px;
+        height: 3px;
+      }
+    }
   }
 }
 

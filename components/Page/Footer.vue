@@ -30,28 +30,28 @@ const navLists = [
   {
     name: '牙科服務',
     link: `/service`,
-    child: [
-      {
-        name: '全科牙科',
-        link: '',
-      },
-      {
-        name: '種植牙科',
-        link: '/service/dentalImplant',
-      },
-      {
-        name: '矯齒牙科',
-        link: '',
-      },
-      {
-        name: '美容牙科',
-        link: '',
-      },
-      {
-        name: '兒童牙科',
-        link: '',
-      }
-    ],
+    // child: [
+    //   {
+    //     name: '全科牙科',
+    //     link: '',
+    //   },
+    //   {
+    //     name: '種植牙科',
+    //     link: '',
+    //   },
+    //   {
+    //     name: '矯齒牙科',
+    //     link: '',
+    //   },
+    //   {
+    //     name: '美容牙科',
+    //     link: '',
+    //   },
+    //   {
+    //     name: '兒童牙科',
+    //     link: '',
+    //   }
+    // ],
   },
   {
     name: '醫生團隊',

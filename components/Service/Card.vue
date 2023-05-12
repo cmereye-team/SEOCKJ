@@ -21,7 +21,7 @@ const servicesCardLists = [
   {
     name: '杜牙根',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/32034ad5bb8db07a.png',
-    link: '/service/healthcare'
+    link: '/service/rootCanal'
   },
   {
     name: '杜牙根',
@@ -82,7 +82,7 @@ const servicesCardLists = [
 
 const servicesCardPageData = {
   title: '牙科服務',
-  dentalServicesTitleIn: '牙科服務',
+  dentalServicesTitleIn: '其他牙科服務',
   contextIn: '中心提供基本牙科、美容牙科及高階牙科服務，從一般口腔檢查、洗牙、補牙，到牙齒美白、全口修復及各種牙科治療，幫助客人回復自信笑容。'
 }
 

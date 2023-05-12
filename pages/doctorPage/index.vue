@@ -10,7 +10,7 @@ const doctorLists = [
   // '羅湖區'
   [
     {
-      id: '1',
+      id: '101',
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/86681f3a9fe6c1d3.png',
       name: '鞏賢平',
       org: '深圳愛康健口腔醫院,口腔牙周病科,口腔修復科,牙體牙髓科',
@@ -20,7 +20,7 @@ const doctorLists = [
       educated: '口腔醫學碩士'
     },
     {
-      id: '2',
+      id: '102',
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/03459bbf16883ac8.png',
       name: '陸卉',
       org: '愛康健口腔醫院',
@@ -30,7 +30,7 @@ const doctorLists = [
       educated: '正畸學碩士'
     },
     {
-      id: '3',
+      id: '103',
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/f1208f6a5c38f695.png',
       name: '莊賢安',
       org: '富康口腔门诊',
@@ -58,9 +58,159 @@ const doctorLists = [
   ],
   // '寶安區'
   [
+    {
+      id: '401',
+      imgUrl: 'https://static.cmereye.com/imgs/2023/05/4edc3ed2e71f391c.png',
+      name: '方宇',
+      org: '宝安区 炫雅门诊',
+      posts: '主治醫師',
+      job:'炫雅口腔门诊院长',
+      skilled: '疑难牙体牙髓病治疗、阻生智齿的拔除、各种缺失牙的美容修复、疑难活动义齿修复。尤其在利用高倍显微镜下开展牙髓炎、根尖病变等牙体保存治疗具有较深的造诣。',
+      educated: ''
+    },
+    {
+      id: '402',
+      imgUrl: 'https://static.cmereye.com/imgs/2023/05/9e64ca61ad962a93.png',
+      name: '曾紅豔',
+      org: '罗湖区,福田区,宝安区,龙华区 李川口腔诊所,康辉门诊,恒洁门诊,雅健门诊,炫雅门诊',
+      posts: '牙周醫師',
+      job:'深圳爱康健口腔医院牙周科主任',
+      skilled: '牙洁治技术、各种牙周疾病的专业治疗及手术治疗（翻瓣术及牙周引导骨组织再造术、龈切除术）以及种植体周围感染疾病的治疗。',
+      educated: ''
+    },
+    {
+      id: '403',
+      imgUrl: 'https://static.cmereye.com/imgs/2023/05/b7da743bf8f1e9d9.png',
+      name: '林勉郁',
+      org: '寶安區 炫雅門診',
+      posts: '主治醫師,種植醫師',
+      job:'炫雅口腔門診部醫師',
+      skilled: '运用新材料、新技术进行即刻种植即刻修复，恢复美观，追求舒适、种植技术。',
+      educated: ''
+    },
+    {
+      id: '404',
+      imgUrl: 'https://static.cmereye.com/imgs/2023/05/28cd75134a62d7b8.png',
+      name: '董唯吉',
+      org: '寶安區 炫雅門診',
+      posts: '執業醫師',
+      job:'炫雅口腔門診部醫師',
+      skilled: '活動矯治、隱形矯治、固定矯治，兒童、青少年及成人各類錯頜畸形矯治。方案制定縝密、嚴謹、考慮全面，不僅關註牙列及面部美觀，還關註患者牙周健康、關節健康和氣道健康，特別對於錯頜畸形合並顳下頜關節紊亂病、睡眠暫停低通氣綜合征、生長發育期有口腔不良習慣的患者，能提供協調口頜面部美觀和功能、促進青少年頜骨正常發育的治療方案。',
+      educated: '正畸學碩士'
+    },
+    {
+      id: '405',
+      imgUrl: 'https://static.cmereye.com/imgs/2023/05/dacd93ea06f7e8fa.png',
+      name: '張燕',
+      org: '寶安區 炫雅門診',
+      posts: '執業醫師，兒牙醫師',
+      job:'炫雅口腔門診部醫師',
+      skilled: '現代根管治療、牙齒美容修復、牙齒美白、微創樹脂充填以及活動牙修復。',
+      educated: ''
+    },
+    {
+      id: '406',
+      imgUrl: 'https://static.cmereye.com/imgs/2023/05/75e9c3b498b3f889.png',
+      name: '吳廣學',
+      org: '羅湖區,寶安區 富康門診,康輝門診,恒潔門診,炫雅門診,顏麗門診',
+      posts: '主治醫師',
+      job: '炫雅口腔門診部醫師',
+      skilled: '成人隱形矯治；青少年牙列畸形及發育不良的早期診斷、幹預、治療；牙列及面型前突；“地包天”等。對改善呼吸相關的面部發育畸形，笑容美學正畸設計有獨到的見解。',
+      educated: '口腔正畸學碩士'
+    },
+    {
+      id: '407',
+      imgUrl: 'https://static.cmereye.com/imgs/2023/05/4ce86d81805a5d72.png',
+      name: '朱艷秀',
+      org: '寶安區 炫雅門診',
+      posts: '主治醫師，全科醫師',
+      job: '炫雅口腔門診部醫師',
+      skilled: '各類牙周、牙髓疾病的診斷治療，牙體缺損的修復、各類牙齒的外科拔除。',
+      educated: ''
+    },
+    {
+      id: '408',
+      imgUrl: 'https://static.cmereye.com/imgs/2023/05/c7416cbfed4d1649.png',
+      name: '王思',
+      org: '福田區,寶安區 王琦口腔診所,炫雅門診',
+      posts: '執業醫師，全科醫師',
+      job: '炫雅口腔門診部醫師',
+      skilled: '各類口腔疾病的診斷與治療；復雜牙的微創拔除；顯微鏡下的根管治療；面部牙齒美學分析、牙體缺損及缺失的微笑美學修復；牙體及牙色美學修復及美白治療等。',
+      educated: ''
+    },
   ],
-  // '寶安區'
+  // '龍華區'
   [
+    {
+      id: '501',
+      imgUrl: 'https://static.cmereye.com/imgs/2023/05/b79603e6e8075ac9.png',
+      name: '韋秋紅',
+      org: '罗湖牙周,口腔修复科,牙体牙髓科,雅健门诊,恒乐门诊',
+      posts: '主治醫師',
+      job:'恒乐口腔门诊院长',
+      skilled: '复杂修复设计及龋病、牙体牙髓和牙周病的诊治，尤其在美学修复有较深的造诣，熟练运用MICD微创牙科及DSD数字微笑设计理念，采用德国Sirona CAD/CAM全瓷牙、美国数字化LAVA全瓷牙、瑞典Procera氧化锆美学高强度电脑全瓷牙及德国Cercon氧化锆全瓷牙处理各种牙齿变色、牙齿形态不佳及缺失牙修复。',
+      educated: ''
+    },
+    {
+      id: '502',
+      imgUrl: 'https://static.cmereye.com/imgs/2023/05/9e64ca61ad962a93.png',
+      name: '曾紅豔',
+      org: '罗湖区,福田区,宝安区,龙华区 李川口腔诊所,康辉门诊,恒洁门诊,雅健门诊,炫雅门诊',
+      posts: '牙周醫師',
+      job:'深圳爱康健口腔医院牙周科主任',
+      skilled: '牙洁治技术、各种牙周疾病的专业治疗及手术治疗（翻瓣术及牙周引导骨组织再造术、龈切除术）以及种植体周围感染疾病的治疗。',
+      educated: ''
+    },
+    {
+      id: '503',
+      imgUrl: 'https://static.cmereye.com/imgs/2023/05/2b043e6a95a97f1c.png',
+      name: '錢若谷',
+      org: '雅健门诊,海典门诊,恒乐门诊',
+      posts: '執業醫師',
+      job:'雅健口腔门诊部醫師',
+      skilled: '儿童早期干预矫治，青少年及成人各类常见错牙合畸形的矫治，传统固定矫治技术，唇侧活动翼矫治技术，无托槽隐形矫治技术；倡导可视化正畸治疗，包括拥挤，前突，开唇露齿，地包天及成人修复前正畸治疗等。',
+      educated: '口腔正畸学硕士'
+    },
+    {
+      id: '504',
+      imgUrl: 'https://static.cmereye.com/imgs/2023/05/5f623594b86acf8e.png',
+      name: '李紅枝',
+      org: '罗湖区,龙华区 深圳爱康健口腔医院,儿童牙科,雅健门诊',
+      posts: '主治醫師',
+      job:'兒童口腔科主任',
+      skilled: '儿童及青少年龋病，儿童牙病舒适化诊治和微创治疗，牙髓根尖周病，儿童咬合诱导间隙管理、咬合诱导及早期阻断性矫治、肌功能矫治等。',
+      educated: ''
+    },
+    {
+      id: '505',
+      imgUrl: 'https://static.cmereye.com/imgs/2023/05/ee543a731de9e34d.png',
+      name: '李美京',
+      org: '龙华区 雅健门诊,恒乐门诊',
+      posts: '主治醫師',
+      job:'雅健口腔门诊部醫師',
+      skilled: '无痛麻醉、微创拔牙、微创种植、种植上部修复、前牙美学修复、全口无牙颌咬合重建等。',
+      educated: '口腔醫學學士'
+    },
+    {
+      id: '506',
+      imgUrl: 'https://static.cmereye.com/imgs/2023/05/70b7540d6be0bd58.png',
+      name: '李佳麗',
+      org: '龙华区 雅健门诊,恒乐门诊',
+      posts: '執業醫師',
+      job:'粵港口腔修復醫師',
+      skilled: '显微镜根管治疗、舒适洁牙、龋齿的美学树脂修复，牙体缺损的美学修复。',
+      educated: '口腔醫學學士'
+    },
+    {
+      id: '506',
+      imgUrl: 'https://static.cmereye.com/imgs/2023/05/70b7540d6be0bd58.png',
+      name: '杜名玉',
+      org: '龍華區 恒樂門診',
+      posts: '執業醫師',
+      job:'恒乐口腔门诊部醫師',
+      skilled: '樹脂補牙、顯微根管治療、阻生智齒拔除、牙周治療、兒童預成冠修復',
+      educated: ''
+    },
   ]
 ]
 
@@ -116,7 +266,7 @@ const doctorLists = [
               </div>
               <div class="name">
                 <span>{{item.name || ''}}</span> 
-                <span>{{item.posts || ''}},{{item.educated || ''}}</span>
+                <span>{{item.posts || ''}}{{item.educated ? `,${item.educated}` : ''}}</span>
               </div>
               <div class="btn">
                 了解更多<img src="@/assets/images/icon_04.png" />
@@ -151,7 +301,7 @@ const doctorLists = [
                   </div>
                   <div class="name">
                     <span>{{item.name || ''}}</span> 
-                    <span>{{item.posts || ''}},{{item.educated || ''}}</span>
+                    <span>{{item.posts || ''}}{{item.educated ? `,${item.educated}` : ''}}</span>
                   </div>
                 </div>
               </div>
@@ -162,7 +312,7 @@ const doctorLists = [
             <span>主頁</span>
             <!-- 醫生團隊 -->
             <span>醫生團隊</span>
-            <span>羅湖區</span>
+            <span>{{appState.areaTabs[appState.areaTabCurNum]}}</span>
           </div>
         </div>
       </div>
@@ -239,6 +389,7 @@ const doctorLists = [
             img{
               position: absolute;
               bottom: 0;
+              height: 110%;
               left: 50%;
               transform: translateX(-50%);
             }
@@ -319,7 +470,8 @@ const doctorLists = [
             &-l{
               width: 28vw;
               img{
-                width: 85%;
+                max-width: 85%;
+                max-height: calc(100% + 30px);
               }
             }
             &-r{
@@ -423,7 +575,8 @@ const doctorLists = [
                   padding-top: 100%;
                   height: 0;
                   img{
-                    width: 83%;
+                    max-width: 85%;
+                    max-height: calc(100% + 30px);
                   }
                 }
                 &-r{

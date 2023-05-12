@@ -49,20 +49,16 @@ const menuLists = [
     link: `/service`,
     child: [
       {
-        name: '全科牙科',
-        link: '',
-      },
-      {
-        name: '種植牙科',
+        name: '種植牙',
         link: '/service/dentalImplant',
       },
       {
-        name: '矯齒牙科',
+        name: '矯齒',
         link: '/service/orthodontics',
       },
       {
-        name: '美容牙科',
-        link: '',
+        name: '杜牙根',
+        link: '/service/rootCanal',
       },
       {
         name: '兒童牙科',

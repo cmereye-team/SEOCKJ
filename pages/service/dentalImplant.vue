@@ -80,6 +80,39 @@ const stepLists = [
     }
   ]
 ]
+const stepData = {
+  title: '認識種植牙的六個步驟',
+  stepLists: [
+    [
+      {
+        title: 'Step 1',
+        text: '進行全面口腔檢查、X光或3D電腦掃描，確定植體的安裝位置，需確認患者的身體狀況及病歷'
+      },
+      {
+        title: 'Step 2',
+        text: '注射麻醉藥'
+      },
+      {
+        title: 'Step 3',
+        text: '翻開牙齦在適合安裝的位置鑽孔，植入植體，作為假牙的牙根，有需要時可以利用手術導航系統輔助植入理想位置，再縫合傷口'
+      }
+    ],
+    [
+      {
+        title: 'Step 4',
+        text: '等待2至3個月後，當牙骨與植體癒合，牙醫會安放癒合帽'
+      },
+      {
+        title: 'Step 5',
+        text: '牙齦癒合後，再進行下一階段的療程進行掃描式印模，再由牙科技師製作義齒'
+      },
+      {
+        title: 'Step 6',
+        text: '將義齒固定在植體上，補上缺去的牙齒'
+      }
+    ]
+  ]
+}
 
 const reasonData = {
   title: '關於植牙',
@@ -129,7 +162,8 @@ const reasonData = {
       <!-- 原因 -->
       <ServiceReason :reasonData="reasonData" />
       <!-- 六个步骤 -->
-      <div class="step">
+      <ServiceStep :stepData="stepData" />
+      <!-- <div class="step">
         <div class="dentistryServices-title">
           <div class="dentistryServices-title-in">認識種植牙的六個步驟</div>
           <div class="dentistryServices-title-line"></div>
@@ -146,7 +180,7 @@ const reasonData = {
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- 注意事项 -->
       <div class="note">
         <div class="dentistryServices-title">
@@ -312,24 +346,6 @@ const reasonData = {
         }
       }
     }
-    &-title{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      &-in{
-        font-weight: 700;
-        font-size: 50px;
-        line-height: 160%;
-        color: #4D4D4D;
-      }
-      &-line{
-        width: 100px;
-        height: 5px;
-        background: #FFA09E;
-        border-radius: 2px;
-      }
-    }
   }
   @media (min-width: 768px) and (max-width: 1452px) {
     .dentistryServices{
@@ -387,15 +403,6 @@ const reasonData = {
               }
             }
           }
-        }
-      }
-      &-title{
-        &-in{
-          font-size: 3.4vw;
-        }
-        &-line{
-          width: 7vw;
-          height: 5px;
         }
       }
     }
@@ -497,16 +504,6 @@ const reasonData = {
               line-height: 56px;
             }
           }
-        }
-      }
-      &-title{
-        &-in{
-          font-weight: 600;
-          font-size: 1.625rem;
-        }
-        &-line{
-          width: 50px;
-          height: 3px;
         }
       }
     }
