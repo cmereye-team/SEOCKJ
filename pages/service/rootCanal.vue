@@ -83,6 +83,9 @@ const stepData = {
     <ServiceReason :reasonData="reasonData" />
     <!-- 六个步骤 -->
     <ServiceStep :stepData="stepData" />
+    <div class="second">
+      <div class="second-in"></div>
+    </div>
     <serviceCard />
     <ContactUs />
   </div>

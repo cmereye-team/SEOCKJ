@@ -15,9 +15,9 @@ useHead({
       <div class="meun pageCon">
         <p><nuxt-link style="color: #000; text-decoration: none;" to="/">首頁</nuxt-link></p>
         <p style="margin:0 0.5vw">></p>
-        <p style="color:#57B2F3">牙科服務</p>
+        <p style="color:#FFCECB">牙科服務</p>
         <p style="margin:0 0.5vw">></p>
-        <p style="color:#57B2F3">兒童牙科保健及治療</p>
+        <p style="color:#FFCECB">兒童牙科保健及治療</p>
       </div>
       <div class="step pageCon">
         <div class="list">
@@ -45,17 +45,17 @@ useHead({
             <div class="porcelain—cons">
               <div class="porcelain">
                 <p>及早教育小朋友保護牙齒都好,</p> &nbsp;  
-                <p style="color: #9BD0F5; font-weight:600">預防蛀牙及其他口腔疾病</p>
+                <p style="color: #FFCECB; font-weight:600">預防蛀牙及其他口腔疾病</p>
               </div>
               <br>
               <div class="porcelain">
                 <p>緊貼小朋友牙齒發育進度,</p> &nbsp;  
-                <p style="color: #9BD0F5; font-weight:600">及早作出針對性治療</p>
+                <p style="color: #FFCECB; font-weight:600">及早作出針對性治療</p>
               </div>
               <br>
               <div class="porcelain">
                 <p>把握小朋友矯齒黃金期,</p> &nbsp;  
-                <p style="color: #9BD0F5; font-weight:600">大大提高改善牙齒排列、面部輪廓、咬字發音等問題的成功率</p>
+                <p style="color: #FFCECB; font-weight:600">大大提高改善牙齒排列、面部輪廓、咬字發音等問題的成功率</p>
               </div>
             </div>
             <div  class="quote">
@@ -100,7 +100,7 @@ useHead({
 @media only screen and (min-width: 760px) {
   .h{
     width: 4%;
-    border-bottom: 2px solid #9BD0F5;
+    border-bottom: 2px solid #FFCECB;
     text-align: center;
     margin: 0 auto;
   }
@@ -108,7 +108,7 @@ useHead({
     text-align:center;
     p{
       padding: 1vw 0;
-      color:#57B2F3;
+      color:#FFCECB;
       font-weight: 500;
       font-size: 24px;
     }
@@ -141,13 +141,13 @@ useHead({
   }
   .tablesd {
     margin-left: 4vw;
-    color: #57B2F3;
+    color: #FFCECB;
     background-color: #fff;
-    border: 3px solid #9BD0F5;
+    border: 3px solid #FFCECB;
     border-radius: 20px;
     border-collapse: separate;
     border-spacing: 0;
-    box-shadow: 13px 15px 0 #a2d4f7;
+    box-shadow: 13px 15px 0 #FFF1F0;
     border-spacing: 0;
     width: 28%;
     height: 25vw;
@@ -165,24 +165,24 @@ useHead({
     th {
       text-align: center;
       color: #fff;
-      background-color: #57B2F3;
+      background-color: #FFCECB;
       border-radius: 17px 17px 0 0;
     }
     .thd {
-      color: #57B2F3;
-      background-color: #ECF7FC;
+      color: #FFCECB;
+      background-color: #FFF1F0;
       border-radius: 20px 20px 0 0;
     }
   }
   .tablesed {
     margin-left: 4vw;
-    color: #57B2F3;
+    color: #FFCECB;
     background-color: #fff;
-    border: 3px solid #9BD0F5;
+    border: 3px solid #FFCECB;
     border-radius: 20px;
     border-collapse: separate;
     border-spacing: 0;
-    box-shadow: 13px 15px 0 #a2d4f7;
+    box-shadow: 13px 15px 0 #FFF1F0;
     border-spacing: 0;
     width: 28%;
     height: 25vw;
@@ -200,12 +200,12 @@ useHead({
     th {
       text-align: center;
       color: #fff;
-      background-color: #57B2F3;
+      background-color: #FFCECB;
       border-radius: 17px 17px 0 0;
     }
     .thd {
-      color: #57B2F3;
-      background-color: #ECF7FC;
+      color: #FFCECB;
+      background-color: #FFF1F0;
       border-radius: 20px 20px 0 0;
     }
   }
@@ -248,7 +248,7 @@ useHead({
         justify-content: center;
         p {
           display: block;
-          color: #57B2F3;
+          color: #FFCECB;
           font-weight: bold;
           margin-bottom: 0rem;
         }
@@ -278,7 +278,7 @@ useHead({
     }
   }
   .meun {
-    padding-left: 146px;
+    // padding-left: 146px;
     display: flex;
     font-size: 16px;
   }
@@ -318,7 +318,7 @@ useHead({
           content: "";
           margin-left: 15px;
           padding-left: 15px;
-          border-left: 11px solid #9BD0F5;
+          border-left: 11px solid #FFCECB;
           height: 35px;
           display: inline-block;
           vertical-align: middle;
@@ -329,7 +329,7 @@ useHead({
   .list {
     height: 582px;
     margin-top: 82px;
-    background-image: linear-gradient(to bottom, #fff 21%, #ECF7FC 0);
+    background-image: linear-gradient(to bottom, #fff 21%, #FFF1F0 0);
   }
 }
 
@@ -343,7 +343,7 @@ useHead({
   }
   .h{
     width: 25%;
-    border-bottom: 3px solid #9BD0F5;
+    border-bottom: 3px solid #FFCECB;
     text-align: center;
     margin: 0 auto;
   }
@@ -352,7 +352,7 @@ useHead({
     text-align:center;
     p{
       padding: 1vw 0;
-      color:#57B2F3;
+      color:#FFCECB;
       font-weight: 500;
       font-size: 24px;
     }
@@ -381,13 +381,13 @@ useHead({
     align-items: center;
   }
   .video {
-    // background-image: linear-gradient(to bottom, #fff 27%, #ECF7FC 0);
+    // background-image: linear-gradient(to bottom, #fff 27%, #FFF1F0 0);
     margin-top: 132px;
   }
   .list {
     text-align: center;
     margin-top: 5vw;
-    background-image: linear-gradient(to bottom, #fff 22%, #ECF7FC 0);
+    background-image: linear-gradient(to bottom, #fff 22%, #FFF1F0 0);
   }
   ul {
     margin-bottom: -4rem;
@@ -416,7 +416,7 @@ useHead({
         justify-content: center;
         p {
           display: block;
-          color: #57B2F3;
+          color: #FFCECB;
           font-weight: bold;
           margin-bottom: 0rem;
         }
@@ -455,7 +455,7 @@ useHead({
     display: flex;
   }
   ul {
-    padding: 0;
+    padding: 0 4vw;
     img {
       width: 90%;
     }
@@ -472,7 +472,7 @@ useHead({
     content: "";
     margin-left: 15px;
     padding-left: 15px;
-    border-left: 1.8vw solid #9BD0F5;
+    border-left: 1.8vw solid #FFCECB;
     height: 7vw;
     display: inline-block;
     vertical-align: middle;

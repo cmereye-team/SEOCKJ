@@ -29,14 +29,14 @@ const servicesCardLists = [
     link: '/service/healthcare'
   },
   {
-    name: '杜牙根',
+    name: '兒童牙科(测试)',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/5e129af0339856f0.png',
     link: '/service/healthcare'
   },
   {
-    name: '杜牙根',
+    name: '矯齒(测试)',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/5e129af0339856f0.png',
-    link: '/service/healthcare'
+    link: '/service/orthodonticsCopySave'
   },
   {
     name: '杜牙根',

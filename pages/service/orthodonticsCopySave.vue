@@ -45,9 +45,9 @@ const drawBegin = (e:number) => {
         <nuxt-link style="color: #000; text-decoration: none;" to="/">首頁</nuxt-link>
       </p>
       <p style="margin:0 0.5vw">></p>
-      <p style="color:#57B2F3">牙科服務</p>
+      <p style="color:#FFCECB">牙科服務</p>
       <p style="margin:0 0.5vw">></p>
-      <p style="color:#57B2F3">矯齒</p>
+      <p style="color:#FFCECB">矯齒</p>
     </div>
     <div class="step">
       <div class="list">
@@ -124,19 +124,19 @@ const drawBegin = (e:number) => {
                     <tr>
                       <td>原理</td>
                     </tr>
-                    <tr style=" background: #ECF7FC">
+                    <tr style=" background: #FFF1F0">
                       <td>物料</td>
                     </tr>
                     <tr>
                       <td>拆卸</td>
                     </tr>
-                    <tr style=" background: #ECF7FC; ">
+                    <tr style=" background: #FFF1F0; ">
                       <td>美觀</td>
                     </tr>
                     <tr>
                       <td>清潔</td>
                     </tr>
-                    <tr style=" background: #ECF7FC; ">
+                    <tr style=" background: #FFF1F0; ">
                       <td>成效</td>
                     </tr>
                     <tr>
@@ -154,7 +154,7 @@ const drawBegin = (e:number) => {
                         </ul>
                       </td>
                     </tr>
-                    <tr style=" background: #ECF7FC;">
+                    <tr style=" background: #FFF1F0;">
                       <td>
                         <ul>
                           <li>金屬/ 搪瓷/ 樹脂</li>
@@ -168,7 +168,7 @@ const drawBegin = (e:number) => {
                         </ul>
                       </td>
                     </tr>
-                    <tr style=" background: #ECF7FC ">
+                    <tr style=" background: #FFF1F0 ">
                       <td>
                         <ul>
                           <li>•牙箍固定於牙齒外側會外露（固定式外箍）</li>
@@ -183,7 +183,7 @@ const drawBegin = (e:number) => {
                         </ul>
                       </td>
                     </tr>
-                    <tr style=" background: #ECF7FC ">
+                    <tr style=" background: #FFF1F0 ">
                       <td>
                         <ul>
                           <li>比較適合齒列嚴重不正的人士</li>
@@ -213,7 +213,7 @@ const drawBegin = (e:number) => {
                       </ul>
                     </td>
                   </tr>
-                  <tr style=" background: #ECF7FC">
+                  <tr style=" background: #FFF1F0">
                     <td>
                       <ul>
                         <li>醫學塑膠</li>
@@ -227,7 +227,7 @@ const drawBegin = (e:number) => {
                       </ul>
                     </td>
                   </tr>
-                  <tr style=" background: #ECF7FC">
+                  <tr style=" background: #FFF1F0">
                     <td>
                       <ul style="margin: 0.6vw 0;">
                         <li>透明牙箍，近乎隱形，極難察覺</li>
@@ -241,7 +241,7 @@ const drawBegin = (e:number) => {
                       </ul>
                     </td>
                   </tr>
-                  <tr style=" background: #ECF7FC">
+                  <tr style=" background: #FFF1F0">
                     <td>
                       <ul style="margin: 0.6vw 0;">
                         <li>適合輕度或中度齒列不正的人士</li>
@@ -268,19 +268,19 @@ const drawBegin = (e:number) => {
                   <tr>
                     <td>原理</td>
                   </tr>
-                  <tr style=" background: #ECF7FC">
+                  <tr style=" background: #FFF1F0">
                     <td>物料</td>
                   </tr>
                   <tr>
                     <td>拆卸</td>
                   </tr>
-                  <tr style=" background: #ECF7FC; ">
+                  <tr style=" background: #FFF1F0; ">
                     <td>美觀</td>
                   </tr>
                   <tr>
                     <td>清潔</td>
                   </tr>
-                  <tr style=" background: #ECF7FC; ">
+                  <tr style=" background: #FFF1F0; ">
                     <td>成效</td>
                   </tr>
                   <tr>
@@ -298,7 +298,7 @@ const drawBegin = (e:number) => {
                       </ul>
                     </td>
                   </tr>
-                  <tr style=" background: #ECF7FC;">
+                  <tr style=" background: #FFF1F0;">
                     <td>
                       <ul>
                         <li>金屬/ 搪瓷/ 樹脂</li>
@@ -312,7 +312,7 @@ const drawBegin = (e:number) => {
                       </ul>
                     </td>
                   </tr>
-                  <tr style=" background: #ECF7FC ">
+                  <tr style=" background: #FFF1F0 ">
                     <td>
                       <ul>
                         <li>•牙箍固定於牙齒外側會外露（固定式外箍）</li>
@@ -327,7 +327,7 @@ const drawBegin = (e:number) => {
                       </ul>
                     </td>
                   </tr>
-                  <tr style=" background: #ECF7FC ">
+                  <tr style=" background: #FFF1F0 ">
                     <td>
                       <ul>
                         <li>比較適合齒列嚴重不正的人士</li>
@@ -354,7 +354,7 @@ const drawBegin = (e:number) => {
                       </ul>
                     </td>
                   </tr>
-                  <tr style=" background: #ECF7FC">
+                  <tr style=" background: #FFF1F0">
                     <td>
                       <ul>
                         <li>醫學塑膠</li>
@@ -368,7 +368,7 @@ const drawBegin = (e:number) => {
                       </ul>
                     </td>
                   </tr>
-                  <tr style=" background: #ECF7FC">
+                  <tr style=" background: #FFF1F0">
                     <td>
                       <ul style="margin: 0.6vw 0;">
                         <li>透明牙箍，近乎隱形，極難察覺</li>
@@ -382,7 +382,7 @@ const drawBegin = (e:number) => {
                       </ul>
                     </td>
                   </tr>
-                  <tr style=" background: #ECF7FC">
+                  <tr style=" background: #FFF1F0">
                     <td>
                       <ul style="margin: 0.6vw 0;">
                         <li>適合輕度或中度齒列不正的人士</li>
@@ -462,7 +462,7 @@ const drawBegin = (e:number) => {
             font-weight: 600;
             display: block;
             transform: skewX(-10deg);
-            color: #a2d4f7;
+            color: #FFF1F0;
             margin-right: 10px;
             font-family: '微软雅黑';
             margin-top: -10px;
@@ -473,7 +473,7 @@ const drawBegin = (e:number) => {
           }
         }
         &.activeBox{
-          background: #ecf7fc;
+          background: #FFF1F0;
         }
       }
       &-b,&-c{
@@ -529,20 +529,20 @@ const drawBegin = (e:number) => {
   }
 }
 .bacsty {
-  background-color: #ECF7FC !important;
+  background-color: #FFF1F0 !important;
   padding-top: 50px;
 }
 //pc
 @media only screen and (min-width: 760px) {
   .tables {
-    color: #57B2F3;
+    color: #4d4d4d;
     background-color: #fff;
-    border: 2px solid #9BD0F5;
+    border: 2px solid #FFCECB;
     border-radius: 10px;
     border-collapse: separate;
     border-spacing: 0;
     border-spacing: 1;
-    box-shadow: 13px 15px 0 #a2d4f7;
+    box-shadow: 13px 15px 0 #FFF1F0;
     border-spacing: 0;
     height: 25vw;
     font-weight: 550;
@@ -576,13 +576,13 @@ const drawBegin = (e:number) => {
   }
   .tablesd {
     margin-left: 4vw;
-    color: #57B2F3;
+    color: #4d4d4d;
     background-color: #fff;
-    border: 3px solid #9BD0F5;
+    border: 3px solid #FFCECB;
     border-radius: 20px;
     border-collapse: separate;
     border-spacing: 0;
-    box-shadow: 13px 15px 0 #a2d4f7;
+    box-shadow: 13px 15px 0 #FFF1F0;
     border-spacing: 0;
     width: 23%;
     height: 25vw;
@@ -606,12 +606,12 @@ const drawBegin = (e:number) => {
     th {
       text-align: center;
       color: #fff;
-      background-color: #57B2F3;
+      background-color: #FFCECB;
       border-radius: 17px 17px 0 0;
     }
     .thd {
-      color: #57B2F3;
-      background-color: #ECF7FC;
+      color: #4d4d4d;
+      background-color: #FFF1F0;
       border-radius: 20px 20px 0 0;
     }
   }
@@ -629,7 +629,7 @@ const drawBegin = (e:number) => {
     margin-top: 25px;
   }
   .video {
-    background-image: linear-gradient(to bottom, #fff 491px, #ECF7FC 0);
+    background-image: linear-gradient(to bottom, #fff 491px, #FFF1F0 0);
   }
   .contents {
     background-color: #fff;
@@ -638,7 +638,7 @@ const drawBegin = (e:number) => {
     justify-content: center;
     text-align: center;
     margin: 0 auto;
-    box-shadow: 13px 15px 0 #A2D4F7;
+    box-shadow: 13px 15px 0 #FFF1F0;
     border-radius: 10px;
     .gcond {
       display: flex;
@@ -669,7 +669,7 @@ const drawBegin = (e:number) => {
     display: flex;
     justify-content: center;
     position: relative;
-    background-image: linear-gradient(to top, #fff 37%, #ECF7FC 0);
+    background-image: linear-gradient(to top, #fff 37%, #FFF1F0 0);
     img {
       width: 66%;
     }
@@ -681,7 +681,6 @@ const drawBegin = (e:number) => {
   .list_dis {
     margin-top: 198px;
     padding-left: 5vw;
-
     ul {
       padding-top: 1vw;
       list-style-type: none;
@@ -705,7 +704,7 @@ const drawBegin = (e:number) => {
     }
   }
   .meun {
-    padding-left: 146px;
+    // padding-left: 146px;
     display: flex;
     font-size: 16px;
   }
@@ -746,7 +745,7 @@ const drawBegin = (e:number) => {
           content: "";
           margin-left: 15px;
           padding-left: 15px;
-          border-left: 11px solid #9BD0F5;
+          border-left: 11px solid #FFCECB;
           height: 35px;
           display: inline-block;
           vertical-align: middle;
@@ -757,7 +756,7 @@ const drawBegin = (e:number) => {
   .list {
     height: 472px;
     margin-top: 82px;
-    background-image: linear-gradient(to bottom, #fff 22%, #ECF7FC 0);
+    background-image: linear-gradient(to bottom, #fff 22%, #FFF1F0 0);
   }
 }
 
@@ -773,14 +772,14 @@ const drawBegin = (e:number) => {
     padding-bottom: 30px;
   }
  :deep(.swiper-pagination-bullet-active) {
-    background-color: #57B2F3;
+    background-color: #FFCECB;
     width: 15px;
     height: 15px;
   }
   :deep(.swiper-pagination-bullet) {
     width: 15px;
     height: 15px;
-    background-color: #9BD0F5;
+    background-color: #FFCECB;
   }
   .texts {
     p {
@@ -817,7 +816,7 @@ const drawBegin = (e:number) => {
 
     p {
       padding: 1vw 0;
-      color: #57B2F3;
+      color: #FFCECB;
       font-weight: 500;
       font-size: 22px;
     }
@@ -865,13 +864,13 @@ const drawBegin = (e:number) => {
 
   .tablesd {
     margin-left: 4vw;
-    color: #57B2F3;
+    color: #4d4d4d;
     background-color: #fff;
-    border: 3px solid #9BD0F5;
+    border: 3px solid #FFCECB;
     border-radius: 20px;
     border-collapse: separate;
     border-spacing: 0;
-    box-shadow: 13px 15px 0 #a2d4f7;
+    box-shadow: 13px 15px 0 #FFF1F0;
     border-spacing: 0;
     width: 16%;
     height: 25vw;
@@ -899,13 +898,13 @@ const drawBegin = (e:number) => {
     th {
       text-align: center;
       color: #fff;
-      background-color: #57B2F3;
+      background-color: #FFCECB;
       border-radius: 17px 17px 0 0;
     }
 
     .thd {
-      color: #57B2F3;
-      background-color: #ECF7FC;
+      color: #FFCECB;
+      background-color: #FFF1F0;
       border-radius: 20px 20px 0 0;
     }
 
@@ -914,14 +913,14 @@ const drawBegin = (e:number) => {
     }
   }
   .tables {
-    color: #57B2F3;
+    color: #4d4d4d;
     background-color: #fff;
-    border: 2px solid #9BD0F5;
+    border: 2px solid #FFCECB;
     border-radius: 10px;
     border-collapse: separate;
     border-spacing: 0;
     border-spacing: 1;
-    box-shadow: 13px 15px 0 #a2d4f7;
+    box-shadow: 13px 15px 0 #FFF1F0;
     border-spacing: 0;
     width: 7%;
     height: 211vw;
@@ -956,13 +955,13 @@ const drawBegin = (e:number) => {
 
   .tablesd {
     margin-left: 4vw;
-    color: #57B2F3;
+    color: #4d4d4d;
     background-color: #fff;
-    border: 3px solid #9BD0F5;
+    border: 3px solid #FFCECB;
     border-radius: 20px;
     border-collapse: separate;
     border-spacing: 0;
-    box-shadow: 13px 15px 0 #a2d4f7;
+    box-shadow: 13px 15px 0 #FFF1F0;
     border-spacing: 0;
     width: 28%;
     height: 25vw;
@@ -982,19 +981,19 @@ const drawBegin = (e:number) => {
     th {
       text-align: center;
       color: #fff;
-      background-color: #57B2F3;
+      background-color: #FFCECB;
       border-radius: 17px 17px 0 0;
     }
 
     .thd {
-      color: #57B2F3;
-      background-color: #ECF7FC;
+      color: #4d4d4d;
+      background-color: #FFF1F0;
       border-radius: 20px 20px 0 0;
     }
   }
 
   .video {
-    background-image: linear-gradient(to bottom, #fff 27%, #ECF7FC 0);
+    background-image: linear-gradient(to bottom, #fff 27%, #FFF1F0 0);
     margin-top: 90px;
   }
 
@@ -1005,7 +1004,7 @@ const drawBegin = (e:number) => {
     justify-content: center;
     text-align: center;
     margin: 0 auto;
-    box-shadow: 13px 15px 0 #A2D4F7;
+    box-shadow: 13px 15px 0 #FFF1F0;
     border-radius: 10px;
 
     .gcond {
@@ -1045,7 +1044,7 @@ const drawBegin = (e:number) => {
     display: flex;
     justify-content: center;
     position: relative;
-    background-image: linear-gradient(to top, #fff 37%, #ECF7FC 0);
+    background-image: linear-gradient(to top, #fff 37%, #FFF1F0 0);
 
     img {
       width: 66%;
@@ -1055,11 +1054,12 @@ const drawBegin = (e:number) => {
 
   .list_con {
     margin-top: 9vw;
+    padding-left: 6vw;
   }
 
   .list_dis {
     margin-top: 9vw;
-
+    padding-left: 6vw;
     ul {
       list-style-type: disc;
       padding: 6vw 8vw;
@@ -1096,7 +1096,7 @@ const drawBegin = (e:number) => {
           content: "";
           margin-left: 15px;
           padding-left: 15px;
-          border-left: 1.8vw solid #9BD0F5;
+          border-left: 1.8vw solid #FFCECB;
           height: 7vw;
           display: inline-block;
           vertical-align: middle;
@@ -1111,7 +1111,7 @@ const drawBegin = (e:number) => {
 
   .list {
     margin-top: 5vw;
-    background-image: linear-gradient(to bottom, #fff 22%, #ECF7FC 0);
+    background-image: linear-gradient(to bottom, #fff 22%, #FFF1F0 0);
   }
 }
 </style>
