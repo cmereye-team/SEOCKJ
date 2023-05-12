@@ -46,7 +46,7 @@ const menuLists = [
   },
   {
     name: '牙科服務',
-    link: `/dentistryServices/${appState.dentistryService}`,
+    link: `/service`,
     child: [
       {
         name: '全科牙科',
@@ -54,11 +54,11 @@ const menuLists = [
       },
       {
         name: '種植牙科',
-        link: '/dentistryServices/dentalImplant',
+        link: '/service/dentalImplant',
       },
       {
         name: '矯齒牙科',
-        link: '/dentistryServices/orthodontics',
+        link: '/service/orthodontics',
       },
       {
         name: '美容牙科',
@@ -66,7 +66,7 @@ const menuLists = [
       },
       {
         name: '兒童牙科',
-        link: '/dentistryServices/healthcare',
+        link: '/service/healthcare',
       }
     ],
   },
@@ -141,7 +141,7 @@ const classNamefilter = ( _menu:any, _idx: number) => {
         className = 'menuChildCurrent'
       }
     }
-  }else if(route.path.includes('/dentistryServices')){
+  }else if(route.path.includes('/service')){
     if(_menu.link.includes(appState.dentistryService)){
       className = 'menuChildCurrent'
     }

@@ -29,7 +29,7 @@ const navLists = [
   },
   {
     name: '牙科服務',
-    link: `/dentistryServices/${appState.dentistryService}`,
+    link: `/service`,
     child: [
       {
         name: '全科牙科',
@@ -37,7 +37,7 @@ const navLists = [
       },
       {
         name: '種植牙科',
-        link: '/dentistryServices/dentalImplant',
+        link: '/service/dentalImplant',
       },
       {
         name: '矯齒牙科',

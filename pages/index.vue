@@ -97,7 +97,7 @@ const dentalServicesPagesList = [
     title: '種植牙科',  //種植牙科
     pcImg: 'https://static.cmereye.com/imgs/2023/04/8ab832a4008bbe41.jpg',
     mbImg: 'https://static.cmereye.com/imgs/2023/04/6b647f537779629d.jpg',
-    link: '/dentistryServices/dentalImplant'
+    link: '/service/dentalImplant'
   },{
     title: '矯齒牙科',  //矯齒牙科
     pcImg: 'https://static.cmereye.com/imgs/2023/04/ddea98c028072525.jpg',

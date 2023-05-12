@@ -3,8 +3,17 @@ import { useAppState } from '~/stores/appState'
 const appState = useAppState()
 appState.setDentistryService('dentalImplant')
 useHead({
-  title: "種植牙科"
+  title: "種植牙"
 })
+
+const introduceData = {
+  title: '種植牙',
+  text: '種植牙，俗稱為「種牙」',
+  content: '牙醫會把植體植入病人的牙槽骨內，待骨整合後用以支撐上面的牙套。',
+  mbImg: 'https://static.cmereye.com/imgs/2023/05/2bc3a5d449c9b42e.jpg',
+  pcImg: 'https://static.cmereye.com/imgs/2023/05/2b59dbbee76e0717.jpg',
+  tabNavName: '種植牙',
+}
 
 const noteLists = [
   {
@@ -72,8 +81,32 @@ const stepLists = [
   ]
 ]
 
-const reasonLists = ['常見種植牙的原因傳統治療方法(牙套、牙橋及假牙托等)','無法修復缺牙的情況','缺牙影響儀容，嚴重甚至會令面部變形','缺牙容易令牙齒移位，影響咬合、發音','改善咀嚼問題，回復正常飲食']
-
+const reasonData = {
+  title: '關於植牙',
+  text: '常見種植牙的原因？',
+  imgUrl: 'https://static.cmereye.com/imgs/2023/05/bab7e2cd0e553a7f.jpg',
+  reasonLists:[
+    {
+      context: '常見種植牙的原因傳統治療方法',
+    },
+    {
+      hideIcon: true,
+      context: '(牙套、牙橋及假牙托等)',
+    },
+    {
+      context: '無法修復缺牙的情況',
+    },
+    {
+      context: '缺牙影響儀容，嚴重甚至會令面部變形',
+    },
+    {
+      context: '缺牙容易令牙齒移位，影響咬合、發音',
+    },
+    {
+      context: '改善咀嚼問題，回復正常飲食',
+    }
+  ]
+}
 
 
 </script>
@@ -90,42 +123,11 @@ const reasonLists = ['常見種植牙的原因傳統治療方法(牙套、牙橋
      :titlePosition="'left'"
     />
     <div class="dentistryServices">
+      <div class="index_title pageCon">牙科服務</div>
       <!-- 介绍 -->
-      <div class="introduce bigPageCon">
-        <div class="index_title pageCon">牙科服務</div>
-        <div class="introduce-in">
-          <div class="introduce-in-t mbBox">
-            <img src="https://static.cmereye.com/imgs/2023/04/78f038c56a4dc38b.jpg" alt="">
-          </div>
-          <div class="introduce-in-l pageCon">
-            <div class="title">種植牙科</div>
-            <div class="text">種植牙，俗稱為「種牙」</div>
-            <div class="content">牙醫會把植體植入病人的牙槽骨內，待骨整合後用以支撐上面的牙套。</div>
-            <div class="tabNav">
-              <span>主頁</span>
-              <span>牙科服務</span>
-              <span>種植牙科</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <ServiceIntroduce :introduceData="introduceData" />
       <!-- 原因 -->
-      <div class="reason">
-        <div class="reason-in pageCon">
-          <div class="reason-in-l">
-            <div class="text_one">關於植牙</div>
-            <div class="text_two">常見種植牙的原因？</div>
-            <div class="image">
-              <img src="https://static.cmereye.com/imgs/2023/05/bab7e2cd0e553a7f.jpg" alt="">
-            </div>
-          </div>
-          <div class="reason-in-r">
-            <div v-for="(reason,reasonIndex) in reasonLists" :key="reasonIndex">
-              · {{reason}}
-            </div>
-          </div>
-        </div>
-      </div>
+      <ServiceReason :reasonData="reasonData" />
       <!-- 六个步骤 -->
       <div class="step">
         <div class="dentistryServices-title">
@@ -172,100 +174,6 @@ const reasonLists = ['常見種植牙的原因傳統治療方法(牙套、牙橋
   .dentistryServices{
     background: #fff;
     padding: 143px 0;
-    // 介绍
-    .introduce{
-      &-in{
-        margin-top: 45px;
-        background: url(https://static.cmereye.com/imgs/2023/05/24685e7fb53221e2.jpg) no-repeat;
-        background-position: right top;
-        background-size: 75% auto;
-        &-l{
-          color: #4D4D4D;
-          padding-bottom: 90px;
-          
-          .title{
-            font-weight: 700;
-            font-size: 1.75rem;
-          }
-          .text{
-            font-weight: 700;
-            font-size: 3.125rem;
-            margin-top: 19px;
-          }
-          .content{
-            font-weight: 600;
-            font-size: 1.75rem;
-            width: 410px;
-            margin-top: 68px;
-          }
-          .tabNav{
-            font-weight: 400;
-            font-size: 1.25rem;
-            line-height: 160%;
-            color: #CBCBCB;
-            margin-top: 83px;
-            span{
-              &:not(:last-child)::after{
-                content: '';
-                width: 20px;
-                height: 2px;
-                margin: 0 10px;
-                background: #CBCBCB;
-                display: inline-block;
-                vertical-align: middle;
-                margin-top: -4px;
-              }
-              &:last-child{
-                color: #FFA09E;
-              }
-            }
-          }
-        }
-      }
-    }
-    //原因
-    .reason{
-      padding: 33px 0 130px;
-      &-in{
-        display: flex;
-        &-l{
-          background: linear-gradient(135deg, #FFF1F0 2%, #FFDDDA 75%) no-repeat;
-          background-size: 287px 287px;
-          padding-left: 103px;
-          &>div{
-            width: 100%;
-            color: #4D4D4D;
-            line-height: 160%;
-            font-weight: 700;
-          }
-          .text_one{
-            font-size: 1.75rem;
-            margin-top: 83px;
-          }
-          .text_two{
-            font-size: 3.125rem;
-            margin-top: 19px;
-          }
-          .image{
-            width: 287px;
-            height: 287px;
-            margin-top: 8px;
-            margin-left: 100px;
-          }
-        }
-        &-r{
-          display: flex;
-          justify-content: center;
-          flex-direction: column;
-          &>div{
-            font-weight: 600;
-            font-size: 1.75rem;
-            line-height: 160%;
-            color: #4D4D4D;
-          }
-        }
-      }
-    }
     //六个步骤
     .step{
       background: linear-gradient(270deg, rgba(255, 241, 240, 0) 2.6%, rgba(255, 241, 240, 0.7) 23.89%, rgba(255, 241, 240, 0.7) 75.33%, rgba(255, 241, 240, 0) 97.4%);
@@ -426,58 +334,6 @@ const reasonLists = ['常見種植牙的原因傳統治療方法(牙套、牙橋
   @media (min-width: 768px) and (max-width: 1452px) {
     .dentistryServices{
       padding: 110px 0;
-      .introduce{
-        &-in{
-          margin-top: 3.5vw;
-          &-l{
-            padding-bottom: 7vw;
-            .title{
-              font-size: 1.75vw;
-            }
-            .text{
-              font-size: 3vw;
-              margin-top: .75vw;
-            }
-            .content{
-              font-size: 1.7vw;
-              width: 25vw;
-              margin-top: 5vw;
-            }
-            .tabNav{
-              font-size: 1.5vw;
-              margin-top: 6vw;
-            }
-          }
-        }
-      }
-      .reason{
-        padding: 3vw 0 8vw;
-        &-in{
-          &-l{
-            background-size: 19vw 19vw;
-            padding-left: 7vw;
-            .text_one{
-              font-size: 2vw;
-              margin-top: 5vw;
-            }
-            .text_two{
-              font-size: 3vw;
-              margin-top: 1.4vw;
-            }
-            .image{
-              width: 19vw;
-              height: 19vw;
-              margin-top: .5vw;
-              margin-left: 6vw;
-            }
-          }
-          &-r{
-            &>div{
-              font-size: 1.7vw;
-            }
-          }
-        }
-      }
       .step{
         padding: 6.5vw 0 7.5vw;
         &-in{
@@ -560,74 +416,6 @@ const reasonLists = ['常見種植牙的原因傳統治療方法(牙套、牙橋
   @media screen and (max-width: 768px) {
     .dentistryServices{
       padding: 90px 0;
-      .introduce{
-        &-in{
-          &-t{
-            width: 100%;
-            img{
-              width: 100%;
-            }
-          }
-          &-l{
-            padding-bottom: 50px;
-            background: none;
-            .title{
-              display: none;
-            }
-            .text{
-              font-size: 1.625rem;
-              padding: 0 30px;
-              margin-top: 0;
-            }
-            .content{
-              font-size: 1rem;
-              width: 85%;
-              padding: 0 30px;
-              margin-top: 30px;
-            }
-            .tabNav{
-              padding: 30px;
-              font-size: 1rem;
-              margin-top: 40px;
-            }
-          }
-        }
-      }
-      .reason{
-        width: 100%;
-        padding: 0 30px 90px;
-        box-sizing: border-box;
-        &-in{
-          width: 100%;
-          flex-direction: column;
-          &-l{
-            background-size: 204px 204px;
-            padding-left: 42px;
-            .text_one{
-              font-size: 1.25rem;
-              font-weight: 600;
-              margin-top: 53px;
-            }
-            .text_two{
-              font-size: 1.625rem;
-              margin-top: 13px;
-            }
-            .image{
-              width: 223px;
-              height: 223px;
-              margin-top: 20px;
-              margin-left: 60px;
-            }
-          }
-          &-r{
-            margin-top: 28px;
-            &>div{
-              font-weight: 500;
-              font-size: 1rem;
-            }
-          }
-        }
-      }
       .step{
         background: linear-gradient(360deg, rgba(255, 241, 240, 0) 0%, rgba(255, 241, 240, 0.7) 12.5%, rgba(255, 241, 240, 0.7) 81.99%, rgba(255, 241, 240, 0) 100%);
         padding: 0 30px;

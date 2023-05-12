@@ -15,23 +15,23 @@ const drawBegin = (e:number) => {
   }
 }
 
-let problemActive = ref(1)
-let openBoxHeight = ref(0)
-const handleProblem = (e:any,_idx:number) => {
-  if(e.target.className.includes('activeBox')) return
-  if(e.target.className === 'problem-list-in-t'){
-    openBoxHeight.value = e.target.nextElementSibling.clientHeight
-  }else if(e.target.className === 'problemBox-Q-r'){
-    openBoxHeight.value = e.target.parentElement.nextElementSibling.clientHeight 
-  }else{
-    openBoxHeight.value = e.target.parentElement.parentElement.nextElementSibling.clientHeight 
-  }
-  problemActive.value = _idx
-}
-const problemList = ref(null)
-onMounted(()=>{
-  openBoxHeight.value = problemList.value[0].children[1].clientHeight || 0;
-})
+// let problemActive = ref(1)
+// let openBoxHeight = ref(0)
+// const handleProblem = (e:any,_idx:number) => {
+//   if(e.target.className.includes('activeBox')) return
+//   if(e.target.className === 'problem-list-in-t'){
+//     openBoxHeight.value = e.target.nextElementSibling.clientHeight
+//   }else if(e.target.className === 'problemBox-Q-r'){
+//     openBoxHeight.value = e.target.parentElement.nextElementSibling.clientHeight 
+//   }else{
+//     openBoxHeight.value = e.target.parentElement.parentElement.nextElementSibling.clientHeight 
+//   }
+//   problemActive.value = _idx
+// }
+// const problemList = ref(null)
+// onMounted(()=>{
+//   openBoxHeight.value = problemList.value[0].children[1].clientHeight || 0;
+// })
 
 </script>
 
@@ -403,7 +403,7 @@ onMounted(()=>{
         </div>
       </div>
     </div>
-    <div class="problem pageCon">
+    <!-- <div class="problem pageCon">
       <div class="problem-list">
         <div class="problem-list-in" v-for="item in 3" ref="problemList" :key="item">
           <div :class="['problem-list-in-t',{'activeBox': problemActive === item}]" @click="handleProblem($event,item)">
@@ -427,7 +427,7 @@ onMounted(()=>{
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <ContactUs />
   </div>
   <PageFooter />
