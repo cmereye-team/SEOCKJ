@@ -11,6 +11,7 @@ defineProps({
         mbImg: '',
         pcImg: '',
         tabNavName: '',
+        pageName: ''
       }
     }
   }
@@ -30,8 +31,8 @@ defineProps({
       <div class="introduce-in-l pageCon">
         <div class="title">{{introduceData.title}}</div>
         <div class="text">{{introduceData.text}}</div>
-        <div class="content">{{introduceData.content}}</div>
-        <div class="tabNav">
+        <div :class="['content',introduceData.pageName]">{{introduceData.content}}</div>
+        <div :class="['tabNav',introduceData.pageName]">
           <nuxt-link :to="'/'"><span>主頁</span></nuxt-link>
           <nuxt-link :to="'/service'"><span>牙科服務</span></nuxt-link>
           <span>{{introduceData.tabNavName}}</span>
@@ -50,7 +51,6 @@ defineProps({
         &-l{
           color: #4D4D4D;
           padding-bottom: 90px;
-          
           .title{
             font-weight: 700;
             font-size: 1.75rem;
@@ -65,6 +65,13 @@ defineProps({
             font-size: 1.75rem;
             width: 410px;
             margin-top: 68px;
+            &.rootCanal,&.veneers{
+              width: 634px;
+            }
+            &.invisalign{
+              width: 650px;
+              font-size: 1.68rem;
+            }
           }
           .tabNav{
             font-weight: 400;
@@ -72,6 +79,12 @@ defineProps({
             line-height: 160%;
             color: #CBCBCB;
             margin-top: 83px;
+            &.rootCanal{
+              margin-top: 30px;
+            }
+            &.invisalign{
+              margin-top: 30px;
+            }
             a{
               &:not(:last-child)::after{
                 content: '';
@@ -109,6 +122,13 @@ defineProps({
               font-size: 1.7vw;
               width: 25vw;
               margin-top: 5vw;
+              &.rootCanal,&.veneers{
+                width: 38vw;
+              }
+              &.invisalign{
+                width: 42vw;
+                font-size: 1.6vw;
+              }
             }
             .tabNav{
               font-size: 1.5vw;
@@ -129,7 +149,7 @@ defineProps({
             }
           }
           &-l{
-            padding-bottom: 50px;
+            padding-bottom: 0;
             .title{
               display: none;
             }
@@ -143,6 +163,13 @@ defineProps({
               width: 85%;
               padding: 0 30px;
               margin-top: 30px;
+              &.rootCanal,&.veneers{
+                width: 90%;
+              }
+              &.invisalign{
+                width: 90%;
+                font-size: 1rem;
+              }
             }
             .tabNav{
               padding: 30px;

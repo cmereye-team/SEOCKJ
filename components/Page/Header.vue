@@ -67,15 +67,7 @@ const menuLists = [
       {
         name: '瓷貼片',
         link: '/service/veneers',
-      },
-      {
-        name: '兒童牙科(测试)',
-        link: '/service/healthcare',
-      },
-      {
-        name: '矯齒(测试)',
-        link: '/service/orthodonticsCopySave',
-      },
+      }
     ],
   },
   {
@@ -139,6 +131,7 @@ const handleMenu = (_idx: number) => {
 const handleMenuChild = ( _menu:any, _idx: number) =>{
   if(_menu.link.includes('doctorPage')){
     appState.setCurNum(_idx)
+    menuBoxBool.value = false
   }
 }
 const classNamefilter = ( _menu:any, _idx: number) => {
@@ -244,7 +237,7 @@ const classNamefilter = ( _menu:any, _idx: number) => {
               </div>
             </nuxt-link>
             <div class="menuLists-childLists" v-if="item.child.length" v-show="menuActNum === index">
-              <div class="menuLists-childLists-item" v-for="(itemChild,itemChildIndex) in item.child" :key="itemChildIndex">
+              <div class="menuLists-childLists-item" v-for="(itemChild,itemChildIndex) in item.child" :key="itemChildIndex" @click="handleMenuChild(item,itemChildIndex)">
                 <nuxt-link :to="itemChild.link">
                 {{itemChild.name}}
                 </nuxt-link>
@@ -773,6 +766,8 @@ const classNamefilter = ( _menu:any, _idx: number) => {
     line-height: 160%;
     color: #FFCECB;
     transition: all .3s;
+    overflow: hidden;
+    overflow-y: auto;
     .menuLists{
       margin-top: 120px;
       width: 100%;

@@ -47,7 +47,7 @@ defineProps({
 
 <style lang="scss" scoped>
 .reason {
-  padding: 33px 0 130px;
+  padding: 30px 0 0;
   &-in {
     display: flex;
     &-l {
@@ -99,7 +99,7 @@ defineProps({
 }
 @media (min-width: 768px) and (max-width: 1452px) {
   .reason {
-    padding: 3vw 0 8vw;
+    padding: 3vw 0 0;
     &-in {
       &-l {
         background-size: 19vw 19vw;
@@ -129,7 +129,7 @@ defineProps({
 @media screen and (max-width: 768px) {
   .reason {
     width: 100%;
-    padding: 0 30px 90px;
+    padding: 60px 30px 0;
     box-sizing: border-box;
     &-in {
       width: 100%;

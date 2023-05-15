@@ -13,6 +13,7 @@ const orthodonticsIntroduceData = {
   mbImg: 'https://static.cmereye.com/imgs/2023/05/4981f5bda13e2428.jpg',
   pcImg: 'https://static.cmereye.com/imgs/2023/05/db8bbe88934fbe0e.jpg',
   tabNavName: '杜牙根',
+  pageName: 'rootCanal',
 }
 
 const reasonData = {

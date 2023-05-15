@@ -117,7 +117,7 @@ const drawBegin = (e:number) => {
             <p>箍牙主要可分為三類，固定式外箍、內箍及透明配戴式牙箍。矯正時間因人而異，一般為一年至一年半左右，複雜個案需要兩年或以上。心思思想箍牙，但你又知唔知道各種牙箍的分別？</p>
           </div>
           <div class="swiperWrap mbBox">
-            <swiper :pagination="{ clickable: true }" :modules="[Pagination]" slidesPerView="1.1" class="swiper-wrapper">
+            <swiper :pagination="{ clickable: true }" :modules="[Pagination]" slidesPerView="2" class="swiper-wrapper">
               <swiper-slide class="swiper-slide box">
                 <div class="table-box " id="move_div">
                   <table class="tables">

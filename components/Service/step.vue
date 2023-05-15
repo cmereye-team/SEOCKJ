@@ -5,7 +5,10 @@ defineProps({
     type: Object,
     default(){
       return {
-        title: ''
+        title: '',
+        stepLists: [],
+        isShowBottom: false,
+        bottomText: ''
       }
     }
   }
@@ -25,7 +28,6 @@ defineProps({
           'width': (stepData.stepLists.length && `100/${stepData.stepLists.length}%`)
         }" -->
       <div class="step-in-box"
-        
         v-for="(step,stepIndex) in stepData.stepLists" :key="stepIndex">
         <div class="step-itemLists">
           <div class="step-itemLists-in" v-for="(stepChild,stepChildIndex) in step" :key="stepChildIndex">
@@ -34,6 +36,9 @@ defineProps({
             <span class="title">{{stepChild.title}}</span>
             <span class="text">{{stepChild.text}}</span>
           </div>
+        </div>
+        <div class="step-bottom" v-if="stepData.isShowBottom">
+          {{stepData.bottomText}}
         </div>
       </div>
       <!-- </div> -->
@@ -44,6 +49,7 @@ defineProps({
 
 <style lang="scss" scoped>
 .step{
+  margin-top: 130px;
       background: linear-gradient(270deg, rgba(255, 241, 240, 0) 2.6%, rgba(255, 241, 240, 0.7) 23.89%, rgba(255, 241, 240, 0.7) 75.33%, rgba(255, 241, 240, 0) 97.4%);
       padding: 96px 0 106px;
       &-in{
@@ -134,13 +140,23 @@ defineProps({
           &:last-child{
             margin-left: 40px;
           }
-          
+          .step-bottom{
+            font-style: normal;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 160%;
+            color: #4D4D4D;
+            width: 100%;
+            text-align: center;
+            margin-top: 50px;
+          }
         }
       }
     }
 
-// @media (min-width: 768px) and (max-width: 1452px) {
-//   .step{
+@media (min-width: 768px) and (max-width: 1452px) {
+  .step{
+    margin-top: 8vw;
 //         padding: 6.5vw 0 7.5vw;
 //         &-in{
 //           padding: 3vw 4.8vw;
@@ -177,12 +193,13 @@ defineProps({
 //             }
 //           }
 //         }
-//       }
-// }
+      }
+}
 @media screen and (max-width: 768px) {
   .step{
         background: linear-gradient(360deg, rgba(255, 241, 240, 0) 0%, rgba(255, 241, 240, 0.7) 12.5%, rgba(255, 241, 240, 0.7) 81.99%, rgba(255, 241, 240, 0) 100%);
         padding: 0 30px;
+        margin-top: 90px;
         &-in{
           flex-direction: column;
           padding: 23px 0 23px 24px;
@@ -247,6 +264,12 @@ defineProps({
                   }
                 }
               }
+            }
+            .step-bottom{
+              font-weight: 500;
+              font-size: 16px;
+              padding-right: 25px;
+              margin-top: 30px;
             }
           }
         }
