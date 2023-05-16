@@ -1,46 +1,14 @@
 <script lang="ts" setup>
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
+import { useAppState } from '~/stores/appState'
+import doctorLists_cs from '~/assets/js/doctor'
+const appState = useAppState()
 const { t } = useLang()
 useHead({
   title: "主頁"
 })
 
-onMounted(() => {
-  // gsap.registerPlugin(ScrollTrigger);
-  // const animRightIn = (name: string) => {
-  //   return gsap.from(name, {
-  //     opacity: 0, 
-  //     x: 100, 
-  //     duration: 3
-  //   })
-  // }
-  // const animBottomIn = (name: string) => {
-  //   return gsap.from(name, {
-  //     opacity: 0, 
-  //     y: 100, 
-  //     duration: 3
-  //   })
-  // }
-  // ScrollTrigger.create({
-  //   trigger: ".index_title_1",
-  //   animation: animRightIn(".index_title_1"),
-  //   start: "bottom bottom",
-  // })
-  // ScrollTrigger.create({
-  //   trigger: ".index_title_2",
-  //   animation: animRightIn(".index_title_2"),
-  //   start: "bottom bottom",
-  // })
-  // ScrollTrigger.create({
-  //   trigger: ".dentalServices-box-in",
-  //   animation: animBottomIn(".dentalServices-box-in"),
-  //   start: "bottom bottom",
-  // })
-});
-
-//医生模块显示数据
 const doctorLists = [
   {
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/516aeed6d967c676.png',
@@ -80,6 +48,40 @@ const doctorLists = [
   },
 ]
 
+
+onMounted(() => {
+  // gsap.registerPlugin(ScrollTrigger);
+  // const animRightIn = (name: string) => {
+  //   return gsap.from(name, {
+  //     opacity: 0, 
+  //     x: 100, 
+  //     duration: 3
+  //   })
+  // }
+  // const animBottomIn = (name: string) => {
+  //   return gsap.from(name, {
+  //     opacity: 0, 
+  //     y: 100, 
+  //     duration: 3
+  //   })
+  // }
+  // ScrollTrigger.create({
+  //   trigger: ".index_title_1",
+  //   animation: animRightIn(".index_title_1"),
+  //   start: "bottom bottom",
+  // })
+  // ScrollTrigger.create({
+  //   trigger: ".index_title_2",
+  //   animation: animRightIn(".index_title_2"),
+  //   start: "bottom bottom",
+  // })
+  // ScrollTrigger.create({
+  //   trigger: ".dentalServices-box-in",
+  //   animation: animBottomIn(".dentalServices-box-in"),
+  //   start: "bottom bottom",
+  // })
+});
+
 //医生模块轮播图事件
 let doctorTeamCurrent = ref(1)
 const onSlideDoctorTeamSwiperChange = (swiper:any) => {
@@ -115,6 +117,9 @@ const dentalServicesPagesList = [
     link: ''
   }
 ]
+
+
+
 
 </script>
 
@@ -165,10 +170,17 @@ const dentalServicesPagesList = [
               }"
               @slideChange="onSlideDoctorTeamSwiperChange"
             >
-              <SwiperSlide v-for="slide in 2" :key="slide" >
+              <SwiperSlide v-for="(swiperPage,swiperPageIndex) in Math.ceil( doctorLists_cs[appState.areaTabCurNum].length / 12 )" :key="swiperPageIndex" >
                 <div class="doctorTeamPage">
+                  <!-- <div class="doctorItem" v-for="(doctorItem,doctorIndex) in doctorLists_cs[appState.areaTabCurNum].slice(swiperPageIndex*12,(swiperPageIndex+1)*12)" :key="doctorIndex">
+                    <nuxt-link :to="`/doctorPage/#${doctorItem.id}`">
+                      <img :src="doctorItem.mbImg || ''" alt="">
+                    </nuxt-link>
+                  </div> -->
                   <div class="doctorItem" v-for="(doctorItem,doctorIndex) in doctorLists" :key="doctorIndex">
-                    <img :src="doctorItem.imgUrl" alt="">
+                    <nuxt-link :to="`/doctorPage`">
+                      <img :src="doctorItem.imgUrl || ''" alt="">
+                    </nuxt-link>
                   </div>
                 </div>
               </SwiperSlide>
@@ -176,12 +188,12 @@ const dentalServicesPagesList = [
         </div>
         <div class="index-doctorTeam-b pageCon">
           <div class="index-doctorTeam-b-in">
-            <PageSwiperPointLine :latestNewsNum="2" :latestNewsCurrent="doctorTeamCurrent"></PageSwiperPointLine>
+            <PageSwiperPointLine :latestNewsNum="Math.ceil( doctorLists_cs[appState.areaTabCurNum].length / 12 )" :latestNewsCurrent="doctorTeamCurrent"></PageSwiperPointLine>
           </div>
         </div>
       </div>
       <!-- 個案分享 -->
-      <div class="index-caseSharing">
+      <!-- <div class="index-caseSharing">
         <div class="index_title pageCon">個案分享</div>
         <div class="index-caseSharing-in pageCon">
           <div class="in-top">
@@ -195,7 +207,7 @@ const dentalServicesPagesList = [
             <span>了解更多</span>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- 聯絡我們 -->
       <ContactUs />
     </div>
@@ -299,16 +311,19 @@ const dentalServicesPagesList = [
     .doctorTeamPage{
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      // justify-content: center;
+      justify-content: flex-start;
+      box-shadow: 2px 0px 8px rgba(255, 163, 158, 0.25);
       .doctorItem{
         cursor: pointer;
         width: 16.55%;
         mix-blend-mode: multiply;
         box-shadow: inset -1px -1px 0px #FFA39E;
         transition: all .5s;
-        // transform: matrix(-1, 0, 0, 1, 0, 0);
+        overflow: hidden;
         img{
-          width: 100%;
+          width: calc(100% - 1px);
+          height: calc(100% - 1px);
         }
         &:hover{
           background: #FFDDDA;

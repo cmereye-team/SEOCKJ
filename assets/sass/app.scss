@@ -103,6 +103,9 @@ html.dark {
       line-height: 160%;
       color: #4D4D4D;
       text-align: center;
+      &.bb{
+        border-bottom: 5px solid #FFA09E;
+      }
     }
     &-line{
       width: 100px;
@@ -130,6 +133,9 @@ html.dark {
     &-title{
       &-in{
         font-size: 3.4vw;
+        &.bb{
+          border-bottom: 4px solid #FFA09E;
+        }
       }
       &-line{
         width: 7vw;
@@ -163,6 +169,9 @@ html.dark {
       &-in{
         font-weight: 600;
         font-size: 1.625rem;
+        &.bb{
+          border-bottom: 3px solid #FFA09E;
+        }
       }
       &-line{
         width: 50px;

@@ -96,7 +96,6 @@ const navLists = [
 
 <template>
   <footer class="bgColor">
-    <!-- <section> -->
     <div class="footer-content bigPageCon">
       <div class="footer-content-nav">
         <div v-for="(navItem, navIndex) in navLists" :key="navIndex">
@@ -136,7 +135,6 @@ const navLists = [
         </nuxt-link>
       </div>
     </div>
-    <!-- </section> -->
   </footer>
 </template>
 
@@ -169,7 +167,7 @@ const navLists = [
     }
   }
   &-text {
-    width: 360px;
+    max-width: 360px;
     color: #fff;
     font-size: 22px;
     text-align: center;

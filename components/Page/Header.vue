@@ -96,11 +96,11 @@ const menuLists = [
       },
     ],
   },
-  {
-    name: '個案分享',
-    link: '/aboutUs',
-    child: [],
-  },
+  // {
+  //   name: '個案分享',
+  //   link: '/aboutUs',
+  //   child: [],
+  // },
   {
     name: '聯絡我們',
     link: '/contactUs',

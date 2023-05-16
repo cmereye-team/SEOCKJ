@@ -138,7 +138,7 @@ const getWindowWidth = () => {
         <div class="dentistryServices-title-line"></div>
       </div>
       <div class="notice-in">
-        <swiper :slidesPerView="windowWidth>768 ? '2': '1.1'" class="swiper-wrapper" @slideChange="onSlideChange">
+        <swiper :slidesPerView="windowWidth>768 ? '2': '1'" class="swiper-wrapper" @slideChange="onSlideChange">
             <swiper-slide class="swiper-slide">
               <div class="box box-left">
                 <div class="box-in" v-for="(meritItem,meritIndex) in noticeData.meritLists" :key="meritIndex" >
@@ -231,8 +231,10 @@ const getWindowWidth = () => {
 @media only screen and (max-width: 760px) {
   .notice{
     &-in{
-      margin: 34px auto 0;
+      width: 100%;
+      margin: 34px 0 0;
       .box{
+        margin-left: 30px;
         .box-in{
           font-weight: 500;
           font-size: 15px;
@@ -247,6 +249,8 @@ const getWindowWidth = () => {
         }
       }
       .box-right{
+        margin-right: 30px;
+        margin-left: 0;
         .box-in{
           &:nth-of-type(3){
             height: 139px;

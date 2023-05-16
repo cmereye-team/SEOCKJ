@@ -8,7 +8,8 @@ defineProps({
         title: '',
         stepLists: [],
         isShowBottom: false,
-        bottomText: ''
+        bottomText: '',
+        remark: ''
       }
     }
   }
@@ -21,20 +22,21 @@ defineProps({
       <div class="dentistryServices-title-in">{{stepData.title}}</div>
       <div class="dentistryServices-title-line"></div>
     </div>
+    <div class="step-remark" v-if="stepData.remark">
+      {{stepData.remark}}
+    </div>
     <div class="step-in pageCon">
-      <!-- <div class="step-in-boxCon"> -->
-
-      <!-- :style="{
-          'width': (stepData.stepLists.length && `100/${stepData.stepLists.length}%`)
-        }" -->
-      <div class="step-in-box"
+      <div :class="['step-in-box',stepData.stepLists.length === 1 ? 'oneBox' : '']"
         v-for="(step,stepIndex) in stepData.stepLists" :key="stepIndex">
         <div class="step-itemLists">
-          <div class="step-itemLists-in" v-for="(stepChild,stepChildIndex) in step" :key="stepChildIndex">
+          <div :class="['step-itemLists-in',stepData.stepLists.length === 1 ? 'oneBoxListItem' : '']" v-for="(stepChild,stepChildIndex) in step" :key="stepChildIndex">
             <div class="line"></div>
             <span class="round"></span>
             <span class="title">{{stepChild.title}}</span>
-            <span class="text">{{stepChild.text}}</span>
+            <span class="text">
+              <div class="text-th" v-if="stepChild.textTh">{{stepChild.textTh}}</div>
+              <div>{{stepChild.text}}</div>
+            </span>
           </div>
         </div>
         <div class="step-bottom" v-if="stepData.isShowBottom">
@@ -52,6 +54,16 @@ defineProps({
   margin-top: 130px;
       background: linear-gradient(270deg, rgba(255, 241, 240, 0) 2.6%, rgba(255, 241, 240, 0.7) 23.89%, rgba(255, 241, 240, 0.7) 75.33%, rgba(255, 241, 240, 0) 97.4%);
       padding: 96px 0 106px;
+      &-remark{
+        max-width: 830px;
+        margin: 35px auto 0;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 160%;
+        text-align: center;
+        color: #4D4D4D;
+      }
       &-in{
         width: 100%;
         background: #FFFFFF;
@@ -67,6 +79,9 @@ defineProps({
         &-box{
           width: 50%;
           height: 100%;
+          &.oneBox{
+            width: 60%;
+          }
           .step-itemLists{
             width: 100%;
             &-in{
@@ -110,19 +125,33 @@ defineProps({
                 color: #4D4D4D;
                 display: block;
                 padding-top: 10px;
+                &-th{
+                  font-style: normal;
+                  font-weight: 700;
+                  font-size: 28px;
+                  // line-height: 100%;
+                  padding-bottom: 20px;
+                  color: #4D4D4D;
+                }
               }
               &:last-child{
                 align-items: center;
                 margin-bottom: 0;
+                padding-bottom: 0;
                 .round{
-                  margin-top: 0;
+                  // margin-top: 0;
                 }
                 .text{
-                  padding-top: 0;
+                  // padding-top: 0;
                 }
               }
-              &:last-child{
-                padding-bottom: 0;
+              &.oneBoxListItem{
+                align-items: flex-start;
+              }
+              &.oneBoxListItem:last-child{
+                .line{
+                  height: 0;
+                }
               }
               &:hover .round{
                 background: #FFCECB;
@@ -157,43 +186,14 @@ defineProps({
 @media (min-width: 768px) and (max-width: 1452px) {
   .step{
     margin-top: 8vw;
-//         padding: 6.5vw 0 7.5vw;
-//         &-in{
-//           padding: 3vw 4.8vw;
-//           &-box{
-//             .line{
-//               width: .3vw;
-//               top: 1.5vw;
-//               left: .75vw;
-//             }
-//             .step-itemLists{
-//               &-in{
-//                 height: 8vw;
-//                 .round{
-//                   width: 1.7vw;
-//                   height: 1.7vw;
-//                   margin-right: .95vw;
-//                   margin-top: .4vw;
-//                 }
-//                 .title{
-//                   font-size: 1.9vw;
-//                   margin-right: 1.9vw;
-//                 }
-//                 .text{
-//                   font-size: 1.4vw;
-//                   padding-top: .7vw;
-//                 }
-//               }
-//             }
-//             &:first-child{
-//               padding-right: 2.8vw;
-//             }
-//             &:last-child{
-//               margin-left: 2.8vw;
-//             }
-//           }
-//         }
-      }
+    &-in{
+       &-box{
+         &.oneBox{
+           width: 50vw;
+         }
+       }
+    }
+  }
 }
 @media screen and (max-width: 768px) {
   .step{
@@ -206,6 +206,9 @@ defineProps({
           margin-top: 28px;
           &-box{
             width: 100%;
+            &.oneBox{
+              width: 100%;
+            }
             .step-itemLists{
               &-in{
                 height: auto;
@@ -230,6 +233,11 @@ defineProps({
                   font-weight: 500;
                   font-size: 1rem;
                   padding-top: 0;
+                  &-th{
+                    font-weight: 700;
+                    font-size: 16px;
+                    padding-bottom: 5px;
+                  }
                 }
                 &:first-child{
                   margin-bottom: 0px;

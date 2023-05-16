@@ -38,6 +38,7 @@ defineProps({
     width: 100%;
     max-width: 1200px;
     margin: 35px auto;
+    padding: 60px 0;
     background: #FFF1F0;
     box-shadow: 0px 4px 8px #FFDDDA;
     min-height: 378px;
