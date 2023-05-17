@@ -134,6 +134,66 @@ const noticeData = {
   ]
 }
 
+const detailData = {
+  title: '項目收費詳情',
+  detailTableCol: ['服務','類別','原價 (單隻)','優惠價 (單隻)'],
+  detailTable: [
+    {
+      service: [
+        'OSSTEM (韓國）',
+        '奧齒泰親水種植體植入術',
+      ],
+      type: [
+        '口腔種植醫療服務費',
+        '博朗全瓷冠/全鋯冠',
+        ['OSSTEM (韓國）','奧齒泰親水','種植系統']
+      ],
+      price: '¥13800',
+      discountedPrice: '¥8800'
+    },
+    {
+      service: [
+        'ANKYLOS（德國）',
+        '種植體植入術',
+      ],
+      type: [
+        '口腔種植醫療服務費',
+        '博朗全瓷冠/全鋯冠',
+        ['ANKYLOS（德國）','種植系統']
+      ],
+      price: '¥15800',
+      discountedPrice: '¥12800'
+    },
+    {
+      service: [
+        'Straumann（瑞士SLA）',
+        '悅鋯非親水種植體植入術',
+      ],
+      type: [
+        '口腔種植醫療服務費',
+        '博朗全瓷冠/全鋯冠',
+        ['Straumann（瑞士SLA）','悅鋯非親水',' 種植系統']
+      ],
+      price: '¥18800',
+      discountedPrice: '¥14800'
+    },
+    {
+      service: [
+        'Straumann（瑞士）',
+        'Roxolid瑞鋯親水',
+        'SLAcitive種植體植入術'
+      ],
+      type: [
+        '口腔種植醫療服務費',
+        '博朗全瓷冠/全鋯冠',
+        ['Straumann（瑞士）','Roxolid','瑞鋯親水',' SLAcitive','種植系統']
+      ],
+      price: '¥26000',
+      discountedPrice: '¥18800'
+    }
+  ]
+}
+
 let noticeCurrent = ref(1)
 
 //走马灯事件
@@ -194,7 +254,10 @@ const getWindowWidth = () => {
         <div class="dentistryServices-title">
           <div class="dentistryServices-title-in bb">{{noticeData.title}}</div>
         </div>
-        <div class="notice-toText"></div>
+        <div class="notice-topText">
+          <span>傳統植牙和微創植牙都是一種牙科手術，用於取代缺失的牙齒。</span>
+          <span>兩者之間的主要區別在於手術的程度和方法。</span>
+        </div>
         <div class="notice-in">
           <swiper :slidesPerView="windowWidth>768 ? '2': '1'" class="swiper-wrapper" @slideChange="onSlideChange">
               <swiper-slide class="swiper-slide">
@@ -213,13 +276,18 @@ const getWindowWidth = () => {
               </swiper-slide>
           </swiper>
         </div>
-        <div class="notice-bottomText mbBox"></div>
+        <div class="notice-bottomText pcBox">
+          <span>*總體而言，傳統植牙和微創植牙都是安裝人造牙齒的有效方法，</span>
+          <span>但是微創植牙通常需要較少的手術時間和康復時間，因此對於一些患者來說可能更為適合。然而，</span>
+          <span>每個人的情況都是不同的，最好向您的牙醫師諮詢，以了解哪種方法最適合您的情況。</span>
+        </div>
         <div class="notice-line mbBox">
           <PageSwiperPointLine :latestNewsNum="2" :latestNewsCurrent="noticeCurrent"></PageSwiperPointLine>
         </div>
       </div>
       <!-- 六个步骤 -->
       <ServiceStep :stepData="stepData" />
+      <!-- 注意事項 -->
       <div class="note">
         <div class="dentistryServices-title">
           <div class="dentistryServices-title-in bb">種植牙後注意事項</div>
@@ -231,6 +299,40 @@ const getWindowWidth = () => {
               <img :src="note.img" alt="">
             </div>
             <div class="noteCard-in-name">{{note.name}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="detail">
+        <div class="dentistryServices-title">
+          <div class="dentistryServices-title-in bb">{{detailData.title}}</div>
+        </div>
+        <div class="detail-table">
+          <div class="detail-table-in">
+            <div class="detail-table-in-col">
+              <div v-for="(col,colIndex) in detailData.detailTableCol" :key="colIndex">
+                <div v-if="col.length <= 2">{{col}}</div>
+                <div v-else>{{col.slice(0,col.length-4)}}</div>
+                <div v-if="col.length > 2">{{col.slice(col.length-4,col.length)}}</div>
+              </div>
+            </div>
+            <div class="detail-table-in-data" v-for="(tableItem,tableItemIndex) in detailData.detailTable" :key="tableItemIndex">
+              <div>
+                <span v-for="(serviceTtem,serviceIndex) in tableItem.service" :key="serviceIndex">{{serviceTtem}}</span>
+              </div>
+              <div>
+                <span v-for="(typeTtem,typeIndex) in tableItem.type" :key="typeIndex">
+                  <p>· </p>
+                  <p v-if="typeIndex<2">{{typeTtem}}</p>
+                  <div v-else>
+                    <p v-for="(typeTtemChild,typeTtemChildIndex) in typeTtem" :key="typeTtemChildIndex">
+                      {{typeTtemChild}}
+                    </p>
+                  </div>
+                </span>
+              </div>
+              <div>{{tableItem.price}}</div>
+              <div>{{tableItem.discountedPrice}}</div>
+            </div>
           </div>
         </div>
       </div>
@@ -273,13 +375,124 @@ const getWindowWidth = () => {
         }
       }
     }
+    .detail{
+      margin-top: 98px;
+      &-table{
+        width: 100%;
+        max-width: 1245px;
+        margin: 54px auto 0;
+        overflow: hidden;
+        overflow-x: auto;
+        &-in{
+          width: 100%;
+          min-width: 714px;
+          border-radius: 60px;
+          overflow: hidden;
+          &-col{
+            display: flex;
+            height: 69px;
+            &>div{
+              background: #FFA09E;
+              flex: 1;
+              font-style: normal;
+              font-weight: 700;
+              font-size: 28px;
+              line-height: 160%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: #FFFFFF;
+              &:nth-of-type(1){
+                flex: 1.5;
+              }
+              &:nth-of-type(2){
+                flex: 2;
+              }
+              &:not(:last-child){
+                margin-right: 3px;
+              }
+            }
+          }
+          &-data{
+            display: flex;
+            height: 172px;
+            &>div{
+              flex: 1;
+              background: #FFF1F0;
+              font-style: normal;
+              font-weight: 600;
+              font-size: 20px;
+              line-height: 160%;
+              color: #4D4D4D;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex-direction: column;
+              span{
+                width: 100%;
+                max-width: 80%;
+                display: flex;
+                &>div{
+                  flex: 1;
+                  p{
+                    display: inline-block;
+                    &:not(:first-child){
+                      margin-right: 10px;
+                    }
+                  }
+                }
+                &>p{
+                  &:nth-of-type(1){
+                    width: 20px;
+                  }
+                }
+              }
+              &:nth-of-type(1){
+                flex: 1.5;
+              }
+              &:nth-of-type(2){
+                flex: 2;
+              }
+              &:nth-of-type(3),&:nth-of-type(4){
+                font-weight: 700;
+                font-size: 28px;
+              }
+              &:not(:last-child){
+                margin-right: 3px;
+              }
+            }
+            &:not(:nth-of-type(2)){
+              margin-top: 8px;
+            }
+          }
+        }
+      }
+    }
     .notice{
       width: 100%;
       max-width: 1450px;
       margin: 96px auto 0;
+      &-topText,&-bottomText{
+        width: 100%;
+        span{
+          display: block;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 160%;
+          text-align: center;
+          color: #4D4D4D;
+        }
+      }
+      &-topText{
+        margin: 35px auto 0;
+      }
+      &-bottomText{
+        margin: 60px auto 0;
+      }
       &-in{
         width: 90%;
-        margin: 70px auto 0;
+        margin: 30px auto 0;
         .box{
           .box-in{
             height: 207px;
@@ -435,7 +648,80 @@ const getWindowWidth = () => {
           }
         }
       }
+      .detail{
+        margin-top: 90px;
+        &-table{
+          padding-bottom: 30px;
+          margin: 29px auto 0;
+          position: relative;
+          &::after{
+            content: '';
+            height: 20px;
+            width: 19.2%;
+            background: #fff;
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+          }
+          &::-webkit-scrollbar {
+            background: none;
+            height: 3px;
+          }
+          &::-webkit-scrollbar-thumb{
+            background: #FFA09E;
+            border: none;
+          }
+          &::-webkit-scrollbar-track{
+            background: #FFF1F0;
+          }
+          &-in{
+            margin: 0 30px;
+            &-col{
+              height: 40px;
+              &>div{
+                flex: 1.2;
+                font-weight: 600;
+                font-size: 20px;
+                &>div{
+                  &:last-child{
+                    font-weight: 700;
+                    font-size: 16px;
+                  }
+                }
+              }
+            }
+            &-data{
+              height: 117px;
+              &>div{
+                flex: 1.2;
+                font-weight: 500;
+                font-size: 15px;
+                &:nth-of-type(3),&:nth-of-type(4){
+                  font-weight: 600;
+                  font-size: 20px;
+                }
+              }
+              &:not(:nth-of-type(2)){
+                margin-top: 4px;
+              }
+              &:last-child{
+                height: 149px;
+              }
+            }
+          }
+        }
+      }
       .notice{
+        &-topText,&-bottomText{
+          padding: 0 30px;
+          span{
+            display: inline;
+          }
+        }
+        &-topText{
+          margin: 28px auto 0;
+          text-align: center;
+        }
         &-in{
           width: 100%;
           margin: 34px 0 0;
