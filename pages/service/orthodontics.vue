@@ -8,11 +8,11 @@ useHead({
 
 const orthodonticsIntroduceData = {
   title: '矯齒',
-  text: '矯齒，俗稱為「箍牙」',
   content: '治療除了能矯正不整齊排列的牙齒，改善外觀外，更能有助減低患上各種牙齒問題的風險。',
   mbImg: 'https://static.cmereye.com/imgs/2023/04/78f038c56a4dc38b.jpg',
-  pcImg: 'https://static.cmereye.com/imgs/2023/05/24685e7fb53221e2.jpg',
+  pcImg: 'https://static.cmereye.com/imgs/2023/05/9993e95bc1c6a9c9.jpg',
   tabNavName: '矯齒',
+  pageName: 'orthodontics'
 }
 
 const reasonData = {

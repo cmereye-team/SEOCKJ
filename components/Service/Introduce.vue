@@ -20,23 +20,22 @@ defineProps({
 
 <template>
   <div class="introduce bigPageCon">
-    <div class="introduce-in" :style="{
+    <div :class="['introduce-in',{'noTitle':!introduceData.title}]" :style="{
       background: `url(${introduceData.pcImg}) no-repeat`,
       backgroundPosition: 'right top',
-      backgroundSize: '75% auto'
+      backgroundSize: 'auto 100%'
       }">
+      <div class="tabNav noTitle pageCon">
+        <nuxt-link :to="'/'"><span>主頁</span></nuxt-link>
+        <nuxt-link :to="'/service'"><span>牙科服務</span></nuxt-link>
+        <span>{{introduceData.tabNavName}}</span>
+      </div>
       <div class="introduce-in-t mbBox">
         <img :src="introduceData.mbImg" alt="">
       </div>
       <div class="introduce-in-l pageCon">
         <div class="title">{{introduceData.title}}</div>
-        <div class="text">{{introduceData.text}}</div>
         <div :class="['content',introduceData.pageName]">{{introduceData.content}}</div>
-        <div :class="['tabNav',introduceData.pageName]">
-          <nuxt-link :to="'/'"><span>主頁</span></nuxt-link>
-          <nuxt-link :to="'/service'"><span>牙科服務</span></nuxt-link>
-          <span>{{introduceData.tabNavName}}</span>
-        </div>
       </div>
     </div>
   </div>
@@ -48,61 +47,59 @@ defineProps({
     .introduce{
       &-in{
         margin-top: 45px;
+        height: 32.709vw;
+        max-height: 628px;
         &-l{
           color: #4D4D4D;
           padding-bottom: 90px;
           .title{
             font-weight: 700;
-            font-size: 1.75rem;
-          }
-          .text{
-            font-weight: 700;
-            font-size: 3.125rem;
-            margin-top: 19px;
+            font-size: 2.6042vw;
+            margin-top: 5vw;
           }
           .content{
             font-weight: 600;
             font-size: 1.75rem;
-            width: 410px;
+            max-width: 650px;
+            width: 33.85vw;
             margin-top: 68px;
-            &.rootCanal,&.veneers{
-              width: 634px;
-            }
-            &.invisalign{
-              width: 650px;
-              font-size: 1.68rem;
-            }
-          }
-          .tabNav{
-            font-weight: 400;
-            font-size: 1.25rem;
-            line-height: 160%;
-            color: #CBCBCB;
-            margin-top: 83px;
-            &.rootCanal{
-              margin-top: 30px;
-            }
-            &.invisalign{
-              margin-top: 30px;
-            }
-            a{
-              &:not(:last-child)::after{
-                content: '';
-                width: 20px;
-                height: 2px;
-                margin: 0 10px;
-                background: #CBCBCB;
-                display: inline-block;
-                vertical-align: middle;
-                margin-top: -4px;
-              }
-            }
-            &>span{
-              cursor: pointer;
-              color: #FFA09E;
+            &.orthodontics{
+              width: 20.834vw;
             }
           }
         }
+      }
+    }
+    .tabNav{
+      font-weight: 400;
+      font-size: 1.25rem;
+      line-height: 160%;
+      color: #CBCBCB;
+      margin-top: 83px;
+      &.noTitle{
+        margin-top: 0;
+      }
+      &.rootCanal{
+        margin-top: 30px;
+      }
+      &.invisalign{
+        margin-top: 30px;
+      }
+      a{
+        &:not(:last-child)::after{
+          content: '';
+          width: 20px;
+          height: 2px;
+          margin: 0 10px;
+          background: #CBCBCB;
+          display: inline-block;
+          vertical-align: middle;
+          margin-top: -4px;
+        }
+      }
+      &>span{
+        cursor: pointer;
+        color: #FFA09E;
       }
     }
     @media (min-width: 768px) and (max-width: 1452px) {
@@ -114,34 +111,29 @@ defineProps({
             .title{
               font-size: 1.75vw;
             }
-            .text{
-              font-size: 3vw;
-              margin-top: .75vw;
-            }
             .content{
               font-size: 1.7vw;
-              width: 25vw;
+              // width: 25vw;
               margin-top: 5vw;
-              &.rootCanal,&.veneers{
-                width: 38vw;
-              }
-              &.invisalign{
-                width: 42vw;
-                font-size: 1.6vw;
-              }
             }
-            .tabNav{
-              font-size: 1.5vw;
-              margin-top: 6vw;
-            }
+            
           }
         }
+      }
+      .tabNav{
+        font-size: 1.5vw;
+        margin-top: 6vw;
       }
     }
     @media screen and (max-width: 768px) {
       .introduce{
         &-in{
+          height: auto;
+          max-height: 300%;
           background: none !important;
+          &.noTitle{
+            margin-top: 0;
+          }
           &-t{
             width: 100%;
             img{
@@ -151,33 +143,28 @@ defineProps({
           &-l{
             padding-bottom: 0;
             .title{
-              display: none;
-            }
-            .text{
-              font-size: 1.625rem;
               padding: 0 30px;
+              font-weight: 700;
+              font-size: 26px;
               margin-top: 0;
             }
             .content{
               font-size: 1rem;
-              width: 85%;
+              width: 95%;
               padding: 0 30px;
               margin-top: 30px;
-              &.rootCanal,&.veneers{
-                width: 90%;
-              }
-              &.invisalign{
-                width: 90%;
-                font-size: 1rem;
+              &.orthodontics{
+                width: 95%;
               }
             }
-            .tabNav{
-              padding: 30px;
-              font-size: 1rem;
-              margin-top: 20px;
-            }
+            
           }
         }
+      }
+      .tabNav{
+        padding: 30px;
+        font-size: 1rem;
+        margin-top: 20px;
       }
     }
 </style>

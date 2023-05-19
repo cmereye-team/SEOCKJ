@@ -9,7 +9,8 @@ defineProps({
         stepLists: [],
         isShowBottom: false,
         bottomText: '',
-        remark: ''
+        remark: '',
+        pageName: ''
       }
     }
   }
@@ -17,33 +18,34 @@ defineProps({
 </script>
 
 <template>
-  <div class="step">
+  <div :class="['step',stepData.pageName]">
     <div class="dentistryServices-title">
-      <div class="dentistryServices-title-in">{{stepData.title}}</div>
-      <div class="dentistryServices-title-line"></div>
+      <div class="dentistryServices-title-in bb">{{stepData.title}}</div>
     </div>
     <div class="step-remark" v-if="stepData.remark">
       {{stepData.remark}}
     </div>
-    <div class="step-in pageCon">
-      <div :class="['step-in-box',stepData.stepLists.length === 1 ? 'oneBox' : '']"
-        v-for="(step,stepIndex) in stepData.stepLists" :key="stepIndex">
-        <div class="step-itemLists">
-          <div :class="['step-itemLists-in',stepData.stepLists.length === 1 ? 'oneBoxListItem' : '']" v-for="(stepChild,stepChildIndex) in step" :key="stepChildIndex">
-            <div class="line"></div>
-            <span class="round"></span>
-            <span class="title">{{stepChild.title}}</span>
-            <span class="text">
-              <div class="text-th" v-if="stepChild.textTh">{{stepChild.textTh}}</div>
-              <div>{{stepChild.text}}</div>
-            </span>
+    <div :class="`${stepData.pageName}Bg`">
+      <div class="step-in pageCon">
+        <div :class="['step-in-box',stepData.stepLists.length === 1 ? 'oneBox' : '']"
+          v-for="(step,stepIndex) in stepData.stepLists" :key="stepIndex">
+          <div class="step-itemLists">
+            <div :class="['step-itemLists-in',stepData.stepLists.length === 1 ? 'oneBoxListItem' : '']" v-for="(stepChild,stepChildIndex) in step" :key="stepChildIndex">
+              <div class="line"></div>
+              <span class="round"></span>
+              <span class="title">{{stepChild.title}}</span>
+              <span class="text">
+                <div class="text-th" v-if="stepChild.textTh">{{stepChild.textTh}}</div>
+                <div>{{stepChild.text}}</div>
+              </span>
+            </div>
+          </div>
+          <div class="step-bottom" v-if="stepData.isShowBottom">
+            {{stepData.bottomText}}
           </div>
         </div>
-        <div class="step-bottom" v-if="stepData.isShowBottom">
-          {{stepData.bottomText}}
-        </div>
+        <!-- </div> -->
       </div>
-      <!-- </div> -->
     </div>
   </div>
 </template>
@@ -51,7 +53,7 @@ defineProps({
 
 <style lang="scss" scoped>
 .step{
-  margin-top: 130px;
+      margin-top: 130px;
       background: linear-gradient(270deg, rgba(255, 241, 240, 0) 2.6%, rgba(255, 241, 240, 0.7) 23.89%, rgba(255, 241, 240, 0.7) 75.33%, rgba(255, 241, 240, 0) 97.4%);
       padding: 96px 0 106px;
       &-remark{
@@ -181,6 +183,14 @@ defineProps({
           }
         }
       }
+      .invisalignBg{
+        background: url(https://static.cmereye.com/imgs/2023/05/ed92fb119afcb678.png),
+        linear-gradient(270deg, rgba(255, 241, 240, 0) 2.6%, rgba(255, 241, 240, 0.7) 23.89%, rgba(255, 241, 240, 0.7) 75.33%, rgba(255, 241, 240, 0) 97.4%);
+      }
+      &.invisalign{
+        background: none;
+        padding: 0 0 106px;
+      }
     }
 
 @media (min-width: 768px) and (max-width: 1452px) {
@@ -280,6 +290,10 @@ defineProps({
               margin-top: 30px;
             }
           }
+        }
+        &.invisalign{
+          background: linear-gradient(360deg, rgba(255, 241, 240, 0) 0%, rgba(255, 241, 240, 0.7) 12.5%, rgba(255, 241, 240, 0.7) 81.99%, rgba(255, 241, 240, 0) 100%);
+          padding: 0 30px;
         }
       }
 }

@@ -346,6 +346,10 @@ const handleRightBtn = () => {
       flex: 1;
       height: 704px;
       display: flex;
+      padding: 50px 0;
+      background: linear-gradient(to right, #fff1f0, #ffcecb);
+      box-sizing: content-box;
+      border-radius: 50px;
       &>div{
         height: 100%;
       }
@@ -447,6 +451,9 @@ const handleRightBtn = () => {
           display: flex;
           height: calc(100vw - 60px);
           margin: 20px 0;
+          padding: 30px 0;
+          background: linear-gradient(to right, #fff1f0, #ffcecb);
+          box-sizing: content-box;
           &>div{
             height: 100%;
           }

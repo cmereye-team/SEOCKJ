@@ -8,10 +8,9 @@ useHead({
 
 const introduceData = {
   title: '種植牙',
-  text: '種植牙，俗稱為「種牙」',
-  content: '牙醫會把植體植入病人的牙槽骨內，待骨整合後用以支撐上面的牙套。',
+  content: '利用鈦金屬等物料製作成植體，然後植入進行牙槽骨當中，代替牙根以作支撐，然後在上面植入假牙、牙橋或假牙托來填補空缺的牙齒。隨着醫療技術的進步，現在不僅有傳統的植牙方式，還有微創植牙。',
   mbImg: 'https://static.cmereye.com/imgs/2023/05/2bc3a5d449c9b42e.jpg',
-  pcImg: 'https://static.cmereye.com/imgs/2023/05/2b59dbbee76e0717.jpg',
+  pcImg: 'https://static.cmereye.com/imgs/2023/05/611a2ada62c8fa55.jpg',
   tabNavName: '種植牙',
 }
 
@@ -514,6 +513,8 @@ const getWindowWidth = () => {
               color: #fff;
               margin-top: 0;
               height: 69px;
+              font-weight: 700;
+              font-size: 28px;
             }
             &:nth-of-type(2){
               margin-top: 0;
@@ -528,6 +529,11 @@ const getWindowWidth = () => {
           margin-left: 3px;
           border-radius:  0 60px 60px 0;
           overflow: hidden;
+          .box-in{
+            &:first-child{
+              background: #FFCECB;
+            }
+          }
         }
       }
       &-line{
@@ -654,18 +660,11 @@ const getWindowWidth = () => {
           padding-bottom: 30px;
           margin: 29px auto 0;
           position: relative;
-          &::after{
-            content: '';
-            height: 20px;
-            width: 19.2%;
-            background: #fff;
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-          }
           &::-webkit-scrollbar {
             background: none;
             height: 3px;
+            position: relative;
+            display: none;
           }
           &::-webkit-scrollbar-thumb{
             background: #FFA09E;

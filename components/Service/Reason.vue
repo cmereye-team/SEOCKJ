@@ -47,7 +47,7 @@ defineProps({
 
 <style lang="scss" scoped>
 .reason {
-  padding: 30px 0 0;
+  padding: 108px 0 0;
   &-in {
     display: flex;
     &-l {
@@ -76,9 +76,10 @@ defineProps({
     }
     &-r {
       display: flex;
-      justify-content: center;
+      // justify-content: center;
       flex-direction: column;
       max-width: 520px;
+      margin-top: 155px;
       & > div {
         font-weight: 600;
         font-size: 1.75rem;
@@ -119,6 +120,7 @@ defineProps({
         }
       }
       &-r {
+        margin-top: 10.5vw;
         & > div {
           font-size: 1.7vw;
         }

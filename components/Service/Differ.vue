@@ -40,12 +40,11 @@ const onSlideChange = (swiper:any) => {
 <template>
   <div class="differ">
       <div class="dentistryServices-title">
-        <div class="dentistryServices-title-in">
+        <div class="dentistryServices-title-in bb">
           <div v-if="windowWidth > 768 ||  differData.title.length <= 10">{{differData.title}}</div>
           <div v-if="windowWidth <= 768 && differData.title.length > 10">{{differData.title.slice(0,6)}}</div>
           <div v-if="windowWidth <= 768 && differData.title.length > 10">{{differData.title.slice(7,differData.title.length)}}</div>
         </div>
-        <div class="dentistryServices-title-line"></div>
       </div>
       <div class="differ-text" v-if="differData.text">
         {{differData.text}}
@@ -73,12 +72,12 @@ const onSlideChange = (swiper:any) => {
             </swiper-slide>
             <swiper-slide class="swiper-slide">
               <div class="box">
-                <div class="box-in">
+                <div :class="['box-in','boxRight',differData.pageName]">
                   <div class="box-in-r">
                     {{differData.secondTextTh}}
                   </div>
                 </div>
-                <div class="box-in" v-for="(rightItem,rightItemIndex) in differData.listDatas" :key="rightItemIndex">
+                <div :class="['box-in','boxRight',differData.pageName]" v-for="(rightItem,rightItemIndex) in differData.listDatas" :key="rightItemIndex">
                   <div class="box-in-r bra">
                     <div>{{rightItem.secondText}}</div>
                   </div>
@@ -163,6 +162,31 @@ const onSlideChange = (swiper:any) => {
         &:nth-of-type(even){
           &>div{
             background: #FFF1F0;
+          }
+        }
+        &.boxRight:not(:first-child):nth-of-type(odd){
+          &>div{
+            background: #BAE0FF;
+          }
+        }
+        &.boxRight.invisalign:not(:first-child):nth-of-type(odd){
+          &>div{
+            background: #FFDDDA;
+          }
+        }
+        &.boxRight:nth-of-type(even){
+          &>div{
+            background: #E6F4FF;
+          }
+        }
+        &.boxRight.invisalign:nth-of-type(even){
+          &>div{
+            background: #FFF1F0;
+          }
+        }
+        &.boxRight.invisalign{
+          &>div{
+            color: #CBCBCB;
           }
         }
       }

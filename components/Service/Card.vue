@@ -107,10 +107,10 @@ const getWindowWidth = () => {
         <!-- 牙科服務 -->
         <div class="index_title" v-if="isIndexShow">{{servicesCardPageData.title}}</div>
       </div>
-      <div class="dentalServices-title" v-if="!isIndexShow">
+      <div class="dentistryServices-title" v-if="!isIndexShow">
         <!-- 牙科服務 -->
-        <div class="dentalServices-title-in">{{servicesCardPageData.dentalServicesTitleIn}}</div>
-        <div class="dentalServices-title-line"></div>
+        <div class="dentistryServices-title-in bb">{{servicesCardPageData.dentalServicesTitleIn}}</div>
+        <!-- <div class="dentistryServices-title-line"></div> -->
       </div>
       <div class="context" v-if="!(windowWidth > 768 && !isIndexShow)">
         <!-- 中心提供基本牙科、美容牙科及高階牙科服務，從一般口腔檢查、洗牙、補牙，到牙齒美白、全口修復及各種牙科治療，幫助客人回復自信笑容。 -->
@@ -208,25 +208,25 @@ const getWindowWidth = () => {
     }
   }
 }
-.dentalServices-title{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  &-in{
-    font-weight: 700;
-    font-size: 50px;
-    line-height: 160%;
-    color: #4D4D4D;
-  }
-  &-line{
-    width: 100px;
-    height: 5px;
-    background: #FFA09E;
-    border-radius: 2px;
-  }
-}
+// .dentalServices-title{
+//   width: 100%;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   flex-direction: column;
+//   &-in{
+//     font-weight: 700;
+//     font-size: 50px;
+//     line-height: 160%;
+//     color: #4D4D4D;
+//   }
+//   &-line{
+//     width: 100px;
+//     height: 5px;
+//     background: #FFA09E;
+//     border-radius: 2px;
+//   }
+// }
 @media (min-width: 768px) and (max-width: 1452px) {
   .index-dentalServices{
     padding: 150px 0 0;
@@ -248,15 +248,15 @@ const getWindowWidth = () => {
       }
     }
   }
-  .dentalServices-title{
-    &-in{
-      font-size: 3.4vw;
-    }
-    &-line{
-      width: 7vw;
-      height: 5px;
-    }
-  }
+  // .dentalServices-title{
+  //   &-in{
+  //     font-size: 3.4vw;
+  //   }
+  //   &-line{
+  //     width: 7vw;
+  //     height: 5px;
+  //   }
+  // }
 }
 @media screen and (max-width: 768px) {
   .index-dentalServices{
@@ -293,15 +293,15 @@ const getWindowWidth = () => {
       }
     }
   }
-  .dentalServices-title{
-    &-in{
-      font-weight: 600;
-      font-size: 1.625rem;
-    }
-    &-line{
-      width: 50px;
-      height: 3px;
-    }
-  }
+  // .dentalServices-title{
+  //   &-in{
+  //     font-weight: 600;
+  //     font-size: 1.625rem;
+  //   }
+  //   &-line{
+  //     width: 50px;
+  //     height: 3px;
+  //   }
+  // }
 }
 </style>

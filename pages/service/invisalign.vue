@@ -7,11 +7,10 @@ useHead({
 })
 
 const orthodonticsIntroduceData = {
-  title: '隱形牙箍',
-  text: 'Invisalign 隱適美',
+  title: 'Invisalign 隱適美',
   content: '隱適美是一種透明配戴式牙箍，可自行配戴及除下。相比傳統箍牙，隱適美牙箍更方便清潔牙齒及日常飲食習慣，適合不同年齡人士。其原理是透過先進數位科技，以電腦模擬牙齒移動過程，再按每個移動過程製作出一系列階段的專屬牙箍，利用牙箍的機械性力量令牙齒周圍組織產生移動，繼而將牙齒推向適當位置。',
   mbImg: 'https://static.cmereye.com/imgs/2023/05/caaab69f2a4941c9.jpg',
-  pcImg: 'https://static.cmereye.com/imgs/2023/05/709b57adf8123495.jpg',
+  pcImg: 'https://static.cmereye.com/imgs/2023/05/e88458969b68b96d.jpg',
   tabNavName: '隱適美',
   pageName: 'invisalign'
 }
@@ -36,7 +35,8 @@ const stepData = {
         text: '廠商用3D電腦雷射列印科技製成一系列訂製牙箍，寄送至牙醫診所。我們會聯絡客人安排到診進行試戴並評估效果。客人需要每6至8星期複診，與牙醫跟進矯齒進度及取得新牙箍。'
       }
     ]
-  ]
+  ],
+  pageName: 'invisalign'
 }
 
 const differData = {

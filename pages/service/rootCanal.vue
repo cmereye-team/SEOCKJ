@@ -7,11 +7,10 @@ useHead({
 })
 
 const orthodonticsIntroduceData = {
-  title: '根管治療',
-  text: '根管治療，俗稱為「杜牙根」',
+  title: '根管治療（杜牙根）',
   content: '根管治療（杜牙根）是治療嚴重蛀牙或牙根受細菌感染的手術，當蛀牙菌的感染深入牙髓，以致牙齒內的神經發炎，便需要以杜牙根手術徹底清除感染的部分。',
   mbImg: 'https://static.cmereye.com/imgs/2023/05/4981f5bda13e2428.jpg',
-  pcImg: 'https://static.cmereye.com/imgs/2023/05/db8bbe88934fbe0e.jpg',
+  pcImg: 'https://static.cmereye.com/imgs/2023/05/3030e00ebf385a45.jpg',
   tabNavName: '杜牙根',
   pageName: 'rootCanal',
 }
@@ -37,7 +36,10 @@ const reasonData = {
 }
 
 const stageData = {
-  title: '根管治療用以治理蛀牙，蛀牙可分為以下數個階段：',
+  title: {
+    span1: '根管治療用以治理蛀牙，',
+    span2: '蛀牙可分為以下數個階段：'
+  },
   stageLists: [
     {
       num: 1,
@@ -145,7 +147,8 @@ const noteData = {
     <ServiceReason :reasonData="reasonData" />
     <div class="stage">
       <div class="stage-title">
-        {{stageData.title}}
+        <span>{{stageData.title.span1}}</span>
+        <span>{{stageData.title.span2}}</span>
       </div>
       <div class="stage-lists">
         <div class="stage-lists-in" v-for="(stage,index) in stageData.stageLists" :key="index">
@@ -243,31 +246,38 @@ const noteData = {
 }
 @media only screen and (max-width: 760px) {
   .stage{
-    padding: 0 15px;
+    padding: 0 20px;
     box-sizing: border-box;
     &-title{
       font-size: 28px;
+      span{
+        display: block;
+        text-align: center;
+      }
     }
     &-lists{
       flex-wrap: wrap;
       margin:  34px auto 0;
       &-in{
-        padding: 0 15px;
+        padding: 0 10px;
         box-sizing: border-box;
         width: 50%;
         margin-bottom: 20px;
         .num{
-          font-size: 35px;
+          font-size: 26px;
+          font-weight: 700;
         }
         .image{
           width: 100%;
         }
         .name{
+          font-weight: 600;
           font-size: 20px;
           margin-top: 7px;
         }
         .text{
-          font-size: 16px;
+          font-weight: 600;
+          font-size: 15px;
           margin-top: 10px;
         }
         &:not(:last-child){
@@ -276,9 +286,10 @@ const noteData = {
       }
     }
     &-remark{
-      margin-left: 30px;
+      margin-left: 10px;
       p{
-        font-size: 12px;
+        font-weight: 500;
+        font-size: 15px;
       }
     }
   }

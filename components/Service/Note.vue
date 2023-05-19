@@ -16,8 +16,7 @@ defineProps({
 <template>
     <div class="note">
       <div class="dentistryServices-title">
-        <div class="dentistryServices-title-in">{{noteData.title}}</div>
-        <div class="dentistryServices-title-line"></div>
+        <div class="dentistryServices-title-in bb">{{noteData.title}}</div>
       </div>
       <div class="note-in">
         <div class="note-in-lists">
