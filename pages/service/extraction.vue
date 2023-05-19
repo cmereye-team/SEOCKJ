@@ -17,7 +17,7 @@ const orthodonticsIntroduceData = {
 const reasonData = {
   title: '關於拔牙',
   text: '一般需要拔牙的原因？',
-  imgUrl: 'https://static.cmereye.com/imgs/2023/05/6e9ea22364596cbd.jpg',
+  imgUrl: 'https://static.cmereye.com/imgs/2023/05/44b6fba4b7e68c38.jpg',
   reasonLists:[
     {
       context: '牙齒嚴重蛀壞或崩裂，無法修補',
@@ -37,6 +37,45 @@ const reasonData = {
   ]
 }
 
+const issueData = {
+  title: '智慧齒可能導致的口腔問題：',
+  imgUrl: 'https://static.cmereye.com/imgs/2023/05/c99ca0ddf73edcbc.jpg',
+  issueLists: [
+    '由於智慧齒生長位置較後，難以清潔，容易積聚牙菌膜，引致蛀牙',
+    '當智慧齒出現橫生或斜生情況，鄰近的牙齒會受到壓力，嚴重更會令牙槽骨萎縮，甚至鬆脫',
+    '如出現智慧齒阻生情況，牙齒會被牙齦覆蓋，因而令食物渣滓和細菌藏在牙齦和牙冠之間，造成牙齦發炎和腫脹。嚴重更會使整個面頰出現腫脹，進食時亦會感到痛楚，阻生的智慧齒一般需要進行手術方可拔除'
+  ]
+}
+
+
+const noteData = {
+  title: '療程後注意事項',
+  lists: [
+    {
+      name: '一般需咬緊棉花或紗布約三十分鐘至一小時止血，其間可如常吞口水',
+    },
+    {
+      name: '進食後以溫水或鹽水輕輕漱口，保持傷口清潔',
+    },
+    {
+      name: '避免觸碰傷口上的凝固血塊，引致出血',
+    },
+    {
+      name: '避免食用堅硬和粗糙的食物',
+    },
+    {
+      name: '避免飲用含酒精飲品',
+    },
+    {
+      name: '避免吃過冷或過熱的食物',
+    },
+    {
+      name: '避免大力漱口或吐痰'
+    }
+  ]
+}
+
+
 
 </script>
 
@@ -50,6 +89,38 @@ const reasonData = {
     <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
     <!-- 原因 -->
     <ServiceReason :reasonData="reasonData" />
+    <div class="issue pageCon">
+      <div class="issue-top">
+        {{issueData.title}}
+      </div>
+      <div class="issue-bottom">
+        <div class="issue-bottom-img">
+          <img :src="issueData.imgUrl" alt="">
+        </div>
+        <div class="issue-bottom-lists">
+          <div class="issue-bottom-lists-in" v-for="(issueItem,issueIndex) in issueData.issueLists" :key="issueIndex">
+            <div>· </div>
+            <div>{{issueItem}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="note">
+      <div class="dentistryServices-title">
+        <div class="dentistryServices-title-in bb">{{noteData.title}}</div>
+      </div>
+      <div class="note-in">
+        <div class="note-in-lists">
+          <div class="note-in-lists-item" v-for="(item,index) in noteData.lists" :key="index">
+            <div>·</div>
+            <div>{{item.name}}</div>
+          </div>
+        </div>
+        <div class="note-in-text">
+          *拔牙後，傷口有機會出現腫脹，一般會數天後消退，可按醫生處方服藥或以冷敷消腫及紓緩不適。如傷口持續或大量出血，需盡快聯絡醫生，或視乎嚴重程度前往就近急症室求診。
+        </div>
+      </div>
+    </div>
     <serviceCard />
     <ContactUs />
   </div>
@@ -61,12 +132,121 @@ const reasonData = {
 
 
 <style lang="scss" scoped>
+.note{
+  padding: 96px 0 0;
+  &-in{
+    width: 100%;
+    max-width: 1200px;
+    margin: 35px auto;
+    padding: 60px 0;
+    background: #FFF1F0;
+    box-shadow: 0px 4px 8px #FFDDDA;
+    min-height: 378px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    &-lists{
+      width: 80%;
+      max-width: 1000px;
+      &-item{
+        font-style: normal;
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 160%;
+        color: #4D4D4D;
+        display: flex;
+        &>div:first-child{
+          width: 20px;
+        }
+        &>div:last-child{
+          flex: 1;
+        }
+      }
+    }
+    &-text{
+      margin-top: 32px;
+      width: 80%;
+      max-width: 1000px;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 160%;
+      color: #FFA09E;
+    }
+  }
+}
 
+.issue{
+  margin-top: 126px;
+  &-top{
+    margin-left: 203px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 160%;
+    color: #4D4D4D;
+  }
+  &-bottom{
+    margin-top: 37px;
+    margin-left: 203px;
+    display: flex;
+    &-img{
+      width: 360px;
+      height: 360px;
+      margin-right: 49px;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &-lists{
+      flex: 1;
+      max-width: 750px;
+      &-in{
+        font-style: normal;
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 160%;
+        color: #4D4D4D;
+        display: flex;
+        &>div:first-child{
+          width: 20px;
+        }
+      }
+    }
+  }
+}
 
 @media (min-width: 768px) and (max-width: 1452px) {}
 
 //md
 @media only screen and (max-width: 760px) {
-
+  .note{
+    padding: 96px 30px 0;
+    box-sizing: border-box;
+    &-in{
+      padding: 23px 15px;
+      box-sizing: border-box;
+      min-height: 0;
+      &-lists{
+        width: 100%;
+        &-item{
+          font-weight: 500;
+          font-size: 16px;
+          margin-top: 5px;
+          &>div:first-child{
+            width: 15px;
+          }
+        }
+      }
+      &-text{
+        width: 100%;
+        margin-top: 13px;
+        font-weight: 500;
+        font-size: 15px;
+      }
+    }
+  }
 }
 </style>

@@ -250,7 +250,41 @@ const foiblesData = {
   }
 }
 
-@media (min-width: 768px) and (max-width: 1452px) {}
+@media (min-width: 768px) and (max-width: 1452px) {
+  .foibles{
+    &-context{
+      font-size: 18px;
+      &>span{
+        font-size: 18px;
+      }
+    }
+    &-in{
+      margin-top: 49px;
+      &-box{
+        &-th{
+          .listsTh{
+            font-weight: 600;
+            font-size: 20px;
+          }
+        }
+        &-item{
+          .listsBox{
+            padding: 0 23px 0 16px;
+            padding: 10px 2.5vw 0 22px;
+            &-in{
+              font-weight: 500;
+              font-size: 17px;
+              div:first-child{
+                width: 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 
 //md
 @media only screen and (max-width: 760px) {

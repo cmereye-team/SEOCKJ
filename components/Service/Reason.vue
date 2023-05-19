@@ -71,7 +71,7 @@ defineProps({
       .image {
         width: 287px;
         height: 287px;
-        margin: 8px 100px 0;
+        margin: 8px 100px 0 100px;
       }
     }
     &-r {
