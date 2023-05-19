@@ -67,6 +67,14 @@ const menuLists = [
       {
         name: '瓷貼片',
         link: '/service/veneers',
+      },
+      {
+        name: '牙冠',
+        link: '/service/crown',
+      },
+      {
+        name: '智慧齒脫除',
+        link: '/service/extraction',
       }
     ],
   },

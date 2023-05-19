@@ -33,14 +33,14 @@ const servicesCardLists = [
     link: '/service/veneers'
   },
   {
-    name: '杜牙根',
-    imgUrl: 'https://static.cmereye.com/imgs/2023/05/6c3e61117d540a66.png',
-    link: '/service/healthcare'
+    name: '牙冠',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/05/4fe83a037a03391d.png',
+    link: '/service/crown'
   },
   {
-    name: '杜牙根',
-    imgUrl: 'https://static.cmereye.com/imgs/2023/05/4fe83a037a03391d.png',
-    link: '/service/healthcare'
+    name: '智慧齒脫除',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/05/84a4d8dea1e93276.png',
+    link: '/service/extraction'
   },
   {
     name: '杜牙根',
@@ -102,7 +102,7 @@ const getWindowWidth = () => {
 
 <template>
   <div class="index-dentalServices">
-    <div class="index-dentalServices-in pageCon">
+    <div :class="['index-dentalServices-in', 'pageCon', {'isIndexShow': !isIndexShow}]">
       <div class="titile">
         <!-- 牙科服務 -->
         <div class="index_title" v-if="isIndexShow">{{servicesCardPageData.title}}</div>
@@ -110,7 +110,6 @@ const getWindowWidth = () => {
       <div class="dentistryServices-title" v-if="!isIndexShow">
         <!-- 牙科服務 -->
         <div class="dentistryServices-title-in bb">{{servicesCardPageData.dentalServicesTitleIn}}</div>
-        <!-- <div class="dentistryServices-title-line"></div> -->
       </div>
       <div class="context" v-if="!(windowWidth > 768 && !isIndexShow)">
         <!-- 中心提供基本牙科、美容牙科及高階牙科服務，從一般口腔檢查、洗牙、補牙，到牙齒美白、全口修復及各種牙科治療，幫助客人回復自信笑容。 -->
@@ -208,25 +207,6 @@ const getWindowWidth = () => {
     }
   }
 }
-// .dentalServices-title{
-//   width: 100%;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   flex-direction: column;
-//   &-in{
-//     font-weight: 700;
-//     font-size: 50px;
-//     line-height: 160%;
-//     color: #4D4D4D;
-//   }
-//   &-line{
-//     width: 100px;
-//     height: 5px;
-//     background: #FFA09E;
-//     border-radius: 2px;
-//   }
-// }
 @media (min-width: 768px) and (max-width: 1452px) {
   .index-dentalServices{
     padding: 150px 0 0;
@@ -248,21 +228,15 @@ const getWindowWidth = () => {
       }
     }
   }
-  // .dentalServices-title{
-  //   &-in{
-  //     font-size: 3.4vw;
-  //   }
-  //   &-line{
-  //     width: 7vw;
-  //     height: 5px;
-  //   }
-  // }
 }
 @media screen and (max-width: 768px) {
   .index-dentalServices{
     padding: 100px 0 0;
     &-in{
       align-items: flex-start;
+      &.isIndexShow{
+        align-items: center;
+      }
       .context{
         margin-top: 30px;
         padding: 0 30px;
@@ -293,15 +267,5 @@ const getWindowWidth = () => {
       }
     }
   }
-  // .dentalServices-title{
-  //   &-in{
-  //     font-weight: 600;
-  //     font-size: 1.625rem;
-  //   }
-  //   &-line{
-  //     width: 50px;
-  //     height: 3px;
-  //   }
-  // }
 }
 </style>
