@@ -33,7 +33,7 @@ const servicesCardLists = [
     link: '/service/veneers'
   },
   {
-    name: '牙冠',
+    name: '全瓷牙冠',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/201d5535b39b4b5f.png',
     link: '/service/crown'
   },

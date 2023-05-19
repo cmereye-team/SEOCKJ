@@ -69,7 +69,7 @@ const menuLists = [
         link: '/service/veneers',
       },
       {
-        name: '牙冠',
+        name: '全瓷牙冠',
         link: '/service/crown',
       },
       {
