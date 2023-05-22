@@ -56,6 +56,20 @@ html.dark {
   // -ms-text-size-adjust: 100%;
   // text-size-adjust: 100%;
 // }
+body{
+  &::-webkit-scrollbar{
+    width: 5px;
+  }
+  &::-webkit-scrollbar-thumb{
+    background: #FFA09E;
+    border: none;
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track{
+    background: #FFF1F0;
+    width: 5px;
+  }
+}
 .bgColor{
   background: #FFCECB;
 }

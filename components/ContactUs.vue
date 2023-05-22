@@ -153,8 +153,23 @@ const allAddressLists = [
   ]
 ]
 
+// --------------------------------------------------
+let contactUsSwiperRef ={
+  slideTo: (a,b)=>{}
+}
+//轮播图setRef事件
+const setContactUsSwiperRef = (swiper:any) => {
+  contactUsSwiperRef = swiper;
+};
+
+const onSlideContactUsSwiperChange = (swiper:any) => {
+  currentAddress.value = swiper.realIndex + 1
+}
+// --------------------------------------------------
+
 const handleAddress = (_idx: number) => {
   currentAddress.value = _idx
+  contactUsSwiperRef.slideTo(currentAddress.value, 0);
 }
 
 const handleLeftBtn = () => {
@@ -163,6 +178,7 @@ const handleLeftBtn = () => {
   }else{
     currentAddress.value = allAddressLists[appState.areaTabCurNum].length-1
   }
+  contactUsSwiperRef.slideTo(currentAddress.value, 0);
 }
 
 const handleRightBtn = () => {
@@ -171,21 +187,22 @@ const handleRightBtn = () => {
   }else{
     currentAddress.value = 0
   }
+  contactUsSwiperRef.slideTo(currentAddress.value, 0);
 }
 
 </script>
 
 
 <template>
-  <div class="index-contactUs pageCon">
+  <div class="index-contactUs">
       <!-- <div class="index_title">聯絡我們</div> -->
-      <div class="index-contactUs-t">
+      <div class="index-contactUs-t pageCon">
         <div class="index_title">聯絡我們</div>
         <div>
           <AreaTab />
         </div>
       </div>
-      <div class="index-contactUs-in" v-if="allAddressLists[appState.areaTabCurNum].length">
+      <!-- <div class="index-contactUs-in" v-if="allAddressLists[appState.areaTabCurNum].length">
         <div class="index-contactUs-in-l">
           <h3>{{allAddressLists[appState.areaTabCurNum][currentAddress].name || ''}}
             <div class="addressLists" v-if="allAddressLists[appState.areaTabCurNum].length>1">
@@ -202,7 +219,6 @@ const handleRightBtn = () => {
               <img src="@/assets/images/icon_5.png" alt="">
             </div>
             <div class="in-c">
-              <!-- <iframe :src="allAddressLists[appState.areaTabCurNum][currentAddress].addressUrl || ''" width="100%" height="100%" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
               <img :src="allAddressLists[appState.areaTabCurNum][currentAddress].addressUrl" alt="">
             </div>
             <div class="in-r" @click="handleRightBtn">
@@ -224,14 +240,68 @@ const handleRightBtn = () => {
             <img src="@/assets/images/icon_5.png" alt="">
           </div>
           <div class="in-c">
-            <!-- <iframe :src="allAddressLists[appState.areaTabCurNum][currentAddress].addressUrl || ''" width="100%" height="100%" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
             <img :src="allAddressLists[appState.areaTabCurNum][currentAddress].addressUrl" alt="">
           </div>
           <div class="in-r" @click="handleRightBtn">
             <img src="@/assets/images/icon_5.png" alt="">
           </div>
         </div>
-      </div>
+      </div> -->
+      <Swiper
+        class="swiperBox"
+        :loop="true"
+        :activeIndex="processTabsActive"
+        @swiper="setContactUsSwiperRef"
+        @slideChange="onSlideContactUsSwiperChange"
+      >
+        <SwiperSlide v-for="(addressItem,addressIndex) in allAddressLists[appState.areaTabCurNum]" :key="addressIndex">
+          <div class="index-contactUs-in" v-if="allAddressLists[appState.areaTabCurNum].length">
+            <div class="index-contactUs-in-l">
+              <h3>{{addressItem.name || ''}}
+                <div class="addressLists" v-if="allAddressLists[appState.areaTabCurNum].length>1">
+                  <div class="addressLists-in" v-for="(item,index) in allAddressLists[appState.areaTabCurNum]" :key="index" @click="handleAddress(index)">
+                    <div>{{item.name}}</div>
+                  </div>
+                </div>
+              </h3>
+              <span>醫院地址：{{addressItem.address || ''}}</span>
+              <span>營業時間：{{addressItem.time || ''}}</span>
+              <span>諮詢電話：{{addressItem.phone || ''}}</span>
+              <div class="contactUsAddressBox">
+                <div class="in-l" @click="handleLeftBtn">
+                  <img src="@/assets/images/icon_5.png" alt="">
+                </div>
+                <div class="in-c">
+                  <img :src="addressItem.addressUrl" alt="">
+                </div>
+                <div class="in-r" @click="handleRightBtn">
+                  <img src="@/assets/images/icon_5.png" alt="">
+                </div>
+              </div>
+              <span class="showIcon" @click="mapConShow = !mapConShow">交通路線:</span>
+              <span v-show="mapConShow">巴士路線</span>
+              <span v-show="mapConShow">{{addressItem.busRoutes || ''}}</span>
+              <span v-show="mapConShow">地鐵路線</span>
+              <span v-show="mapConShow">{{addressItem.metroRoutes || ''}}</span>
+              <div class="mapBtn" v-show="mapConShow">
+                <div class="mapBtn-in">Google地圖</div>
+                <div class="mapBtn-in">百度地圖</div>
+              </div>
+            </div>
+            <div class="index-contactUs-in-r">
+              <div class="in-l" @click="handleLeftBtn">
+                <img src="@/assets/images/icon_5.png" alt="">
+              </div>
+              <div class="in-c">
+                <img :src="addressItem.addressUrl" alt="">
+              </div>
+              <div class="in-r" @click="handleRightBtn">
+                <img src="@/assets/images/icon_5.png" alt="">
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
+      </Swiper>
     </div>
 </template>
 
@@ -239,6 +309,8 @@ const handleRightBtn = () => {
 
 .index-contactUs{
   padding: 140px 0 0;
+  max-width: 1510px; 
+  margin: 0 auto;
   &-t{
     display: flex;
     justify-content: space-between;
@@ -246,6 +318,7 @@ const handleRightBtn = () => {
   &-in{
     display: flex;
     margin-top: 46px;
+    padding: 0 30px;
     &-l{
       width: 40%;
       padding-right: 80px;
@@ -429,6 +502,7 @@ const handleRightBtn = () => {
     &-in{
       flex-direction: column;
       margin-top: 35px;
+      padding: 0 0 10px;
       &-l{
         padding: 0;
         width: 100%;

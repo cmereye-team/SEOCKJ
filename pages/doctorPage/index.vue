@@ -53,7 +53,7 @@ useHead({
               </div>
               <!-- 擅長： -->
               <div class="expertise">
-                擅長：{{item.skilled || ''}}
+                擅長：{{item.skilled.length > 100? `${item.skilled.slice(0,110)}...`:item.skilled}}
               </div>
               <div class="name">
                 <span>{{item.name || ''}}</span> 
@@ -88,7 +88,7 @@ useHead({
                   </div>
                   <!-- 擅長： -->
                   <div class="expertise">
-                    擅長：{{item.skilled || ''}}
+                    擅長：{{item.skilled.length > 100? `${item.skilled.slice(0,110)}...`:item.skilled}}
                   </div>
                   <div class="name">
                     <span>{{item.name || ''}}</span> 
@@ -342,7 +342,7 @@ useHead({
             width: calc(100% - 60px);
             .doctorPage-in-lists{
               width: 100%;
-              margin-top: 50px;
+              margin-top: 33px;
               display: flex;
               overflow-x: scroll;
               scroll-snap-type: x mandatory;
@@ -382,16 +382,29 @@ useHead({
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                  }
-                  .title{
-                    font-size: 1.25rem;
-                    font-weight: 600;
+                    .title{
+                      font-size: 1.25rem;
+                      font-weight: 600;
+                      text-overflow: ellipsis;
+                      overflow: hidden;
+                      word-break: break-all;
+                      white-space: nowrap;
+                    }
+                    .btn{
+                      min-width: 83px;
+                      font-size: 1rem;
+                      margin-top: 0;
+                      img{
+                        width: 14px;
+                        margin-left: 5px;
+                      }
+                    }
                   }
                   .org{
+                    margin-top: 19px;
                     font-weight: 500;
                     font-size: 1rem;
                     width: 100%;
-                    margin-top: 20px;
                   }
                   .expertise{
                     margin-top: 25px;
@@ -402,20 +415,19 @@ useHead({
                     font-weight: 600;
                     font-size: 1.2rem;
                     margin-top: 25px;
+                    display: flex;
                     span{
                       margin-right: 20px;
+                      display: flex;
+                      align-items: center;
+                      &:first-child{
+                        max-width: 60px;
+                      }
                       &:last-child{
                         padding-left: 20px;
+                        flex: 1;
                         border-left: 2px solid #4D4D4D;
                       }
-                    }
-                  }
-                  .btn{
-                    font-size: 1rem;
-                    margin-top: 0;
-                    img{
-                      width: 14px;
-                      margin-left: 5px;
                     }
                   }
                 }
