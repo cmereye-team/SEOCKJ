@@ -4,7 +4,7 @@ export default [
     //深圳爱康健口腔医院
     {
       id: '101',
-      imgUrl: 'https://static.cmereye.com/imgs/2023/05/86681f3a9fe6c1d3.png',
+      imgUrl: 'https://static.cmereye.com/imgs/2023/05/6a7b889f6f185f2a.png',
       mbImg: '',
       name: '鞏賢平',
       org: '羅湖區 深圳愛康健口腔醫院,口腔牙周病科,口腔修復科,牙體牙髓科',
@@ -59,7 +59,7 @@ export default [
     },
     {
       id: '106',
-      imgUrl: 'https://static.cmereye.com/imgs/2023/05/03459bbf16883ac8.png',
+      imgUrl: 'https://static.cmereye.com/imgs/2023/05/23ee1b943d47241e.png',
       mbImg: '',
       name: '陸卉',
       org: '愛康健口腔醫院',
@@ -490,7 +490,7 @@ export default [
     },
     {
       id: '145',
-      imgUrl: 'https://static.cmereye.com/imgs/2023/05/0995a14a2088684d.png',
+      imgUrl: 'https://static.cmereye.com/imgs/2023/05/0c1f5f5ab7cac1b9.png',
       mbImg: '',
       name: '周康智',
       org: '羅湖區 康輝門診',
@@ -864,7 +864,7 @@ export default [
     },
     {
       id: '312',
-      imgUrl: 'https://static.cmereye.com/imgs/2023/05/78c7568baa79c979.jpg',
+      imgUrl: 'https://static.cmereye.com/imgs/2023/05/b8085131ba0bd5f7.png',
       mbImg: '',
       name: '李宇信',
       org: '南山區 恒美門診',

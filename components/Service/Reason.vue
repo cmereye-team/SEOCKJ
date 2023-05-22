@@ -11,7 +11,8 @@ defineProps({
         reasonLists:[
           {
             // hideIcon: true,
-            context: ''
+            context: '',
+            pageName: ''
           }
         ]
       }
@@ -30,7 +31,7 @@ defineProps({
           <img :src="reasonData.imgUrl" />
         </div>
       </div>
-      <div class="reason-in-r">
+      <div :class="['reason-in-r',reasonData.pageName]">
         <div v-for="(reason,reasonIndex) in reasonData.reasonLists" :key="reasonIndex">
           <div class="icon">
             {{reason.hideIcon ? '': '· '}}
@@ -80,6 +81,9 @@ defineProps({
       flex-direction: column;
       max-width: 520px;
       margin-top: 155px;
+      &.extraction{
+        margin-left: 22px;
+      }
       & > div {
         font-weight: 600;
         font-size: 1.75rem;
@@ -121,6 +125,9 @@ defineProps({
       }
       &-r {
         margin-top: 10.5vw;
+        &.extraction{
+          margin-left: 1.5vw;
+        }
         & > div {
           font-size: 1.7vw;
         }
@@ -156,6 +163,9 @@ defineProps({
       }
       &-r {
         margin-top: 28px;
+        &.extraction{
+          margin-left: 0;
+        }
         & > div {
           font-weight: 500;
           font-size: 1rem;

@@ -163,9 +163,6 @@ useHead({
       }
       &-lists{
         margin-top: 68px;
-        // height: 1491px;
-        // overflow: hidden;
-        // overflow-y: auto;
         .doctorItem{
           width: 100%;
           height: 429px;
@@ -174,7 +171,6 @@ useHead({
           &-l{
             width: 429px;
             height: 100%;
-            background: #FFDDDA;
             border-radius: 10px;
             position: relative;
             img{
@@ -235,12 +231,21 @@ useHead({
               }
             }
           }
+          &:nth-of-type(odd){
+            .doctorItem-l{
+              background: #FFDDDA;
+            }
+          }
+          &:nth-of-type(even){
+            .doctorItem-l{
+              background: #BAE0FF;
+            }
+          }
           &:first-child{
             margin-top: 30px;
           }
         }
         &::-webkit-scrollbar {
-          // width: 20px;
           background: none;
         }
         &::-webkit-scrollbar-thumb{

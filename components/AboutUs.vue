@@ -18,7 +18,7 @@ const aboutUsLists = [
     text: '',
     context: '嚴格執行符合世界牙科聯盟(FDI)的診療標準，消毒隔離系統達到8個“一”無菌診療模式：一人一診室，一醫一助，一機一用，一次一消毒，消毒更全面。',
     mbImg: 'https://static.cmereye.com/imgs/2023/05/57398ce56ec905ad.jpg',
-    pcImg: 'https://static.cmereye.com/imgs/2023/05/77e7c4e4a2376aa8.jpg'
+    pcImg: 'https://static.cmereye.com/imgs/2023/05/d847d149cd3aef7d.jpg'
   }
 ]
 

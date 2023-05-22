@@ -17,11 +17,11 @@ const navLists = [
     link: '/',
     child: [],
   },
-  {
-    name: '最新消息',
-    link: '/newsPage',
-    child: [],
-  },
+  // {
+  //   name: '最新消息',
+  //   link: '/newsPage',
+  //   child: [],
+  // },
   {
     name: '品牌理念',
     link: '/brandMind',
