@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { defineProps } from "vue"
 import { useAppState } from '~/stores/appState'
+import gsap from 'gsap';
 const route = useRoute()
 const appState = useAppState()
 // const lsImgUrl = 'https://static.cmereye.com/imgs/2023/05/71929ca4c90a8d1e.png'
@@ -165,6 +166,20 @@ const classNamefilter = ( _menu:any, _idx: number) => {
   // }
   return className
 }
+
+
+onMounted(() => {
+  gsap.from('.header-content-bgImg-in', {
+    opacity: 0, 
+    x: 100, 
+    duration: 2
+  })
+  gsap.from('.header-content-bgImg-imgInfo', {
+    opacity: 0, 
+    y: 100, 
+    duration: 2
+  })
+});
 
 </script>
 

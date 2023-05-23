@@ -22,7 +22,6 @@ const aboutUsLists = [
   }
 ]
 
-
 </script>
 
 <template>
@@ -103,7 +102,8 @@ const aboutUsLists = [
       position: absolute;
       left: calc(55% + 100px);
       bottom: 100px;
-      width: 324px;
+      // width: 324px;
+      width: 10%;
       z-index: 100;
     }
   }
@@ -126,7 +126,7 @@ const aboutUsLists = [
     .swiperBox{
       .aboutUs-lineBox{
         left: calc(55% + 50px);
-        width: 20%;
+        // width: 20%;
         bottom: 10%;
       }
     }
@@ -183,7 +183,8 @@ const aboutUsLists = [
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        width: 200px;
+        // width: 200px;
+        width: 100px;
         bottom: 30px;
         z-index: 100;
       }

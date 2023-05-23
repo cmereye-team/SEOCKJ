@@ -188,7 +188,7 @@ const dentalServicesPagesList = [
         </div>
         <div class="index-doctorTeam-b pageCon">
           <div class="index-doctorTeam-b-in">
-            <PageSwiperPointLine :latestNewsNum="Math.ceil( doctorLists_cs[appState.areaTabCurNum].length / 12 )" :latestNewsCurrent="doctorTeamCurrent"></PageSwiperPointLine>
+            <PageSwiperPointLine :latestNewsNum="Math.ceil( doctorLists_cs[appState.areaTabCurNum].length / 12 )" :latestNewsCurrent="doctorTeamCurrent" :isAutoWidth="true"></PageSwiperPointLine>
           </div>
         </div>
       </div>
@@ -312,11 +312,7 @@ const dentalServicesPagesList = [
     .doctorTeamPage{
       display: flex;
       flex-wrap: wrap;
-      // justify-content: center;
       justify-content: flex-start;
-      .swiper{
-        // box-shadow: 2px 0px 8px rgba(255, 163, 158, 0.25);
-      }
       .doctorItem{
         cursor: pointer;
         flex: 1;
@@ -341,7 +337,7 @@ const dentalServicesPagesList = [
     display: flex;
     justify-content: center;
     &-in{
-      width: 225px;
+      // width: 225px;
     }
   }
 }
@@ -426,7 +422,7 @@ const dentalServicesPagesList = [
     }
     &-b{
       &-in{
-        width: 134px;
+        // width: 134px;
       }
     }
   }

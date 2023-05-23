@@ -11,17 +11,34 @@ defineProps({
   latestNewsCurrent:{
     type: Number,
     default: 1,
+  },
+  isAutoWidth: {
+    type: Boolean,
+    default: false
   }
 })
 const handleSwiperItem = (idx: Number) => {
   console.log(idx)
 }
+
+let lineWidth = ref(0)
+const getWindowResize = () => {
+  if(window.innerWidth > 768)
+    lineWidth.value = 80
+  else
+    lineWidth.value = 50
+  // console.log(mapConShow)
+}
+onMounted(()=>{
+  getWindowResize()
+  window.addEventListener('resize',getWindowResize)
+})
 </script>
 
 <template>
-  <div class="point">
+  <div class="point" :style="{width: (isAutoWidth?`calc(${lineWidth}px * ${latestNewsNum}`: '100%')}">
     <div class="boxLine" v-show="latestNewsNum !== 1"></div>
-    <div class="boxLine-current" :style="{width:`${ (latestNewsCurrent-1) * 100/(latestNewsNum-1) }%`}"></div>
+    <div class="boxLine-current" v-show="latestNewsNum !== 1" :style="{width:`${ (latestNewsCurrent-1) * 100/(latestNewsNum-1) }%`}"></div>
     <div class="boxRound">
       <div class="boxRound-in" v-for="boxRoundIndex in latestNewsNum" :key="boxRoundIndex" @click="handleSwiperItem(boxRoundIndex)">
         <div v-show="boxRoundIndex <= latestNewsCurrent" class="current"></div>

@@ -34,7 +34,7 @@ defineProps({
         <img :src="introduceData.mbImg" alt="">
       </div>
       <div class="introduce-in-l pageCon">
-        <div class="title">{{introduceData.title}}</div>
+        <div :class="['title',introduceData.pageName]">{{introduceData.title}}</div>
         <div :class="['content',introduceData.pageName]">{{introduceData.content}}</div>
       </div>
     </div>
@@ -56,6 +56,9 @@ defineProps({
             font-weight: 700;
             font-size: 2.6042vw;
             margin-top: 5vw;
+            &.extraction{
+              margin-top: 15vw;
+            }
           }
           .content{
             font-weight: 600;
@@ -110,6 +113,7 @@ defineProps({
             padding-bottom: 7vw;
             .title{
               font-size: 1.75vw;
+
             }
             .content{
               font-size: 1.7vw;
@@ -147,6 +151,9 @@ defineProps({
               font-weight: 700;
               font-size: 26px;
               margin-top: 0;
+              &.extraction{
+                margin-top: 0;
+              }
             }
             .content{
               font-size: 1rem;
