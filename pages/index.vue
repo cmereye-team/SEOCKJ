@@ -336,9 +336,6 @@ const dentalServicesPagesList = [
     padding-top: 60px;
     display: flex;
     justify-content: center;
-    &-in{
-      // width: 225px;
-    }
   }
 }
 //個案分享
@@ -416,13 +413,10 @@ const dentalServicesPagesList = [
       margin-top: 20px;
       .doctorTeamPage{
         .doctorItem{
-          width: 33.33%;
+          // width: 33.33%;
+          min-width: 33.33%;
+          max-width: 33.34%;
         }
-      }
-    }
-    &-b{
-      &-in{
-        // width: 134px;
       }
     }
   }
