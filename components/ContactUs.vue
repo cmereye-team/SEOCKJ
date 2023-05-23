@@ -163,16 +163,19 @@ const setContactUsSwiperRef = (swiper:any) => {
 };
 
 const onSlideContactUsSwiperChange = (swiper:any) => {
-  currentAddress.value = swiper.realIndex + 1
+  // console.log('Change',swiper.realIndex)
+  currentAddress.value = swiper.realIndex
 }
 // --------------------------------------------------
 
 const handleAddress = (_idx: number) => {
+  console.log(_idx)
   currentAddress.value = _idx
   contactUsSwiperRef.slideTo(currentAddress.value, 0);
 }
 
 const handleLeftBtn = () => {
+  // console.log('left',currentAddress.value)
   if(currentAddress.value > 0){
     currentAddress.value--
   }else{
@@ -182,6 +185,7 @@ const handleLeftBtn = () => {
 }
 
 const handleRightBtn = () => {
+  // console.log('right',currentAddress.value)
   if(currentAddress.value >= 0 && currentAddress.value < allAddressLists[appState.areaTabCurNum].length-1){
     currentAddress.value++
   }else{
@@ -250,7 +254,6 @@ const handleRightBtn = () => {
       <Swiper
         class="swiperBox"
         :loop="true"
-        :activeIndex="processTabsActive"
         @swiper="setContactUsSwiperRef"
         @slideChange="onSlideContactUsSwiperChange"
       >

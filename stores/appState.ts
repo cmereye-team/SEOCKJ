@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 export interface appState {
   areaTabCurNum: number,
   dentistryService: string,
-  areaTabs: any
+  areaTabs: any,
 }
 
 export const useAppState = defineStore('appData', {

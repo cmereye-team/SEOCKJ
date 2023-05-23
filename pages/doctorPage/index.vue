@@ -1,13 +1,46 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
 import doctorLists from '~/assets/js/doctor'
+import { Scrollbar } from 'swiper';
+
 const appState = useAppState()
 useHead({
   title: "醫生團隊"
 })
 
+const route = useRoute()
 
+let doctorPageSwiperRef ={
+  slideTo: (a,b)=>{}
+}
+const setdoctorPageSwiperRef = (swiper:any) => {
+  doctorPageSwiperRef = swiper;
+}
+const doctorPageSwiperChange = (_idx: number) => {
+  
+}
+const goAnchor = (_hash: any)=>{
+  console.log('_hash',_hash)
+  const a = document.querySelector(_hash)
+  console.log('a',a)
+  if(a) a.scrollIntoView()
+}
 
+onMounted(()=>{
+  if(route.query.did){
+    console.log(route.query.did)
+    setTimeout(()=>{
+      console.log('windowInnerWidth',window.innerWidth)
+      if(window.innerWidth > 768){
+        goAnchor(`#d${route.query.did}`)
+      }else{
+        goAnchor('#dp')
+        let _index = doctorLists[appState.areaTabCurNum].findIndex((item:any)=>item.id === route.query.did)
+        doctorPageSwiperRef.slideTo(_index, 0);
+      }
+    },500)
+  }
+})
 </script>
 
 <template>
@@ -41,7 +74,7 @@ useHead({
           </div>
         </div>
         <div class="doctorPage-in-lists pcBox">
-          <div class="doctorItem" v-for="(item,index) in doctorLists[appState.areaTabCurNum]" :key="index" :id="item.id">
+          <div class="doctorItem" v-for="(item,index) in doctorLists[appState.areaTabCurNum]" :key="index" :id="`d${item.id}`">
             <div class="doctorItem-l">
               <img :src="item.imgUrl" alt="">
             </div>
@@ -65,13 +98,49 @@ useHead({
             </div>
           </div>
         </div>
-        <div class="mbDoctorList mbBox mbBox">
+        <div class="mbDoctorList mbBox mbBox" id="dp">
           <div class="mbDoctorList-t">
             <AreaTab />
           </div>
           <div class="mbDoctorList-c">
             <div class="doctorPage-in-lists">
-              <div class="doctorItem" v-for="(item,index) in doctorLists[appState.areaTabCurNum]" :key="index" :id="item.id">
+              <Swiper
+                class="swiperBox"
+                :loop="true"
+                :scrollbar="{
+                  hide: true,
+                }"
+                :modules="[Scrollbar]"
+                @swiper="setdoctorPageSwiperRef"
+                @slideChange="doctorPageSwiperChange"
+              >
+                <SwiperSlide v-for="(item,index) in doctorLists[appState.areaTabCurNum]" :key="index" :id="item.id">
+                  <div class="doctorItem">
+                    <div class="doctorItem-l">
+                      <img :src="item.imgUrl" alt="">
+                    </div>
+                    <div class="doctorItem-r">
+                      <div class="doctorItem-r-t">
+                        <div class="title">{{item.job || ''}}</div>
+                        <div class="btn">
+                          了解更多<img src="@/assets/images/icon_04.png" />
+                        </div>
+                      </div>
+                      <div class="org">
+                        機構：{{item.org || ''}}
+                      </div>
+                      <div class="expertise">
+                        擅長：{{item.skilled.length > 100? `${item.skilled.slice(0,110)}...`:item.skilled}}
+                      </div>
+                      <div class="name">
+                        <span>{{item.name || ''}}</span> 
+                        <span>{{item.posts || ''}}{{item.educated ? `,${item.educated}` : ''}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              </Swiper>
+              <!-- <div class="doctorItem" v-for="(item,index) in doctorLists[appState.areaTabCurNum]" :key="index" :id="item.id">
                 <div class="doctorItem-l">
                   <img :src="item.imgUrl" alt="">
                 </div>
@@ -82,11 +151,9 @@ useHead({
                       了解更多<img src="@/assets/images/icon_04.png" />
                     </div>
                   </div>
-                  <!-- 機構： -->
                   <div class="org">
                     機構：{{item.org || ''}}
                   </div>
-                  <!-- 擅長： -->
                   <div class="expertise">
                     擅長：{{item.skilled.length > 100? `${item.skilled.slice(0,110)}...`:item.skilled}}
                   </div>
@@ -95,7 +162,7 @@ useHead({
                     <span>{{item.posts || ''}}{{item.educated ? `,${item.educated}` : ''}}</span>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="mbDoctorList-b">
@@ -336,16 +403,127 @@ useHead({
           display: none;
         }
         .mbDoctorList{
+          // &-c{
+          //   margin: 0 auto;
+          //   box-sizing: border-box;
+          //   width: calc(100% - 60px);
+          //   .doctorPage-in-lists{
+          //     width: 100%;
+          //     margin-top: 33px;
+          //     display: flex;
+          //     overflow-x: scroll;
+          //     scroll-snap-type: x mandatory;
+          //     &::-webkit-scrollbar{
+          //       height: 5px;
+          //     }
+          //     &::-webkit-scrollbar-thumb{
+          //       background: #FFA09E;
+          //       border: none;
+          //       height: 5px;
+          //     }
+          //     &::-webkit-scrollbar-track{
+          //       background: #FFF1F0;
+          //       height: 5px;
+          //     }
+          //     .doctorItem{
+          //       width: calc(100vw - 60px);
+          //       display: block;
+          //       flex-shrink: 0;
+          //       float: left;
+          //       height: auto;
+          //       margin: 30px 30px 30px 0;
+          //       scroll-snap-align: start;
+          //       &-l{
+          //         width: 100%;
+          //         padding-top: 100%;
+          //         height: 0;
+          //         img{
+          //           max-width: 85%;
+          //           max-height: calc(100% + 30px);
+          //         }
+          //       }
+          //       &-r{
+          //         padding-left: 0;
+          //         margin-top: 19px;
+          //         &-t{
+          //           display: flex;
+          //           justify-content: space-between;
+          //           align-items: center;
+          //           .title{
+          //             font-size: 1.25rem;
+          //             font-weight: 600;
+          //             text-overflow: ellipsis;
+          //             overflow: hidden;
+          //             word-break: break-all;
+          //             white-space: nowrap;
+          //           }
+          //           .btn{
+          //             min-width: 83px;
+          //             font-size: 1rem;
+          //             margin-top: 0;
+          //             img{
+          //               width: 14px;
+          //               margin-left: 5px;
+          //             }
+          //           }
+          //         }
+          //         .org{
+          //           margin-top: 19px;
+          //           font-weight: 500;
+          //           font-size: 1rem;
+          //           width: 100%;
+          //         }
+          //         .expertise{
+          //           margin-top: 25px;
+          //           font-weight: 500;
+          //           font-size: 1rem;
+          //         }
+          //         .name{
+          //           font-weight: 600;
+          //           font-size: 1.2rem;
+          //           margin-top: 25px;
+          //           display: flex;
+          //           span{
+          //             margin-right: 20px;
+          //             display: flex;
+          //             align-items: center;
+          //             &:first-child{
+          //               max-width: 60px;
+          //             }
+          //             &:last-child{
+          //               padding-left: 20px;
+          //               flex: 1;
+          //               border-left: 2px solid #4D4D4D;
+          //             }
+          //           }
+          //         }
+          //       }
+          //     }
+          //   }
+          // }
           &-c{
-            margin: 0 auto;
+            // margin: 0 auto;
             box-sizing: border-box;
-            width: calc(100% - 60px);
+            // width: calc(100% - 60px);
             .doctorPage-in-lists{
               width: 100%;
               margin-top: 33px;
               display: flex;
-              overflow-x: scroll;
-              scroll-snap-type: x mandatory;
+              // padding-bottom: 30px;
+              // overflow-x: scroll;
+              // scroll-snap-type: x mandatory;
+              .swiper{
+                padding-bottom: 30px;
+              }
+              :deep(.swiper-scrollbar){
+                opacity: 1 !important;
+                width: calc(100% - 60px);
+                margin: 0 30px;
+                background: #FFF1F0;
+              }
+              :deep(.swiper-scrollbar-drag){
+                background: #FFA09E;
+              }
               &::-webkit-scrollbar{
                 height: 5px;
               }
@@ -359,12 +537,13 @@ useHead({
                 height: 5px;
               }
               .doctorItem{
-                width: calc(100vw - 60px);
+                // width: calc(100vw - 60px);
                 display: block;
                 flex-shrink: 0;
                 float: left;
                 height: auto;
-                margin: 30px 30px 30px 0;
+                // margin: 30px 0;
+                padding: 0 30px;
                 scroll-snap-align: start;
                 &-l{
                   width: 100%;
@@ -422,6 +601,7 @@ useHead({
                       align-items: center;
                       &:first-child{
                         max-width: 60px;
+                        margin-right: 20px;
                       }
                       &:last-child{
                         padding-left: 20px;

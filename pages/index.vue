@@ -172,16 +172,16 @@ const dentalServicesPagesList = [
             >
               <SwiperSlide v-for="(swiperPage,swiperPageIndex) in Math.ceil( doctorLists_cs[appState.areaTabCurNum].length / 12 )" :key="swiperPageIndex" >
                 <div class="doctorTeamPage">
-                  <!-- <div class="doctorItem" v-for="(doctorItem,doctorIndex) in doctorLists_cs[appState.areaTabCurNum].slice(swiperPageIndex*12,(swiperPageIndex+1)*12)" :key="doctorIndex">
-                    <nuxt-link :to="`/doctorPage/#${doctorItem.id}`">
+                  <div class="doctorItem" v-for="(doctorItem,doctorIndex) in doctorLists_cs[appState.areaTabCurNum].slice(swiperPageIndex*12,(swiperPageIndex+1)*12)" :key="doctorIndex">
+                    <nuxt-link :to="`/doctorPage?did=${doctorItem.id}`">
                       <img :src="doctorItem.mbImg || ''" alt="">
                     </nuxt-link>
-                  </div> -->
-                  <div class="doctorItem" v-for="(doctorItem,doctorIndex) in doctorLists" :key="doctorIndex">
+                  </div>
+                  <!-- <div class="doctorItem" v-for="(doctorItem,doctorIndex) in doctorLists" :key="doctorIndex">
                     <nuxt-link :to="`/doctorPage`">
                       <img :src="doctorItem.imgUrl || ''" alt="">
                     </nuxt-link>
-                  </div>
+                  </div> -->
                 </div>
               </SwiperSlide>
             </Swiper>
@@ -308,15 +308,20 @@ const dentalServicesPagesList = [
   }
   &-c{
     margin-top: 45px;
+    box-shadow: 2px 0px 8px rgba(255, 163, 158, 0.25);
     .doctorTeamPage{
       display: flex;
       flex-wrap: wrap;
       // justify-content: center;
       justify-content: flex-start;
-      box-shadow: 2px 0px 8px rgba(255, 163, 158, 0.25);
+      .swiper{
+        // box-shadow: 2px 0px 8px rgba(255, 163, 158, 0.25);
+      }
       .doctorItem{
         cursor: pointer;
-        width: 16.55%;
+        flex: 1;
+        min-width: 16.55%;
+        max-width: 16.7%;
         mix-blend-mode: multiply;
         box-shadow: inset -1px -1px 0px #FFA39E;
         transition: all .5s;
