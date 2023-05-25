@@ -128,7 +128,17 @@ const dentalServicesPagesList = [
   <!-- <div class="bigPageCon"> -->
     <PageHeader /> 
     <div class="indexPage">
-    
+      <!-- <svg width="91" height="132" viewBox="0 0 91 132" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M67.077 68.5028C73.7866 62.5899 79.322 53.3642 82.4672 46.319C85.151 40.3223 87.6672 34.6191 87.6672 26.6095C87.6672 18.0967 82.6768 3 66.8253 3C57.5157 3 54.4545 9.16446 45.3545 9.16446C36.2965 9.16446 33.0675 3 23.8418 3C8.0322 3 3 18.1386 3 26.6095C3 34.6611 5.55806 40.3223 8.19997 46.319C11.3451 53.3642 16.8805 62.5899 23.5902 68.5028" fill="white"/>
+        <path d="M67.077 68.5028C73.7866 62.5899 79.322 53.3642 82.4672 46.319C85.151 40.3223 87.6672 34.6191 87.6672 26.6095C87.6672 18.0967 82.6768 3 66.8253 3C57.5157 3 54.4545 9.16446 45.3545 9.16446C36.2965 9.16446 33.0675 3 23.8418 3C8.0322 3 3 18.1386 3 26.6095C3 34.6611 5.55806 40.3223 8.19997 46.319C11.3451 53.3642 16.8805 62.5899 23.5902 68.5028" stroke="#4D4D4D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M38.8045 8.5698C39.2839 8.90533 39.7614 9.22664 40.2433 9.54032C39.7413 9.28791 39.2354 9.02414 38.7107 8.75039L38.6916 8.74043L38.6724 8.73079C38.3996 8.5944 38.234 8.49678 38.0254 8.37374C37.8572 8.27458 37.6611 8.15892 37.3582 7.99315C36.8932 7.72159 36.5008 7.48615 35.9919 7.17316C35.9373 7.13632 35.9039 7.08441 35.8911 7.02892C35.8847 7.00104 35.8845 6.97576 35.8881 6.95387C35.8914 6.93415 35.8994 6.90686 35.9228 6.8706L35.9285 6.86178L35.9341 6.85291C35.9712 6.79442 36.025 6.75893 36.0826 6.74562C36.1105 6.73919 36.1358 6.73896 36.1577 6.74262C36.1774 6.74592 36.2047 6.75392 36.2409 6.77732L36.7983 7.1369C37.0323 7.31541 37.3012 7.51746 37.5465 7.68916L37.58 7.64124L37.5465 7.68916L38.8045 8.5698Z" fill="white" stroke="#4D4D4D" stroke-width="5"/>
+        <path d="M23.6318 68.502L64.4767 76.7213" stroke="#4D4D4D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M26.9028 80.1172L61.751 87.1204" stroke="#4D4D4D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M30.1318 91.7344L59.0252 97.5214" stroke="#4D4D4D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M33.4028 103.35L56.2575 107.962" stroke="#4D4D4D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M36.6318 114.967L53.5317 118.364" stroke="#4D4D4D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M39.9028 126.582L50.806 128.763" stroke="#4D4D4D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg> -->
       <!-- 最新消息 -->
       <LatestNews />
       <!-- 品牌理念 -->
@@ -217,6 +227,10 @@ const dentalServicesPagesList = [
 </template>
 
 <style lang="scss" scoped>
+svg:hover path{
+  cursor: pointer;
+  fill:rgba(255, 120, 117, 0.65)
+}
 .indexPage {
   width: 100%;
   background: #fff;

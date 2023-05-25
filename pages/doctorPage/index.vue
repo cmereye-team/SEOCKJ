@@ -85,15 +85,18 @@ onMounted(()=>{
                 機構：{{item.org || ''}}
               </div>
               <!-- 擅長： -->
-              <div class="expertise">
+              <!-- <div class="expertise">
                 擅長：{{item.skilled.length > 100? `${item.skilled.slice(0,110)}...`:item.skilled}}
+              </div> -->
+              <div class="expertise">
+                擅長：{{item.skilled || ''}}
               </div>
               <div class="name">
                 <span>{{item.name || ''}}</span> 
                 <span>{{item.posts || ''}}{{item.educated ? `,${item.educated}` : ''}}</span>
               </div>
               <div class="btn">
-                了解更多<img src="@/assets/images/icon_04.png" />
+                <!-- 了解更多<img src="@/assets/images/icon_04.png" /> -->
               </div>
             </div>
           </div>
@@ -122,15 +125,18 @@ onMounted(()=>{
                     <div class="doctorItem-r">
                       <div class="doctorItem-r-t">
                         <div class="title">{{item.job || ''}}</div>
-                        <div class="btn">
+                        <!-- <div class="btn">
                           了解更多<img src="@/assets/images/icon_04.png" />
-                        </div>
+                        </div> -->
                       </div>
                       <div class="org">
                         機構：{{item.org || ''}}
                       </div>
-                      <div class="expertise">
+                      <!-- <div class="expertise">
                         擅長：{{item.skilled.length > 100? `${item.skilled.slice(0,110)}...`:item.skilled}}
+                      </div> -->
+                      <div class="expertise">
+                        擅長：{{item.skilled || ''}}
                       </div>
                       <div class="name">
                         <span>{{item.name || ''}}</span> 
