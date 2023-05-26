@@ -6,7 +6,6 @@ defineProps({
     default(){
       return {
         title: '',
-        text: '',
         content: '',
         mbImg: '',
         pcImg: '',
@@ -59,6 +58,9 @@ defineProps({
             &.extraction{
               margin-top: 15vw;
             }
+            &.teethWhitening{
+              margin-top: 15vw;
+            }
           }
           .content{
             font-weight: 600;
@@ -68,6 +70,9 @@ defineProps({
             margin-top: 68px;
             &.orthodontics{
               width: 20.834vw;
+            }
+            &.teethWhitening{
+              margin-top: 0;
             }
           }
         }
@@ -81,12 +86,6 @@ defineProps({
       margin-top: 83px;
       &.noTitle{
         margin-top: 0;
-      }
-      &.rootCanal{
-        margin-top: 30px;
-      }
-      &.invisalign{
-        margin-top: 30px;
       }
       a{
         &:not(:last-child)::after{
@@ -135,6 +134,7 @@ defineProps({
           height: auto;
           max-height: 300%;
           background: none !important;
+          margin-top: 0;
           &.noTitle{
             margin-top: 0;
           }
@@ -152,6 +152,9 @@ defineProps({
               font-size: 26px;
               margin-top: 0;
               &.extraction{
+                margin-top: 0;
+              }
+              &.teethWhitening{
                 margin-top: 0;
               }
             }

@@ -75,7 +75,7 @@ defineProps({
         padding: 44px 65px;
         box-sizing: border-box;
         justify-content: center;
-        align-items: center;
+        // align-items: center;
         height: 100%;
         min-height: 460px;
         &-box{

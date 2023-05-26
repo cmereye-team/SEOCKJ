@@ -45,37 +45,37 @@ const servicesCardLists = [
   {
     name: '牙周病治療',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/db71b7e766da670e.png',
-    link: '/service/healthcare'
+    link: '/service/periodontal'
   },
   {
     name: '牙托',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/102e8ffea3f3ee05.png',
-    link: '/service/healthcare'
+    link: '/service/dentalTrays'
   },
   {
     name: '牙齒美白',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/201d5535b39b4b5f.png',
-    link: '/service/healthcare'
+    link: '/service/teethWhitening'
   },
   {
     name: '洗牙',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/e4d3795bb2f0397c.png',
-    link: '/service/healthcare'
+    link: '/service/scalingTeeth'
   },
   {
     name: '補牙',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/b94a717160c05e3a.png',
-    link: '/service/healthcare'
+    link: '/service/dentalFillings'
   },
   {
     name: '一般口腔檢查',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/248483fd3f0ca0e2.png',
-    link: '/service/healthcare'
+    link: '/service/oralCheck'
   },
   {
     name: '兒童牙科',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/0c2dfc7b0c54bc01.png',
-    link: '/service/healthcare'
+    link: '/service/pediatric'
   },
 ]
 

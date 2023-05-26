@@ -12,7 +12,8 @@ defineProps({
           {
             // hideIcon: true,
             context: '',
-            pageName: ''
+            pageName: '',
+            isSmallFS: false
           }
         ]
       }
@@ -36,7 +37,7 @@ defineProps({
           <div class="icon">
             {{reason.hideIcon ? '': '· '}}
           </div>
-          <div class="context">
+          <div :class="['context',{'smallFontSize': reason.isSmallFS}]">
             {{reason.context}}
           </div>
         </div>
@@ -84,6 +85,12 @@ defineProps({
       &.extraction{
         margin-left: 22px;
       }
+      &.periodontal{
+        max-width: 560px;
+      }
+      &.dentalTrays{
+        max-width: 680px;
+      }
       & > div {
         font-weight: 600;
         font-size: 1.75rem;
@@ -97,6 +104,10 @@ defineProps({
         .context{
           flex: 1;
           word-wrap: normal;
+          &.smallFontSize{
+            font-size: 24px;
+            margin-bottom: 24px;
+          }
         }
       }
     }
@@ -130,6 +141,11 @@ defineProps({
         }
         & > div {
           font-size: 1.7vw;
+          .context{
+            &.smallFontSize{
+              font-size: 1.5vw;
+            }
+          }
         }
       }
     }
@@ -169,6 +185,12 @@ defineProps({
         & > div {
           font-weight: 500;
           font-size: 1rem;
+          .context{
+            &.smallFontSize{
+              font-size: 14px;
+              margin-bottom: 12px;
+            }
+          }
         }
       }
     }

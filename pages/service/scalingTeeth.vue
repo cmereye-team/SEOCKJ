@@ -1,0 +1,107 @@
+<script lang="ts" setup>
+import { useAppState } from '~/stores/appState'
+const appState = useAppState()
+appState.setDentistryService('scalingTeeth')
+useHead({
+  title: "洗牙"
+})
+
+const orthodonticsIntroduceData = {
+  title: '洗牙',
+  content: '醫生一般建議每半年至一年洗牙一次，以預防牙周、口腔及其他牙齒問題。',
+  mbImg: 'https://static.cmereye.com/imgs/2023/05/4981f5bda13e2428.jpg',
+  pcImg: 'https://static.cmereye.com/imgs/2023/05/3e4ae32ca30ab023.jpg',
+  tabNavName: '洗牙',
+}
+
+const reasonData = {
+  title: '關於洗牙',
+  text: '洗牙的原因？',
+  imgUrl: 'https://static.cmereye.com/imgs/2023/05/a5dde3049c292ece.jpg',
+  reasonLists:[
+    {
+      context: '單靠刷牙並不能夠把牙垢完全清除，因此必須利用牙科儀器才能徹底清洗牙齒污垢，使牙齒回復平滑，減低細菌滋生的機會。',
+    },
+    {
+      context: '如沒有徹底清潔牙齒、牙齦邊緣及牙齒表面，容易積聚牙菌膜，當中的細菌會分泌毒素刺激牙齦，引致發炎。若情況持續，將有機會惡化成牙周病。',
+    }
+  ]
+}
+
+const stepData = {
+  title: '洗牙過程',
+  remark: '由於洗牙時會觸碰到牙肉的發炎位置，因此可能會導致牙齦出血或輕微痺痛感。特別是一些從未或相隔很久沒有洗牙的人士，不適感一般會在洗牙後的2至3天後逐漸消失（患有敏感牙齒或牙周病的人士或需更長時間）。如情況持續出現，應立即聯絡醫護人員。',
+  stepLists: [
+    [
+      {
+        title: 'Step 1',
+        text: '利用超聲波洗牙工具，清除牙石及牙菌膜'
+      },
+      {
+        title: 'Step 2',
+        text: '利用刮牙石器去除細小牙石'
+      },
+      {
+        title: 'Step 3',
+        text: '利用牙科用浮石粉拋光打磨或特製混合物料高速噴洗牙齒表面，去除牙漬及保持牙齒平滑'
+      }
+    ],
+    [
+      {
+        title: 'Step 4',
+        text: '利用氟化物鞏固琺瑯質，強化牙齒'
+      }
+    ]
+  ]
+}
+
+const problemData = {
+  title: '洗牙常見問題',
+  lists: [
+    {
+      Q: '為甚麼會出現牙石？',
+      A: '口腔的細菌、食物殘渣及口水會在牙齒表面、牙縫及牙齦間形成牙菌膜。若牙菌膜未能仔細清除，便會積聚鈣成牙石。因此建議至少每半年洗牙一次，保持口腔衛生。'
+    },
+    {
+      Q: '為甚麼牙齒在洗牙後會感到酸軟或會流牙血？',
+      A: '在洗牙後幾天內感到輕微酸痛，甚至有牙齦出血的情況，是由於牙齦在洗牙前出現發炎情況，因此在清除口中細菌時，會引起牙齦紅腫及充血。只要繼續注意口腔衛生，口腔不適及牙齦出血的現象就會逐漸消失，牙齦亦會回復健康。'
+    }
+  ]
+}
+
+</script>
+
+
+<template>
+<div>
+  <PageHeader />
+  <div class="pageIn whitebgColor">
+    <div class="index_title pageCon">牙科服務</div>
+    <!-- 介绍 -->
+    <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
+    <!-- 原因 -->
+    <ServiceReason :reasonData="reasonData" />
+    <!-- 过程 -->
+    <ServiceStep :stepData="stepData" />
+    <!-- 问题 -->
+    <ServiceProblem :problemData="problemData" />
+    <serviceCard />
+    <ContactUs />
+  </div>
+  <PageFooter />
+  <PageNavbar />
+</div>
+</template>
+
+
+
+<style lang="scss" scoped>
+
+
+@media (min-width: 768px) and (max-width: 1452px) {}
+
+//md
+@media only screen and (max-width: 760px) {
+
+}
+</style>
