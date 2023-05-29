@@ -9,7 +9,7 @@ useHead({
 const orthodonticsIntroduceData = {
   title: '洗牙',
   content: '醫生一般建議每半年至一年洗牙一次，以預防牙周、口腔及其他牙齒問題。',
-  mbImg: 'https://static.cmereye.com/imgs/2023/05/4981f5bda13e2428.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2023/05/e2bc750495cbd2df.jpg',
   pcImg: 'https://static.cmereye.com/imgs/2023/05/3e4ae32ca30ab023.jpg',
   tabNavName: '洗牙',
 }
@@ -25,7 +25,8 @@ const reasonData = {
     {
       context: '如沒有徹底清潔牙齒、牙齦邊緣及牙齒表面，容易積聚牙菌膜，當中的細菌會分泌毒素刺激牙齦，引致發炎。若情況持續，將有機會惡化成牙周病。',
     }
-  ]
+  ],
+  isMediumCW: true
 }
 
 const stepData = {
@@ -52,7 +53,8 @@ const stepData = {
         text: '利用氟化物鞏固琺瑯質，強化牙齒'
       }
     ]
-  ]
+  ],
+  pageName: 'scalingTeeth'
 }
 
 const problemData = {

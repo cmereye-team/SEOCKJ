@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
+import { Scrollbar } from 'swiper';
 const appState = useAppState()
 appState.setDentistryService('dentalTrays')
 useHead({
@@ -39,6 +40,66 @@ const reasonData = {
   pageName: 'dentalTrays'
 }
 
+const contrastData = {
+  title: {
+    span1: '固定式假牙',
+    span2: '活動式假牙點揀好？'
+  },
+  context: '固定式假牙與活動式假牙各有其優缺點及適用的情況，通常會經由牙醫評估口內缺牙的情況及剩下牙齒的狀況，再進一步進行全面的考量及建議。',
+  tableRemark: '以下為你分析固定式/活動式假牙的優缺點：',
+  table: {
+    title: [
+      ['類別'],['適用','人士'],['物料'],['優點'],['缺點']
+    ],
+    data: [
+      {
+        th: '固定式假牙',
+        td: ['牙套','牙橋'],
+        content: [
+          {
+            l: ['牙根健康','牙齒損耗範圍太大','已接受杜牙根治療'],
+            r: ['缺牙兩旁尚有健康牙齒','牙齒連牙根被全隻拔起']
+          },
+          {
+            l: ['全金屬、全鋯、全瓷'],
+            r: ['全金屬、全鋯、全瓷']
+          },
+          {
+            l: ['保留真牙牙根'],
+            r: ['提高假牙穩定度']
+          },
+          {
+            l: ['需修磨牙齒'],
+            r: ['需修磨兩側牙齒，若其中一顆牙齒出現問題，需重新製作整組牙橋']
+          }
+        ]
+      },
+      {
+        th: '活動式假牙',
+        td: ['局部牙托','全口牙托'],
+        content: [
+          {
+            l: ['口腔內尚有健康牙齒'],
+            r: ['口腔內已沒有健康牙齒']
+          },
+          {
+            l: ['金屬支架或金屬勾','牙齒部分多由塑膠材料製造'],
+            r: ['塑膠支架','牙齒部分多由塑膠製造']
+          },
+          {
+            l: ['自由裝取'],
+            r: ['自由裝取']
+          },
+          {
+            l: ['容易磨損口腔內璧，造成潰瘍及疼痛','適應期較長'],
+            r: ['咬合感覺與真牙的感覺相差甚大，適應期長','假牙容易晃動及移位']
+          }
+        ]
+      }
+    ]
+  }
+}
+
 const problemData = {
   title: '全口牙托及局部牙托常見問題',
   lists: [
@@ -73,6 +134,65 @@ const problemData = {
     <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
     <!-- 原因 -->
     <ServiceReason :reasonData="reasonData" />
+    <!-- 对比 -->
+    <div class="contrast">
+      <div class="contrast-bg">
+        <div class="dentistryServices-title">
+          <div class="dentistryServices-title-in bb">
+            <span>{{contrastData.title.span1}}</span>
+            <span>{{contrastData.title.span2}}</span>
+          </div>
+        </div>
+        <div class="contrast-context">
+          {{contrastData.context}}
+        </div>
+        <div class="contrast-tableRemark">
+          {{contrastData.tableRemark}}
+        </div>
+        <div class="contrast-table">
+          <swiper
+            slidesPerView="auto"
+            :scrollbar="{
+              hide: true,
+            }"
+            :modules="[Scrollbar]"
+            class="swiper"
+          >
+            <swiper-slide class="swiper-slide">
+              <div class="contrast-table-in">
+                <div v-for="(tableTitleItem,tableTitleIndex) in contrastData.table.title" :key="tableTitleIndex">
+                  <span v-for="item in tableTitleItem" :key="item">{{item}}</span>
+                </div>
+              </div>
+            </swiper-slide>
+            <swiper-slide class="swiper-slide" v-for="(contrastTableItem,contrastTableIndex) in contrastData.table.data" :key="contrastTableIndex">
+              <div class="contrast-table-in">
+                <div>
+                  <div class="th">{{contrastTableItem.th}}</div>
+                  <div>
+                    <span class="td" v-for="(tdItem,tdIndex) in contrastTableItem.td" :key="tdIndex">{{tdItem}}</span>
+                  </div>
+                </div>
+                <div class="content" v-for="(contentItem,contentIndex) in contrastTableItem.content" :key="contentIndex">
+                  <div class="content-l">
+                    <div v-for="(contentIn,contentInIndex) in contentItem.l" :key="contentInIndex">
+                      <span>· </span>
+                      <span>{{contentIn}}</span>
+                    </div>
+                  </div>
+                  <div class="content-r">
+                    <div v-for="(contentIn,contentInIndex) in contentItem.r" :key="contentInIndex">
+                      <span>· </span>
+                      <span>{{contentIn}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </swiper-slide>
+          </swiper>
+        </div>
+      </div>
+    </div>
     <!-- 问题 -->
     <ServiceProblem :problemData="problemData" />
     <serviceCard />
@@ -86,12 +206,315 @@ const problemData = {
 
 
 <style lang="scss" scoped>
+.contrast{
+  margin-top: 147px;
+  &-bg{
+    padding: 76px 0 103px;
+    background: linear-gradient(270deg, rgba(255, 241, 240, 0) 2.6%, rgba(255, 241, 240, 0.7) 23.89%, rgba(255, 241, 240, 0.7) 75.33%, rgba(255, 241, 240, 0) 97.4%);
+  }
+  &-context{
+    text-align: center;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 160%;
+    color: #4D4D4D;
+    max-width: 820px;
+    margin: 35px auto 0;
+  }
+  &-tableRemark{
+    margin-top: 28px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 160%;
+    color: #FFA09E;
+    text-align: center;
+  }
+  &-table{
+    margin: 40px auto 0;
+    max-width: 1452px;
+    width: 100%;
+    filter: drop-shadow(0px 4px 8px #FFDDDA);
+    &-in{
+      display: flex;
+      flex-direction: column;
+      &>div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-right: 1px solid #FFA09E;
+        flex-direction: column;
+        &.content{
+          flex-direction: row;
+          &>div{
+            flex: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 160%;
+            color: #4D4D4D;
+            padding-left: 18px;
+            &>div{
+              display: flex;
+              span{
+                &:first-child{
+                  width: 20px;
+                }
+                &:last-child{
+                  flex: 1;
+                }
+              }
+            }
+          }
+          .content-l{
+            border-right: 1px solid #FFA09E;
+          }
+        }
+        &:nth-of-type(1){
+          height: 138px;
+          display: flex;
+          .th{
+            background: #FFA09E;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 28px;
+            line-height: 160%;
+            color: #FFFFFF;
+          }
+          &>div{
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            .td{
+              background: #FFDDDA;
+              font-style: normal;
+              font-weight: 700;
+              font-size: 28px;
+              line-height: 160%;
+              color: #505050;
+            }
+            span{
+              flex: 1;
+              height: 100%;
+              text-align: center;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              &:last-child{
+                margin-left: 4px;
+              }
+            }
+          }
+        } 
+        &:nth-of-type(2){
+          height: 183px;
+        } 
+        &:nth-of-type(3){
+          height: 144px;
+        } 
+        &:nth-of-type(4){
+          height: 109px;
+        } 
+        &:nth-of-type(5){
+          height: 182px;
+        } 
+        &:not(:last-child){
+          border-bottom: 1px solid #FFA09E;
+        }
+      }
+    }
+    .swiper{
+      .swiper-slide{
+        width: 45.17%;
+        background: #FFFFFF;
+        &:nth-of-type(1){
+          width: 9.09%;
+          border-radius: 60px 0 0 60px;
+          .contrast-table-in{
+            &>div{
+              font-style: normal;
+              font-weight: 700;
+              font-size: 28px;
+              line-height: 160%;
+              color: #FFA09E;
+            }
+          }
+        }
+        &:nth-of-type(3){
+          padding-left: 8px;
+          border-radius: 0 60px 60px 0;
+          overflow: hidden;
+          .contrast-table-in{
+            &>div{
+              border-right: none;
+              border-left: 1px solid #FFA09E;
+            }
+          }
+        } 
+      }
+    }
+    
+  }
+}
 
-
-@media (min-width: 768px) and (max-width: 1452px) {}
+@media (min-width: 768px) and (max-width: 1452px) {
+  .contrast{
+    margin-top: 120px;
+    &-bg{
+      padding: 55px 0 70px;
+    }
+    &-context{
+      margin: 25px auto 0;
+      font-size: 17px;
+    }
+    &-tableRemark{
+      font-size: 17px;
+      margin-top: 18px;
+    }
+    &-table{
+      &-in{
+        &>div{
+          &.content{
+              &>div{
+                font-size: 20px;
+                padding-left: 15px;
+                &>div{
+                  span{
+                    &:first-child{
+                      width: 17px;
+                    }
+                  }
+                }
+              }
+          }
+          &:nth-of-type(1){
+            .th{
+              font-size: 24px;
+            }
+            &>div{
+              .td{
+                font-size: 23px;
+              }
+              span{
+                &:last-child{
+                  margin-left: 3.4px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .swiper{
+        .swiper-slide{
+          &:nth-of-type(1){
+            .contrast-table-in{
+              &>div{
+                font-size: 24px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 //md
 @media only screen and (max-width: 760px) {
-
+  .contrast{
+    margin-top: 90px;
+    &-bg{
+      padding: 44px 0 40px;
+      background: linear-gradient(360deg, rgba(255, 241, 240, 0) 0%, rgba(255, 241, 240, 0.7) 12.5%, rgba(255, 241, 240, 0.7) 81.99%, rgba(255, 241, 240, 0) 100%);
+    }
+    &-context{
+      margin: 15px 30px 0;
+      font-weight: 500;
+      font-size: 14px;
+    }
+    &-tableRemark{
+      font-weight: 500;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+    &-table{
+      margin: 35px auto 0;
+      &-in{
+        &>div{
+          &.content{
+              &>div{
+                font-size: 15px;
+                padding-left: 11px;
+                &>div{
+                  span{
+                    &:first-child{
+                      width: 15px;
+                    }
+                  }
+                }
+              }
+          }
+          &:nth-of-type(1){
+            height: 86.77px;
+            .th{
+              font-size: 20px;
+            }
+            &>div{
+              .td{
+                font-size: 18px;
+              }
+              span{
+                &:last-child{
+                  margin-left: 2.5px;
+                }
+              }
+            }
+          } 
+          &:nth-of-type(2){
+            height: 115.07px;
+          } 
+          &:nth-of-type(3){
+            height: 90.55px;
+          } 
+          &:nth-of-type(4){
+            height: 68.54px;
+          } 
+          &:nth-of-type(5){
+            height: 109.08px;
+          } 
+        }
+      }
+      .swiper{
+        padding: 0 30px 40px;
+        .swiper-slide{
+          width: 109.86%;
+          &:nth-of-type(1){
+            width: 83px;
+            .contrast-table-in{
+              &>div{
+                font-size: 18px;
+              }
+            }
+          }
+        }
+      }
+      :deep(.swiper-scrollbar){
+        opacity: 1 !important;
+        width: calc(100% - 60px);
+        margin: 0 30px;
+        background: #FFF1F0;
+      }
+      :deep(.swiper-scrollbar-drag){
+        background: #FFA09E;
+      }
+    }
+  }
 }
 </style>

@@ -530,6 +530,7 @@ const getWindowWidth = () => {
           border-radius:  0 60px 60px 0;
           overflow: hidden;
           .box-in{
+            color: #FFA09E;
             &:first-child{
               background: #FFCECB;
             }

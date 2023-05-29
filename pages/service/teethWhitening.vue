@@ -30,6 +30,7 @@ const reasonData = {
       context: '診所提供藍光美白牙齒及激光美白牙齒服務，助你建立閃亮笑容。',
     },
   ],
+  isMediumCW: true
 }
 
 const noticeData = {
@@ -63,6 +64,120 @@ onMounted(() => {
 const getWindowWidth = () => {
   windowWidth.value = window.innerWidth
   // console.log(windowWidth)
+}
+
+const processData = {
+  title: '牙齒美白過程',
+  tabs: ['激光牙齒美白過程','藍光牙齒美白過程'],
+  context: ['拔牙一般不需要進行手術，','但若牙齒歪生或非常接近神經，','則有機會需要進行手術式脫牙。'],
+  lists: [
+    {
+      listItem: [
+        [
+          {
+            title: 'Step 1',
+            text: '醫生評估病人口腔及牙齦狀況，了解病人需求，解釋漂牙的程序及風險等',
+            textIn: ''
+          },
+          {
+            title: 'Step 2',
+            text: '進行簡單清潔',
+            textIn: ''
+          },
+          {
+            title: 'Step 3',
+            text: '以牙齒專用色階進行對色，記錄療程前牙齒顏色的色號',
+            textIn: ''
+          },
+          {
+            title: 'Step 4',
+            text: '套上口腔張口器及保護眼罩',
+            textIn: ''
+          },
+          {
+            title: 'Step 5',
+            text: '在牙齦塗上牙齦保護劑，以免激光及美白劑刺激牙齦',
+            textIn: ''
+          }
+        ],
+        [
+          {
+            title: 'Step 6',
+            text: '在牙齒表面均勻塗上激光專用美白劑',
+            textIn: ''
+          },
+          {
+            title: 'Step 7',
+            text: '以激光儀器照射牙齒',
+            textIn: ''
+          },
+          {
+            title: 'Step 8',
+            text: '療程完成後，清除美白劑與牙齦保護劑',
+            textIn: ''
+          },
+          {
+            title: 'Step 9',
+            text: '以牙齒專用色階進行對色，比對療程前後效果',
+            textIn: ''
+          }
+        ]
+      ]
+    },
+    {
+      listItem: [
+        [
+          {
+            title: 'Step 1',
+            text: '醫生評估病人口腔及牙齦狀況，了解病人需求，解釋漂牙的程序及風險等',
+            textIn: ''
+          },
+          {
+            title: 'Step 2',
+            text: '進行簡單清潔',
+            textIn: ''
+          },
+          {
+            title: 'Step 3',
+            text: '以牙齒專用色階進行對色，記錄療程前牙齒顏色的色號',
+            textIn: ''
+          },
+          {
+            title: 'Step 4',
+            text: '套上口腔張口器及保護眼罩',
+            textIn: ''
+          },
+          {
+            title: 'Step 5',
+            text: '在牙齦塗上牙齦保護劑，以免激光及美白劑刺激牙齦',
+            textIn: ''
+          }
+        ],
+        [
+          {
+            title: 'Step 6',
+            text: '在牙齒表面均勻塗上激光專用美白劑',
+            textIn: ''
+          },
+          {
+            title: 'Step 7',
+            text: '以藍光燈開始照射牙齒，整個過程大概需要照射2-3次',
+            textIn: ''
+          },
+          {
+            title: 'Step 8',
+            text: '療程完成後，清除美白劑與牙齦保護劑',
+            textIn: ''
+          },
+          {
+            title: 'Step 9',
+            text: '以牙齒專用色階進行對色，比對療程前後效果',
+            textIn: ''
+          }
+        ]
+      ]
+    }
+  ]
 }
 
 const noteData = {
@@ -155,6 +270,8 @@ const problemData = {
           <PageSwiperPointLine :latestNewsNum="2" :latestNewsCurrent="noticeCurrent"></PageSwiperPointLine>
         </div>
       </div>
+      <!-- 过程 -->
+      <ServiceProcess :processData="processData" />
       <!-- 注意事项 -->
       <ServiceNote :noteData="noteData" />
       <!-- 问题 -->

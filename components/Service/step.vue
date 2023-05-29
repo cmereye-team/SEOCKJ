@@ -22,7 +22,7 @@ defineProps({
     <div class="dentistryServices-title">
       <div class="dentistryServices-title-in bb">{{stepData.title}}</div>
     </div>
-    <div class="step-remark" v-if="stepData.remark">
+    <div :class="['step-remark',stepData.pageName]" v-if="stepData.remark">
       {{stepData.remark}}
     </div>
     <div :class="`${stepData.pageName}Bg`">
@@ -65,6 +65,9 @@ defineProps({
         line-height: 160%;
         text-align: center;
         color: #4D4D4D;
+        &.scalingTeeth{
+          max-width: 1042px;
+        }
       }
       &-in{
         width: 100%;
@@ -131,7 +134,6 @@ defineProps({
                   font-style: normal;
                   font-weight: 700;
                   font-size: 28px;
-                  // line-height: 100%;
                   padding-bottom: 20px;
                   color: #4D4D4D;
                 }
@@ -140,12 +142,6 @@ defineProps({
                 align-items: center;
                 margin-bottom: 0;
                 padding-bottom: 0;
-                .round{
-                  // margin-top: 0;
-                }
-                .text{
-                  // padding-top: 0;
-                }
               }
               &.oneBoxListItem{
                 align-items: flex-start;
@@ -210,6 +206,10 @@ defineProps({
         background: linear-gradient(360deg, rgba(255, 241, 240, 0) 0%, rgba(255, 241, 240, 0.7) 12.5%, rgba(255, 241, 240, 0.7) 81.99%, rgba(255, 241, 240, 0) 100%);
         padding: 0 30px;
         margin-top: 90px;
+        &-remark{
+          margin: 20px auto 0;
+          font-size: 17px;
+        }
         &-in{
           flex-direction: column;
           padding: 23px 0 23px 24px;

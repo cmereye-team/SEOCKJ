@@ -34,7 +34,7 @@ const servicesCardLists = [
   },
   {
     name: '全瓷牙冠',
-    imgUrl: 'https://static.cmereye.com/imgs/2023/05/201d5535b39b4b5f.png',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/05/81b463bfe0377935.png',
     link: '/service/crown'
   },
   {

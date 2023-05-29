@@ -6,7 +6,8 @@ defineProps({
     default(){
       return {
         title: '',
-        lists: []
+        lists: [],
+        pageName: ''
       }
     }
   }
@@ -14,7 +15,7 @@ defineProps({
 </script>
 
 <template>
-    <div class="note">
+    <div :class="['note',noteData.pageName]">
       <div class="dentistryServices-title">
         <div class="dentistryServices-title-in bb">{{noteData.title}}</div>
       </div>
@@ -33,6 +34,9 @@ defineProps({
 <style lang="scss" scoped>
 .note{
   padding: 96px 0 0;
+  &.pediatric{
+    padding: 143px 0 0;
+  }
   &-in{
     width: 100%;
     max-width: 1200px;
@@ -40,11 +44,12 @@ defineProps({
     padding: 60px 0;
     background: #FFF1F0;
     box-shadow: 0px 4px 8px #FFDDDA;
-    min-height: 378px;
+    // min-height: 378px;
     display: flex;
     justify-content: center;
     align-items: center;
     &-lists{
+      width: 100%;
       max-width: 1000px;
       &-item{
         font-style: normal;
@@ -69,6 +74,9 @@ defineProps({
   .note{
     padding: 96px 30px 0;
     box-sizing: border-box;
+    &.pediatric{
+      padding: 96px 30px 0;
+    }
     &-in{
       padding: 23px 15px;
       box-sizing: border-box;

@@ -13,7 +13,8 @@ defineProps({
             // hideIcon: true,
             context: '',
             pageName: '',
-            isSmallFS: false
+            isSmallFS: false,
+            isMediumCW: false
           }
         ]
       }
@@ -32,12 +33,12 @@ defineProps({
           <img :src="reasonData.imgUrl" />
         </div>
       </div>
-      <div :class="['reason-in-r',reasonData.pageName]">
+      <div :class="['reason-in-r',reasonData.pageName,{'mediumCW': reasonData.isMediumCW}]">
         <div v-for="(reason,reasonIndex) in reasonData.reasonLists" :key="reasonIndex">
           <div class="icon">
             {{reason.hideIcon ? '': '· '}}
           </div>
-          <div :class="['context',{'smallFontSize': reason.isSmallFS}]">
+          <div :class="{'context':true,'smallFontSize': reason.isSmallFS}">
             {{reason.context}}
           </div>
         </div>
@@ -90,6 +91,9 @@ defineProps({
       }
       &.dentalTrays{
         max-width: 680px;
+      }
+      &.mediumCW{
+        max-width: 663px;
       }
       & > div {
         font-weight: 600;

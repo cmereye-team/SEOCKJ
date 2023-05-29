@@ -171,7 +171,7 @@ const classNamefilter = ( _menu:any, _idx: number) => {
 onMounted(() => {
   gsap.from('.header-content-bgImg-in', {
     opacity: 0, 
-    x: 100, 
+    y: 100, 
     duration: 2
   })
   gsap.from('.header-content-bgImg-imgInfo', {

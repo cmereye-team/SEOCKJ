@@ -16,12 +16,13 @@ const getWindowResize = () => {
   // console.log(mapConShow)
 }
 
-let currentAddress = ref(0)
+let currentAddress = ref(10)
 
 const allAddressLists = [
   // 罗湖区
   [
     {
+      id: '101',
       name: '深圳愛康健口腔醫院（羅湖）',
       address: '深圳市羅湖區火車站大廈C區1-8樓',
       time: '9:00-18:00 （節假日照常應診）',
@@ -31,6 +32,7 @@ const allAddressLists = [
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/476419e0bd27692f.png'
     },
     {
+      id: '102',
       name: '恒潔口腔門診部（羅湖）',
       address: '深圳市羅湖區桂園街道新圍社區深南東路5015號金豐城大廈B座1602、1603',
       time: '9:00-18:00 （節假日照常上班）',
@@ -40,6 +42,7 @@ const allAddressLists = [
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/faf033fd50b18824.png'
     },
     {
+      id: '103',
       name: '康輝口腔門診部（羅湖）',
       address: '深圳市羅湖區建設路深圳火車站皮帶走廊A12-A15.B11-B14及夾層B8--3號鋪',
       time: '9:00-18:00 （節假日照常上班）',
@@ -49,6 +52,7 @@ const allAddressLists = [
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/b741f54f1b105876.png'
     },
     {
+      id: '104',
       name: '富康口腔門診部（羅湖）',
       address: '建設路火車站大樓二樓南環廊商鋪（火車站大酒店二樓、羅湖地鐵站D出口垂直電梯3樓）',
       time: '9:00-18:00 （節假日照常上班）',
@@ -58,6 +62,7 @@ const allAddressLists = [
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/fe00a2ba47a161b5.png'
     },
     {
+      id: '105',
       name: '顏麗口腔診所（羅湖）',
       address: '深圳市罗湖区罗湖口岸商业城1091号',
       time: '9:00-18:00 （节假日照常上班）',
@@ -70,6 +75,7 @@ const allAddressLists = [
   // 福田區
   [
     {
+      id: '201',
       name: '李川口腔診所（福田）',
       address: '深圳市福田區金田路水圍村金莊商業樓2-5樓',
       time: '9:00-18:00 （節假日照常上班）',
@@ -79,6 +85,7 @@ const allAddressLists = [
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/f75bb70e48d1a50e.png'
     },
     {
+      id: '202',
       name: '王琦口腔診所（福田）',
       address: '深圳市福田區福田街道漁農村社區裕亨路50號海悅華城C107、C108B',
       time: '9:00-18:00 （節假日照常上班）',
@@ -91,6 +98,7 @@ const allAddressLists = [
   // 南山区
   [
     {
+      id: '301',
       name: '恒雅口腔門診部（南山）',
       address: '深圳市南山區南海大道與工業八路交匯處',
       time: '9:00-18:00 （節假日照常上班）',
@@ -100,6 +108,7 @@ const allAddressLists = [
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/4783ff2e8f17beff.png'
     },
     {
+      id: '302',
       name: '恒美口腔門診部（南山）',
       address: '深圳市南山區商業文化中心區海岸城西座501',
       time: '9:00-18:00 （節假日照常上班）',
@@ -109,6 +118,7 @@ const allAddressLists = [
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/d6c09b604319be78.png'
     },
     {
+      id: '303',
       name: '沈虹口腔診所（南山）',
       address: '深圳市南山區南海大道海典居裙樓1樓&2樓（海雅百貨對面）',
       time: '9:00-18:00 （節假日照常上班）',
@@ -121,6 +131,7 @@ const allAddressLists = [
   // 寶安區
   [
     {
+      id: '401',
       name: '炫雅口腔門診部（寶安）',
       address: '寶安區新安街道建安一路80號香檳廣場一棟四樓402號',
       time: '9:00-18:00 （節假日照常上班）',
@@ -133,6 +144,7 @@ const allAddressLists = [
   // 龍華區
   [
     {
+      id: '501',
       name: '雅健口腔門診部（龍華）',
       address: '深圳市龍華區民治街道大嶺社區紅山6979二期8棟25座202室',
       time: '9:00-18:00 （節假日照常上班）',
@@ -142,6 +154,7 @@ const allAddressLists = [
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/547f7fa32b8a7154.png'
     },
     {
+      id: '502',
       name: '恒樂口腔門診部（龍華）',
       address: '深圳市龍華區梅龍路深物業新華城商業F1-03號(工業西路與龍華大道交匯處—壹方城對面)',
       time: '9:00-18:00 （節假日照常上班）',
@@ -170,8 +183,12 @@ const onSlideContactUsSwiperChange = (swiper:any) => {
 
 const handleAddress = (_idx: number) => {
   console.log(_idx)
+  if(currentAddress.value === _idx){
+    currentAddress.value = 0
+    return
+  }
   currentAddress.value = _idx
-  contactUsSwiperRef.slideTo(currentAddress.value, 0);
+  // contactUsSwiperRef.slideTo(currentAddress.value, 0);
 }
 
 const handleLeftBtn = () => {
@@ -206,105 +223,27 @@ const handleRightBtn = () => {
           <AreaTab />
         </div>
       </div>
-      <!-- <div class="index-contactUs-in" v-if="allAddressLists[appState.areaTabCurNum].length">
-        <div class="index-contactUs-in-l">
-          <h3>{{allAddressLists[appState.areaTabCurNum][currentAddress].name || ''}}
-            <div class="addressLists" v-if="allAddressLists[appState.areaTabCurNum].length>1">
-              <div class="addressLists-in" v-for="(item,index) in allAddressLists[appState.areaTabCurNum]" :key="index" @click="handleAddress(index)">
-                <div>{{item.name}}</div>
-              </div>
-            </div>
-          </h3>
-          <span>醫院地址：{{allAddressLists[appState.areaTabCurNum][currentAddress].address || ''}}</span>
-          <span>營業時間：{{allAddressLists[appState.areaTabCurNum][currentAddress].time || ''}}</span>
-          <span>諮詢電話：{{allAddressLists[appState.areaTabCurNum][currentAddress].phone || ''}}</span>
-          <div class="contactUsAddressBox">
-            <div class="in-l" @click="handleLeftBtn">
-              <img src="@/assets/images/icon_5.png" alt="">
-            </div>
-            <div class="in-c">
-              <img :src="allAddressLists[appState.areaTabCurNum][currentAddress].addressUrl" alt="">
-            </div>
-            <div class="in-r" @click="handleRightBtn">
-              <img src="@/assets/images/icon_5.png" alt="">
-            </div>
+      <div class="address">
+        <div class="address-in" v-for="(addressItem,addressIndex) in allAddressLists[appState.areaTabCurNum]" :key="addressIndex">
+          <h3>{{addressItem.name || ''}}</h3>
+          <div class="content">
+            <span>醫院地址：{{addressItem.address || ''}}</span>
+            <span>營業時間：{{addressItem.time || ''}}</span>
+            <span>諮詢電話：{{addressItem.phone || ''}}</span>
           </div>
-          <span class="showIcon" @click="mapConShow = !mapConShow">交通路線:</span>
-          <span v-show="mapConShow">巴士路線</span>
-          <span v-show="mapConShow">{{allAddressLists[appState.areaTabCurNum][currentAddress].busRoutes || ''}}</span>
-          <span v-show="mapConShow">地鐵路線</span>
-          <span v-show="mapConShow">{{allAddressLists[appState.areaTabCurNum][currentAddress].metroRoutes || ''}}</span>
-          <div class="mapBtn" v-show="mapConShow">
+          <span class="showIcon" @click="handleAddress(addressItem.id)">交通路線:</span>
+          <div class="route" v-show="currentAddress === addressItem.id ">
+            <span>巴士路線</span>
+            <span>{{addressItem.busRoutes || ''}}</span>
+            <span>地鐵路線</span>
+            <span>{{addressItem.metroRoutes || ''}}</span>
+          </div>
+          <div class="mapBtn">
             <div class="mapBtn-in">Google地圖</div>
             <div class="mapBtn-in">百度地圖</div>
           </div>
         </div>
-        <div class="index-contactUs-in-r">
-          <div class="in-l" @click="handleLeftBtn">
-            <img src="@/assets/images/icon_5.png" alt="">
-          </div>
-          <div class="in-c">
-            <img :src="allAddressLists[appState.areaTabCurNum][currentAddress].addressUrl" alt="">
-          </div>
-          <div class="in-r" @click="handleRightBtn">
-            <img src="@/assets/images/icon_5.png" alt="">
-          </div>
-        </div>
-      </div> -->
-      <Swiper
-        class="swiperBox"
-        :loop="true"
-        @swiper="setContactUsSwiperRef"
-        @slideChange="onSlideContactUsSwiperChange"
-      >
-        <SwiperSlide v-for="(addressItem,addressIndex) in allAddressLists[appState.areaTabCurNum]" :key="addressIndex">
-          <div class="index-contactUs-in" v-if="allAddressLists[appState.areaTabCurNum].length">
-            <div class="index-contactUs-in-l">
-              <h3>{{addressItem.name || ''}}
-                <div class="addressLists" v-if="allAddressLists[appState.areaTabCurNum].length>1">
-                  <div class="addressLists-in" v-for="(item,index) in allAddressLists[appState.areaTabCurNum]" :key="index" @click="handleAddress(index)">
-                    <div>{{item.name}}</div>
-                  </div>
-                </div>
-              </h3>
-              <span>醫院地址：{{addressItem.address || ''}}</span>
-              <span>營業時間：{{addressItem.time || ''}}</span>
-              <span>諮詢電話：{{addressItem.phone || ''}}</span>
-              <div class="contactUsAddressBox">
-                <div class="in-l" @click="handleLeftBtn">
-                  <img src="@/assets/images/icon_5.png" alt="">
-                </div>
-                <div class="in-c">
-                  <img :src="addressItem.addressUrl" alt="">
-                </div>
-                <div class="in-r" @click="handleRightBtn">
-                  <img src="@/assets/images/icon_5.png" alt="">
-                </div>
-              </div>
-              <span class="showIcon" @click="mapConShow = !mapConShow">交通路線:</span>
-              <span v-show="mapConShow">巴士路線</span>
-              <span v-show="mapConShow">{{addressItem.busRoutes || ''}}</span>
-              <span v-show="mapConShow">地鐵路線</span>
-              <span v-show="mapConShow">{{addressItem.metroRoutes || ''}}</span>
-              <div class="mapBtn" v-show="mapConShow">
-                <div class="mapBtn-in">Google地圖</div>
-                <div class="mapBtn-in">百度地圖</div>
-              </div>
-            </div>
-            <div class="index-contactUs-in-r">
-              <div class="in-l" @click="handleLeftBtn">
-                <img src="@/assets/images/icon_5.png" alt="">
-              </div>
-              <div class="in-c">
-                <img :src="addressItem.addressUrl" alt="">
-              </div>
-              <div class="in-r" @click="handleRightBtn">
-                <img src="@/assets/images/icon_5.png" alt="">
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-      </Swiper>
+      </div>
     </div>
 </template>
 
@@ -312,20 +251,19 @@ const handleRightBtn = () => {
 
 .index-contactUs{
   padding: 140px 0 0;
-  max-width: 1510px; 
+  max-width: 1550px; 
   margin: 0 auto;
   &-t{
     display: flex;
     justify-content: space-between;
   }
-  &-in{
+  .address{
     display: flex;
-    margin-top: 46px;
-    padding: 0 30px;
-    &-l{
-      width: 40%;
-      padding-right: 80px;
-      box-sizing: border-box;
+    flex-wrap: wrap;
+    margin-top: 79px;
+    &-in{
+      width: 33.33%;
+      padding: 0 50px 100px;
       h3{
         font-weight: 500;
         font-size: 1.25rem;
@@ -335,69 +273,44 @@ const handleRightBtn = () => {
         display: inline-block;
         cursor: pointer;
         padding-bottom: 10px;
-        &:after {
-          content: '';
-          width: 0px;
-          height: 0px;
-          border: 10px solid;
-          border-color: #FFA09E transparent transparent transparent;
-          position: absolute;
-          top: 10px;
-          right: -30px;
-        }
-        .addressLists{
-          position: absolute;
-          width: 300px;
-          top: 40px;
-          left: 0;
-          font-size: 1.25rem;
-          line-height: 160%;
-          background: #fff;
-          padding: 5px 20px;
-          box-sizing: border-box;
-          background: #FFFFFF;
-          box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
-          transition: all .5s;
-          display: none;
-          &-in{
-            padding: 5px 0;
-            cursor: pointer;
-            color: #4D4D4D;
-            &:hover{
-              color: #FFA09E;
-            }
-          }
-        }
-        &:hover .addressLists{
-          display: block;
-        }
-      }
-      .contactUsAddressBox{
-        display: none;
       }
       span{
         font-weight: 500;
-        // font-size: 20px;
-        font-size: 1.25rem;
+        font-size: 20px;
         line-height: 160%;
         color: #4D4D4D;
         display: block;
-        &:nth-of-type(4){
-          margin-top: 50px;
+      }
+      .content{
+        min-height: 160px;
+      }
+      .route{
+        span{
+          &:nth-of-type(1){
+            margin-top: 18px;
+          }
+          &:nth-of-type(3){
+            margin-top: 18px;
+          }
         }
-        &:nth-of-type(5){
-          margin-top: 25px;
-        }
-        &:nth-of-type(7){
-          margin-top: 25px;
-        }
-        &:last-child{
-          margin-top: 25px;
-        }
+      }
+      .showIcon{
+        cursor: pointer;
+      }
+      .showIcon::after{
+        content: '';
+        width: 0px;
+        height: 0px;
+        border: 7px solid;
+        border-color: #4D4D4D transparent transparent transparent;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 5px;
+        margin-top: 5px;
       }
       .mapBtn{
         width: 100%;
-        margin-top: 60px;
+        margin-top: 22px;
         display: flex;
         justify-content: space-between;
         &-in{
@@ -415,45 +328,14 @@ const handleRightBtn = () => {
           display: inline-block;
           padding: 13px 0;
           cursor: pointer;
-        }
-      }
-    }
-    &-r{
-      flex: 1;
-      height: 704px;
-      display: flex;
-      padding: 50px 0;
-      background: linear-gradient(to right, #fff1f0, #ffcecb);
-      box-sizing: content-box;
-      border-radius: 50px;
-      &>div{
-        height: 100%;
-      }
-      .in-l{
-        width: 80px;
-        background: #FFF1F0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-      }
-      .in-c{
-        flex: 1;
-        img{
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(90deg, #FFF1F0 50%, #FFCECB 50%);
-        }
-      }
-      .in-r{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 80px;
-        background: #FFCECB;
-        cursor: pointer;
-        img{
-          transform: rotate(180deg);
+          transition: all .5s;
+          &:first-child{
+            margin-right: 22px;
+          }
+          &:hover{
+            color: #FFFFFF;
+            background: #FFA09E;
+          }
         }
       }
     }
@@ -462,36 +344,47 @@ const handleRightBtn = () => {
 @media (min-width: 768px) and (max-width: 1452px) {
   .index-contactUs{
     padding: 110px 0 0;
-    &-in{
-      &-l{
-        padding-right: 30px;
+    .address{
+      margin-top: 50px;
+      &-in{
+        padding: 0 30px 75px;
+        h3{
+          font-size: 19px;
+        }
         span{
-          font-size: 1rem;
-          &:nth-of-type(4){
-            margin-top: 4vw;
-          }
-          &:nth-of-type(5){
-            margin-top: 2vw;
-          }
-          &:last-child{
-            margin-top: 2vw;
+          font-size: 18px;
+        }
+        .content{
+          min-height: 150px;
+        }
+        .route{
+          span{
+            &:nth-of-type(1){
+              margin-top: 14px;
+            }
+            &:nth-of-type(3){
+              margin-top: 14px;
+            }
           }
         }
         .mapBtn{
-          // padding: 0 30px;
-          margin-top: 45px;
           &-in{
-            width: 45%;
-            max-width: 220px;
-            font-size: 1.3rem;
+            font-size: 26px;
+            padding: 10px 0;
+            &:first-child{
+              margin-right: 20px;
+            }
           }
         }
       }
-      &-r{
-        height: 50vw;
-        .in-l,.in-r{
-          width: 50px;
-        }
+    }
+  }
+}
+@media (min-width: 768px) and (max-width: 1000px) {
+  .index-contactUs{
+    .address{
+      &-in{
+        width: 50%;
       }
     }
   }
@@ -502,97 +395,40 @@ const handleRightBtn = () => {
     &-t{
       flex-direction: column;
     }
-    &-in{
-      flex-direction: column;
-      margin-top: 35px;
-      padding: 0 0 10px;
-      &-l{
-        padding: 0;
+    .address{
+      margin-top: 24px;
+      &-in{
         width: 100%;
+        padding: 0 30px 45px;
         h3{
-          font-size: 1.25rem;
-          padding: 0 30px;
-          box-sizing: border-box;
-          &:after {
-            content: '';
-            width: 0px;
-            height: 0px;
-            border: 10px solid;
-            border-color: #FFCECB transparent transparent transparent;
-            position: absolute;
-            right: -20px;
-            top: 10px;
-          }
-        }
-        .contactUsAddressBox{
-          display: flex;
-          height: calc(100vw - 60px);
-          margin: 20px 0;
-          padding: 30px 0;
-          background: linear-gradient(to right, #fff1f0, #ffcecb);
-          box-sizing: content-box;
-          &>div{
-            height: 100%;
-          }
-          .in-l{
-            width: 30px;
-            background: #FFF1F0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          }
-          .in-c{
-            flex: 1;
-            img{
-              width: 100%;
-              height: 100%;
-            }
-          }
-          .in-r{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 30px;
-            background: #FFCECB;
-            img{
-              transform: rotate(180deg);
-            }
-          }
+          font-size: 18px;
         }
         span{
-          padding: 0 30px;
-          box-sizing: border-box;
-          font-size: 1rem;
-          &:nth-of-type(4){
-            margin-top: 0px;
-          }
-          &.showIcon{
-            position: relative;
-            cursor: pointer;
-          }
-          &.showIcon::after{
-            content: '';
-            width: 0px;
-            height: 0px;
-            border: 7px solid;
-            border-color: #4D4D4D transparent transparent transparent;
-            display: inline-block;
-            vertical-align: middle;
-            margin-left: 5px;
-            margin-top: 5px;
+          font-size: 16px;
+        }
+        .content{
+          min-height: 120px;
+        }
+        .route{
+          span{
+            &:nth-of-type(1){
+              margin-top: 10px;
+            }
+            &:nth-of-type(3){
+              margin-top: 10px;
+            }
           }
         }
         .mapBtn{
-          padding: 0 30px;
-          margin-top: 30px;
           &-in{
-            width: 150px;
-            font-size: 1.25rem;
+            font-weight: 400;
+            font-size: 20.0245px;
+            padding: 8px 0;
+            &:first-child{
+              margin-right: 17px;
+            }
           }
         }
-      }
-      &-r{
-        display: none;
       }
     }
   }

@@ -9,7 +9,7 @@ useHead({
 const orthodonticsIntroduceData = {
   title: '一般口腔檢查',
   content: '一般人常常忽略了定期檢查口腔的重要性，口腔容易滋生各種細菌，缺乏適當護理，有機會會引致各種問題，例如蛀牙、口腔潰瘍、牙周炎、牙齦炎等等。',
-  mbImg: 'https://static.cmereye.com/imgs/2023/05/4981f5bda13e2428.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2023/05/1adfbf26ba2d3e03.jpg',
   pcImg: 'https://static.cmereye.com/imgs/2023/05/0c05f7b7469e4f0d.jpg',
   tabNavName: '一般口腔檢查',
 }
@@ -25,7 +25,8 @@ const reasonData = {
     {
       context: '牙科醫生透過檢查評估牙齒、牙齦、面頜及口腔組織的健康情況，能確保沒有潛在蛀牙、牙齦發炎或其他口腔問題。',
     }
-  ]
+  ],
+  isMediumCW: true
 }
 
 const stepData = {

@@ -53,13 +53,16 @@ defineProps({
           padding-bottom: 90px;
           .title{
             font-weight: 700;
-            font-size: 2.6042vw;
-            margin-top: 5vw;
+            font-size: 50px;
+            margin-top: 96px;
             &.extraction{
-              margin-top: 15vw;
+              margin-top: 15%;
             }
             &.teethWhitening{
-              margin-top: 15vw;
+              margin-top: 15%;
+            }
+            &.dentalFillings{
+              margin-top: 15%;
             }
           }
           .content{
@@ -111,13 +114,13 @@ defineProps({
           &-l{
             padding-bottom: 7vw;
             .title{
-              font-size: 1.75vw;
-
+              font-size: 2.2vw;
+              margin-top: 6vw;
             }
             .content{
               font-size: 1.7vw;
               // width: 25vw;
-              margin-top: 5vw;
+              margin-top: 4vw;
             }
             
           }
@@ -155,6 +158,9 @@ defineProps({
                 margin-top: 0;
               }
               &.teethWhitening{
+                margin-top: 0;
+              }
+              &.dentalFillings{
                 margin-top: 0;
               }
             }
