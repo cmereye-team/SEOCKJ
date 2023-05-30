@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-// import { useAppState } from '~/stores/appState'
-// const appState = useAppState()
-// appState.setDentistryService('course')
+import { useAppState } from '~/stores/appState'
+const appState = useAppState()
+appState.setBrand('course')
 useHead({
   title: '品牌歷程',
 })

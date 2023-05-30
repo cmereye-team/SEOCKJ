@@ -4,6 +4,10 @@ defineProps({
   isIndexShow:{
     type: Boolean,
     default: false
+  },
+  isMenu: {
+    type: Boolean,
+    default: false
   }
 })
 const servicesCardLists = [
@@ -101,13 +105,13 @@ const getWindowWidth = () => {
 
 
 <template>
-  <div class="index-dentalServices">
-    <div :class="['index-dentalServices-in', 'pageCon', {'isIndexShow': !isIndexShow}]">
+  <div :class="{'index-dentalServices':true,'isMenu': isMenu}">
+    <div :class="['index-dentalServices-in', 'pageCon', {'isIndexShow': !isIndexShow,'isMenu': isMenu}]">
       <div class="titile">
         <!-- 牙科服務 -->
         <div class="index_title" v-if="isIndexShow">{{servicesCardPageData.title}}</div>
       </div>
-      <div class="dentistryServices-title" v-if="!isIndexShow">
+      <div class="dentistryServices-title" v-if="!isIndexShow && !isMenu">
         <!-- 牙科服務 -->
         <div class="dentistryServices-title-in bb">{{servicesCardPageData.dentalServicesTitleIn}}</div>
       </div>
@@ -115,7 +119,7 @@ const getWindowWidth = () => {
         <!-- 中心提供基本牙科、美容牙科及高階牙科服務，從一般口腔檢查、洗牙、補牙，到牙齒美白、全口修復及各種牙科治療，幫助客人回復自信笑容。 -->
         <div class="context-in">{{servicesCardPageData.contextIn}}</div>
       </div>
-      <div class="servicesCard">
+      <div :class="{'servicesCard':true,'isMenu': isMenu}">
         <div class="servicesCard-in" v-for="(item,index) in servicesCardLists" :key="index">
           <nuxt-link :to="item.link">
             <div class="servicesCard-in-image">
@@ -204,7 +208,24 @@ const getWindowWidth = () => {
           }
         }
       }
+      &.isMenu{
+        margin-top: 0;
+        padding: 0;
+        .servicesCard-in{
+          padding: 0 6px;
+          &-name{
+            font-weight: 600;
+            font-size: 16px;
+            height: 32px;
+            line-height: 32px;
+            width: 110%;
+          }
+        }
+      }
     }
+  }
+  &.isMenu{
+    padding: 0px;
   }
 }
 @media (min-width: 768px) and (max-width: 1452px) {
@@ -225,6 +246,9 @@ const getWindowWidth = () => {
             }
           }
         }
+      }
+      &.isMenu{
+        width: 100%;
       }
     }
   }

@@ -24,7 +24,7 @@ const navLists = [
   // },
   {
     name: '品牌理念',
-    link: '/brandMind',
+    link: `/brand/${appState.brand}`,
     child: [],
   },
   {

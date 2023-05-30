@@ -2,7 +2,7 @@
 import { useAppState } from '~/stores/appState'
 import { Scrollbar } from 'swiper';
 const appState = useAppState()
-appState.setDentistryService('orthodontics')
+appState.setBrand('honor')
 useHead({
   title: "品牌榮譽"
 })

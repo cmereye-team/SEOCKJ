@@ -30,7 +30,7 @@ const allAddressLists = [
       busRoutes: '羅湖火車站：1路、7路、12路、17路、38路、82路、83路、97路、101路、102路、205路、215路、306路、387路、E13路、M112路、M152路、M401路、M508路、N14路、N16路、N18路、N2路、N4路、N7路、高峰專線73號',
       metroRoutes: '地鐵1號線“羅湖站”C出口； 地鐵9號線“人民南站” A1出口',
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/476419e0bd27692f.png',
-      googleMap: '',
+      googleMap: 'https://goo.gl/maps/yuWB8353yF3u4EJS6?coh=178572&entry=tt',
       baiduMap: ''
     },
     {
@@ -42,7 +42,7 @@ const allAddressLists = [
       busRoutes: '深圳書城站：29路、85路、103短線、103路、104路、113路、204路、214路、215路、E8路、M106路、M112路、M133路、M481路、M559路、N4路、大鵬假日專線4路、高快巴士863號、高快巴士97路;都市名苑：7路、8路、14路、M152路、M360路、M383路、M482路',
       metroRoutes: '地鐵1號線“大劇院”站F出口',
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/faf033fd50b18824.png',
-      googleMap: '',
+      googleMap: 'https://goo.gl/maps/HQsN5jNMTeZNbxuf7?coh=178572&entry=tt',
       baiduMap: ''
     },
     {
@@ -54,7 +54,7 @@ const allAddressLists = [
       busRoutes: '羅湖火車站：1路、7路、12路、17路、38路、82路、83路、97路、101路、102路、205路、215路、306路、387路、E13路、M112路、M152路、M401路、M508路、N14路、N16路、N18路、N2路、N4路、N7路、高峰專線73號',
       metroRoutes: '地鐵1號線“羅湖站”D出口；地鐵9號線“人民南站”A1出口；',
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/b741f54f1b105876.png',
-      googleMap: '',
+      googleMap: 'https://goo.gl/maps/JMK7Huhaf9k88nbf8?coh=178572&entry=tt',
       baiduMap: ''
     },
     {
@@ -66,7 +66,7 @@ const allAddressLists = [
       busRoutes: '羅湖火車站：1路、7路、12路、17路、38路、82路、83路、97路、101路、102路、205路、215路、306路、387路、E13路、M112路、M152路、M401路、M508路、N14路、N16路、N18路、N2路、N4路、N7路、高峰專線73號',
       metroRoutes: '地鐵1號線“羅湖站”D出口；地鐵9號線“人民南站”A1出口；',
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/fe00a2ba47a161b5.png',
-      googleMap: '',
+      googleMap: 'https://goo.gl/maps/nSmd9ZL66E4Yizp67?coh=178572&entry=tt',
       baiduMap: ''
     },
     {
@@ -78,7 +78,7 @@ const allAddressLists = [
       busRoutes: '罗湖火车站：1路、7路、12路、17路、38路、82路、83路、97路、101路、102路、205路、215路、306路、387路、E13路、M112路、M152路、M401路、M508路、N14路、N16路、N18路、N2路、N4路、N7路、高峰专线73号',
       metroRoutes: '地铁1号线“罗湖站”A出口',
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/5f6257f23815c0b8.png',
-      googleMap: '',
+      googleMap: 'https://goo.gl/maps/HefFWPuSqmdHbyBo9?coh=178572&entry=tt',
       baiduMap: ''
     }
   ],

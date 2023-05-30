@@ -42,7 +42,7 @@ const menuLists = [
   // },
   {
     name: '品牌理念',
-    link: '/brandMind',
+    link: `/brand/${appState.brand}`,
     child: [
       {
         name: '品牌歷程',
@@ -85,6 +85,34 @@ const menuLists = [
       {
         name: '智慧齒脫除',
         link: '/service/extraction',
+      },
+      {
+        name: '牙周病治療',
+        link: '/service/periodontal',
+      },
+      {
+        name: '牙托',
+        link: '/service/dentalTrays',
+      },
+      {
+        name: '牙齒美白',
+        link: '/service/teethWhitening',
+      },
+      {
+        name: '洗牙',
+        link: '/service/scalingTeeth',
+      },
+      {
+        name: '補牙',
+        link: '/service/dentalFillings',
+      },
+      {
+        name: '一般口腔檢查',
+        link: '/service/oralCheck',
+      },
+      {
+        name: '兒童牙科',
+        link: '/service/pediatric',
       }
     ],
   },
@@ -246,12 +274,20 @@ onMounted(() => {
             <nuxt-link :class="menuItem.child.length ? 'triangleIcon' : ''" :to="menuItem.link">
             {{ menuItem.name }}
             </nuxt-link>
-            <div class="menuChild" v-if="menuItem.child.length">
+            <div class="menuChild" v-if="menuItem.child.length && !menuItem.link.includes('/service')">
               <div :class="['menuChild-item', classNamefilter(menuChildItem,menuChildIndex)]" v-for="(menuChildItem,menuChildIndex) in menuItem.child" :key="menuChildIndex" @click="handleMenuChild(menuItem,menuChildIndex)">
                 <nuxt-link :to="menuChildItem.link">
                 {{menuChildItem.name}}
                 </nuxt-link>
               </div>
+            </div>
+            <div class="menuChild serviceCard" v-if="menuItem.link.includes('/service')">
+              <!-- <div :class="['menuChild-item', classNamefilter(menuChildItem,menuChildIndex)]" v-for="(menuChildItem,menuChildIndex) in menuItem.child" :key="menuChildIndex" @click="handleMenuChild(menuItem,menuChildIndex)">
+                <nuxt-link :to="menuChildItem.link">
+                {{menuChildItem.name}}
+                </nuxt-link>
+              </div> -->
+              <serviceCard :isMenu="true" />
             </div>
           </div>
         </div>
@@ -386,7 +422,6 @@ onMounted(() => {
     &>img{
       width: 50%;
     }
-    
     // z-index: 1;
     // background: none;
   }
@@ -498,6 +533,10 @@ onMounted(() => {
             left: 50%;
             transform: translateX(-50%);
           }
+        }
+        .serviceCard{
+          width: 428px;
+          padding: 12px 6px;
         }
       }
     }
@@ -682,6 +721,9 @@ onMounted(() => {
               left: 50%;
               transform: translateX(-50%);
             }
+          }
+          .serviceCard{
+            padding: 12px 6px;
           }
         }
       }
