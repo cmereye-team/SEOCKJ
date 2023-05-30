@@ -114,17 +114,17 @@ const navLists = [
       </div>
       <div class="footer-content-icon">
         <div class="footer-content-icon-in">
-          <nuxt-link to="https://www.facebook.com/smilepartner.cmer/?ref=page_internal-" target="_blank">
+          <nuxt-link to="https://www.facebook.com/CKJ-%E5%B8%8C%E7%91%AA%E6%84%9B%E5%BA%B7%E5%81%A5-107356075712157" target="_blank">
             <img src="@/assets/images/icon_1.png" />
           </nuxt-link>
         </div>
         <div class="footer-content-icon-in">
-          <nuxt-link to="https://www.instagram.com/cmersmilepartner/" target="_blank">
+          <nuxt-link to="https://www.instagram.com/ckj_hk/" target="_blank">
             <img src="@/assets/images/icon_2.png" />
           </nuxt-link>
         </div>
         <div class="footer-content-icon-in">
-          <nuxt-link to="https://www.youtube.com/@smilepartner_hk" target="_blank">
+          <nuxt-link to="https://www.youtube.com/channel/UCKYINBITo-8P37-SQDRSr_g" target="_blank">
             <img src="@/assets/images/icon_3.png" />
           </nuxt-link>
         </div>

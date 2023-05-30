@@ -99,6 +99,24 @@ const noticeData = {
   ]
 }
 
+const problemData = {
+  title: '瓷貼片常見問題',
+  lists: [
+    {
+      Q: '甚麼情況才需要瓷貼片？',
+      A: '瓷貼片主要是為了美化牙齒，大多客人選擇以瓷貼片修復形狀或牙色不平均的牙齒。多建議同時期處理約6顆牙齒的範圍，達至理想效果及色澤。'
+    },
+    {
+      Q: '瓷貼片的壽命有多長？',
+      A: '視乎病人如何使用瓷貼片及其口腔清潔狀況而定，若病人有定期進行口腔檢查及洗牙，一般可使用頗長的時間。'
+    },
+    {
+      Q: '如何護理瓷貼片？',
+      A: '瓷貼片不需任何特別護理。只要注意口腔衛生習慣，定期進行口腔檢查及洗牙，就能好好保護瓷貼片。'
+    }
+  ]
+}
+
 let noticeCurrent = ref(1)
 
 //走马灯事件
@@ -159,6 +177,8 @@ const getWindowWidth = () => {
         <PageSwiperPointLine :latestNewsNum="2" :latestNewsCurrent="noticeCurrent"></PageSwiperPointLine>
       </div>
     </div>
+    <!-- 问题 -->
+    <ServiceProblem :problemData="problemData" />
     <serviceCard />
     <ContactUs />
   </div>

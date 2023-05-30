@@ -3,21 +3,21 @@ import { useAppState } from '~/stores/appState'
 const appState = useAppState()
 appState.setDentistryService('rootCanal')
 useHead({
-  title: "杜牙根"
+  title: "根管治療"
 })
 
 const orthodonticsIntroduceData = {
-  title: '根管治療（杜牙根）',
+  title: '根管治療',
   content: '根管治療（杜牙根）是治療嚴重蛀牙或牙根受細菌感染的手術，當蛀牙菌的感染深入牙髓，以致牙齒內的神經發炎，便需要以杜牙根手術徹底清除感染的部分。',
   mbImg: 'https://static.cmereye.com/imgs/2023/05/4981f5bda13e2428.jpg',
   pcImg: 'https://static.cmereye.com/imgs/2023/05/3030e00ebf385a45.jpg',
-  tabNavName: '杜牙根',
+  tabNavName: '根管治療',
   pageName: 'rootCanal',
 }
 
 const reasonData = {
-  title: '關於杜牙根',
-  text: '常見杜牙根的原因？',
+  title: '關於根管治療',
+  text: '常見根管治療的原因？',
   imgUrl: 'https://static.cmereye.com/imgs/2023/05/6e9ea22364596cbd.jpg',
   reasonLists:[
     {
@@ -73,7 +73,7 @@ const stageData = {
 }
 
 const stepData = {
-  title: '根管治療(杜牙根)過程',
+  title: '根管治療過程',
   stepLists: [
     [
       {
@@ -133,6 +133,28 @@ const noteData = {
   ]
 }
 
+const problemData = {
+  title: '根管治療常見問題',
+  lists: [
+    {
+      Q: '根管治療會很痛嗎？',
+      A: '進行手術時，醫生會先在杜牙根位置注射局部麻醉藥，大大減低不適感。手術後應按時服用醫生處方的止痛藥，處理手術後的腫痛不適。\n麻醉藥過後，杜牙根的牙齒仍有機會有少許痛楚，如有需要可服食止痛藥，一般幾天後不適便會慢慢舒緩。'
+    },
+    {
+      Q: '根管治療過程需時多久？',
+      A: '由於牙根消炎需時，中間過程或要多次替換消炎藥，因此通常要覆診2至4次，每次相距1-2星期，當中或會因不同的牙齒狀況而有所不同。'
+    },
+    {
+      Q: '根管治療後是否不會再蛀牙？',
+      A: '杜牙根後，牙神經被抽出，牙齒的琺瑯質及象牙質會被保留下來，所以仍有蛀牙的機會。\n因此完成治療後，應時刻保持口腔衛生，這樣可延長牙齒的壽命，大大提高治療成功率。'
+    },
+    {
+      Q: '完成根管治療後，為何要裝上牙套？',
+      A: '根管治療後的牙齒較為脆弱，有機會斷裂，套上牙套能有效地保護該牙齒。'
+    }
+  ]
+}
+
 </script>
 
 
@@ -169,6 +191,8 @@ const noteData = {
     <ServiceStep :stepData="stepData" />
     <!-- 注意事项 -->
     <ServiceNote :noteData="noteData" />
+     <!-- 问题 -->
+    <ServiceProblem :problemData="problemData" />
     <serviceCard />
     <ContactUs />
   </div>

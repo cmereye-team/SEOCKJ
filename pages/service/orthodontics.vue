@@ -3,15 +3,15 @@ import { useAppState } from '~/stores/appState'
 const appState = useAppState()
 appState.setDentistryService('orthodontics')
 useHead({
-  title: "矯齒"
+  title: "矯齒(箍牙)"
 })
 
 const orthodonticsIntroduceData = {
-  title: '矯齒',
+  title: '矯齒(箍牙)',
   content: '治療除了能矯正不整齊排列的牙齒，改善外觀外，更能有助減低患上各種牙齒問題的風險。',
   mbImg: 'https://static.cmereye.com/imgs/2023/04/78f038c56a4dc38b.jpg',
   pcImg: 'https://static.cmereye.com/imgs/2023/05/9993e95bc1c6a9c9.jpg',
-  tabNavName: '矯齒',
+  tabNavName: '矯齒(箍牙)',
   pageName: 'orthodontics'
 }
 
@@ -107,6 +107,35 @@ const differData = {
   ]
 }
 
+const problemData = {
+  title: '矯齒(箍牙)常見問題',
+  lists: [
+    {
+      Q: '甚麼年紀適合接受矯齒治療？',
+      A: '不論甚麼年紀都能接受矯齒治療，醫生可評估口腔情況，而建議相關的療程。'
+    },
+    {
+      Q: '甚麼是完美笑容的黃金方程式？',
+      A: '完美笑容的黃金方程式包括：牙齒排列整齊、大小適中、色澤自然亮白，中間線上下對齊及牙齦健康。'
+    },
+    {
+      Q: '透明牙箍是否有效？',
+      A: '透明牙箍能處理大部分牙齒排列不齊的情況，如：太擠、太疏，或矯正後再次移位的情況。'
+    },
+    {
+      Q: '透明牙箍如何矯正牙齒？',
+      A: '透明牙箍的療程是先以數碼系統拍攝影像，利用3D電腦技術，模擬及預測整個矯齒過程。客人同意療程後，供應商會度身訂造一系列透明牙箍。客人透過每日佩戴至少22小時，約每兩週更換新牙箍，就能逐漸把牙齒調整至理想位置。'
+    },
+    {
+      Q: '佩戴透明牙箍前有甚麼要注意？',
+      A: '透明牙箍是一個自我監察的療程，每天佩戴至少22小時，除了進食、刷牙等時間外，任何時間都要戴上牙套，並定時覆診及更換新牙箍。'
+    },
+    {
+      Q: '透明牙箍的療程要多長時間？',
+      A: '與傳統牙齒矯正治療一樣，需視乎每個個案的複雜程度而定。一般透明牙箍的療程時間約為六個月至兩年不等。'
+    }
+  ]
+}
 
 
 </script>
@@ -125,6 +154,8 @@ const differData = {
     <ServiceStep :stepData="stepData" />
     <!-- 区别 -->
     <ServiceDiffer :differData="differData" />
+    <!-- 问题 -->
+    <ServiceProblem :problemData="problemData" />
     <serviceCard />
     <ContactUs />
   </div>

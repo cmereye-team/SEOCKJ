@@ -13,12 +13,12 @@ const servicesCardLists = [
     link: '/service/dentalImplant'
   },
   {
-    name: '矯齒',
+    name: '矯齒(箍牙)',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/4344be2a0c460ef5.png',
     link: '/service/orthodontics'
   },
   {
-    name: '杜牙根',
+    name: '根管治療',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/32034ad5bb8db07a.png',
     link: '/service/rootCanal'
   },

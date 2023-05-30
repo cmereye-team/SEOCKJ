@@ -164,21 +164,21 @@ const onSlideChange = (swiper:any) => {
             background: #FFF1F0;
           }
         }
-        &.boxRight:not(:first-child):nth-of-type(odd){
-          &>div{
-            background: #BAE0FF;
-          }
-        }
+        // &.boxRight:not(:first-child):nth-of-type(odd){
+        //   &>div{
+        //     background: #BAE0FF;
+        //   }
+        // }
         &.boxRight.invisalign:not(:first-child):nth-of-type(odd){
           &>div{
             background: #FFDDDA;
           }
         }
-        &.boxRight:nth-of-type(even){
-          &>div{
-            background: #E6F4FF;
-          }
-        }
+        // &.boxRight:nth-of-type(even){
+        //   &>div{
+        //     background: #E6F4FF;
+        //   }
+        // }
         &.boxRight.invisalign:nth-of-type(even){
           &>div{
             background: #FFF1F0;
