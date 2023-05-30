@@ -43,7 +43,16 @@ const menuLists = [
   {
     name: '品牌理念',
     link: '/brandMind',
-    child: [],
+    child: [
+      {
+        name: '品牌歷程',
+        link: '/brand/course',
+      },
+      {
+        name: '品牌榮譽',
+        link: '/brand/honor',
+      },
+    ],
   },
   {
     name: '牙科服務',
@@ -454,10 +463,12 @@ onMounted(() => {
           display: none;
           flex-direction: column;
           transition: all .3s;
-          padding: 0 20px;
+          padding: 0 20px 5px;
           box-sizing: border-box;
           background: #FFFFFF;
-          box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
+          filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.15));
+          border-radius: 6px;
+          // box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
           &-item{
             width: 100%;
             text-align: center;

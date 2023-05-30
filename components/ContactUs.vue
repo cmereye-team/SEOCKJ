@@ -16,7 +16,7 @@ const getWindowResize = () => {
   // console.log(mapConShow)
 }
 
-let currentAddress = ref(10)
+let currentAddress = ref('0')
 
 const allAddressLists = [
   // 罗湖区
@@ -181,35 +181,35 @@ const onSlideContactUsSwiperChange = (swiper:any) => {
 }
 // --------------------------------------------------
 
-const handleAddress = (_idx: number) => {
+const handleAddress = (_idx: string) => {
   console.log(_idx)
   if(currentAddress.value === _idx){
-    currentAddress.value = 0
+    currentAddress.value = '0'
     return
   }
   currentAddress.value = _idx
   // contactUsSwiperRef.slideTo(currentAddress.value, 0);
 }
 
-const handleLeftBtn = () => {
-  // console.log('left',currentAddress.value)
-  if(currentAddress.value > 0){
-    currentAddress.value--
-  }else{
-    currentAddress.value = allAddressLists[appState.areaTabCurNum].length-1
-  }
-  contactUsSwiperRef.slideTo(currentAddress.value, 0);
-}
+// const handleLeftBtn = () => {
+//   // console.log('left',currentAddress.value)
+//   if(currentAddress.value > 0){
+//     currentAddress.value--
+//   }else{
+//     currentAddress.value = allAddressLists[appState.areaTabCurNum].length-1
+//   }
+//   contactUsSwiperRef.slideTo(currentAddress.value, 0);
+// }
 
-const handleRightBtn = () => {
-  // console.log('right',currentAddress.value)
-  if(currentAddress.value >= 0 && currentAddress.value < allAddressLists[appState.areaTabCurNum].length-1){
-    currentAddress.value++
-  }else{
-    currentAddress.value = 0
-  }
-  contactUsSwiperRef.slideTo(currentAddress.value, 0);
-}
+// const handleRightBtn = () => {
+//   // console.log('right',currentAddress.value)
+//   if(currentAddress.value >= 0 && currentAddress.value < allAddressLists[appState.areaTabCurNum].length-1){
+//     currentAddress.value++
+//   }else{
+//     currentAddress.value = 0
+//   }
+//   contactUsSwiperRef.slideTo(currentAddress.value, 0);
+// }
 
 </script>
 

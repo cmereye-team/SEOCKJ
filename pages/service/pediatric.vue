@@ -9,8 +9,8 @@ useHead({
 const orthodonticsIntroduceData = {
   title: '兒童牙科',
   content: '除了身體健康，小朋友的口腔健康同樣重要，家長可定期找合資格牙醫為孩子進行牙科檢查及諮詢。',
-  mbImg: 'https://static.cmereye.com/imgs/2023/05/9d495814909e63d1.jpg',
-  pcImg: 'https://static.cmereye.com/imgs/2023/05/9a46bd89dbc62859.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2023/05/482f1dd094438e98.jpg',
+  pcImg: 'https://static.cmereye.com/imgs/2023/05/25a2d1f9e0936571.jpg',
   tabNavName: '兒童牙科',
 }
 
