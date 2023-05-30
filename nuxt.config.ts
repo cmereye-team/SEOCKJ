@@ -110,11 +110,6 @@ export default defineNuxtConfig({
     public: {
       gtm: {
         id: 'GTM-T27LCDR',
-        queryParams: {
-          gtm_auth: 'AB7cDEf3GHIjkl-MnOP8qr',
-          gtm_preview: 'env-4',
-          gtm_cookies_win: 'x',
-        },
         defer: false,
         compatibility: false,
         nonce: '2726c7f26c',
