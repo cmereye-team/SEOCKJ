@@ -4,19 +4,21 @@ import IconsResolver from 'unplugin-icons/resolver'
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
   // server side rendering mode
+  
   ssr: true,
-
+  
   // typescripts
   typescript: {
     strict: true,
     typeCheck: true,
   },
+  
   // css
   css: ['~/assets/sass/vendor.scss', '~/assets/sass/app.scss'],
-
+  
   // plugins
   plugins: ['~/plugins/navbar.ts'],
-
+  
   // build
   build: {
     transpile: ['@headlessui/vue','gsap']
@@ -31,10 +33,11 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@vueuse/nuxt',
     '@nuxtjs/google-fonts',
+    '@zadigetvoltaire/nuxt-gtm',
     'nuxt-windicss',
     'nuxt-swiper'
   ],
-
+  
   // experimental features
   experimental: {
     reactivityTransform: false,
@@ -63,7 +66,7 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
     layoutTransition: { name: 'layout', mode: 'out-in' },
   },
-
+  
   // localization - i18n config
   intlify: {
     localeDir: 'locales',
@@ -103,4 +106,26 @@ export default defineNuxtConfig({
       theme: 'github-dark',
     },
   },
+  runtimeConfig: {
+    public: {
+      gtm: {
+        id: 'GTM-T27LCDR',
+        queryParams: {
+          gtm_auth: 'AB7cDEf3GHIjkl-MnOP8qr',
+          gtm_preview: 'env-4',
+          gtm_cookies_win: 'x',
+        },
+        defer: false,
+        compatibility: false,
+        nonce: '2726c7f26c',
+        enabled: true,
+        debug: true,
+        loadScript: true,
+        enableRouterSync: true,
+        ignoredViews: ['homepage'],
+        trackOnNextTick: false,
+        devtools: true,
+      }
+    }
+  }
 })
