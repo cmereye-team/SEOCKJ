@@ -130,7 +130,8 @@ const dentalServicesPagesList = [
 // })
 // asyncData
 // const { posts } = await this.$content('blog').fetch()
-
+// const posts = await queryContent('blog')
+// console.log(posts)
 </script>
 
 <template>

@@ -34,6 +34,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/google-fonts',
     '@zadigetvoltaire/nuxt-gtm',
+    '@nuxt/content',
     'nuxt-simple-sitemap',
     'nuxt-windicss',
     'nuxt-swiper'
