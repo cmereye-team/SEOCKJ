@@ -18,29 +18,29 @@ const toPageTop = () =>{
 
 <template>
   <div class="navbar-content">
-    <div class="navbar-content-in">
+    <div class="navbar-content-in" id="navPcTel">
       <img src="@/assets/images/navIcon_1.png" alt="" />
     </div>
-    <div class="navbar-content-in">
+    <div class="navbar-content-in" id="navPcWhatsapp">
       <img src="@/assets/images/navIcon_2.png" alt="" />
     </div>
-    <div class="navbar-content-in">
+    <div class="navbar-content-in" id="navPcWeChat">
       <img src="@/assets/images/navIcon_3.png" alt="" />
     </div>
     <div class="navbar-content-in" @click="toPageTop">
       <img src="@/assets/images/navIcon_4.png" alt="" />
     </div>
     <div class="navbar-content-mb">
-      <div>
+      <div id="navMbTel">
         <img src="@/assets/images/icon_8.png">2828-2828
       </div>
       <div>
         <div class="navBtn" @click="navLiBoxBool = !navLiBoxBool">立即預約</div>
         <div class="navLiBox" :style="{bottom: (navLiBoxBool ? '100%' : '-100%')}">
-          <div>
+          <div id="navMbWeChat">
             WeChat
           </div>
-          <div>
+          <div id="navMbWhatsapp">
             Whatsapp
           </div>
         </div>

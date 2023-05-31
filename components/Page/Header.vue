@@ -436,6 +436,8 @@ onMounted(() => {
     align-items: flex-end;
     z-index: 40;
     position: relative;
+    position: sticky;
+    top: 0px;
     .logo {
       width: 290px;
       margin-bottom: 20px;
