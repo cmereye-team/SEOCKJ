@@ -80,6 +80,10 @@ onMounted(()=>{
             </div>
             <div class="doctorItem-r">
               <div class="title">{{item.job || ''}}</div>
+              <div class="name">
+                <span>{{item.name || ''}}</span> 
+                <span>{{item.posts || ''}}{{item.educated ? `,${item.educated}` : ''}}</span>
+              </div>
               <!-- 機構： -->
               <div class="org">
                 機構：{{item.org || ''}}
@@ -90,10 +94,6 @@ onMounted(()=>{
               </div> -->
               <div class="expertise">
                 擅長：{{item.skilled || ''}}
-              </div>
-              <div class="name">
-                <span>{{item.name || ''}}</span> 
-                <span>{{item.posts || ''}}{{item.educated ? `,${item.educated}` : ''}}</span>
               </div>
               <div class="btn">
                 <!-- 了解更多<img src="@/assets/images/icon_04.png" /> -->

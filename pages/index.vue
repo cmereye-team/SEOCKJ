@@ -118,8 +118,18 @@ const dentalServicesPagesList = [
   }
 ]
 
+// const async posts = ({ $content }) => {
+//     const posts = await $content("blog").fetch();
 
-
+//     return {
+//       posts,
+//     };
+//   },
+// const posts = ({$content}) => useAsyncData('count', () => {
+//   return $content("blog").fetch();
+// })
+// asyncData
+// const { posts } = await this.$content('blog').fetch()
 
 </script>
 
@@ -139,6 +149,11 @@ const dentalServicesPagesList = [
         <path d="M36.6318 114.967L53.5317 118.364" stroke="#4D4D4D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M39.9028 126.582L50.806 128.763" stroke="#4D4D4D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg> -->
+      <!-- <div>
+        <li v-for="post of posts" :key="post.slug">
+          <NuxtLink :to="post.slug">{{ post.title }}</NuxtLink>
+        </li>
+      </div> -->
       <!-- 最新消息 -->
       <LatestNews />
       <!-- 品牌理念 -->
