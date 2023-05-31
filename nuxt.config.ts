@@ -34,6 +34,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/google-fonts',
     '@zadigetvoltaire/nuxt-gtm',
+    'nuxt-simple-sitemap',
     'nuxt-windicss',
     'nuxt-swiper'
   ],
@@ -120,7 +121,8 @@ export default defineNuxtConfig({
         ignoredViews: ['homepage'],
         trackOnNextTick: false,
         devtools: true,
-      }
+      },
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://ckjhk.com',
     }
   }
 })
