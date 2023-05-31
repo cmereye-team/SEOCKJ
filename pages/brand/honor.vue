@@ -199,7 +199,7 @@ const handleProcessBtn = (_type: string) => {
         font-weight: 600;
         font-size: 26px;
         max-width: 650px;
-        width: 33.85vw;
+        width: 650px;
         margin-top: 68px;
         white-space: pre-wrap;
       }
@@ -424,6 +424,7 @@ const handleProcessBtn = (_type: string) => {
         .content {
           font-size: 1.7vw;
           margin-top: 4vw;
+          width: 33vw;
         }
       }
     }

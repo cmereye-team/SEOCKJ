@@ -69,10 +69,10 @@ defineProps({
             font-weight: 600;
             font-size: 1.75rem;
             max-width: 650px;
-            width: 33.85vw;
+            width: 650px;
             margin-top: 68px;
             &.orthodontics{
-              width: 20.834vw;
+              width: 409px;
             }
             &.teethWhitening{
               margin-top: 0;
@@ -119,8 +119,11 @@ defineProps({
             }
             .content{
               font-size: 1.7vw;
-              // width: 25vw;
+              width: 33.85vw;
               margin-top: 4vw;
+              &.orthodontics{
+                width: 25vw;
+              }
             }
             
           }

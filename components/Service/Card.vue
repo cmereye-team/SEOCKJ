@@ -89,17 +89,17 @@ const servicesCardPageData = {
   contextIn: '中心提供基本牙科、美容牙科及高階牙科服務，從一般口腔檢查、洗牙、補牙，到牙齒美白、全口修復及各種牙科治療，幫助客人回復自信笑容。'
 }
 
-let windowWidth = ref(1920)
+// let windowWidth = ref(1920)
 
-onMounted(()=>{
-  getWindowWidth()
-  window.addEventListener('resize',getWindowWidth)
-})
+// onMounted(()=>{
+//   getWindowWidth()
+//   window.addEventListener('resize',getWindowWidth)
+// })
 
-const getWindowWidth = () => {
-  windowWidth.value = window.innerWidth
-  // console.log(windowWidth)
-}
+// const getWindowWidth = () => {
+//   windowWidth.value = window.innerWidth
+//   // console.log(windowWidth)
+// }
 
 </script>
 
@@ -115,7 +115,7 @@ const getWindowWidth = () => {
         <!-- 牙科服務 -->
         <div class="dentistryServices-title-in bb">{{servicesCardPageData.dentalServicesTitleIn}}</div>
       </div>
-      <div class="context" v-if="!(windowWidth > 768 && !isIndexShow)">
+      <div class="context" v-if="!isMenu">
         <!-- 中心提供基本牙科、美容牙科及高階牙科服務，從一般口腔檢查、洗牙、補牙，到牙齒美白、全口修復及各種牙科治療，幫助客人回復自信笑容。 -->
         <div class="context-in">{{servicesCardPageData.contextIn}}</div>
       </div>

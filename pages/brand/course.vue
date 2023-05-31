@@ -306,8 +306,8 @@ const courseData = {
       .content {
         font-weight: 600;
         font-size: 26px;
-        max-width: 650px;
-        width: 33vw;
+        max-width: 630px;
+        width: 630px;
         margin-top: 56px;
       }
     }
@@ -431,8 +431,9 @@ const courseData = {
           margin-top: 6vw;
         }
         .content {
-          font-size: 1.7vw;
-          margin-top: 4vw;
+          font-size: 1.5vw;
+          margin-top: 3vw;
+          width: 42vw;
         }
       }
     }
@@ -440,6 +441,9 @@ const courseData = {
   .tabNav {
     font-size: 1.5vw;
     margin-top: 6vw;
+  }
+  .course{
+    margin-top: 120px;
   }
 }
 
