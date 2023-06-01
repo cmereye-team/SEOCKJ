@@ -2,6 +2,8 @@
 import { defineProps } from 'vue'
 import service from '~/assets/js/service'
 import { Body } from '../.nuxt/components'
+import { Md5 } from "ts-md5";
+
 const props = defineProps({
   service: {
     type: String,
@@ -17,23 +19,31 @@ const form = reactive({
   gender: '',
 })
 
+// Md5.hashStr('...')
 const timestamp = Date.parse(new Date().toString())
 
 const onSubmit = () => {
-  console.log('submit!', form)
-  // const { data: form } = useFetch('https://admin.ckjhk.com/api.php/cms/addform/fcode/3/',{
-  //   method: 'post',
-  //   query:{
-  //     appid:'ckj',
-  //     timestamp: timestamp,
-  //     signature: '5D9F04D0C0',
-  //     name: 'test',
-  //     phone: 'test',
-  //     service: 'test',
-  //     email: 'test',
-  //     gender: 'test',
-  //   }
-  // });
+  // console.log('submit!', form)
+  const { data: form } = useFetch('https://admin.ckjhk.com/api.php/cms/addform/fcode/3',{
+    method: 'post',
+    query:{
+      // appid:'ckjhk',
+      // timestamp: timestamp,
+      // signature: Md5.hashStr(Md5.hashStr('ckjhk'+'ckjhk'+timestamp)),
+      contact_name: 'test',
+      // phone: 'test',
+      // service: 'test',
+      // email: 'test',
+      // gender: 'test',
+    },
+    params:{
+      // name: 'test',
+      // phone: 'test',
+      // service: 'test',
+      // email: 'test',
+      // gender: 'test',
+    }
+  });
   // console.log(data)
   // const { data: form } = useFetch('https://send.pageclip.co/oLDloEgenkRMGb9ZYDIO4wlarrwjxsBu/CKJ');
 }

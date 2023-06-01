@@ -12,8 +12,15 @@ const toPageTop = () =>{
       }
   }, 10);
 }
+let navFormBool = ref(false)
 
-
+const handleNavFormNav = () =>{
+  navFormBool.value = true
+  navLiBoxBool.value = false
+}
+const handleClose = ()=>{
+  navFormBool.value = false
+}
 </script>
 
 <template>
@@ -36,7 +43,13 @@ const toPageTop = () =>{
       </div>
       <div>
         <div class="navBtn" @click="navLiBoxBool = !navLiBoxBool">立即預約</div>
-        <div class="navLiBox" :style="{bottom: (navLiBoxBool ? '100%' : '-100%')}">
+        <div class="navLiBox" :style="{bottom: (navLiBoxBool ? '100%' : '-350%')}">
+          <div id="navMbContactForm" @click="handleNavFormNav">
+            填寫表格
+          </div>
+          <div id="navMbFacebook">
+            Facebook
+          </div>
           <div id="navMbWeChat">
             WeChat
           </div>
@@ -45,6 +58,21 @@ const toPageTop = () =>{
           </div>
         </div>
       </div>
+    </div>
+    <div class="navForm" :style="{bottom: (navFormBool ? '0' : '-100%')}">
+    <!-- <div class="navForm"> -->
+      <ContactForm />
+      <div class="navForm-icon" @click="navFormBool = false">
+        <img src="@/assets/images/icon_7.png" alt="">
+      </div>
+      <!-- <el-drawer
+        v-model="navFormBool"
+        title="I am the title"
+        :direction="direction"
+        :before-close="handleClose"
+      >
+        <span>Hi, there!</span>
+      </el-drawer> -->
     </div>
   </div>
 </template>
@@ -75,6 +103,25 @@ const toPageTop = () =>{
   }
   &-mb{
     display: none;
+  }
+  .navForm{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    z-index: 9999;
+    transition: all .5s;
+    &-icon{
+      position: absolute;
+      right: 30px;
+      top: 200px;
+      cursor: pointer;
+    }
+    // align-items: center;
   }
 }
 @media (min-width: 1920px){
@@ -142,10 +189,10 @@ const toPageTop = () =>{
         }
         .navLiBox{
           width: 100%;
-          height: 124px;
+          height: 248px;
           line-height: 62px;
           position: absolute;
-          bottom: -50%;
+          // bottom: -50%;
           left: 0;
           transition: all .3s;
           z-index: 19;
@@ -154,9 +201,15 @@ const toPageTop = () =>{
             // color: #FFDDDA;
             color: #FFA09E;
             text-shadow: none;
+            &:hover{
+              background: #FFDDDA;
+              color: #FFF1F0;
+            }
             &:first-child{
               border-radius: 10px 10px 0px 0px;
               box-shadow: 0px -1.5px 0px rgba(255, 204, 199, 0.25);
+            }
+            &:not(:last-child){
               border-bottom: 1px solid #fff;
             }
           }

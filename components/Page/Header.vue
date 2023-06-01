@@ -347,6 +347,9 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
+header{
+  // position: relative;
+}
 .header-content {
   width: 100%;
   box-sizing: border-box;
@@ -440,8 +443,8 @@ onMounted(() => {
     align-items: flex-end;
     z-index: 40;
     position: relative;
-    position: sticky;
-    top: 0px;
+    // position: sticky;
+    // top: 0px;
     .logo {
       width: 290px;
       margin-bottom: 20px;
