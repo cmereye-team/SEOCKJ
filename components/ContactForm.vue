@@ -1,51 +1,108 @@
 <script lang="ts" setup>
 import { defineProps } from 'vue'
 import service from '~/assets/js/service'
-import { Body } from '../.nuxt/components'
-import { Md5 } from "ts-md5";
+// import { Md5 } from "ts-md5";
+// Md5.hashStr('...')
+import type { FormInstance, FormRules } from 'element-plus'
 
 const props = defineProps({
   service: {
     type: String,
-    default: '種植牙',
+    default: '', //種植牙
   },
 })
 
 const form = reactive({
   name: '',
+  gender: '',
   phone: '',
   email: '',
   service: '',
-  gender: '',
 })
 
-// Md5.hashStr('...')
+
 const timestamp = Date.parse(new Date().toString())
 
-const onSubmit = () => {
-  // console.log('submit!', form)
-  const { data: form } = useFetch('https://admin.ckjhk.com/api.php/cms/addform/fcode/3',{
-    method: 'post',
-    query:{
-      // appid:'ckjhk',
-      // timestamp: timestamp,
-      // signature: Md5.hashStr(Md5.hashStr('ckjhk'+'ckjhk'+timestamp)),
-      contact_name: 'test',
-      // phone: 'test',
-      // service: 'test',
-      // email: 'test',
-      // gender: 'test',
-    },
-    params:{
-      // name: 'test',
-      // phone: 'test',
-      // service: 'test',
-      // email: 'test',
-      // gender: 'test',
+var valiemail = (rule:any, value:any, callback:any) => {
+  const mailReg = /^([a-zA-Z0-9_-_._-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+  if (!value) {
+    return callback(new Error('請填寫您的電郵地址'));
+    callback();
+  }
+  setTimeout(() => {
+    if (mailReg.test(value.trim())) {
+      // this.$refs.ruleForm.validateField('checkemail');
+      callback();
+    } else {
+      callback(new Error('請填寫正確的電郵地址'));
     }
+  }, 100);
+};
+const formLoading = ref(false)
+const ruleFormRef = ref<FormInstance>()
+const rules = reactive<FormRules>({
+  name: [{ required: true, message: '請填寫您的姓名', trigger: 'blur' }],
+  gender: [{ required: true, message: '請選擇稱呼', trigger: 'change' }],
+  phone: [{ required: true, message: '請填寫您的電話號碼', trigger: 'blur' }, { min: 8, max: 11, message: '請填寫正確的電話號碼', trigger: 'blur' }],
+  email: [{ type: 'email', required: false, validator: valiemail, trigger: 'blur' }],
+  service: [{ required: true, message: '請選擇服務', trigger: 'change' }],
+})
+
+const submitForm = async (formEl: FormInstance | undefined) => {
+  if (!formEl) return
+  formLoading.value = true
+  await formEl.validate((valid: any, fields:any) => {
+    if (valid) {
+      // console.log('submit!')
+      onSubmit()
+    } else {
+      // console.log('error submit!', fields)
+      formLoading.value = false
+    }
+  })
+}
+
+// interface contactUs {
+//   value: string
+// }
+
+const onSubmit = async () => {
+  // console.log('submit!', form)
+  let _formData = new FormData()
+  let _form = form
+  _formData.append('contact_name',_form.name)
+  _formData.append('gender',_form.gender)
+  _formData.append('phone',_form.phone)
+  _formData.append('email',_form.email)
+  _formData.append('service',_form.service)
+  const { data }:any = await useFetch('https://admin.ckjhk.com/api.php/cms/addform/fcode/3',{
+    method: 'post',
+    body: _formData
   });
-  // console.log(data)
-  // const { data: form } = useFetch('https://send.pageclip.co/oLDloEgenkRMGb9ZYDIO4wlarrwjxsBu/CKJ');
+  // console.log(JSON.parse(data.value))
+  let res = JSON.parse(data.value)
+  if (res) {
+    if(res.code){
+      ElMessage({
+        showClose: true,
+        message: res.data,
+        type: 'success',
+      })
+    }else{
+      ElMessage({
+        showClose: true,
+        message: res.data,
+        type: 'error',
+      })
+    }
+  }else{
+    ElMessage({
+      showClose: true,
+      message: '表单异常',
+      type: 'error',
+    })
+  }
+  formLoading.value = false
 }
 
 const serviceLists = service.map(item=>item.name)
@@ -73,7 +130,9 @@ onMounted(() => {
       </div>
       <div class="contactForm-in">
         <el-form
+          ref="ruleFormRef"
           :model="form"
+          :rules="rules"
           label-width="120px"
           label-position="top"
           action="https://send.pageclip.co/oLDloEgenkRMGb9ZYDIO4wlarrwjxsBu/CKJ"
@@ -81,13 +140,13 @@ onMounted(() => {
         >
           <div class="firstFormItem">
             <el-col :span="windowWidth>768 ? 12:24">
-              <el-form-item label="姓名：">
+              <el-form-item label="姓名：" prop="name">
                 <el-input v-model="form.name" name="name" />
               </el-form-item>
             </el-col>
             <el-col :span="3"></el-col>
             <el-col :span="windowWidth>768 ? 9:24">
-              <el-form-item label="稱呼：">
+              <el-form-item label="稱呼：" prop="gender">
                 <el-radio-group v-model="form.gender">
                   <el-radio label="先生" />
                   <el-radio label="女士" />
@@ -96,13 +155,13 @@ onMounted(() => {
               </el-form-item>
             </el-col>
           </div>
-          <el-form-item label="電話號碼：">
+          <el-form-item label="電話號碼：" prop="phone">
             <el-input v-model="form.phone" />
           </el-form-item>
-          <el-form-item label="電郵地址：">
+          <el-form-item label="電郵地址：" prop="email">
             <el-input v-model="form.email" />
           </el-form-item>
-          <el-form-item label="服務選擇：" label-width="100%">
+          <el-form-item label="服務選擇：" prop="service" label-width="100%">
             <el-select v-model="form.service" placeholder="请选择服務">
               <el-option
                 :label="serviceItem"
@@ -113,7 +172,7 @@ onMounted(() => {
             </el-select>
           </el-form-item>
           <el-form-item>
-            <el-button @click="onSubmit">提交表格</el-button>
+            <el-button  id="contactUsForm" :loading="formLoading" @click="submitForm(ruleFormRef)" >提交表格</el-button>
             <!-- <button type="submit">提交表格</button> -->
           </el-form-item>
         </el-form>

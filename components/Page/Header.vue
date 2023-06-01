@@ -348,7 +348,8 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 header{
-  // position: relative;
+  position: relative;
+  // z-index: -1;
 }
 .header-content {
   width: 100%;
@@ -740,6 +741,10 @@ header{
   }
 }
 @media screen and (max-width: 768px) {
+  header{
+    position: relative;
+    z-index: 60;
+  }
   .header-content {
     &-bgImg {
       position: relative;

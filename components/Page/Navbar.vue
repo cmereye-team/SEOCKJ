@@ -24,7 +24,7 @@ const handleClose = ()=>{
 </script>
 
 <template>
-  <div class="navbar-content">
+  <div class="navbar-content" :style="{'z-index': navFormBool ? 100 : 50}">
     <div class="navbar-content-in" id="navPcTel">
       <img src="@/assets/images/navIcon_1.png" alt="" />
     </div>
@@ -118,7 +118,7 @@ const handleClose = ()=>{
     &-icon{
       position: absolute;
       right: 30px;
-      top: 200px;
+      top: 100px;
       cursor: pointer;
     }
     // align-items: center;
