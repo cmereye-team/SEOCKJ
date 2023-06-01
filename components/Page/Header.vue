@@ -59,61 +59,65 @@ const menuLists = [
     link: `/service`,
     child: [
       {
-        name: '種植牙',
-        link: '/service/dentalImplant',
-      },
-      {
-        name: '矯齒',
-        link: '/service/orthodontics',
-      },
-      {
-        name: '杜牙根',
-        link: '/service/rootCanal',
-      },
-      {
-        name: '隱適美',
-        link: '/service/invisalign',
-      },
-      {
-        name: '瓷貼片',
-        link: '/service/veneers',
-      },
-      {
-        name: '全瓷牙冠',
-        link: '/service/crown',
-      },
-      {
-        name: '智慧齒脫除',
-        link: '/service/extraction',
-      },
-      {
-        name: '牙周病治療',
-        link: '/service/periodontal',
-      },
-      {
-        name: '牙托',
-        link: '/service/dentalTrays',
-      },
-      {
-        name: '牙齒美白',
-        link: '/service/teethWhitening',
-      },
-      {
-        name: '洗牙',
-        link: '/service/scalingTeeth',
-      },
-      {
-        name: '補牙',
-        link: '/service/dentalFillings',
-      },
-      {
-        name: '一般口腔檢查',
-        link: '/service/oralCheck',
-      },
-      {
-        name: '兒童牙科',
-        link: '/service/pediatric',
+        name: '',
+        link: ''
       }
+      // {
+      //   name: '種植牙',
+      //   link: '/service/dentalImplant',
+      // },
+      // {
+      //   name: '矯齒',
+      //   link: '/service/orthodontics',
+      // },
+      // {
+      //   name: '杜牙根',
+      //   link: '/service/rootCanal',
+      // },
+      // {
+      //   name: '隱適美',
+      //   link: '/service/invisalign',
+      // },
+      // {
+      //   name: '瓷貼片',
+      //   link: '/service/veneers',
+      // },
+      // {
+      //   name: '全瓷牙冠',
+      //   link: '/service/crown',
+      // },
+      // {
+      //   name: '智慧齒脫除',
+      //   link: '/service/extraction',
+      // },
+      // {
+      //   name: '牙周病治療',
+      //   link: '/service/periodontal',
+      // },
+      // {
+      //   name: '牙托',
+      //   link: '/service/dentalTrays',
+      // },
+      // {
+      //   name: '牙齒美白',
+      //   link: '/service/teethWhitening',
+      // },
+      // {
+      //   name: '洗牙',
+      //   link: '/service/scalingTeeth',
+      // },
+      // {
+      //   name: '補牙',
+      //   link: '/service/dentalFillings',
+      // },
+      // {
+      //   name: '一般口腔檢查',
+      //   link: '/service/oralCheck',
+      // },
+      // {
+      //   name: '兒童牙科',
+      //   link: '/service/pediatric',
+      // }
     ],
   },
   {

@@ -129,6 +129,13 @@ export default defineNuxtConfig({
       routes: [
         '/',
       ]
+    },
+    devProxy: {
+      "/api": {
+        target: 'https://admin.ckjhk.com/',
+        prependPath: true,
+        changeOrigin: true,
+      }
     }
   },
 })

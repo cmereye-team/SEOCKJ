@@ -28,9 +28,9 @@ const goAnchor = (_hash: any)=>{
 
 onMounted(()=>{
   if(route.query.did){
-    console.log(route.query.did)
+    // console.log(route.query.did)
     setTimeout(()=>{
-      console.log('windowInnerWidth',window.innerWidth)
+      // console.log('windowInnerWidth',window.innerWidth)
       if(window.innerWidth > 768){
         goAnchor(`#d${route.query.did}`)
       }else{
