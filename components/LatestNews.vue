@@ -21,7 +21,7 @@ const onSlideChange = (swiper:any) => {
 <template>
   <div class="index-latestNews pageCon">
       <div class="index-latestNews-t">
-        <div class="index_title">最新消息</div>
+        <div class="index_title">最新優惠</div>
         <div class="pcBox">
            <dropdownCon v-if="titleLeftShow" />
         </div>

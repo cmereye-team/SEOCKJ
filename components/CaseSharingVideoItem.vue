@@ -11,6 +11,9 @@
       <div class="text">人們都越來越重視牙齒的健康，所以對於缺牙問題大部分的人都會選擇及時進行修復，更多的人選擇了種植牙。</div>
       <div class="bg_box"></div>
     </div>
+    <div class="caseSaringVideoItem-mb">
+      <div class="text">人們都越來越重視牙齒的健康，所以對於缺牙問題大部分的人都會選擇及時進行修復，更多的人選擇了種植牙。</div>
+    </div>
   </div>
 </template>
 
@@ -25,7 +28,6 @@
     img{
       width: 100%;
       margin-top: -40px;
-      
     }
   }
   &-r{
@@ -86,6 +88,9 @@
       z-index: 0;
     }
   }
+  &-mb{
+    display: none;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1452px) {
@@ -121,43 +126,67 @@
 
 @media screen and (max-width: 768px) {
   .caseSaringVideoItem{
-    flex-direction: column-reverse;
+    // flex-direction: column;
+    flex-wrap: wrap;
     padding: 0 30px;
+    position: relative;
+    align-items: flex-end;
     &-l{
-      margin-top: 25px;
-      width: 100%;
+      // position: absolute;
+      // margin-top: 25px;
+      width: 167px;
       img{
+        width: 100%;
         height: auto;
+        margin-top: -20px;
       }
     }
     &-r{
-      width: 100%;
+      // width: calc(100% - 167px);
+      margin-left: 23px;
       padding: 0;
+      .type{
+        font-size: 20px;
+      }
       .name{
-        font-size: 1.625rem;
+        font-size: 20px;
         margin-top: 0;
       }
       .skill{
-        font-size: 1.625rem;
-        margin-top: 0;
-        text-indent: 40px;
+        font-size: 18px;
+        font-weight: 600;
+        margin-top: 3px;
       }
       .process{
+        font-size: 18px;
         font-weight: 600;
-        font-size: 1.25rem;
-        margin-top: 26px;
+        margin-top: 9px;
         z-index: 1;
       }
       .text{
         font-size: 1rem;
         z-index: 1;
+        display: none;
       }
       .bg_box{
-        width: 345px;
-        height: 150px;
-        right: 0;
-        top: 90px;
-        z-index: 0;
+        // width: 345px;
+        // height: 150px;
+        // right: 0;
+        // top: 90px;
+        // z-index: 0;
+        display: none;
+      }
+    }
+    &-mb{
+      display: block;
+      z-index: 1;
+      margin-top: 23px;
+      .text{
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 160%;
+        color: #4D4D4D;
       }
     }
   }

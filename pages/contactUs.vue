@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
-
+import {Navigation,Thumbs,FreeMode} from 'swiper';
 const appState = useAppState()
 useHead({
   title: "聯絡我們"
@@ -18,10 +18,10 @@ const environmentLists = [
     'https://static.cmereye.com/static/ckj/imgs/environment/Luohu/1004.jpg',
   ],
   [
-    'https://static.cmereye.com/static/ckj/imgs/environment/Futain/2001.jpg',
-    'https://static.cmereye.com/static/ckj/imgs/environment/Futain/2002.jpg',
-    'https://static.cmereye.com/static/ckj/imgs/environment/Futain/2003.jpg',
-    'https://static.cmereye.com/static/ckj/imgs/environment/Futain/2004.jpg',
+    'https://static.cmereye.com/static/ckj/imgs/environment/Futian/2001.jpg',
+    'https://static.cmereye.com/static/ckj/imgs/environment/Futian/2002.jpg',
+    'https://static.cmereye.com/static/ckj/imgs/environment/Futian/2003.jpg',
+    'https://static.cmereye.com/static/ckj/imgs/environment/Futian/2004.jpg',
   ],
   [
     'https://static.cmereye.com/static/ckj/imgs/environment/Nanshan/3001.jpg',
@@ -42,9 +42,36 @@ const environmentLists = [
     'https://static.cmereye.com/static/ckj/imgs/environment/Longhua/5004.jpg',
   ],
 ]
+const environmentLists02 = [
+  'https://static.cmereye.com/static/ckj/imgs/environment/Luohu/1001.jpg',
+  'https://static.cmereye.com/static/ckj/imgs/environment/Luohu/1002.jpg',
+  'https://static.cmereye.com/static/ckj/imgs/environment/Luohu/1003.jpg',
+  'https://static.cmereye.com/static/ckj/imgs/environment/Luohu/1004.jpg',
+  'https://static.cmereye.com/static/ckj/imgs/environment/Futian/2001.jpg',
+  'https://static.cmereye.com/static/ckj/imgs/environment/Futian/2002.jpg',
+  'https://static.cmereye.com/static/ckj/imgs/environment/Futian/2003.jpg',
+  'https://static.cmereye.com/static/ckj/imgs/environment/Futian/2004.jpg',
+  'https://static.cmereye.com/static/ckj/imgs/environment/Nanshan/3001.jpg',
+  'https://static.cmereye.com/static/ckj/imgs/environment/Nanshan/3002.jpg',
+  'https://static.cmereye.com/static/ckj/imgs/environment/Nanshan/3003.jpg',
+  'https://static.cmereye.com/static/ckj/imgs/environment/Nanshan/3004.jpg',
+  'https://static.cmereye.com/static/ckj/imgs/environment/Baoan/4001.jpg',
+  'https://static.cmereye.com/static/ckj/imgs/environment/Baoan/4002.JPG',
+  'https://static.cmereye.com/static/ckj/imgs/environment/Baoan/4003.jpg',
+  'https://static.cmereye.com/static/ckj/imgs/environment/Baoan/4004.jpg',
+  'https://static.cmereye.com/static/ckj/imgs/environment/Longhua/5001.jpg',
+  'https://static.cmereye.com/static/ckj/imgs/environment/Longhua/5002.jpg',
+  'https://static.cmereye.com/static/ckj/imgs/environment/Longhua/5003.jpg',
+  'https://static.cmereye.com/static/ckj/imgs/environment/Longhua/5004.jpg',
+]
 const handleImg = (_idx:number) => {
   console.log(_idx)
   environmentCur.value = _idx
+}
+let thumbsSwiper = ref(null);
+
+const setThumbsSwiper = (swiper:any) => {
+  thumbsSwiper.value = swiper;
 }
 </script>
 
@@ -62,9 +89,8 @@ const handleImg = (_idx:number) => {
         <div class="environment-title">
           <div class="index_title">診所環境</div>
         </div>
-        <div class="environment-in pageCon">
+        <!-- <div class="environment-in pageCon">
           <div class="bigImg">
-            <!-- <img :src="environmentLists[appState.areaTabCurNum][environmentCur]"  alt=""> -->
             <img :data-cfsrc="environmentLists[appState.areaTabCurNum][environmentCur]"
               :srcset="`${environmentLists[appState.areaTabCurNum][environmentCur]} '768w', ${environmentLists[appState.areaTabCurNum][environmentCur]}`"
               title="診所環境" alt="診所環境" :src="environmentLists[appState.areaTabCurNum][environmentCur]" />
@@ -79,6 +105,27 @@ const handleImg = (_idx:number) => {
               <img :src="imgItem" alt="">
             </div>
           </div>
+        </div> -->
+        <div class="environment-in pageCon">
+          <swiper class="environmentSwiperBox" :loop="true" :thumbs="{ swiper: thumbsSwiper }" :modules="[Thumbs,FreeMode]">
+            <swiper-slide class="environmentSwiperBox-slide" v-for="(imgItem,imgIndex) in environmentLists02" :key="imgIndex">
+                <img :src="imgItem" />
+            </swiper-slide>
+          </swiper>
+          <swiper
+            @swiper="setThumbsSwiper"
+            :spaceBetween="10"
+            :slidesPerView="4"
+            :freeMode="true"
+            :loop="true"
+            :navigation="true"
+            :modules="[Navigation,Thumbs,FreeMode]"
+            class="mySwiper"
+          >
+            <swiper-slide class="mySwiper-slide" v-for="(imgItem,imgIndex) in environmentLists02" :key="imgIndex">
+              <img :src="imgItem" /> 
+            </swiper-slide>
+          </swiper>
         </div>
       </div>
       <!-- <AboutUs /> -->
@@ -160,6 +207,42 @@ const handleImg = (_idx:number) => {
           }
         }
       }
+      .environmentSwiperBox{
+        width: 100%;
+        margin: 0 auto;
+        &-slide{
+          img{
+             margin: 0 auto;
+          }
+        }
+      }
+      .mySwiper{
+        width: 100%;
+        max-width: 1452px;
+        margin: 100px auto 0;
+        padding-left: 81px;
+        padding-right: 50px;
+        &-slide{
+          padding-right: 31px;
+        }
+        :deep(.swiper-button-prev:after){
+          content: '';
+          border-left: 30px solid;
+          border-right: 30px solid;
+          border-top: 20px solid;
+          border-bottom: 20px solid;
+          border-color: transparent #FFCECB transparent transparent;
+        }
+        :deep(.swiper-button-next:after){
+          content: '';
+          border-left: 30px solid;
+          border-right: 30px solid;
+          border-top: 20px solid;
+          border-bottom: 20px solid;
+          border-color: transparent transparent transparent #FFCECB;
+
+        }
+      }
     }
   }
   @media screen and (max-width: 768px) {
@@ -188,7 +271,11 @@ const handleImg = (_idx:number) => {
             margin-bottom: 6px;
           }
         }
+        .mySwiper{
+          display: none;
+        }
       }
+      
     }
   }
 </style>

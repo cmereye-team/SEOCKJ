@@ -146,9 +146,9 @@ const onSlideDoctorTeamSwiperChange = (swiper:any) => {
               <CaseSharingImageItem :userInfo="caseSharingItem" :userIndex="caseSharingIndex" />
             </div>
           </div>
-          <div class="in-bottom">
+          <!-- <div class="in-bottom">
             <span>了解更多</span>
-          </div>
+          </div> -->
         </div>
       </div>
       <!-- 聯絡我們 -->
@@ -286,6 +286,7 @@ svg:hover path{
   //個案分享
   .index-caseSharing{
     padding: 0;
+    background:none;
     &-in{
       margin: 35px auto 0;
       .in-cen{
