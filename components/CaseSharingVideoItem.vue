@@ -1,21 +1,11 @@
 <template>
   <div class="caseSaringVideoItem">
     <div class="caseSaringVideoItem-l">
-      <!-- <video src=""></video> -->
-      <img src="https://static.cmereye.com/imgs/2023/05/1c123448011fb440.jpg" alt="">
-      <!-- <iframe
-        class="pcShow"
-        width="100%"
-        height="440"
-        src="https://www.youtube.com/embed/7_A3ae7q15E"
-        :title="$t('service.icl.film.title2')"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-      ></iframe> -->
+      <img src="https://static.cmereye.com/imgs/2023/06/b6685121c74c93e0.png" alt="">
     </div>
     <div class="caseSaringVideoItem-r">
-      <div class="name">梁家棋 Joyce</div>
+      <div class="type">星級客戶</div>
+      <div class="name">朱咪咪 Mimi</div>
       <div class="skill">種植牙齒療程</div>
       <div class="process">過程舒適無痛</div>
       <div class="text">人們都越來越重視牙齒的健康，所以對於缺牙問題大部分的人都會選擇及時進行修復，更多的人選擇了種植牙。</div>
@@ -27,41 +17,47 @@
 <style lang="scss" scoped>
 .caseSaringVideoItem{
   display: flex;
-  // background: #fff no-repeat;
-  // background-size: 50% 252px;
-  // padding-left: 103px;
   &-l{
-    width: 55%;
+    width: 35.94%;
     z-index: 1;
+    background: #FFF1F0;
+    box-shadow: 2px 4px 8px rgba(255, 120, 117, 0.35);
     img{
       width: 100%;
-      height: 440px;
-      background: #FFF1F0;
-      box-shadow: 2px 4px 8px rgba(255, 120, 117, 0.35);
+      margin-top: -40px;
+      
     }
   }
   &-r{
     flex: 1;
-    padding: 45px;
+    padding: 0 56px 0 47px;
     box-sizing: border-box;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    .type{
+      font-style: normal;
+      font-weight: 700;
+      font-size: 34px;
+      line-height: 160%;
+      display: flex;
+      align-items: center;
+      color: #4D4D4D;
+    }
     .name{
       font-weight: 600;
-      font-size: 2.12rem;
+      font-size: 34px;
       line-height: 160%;
       color: #4D4D4D;
-      margin-top: 20px;
+      margin-top: 9px;
       z-index: 1;
     }
     .skill{
       font-weight: 700;
-      font-size: 2rem;
+      font-size: 32px;
       line-height: 160%;
       color: #FFA09E;
-      text-indent: 40px;
       z-index: 1;
     }
     .process{
@@ -78,6 +74,7 @@
       line-height: 160%;
       color: #4D4D4D;
       z-index: 1;
+      text-align: justify;
     }
     .bg_box{
       background: #fff;
@@ -92,34 +89,34 @@
 }
 
 @media (min-width: 768px) and (max-width: 1452px) {
-  .caseSaringVideoItem{
-    &-l{
-      width: 45%;
-      img{
-        height: 350px;
-      }
-    }
-    &-r{
-      padding: 25px;
-      .name{
-        font-size: 1.8rem;
-        margin-top: 10px;
-      }
-      .skill{
-        font-size: 1.7rem;
-      }
-      .process{
-        font-size: 1.7rem;
-        margin-top: 50px;
-      }
-      .text{
-        font-size: 1.4rem;
-      }
-      .bg_box{
-        width: 109%;
-      }
-    }
-  }
+  // .caseSaringVideoItem{
+  //   &-l{
+  //     width: 45%;
+  //     img{
+  //       height: 350px;
+  //     }
+  //   }
+  //   &-r{
+  //     padding: 25px;
+  //     .name{
+  //       font-size: 1.8rem;
+  //       margin-top: 10px;
+  //     }
+  //     .skill{
+  //       font-size: 1.7rem;
+  //     }
+  //     .process{
+  //       font-size: 1.7rem;
+  //       margin-top: 50px;
+  //     }
+  //     .text{
+  //       font-size: 1.4rem;
+  //     }
+  //     .bg_box{
+  //       width: 109%;
+  //     }
+  //   }
+  // }
 }
 
 @media screen and (max-width: 768px) {

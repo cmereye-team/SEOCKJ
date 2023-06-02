@@ -122,7 +122,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="contactForm">
+  <div class="contactForm" id="contactUsFormNav">
     <div class="contactForm-bg">
       <div class="contactForm-title">
         <span>立即預約，填寫你的資料</span>

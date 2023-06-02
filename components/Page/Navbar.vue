@@ -13,7 +13,6 @@ const toPageTop = () =>{
   }, 10);
 }
 let navFormBool = ref(false)
-
 const handleNavFormNav = () =>{
   navFormBool.value = true
   navLiBoxBool.value = false
@@ -21,29 +20,42 @@ const handleNavFormNav = () =>{
 const handleClose = ()=>{
   navFormBool.value = false
 }
+const toContactUs = () =>{
+  window.location.href = '/contactUs#contactUsFormNav'
+}
 </script>
 
 <template>
   <div class="navbar-content" :style="{'z-index': navFormBool ? 100 : 50}">
     <div class="navbar-content-in" id="navPcTel">
+      <div class="navbarBox">
+        <div class="navbarBox-in">
+          <div class="tel">2828-2828</div>
+        </div>
+      </div>
       <img src="@/assets/images/navIcon_1.png" alt="" />
     </div>
     <div class="navbar-content-in" id="navPcWhatsapp">
       <img src="@/assets/images/navIcon_2.png" alt="" />
     </div>
     <div class="navbar-content-in" id="navPcWeChat">
+      <div class="navbarBox">
+        <div class="navbarBox-in">
+          <div class="weChat"><img src="" alt="二维码"></div>
+        </div>
+      </div>
       <img src="@/assets/images/navIcon_3.png" alt="" />
     </div>
     <div class="navbar-content-in" id="navPcFaceBook">
       <img src="@/assets/images/navIcon_6.png" alt="" />
     </div>
-    <div class="navbar-content-in" id="navPcContactForm">
+    <div class="navbar-content-in" id="navPcContactForm" @click="toContactUs">
       <img src="@/assets/images/navIcon_5.png" alt="" />
     </div>
     <div class="navbar-content-in" @click="toPageTop">
       <img src="@/assets/images/navIcon_4.png" alt="" />
     </div>
-    <div class="navbar-content-mb">
+    <div class="navbar-content-mb" v-if="false">
       <div id="navMbTel">
         <img src="@/assets/images/icon_8.png">2828-2828
       </div>
@@ -65,20 +77,23 @@ const handleClose = ()=>{
         </div>
       </div>
     </div>
+    <div class="navbar-content-mb02">
+      <div>WeChat</div>
+      <div>Whatsapp</div>
+    </div>
+    <div class="navbar-content-mb">
+      <div>Facebook預約</div>
+      <div @click="handleNavFormNav">填寫表格</div>
+    </div>
+    <div class="navbar-content-mb" v-if="false">
+      <div>Facebook預約</div>
+      <div>填寫表格</div>
+    </div>
     <div class="navForm" :style="{bottom: (navFormBool ? '0' : '-100%')}">
-    <!-- <div class="navForm"> -->
       <ContactForm />
       <div class="navForm-icon" @click="navFormBool = false">
         <img src="@/assets/images/icon_7.png" alt="">
       </div>
-      <!-- <el-drawer
-        v-model="navFormBool"
-        title="I am the title"
-        :direction="direction"
-        :before-close="handleClose"
-      >
-        <span>Hi, there!</span>
-      </el-drawer> -->
     </div>
   </div>
 </template>
@@ -90,21 +105,63 @@ const handleClose = ()=>{
   top: 30vh;
   z-index: 50;
   &-in {
-    width: 100%;
+    width: 66px;
     height: 66px;
     margin-bottom: 13px;
     cursor: pointer;
     background: #FFDDDA;
-    border-radius: 50%;
+    border-radius: 33px;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all .3s;
+    position: relative;
+    .navbarBox{
+      position: absolute;
+      top: 0;
+      right: 66px;
+      padding-right: 10px;
+      display: none;
+      &::after{
+        content: '';
+        position: absolute;
+        right: -20px;
+        top: 23px;
+        width: 0;
+        height: 0;
+        border-top: 10px solid;
+        border-left: 20px solid;
+        border-bottom: 10px solid;
+        border-right: 20px solid;
+        border-color: transparent transparent transparent #FFA09E;
+      }
+      &-in{
+        transition: all .5s;
+        background: #FFA09E;
+        height: 100%;
+        padding: 20px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        color: #fff;
+        .tel{
+          white-space: nowrap;
+          font-size: 20px;
+          font-weight: 600;
+        }
+        .weChat{
+          width: 200px;
+          height: 200px;
+          background: #FFDDDA;
+          img{
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
     img {
       width: 40px;
-      // width: 100%;
-      // height: 100%;
-      
-      // height: 100%;
     }
     &:nth-of-type(4){
       img{
@@ -114,9 +171,15 @@ const handleClose = ()=>{
       }
     &:hover{
       background: #FFA09E;
+      .navbarBox{
+        display: flex;
+      }
     }
   }
   &-mb{
+    display: none;
+  }
+  &-mb02{
     display: none;
   }
   .navForm{
@@ -146,12 +209,12 @@ const handleClose = ()=>{
 }
 @media screen and (max-width: 768px) {
   .navbar-content {
-    // right: 30px;
     top: auto;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 62px;
+    // height: 62px;
+    height: 124px;
     background: #FFDDDA;
     box-shadow: 0px -1.5px 0px rgba(255, 204, 199, 0.25);
     z-index: 20;
@@ -228,6 +291,28 @@ const handleClose = ()=>{
               border-bottom: 1px solid #fff;
             }
           }
+        }
+      }
+    }
+    &-mb02{
+      display: flex;
+      height: 62px;
+      &>div{
+        height: 100%;
+        line-height: 62px;
+        text-align: center;
+        flex: 1;
+        font-weight: 400;
+        font-size: 20px;
+        position: relative;
+        background: #FFF1F0;
+        color: #FFA09E;
+        img{
+          display: inline-block;
+          margin-top: -5px;
+        }
+        &:first-child{
+          border-right: 1px solid #fff;
         }
       }
     }
