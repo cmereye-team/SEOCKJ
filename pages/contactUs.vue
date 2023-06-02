@@ -73,6 +73,18 @@ let thumbsSwiper = ref(null);
 const setThumbsSwiper = (swiper:any) => {
   thumbsSwiper.value = swiper;
 }
+
+let windowWidth = ref(1920)
+
+const getWindowWidth = () => {
+  windowWidth.value = window.innerWidth
+  // console.log(windowWidth)
+}
+
+onMounted(() => {
+  getWindowWidth()
+  window.addEventListener('resize',getWindowWidth)
+})
 </script>
 
 <template>
@@ -107,14 +119,14 @@ const setThumbsSwiper = (swiper:any) => {
           </div>
         </div> -->
         <div class="environment-in pageCon">
-          <swiper class="environmentSwiperBox" :loop="true" :thumbs="{ swiper: thumbsSwiper }" :modules="[Thumbs,FreeMode]">
+          <swiper class="environmentSwiperBox" slidesPerView="auto" :centeredSlides="windowWidth<768" :loop="true" :thumbs="{ swiper: thumbsSwiper }" :modules="[Thumbs,FreeMode]">
             <swiper-slide class="environmentSwiperBox-slide" v-for="(imgItem,imgIndex) in environmentLists02" :key="imgIndex">
                 <img :src="imgItem" />
             </swiper-slide>
           </swiper>
           <swiper
             @swiper="setThumbsSwiper"
-            :spaceBetween="10"
+            :spaceBetween="30"
             :slidesPerView="4"
             :freeMode="true"
             :loop="true"
@@ -269,6 +281,16 @@ const setThumbsSwiper = (swiper:any) => {
           &-in{
             padding-right: 20px;
             margin-bottom: 6px;
+          }
+        }
+        .environmentSwiperBox{
+          &-slide{
+            width: auto;
+            padding: 15px;
+            img{
+              max-width: 200px;
+              margin: 0 auto;
+            }
           }
         }
         .mySwiper{
