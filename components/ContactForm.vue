@@ -44,7 +44,7 @@ const rules = reactive<FormRules>({
   name: [{ required: true, message: '請填寫您的姓名', trigger: 'blur' }],
   gender: [{ required: true, message: '請選擇稱呼', trigger: 'change' }],
   phone: [{ required: true, message: '請填寫您的電話號碼', trigger: 'blur' }, { min: 8, max: 11, message: '請填寫正確的電話號碼', trigger: 'blur' }],
-  email: [{ type: 'email', required: false, validator: valiemail, trigger: 'blur' }],
+  email: [{ type: 'email', required: true, validator: valiemail, trigger: 'blur' }],
   service: [{ required: true, message: '請選擇服務', trigger: 'change' }],
 })
 

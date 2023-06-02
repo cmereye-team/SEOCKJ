@@ -9,7 +9,43 @@ const handleAreaTab = (_idx: number) => {
   appState.setCurNum(_idx)
 }
 
-
+let environmentCur = ref(0)
+const environmentLists = [
+  [
+    'https://static.cmereye.com/static/ckj/imgs/environment/Luohu/1001.jpg',
+    'https://static.cmereye.com/static/ckj/imgs/environment/Luohu/1002.jpg',
+    'https://static.cmereye.com/static/ckj/imgs/environment/Luohu/1003.jpg',
+    'https://static.cmereye.com/static/ckj/imgs/environment/Luohu/1004.jpg',
+  ],
+  [
+    'https://static.cmereye.com/static/ckj/imgs/environment/Futain/2001.jpg',
+    'https://static.cmereye.com/static/ckj/imgs/environment/Futain/2002.jpg',
+    'https://static.cmereye.com/static/ckj/imgs/environment/Futain/2003.jpg',
+    'https://static.cmereye.com/static/ckj/imgs/environment/Futain/2004.jpg',
+  ],
+  [
+    'https://static.cmereye.com/static/ckj/imgs/environment/Nanshan/3001.jpg',
+    'https://static.cmereye.com/static/ckj/imgs/environment/Nanshan/3002.jpg',
+    'https://static.cmereye.com/static/ckj/imgs/environment/Nanshan/3003.jpg',
+    'https://static.cmereye.com/static/ckj/imgs/environment/Nanshan/3004.jpg',
+  ],
+  [
+    'https://static.cmereye.com/static/ckj/imgs/environment/Baoan/4001.jpg',
+    'https://static.cmereye.com/static/ckj/imgs/environment/Baoan/4002.jpg',
+    'https://static.cmereye.com/static/ckj/imgs/environment/Baoan/4003.jpg',
+    'https://static.cmereye.com/static/ckj/imgs/environment/Baoan/4004.jpg',
+  ],
+  [
+    'https://static.cmereye.com/static/ckj/imgs/environment/Longhua/5001.jpg',
+    'https://static.cmereye.com/static/ckj/imgs/environment/Longhua/5002.jpg',
+    'https://static.cmereye.com/static/ckj/imgs/environment/Longhua/5003.jpg',
+    'https://static.cmereye.com/static/ckj/imgs/environment/Longhua/5004.jpg',
+  ],
+]
+const handleImg = (_idx:number) => {
+  console.log(_idx)
+  environmentCur.value = _idx
+}
 </script>
 
 <template>
@@ -28,7 +64,10 @@ const handleAreaTab = (_idx: number) => {
         </div>
         <div class="environment-in pageCon">
           <div class="bigImg">
-            <img src="https://static.cmereye.com/imgs/2023/06/c3c41b41f0a766d0.jpg" alt="">
+            <!-- <img :src="environmentLists[appState.areaTabCurNum][environmentCur]"  alt=""> -->
+            <img :data-cfsrc="environmentLists[appState.areaTabCurNum][environmentCur]"
+              :srcset="`${environmentLists[appState.areaTabCurNum][environmentCur]} '768w', ${environmentLists[appState.areaTabCurNum][environmentCur]}`"
+              title="診所環境" alt="診所環境" :src="environmentLists[appState.areaTabCurNum][environmentCur]" />
           </div>
           <div class="areaNav">
             <div class="areaNav-in" v-for="(areaItem,areaIndex) in appState.areaTabs" :key="areaIndex" @click="handleAreaTab(areaIndex)">
@@ -36,8 +75,8 @@ const handleAreaTab = (_idx: number) => {
             </div>
           </div>
           <div class="imgLists">
-            <div class="imgLists-in" v-for="imgItem in 5" :key="imgItem">
-              <img src="https://static.cmereye.com/imgs/2023/06/c3c41b41f0a766d0.jpg" alt="">
+            <div class="imgLists-in" v-for="(imgItem,imgIndex) in environmentLists[appState.areaTabCurNum]" :key="imgIndex" @click="handleImg(imgIndex)">
+              <img :src="imgItem" alt="">
             </div>
           </div>
         </div>
@@ -65,6 +104,10 @@ const handleAreaTab = (_idx: number) => {
       display: flex;
       flex-direction: column;
       align-items: center;
+      .bigImg{
+        width: 100%;
+        max-width: 636px;
+      }
       .areaNav{
         margin-top: 35px;
         width: 100%;

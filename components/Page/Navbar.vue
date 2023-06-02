@@ -34,6 +34,12 @@ const handleClose = ()=>{
     <div class="navbar-content-in" id="navPcWeChat">
       <img src="@/assets/images/navIcon_3.png" alt="" />
     </div>
+    <div class="navbar-content-in" id="navPcFaceBook">
+      <img src="@/assets/images/navIcon_6.png" alt="" />
+    </div>
+    <div class="navbar-content-in" id="navPcContactForm">
+      <img src="@/assets/images/navIcon_5.png" alt="" />
+    </div>
     <div class="navbar-content-in" @click="toPageTop">
       <img src="@/assets/images/navIcon_4.png" alt="" />
     </div>
@@ -86,7 +92,7 @@ const handleClose = ()=>{
   &-in {
     width: 100%;
     height: 66px;
-    margin-bottom: 20px;
+    margin-bottom: 13px;
     cursor: pointer;
     background: #FFDDDA;
     border-radius: 50%;
@@ -95,8 +101,17 @@ const handleClose = ()=>{
     align-items: center;
     img {
       width: 40px;
+      // width: 100%;
+      // height: 100%;
+      
       // height: 100%;
     }
+    &:nth-of-type(4){
+      img{
+        width: 100%;
+      }
+        
+      }
     &:hover{
       background: #FFA09E;
     }

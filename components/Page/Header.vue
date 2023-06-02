@@ -220,6 +220,19 @@ onMounted(() => {
     y: 100, 
     duration: 2
   })
+  // gsap.to(".header-content-in", {
+  //   duration: 0.5,
+  //   y: 0,
+  //   ease: "power1.inOut",
+  //   scrollTrigger: {
+  //     trigger: ".header-content-in",
+  //     start: "top top",
+  //     end: "bottom top",
+  //     scrub: true,
+  //     pin: true,
+  //     pinSpacing: false
+  //   }
+  // });
 });
 
 </script>
@@ -347,10 +360,6 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-header{
-  position: relative;
-  // z-index: -1;
-}
 .header-content {
   width: 100%;
   box-sizing: border-box;
@@ -444,8 +453,9 @@ header{
     align-items: flex-end;
     z-index: 40;
     position: relative;
+    // position: -webkit-sticky;
     // position: sticky;
-    // top: 0px;
+    // left: 0;
     .logo {
       width: 290px;
       margin-bottom: 20px;
