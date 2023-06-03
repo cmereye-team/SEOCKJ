@@ -187,6 +187,13 @@ defineProps({
         background: none;
         padding: 0 0 106px;
       }
+      .rootCanalBg{
+        background: none;
+      }
+      &.rootCanal{
+        background: none;
+        padding: 0;
+      }
     }
 
 @media (min-width: 768px) and (max-width: 1452px) {

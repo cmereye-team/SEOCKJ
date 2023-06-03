@@ -16,6 +16,29 @@ const onSlideChange = (swiper:any) => {
   latestNewsCurrent.value = swiper.realIndex + 1
 }
 
+const newsLists = [
+  {
+    title: '歐美種植牙 即減￥2000元/顆',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/06/ddf0fcab6c43bc02.jpg',
+    link: '/service/dentalImplant'
+  },
+  {
+    title: '隱形牙箍  即減￥5000元',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/06/6f52f3d60cc317c8.jpg',
+    link: '/service/invisalign'
+  },
+  {
+    title: '金屬矯正牙箍 即減￥2000元',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/06/02670cffe16dfd3b.jpg',
+    link: '/service/orthodontics'
+  },
+  {
+    title: '成功種牙或矯齒，免費贈送專業潔牙1次',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/06/2ad117a61979db84.jpg',
+    link: '/service'
+  }
+]
+
 </script>
 
 <template>
@@ -35,9 +58,9 @@ const onSlideChange = (swiper:any) => {
         }"
         @slideChange="onSlideChange"
       >
-        <swiper-slide v-for="latestNewsItem in 4" :key="latestNewsItem">
+        <swiper-slide v-for="(latestNewsItem,latestNewsIndex) in newsLists" :key="latestNewsIndex">
           <div class="index-latestNews-in">
-            <div class="index-latestNews-in-l">
+            <!-- <div class="index-latestNews-in-l">
               <img class="pcBox" src="https://static.cmereye.com/imgs/2023/04/af8ffdc3e6b0a67c.jpg" alt="">
               <img class="mbBox" src="https://static.cmereye.com/imgs/2023/04/fbd42a968440461c.jpg" alt="">
             </div>
@@ -46,18 +69,22 @@ const onSlideChange = (swiper:any) => {
               <div class="btn">
                 <span>了解更多</span>
               </div>
-            </div>
+            </div> -->
+            <nuxt-link :to="latestNewsItem.link">
+              <img :src="latestNewsItem.imgUrl" :alt="latestNewsItem.title" :title="latestNewsItem.title" />
+            </nuxt-link>
+            
           </div>
         </swiper-slide>
-        <div class="lineBox">
+        <!-- <div class="lineBox">
           <div class="lineBox-in">
             <PageSwiperPointLine :latestNewsNum="4" :latestNewsCurrent="latestNewsCurrent"></PageSwiperPointLine>
           </div>
-        </div>
+        </div> -->
       </Swiper>
-      <div class="mbBox">
+      <!-- <div class="mbBox">
          <dropdownCon  v-if="titleLeftShow" />
-      </div>
+      </div> -->
     </div>
 </template>
 

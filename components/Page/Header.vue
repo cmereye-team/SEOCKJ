@@ -208,7 +208,15 @@ const classNamefilter = ( _menu:any, _idx: number) => {
   return className
 }
 
-
+// const headerMenu = ref({
+//   offsetTop: '',
+//   style:{
+//     position: '',
+//     width: '',
+//     left: '',
+//     top: '',
+//   }
+// })
 onMounted(() => {
   gsap.from('.header-content-bgImg-in', {
     opacity: 0, 
@@ -233,7 +241,28 @@ onMounted(() => {
   //     pinSpacing: false
   //   }
   // });
+  // getWindowWidth()
+  // window.addEventListener('scroll',getWindowWidth)
 });
+
+// const getWindowWidth = () => {
+//   console.log('headerMenuOffsetTop: ---->',window.scrollY)
+//   console.log('windowScrollY: ----->',window.scrollY)
+//   if(Number(headerMenu.value.offsetTop) < window.scrollY){
+//     console.log('出来了')
+//     headerMenu.value.style.position = 'fixed'
+//     headerMenu.value.style.width = '100vw'
+//     headerMenu.value.style.left = '50%'
+//     headerMenu.value.style.top = '0'
+//   }else{
+//     console.log('消失了')
+//     headerMenu.value.style.position = 'relative'
+//     headerMenu.value.style.width = '100%'
+//     headerMenu.value.style.left = 'auto'
+//     headerMenu.value.style.top = 'auto'
+//   }
+// }
+
 
 </script>
 
@@ -277,7 +306,7 @@ onMounted(() => {
           alt=""
         />
       </div>
-      <div class="pageCon header-content-in">
+      <div class="pageCon header-content-in" ref="headerMenu">
         <div class="logo">
           <nuxt-link :to="'/'"
             ><img src="@/assets/images/logo_1.png" alt=""
@@ -453,6 +482,7 @@ onMounted(() => {
     align-items: flex-end;
     z-index: 40;
     position: relative;
+    transition: all .5s;
     // position: -webkit-sticky;
     // position: sticky;
     // left: 0;

@@ -8,7 +8,7 @@ useHead({
 
 const orthodonticsIntroduceData = {
   title: '根管治療',
-  content: '根管治療（杜牙根）是治療嚴重蛀牙或牙根受細菌感染的手術，當蛀牙菌的感染深入牙髓，以致牙齒內的神經發炎，便需要以杜牙根手術徹底清除感染的部分。',
+  content: '根管治療是治療嚴重蛀牙或牙根受細菌感染的手術，當蛀牙菌的感染深入牙髓，以致牙齒內的神經發炎，便需要以杜牙根手術徹底清除感染的部分。',
   mbImg: 'https://static.cmereye.com/imgs/2023/05/4981f5bda13e2428.jpg',
   pcImg: 'https://static.cmereye.com/imgs/2023/05/3030e00ebf385a45.jpg',
   tabNavName: '根管治療',
@@ -103,7 +103,8 @@ const stepData = {
         text: '如經治療後的牙齒太脆弱，需為牙齒套上牙套，預防再被咬崩而要拔除'
       }
     ]
-  ]
+  ],
+  pageName: 'rootCanal'
 }
 
 const noteData = {
@@ -151,7 +152,72 @@ const problemData = {
     {
       Q: '完成根管治療後，為何要裝上牙套？',
       A: '根管治療後的牙齒較為脆弱，有機會斷裂，套上牙套能有效地保護該牙齒。'
+    },
+    {
+      Q: '根管治療是否會導致牙齒變黑？',
+      A: '根管治療（杜牙根）後的牙齒可能會變黑，這是因為治療過程中使用的藥物可能會影響牙齒的顏色。但是這可以通過美容修復來解決。'
+    },
+    {
+      Q: '根管治療是否適用於所有人？',
+      A: '根管治療適用於大多數人，但是有些人可能不適合進行根管治療，例如牙齒過度破壞或已經失去了支撐力的情況。'
+    },
+    {
+      Q: '根管治療後是否需要特殊護理？',
+      A: '根管治療後的牙齒需要與其他健康牙齒一樣的護理，包括刷牙，使用牙線和定期洗牙。'
     }
+  ]
+}
+
+let swiperRef ={
+  slidePrev: ()=>{},
+  slideNext: ()=>{}
+}
+const setSwiperRef = (swiper:any) => {
+  swiperRef = swiper;
+};
+const handleProcessBtn = (_type: string) => {
+  swiperRef[_type]();
+}
+
+
+const processData = {
+  title: '顯微根管治療',
+  context: ['愛康健引進德國蔡司顯微鏡根管治療儀，','結合顯微鏡技術和醫學技術，可清晰觀察牙齒的結構和根管形態。這項技術不僅適用於常規根管治療，還可用於根尖顯微外科手術，幫助醫生更好地維護正常組織，提高手術治療效率。'],
+  lists: [
+    [
+      {
+        title: 'Step 1',
+        text: '牙齒診斷',
+        textIn: '使用X-Ray拍片確定患處結構，制定治療方案'
+      },
+      {
+        title: 'Step 2',
+        text: '口腔麻醉',
+        textIn: '施以口腔局部麻醉，減輕患者對治療的恐懼'
+      },
+      {
+        title: 'Step 3',
+        text: '消毒程序',
+        textIn: '施術前進行術區消毒隔離，手術器械消毒滅菌，專人專次使用，防止交叉感染。'
+      }
+    ],
+    [
+      {
+        title: 'Step 4',
+        text: '清潔根管',
+        textIn: '在顯微鏡下打開牙髓腔，挑出壞死牙髓，擴大根管，沖洗根管內部'
+      },
+      {
+        title: 'Step 5',
+        text: '根管預備',
+        textIn: '使用顯微鏡進行根管預備，清理根管內的感染物質，施以消炎藥封口。'
+      },
+      {
+        title: 'Step 6',
+        text: '填充根管',
+        textIn: '在顯微鏡輔助下進行根管內的嚴密填充，隔絕根管和根尖周組織，防止再次感染。'
+      },
+    ]
   ]
 }
 
@@ -187,10 +253,65 @@ const problemData = {
         <p>{{stageData.remark.p2}}</p>
       </div>
     </div>
-    <!-- 六个步骤 -->
+    <!-- 过程1 -->
     <ServiceStep :stepData="stepData" />
+    <!-- 过程2 -->
+    <div class="process">
+      <div class="dentistryServices-title">
+        <div class="dentistryServices-title-in bb">{{processData.title}}</div>
+      </div>
+      <div class="process-context pageCon">
+        <span v-for="(processContextItem,processContextIndex) in processData.context" :key="processContextIndex">{{processContextItem}}</span>
+      </div>
+      <div class="process-step pageCon">
+        <div class="step-in">
+          <div class="step-in-box"
+            v-for="(step,stepIndex) in processData.lists" :key="stepIndex">
+            <div class="step-itemLists">
+              <div class="step-itemLists-in" v-for="(stepChild,stepChildIndex) in step" :key="stepChildIndex">
+                <div :class="['line', { 'lineNone' : step.length === 2 && stepChildIndex === 1 }]"></div>
+                <span class="round"></span>
+                <span class="title">{{stepChild.title}}</span>
+                <span class="text">
+                  <div>{{stepChild.text}}</div>
+                  <div class="text-in" v-if="stepChild.textIn">{{stepChild.textIn}}</div>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- 注意事项 -->
     <ServiceNote :noteData="noteData" />
+    <!-- 荣誉 -->
+    <div class="honor">
+      <div class="honor-bg">
+        <div class="honor-title">
+          <span>愛康健齒科品牌連鎖</span>
+        </div>
+        <div class="honor-text">
+          致力於口腔健康28年，多次榮獲殊榮，信心保證
+        </div>
+        <div class="honor-in pageCon">
+          <div class="leftBtn" @click="handleProcessBtn('slidePrev')"></div>
+          <swiper
+            slidesPerView="auto"
+            :loop="true"
+            class="honorSwiper"
+            @swiper="setSwiperRef"
+          >
+            <swiper-slide class="swiper-slide">
+              <img src="https://static.cmereye.com/imgs/2023/05/e9d10c5c79b75694.jpg" alt="">
+            </swiper-slide>
+            <swiper-slide class="swiper-slide">
+              <img src="https://static.cmereye.com/imgs/2023/05/f32a467f4a071353.jpg" alt="">
+            </swiper-slide>
+          </swiper>
+          <div class="rightBtn" @click="handleProcessBtn('slideNext')"></div>
+        </div>
+      </div>
+    </div>
      <!-- 问题 -->
     <ServiceProblem :problemData="problemData" />
     <serviceCard />
@@ -268,6 +389,194 @@ const problemData = {
     }
   }
 }
+.honor{
+  margin-top: 157px;
+  &-bg{
+    padding: 70px 0 106px;
+    // background: linear-gradient(270deg, rgba(255, 241, 240, 0) 2.6%, rgba(255, 241, 240, 0.7) 23.89%, rgba(255, 241, 240, 0.7) 75.33%, rgba(255, 241, 240, 0) 97.4%);
+  }
+  &-title{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    span{
+      display: inline-block;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 50px;
+      line-height: 160%;
+      color: #4D4D4D;
+      &:last-child{
+        border-bottom: 4px solid #FFA09E;
+      }
+    }
+  }
+  &-text{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 160%;
+    text-align: center;
+    color: #FFA09E;
+    margin-top: 35px;
+  }
+  &-in{
+    margin-top: 39.2px;
+    display: flex;
+    .leftBtn{
+      width: 70px;
+      background: #FFF1F0;
+      cursor: pointer;
+      position: relative;
+      &::after{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-75%,-50%);
+        border-top: 20px solid;
+        border-right: 30px solid;
+        border-bottom: 20px solid;
+        border-left: 30px solid;
+        border-color: transparent #fff transparent transparent;
+        filter: drop-shadow(0px 0px 7.21491px rgba(255, 120, 117, 0.25));
+      }
+    }
+    .rightBtn{
+      width: 70px;
+      background: #FFCECB;
+      cursor: pointer;
+      position: relative;
+      &::after{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-25%,-50%);
+        border-top: 20px solid;
+        border-right: 30px solid;
+        border-bottom: 20px solid;
+        border-left: 30px solid;
+        border-color: transparent transparent transparent #fff;
+        filter: drop-shadow(0px 0px 7.21491px rgba(255, 120, 117, 0.25));
+      }
+    }
+    .honorSwiper{
+      width: calc(100% - 140px);
+      overflow: hidden;
+      margin: 0;
+    }
+  }
+}
+.process{
+  background: linear-gradient(270deg, rgba(255, 241, 240, 0) 2.6%, rgba(255, 241, 240, 0.7) 23.89%, rgba(255, 241, 240, 0.7) 75.33%, rgba(255, 241, 240, 0) 97.4%);
+  margin-top: 153px;
+  padding-top: 70px;
+  &-context{
+    text-align: center;
+    width: calc(100% - 60px);
+    max-width: 1102px;
+    margin: 35px auto;
+    span{
+      font-style: normal;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 160%;
+      color: #4D4D4D;
+    }
+  }
+  &-step{
+    padding-bottom: 106px;
+    .step-in{
+        width: 100%;
+        background: #FFFFFF;
+        display: flex;
+        padding: 44px 65px;
+        box-sizing: border-box;
+        height: 100%;
+        min-height: 460px;
+        &-box{
+          width: 50%;
+          height: 100%;
+          .step-itemLists{
+            width: 100%;
+            &-in{
+              padding-bottom: 90px;
+              display: flex;
+              align-items: flex-start;
+              cursor: pointer;
+              position: relative;
+              .line{
+                width: 4px;
+                height: 100%;
+                background: #FFF1F0;
+                position: absolute;
+                top: 20px;
+                left: 10px;
+                z-index: 0;
+                &.lineNone{
+                  height: 0;
+                }
+              }
+              .round{
+                width: 24px;
+                height: 24px;
+                margin-right: 14px;
+                margin-top: 8px;
+                border-radius: 50%;
+                background: #FFF1F0;
+                display: block;
+                z-index: 1;
+              }
+              .title{
+                margin-right: 28px;
+                font-weight: 700;
+                font-size: 28px;
+                line-height: 160%;
+                color: #4D4D4D;
+                display: block;
+              }
+              .text{
+                flex: 1;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 24px;
+                line-height: 160%;
+                color: #FFA09E;
+                display: block;
+                padding-top: 10px;
+                &-in{
+                  color: #4D4D4D;
+                  font-size: 20px;
+                }
+              }
+              &:last-child{
+                margin-bottom: 0;
+                padding-bottom: 0;
+                .line{
+                  // height: calc(50% - 24px);
+                  height: 0;
+                  &.lineNone{
+                    height: 0;
+                  }
+                }
+              }
+              &:hover .round{
+                background: #FFCECB;
+              }
+            }
+          }
+          &:first-child{
+            padding-right: 40px;
+          }
+          &:last-child{
+            margin-left: 40px;
+          }
+        }
+      }
+  }
+}
 @media only screen and (max-width: 760px) {
   .stage{
     padding: 0 20px;
@@ -314,6 +623,140 @@ const problemData = {
       p{
         font-weight: 500;
         font-size: 15px;
+      }
+    }
+  }
+  .honor{
+    margin-top: 90px;
+    &-bg{
+      padding: 44px 30px;
+      background: linear-gradient(360deg, rgba(255, 241, 240, 0) 0%, rgba(255, 241, 240, 0.3) 12.5%, rgba(255, 241, 240, 0.3) 81.99%, rgba(255, 241, 240, 0) 100%);
+    }
+    &-title{
+      span{
+        font-size: 26px;
+        &:last-child{
+          border-bottom: 2.5px solid #FFA09E;
+        }
+      }
+    }
+    &-text{
+      font-weight: 600;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+    &-in{
+      margin-top: 22px;
+      .leftBtn{
+        width: 15.5px;
+        &::after{
+          border-top: 5px solid;
+          border-right: 7px solid;
+          border-bottom: 5px solid;
+          border-left: 7px solid;
+          border-color: transparent #fff transparent transparent;
+        }
+      }
+      .rightBtn{
+        width: 15.5px;
+        &::after{
+          border-top: 5px solid;
+          border-right: 7px solid;
+          border-bottom: 5px solid;
+          border-left: 7px solid;
+          border-color: transparent transparent transparent #fff;
+        }
+      }
+      .honorSwiper{
+        width: calc(100% - 31px);
+      }
+    }
+  }
+  .process{
+    background: linear-gradient(360deg, rgba(255, 241, 240, 0) 0%, rgba(255, 241, 240, 0.7) 12.5%, rgba(255, 241, 240, 0.7) 81.99%, rgba(255, 241, 240, 0) 100%);
+    margin-top: 69px;
+    padding-top: 44px;
+    &-context{
+      margin-top: 15px;
+      span{
+        font-weight: 500;
+        font-size: 14px;
+        width: 100%;
+        display: inline-block;
+        text-align: center;
+      }
+    }
+    &-step{
+      padding: 0 30px 46px;
+      .step-in{
+        flex-direction: column;
+        padding: 23px 0 23px 24px;
+        // margin-top: 28px;
+        &-box{
+          width: 100%;
+          .step-itemLists{
+            &-in{
+              height: auto;
+              padding-right: 10px;
+              padding-bottom: 40px;
+              .line{
+                width: 2px;
+                left: 7px;
+              }
+              .round{
+                width: 16px;
+                height: 16px;
+                margin-top: 4px;
+                margin-right: 7px;
+              }
+              .title{
+                font-weight: 500;
+                font-size: 1rem;
+                margin-right: 12px;
+              }
+              .text{
+                font-weight: 600;
+                font-size: 1rem;
+                padding-top: 0;
+                &-in{
+                  font-weight: 500;
+                }
+              }
+              &:first-child{
+                margin-bottom: 0px;
+                margin-top: 0;
+              }
+              &:last-child{
+                align-items: flex-start;
+                padding-bottom: 40px;
+                .round{
+                  margin-top: 4px;
+                }
+              }
+            }
+            &-in:last-child{
+              .line{
+                width: 2px;
+                left: 7px;
+                height: 100%;
+              }
+            }
+          }
+          &:first-child{
+            padding-right: 0;
+          }
+          &:last-child{
+            margin-left: 0;
+            .step-itemLists{
+              &-in:last-child{
+                padding-bottom: 0;
+                .line{
+                  display: none;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
