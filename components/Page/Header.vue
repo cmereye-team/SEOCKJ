@@ -611,7 +611,7 @@ const getWindowWidth = () => {
   .headerBox01{
     position: relative;
     background: #fff;
-    width: 100vw;
+    width: 100%;
   }
   .headerBox02{
     position: fixed;

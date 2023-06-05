@@ -21,7 +21,7 @@ const form = reactive({
 })
 
 
-const timestamp = Date.parse(new Date().toString())
+// const timestamp = Date.parse(new Date().toString())
 
 var valiemail = (rule:any, value:any, callback:any) => {
   const mailReg = /^([a-zA-Z0-9_-_._-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
