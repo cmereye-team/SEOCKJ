@@ -77,7 +77,7 @@ const foiblesData = {
 
 <template>
 <div>
-  <PageHeader />
+  <PageHeader :mbBg="'https://static.cmereye.com/imgs/2023/06/cb2cff6cdf17d72b.jpg'" />
   <div class="pageIn whitebgColor">
     <div class="index_title pageCon">牙科服務</div>
     <!-- 介绍 -->

@@ -141,7 +141,11 @@ const getWindowWidth = () => {
 
 <template>
 <div>
-  <PageHeader />
+  <PageHeader 
+    :mbBg="'https://static.cmereye.com/imgs/2023/06/473d12422a9fb1c8.jpg'"
+    :headerImg="'https://static.cmereye.com/imgs/2023/06/08c3c37fae7cce23.png'"
+    :headerBgImg="'https://static.cmereye.com/imgs/2023/06/d22dc37028a9e513.jpg'"
+    :titlePosition="'left'" />
   <div class="pageIn whitebgColor">
     <div class="index_title pageCon">牙科服務</div>
     <!-- 介绍 -->

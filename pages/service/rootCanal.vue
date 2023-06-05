@@ -226,7 +226,12 @@ const processData = {
 
 <template>
 <div>
-  <PageHeader /> 
+  <PageHeader
+    :mbBg="'https://static.cmereye.com/imgs/2023/06/61ccc7a66efaf1c3.jpg'"
+    :headerImg="'https://static.cmereye.com/imgs/2023/06/f86c232b430b77ba.png'"
+    :headerBgImg="'https://static.cmereye.com/imgs/2023/06/948cba178bd51ad2.jpg'"
+    :titlePosition="'left'"
+  /> 
   <div class="pageIn whitebgColor">
     <div class="index_title pageCon">牙科服務</div>
     <!-- 介绍 -->

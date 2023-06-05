@@ -229,7 +229,11 @@ const problemData = {
 
 <template>
 <div>
-  <PageHeader />
+  <PageHeader
+    :mbBg="'https://static.cmereye.com/imgs/2023/06/a2926036660c1155.jpg'"
+    :headerImg="'https://static.cmereye.com/imgs/2023/06/a0628e13323a0a23.png'"
+    :headerBgImg="'https://static.cmereye.com/imgs/2023/06/af082f3968e5712e.jpg'"
+    :titlePosition="'left'" />
   <div class="pageIn whitebgColor">
     <!-- <LanguageSwitcher /> -->
     <div class="index_title pageCon">牙科服務</div>

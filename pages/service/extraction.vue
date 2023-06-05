@@ -9,8 +9,8 @@ useHead({
 const orthodonticsIntroduceData = {
   title: '拔牙及智慧齒脫除',
   content: '',
-  mbImg: 'https://static.cmereye.com/imgs/2023/05/4981f5bda13e2428.jpg',
-  pcImg: 'https://static.cmereye.com/imgs/2023/05/db8bbe88934fbe0e.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2023/06/58299d97d5204cdd.jpg',
+  pcImg: 'https://static.cmereye.com/imgs/2023/06/70059336eaad4630.jpg',
   tabNavName: '拔牙及智慧齒脫除',
   pageName: 'extraction'
 }
@@ -212,7 +212,11 @@ const problemData = {
 
 <template>
 <div>
-  <PageHeader />
+  <PageHeader
+    :mbBg="'https://static.cmereye.com/imgs/2023/06/9fd49477afcd2b60.jpg'"
+    :headerImg="'https://static.cmereye.com/imgs/2023/06/be6cbd721fed563e.png'"
+    :headerBgImg="'https://static.cmereye.com/imgs/2023/06/fc94e41b3cd98d6b.jpg'"
+    :titlePosition="'left'" />
   <div class="pageIn whitebgColor">
     <div class="index_title pageCon">牙科服務</div>
     <!-- 介绍 -->

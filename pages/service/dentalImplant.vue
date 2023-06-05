@@ -249,10 +249,9 @@ const getWindowWidth = () => {
   <div>
   <!-- <div class="bigPageCon"> -->
     <PageHeader
-     :headerBg="'https://static.cmereye.com/imgs/2023/04/306827fc69c5113d.jpg'"
-     :mbBg="'https://static.cmereye.com/imgs/2023/04/90e1963571533efa.jpg'"
-     :headerImg="'https://static.cmereye.com/imgs/2023/05/c46fcc590da0ffdd.png'"
-     :headerBgImg="'https://static.cmereye.com/imgs/2023/05/de7105389a7f04b2.png'"
+     :mbBg="'https://static.cmereye.com/imgs/2023/06/09a561c09c1a9e12.jpg'"
+     :headerImg="'https://static.cmereye.com/imgs/2023/06/f29c8e4a3092c53b.png'"
+     :headerBgImg="'https://static.cmereye.com/imgs/2023/06/2c162ddf8e5bfcd7.jpg'"
      :titlePosition="'left'"
     />
     <div class="dentistryServices">

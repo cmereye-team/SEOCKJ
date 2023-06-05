@@ -16,6 +16,33 @@ const onSlideChange = (swiper:any) => {
   latestNewsCurrent.value = swiper.realIndex + 1
 }
 
+// const getNewsLists = async () => {
+//   console.log('getNewsLists!开始执行')
+//   const { data }:any = await useFetch('https://admin.ckjhk.com/api.php/list/2',{
+//     method: 'post'
+//   });
+//   console.log('请求结果',JSON.parse(data.value))
+//   let res = JSON.parse(data.value) || []
+//   if(res){
+//     console.log('data数据',res.data)
+//     if(res.data && res.data.length){
+//       newsLists.value = res.data.map(item=>{
+//         return {
+//           title: item.title || '',
+//           imgUrl: `https://admin.ckjhk.com/${item.ico}`,
+//           link: ''
+//         }
+//       })
+//       console.log(newsLists)
+//     }
+//   }
+// }
+
+// const newsLists = ref([{
+//   title: '',
+//   imgUrl: '',
+//   link: ''
+// }])
 const newsLists = [
   {
     title: '歐美種植牙 即減￥2000元/顆',
@@ -38,6 +65,10 @@ const newsLists = [
     link: '/service'
   }
 ]
+
+onMounted(()=>{
+  // getNewsLists()
+})
 
 </script>
 

@@ -143,7 +143,11 @@ const problemData = {
 
 <template>
 <div>
-  <PageHeader /> 
+  <PageHeader
+    :mbBg="'https://static.cmereye.com/imgs/2023/06/0c4c600f0e07547d.jpg'"
+    :headerImg="'https://static.cmereye.com/imgs/2023/06/853005c3e17e4c2a.png'"
+    :headerBgImg="'https://static.cmereye.com/imgs/2023/06/6d1016f37061df54.png'"
+    :titlePosition="'left'" /> 
   <div class="orthodonticsPage">
     <div class="index_title pageCon">牙科服務</div>
     <!-- 介绍 -->

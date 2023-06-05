@@ -58,66 +58,66 @@ const menuLists = [
     name: '牙科服務',
     link: `/service`,
     child: [
-      {
-        name: '',
-        link: ''
-      }
       // {
-      //   name: '種植牙',
-      //   link: '/service/dentalImplant',
-      // },
-      // {
-      //   name: '矯齒',
-      //   link: '/service/orthodontics',
-      // },
-      // {
-      //   name: '杜牙根',
-      //   link: '/service/rootCanal',
-      // },
-      // {
-      //   name: '隱適美',
-      //   link: '/service/invisalign',
-      // },
-      // {
-      //   name: '瓷貼片',
-      //   link: '/service/veneers',
-      // },
-      // {
-      //   name: '全瓷牙冠',
-      //   link: '/service/crown',
-      // },
-      // {
-      //   name: '智慧齒脫除',
-      //   link: '/service/extraction',
-      // },
-      // {
-      //   name: '牙周病治療',
-      //   link: '/service/periodontal',
-      // },
-      // {
-      //   name: '牙托',
-      //   link: '/service/dentalTrays',
-      // },
-      // {
-      //   name: '牙齒美白',
-      //   link: '/service/teethWhitening',
-      // },
-      // {
-      //   name: '洗牙',
-      //   link: '/service/scalingTeeth',
-      // },
-      // {
-      //   name: '補牙',
-      //   link: '/service/dentalFillings',
-      // },
-      // {
-      //   name: '一般口腔檢查',
-      //   link: '/service/oralCheck',
-      // },
-      // {
-      //   name: '兒童牙科',
-      //   link: '/service/pediatric',
+      //   name: '',
+      //   link: ''
       // }
+      {
+        name: '種植牙',
+        link: '/service/dentalImplant',
+      },
+      {
+        name: '矯齒',
+        link: '/service/orthodontics',
+      },
+      {
+        name: '杜牙根',
+        link: '/service/rootCanal',
+      },
+      {
+        name: '隱適美',
+        link: '/service/invisalign',
+      },
+      {
+        name: '瓷貼片',
+        link: '/service/veneers',
+      },
+      {
+        name: '全瓷牙冠',
+        link: '/service/crown',
+      },
+      {
+        name: '智慧齒脫除',
+        link: '/service/extraction',
+      },
+      {
+        name: '牙周病治療',
+        link: '/service/periodontal',
+      },
+      {
+        name: '牙托',
+        link: '/service/dentalTrays',
+      },
+      {
+        name: '牙齒美白',
+        link: '/service/teethWhitening',
+      },
+      {
+        name: '洗牙',
+        link: '/service/scalingTeeth',
+      },
+      {
+        name: '補牙',
+        link: '/service/dentalFillings',
+      },
+      {
+        name: '一般口腔檢查',
+        link: '/service/oralCheck',
+      },
+      {
+        name: '兒童牙科',
+        link: '/service/pediatric',
+      }
     ],
   },
   {
@@ -208,15 +208,6 @@ const classNamefilter = ( _menu:any, _idx: number) => {
   return className
 }
 
-// const headerMenu = ref({
-//   offsetTop: '',
-//   style:{
-//     position: '',
-//     width: '',
-//     left: '',
-//     top: '',
-//   }
-// })
 const imgBgHeight = ref({
   clientHeight: 0
 })
@@ -246,27 +237,15 @@ onMounted(() => {
   //     pinSpacing: false
   //   }
   // });
-  console.log('imgBgHeight: ---->',imgBgHeight.value.clientHeight)
   getWindowWidth()
   window.addEventListener('scroll',getWindowWidth)
 });
 const getWindowWidth = () => {
-  
-  console.log('windowScrollY: ----->',window.scrollY)
+  // console.log('windowScrollY: ----->',window.scrollY)
   if(imgBgHeight.value.clientHeight < window.scrollY){
     isFiexdHeader.value = true
-  //   console.log('出来了')
-  //   headerMenu.value.style.position = 'fixed'
-  //   headerMenu.value.style.width = '100vw'
-  //   headerMenu.value.style.left = '50%'
-  //   headerMenu.value.style.top = '0'
   }else{
     isFiexdHeader.value = false
-  //   console.log('消失了')
-  //   headerMenu.value.style.position = 'relative'
-  //   headerMenu.value.style.width = '100%'
-  //   headerMenu.value.style.left = 'auto'
-  //   headerMenu.value.style.top = 'auto'
   }
 }
 
@@ -278,6 +257,7 @@ const getWindowWidth = () => {
     <div class="header-content ">
       <div class="header-content-bgImg">
         <img class="imgBgBox pcBox" :src="headerBgImg" alt="">
+        <!-- <img class="imgBgBox-1 pcBox" :src="headerBgImg" alt=""> -->
         <div class="header-content-bgImg-imgInfo pageCon">
           <img
             :class="['pcBox',{ 'float-right': titlePosition === 'left'}]"
@@ -415,7 +395,7 @@ const getWindowWidth = () => {
     // background: #ccc;
     &-imgInfo{
       &>img{
-        width: 50%;
+        // width: 50%;
       }
     }
     &-textInfo{
@@ -428,11 +408,22 @@ const getWindowWidth = () => {
     }
     .imgBgBox{
       width: 100%;
-      height: 100%;
+      // max-width: 1920px;
+      // height: 100%;
+      min-height: 100%;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -2;
+    }
+    .imgBgBox-1{
+      width: 100%;
       position: absolute;
       top: 0;
       left: 0;
-      z-index: -2;
+      z-index: -3;
+      filter: blur(10px);
     }
     &>img {
       width: 100%;
@@ -476,7 +467,7 @@ const getWindowWidth = () => {
     // width: 100%;
     opacity: 0;
     &>img{
-      width: 50%;
+      // width: 50%;
     }
     // z-index: 1;
     // background: none;
@@ -813,6 +804,7 @@ const getWindowWidth = () => {
   .header-content {
     &-bgImg {
       position: relative;
+      padding-top: 50px;
       &-textInfo{
         position: static;
         width: 100%;
@@ -919,23 +911,39 @@ const getWindowWidth = () => {
     font-style: normal;
     font-weight: 600;
     line-height: 160%;
-    color: #FFCECB;
+    color: #FFA09E;
     transition: all .3s;
     overflow: hidden;
     overflow-y: auto;
+    &::-webkit-scrollbar{
+      display: none;
+    }
     .menuLists{
       margin-top: 120px;
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
+      // padding: 0 30px;
+      // box-sizing: border-box;
       &-item{
-        text-align: left;
-        margin-top: 20px;
-        font-size: 1.125rem;
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+        font-size: 18px;
         position: relative;
         &.childIcon{
-          // padding-left: 37px;
+        }
+        &:not(:last-child)::before{
+          content: '';
+          width: calc(100% - 60px);
+          height: 2px;
+          background: #FFF1F0;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          position: absolute;
+          // border-bottom: 2px solid #FFF1F0;
         }
         &.childIcon:after{
           content: '';
@@ -943,34 +951,44 @@ const getWindowWidth = () => {
           height: 0;
           display: inline-block;
           position: absolute;
-          right: -20px;
-          top: 7px;
+          right: 34%;
+          top: 29px;
           border-top: 10px solid;
-          border-left: 8px solid;
-          border-right: 8px solid;
+          border-left: 6px solid;
+          border-right: 6px solid;
           border-bottom: 10px solid;
-          border-color: #FFCECB transparent transparent transparent;
+          border-color: #FFA09E transparent transparent transparent;
           vertical-align: middle;
-          // margin: 6px 10px 0;
         }
       }
       &-childLists{
-        // display: none;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         font-size: 1rem;
         font-weight: 500;
-        margin-top: 10px;
-        
+        margin-top: 20px;
+        color: #FFCECB;
         &-item{
-          padding: 10px 0;
+          width: 100%;
+          height: 100%;
+          // box-sizing: border-box;
+          // padding: 10px 0;
+          a{
+            width: 100%;
+            height: 100%;
+            padding: 10px 0;
+            display: block;
+            &.router-link-exact-active{
+              background: #FFF1F0;
+            }
+          }
         }
       }
     }
     &-btn{
-      margin-top: 71px;
+      margin-top: 51px;
       // font-size: 20px;
       font-size: 1.25rem;
     }
@@ -990,7 +1008,7 @@ const getWindowWidth = () => {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: 50px;
+      margin: 50px auto 61px;
       &-in:not(:last-child){
         margin-right: 25px;
       }
