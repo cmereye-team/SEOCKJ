@@ -217,6 +217,11 @@ const classNamefilter = ( _menu:any, _idx: number) => {
 //     top: '',
 //   }
 // })
+const imgBgHeight = ref({
+  clientHeight: 0
+})
+
+let isFiexdHeader = ref(false)
 onMounted(() => {
   gsap.from('.header-content-bgImg-in', {
     opacity: 0, 
@@ -241,27 +246,29 @@ onMounted(() => {
   //     pinSpacing: false
   //   }
   // });
-  // getWindowWidth()
-  // window.addEventListener('scroll',getWindowWidth)
+  console.log('imgBgHeight: ---->',imgBgHeight.value.clientHeight)
+  getWindowWidth()
+  window.addEventListener('scroll',getWindowWidth)
 });
-
-// const getWindowWidth = () => {
-//   console.log('headerMenuOffsetTop: ---->',window.scrollY)
-//   console.log('windowScrollY: ----->',window.scrollY)
-//   if(Number(headerMenu.value.offsetTop) < window.scrollY){
-//     console.log('出来了')
-//     headerMenu.value.style.position = 'fixed'
-//     headerMenu.value.style.width = '100vw'
-//     headerMenu.value.style.left = '50%'
-//     headerMenu.value.style.top = '0'
-//   }else{
-//     console.log('消失了')
-//     headerMenu.value.style.position = 'relative'
-//     headerMenu.value.style.width = '100%'
-//     headerMenu.value.style.left = 'auto'
-//     headerMenu.value.style.top = 'auto'
-//   }
-// }
+const getWindowWidth = () => {
+  
+  console.log('windowScrollY: ----->',window.scrollY)
+  if(imgBgHeight.value.clientHeight < window.scrollY){
+    isFiexdHeader.value = true
+  //   console.log('出来了')
+  //   headerMenu.value.style.position = 'fixed'
+  //   headerMenu.value.style.width = '100vw'
+  //   headerMenu.value.style.left = '50%'
+  //   headerMenu.value.style.top = '0'
+  }else{
+    isFiexdHeader.value = false
+  //   console.log('消失了')
+  //   headerMenu.value.style.position = 'relative'
+  //   headerMenu.value.style.width = '100%'
+  //   headerMenu.value.style.left = 'auto'
+  //   headerMenu.value.style.top = 'auto'
+  }
+}
 
 
 </script>
@@ -300,48 +307,51 @@ onMounted(() => {
           </div>
         </div>
       </div>
-      <div class="header-content-bgImgBB pageCon pcBox">
+      <div class="header-content-bgImgBB pageCon pcBox" ref="imgBgHeight">
         <img
           :src="headerImg"
           alt=""
         />
       </div>
-      <div class="pageCon header-content-in" ref="headerMenu">
-        <div class="logo">
-          <nuxt-link :to="'/'"
-            ><img src="@/assets/images/logo_1.png" alt=""
-          /></nuxt-link>
-        </div>
-        <div class="menu">
-          <div class="menuItem"
-            v-for="(menuItem, menuIndex) in menuLists"
-            :key="menuIndex"
-          >
-            <nuxt-link :class="menuItem.child.length ? 'triangleIcon' : ''" :to="menuItem.link">
-            {{ menuItem.name }}
-            </nuxt-link>
-            <div class="menuChild" v-if="menuItem.child.length && !menuItem.link.includes('/service')">
-              <div :class="['menuChild-item', classNamefilter(menuChildItem,menuChildIndex)]" v-for="(menuChildItem,menuChildIndex) in menuItem.child" :key="menuChildIndex" @click="handleMenuChild(menuItem,menuChildIndex)">
-                <nuxt-link :to="menuChildItem.link">
-                {{menuChildItem.name}}
-                </nuxt-link>
+      <div :class="isFiexdHeader ? 'headerBox02': 'headerBox01'">
+        <div class="pageCon header-content-in" ref="headerMenu">
+          <div class="logo">
+            <nuxt-link :to="'/'"
+              ><img src="@/assets/images/logo_1.png" alt=""
+            /></nuxt-link>
+          </div>
+          <div class="menu">
+            <div class="menuItem"
+              v-for="(menuItem, menuIndex) in menuLists"
+              :key="menuIndex"
+            >
+              <nuxt-link :class="menuItem.child.length ? 'triangleIcon' : ''" :to="menuItem.link">
+              {{ menuItem.name }}
+              </nuxt-link>
+              <div class="menuChild" v-if="menuItem.child.length && !menuItem.link.includes('/service')">
+                <div :class="['menuChild-item', classNamefilter(menuChildItem,menuChildIndex)]" v-for="(menuChildItem,menuChildIndex) in menuItem.child" :key="menuChildIndex" @click="handleMenuChild(menuItem,menuChildIndex)">
+                  <nuxt-link :to="menuChildItem.link">
+                  {{menuChildItem.name}}
+                  </nuxt-link>
+                </div>
+              </div>
+              <div class="menuChild serviceCard" v-if="menuItem.link.includes('/service')">
+                <!-- <div :class="['menuChild-item', classNamefilter(menuChildItem,menuChildIndex)]" v-for="(menuChildItem,menuChildIndex) in menuItem.child" :key="menuChildIndex" @click="handleMenuChild(menuItem,menuChildIndex)">
+                  <nuxt-link :to="menuChildItem.link">
+                  {{menuChildItem.name}}
+                  </nuxt-link>
+                </div> -->
+                <serviceCard :isMenu="true" />
               </div>
             </div>
-            <div class="menuChild serviceCard" v-if="menuItem.link.includes('/service')">
-              <!-- <div :class="['menuChild-item', classNamefilter(menuChildItem,menuChildIndex)]" v-for="(menuChildItem,menuChildIndex) in menuItem.child" :key="menuChildIndex" @click="handleMenuChild(menuItem,menuChildIndex)">
-                <nuxt-link :to="menuChildItem.link">
-                {{menuChildItem.name}}
-                </nuxt-link>
-              </div> -->
-              <serviceCard :isMenu="true" />
-            </div>
+          </div>
+          <div class="icon" @click="menuBoxBool = !menuBoxBool">
+            <img v-if="!menuBoxBool" src="@/assets/images/icon_6.png" >
+            <img v-else src="@/assets/images/icon_7.png" >
           </div>
         </div>
-        <div class="icon" @click="menuBoxBool = !menuBoxBool">
-          <img v-if="!menuBoxBool" src="@/assets/images/icon_6.png" >
-          <img v-else src="@/assets/images/icon_7.png" >
-        </div>
       </div>
+      
       <div class="menuBox" :style="{top: (menuBoxBool ? '0' : '-100vh')}">
         <div class="menuLists">
           <div :class="['menuLists-item',item.child.length ? 'childIcon' : '']" v-for="(item, index) in menuLists" :key="index">
@@ -597,6 +607,21 @@ onMounted(() => {
   .waterBg{
     position: relative;
     z-index: 35;
+  }
+  .headerBox01{
+    position: relative;
+    background: #fff;
+    width: 100vw;
+  }
+  .headerBox02{
+    position: fixed;
+    background: #fff;
+    top: 0;
+    width: 100vw;
+    z-index: 100;
+    .header-content-in{
+      align-items: center;
+    }
   }
 }
 .waterBg::after {
