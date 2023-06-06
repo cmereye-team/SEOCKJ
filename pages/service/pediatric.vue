@@ -67,8 +67,53 @@ const problemData = {
   ]
 }
 
+const skillData ={
+  title: ['從乳牙開始培養好的口腔衛生', '習慣，有助於建立良好的牙齒健康基礎。'],
+  lists: [
+    {
+      title: '窩溝封閉',
+      introduce: '用高分子材料把牙齒的窩溝填平，使牙面變得光滑易清潔，一方面，窩溝封閉後，窩溝內原有的細菌斷絕了營養的來源，逐漸死亡；另一方面外面的致齲細菌不能再進入，從而達到預防窩溝齲的目的。',
+      characteristic: '操作簡單、兒童易配合，有效避免齲齒發生。',
+      adapt: '3—12歲乳磨牙、第一恒磨牙、第二恒磨牙。'
+    },
+    {
+      title: '塗氟',
+      introduce: '用高分子材料把牙齒的窩溝填平，使牙面變得光滑易清潔，一方面，窩溝封閉後，窩溝內原有的細菌斷絕了營養的來源，逐漸死亡；另一方面外面的致齲細菌不能再進入，從而達到預防窩溝齲的目的。',
+      characteristic: '操作簡單、兒童易配合，有效避免齲齒發生。',
+      adapt: '3—12歲乳磨牙、第一恒磨牙、第二恒磨牙。'
+    },
+    {
+      title: '補牙(蛀牙)',
+      introduce: '采用用人造物質修補牙體缺損的方法，用於修補的物質叫充填材料。凡因齲齒、楔狀缺損、外傷等造成牙體組織缺損者都需要修補，以恢復其外形和功能。',
+      characteristic: '預防繼續齲齒；恢復正常咬合，維持牙弓長度。',
+      adapt: '乳磨牙齲壞、年輕恒牙齲壞。'
+    },
+    {
+      title: '兒童牙齒矯正',
+      introduce: '通過矯治器的方式可以改善兒童牙齒地包天、牙齒不齊等情況。',
+      characteristic: '恢復牙齒美觀和功能；改善口腔不良習慣；舒適、健康、便捷。',
+      adapt: '兒牙畸形、地包天、牙錯位。'
+    },
+    {
+      title: '舒適拔牙',
+      introduce: '通過矯治器的方式可以改善兒童牙齒地包天、牙齒不齊等情況。',
+      characteristic: '恢復牙齒美觀和功能；改善口腔不良習慣；舒適、健康、便捷。',
+      adapt: '兒牙畸形、地包天、牙錯位。'
+    },
+    {
+      title: '根管治療',
+      introduce: '通過矯治器的方式可以改善兒童牙齒地包天、牙齒不齊等情況。',
+      characteristic: '恢復牙齒美觀和功能；改善口腔不良習慣；舒適、健康、便捷。',
+      adapt: '兒牙畸形、地包天、牙錯位。'
+    }
+  ]
+}
 
 
+let skillCur = ref(0)
+const handleSkillTab = (_idx:number) => {
+  skillCur.value = _idx
+}
 </script>
 
 
@@ -94,6 +139,61 @@ const problemData = {
         <div>乳牙滯留</div>
         <div>兒童蛀牙</div>
         <div>牙齒外傷</div>
+      </div>
+    </div>
+
+    <div class="skill">
+      <div class="skill-title">
+        <div class="skill-title-in">
+          <span>從乳牙開始培養好的口腔衛生</span>
+          <span>習慣，有助於建立良好的牙齒健康基礎。</span>
+        </div>
+      </div>
+      <div class="skill-tab pcBox pageCon">
+        <div class="skill-tab-t">
+          <div :class="{'cur': skillCur === skillIndex}" v-for="(skillItem,skillIndex) in skillData.lists" :key="skillIndex" @click="handleSkillTab(skillIndex)">
+            {{skillItem.title}}
+          </div>
+        </div>
+        <div class="skill-tab-b">
+          <div>
+            <div>技術介紹</div>
+            <div>{{skillData.lists[skillCur].introduce}}</div>
+          </div>
+          <div>
+            <div>技術特點</div>
+            <div>{{skillData.lists[skillCur].characteristic}}</div>
+          </div>
+          <div>
+            <div>適應癥</div>
+            <div>{{skillData.lists[skillCur].adapt}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="skill-collapse mbBox">
+        <el-collapse v-model="skillCur" accordion>
+          <el-collapse-item :name="skillIndex" v-for="(skillItem,skillIndex) in skillData.lists" :key="skillIndex">
+            <template #title>
+              <div class="skill-collapse-title">
+                {{skillItem.title}}
+              </div>
+            </template>
+            <div class="skill-collapse-b">
+              <div>
+                <div>技術介紹</div>
+                <div>{{skillItem.introduce}}</div>
+              </div>
+              <div>
+                <div>技術特點</div>
+                <div>{{skillItem.characteristic}}</div>
+              </div>
+              <div>
+                <div>適應癥</div>
+                <div>{{skillItem.adapt}}</div>
+              </div>
+            </div>
+          </el-collapse-item>
+        </el-collapse>
       </div>
     </div>
     <!-- 注意事项 -->
@@ -134,11 +234,103 @@ const problemData = {
     }
   }
 }
+.skill{
+  margin-top: 144px;
+  &-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-in{
+      font-style: normal;
+      font-weight: 700;
+      font-size: 50px;
+      line-height: 160%;
+      text-align: center;
+      color: #4D4D4D;
+      // display: inline-block;
+      border-bottom: 4px solid #FFA09E;
+      span{
+        display: block;
+        &:last-child{
+          // border-bottom: 4px solid #FFA09E;
+        }
+      }
+    }
+  }
+  &-tab{
+    margin-top: 46px;
+    box-shadow: 0px 4px 8px #FFDDDA;
+    &-t{
+      display: flex;
+      &>div{
+        flex: 1;
+        text-align: center;
+        background: #FFDDDA;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 28px;
+        height: 70px;
+        line-height: 70px;
+        color: #FFFFFF;
+        cursor: pointer;
+        &:not(:last-child){
+          margin-right: 3px;
+        }
+        &:hover{
+          background: #FFA09E;
+        }
+        &.cur{
+          background: #FFA09E;
+        }
+      }
+    }
+    &-b{
+      min-height: 460px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      &>div{
+        display: flex;
+        width: 100%;
+        max-width: 806px;
+        margin: 0 auto;
+        &>div:first-child{
+          font-style: normal;
+          font-weight: 700;
+          font-size: 28px;
+          line-height: 160%;
+          color: #4D4D4D;
+          width: 152px;
+        }
+        &>div:last-child{
+          flex: 1;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 160%;
+          color: #4D4D4D;
+          padding-top: 10px;
+        }
+      }
+    }
+  }
+}
 
-@media (min-width: 768px) and (max-width: 1452px) {}
+@media (min-width: 768px) and (max-width: 1000px) {
+  .skill{
+    &-tab{
+      &-t{
+        &>div{
+          font-size: 24px;
+        }
+      }
+    }
+  }
+}
 
 //md
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 768px) {
 
 .faq{
   margin-top: 90px;
@@ -157,6 +349,77 @@ const problemData = {
     }
   }
 }
+.skill{
+  margin-top: 90px;
+  padding: 0 30px;
+  &-title{
+    &-in{
+      font-weight: 700;
+      font-size: 26px;
+      span{
+        display: inline;
+      }
+    }
+  }
+  &-collapse{
+    margin-top: 33px;
+    box-shadow: 0px 4px 8px #FFDDDA;
+    &-b{
+      &>div{
+        margin-top: 25px;
+        padding: 0 24px;
+        &>div:first-child{
+          font-style: normal;
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 160%;
+          text-align: center;
+          color: #4D4D4D;
+        }
+        &>div:last-child{
+          font-style: normal;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 160%;
+          text-align: center;
+          color: #4D4D4D;
+          margin-top: 5px;
+        }
+      }
+    }
+    :deep(.el-collapse){
+      border: none;
+    }
+    :deep(.el-collapse-item){
+      margin-bottom: 2px;
+      border: none;
+    }
+    :deep(.el-collapse-item__wrap){
+      border: none;
+    }
+    :deep(.el-collapse-item__header){
+      padding: 10.5px 0;
+      background: #FFDDDA;
+      border: none;
+      box-sizing: initial;
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 26px;
+      justify-content: center;
+    }
+    :deep(.el-collapse-item__header.is-active){
+      background: #FFA09E;
+      .skill-collapse-title{
+        color: #FFFFFF;
+      }
+    }
+    :deep(.el-icon){
+     display: none;
+    }
+  }
+}
+
+
 
 }
 </style>
