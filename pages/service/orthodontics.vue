@@ -154,6 +154,26 @@ const problemData = {
     <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
     <!-- 原因 -->
     <ServiceReason :reasonData="reasonData" />
+    <!-- 問題困擾 -->
+    <div class="bp">
+      <div class="dentistryServices-title">
+        <div class="dentistryServices-title-in bb">
+          <span>您是否有牙齒不齊問題困擾？</span>
+        </div>
+      </div>
+      <div class="bp-swiper mbBox">
+
+      </div>
+      <div class="bp-text">
+        在當今競爭激烈的社會中，個人形象已成為一種重要的競爭力。不論是在現實社會還是網絡中，個人形象都能給人留下深刻的印象，對於找工作、交朋友、學習、升職等方面都有著不可忽視的影響。牙齒不僅直接影響面容和微笑，更能夠反映一個人的健康和生活態度。所以，關注自己的形象不但是邁向成功的第一步，更是建立自信微笑的重要一步！
+      </div>
+      <div class="bp-lists pcBox">
+        <div class="bp-lists-in" v-for="item in 7" :key="item">
+          <div class="bp-lists-in-title">前排齒列擠擁</div>
+          <img src="https://static.cmereye.com/imgs/2023/06/9e889b19a082e947.jpg" alt="" />
+        </div>
+      </div>
+    </div>
     <!-- 注意 -->
     <ServiceStep :stepData="stepData" />
     <!-- 区别 -->
@@ -177,6 +197,67 @@ const problemData = {
   padding: 140px 0;
 }
 
+.bp{
+  margin-top: 176px;
+  &-text{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 160%;
+    color: #4D4D4D;
+    width: 100%;
+    max-width: 1042px;
+    text-align: center;
+    margin: 36px auto 0;
+  }
+  &-lists{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1100px;
+    margin: 60px auto;
+    &-in{
+      min-width: 33.33%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 39.5px 95.69px;
+      box-sizing: border-box;
+      align-items: center;
+      &-title{
+        min-width: 165px;
+        height: 40px;
+        line-height: 40px;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        text-align: center;
+        color: #FFFFFF;
+        background: #FFA09E;
+        position: relative;
+        &::after{
+          content: '';
+          position: absolute;
+          bottom: -40px;
+          left: 50%;
+          transform: translateX(-50%);
+          border-top: 20px solid;
+          border-left: 8px solid;
+          border-right: 8px solid;
+          border-bottom: 20px solid;
+          border-color: #FFA09E transparent transparent transparent;
+        }
+      }
+      img{
+        margin-top: 30px;
+        width: 100%;
+      }
+      &:last-child{
+        padding: 0 39.5px;
+      }
+    }
+  }
+}
 
 //md
 @media only screen and (max-width: 760px) {
