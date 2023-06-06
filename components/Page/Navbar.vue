@@ -23,6 +23,9 @@ const handleClose = ()=>{
 const toContactUs = () =>{
   window.location.href = '/contactUs#contactUsFormNav'
 }
+
+let mbQDCodeBool = ref(false)
+
 </script>
 
 <template>
@@ -30,7 +33,7 @@ const toContactUs = () =>{
     <div class="navbar-content-in" id="navPcTel">
       <div class="navbarBox">
         <div class="navbarBox-in">
-          <div class="tel">2828-2828</div>
+          <div class="tel">6912 2011</div>
         </div>
       </div>
       <img src="@/assets/images/navIcon_1.png" alt="" />
@@ -41,7 +44,7 @@ const toContactUs = () =>{
     <div class="navbar-content-in" id="navPcWeChat">
       <div class="navbarBox">
         <div class="navbarBox-in">
-          <div class="weChat"><img src="" alt="二维码"></div>
+          <div class="weChat"><img src="https://static.cmereye.com/imgs/2023/06/c5ecb382a7e0eeb2.jpg" alt="二维码"></div>
         </div>
       </div>
       <img src="@/assets/images/navIcon_3.png" alt="" />
@@ -59,41 +62,51 @@ const toContactUs = () =>{
     </div>
     <div class="navbar-content-mb" v-if="false">
       <div id="navMbTel">
-        <img src="@/assets/images/icon_8.png">2828-2828
+        <img src="@/assets/images/icon_8.png">6912 2011
       </div>
       <div>
         <div class="navBtn" @click="navLiBoxBool = !navLiBoxBool">立即預約</div>
         <div class="navLiBox" :style="{bottom: (navLiBoxBool ? '100%' : '-350%')}">
-          <div id="navMbContactForm" @click="handleNavFormNav">
+          <!-- <div id="navMbContactForm" @click="handleNavFormNav">
             填寫表格
-          </div>
-          <div id="navMbFacebook">
+          </div> -->
+          <!-- <div id="navMbFacebook">
+            <nuxt-link to="https://www.facebook.com/CKJ-%E5%B8%8C%E7%91%AA%E6%84%9B%E5%BA%B7%E5%81%A5-107356075712157" target="_blank">
             Facebook
-          </div>
-          <div id="navMbWeChat">
+            </nuxt-link >
+          </div> -->
+          <!-- <div id="navMbWeChat">
             WeChat
-          </div>
-          <div id="navMbWhatsapp">
+          </div> -->
+          <!-- <div id="navMbWhatsapp">
             Whatsapp
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
     <div class="navbar-content-mb02">
-      <div>WeChat</div>
-      <div>Whatsapp</div>
+      <div id="navMbWeChat" @click="mbQDCodeBool = true">WeChat</div>
+      <div id="navMbWhatsapp">Whatsapp</div>
     </div>
     <div class="navbar-content-mb">
-      <div>Facebook預約</div>
+      <div id="navMbFacebook"><nuxt-link to="https://www.facebook.com/CKJ-%E5%B8%8C%E7%91%AA%E6%84%9B%E5%BA%B7%E5%81%A5-107356075712157" target="_blank">Facebook預約</nuxt-link></div>
       <div @click="handleNavFormNav">填寫表格</div>
     </div>
     <div class="navbar-content-mb" v-if="false">
-      <div>Facebook預約</div>
+      <div><nuxt-link to="https://www.facebook.com/CKJ-%E5%B8%8C%E7%91%AA%E6%84%9B%E5%BA%B7%E5%81%A5-107356075712157" target="_blank">Facebook預約</nuxt-link></div>
       <div>填寫表格</div>
     </div>
     <div class="navForm" :style="{bottom: (navFormBool ? '0' : '-100%')}">
       <ContactForm />
       <div class="navForm-icon" @click="navFormBool = false">
+        <img src="@/assets/images/icon_7.png" alt="">
+      </div>
+    </div>
+    <div class="navForm" :style="{bottom: (mbQDCodeBool ? '0' : '-100%')}">
+      <div class="qdCode">
+        <img src="https://static.cmereye.com/imgs/2023/06/c5ecb382a7e0eeb2.jpg" alt="二维码" />
+      </div>
+      <div class="navForm-icon" @click="mbQDCodeBool = false">
         <img src="@/assets/images/icon_7.png" alt="">
       </div>
     </div>
@@ -153,11 +166,11 @@ const toContactUs = () =>{
         }
         .weChat{
           width: 200px;
-          height: 200px;
+          // height: 200px;
           background: #FFDDDA;
           img{
             width: 100%;
-            height: 100%;
+            // height: 100%;
           }
         }
       }
@@ -201,7 +214,13 @@ const toContactUs = () =>{
       top: 100px;
       cursor: pointer;
     }
-    // align-items: center;
+    .qdCode{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
   }
 }
 @media (min-width: 1920px){

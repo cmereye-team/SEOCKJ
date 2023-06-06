@@ -164,7 +164,7 @@ const headerData = {
   bannerText: '全程式預約一體化診療服務，讓每一位顧客享受',
   bannerTextSpan: '健康微笑之旅。',
   menuBoxBtn: '立即預約',
-  menuBoxPhone: '2828-2828'
+  menuBoxPhone: '6912 2011'
 }
 
 let menuBoxBool = ref(false)
@@ -350,9 +350,12 @@ const getWindowWidth = () => {
           </div>
         </div>
         <!-- 立即預約 -->
-        <div class="menuBox-btn">{{headerData.menuBoxBtn}}</div>
+        <nuxt-link to="tel: 6912 2011">
+          <div class="menuBox-btn">
+            {{headerData.menuBoxBtn}}
+          </div>
+        </nuxt-link>
         <div class="menuBox-phone">
-          <!-- 2828-2828 -->
           <img src="@/assets/images/icon_11.png" >{{headerData.menuBoxPhone}}
         </div>
         <div class="menuBox-icon">
@@ -396,6 +399,7 @@ const getWindowWidth = () => {
     &-imgInfo{
       &>img{
         // width: 50%;
+        max-width: 50%;
       }
     }
     &-textInfo{
@@ -468,6 +472,7 @@ const getWindowWidth = () => {
     opacity: 0;
     &>img{
       // width: 50%;
+      max-width: 50%;
     }
     // z-index: 1;
     // background: none;
@@ -610,6 +615,7 @@ const getWindowWidth = () => {
     top: 0;
     width: 100vw;
     z-index: 100;
+    box-shadow: 0px 4px 8px #FFDDDA;
     .header-content-in{
       align-items: center;
     }
@@ -797,14 +803,14 @@ const getWindowWidth = () => {
   }
 }
 @media screen and (max-width: 768px) {
-  header{
-    position: relative;
-    z-index: 60;
-  }
+  // header{
+    // position: relative;
+    // z-index: 60;
+  // }
   .header-content {
     &-bgImg {
       position: relative;
-      padding-top: 50px;
+      padding-top: 20px;
       &-textInfo{
         position: static;
         width: 100%;
@@ -1008,7 +1014,7 @@ const getWindowWidth = () => {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 50px auto 61px;
+      margin: 50px auto 180px;
       &-in:not(:last-child){
         margin-right: 25px;
       }

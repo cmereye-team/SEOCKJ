@@ -12,7 +12,7 @@ const props = defineProps({
   },
 })
 
-const form = reactive({
+let form = reactive({
   name: '',
   gender: '',
   phone: '',
@@ -66,6 +66,9 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 //   value: string
 // }
 
+let messageText = ref('服务异常，请稍后重试')
+let messageShow = ref(false)
+
 const onSubmit = async () => {
   // console.log('submit!', form)
   let _formData = new FormData()
@@ -87,18 +90,26 @@ const onSubmit = async () => {
         showClose: true,
         message: res.data,
         type: 'success',
+        duration: 0
       })
+      // ElMessageBox.alert(res.data, '消息通知', {
+      //   confirmButtonText: '好的',
+      // })
     }else{
       ElMessage({
         showClose: true,
         message: res.data,
         type: 'error',
+        duration: 0
       })
+      // ElMessageBox.alert(res.data, '消息通知', {
+      //   confirmButtonText: '好的',
+      // })
     }
   }else{
     ElMessage({
       showClose: true,
-      message: '表单异常',
+      message: '服务异常，请稍后重试',
       type: 'error',
     })
   }
@@ -177,6 +188,30 @@ onMounted(() => {
           </el-form-item>
         </el-form>
       </div>
+      <div class="contactForm-message" v-if="messageShow">
+        <div class="contactForm-message-close" @click="messageShow = false">
+          <img src="@/assets/images/icon_7.png" alt="">
+        </div>
+        <div class="contactForm-message-in">
+          <div class="text">{{messageText}}</div>
+          <div class="linkBox">
+            <div class="linkBox-in">
+              <img src="@/assets/images/navIcon_1.png" alt="" />
+              <span>6912 2011</span>
+            </div>
+            <div class="linkBox-in">
+              <img src="@/assets/images/navIcon_2.png" alt="" />
+            </div>
+            <div class="linkBox-in">
+              <img src="@/assets/images/navIcon_3.png" alt="" />
+              <img class="qdCode" src="" alt="微信二维码" />
+            </div>
+            <div class="linkBox-in">
+              <img src="@/assets/images/navIcon_6.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -186,6 +221,7 @@ onMounted(() => {
 .contactForm {
   margin-top: 54px;
   &-bg {
+    position: relative;
     padding: 71px 0 75px;
     background: linear-gradient(
       270deg,
@@ -286,6 +322,126 @@ onMounted(() => {
       }
     }
   }
+  &-message{
+    position: absolute;
+    width: 50%;
+    height: 80%;
+    background: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 28px;
+    font-weight: 700px;
+    transition: all .5s;
+    box-shadow: 0px 4px 8px #FFDDDA;
+    border-radius: 10px;
+    &-close{
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      img{
+        width: 100%;
+        transition: all 3s;
+      }
+      &:hover{
+        img{
+          transform: rotate(360deg);
+        }
+      }
+    }
+    &-in{
+      .text{
+        text-align: center;
+      }
+      .linkBox{
+        display: flex;
+        align-items: center;
+        height: 200px;
+        margin-top: 20%;
+        &-in{
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          background: #FFDDDA;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          position: relative;
+          transition: all 1s;
+          img{
+            width: 60%;
+            transition: all 3s;
+          }
+          span{
+            color: #fff;
+            display: none;
+            text-align: center;
+            text-shadow: 0px 0px 8px rgba(179, 54, 54, 0.55);
+            font-size: 30px;
+            font-weight: 600;
+          }
+          .qdCode{
+            display: none;
+            margin: 5% auto;
+            background: #ccc;
+          }
+          &:not(:last-child){
+            margin-right: 30px;
+          }
+          &:first-child{
+            &:hover{
+              width: 200px;
+              border-radius: 10px;
+              img{
+                display: none;
+              }
+              span{
+                display: block;
+              }
+            }
+          }
+          &:nth-of-type(2){
+            &:hover{
+              transition: all 3s;
+              transform: rotate(360deg);
+            }
+          }
+          &:nth-of-type(3){
+            &:hover{
+              width: 200px;
+              height: 200px;
+              border-radius: 10px;
+              img{
+                display: none;
+              }
+              .qdCode{
+                width: 90%;
+                height: 90%;
+                display: block;
+              }
+            }
+          }
+          &:nth-of-type(4){
+            img{
+              width: 80%;
+            }
+            &:hover{
+              transition: all 3s;
+              transform: rotate(360deg);
+            }
+          }
+        }
+      }
+    }
+  }
 }
 @media (min-width: 768px) and (max-width: 1452px) {
 }
@@ -320,6 +476,25 @@ onMounted(() => {
         height: 40px;
         font-size: 16px;
         margin: 30px auto 0;
+      }
+    }
+    &-message{
+      width: 80%;
+      font-size: 20px;
+      font-weight: 700px;
+      &-close{
+        width: 40px;
+        height: 40px;
+        top: 15px;
+        right: 15px;
+      }
+      &-in{
+        .linkBox{
+          flex-wrap: wrap;
+          &-in{
+
+          }
+        }
       }
     }
   }

@@ -47,27 +47,40 @@ const newsLists = [
   {
     title: '歐美種植牙 即減￥2000元/顆',
     imgUrl: 'https://static.cmereye.com/imgs/2023/06/ddf0fcab6c43bc02.jpg',
+    mbUrl: 'https://static.cmereye.com/imgs/2023/06/0aca88215a59dc48.jpg',
     link: '/service/dentalImplant'
   },
   {
     title: '隱形牙箍  即減￥5000元',
-    imgUrl: 'https://static.cmereye.com/imgs/2023/06/6f52f3d60cc317c8.jpg',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/06/bbd8de4374b01502.jpg',
+    mbUrl: 'https://static.cmereye.com/imgs/2023/06/7258af491af58385.jpg',
     link: '/service/invisalign'
   },
   {
     title: '金屬矯正牙箍 即減￥2000元',
     imgUrl: 'https://static.cmereye.com/imgs/2023/06/02670cffe16dfd3b.jpg',
+    mbUrl: 'https://static.cmereye.com/imgs/2023/06/2ccbb8016b908ca0.jpg',
     link: '/service/orthodontics'
   },
   {
     title: '成功種牙或矯齒，免費贈送專業潔牙1次',
     imgUrl: 'https://static.cmereye.com/imgs/2023/06/2ad117a61979db84.jpg',
+    mbUrl: 'https://static.cmereye.com/imgs/2023/06/4ae29fb6553acd82.jpg',
     link: '/service'
   }
 ]
 
+let windowWidth = ref(1920)
+
+const getWindowWidth = () => {
+  windowWidth.value = window.innerWidth
+  // console.log(windowWidth)
+}
+
 onMounted(()=>{
   // getNewsLists()
+  getWindowWidth()
+  window.addEventListener('resize',getWindowWidth)
 })
 
 </script>
@@ -102,9 +115,8 @@ onMounted(()=>{
               </div>
             </div> -->
             <nuxt-link :to="latestNewsItem.link">
-              <img :src="latestNewsItem.imgUrl" :alt="latestNewsItem.title" :title="latestNewsItem.title" />
+              <img class="newsImg" :src="windowWidth>768?latestNewsItem.imgUrl:latestNewsItem.mbUrl" :alt="latestNewsItem.title" :title="latestNewsItem.title" />
             </nuxt-link>
-            
           </div>
         </swiper-slide>
         <!-- <div class="lineBox">
@@ -185,6 +197,9 @@ onMounted(()=>{
   &-t{
     display: flex;
     justify-content: space-between;
+  }
+  .newsImg{
+    width: 100%;
   }
 }
 @media (min-width: 768px) and (max-width: 1452px) {
