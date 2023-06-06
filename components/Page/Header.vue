@@ -480,11 +480,13 @@ const getWindowWidth = () => {
   &-in {
     width: 100%;
     // max-width: 1490px;
+    max-width: 1512px;
     display: flex;
     background: #fff;
     box-sizing: border-box;
     margin: 0 auto;
-    padding: 20px 0 0 20px;
+    padding: 20px 10px 0 30px;
+    padding-top: 20px;
     align-items: flex-end;
     z-index: 40;
     position: relative;
@@ -764,6 +766,7 @@ const getWindowWidth = () => {
 @media (min-width: 768px) and (max-width: 1200px) {
   .header-content {
     &-in {
+      padding: 20px 15px 0 30px;
       .logo {
         width: 22%;
         margin-bottom: 10px;

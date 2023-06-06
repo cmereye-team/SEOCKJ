@@ -63,8 +63,8 @@ const stepData = {
 }
 
 const differData = {
-  title: '傳統箍牙VS透明箍牙大有不同！',
-  text: '箍牙主要可分為三類，固定式外箍、內箍及透明配戴式牙箍。矯正時間因人而異，一般為一年至一年半左右，複雜個案需要兩年或以上。心思思想箍牙，但你又知唔知道各種牙箍的分別？',
+  title: '貴不等於最好要選擇自己最合適的！',
+  text: '價格高不代表就是最好的選擇，選擇適合自己的矯正方式才是最重要的。不同的矯正方式有著各自的優缺點，需要根據自己的口腔情況、個人需求和預算來選擇最適合的方案。所以，在決定矯正牙齒之前，一定要找到專業的牙醫進行詳細的診斷和建議，選擇最適合自己的矯正方式。',
   firstTextTh: '固定式外箍/內箍',
   secondTextTh: '透明配戴式牙箍',
   listDatas: [
@@ -111,32 +111,127 @@ const problemData = {
   title: '矯齒(箍牙)常見問題',
   lists: [
     {
-      Q: '甚麼年紀適合接受矯齒治療？',
-      A: '不論甚麼年紀都能接受矯齒治療，醫生可評估口腔情況，而建議相關的療程。'
+      Q: '矯齒會很很痛嗎？',
+      A: '矯齒過程中會有一定的疼痛感，這是正常現象，因為矯正器對牙齒的壓力會引起輕微的不適感，但這種疼痛感通常會在幾天內消失。'
     },
     {
-      Q: '甚麼是完美笑容的黃金方程式？',
-      A: '完美笑容的黃金方程式包括：牙齒排列整齊、大小適中、色澤自然亮白，中間線上下對齊及牙齦健康。'
+      Q: '矯齒需要多久時間？',
+      A: '矯齒的時間因人而異，通常需要一年到三年不等的時間。但矯齒的時間還受到多種因素的影響，如牙齒矯正的類型、矯正器的使用時間和個人牙齒情況等。'
     },
     {
-      Q: '透明牙箍是否有效？',
-      A: '透明牙箍能處理大部分牙齒排列不齊的情況，如：太擠、太疏，或矯正後再次移位的情況。'
+      Q: '矯齒後如何保持牙齒的清潔？',
+      A: '矯齒器會影響牙齒的清潔，因此在矯齒期間，要多加注意口腔衛生，定期刷牙、使用漱口水、使用牙線等清潔工具進行清潔，以避免牙結石和牙周炎等口腔問題。'
     },
     {
-      Q: '透明牙箍如何矯正牙齒？',
-      A: '透明牙箍的療程是先以數碼系統拍攝影像，利用3D電腦技術，模擬及預測整個矯齒過程。客人同意療程後，供應商會度身訂造一系列透明牙箍。客人透過每日佩戴至少22小時，約每兩週更換新牙箍，就能逐漸把牙齒調整至理想位置。'
+      Q: '矯齒會影響飲食嗎？',
+      A: '矯齒過程中，應避免食用過甜、過硬、過熱或過冷的食物，以免矯齒器受損或影響牙齒矯正效果。同時，建議多食用蔬菜、水果和低糖食品，以維持口腔健康和矯齒效果。'
     },
     {
-      Q: '佩戴透明牙箍前有甚麼要注意？',
-      A: '透明牙箍是一個自我監察的療程，每天佩戴至少22小時，除了進食、刷牙等時間外，任何時間都要戴上牙套，並定時覆診及更換新牙箍。'
+      Q: '矯齒對口腔健康有影響嗎？',
+      A: '矯齒對口腔健康有正面影響，可以幫助改善牙齒排列不整齊等問題，減少患上牙周病、牙齒龍骨吸收等口腔問題的風險，提高口腔健康水平。'
     },
     {
-      Q: '透明牙箍的療程要多長時間？',
-      A: '與傳統牙齒矯正治療一樣，需視乎每個個案的複雜程度而定。一般透明牙箍的療程時間約為六個月至兩年不等。'
+      Q: '矯齒期間是否會影響口腔功能？',
+      A: '矯齒期間可能會影響口腔功能，如發音、咀嚼等，但這種影響通常是暫時的，當矯齒完成後，口腔功能會逐漸恢復正常。'
+    },
+    {
+      Q: '矯齒後是否需要繼續定期覆診？',
+      A: '矯齒完成後，仍需要定期進行覆診檢查和清潔，以確保牙齒的健康和矯正效果。'
+    },
+    {
+      Q: '矯齒對成年人是否有效？',
+      A: '矯齒對成年人同樣有效，但需要根據個人的牙齒情況和矯齒方式來決定最適合的矯正方案，因為成年人的牙齒已經發育完全，所以需要更長的時間和更專業的技術來進行矯正。'
+    },
+    {
+      Q: '矯齒是否有年齡限制？',
+      A: '矯齒沒有年齡限制，但建議在牙齒發育完全後進行矯正，一般為12歲左右。如果是成年人進行矯正，需要更多的時間和技術來達到理想的矯正效果。'
     }
   ]
 }
 
+const bpData ={
+  title: '您是否有牙齒不齊問題困擾？',
+  text: '在當今競爭激烈的社會中，個人形象已成為一種重要的競爭力。不論是在現實社會還是網絡中，個人形象都能給人留下深刻的印象，對於找工作、交朋友、學習、升職等方面都有著不可忽視的影響。牙齒不僅直接影響面容和微笑，更能夠反映一個人的健康和生活態度。所以，關注自己的形象不但是邁向成功的第一步，更是建立自信微笑的重要一步！',
+  lists: [
+    {
+      title: '咬合過深',
+      imgUrl: 'https://static.cmereye.com/imgs/2023/06/9e889b19a082e947.jpg'
+    },
+    {
+      title: '倒 及',
+      imgUrl: 'https://static.cmereye.com/imgs/2023/06/048d9aa589afe550.jpg'
+    },
+    {
+      title: '錯咬/反咬合',
+      imgUrl: 'https://static.cmereye.com/imgs/2023/06/b00ece7e972d0c6a.jpg'
+    },
+    {
+      title: '牙縫過大',
+      imgUrl: 'https://static.cmereye.com/imgs/2023/06/03d8d7e690946901.jpg'
+    },
+    {
+      title: '開 咬',
+      imgUrl: 'https://static.cmereye.com/imgs/2023/06/a47574b0e83d0c42.jpg'
+    },
+    {
+      title: '齒列擠擁',
+      imgUrl: 'https://static.cmereye.com/imgs/2023/06/65c91ee1b7b46f5d.jpg'
+    },
+    {
+      title: '前排齒列擠擁',
+      imgUrl: 'https://static.cmereye.com/imgs/2023/06/e53653134a5709f1.jpg'
+    }
+  ]
+}
+
+let bpCurrent = ref(1)
+const onSlideChange = (swiper: any) => {
+  bpCurrent.value = swiper.realIndex + 1
+}
+
+
+let aestheticsCurrent = ref(1)
+const onAestheticsSlideChange = (swiper: any) => {
+  aestheticsCurrent.value = swiper.realIndex + 1
+}
+
+const aestheticsData = {
+  title: '美學牙齒矯正',
+  lists: [
+    {
+      imgUrl: 'https://static.cmereye.com/imgs/2023/06/056cf3b645f697c6.jpg',
+      title: '隱形牙箍矯正',
+      text: '全透明全隱形，不影響美觀，並在矯正牙齒的同時矯正頜面形態，矯治過程自然舒適，收獲自信笑容！'
+    },
+    {
+      imgUrl: 'https://static.cmereye.com/imgs/2023/06/eb84d445e77694da.jpg',
+      title: '陶瓷半隱形矯正',
+      text: '使用陶瓷透明托槽和鋼絲，顏色與牙齒相似，美觀度高，不易發現。'
+    },
+    {
+      imgUrl: 'https://static.cmereye.com/imgs/2023/06/1fc83a75a1e52762.jpg',
+      title: '金屬托槽矯正',
+      text: '是矯正牙齒中價格最實惠的一種，適用性廣泛，適合各種牙齒矯正情況，是一種經濟實惠且有效的矯正方法。'
+    },
+    {
+      imgUrl: 'https://static.cmereye.com/imgs/2023/06/bef07fba3d050f64.jpg',
+      title: '舌側隱形矯正',
+      text: '在於不影響外觀，且能夠有效地矯正各種牙齒問題，包括咬合問題和牙齒排列不整齊等。'
+    }
+  ]
+}
+
+let windowWidth = ref(1920)
+
+onMounted(() => {
+  getWindowWidth()
+  window.addEventListener('resize', getWindowWidth)
+})
+
+const getWindowWidth = () => {
+  windowWidth.value = window.innerWidth
+  // console.log(windowWidth)
+}
 
 </script>
 
@@ -158,19 +253,33 @@ const problemData = {
     <div class="bp">
       <div class="dentistryServices-title">
         <div class="dentistryServices-title-in bb">
-          <span>您是否有牙齒不齊問題困擾？</span>
+          <span>{{bpData.title}}</span>
         </div>
       </div>
       <div class="bp-swiper mbBox">
-
+        <swiper
+          :slidesPerView="4"
+          class="swiper-wrapper"
+          @slideChange="onSlideChange"
+        >
+          <swiper-slide class="swiper-slide" v-for="slideItem in 4" :key="slideItem">
+            <div class="swiper-slide-in" v-for="(bpItem,bpIndex) in bpData.lists.slice(2*(slideItem-1),2*slideItem)" :key="bpIndex">
+              <div class="swiper-slide-in-title">{{bpItem.title}}</div>
+              <img :src="bpItem.imgUrl" alt="" />
+            </div>
+          </swiper-slide>
+        </swiper>
+        <div class="bp-swiper-line mbBox">
+          <PageSwiperPointLine :latestNewsNum="4" :latestNewsCurrent="bpCurrent"></PageSwiperPointLine>
+        </div>
       </div>
       <div class="bp-text">
-        在當今競爭激烈的社會中，個人形象已成為一種重要的競爭力。不論是在現實社會還是網絡中，個人形象都能給人留下深刻的印象，對於找工作、交朋友、學習、升職等方面都有著不可忽視的影響。牙齒不僅直接影響面容和微笑，更能夠反映一個人的健康和生活態度。所以，關注自己的形象不但是邁向成功的第一步，更是建立自信微笑的重要一步！
+        {{bpData.text}}
       </div>
-      <div class="bp-lists pcBox">
-        <div class="bp-lists-in" v-for="item in 7" :key="item">
-          <div class="bp-lists-in-title">前排齒列擠擁</div>
-          <img src="https://static.cmereye.com/imgs/2023/06/9e889b19a082e947.jpg" alt="" />
+      <div class="bp-lists">
+        <div class="bp-lists-in" v-for="(bpItem,bpIndex) in bpData.lists" :key="bpIndex">
+          <div class="bp-lists-in-title">{{bpItem.title}}</div>
+          <img :src="bpItem.imgUrl" alt="" />
         </div>
       </div>
     </div>
@@ -178,6 +287,32 @@ const problemData = {
     <ServiceStep :stepData="stepData" />
     <!-- 区别 -->
     <ServiceDiffer :differData="differData" />
+    <!-- 美学 -->
+    <div class="aesthetics">
+      <div class="dentistryServices-title">
+        <div class="dentistryServices-title-in bb">
+          <span>{{aestheticsData.title}}</span>
+        </div>
+      </div>
+      <div class="aesthetics-in">
+        <swiper
+          :slidesPerView="windowWidth>768 ? 4:1"
+          class="swiper-wrapper aesthetics-swiper"
+          @slideChange="onAestheticsSlideChange"
+        >
+          <swiper-slide class="swiper-slide" v-for="(aestheticsItem,aestheticsIndex) in aestheticsData.lists" :key="aestheticsIndex">
+            <div class="swiper-slide-in">
+              <img :src="aestheticsItem.imgUrl" alt="" />
+              <div class="swiper-slide-in-title">{{aestheticsItem.title}}</div>
+              <div class="swiper-slide-in-text">{{aestheticsItem.text}}</div>
+            </div>
+          </swiper-slide>
+        </swiper>
+        <div class="bp-swiper-line mbBox">
+          <PageSwiperPointLine :latestNewsNum="4" :latestNewsCurrent="aestheticsCurrent"></PageSwiperPointLine>
+        </div>
+      </div>
+    </div>
     <!-- 问题 -->
     <ServiceProblem :problemData="problemData" />
     <serviceCard />
@@ -199,6 +334,66 @@ const problemData = {
 
 .bp{
   margin-top: 176px;
+  &-swiper{
+    margin-top: 42px;
+    .swiper-slide-in{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 39.5px 83.1px;
+      box-sizing: border-box;
+      align-items: center;
+      &-title{
+        min-width: 165px;
+        height: 40px;
+        line-height: 40px;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        text-align: center;
+        color: #FFFFFF;
+        background: #FFA09E;
+        position: relative;
+        &::after{
+          content: '';
+          position: absolute;
+          bottom: -40px;
+          left: 50%;
+          transform: translateX(-50%);
+          border-top: 20px solid;
+          border-left: 8px solid;
+          border-right: 8px solid;
+          border-bottom: 20px solid;
+          border-color: #FFA09E transparent transparent transparent;
+        }
+      }
+      img{
+        width: 100%;
+        max-width: 267px;
+        margin: 36px auto 0;
+      }
+      &:last-child{
+        padding: 0 39.5px;
+      }
+    }
+    .swiper-slide{
+      padding: 0 30px;
+      height: 100%;
+      &:nth-of-type(3){
+        .swiper-slide-in{
+          padding: 0 39.5px 53.1px;
+          &:last-child{
+            padding: 0 39.5px;
+          }
+        }
+      }
+    }
+    &-line{
+      max-width: 216px;
+      margin: 53px auto 0;
+    }
+  }
   &-text{
     font-style: normal;
     font-weight: 600;
@@ -259,11 +454,101 @@ const problemData = {
   }
 }
 
+.aesthetics{
+  margin-top: 108px;
+  &-in{
+    margin-top: 40px;
+    padding: 88px 0;
+    background: linear-gradient(180deg, #FFF1F0 0%, rgba(255, 241, 240, 0) 100%);
+  }
+  &-swiper{
+    padding-bottom: 10px;
+    width: 100%;
+    max-width: 1512px;
+    margin: 0 auto;
+    .swiper-slide{
+      height: 100%;
+      padding: 0 30px;
+      &-in{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 4px 4px 6px rgba(255, 163, 158, 0.25), inset 1px -1px 0px #FFCCC7;
+        border-radius: 15px;
+        overflow: hidden;
+        background: #fff;
+        min-height: 539px;
+        img{
+          width: 100%;
+          box-sizing: border-box;
+          padding-left: 1px;
+        }
+        &-title{
+          font-style: normal;
+          font-weight: 700;
+          font-size: 28px;
+          line-height: 160%;
+          text-align: center;
+          color: #FFA09E;
+          margin-top: 40px;
+        }
+        &-text{
+          padding: 18px 34px 18px;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 160%;
+          color: #4D4D4D;
+          text-align: justify;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1100px) {
+  .bp{
+    &-text{
+      padding: 0 30px;
+    }
+    &-list{
+      &-in{
+        min-width: 50%;
+      }
+    }
+  }
+  
+}
 //md
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 768px) {
   .orthodonticsPage{
     padding: 90px 0;
   }
-  
+  .bp{
+    margin-top: 94px;
+    &-text{
+      padding: 0 30px;
+      font-weight: 500;
+      font-size: 16px;
+      margin: 47px auto 0;
+      text-align: justify;
+    }
+    &-lists{
+      display: none;
+    }
+  }
+  .aesthetics{
+    margin-top: 90px;
+    &-in{
+      margin-top: 28px;
+      padding: 0;
+      background: none;
+    }
+    &-swiper{
+      .swiper-slide{
+        
+      }
+    }
+  }
 }
 </style>

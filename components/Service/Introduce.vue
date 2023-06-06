@@ -59,7 +59,7 @@ defineProps({
               margin-top: 15%;
             }
             &.teethWhitening{
-              margin-top: 15%;
+              margin-top: 10%;
             }
             &.dentalFillings{
               margin-top: 15%;
@@ -75,7 +75,8 @@ defineProps({
               width: 409px;
             }
             &.teethWhitening{
-              margin-top: 0;
+              // margin-top: 0;
+              white-space: pre-wrap;
             }
           }
         }
