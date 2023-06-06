@@ -59,7 +59,6 @@ const stepData = {
   ]
 }
 
-
 const problemData = {
   title: '一般口腔檢查常見問題',
   lists: [
@@ -73,6 +72,37 @@ const problemData = {
     }
   ]
 }
+
+const noticeData = {
+  title: '服務包括',
+  meritLists: [
+    '口腔及牙齒檢查',
+    '檢查口腔整體健康狀況包括檢查牙齦、牙齒、口腔組織和面頜骨，以確定是否需要進行進一步的治療。為了評估牙齒和牙齦的整體健康狀況，牙醫可能會建議進行牙齒X光檢查。',
+  ],
+  shortcomingLists: [
+    '口腔 X光片',
+    '口腔X光檢查一般分為傳統口內X光和口外全景X光兩種。口內X光可以提供牙齒、骨骼和口腔組織的詳細圖像，能夠幫助牙醫檢測蛀牙、觀察牙根、檢查牙齒四周的骨骼健康、診斷牙周病以及檢查正在生長的牙齒。',
+  ],
+}
+let noticeCurrent = ref(1)
+
+//走马灯事件
+const onSlideChange = (swiper: any) => {
+  noticeCurrent.value = swiper.realIndex + 1
+}
+
+let windowWidth = ref(1920)
+
+onMounted(() => {
+  getWindowWidth()
+  window.addEventListener('resize', getWindowWidth)
+})
+
+const getWindowWidth = () => {
+  windowWidth.value = window.innerWidth
+  // console.log(windowWidth)
+}
+
 </script>
 
 
@@ -88,6 +118,47 @@ const problemData = {
     <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
     <!-- 原因 -->
     <ServiceReason :reasonData="reasonData" />
+    <!-- 服务 -->
+      <div class="notice">
+        <div class="dentistryServices-title">
+          <div class="dentistryServices-title-in bb">
+            <span>{{noticeData.title}}</span>
+          </div>
+        </div>
+        <div class="notice-in">
+          <swiper
+            :slidesPerView="windowWidth>768 ? '2': '1'"
+            class="swiper-wrapper"
+            @slideChange="onSlideChange"
+          >
+            <swiper-slide class="swiper-slide">
+              <div class="box box-left">
+                <div
+                  class="box-in"
+                  v-for="(meritItem,meritIndex) in noticeData.meritLists"
+                  :key="meritIndex"
+                >
+                  <div>{{meritItem}}</div>
+                </div>
+              </div>
+            </swiper-slide>
+            <swiper-slide class="swiper-slide">
+              <div class="box box-right">
+                <div
+                  class="box-in"
+                  v-for="(shortcomingItem,shortcomingIndex) in noticeData.shortcomingLists"
+                  :key="shortcomingIndex"
+                >
+                  <div>{{shortcomingItem}}</div>
+                </div>
+              </div>
+            </swiper-slide>
+          </swiper>
+        </div>
+        <div class="notice-line mbBox">
+          <PageSwiperPointLine :latestNewsNum="2" :latestNewsCurrent="noticeCurrent"></PageSwiperPointLine>
+        </div>
+      </div>
     <!-- 过程 -->
     <ServiceStep :stepData="stepData" />
     <!-- 问题 -->
@@ -103,12 +174,103 @@ const problemData = {
 
 
 <style lang="scss" scoped>
+.notice {
+  width: 100%;
+  max-width: 1450px;
+  margin: 153px auto 0;
+  &-in {
+    width: 90%;
+    margin: 30px auto 0;
+    .box {
+      .box-in {
+        height: 278px;
+        margin-top: 15px;
+        display: flex;
+        background: #fff1f0;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 160%;
+        color: #4d4d4d;
+        padding: 0 80px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:first-child {
+          background: #ffa09e;
+          color: #fff;
+          margin-top: 0;
+          height: 69px;
+          font-weight: 700;
+          font-size: 28px;
+        }
+        &:nth-of-type(2) {
+          margin-top: 0;
+        }
+      }
+    }
+    .box-left {
+      border-radius: 60px 0 0 60px;
+      overflow: hidden;
+    }
+    .box-right {
+      margin-left: 3px;
+      border-radius: 0 60px 60px 0;
+      overflow: hidden;
+      .box-in {
+        &:first-child {
+          background: #ffcecb;
+        }
+      }
+    }
+  }
+  &-line {
+    width: 83px;
+    margin: 22px auto;
+  }
+}
 
-
-@media (min-width: 768px) and (max-width: 1452px) {}
+@media (min-width: 768px) and (max-width: 1452px) {
+  .notice {
+    &-in {
+      .box {
+        .box-in {
+          font-size: 18px;
+          padding: 0 4vw;
+        }
+      }
+    }
+  }
+}
 
 //md
 @media only screen and (max-width: 760px) {
-
+.notice {
+    margin: 90px auto 0;
+    &-in {
+      width: 100%;
+      margin: 34px 0 0;
+      .box {
+        margin-left: 30px;
+        .box-in {
+          font-weight: 500;
+          font-size: 15px;
+          height: 240px;
+          margin-top: 9px;
+          padding: 0 46px;
+          &:first-child {
+            height: 40px;
+            font-weight: 600;
+            font-size: 20px;
+          }
+        }
+      }
+      .box-right {
+        margin-right: 30px;
+        margin-left: 0;
+      }
+    }
+  }
 }
 </style>

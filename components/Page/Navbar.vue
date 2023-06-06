@@ -208,6 +208,7 @@ let mbQDCodeBool = ref(false)
     justify-content: center;
     z-index: 9999;
     transition: all .5s;
+    display: none;
     &-icon{
       position: absolute;
       right: 30px;
@@ -336,6 +337,9 @@ let mbQDCodeBool = ref(false)
           border-right: 1px solid #fff;
         }
       }
+    }
+    .navForm{
+      display: flex;
     }
   }
 }

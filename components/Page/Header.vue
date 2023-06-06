@@ -891,6 +891,10 @@ const getWindowWidth = () => {
       left: 0;
       width: 100%;
     }
+    .headerBox02{
+      position: relative;
+      z-index: 40;
+    }
   }
   .waterBg::after{
     transform: rotate(180deg);
