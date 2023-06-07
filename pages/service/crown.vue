@@ -70,17 +70,7 @@ const foiblesData = {
       ]
     },
     {
-      title: '全鋯牙冠',
-      meritLists: [
-        '耐用度高，咬合力與金屬牙冠相近',
-        '自然，不影響美觀'
-      ],
-      shortcomingLists: [
-        '較全瓷牙冠厚，需磨掉較多牙齒'
-      ]
-    },
-    {
-      title: '金屬牙冠',
+      title: '全瓷牙冠',
       meritLists: [
         '仿真度最高，透光度高，顏色相似，自然',
         '適合用於前牙，外觀與真牙相似，不影響美觀',
@@ -184,7 +174,7 @@ const foiblesData = {
       width: 100%;
       margin: 0 auto;
       max-width: 1394px;
-      min-width: 1016px;
+      min-width: 778px;
       &-th{
         width: 150px;
         text-align: center;
@@ -251,19 +241,20 @@ const foiblesData = {
         &:last-child{
           border-radius: 0 60px 60px 0;
           overflow: hidden;
-        }
-        &:nth-of-type(2){
-          border-radius: 60px 0 0 60px;
-          overflow: hidden;
-        }
-        &:nth-of-type(odd){
           .title{
             background: #FFCECB;
           }
         }
-        &:nth-of-type(even){
+        &:nth-of-type(2){
+          border-radius: 60px 0 0 60px;
+          overflow: hidden;
           .title{
             background: #FFA09E;
+          }
+        }
+        &:nth-of-type(3){
+          .title{
+            background: #FFCECB;
           }
         }
       }

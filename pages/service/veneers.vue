@@ -173,8 +173,8 @@ const getWindowWidth = () => {
     <ServiceStep :stepData="stepData" />
     <div class="notice">
       <div class="dentistryServices-title">
-        <div class="dentistryServices-title-in">{{noticeData.title}}</div>
-        <div class="dentistryServices-title-line"></div>
+        <div class="dentistryServices-title-in bb">{{noticeData.title}}</div>
+        <!-- <div class="dentistryServices-title-line"></div> -->
       </div>
       <div class="notice-in">
         <swiper :slidesPerView="windowWidth>768 ? '2': '1'" class="swiper-wrapper" @slideChange="onSlideChange">
