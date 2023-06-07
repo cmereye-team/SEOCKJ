@@ -185,7 +185,7 @@ onMounted(() => {
           </el-form-item>
           <el-form-item>
             <!-- <el-button  id="contactUsForm" :loading="formLoading" @click="submitForm(ruleFormRef)" >提交表格</el-button> -->
-            <button :id="windowWidth>768?'contactUsForm':'navMbContactForm'" type="button" class="formBtn" @click="submitForm(ruleFormRef)">提交表格</button>
+            <button :id="windowWidth>768?'contactUsForm':'navMbContactForm'" type="button" class="formBtn" @click.stop="submitForm(ruleFormRef)">提交表格</button>
           </el-form-item>
         </el-form>
       </div>

@@ -95,6 +95,10 @@ defineProps({
       &.mediumCW{
         max-width: 663px;
       }
+      &.pediatric{
+        margin-left: -10%;
+        margin-top: 18%;
+      }
       & > div {
         font-weight: 600;
         font-size: 1.75rem;

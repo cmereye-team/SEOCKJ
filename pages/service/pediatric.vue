@@ -50,7 +50,8 @@ const reasonData = {
       context: '把握小朋友矯齒黃金期,大大提高改善牙齒排列、面部輪廓、咬字發音等問題的成功率',
     }
   ],
-  isMediumCW: true
+  isMediumCW: true,
+  pageName: 'pediatric' 
 }
 
 const noteData = {

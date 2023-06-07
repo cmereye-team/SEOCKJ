@@ -104,13 +104,13 @@ let mbQDCodeBool = ref(false)
       <div><nuxt-link id="navMbFacebook" to="https://www.facebook.com/CKJ-%E5%B8%8C%E7%91%AA%E6%84%9B%E5%BA%B7%E5%81%A5-107356075712157" target="_blank">Facebook預約</nuxt-link></div>
       <div>填寫表格</div>
     </div>
-    <div class="navForm" :style="{bottom: (appState.isShowForm ? '0' : '-100%')}">
+    <div class="navForm" :style="{bottom: (appState.isShowForm ? '0' : '-150%')}">
       <ContactForm />
       <div class="navForm-icon" @click="navFormClose">
         <img src="@/assets/images/icon_7.png" alt="">
       </div>
     </div>
-    <div class="navForm" :style="{bottom: (mbQDCodeBool ? '0' : '-100%')}">
+    <div class="navForm" :style="{bottom: (mbQDCodeBool ? '0' : '-150%')}">
       <div class="qdCode">
         <img src="https://static.cmereye.com/imgs/2023/06/c5ecb382a7e0eeb2.jpg" alt="二维码" />
       </div>

@@ -178,7 +178,7 @@ const handleProcessBtn = (_type: string) => {
             <img src="https://static.cmereye.com/imgs/2023/05/42202884c1b63259.png" alt="">
           </div>
           <div>
-            中山大學光華口腔醫學院{{`\n`}}研究生課程深圳教學基地
+            中山大學光華口腔醫學院<br class="mbBox" />研究生課程深圳教學基地
           </div>
         </div>
         <div>
@@ -429,6 +429,9 @@ const handleProcessBtn = (_type: string) => {
         text-align: center;
         color: #4C4C4C;
         white-space: pre-wrap;
+        &:last-child{
+          padding: 0 5px;
+        }
         img{
           margin: 0 auto;
         }
@@ -458,6 +461,13 @@ const handleProcessBtn = (_type: string) => {
   .tabNav {
     font-size: 1.5vw;
     margin-top: 6vw;
+  }
+  .brand{
+    &-in{
+      &>div{
+        padding: 0 3vw;
+      }
+    }
   }
 }
 
@@ -585,12 +595,18 @@ const handleProcessBtn = (_type: string) => {
       margin: 24.68px auto 0;
       padding: 0 21.5px;
       &>div{
+        width: 25%;
         padding: 0 8.5px;
         &>div{
           font-size: 12px;
           &:last-child{
             width: 200%;
-            transform: scale(.5) translateX(-50%);
+            white-space: nowrap;
+            transform: scale(.5) translate(-50%,-50%);
+            margin-top: 6px;
+          }
+          img{
+            width: 100%;
           }
         }
       }
