@@ -9,7 +9,7 @@ const app = useAppConfig() as AppConfigInput
 
 useHead({
   title: app.name,
-  titleTemplate: '%s - 愛康健',
+  titleTemplate: '%s | 希瑪愛康健',
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     {

@@ -3,7 +3,19 @@ import { useAppState } from '~/stores/appState'
 const appState = useAppState()
 appState.setDentistryService('invisalign')
 useHead({
-  title: "隱適美"
+  title: "Invisalign隱適美｜牙科服務",
+  meta: [
+   {
+      hid: 'description',
+      name: 'description',
+      content: '希瑪愛康健提供Invisalign隱適美服務，這是一種透明的配戴式牙箍，患者可以自行配戴和除下。相比傳統的牙箍，隱適美牙箍更容易清潔和適應日常飲食習慣，適合不同年齡的患者使用。它利用先進的數位科技，通過電腦模擬牙齒移動過程，制作出一系列專屬的牙箍，每個階段都有不同的適應性，利用牙箍的機械力量，推動牙齒移動至適當的位置。',
+   },
+   {
+      hid: 'Keywords',
+      name: 'Keywords',
+      content: 'Invisalign 透明牙套 隱適美 隱適美流程 隱適美價錢 時代天使價錢 Insignia價錢 Invisalign價錢 Angel aligner價錢 Insignia價格 Invisalign價格 Angel aligner價格 箍牙價錢 隱形牙箍價錢 透明牙箍價錢 箍牙推薦 隱形牙箍推薦 透明牙箍推薦 牙齒矯正 希瑪愛康健 深圳愛康健 深圳專業牙科中心 愛康健醫院 愛康健口腔醫院 深圳愛康健口腔醫院愛康健 CKJ愛康健齒科集團 深圳口腔專科醫院 愛康健齒科集團 深圳牙科醫院牙科服務內地牙科 深圳口腔專科',
+   },
+  ]
 })
 
 const orthodonticsIntroduceData = {

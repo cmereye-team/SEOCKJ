@@ -4,7 +4,19 @@ const { t } = useLang()
 const appState = useAppState()
 appState.setDentistryService('periodontal')
 useHead({
-  title: "牙周病治療"
+  title: "牙周病治療 | 牙科服務",
+  meta: [
+   {
+      hid: 'description',
+      name: 'description',
+      content: '希瑪愛康健提供牙周病治療服務，牙周病是慢性炎症，分為輕微牙齦炎和嚴重牙周炎。牙周病會導致牙齒鬆動、移位，影響外觀和口腔健康。牙周病治療可分為非手術和手術治療。非手術治療包括牙根刮治（深層洗牙），利用儀器刮除發炎組織，促進健康組織的再生，以達到牙周病治療效果。對於嚴重牙周病或牙齦厚實，則需要進行牙周手術來改善牙周病。',
+   },
+   {
+      hid: 'Keywords',
+      name: 'Keywords',
+      content: '牙周病 牙周炎 牙齦炎 牙周病治療 牙齦炎治療 牙根刮治 深層洗牙 輕微牙周病 牙菌膜 牙周手術 希瑪愛康健 深圳愛康健 深圳專業牙科中心 愛康健醫院 愛康健口腔醫院 深圳愛康健口腔醫院愛康健 CKJ愛康健齒科集團 深圳口腔專科醫院 愛康健齒科集團 深圳牙科醫院牙科服務內地牙科 深圳口腔專科',
+   },
+  ]
 })
 
 const orthodonticsIntroduceData = {

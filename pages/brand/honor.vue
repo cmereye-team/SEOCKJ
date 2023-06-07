@@ -4,7 +4,19 @@ import { Scrollbar } from 'swiper';
 const appState = useAppState()
 appState.setBrand('honor')
 useHead({
-  title: "品牌榮譽"
+  title: "品牌榮譽 | 口腔專科醫院",
+  meta: [
+   {
+      hid: 'description',
+      name: 'description',
+      content: '希瑪愛康健作為深圳愛康健口腔醫院，是一家牙科齒科品牌連鎖醫院，專注於口腔醫療，以醫療品質為核心，注重提升醫療技術水準。在口腔學術領域競賽中，我們連年斬獲大獎。我們秉承著「專科 · 專業 · 專注 · 專心」的初心，為廣大患者提供優質的牙科醫療服務。',
+   },
+   {
+      hid: 'Keywords',
+      name: 'Keywords',
+      content: '希瑪愛康健 深圳愛康健 深圳專業牙科中心 愛康健醫院 愛康健口腔醫院 深圳愛康健口腔醫院愛康健 CKJ愛康健齒科集團 深圳口腔專科醫院 愛康健齒科集團 深圳牙科醫院牙科服務內地牙科 深圳口腔專科 基本牙科 美容牙科 高階牙科 希瑪愛康健',
+   },
+  ]
 })
 
 const introduceData = {

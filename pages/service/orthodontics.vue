@@ -3,7 +3,19 @@ import { useAppState } from '~/stores/appState'
 const appState = useAppState()
 appState.setDentistryService('orthodontics')
 useHead({
-  title: "矯齒(箍牙)"
+  title: "矯齒(箍牙) | 牙科服務",
+  meta: [
+   {
+      hid: 'description',
+      name: 'description',
+      content: '希瑪愛康健提供矯齒(箍牙)服務，傳統箍牙包括金屬箍牙、陶瓷箍牙、樹脂箍牙。矯齒(箍牙)治療除了能矯正不整齊排列的牙齒，如牙齒太擠、太疏，或矯正後再次移位的情況，更能有助減低患上牙齒問題的風險。',
+   },
+   {
+      hid: 'Keywords',
+      name: 'Keywords',
+      content: '矯齒 箍牙 固定式外箍 固定式內箍 金屬箍牙 陶瓷箍牙 樹脂箍牙 傳統箍牙 矯齒價錢 箍牙價錢 希瑪愛康健 深圳愛康健 深圳專業牙科中心 愛康健醫院 愛康健口腔醫院 深圳愛康健口腔醫院愛康健 CKJ愛康健齒科集團 深圳口腔專科醫院 愛康健齒科集團 深圳牙科醫院牙科服務內地牙科 深圳口腔專科',
+   },
+  ]
 })
 
 const orthodonticsIntroduceData = {

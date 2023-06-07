@@ -3,7 +3,19 @@ import { useAppState } from '~/stores/appState'
 import {Navigation,Thumbs,FreeMode} from 'swiper';
 const appState = useAppState()
 useHead({
-  title: "聯絡我們"
+  title: "聯絡我們 | 牙科服務",
+  meta: [
+   {
+      hid: 'description',
+      name: 'description',
+      content: '希瑪愛康健為香港希瑪眼科醫療控股有限公司（股份代號：3309）旗下的牙科品牌, 各門診位於內地深圳市，包括: 雅健口腔門診部、恒樂口腔門診、深圳愛康健口腔醫院、富康口腔門診部、李川口腔診所、王琦口腔診所等牙科診所及醫院。',
+   },
+   {
+      hid: 'Keywords',
+      name: 'Keywords',
+      content: '希瑪愛康健 深圳愛康健 深圳專業牙科中心 愛康健醫院 愛康健口腔醫院 深圳愛康健口腔醫院 愛康健 CKJ愛康健齒科集團 深圳口腔專科醫院 愛康健齒科集團 深圳牙科醫院 牙科服務 內地牙科 深圳口腔專科希瑪眼科醫療控股有限公司雅健口腔門診部 恒樂口腔門診 富康口腔門診部 李川口腔診所 王琦口腔診所 恒潔口腔門診部 康輝口腔門診部 顏麗口腔診所 恒雅口腔門診部 恒美口腔門診部 沈虹口腔診所 炫雅口腔門診部',
+   },
+  ]
 })
 const handleAreaTab = (_idx: number) => {
   appState.setCurNum(_idx)

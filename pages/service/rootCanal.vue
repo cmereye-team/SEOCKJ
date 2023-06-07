@@ -3,7 +3,19 @@ import { useAppState } from '~/stores/appState'
 const appState = useAppState()
 appState.setDentistryService('rootCanal')
 useHead({
-  title: "根管治療"
+  title: "根管治療(杜牙根) | 牙科服務",
+  meta: [
+   {
+      hid: 'description',
+      name: 'description',
+      content: '希瑪愛康健提供根管治療（杜牙根）服務，用於治療嚴重蛀牙或牙根受細菌感染的情況。當蛀牙菌感染深入牙髓並引發神經發炎時，需要進行根管治療手術，以徹底清除感染部分。',
+   },
+   {
+      hid: 'Keywords',
+      name: 'Keywords',
+      content: '牙齦炎治療 根管治療 杜牙根 杜牙根價錢 希瑪愛康健 深圳愛康健 深圳專業牙科中心 愛康健醫院 愛康健口腔醫院 深圳愛康健口腔醫院愛康健 CKJ愛康健齒科集團 深圳口腔專科醫院 愛康健齒科集團 深圳牙科醫院牙科服務內地牙科 深圳口腔專科',
+   },
+  ]
 })
 
 const orthodonticsIntroduceData = {

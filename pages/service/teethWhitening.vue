@@ -4,7 +4,19 @@ import { Scrollbar } from 'swiper';
 const appState = useAppState()
 appState.setDentistryService('teethWhitening')
 useHead({
-  title: '牙齒美白',
+  title: '牙齒美白 ｜牙科服務',
+  meta: [
+   {
+      hid: 'description',
+      name: 'description',
+      content: '希瑪愛康健提供牙齒美白服務，包括激光牙齒美白及藍光美白牙齒。美白牙齒療程可以有效去除外部和內部的污漬，讓牙齒更加明亮，多年科學研究已經證明美白牙齒是安全的療程。在進行療程之前，牙醫會先檢查牙齒和口腔狀況，確定患者適合進行牙齒美白療程。',
+   },
+   {
+      hid: 'Keywords',
+      name: 'Keywords',
+      content: '美白牙齒 牙齒美白 激光牙齒美白 藍光牙齒美白 牙齒美白療程 美白牙齒服務 藍光美白牙齒 激光美白牙齒 藍光漂牙 激光漂牙 美白牙齒方法 希瑪愛康健 深圳愛康健 深圳專業牙科中心 愛康健醫院 愛康健口腔醫院 深圳愛康健口腔醫院愛康健 CKJ愛康健齒科集團 深圳口腔專科醫院 愛康健齒科集團 深圳牙科醫院牙科服務內地牙科 深圳口腔專科',
+   },
+  ]
 })
 
 const orthodonticsIntroduceData = {
