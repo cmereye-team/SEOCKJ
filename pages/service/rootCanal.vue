@@ -19,8 +19,8 @@ useHead({
 })
 
 const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2023/06/f86c232b430b77ba.png',
-  bg: 'https://static.cmereye.com/imgs/2023/06/948cba178bd51ad2.jpg',
+  img: 'https://static.cmereye.com/imgs/2023/06/b1e52372c1fc8fec.png',
+  bg: 'https://static.cmereye.com/imgs/2023/06/01d15590f9c0df29.jpg',
   mbImg: 'https://static.cmereye.com/imgs/2023/06/61ccc7a66efaf1c3.jpg',
   pageName: 'rootCanal',
   pcText: ['根管治療助您解決牙痛，恢復健康的口腔狀態','立即接受專業治療手術，徹底解放美食自由'],

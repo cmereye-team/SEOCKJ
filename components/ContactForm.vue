@@ -149,8 +149,6 @@ onMounted(() => {
           :rules="rules"
           label-width="120px"
           label-position="top"
-          action="https://send.pageclip.co/oLDloEgenkRMGb9ZYDIO4wlarrwjxsBu/CKJ"
-          method="post"
         >
           <div class="firstFormItem">
             <el-col :span="windowWidth>768 ? 12:24">
@@ -186,8 +184,8 @@ onMounted(() => {
             </el-select>
           </el-form-item>
           <el-form-item>
-            <el-button  id="contactUsForm" :loading="formLoading" @click="submitForm(ruleFormRef)" >提交表格</el-button>
-            <!-- <button type="submit">提交表格</button> -->
+            <!-- <el-button  id="contactUsForm" :loading="formLoading" @click="submitForm(ruleFormRef)" >提交表格</el-button> -->
+            <button :id="windowWidth>768?'contactUsForm':'navMbContactForm'" type="button" class="formBtn" @click="submitForm(ruleFormRef)">提交表格</button>
           </el-form-item>
         </el-form>
       </div>
@@ -315,6 +313,26 @@ onMounted(() => {
       color: #ffa09e;
       background-color: transparent;
       border-color: #cbcbcb;
+      &:hover {
+        color: #fff;
+        background-color: #ffa09e;
+      }
+      &:active {
+        color: #fff;
+        background-color: #ffa09e;
+      }
+    }
+    .formBtn{
+      font-family: 'Noto Serif HK';
+      margin: 52px auto 0;
+      width: 350px;
+      height: 60px;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 160%;
+      color: #ffa09e;
+      background-color: transparent;
+      border: 1px solid #CBCBCB;
       &:hover {
         color: #fff;
         background-color: #ffa09e;
@@ -475,6 +493,12 @@ onMounted(() => {
         font-size: 16px;
       }
       :deep(.el-button) {
+        width: 137px;
+        height: 40px;
+        font-size: 16px;
+        margin: 30px auto 0;
+      }
+      .formBtn{
         width: 137px;
         height: 40px;
         font-size: 16px;

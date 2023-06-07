@@ -42,11 +42,11 @@ let mbQDCodeBool = ref(false)
       </div>
       <img src="@/assets/images/navIcon_1.png" alt="" />
     </div>
-    <div class="navbar-content-in" id="navPcWhatsapp">
-      <nuxt-link id="navPcWhatsapp" :to="'https://api.whatsapp.com/send/?phone=85269122011'" target="_blank">
-        <img src="@/assets/images/navIcon_2.png" alt="" />
+    <!-- <div class="navbar-content-in"> -->
+      <nuxt-link class="navbar-content-in" id="navPcWhatsapp" :to="'https://api.whatsapp.com/send/?phone=85269122011'" target="_blank">
+        <!-- <img src="@/assets/images/navIcon_2.png" alt="" /> -->
       </nuxt-link>
-    </div>
+    <!-- </div> -->
     <div class="navbar-content-in" id="navPcWeChat">
       <div class="navbarBox">
         <div class="navbarBox-in">
@@ -55,11 +55,11 @@ let mbQDCodeBool = ref(false)
       </div>
       <img src="@/assets/images/navIcon_3.png" alt="" />
     </div>
-    <div class="navbar-content-in">
-      <nuxt-link id="navPcFaceBook" to="https://www.facebook.com/CKJ-%E5%B8%8C%E7%91%AA%E6%84%9B%E5%BA%B7%E5%81%A5-107356075712157" target="_blank">
-        <img src="@/assets/images/navIcon_6.png" alt="" />
+    <!-- <div class="navbar-content-in"> -->
+      <nuxt-link class="navbar-content-in" id="navPcFaceBook" to="https://www.facebook.com/CKJ-%E5%B8%8C%E7%91%AA%E6%84%9B%E5%BA%B7%E5%81%A5-107356075712157" target="_blank">
+        <!-- <img src="@/assets/images/navIcon_6.png" alt="" /> -->
       </nuxt-link>
-    </div>
+    <!-- </div> -->
     <div class="navbar-content-in" id="navPcContactForm" @click="toContactUs">
       <img src="@/assets/images/navIcon_5.png" alt="" />
     </div>
@@ -101,7 +101,7 @@ let mbQDCodeBool = ref(false)
       <div @click="handleNavFormNav">填寫表格</div>
     </div>
     <div class="navbar-content-mb" v-if="false">
-      <div><nuxt-link to="https://www.facebook.com/CKJ-%E5%B8%8C%E7%91%AA%E6%84%9B%E5%BA%B7%E5%81%A5-107356075712157" target="_blank">Facebook預約</nuxt-link></div>
+      <div><nuxt-link id="navMbFacebook" to="https://www.facebook.com/CKJ-%E5%B8%8C%E7%91%AA%E6%84%9B%E5%BA%B7%E5%81%A5-107356075712157" target="_blank">Facebook預約</nuxt-link></div>
       <div>填寫表格</div>
     </div>
     <div class="navForm" :style="{bottom: (appState.isShowForm ? '0' : '-100%')}">
@@ -187,17 +187,24 @@ let mbQDCodeBool = ref(false)
       width: 40px;
     }
     &:nth-of-type(4){
-      img{
-        width: 100%;
-      }
-        
-      }
+      // img{
+      //   width: 100%;
+      // }
+    }
     &:hover{
       background: #FFA09E;
       .navbarBox{
         display: flex;
       }
     }
+  }
+  #navPcWhatsapp{
+    background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAApCAYAAABDV7v1AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMOSURBVHgBvViBdZswED28QOkEpRPEG4Ru4A3KBnUniDuB3QlIJ3AyAc4EpBNAJrA3+JWKaPBxQhIW/e9dYuD0+UinO0kJ3QgAufq3VnanLGOPL8paZS/KXpMkael/QotTVio7Iwy1skJZRkvCCKwQB2V0wYowVXZEfDTKCh8NiYdIHX9HGsdfjxOZGDQ2hG6zNnY/wXFQ8fud5kKJ/GrpCR2bO93TgXyF6UUJdSifS+RhFqGf4DCxergtvbihSFBcmRHGUYUQNKyxvs5oASjeR0Hs1qdhKfRkRgvCInY91UAa8oIWBrr018A3BDBO5qXF75shrmP1NrpiwpFLjrw3G0mEETlETZGALqNM9yrGsbkXfKQhkr98ntBU4E65ExeQCUQbyPBLKX5iK8b9NwOszEM9w7KB/8myJLMlY/sMDccvdp3rPytzkbGHLxSGluLhiV3f/fuFrm47Y84SQ8BUzpsBIQxTW49eJAIVDvr+id1+VvdfKS5adv2hF/qJPTiTHXw5do8bFykC3tj15xUFwvTez8EtLfJIC6MX+kZh2NH18Oiq8kDxwEf40gvlMfmRJmBi9QtrpyfkXgoDdNWsgv8+iXO0PdFWSrIuoCu7fCfaDLMGukUyx97BO8SZv3CIkjxhEQvTg1vYtx6VhS+f9GMv07+9ZzLkxbYLjYWrZH5b7vA46eAWq4vBIUCobQnZML+MO+Q+X+whOIO8Yh9C3MRhHM+17SV8sxXUq4Jg/eIK72HVwLLNhhw+hY2cz/5oyzcXMI7NqxHllYnn09BV1CygKxYFu/1jqgE/X8ppYUA+6ChdjZqB85kWBsb7rz6O06lGPOk/WXxyuhGwnw5qkZmrMZ9IhSHU/0tcF4QSM7bJhu8BciVrvDgx3lT5nCZX5gPXDnEbTJ9QO88HkgEh6Db05/V95kiNZY52em27MyuyaUA+pYDQwzXCa7oNFULjHfYarcl0JdEfkhrfvuI0CMd5lkAyQ4+upuo4a5U9U7eBO7mGA11s5vR+7K1tmFpaY799OcnxwgLxN2hR8QcQhR8UBge3jgAAAABJRU5ErkJggg==);
+    background-repeat: no-repeat;
+    background-position: 50%;
+  }
+  #navPcFaceBook{
+    background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEIAAABCCAYAAADjVADoAAADZUlEQVR4nO1cvY7UMBD+7ARO+wwcBR3vsCAk3oWOp6E9CjrEE9DRLDQU1NchxFHR0cCuEhvNJrnksvlxkvHEe8knrXS3yXnGX+z58+SUtRYSsMZECohhTIo4TjpFJkkMrR9A4QCrDLRiVVIpdfqdNyKMIWkPofWeabwLKJVAqXTqUDJEkMJck/cko4kIPVWnW5j0IhvRMwlVGYVMjiEnj0BP5zhS5J+AOgqZhQ4TMH5rkA3QWsbSusKaCEr32hC+rWHMJjgSCETCyNUh5j5Dgl9jeeZYicixEpFjJSLHSkSOdiLIRUojScicvwZwA2Cff2zlQ7/vAFwd70uTeJCGHXNqdp/WRhzJjTOy3OHPMUkbhs8Ang+UpVQUnUy6eUVIkkBPWOt/FRIOXqW1BIKnS0sieyyxb1gFQ1cFC05XhBwJu7km3YS7RDCmtT3YAngmJMsJd4mQS6U/dVzzayNaUBIh5S7TdNOzJarXDlLElMZS678SAhFFbwbcXSfla+36Byat8jhCtshCwdIjx3tp8i8BfOFUoL14K+syq4QfGrZJ9btTjRnQXo+QI6GOJltRfPdWUpE5KlRuAo15DK1vfCjQvDUMFTxFQ2pX5r1sC7RuDWuDie7mhKYa+HKnX0LD2FkiudAQrrEUtxErViKqGFbz64M1l1D6fcddTwaMtuu9I0leII5ZjD23jdjmdUQpjLIj52gjujwaq7cLhYi2SXUFe785FdCC5TlufOQcT3t010MwJsx/x6nA+brPNP3GOZyesRZRYJzRiyLW0mIIKyKI7DcLqOgwNerphnWBNT+gdF8cUT/PaCrXEX4B+J7/fA3gaeXa9WRdayhqlhuxKrZb0kXkePNmsi3I7Qg8+xzaa3DPUBLh0Ki5DCLogCdJFpuW1w6BA+ymFcIpEQtdFavXyNH89K299KVEqGhfEbRFmMpgNQS5ItatkaPbMNKLIAtBNxHZiyDyHbgzoN9VUjK2ADLcYoYFkOEePGVknE+hd+CDu59eo6c5jveAx5jwgq4iPRiRM01bEdR2pAen735WhKV3x90K0fxHfiUJ20njTEMm25GE1qkwKVM0hEoSUshiaUblTrkLpa682BCyAdm/YwB3N66v2sMraP3z9h0symbH1Dnob7JMmHol9sck0EfxCMB/rO8wK3pvGxAAAAAASUVORK5CYII=);
   }
   &-mb{
     display: none;

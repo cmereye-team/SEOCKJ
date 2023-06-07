@@ -19,8 +19,8 @@ useHead({
 })
 
 const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2023/06/5b601411d7775c30.png',
-  bg: 'https://static.cmereye.com/imgs/2023/06/1f2efa633fda6c65.jpg',
+  img: 'https://static.cmereye.com/imgs/2023/06/67f203a9b4c651be.png',
+  bg: 'https://static.cmereye.com/imgs/2023/06/4a26475cb4471cee.jpg',
   mbImg: 'https://static.cmereye.com/imgs/2023/06/671098dc7b098348.jpg',
   pageName: 'pediatric',
   pcText: ['關注口腔健康，從定期檢查開始','立即預約檢查，展開護牙行動'],

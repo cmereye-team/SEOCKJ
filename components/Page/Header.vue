@@ -435,11 +435,11 @@ const getScrollHeight = () => {
           float: right;
           margin-right: calc((100% - 1600px)/2);
         }
-        &.rootCanal,&.dentalTrays,&.oralCheck{
+        &.dentalTrays,&.oralCheck{
           float: right;
           margin-right: calc((100% - 1700px)/2);
         }
-        &.invisalign,&.veneers,&.extraction,&.periodontal,&.teethWhitening,&.scalingTeeth,&.pediatric{
+        &.rootCanal,&.invisalign,&.veneers,&.extraction,&.periodontal,&.teethWhitening,&.scalingTeeth,&.pediatric{
           float: right;
           margin-right: calc((100% - 1920px)/2);
         }
