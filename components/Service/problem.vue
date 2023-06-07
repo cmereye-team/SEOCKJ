@@ -69,6 +69,7 @@ const activeNames = ref(0)
         font-weight: 700;
         font-size: 28px;
         color: #505050;
+        max-width: calc(100% - 70px);
       }
       &>div:nth-of-type(3){
         margin-right: 32px;
@@ -113,6 +114,9 @@ const activeNames = ref(0)
   background: #FFF1F0;
   border: none;
   box-sizing: initial;
+  line-height: 160%;
+  height: auto;
+  min-height: 45px;
 }
 :deep(.el-collapse-item__header.is-active){
   background: #FFA09E;
@@ -159,7 +163,8 @@ const activeNames = ref(0)
     }
   }
   :deep(.el-collapse-item__header){
-    height: 43px;
+    // height: 43px;
+    min-height: 43px;
     box-sizing: border-box;
   }
 }
