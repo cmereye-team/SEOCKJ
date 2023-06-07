@@ -71,6 +71,10 @@ onMounted(() => {
   // })
 });
 
+// watch(()=>{
+
+// })
+
 //医生模块轮播图事件
 let doctorTeamCurrent = ref(1)
 const onSlideDoctorTeamSwiperChange = (swiper:any) => {
@@ -191,20 +195,25 @@ svg:hover path{
   }
   &-c{
     margin-top: 45px;
-    box-shadow: 2px 0px 8px rgba(255, 163, 158, 0.25);
+    // box-shadow: 2px 0px 8px rgba(255, 163, 158, 0.25);
     .doctorTeamPage{
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
+      padding: 10px;
       .doctorItem{
         cursor: pointer;
         flex: 1;
         min-width: 16.55%;
         max-width: 16.7%;
-        mix-blend-mode: multiply;
-        box-shadow: inset -1px -1px 0px #FFA39E;
+        // mix-blend-mode: multiply;
+        // box-shadow: inset -1px -1px 0px #FFA39E;
+        border-right: 1px solid;
+        border-bottom: 1px solid;
+        border-color: #FFA39E;
         transition: all .5s;
         overflow: hidden;
+        box-shadow: 2px -2px 8px rgba(255, 163, 158, 0.25);
         img{
           width: calc(100% - 1px);
           height: calc(100% - 1px);

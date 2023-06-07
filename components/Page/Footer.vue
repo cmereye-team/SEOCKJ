@@ -190,7 +190,7 @@ const navLists = [
 }
 @media screen and (max-width: 768px) {
   .footer-content {
-    padding: 50px 30px 120px;
+    padding: 50px 30px 170px;
     &-nav {
       flex-direction: column;
       text-align: center;

@@ -86,7 +86,7 @@ const setThumbsSwiper = (swiper:any) => {
   thumbsSwiper.value = swiper;
 }
 
-let windowWidth = ref(1920)
+let windowWidth = ref(390)
 
 const getWindowWidth = () => {
   windowWidth.value = window.innerWidth
@@ -131,7 +131,8 @@ onMounted(() => {
           </div>
         </div> -->
         <div class="environment-in pageCon">
-          <swiper class="environmentSwiperBox" slidesPerView="auto" :centeredSlides="windowWidth<768" :loop="true" :thumbs="{ swiper: thumbsSwiper }" :modules="[Thumbs,FreeMode]">
+          <!-- slidesPerView="auto" :centeredSlides="windowWidth<768" -->
+          <swiper class="environmentSwiperBox" :loop="true" :thumbs="{ swiper: thumbsSwiper }" :modules="[Thumbs,FreeMode]">
             <swiper-slide class="environmentSwiperBox-slide" v-for="(imgItem,imgIndex) in environmentLists02" :key="imgIndex">
                 <img :src="imgItem" />
             </swiper-slide>
@@ -139,10 +140,11 @@ onMounted(() => {
           <swiper
             @swiper="setThumbsSwiper"
             :spaceBetween="30"
-            :slidesPerView="4"
+            :slidesPerView="windowWidth>768 ? 4 : 'auto'"
+            :centeredSlides="windowWidth<768"
             :freeMode="true"
             :loop="true"
-            :navigation="true"
+            :navigation="windowWidth>768"
             :modules="[Navigation,Thumbs,FreeMode]"
             class="mySwiper"
           >
@@ -300,13 +302,26 @@ onMounted(() => {
             width: auto;
             padding: 15px;
             img{
-              max-width: 200px;
+              max-width: calc(100% - 60px);
               margin: 0 auto;
             }
           }
         }
         .mySwiper{
-          display: none;
+          // display: none;
+          margin: 10px auto;
+          // padding-left: 30px;
+          // padding-right: 15px;
+          padding: 0;
+          &-slide{
+            width: auto;
+            padding: 0;
+            // padding-right: 15px;
+            img{
+              max-width: 200px;
+              margin: 0 auto;
+            }
+          }
         }
       }
       

@@ -191,7 +191,7 @@ const processData = {
             textIn: ''
           },
           {
-            title: 'Step 5',
+            title: 'Step 6',
             text: '咬緊棉花或紗布止血',
             textIn: ''
           },

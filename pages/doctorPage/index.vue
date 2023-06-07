@@ -32,10 +32,21 @@ const doctorPageSwiperChange = (_idx: number) => {
   
 }
 const goAnchor = (_hash: any)=>{
-  console.log('_hash',_hash)
+  // console.log('_hash',_hash)
   const a = document.querySelector(_hash)
-  console.log('a',a)
-  if(a) a.scrollIntoView()
+  // console.log('a', a.offsetTop+300)
+  let top = a.offsetTop-400
+  // if(a) a.scrollIntoView()
+  if(a){
+    let b = 0
+    const timeTop = setInterval(() => {
+      document.body.scrollTop = document.documentElement.scrollTop = b += 50;
+      if (b >= top) {
+          clearInterval(timeTop);
+      }
+  }, 10);
+  }
+  
 }
 
 onMounted(()=>{
