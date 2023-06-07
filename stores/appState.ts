@@ -20,7 +20,9 @@ export const useAppState = defineStore('appData', {
   }),
   actions: {
     setCurNum(curNum: number){
+      // if(this.areaTabCurNum === curNum) return
       this.areaTabCurNum = curNum
+      
     },
     setDentistryService(serviceName: string){
       this.dentistryService = serviceName

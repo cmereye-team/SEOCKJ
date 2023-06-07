@@ -56,6 +56,12 @@ const submitForm = async (formEl: FormInstance | undefined) => {
   await formEl.validate((valid: any, fields:any) => {
     if (valid) {
       // console.log('submit!')
+      if(localStorage.getItem('contactForm') && localStorage.getItem('contactForm') === JSON.stringify(form)){
+        ElMessageBox.alert('If you have any questions or inquiries, please contact us via WhatsApp: +(如果您有任何问题或疑问，请通过WhatsApp与我们联系：+)', '消息通知', {
+          confirmButtonText: '好的',
+        })
+        return
+      }
       onSubmit()
     } else {
       // console.log('error submit!', fields)
@@ -92,8 +98,9 @@ const onSubmit = async () => {
         showClose: true,
         message: res.data,
         type: 'success',
-        // duration: 0
+        duration: 0
       })
+      localStorage.setItem('contactForm',JSON.stringify(_form))
       // ElMessageBox.alert(res.data, '消息通知', {
       //   confirmButtonText: '好的',
       // })

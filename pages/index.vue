@@ -81,6 +81,19 @@ const onSlideDoctorTeamSwiperChange = (swiper:any) => {
   doctorTeamCurrent.value = swiper.realIndex + 1
 }
 
+// watch(
+//   appState,
+//   (newValue, oldValue) => {
+//     console.log(newValue, oldValue);
+//     console.log(newValue.areaTabCurNum, oldValue.areaTabCurNum);
+//     if(newValue.areaTabCurNum !== oldValue.areaTabCurNum){
+//       doctorTeamCurrent.value = 1
+//     }
+//   },
+//   {
+//     deep: false,
+//   }
+// );
 // const async posts = ({ $content }) => {
 //     const posts = await $content("blog").fetch();
 
