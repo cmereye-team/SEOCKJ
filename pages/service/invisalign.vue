@@ -18,6 +18,15 @@ useHead({
   ]
 })
 
+const headerConfig = {
+  img: 'https://static.cmereye.com/imgs/2023/06/d7eb727cb5e0a48a.png',
+  bg: 'https://static.cmereye.com/imgs/2023/06/6f363ef134d0612a.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2023/06/890ea6177889138c.jpg',
+  pageName: 'invisalign',
+  pcText: ['自由．舒適．美觀','保持自然笑容 牙齒更加美麗動人'],
+  mbText: ['保持自然笑容','牙齒更加美麗動人']
+}
+
 const orthodonticsIntroduceData = {
   title: 'Invisalign 隱適美',
   content: '隱適美是一種透明配戴式牙箍，可自行配戴及除下。相比傳統箍牙，隱適美牙箍更方便清潔牙齒及日常飲食習慣，適合不同年齡人士。其原理是透過先進數位科技，以電腦模擬牙齒移動過程，再按每個移動過程製作出一系列階段的專屬牙箍，利用牙箍的機械性力量令牙齒周圍組織產生移動，繼而將牙齒推向適當位置。',
@@ -117,11 +126,7 @@ const problemData = {
 
 <template>
 <div>
-  <PageHeader
-    :mbBg="'https://static.cmereye.com/imgs/2023/06/890ea6177889138c.jpg'"
-    :headerImg="'https://static.cmereye.com/imgs/2023/06/d7eb727cb5e0a48a.png'"
-    :headerBgImg="'https://static.cmereye.com/imgs/2023/06/6f363ef134d0612a.jpg'"
-    :titlePosition="'left'" />
+  <PageHeader :headerConfig="headerConfig" />
   <div class="pageIn whitebgColor">
     <div class="index_title pageCon">牙科服務</div>
     <!-- 介绍 -->

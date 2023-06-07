@@ -18,6 +18,15 @@ useHead({
   ]
 })
 
+const headerConfig = {
+  img: 'https://static.cmereye.com/imgs/2023/06/baaf111867247a7f.png',
+  bg: 'https://static.cmereye.com/imgs/2023/06/2c162ddf8e5bfcd7.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2023/06/09a561c09c1a9e12.jpg',
+  pageName: 'dentalImplant',
+  pcText: ['享受失而復得的喜悅','重拾完整人生之旅'],
+  mbText: ['享受失而復得的喜悅','重拾完整人生之旅']
+}
+
 const introduceData = {
   title: '種植牙',
   content: '利用鈦金屬等物料製作成植體，然後植入進行牙槽骨當中，代替牙根以作支撐，然後在上面植入假牙、牙橋或假牙托來填補空缺的牙齒。隨着醫療技術的進步，現在不僅有傳統的植牙方式，還有微創植牙。',
@@ -260,12 +269,7 @@ const getWindowWidth = () => {
 <template>
   <div>
   <!-- <div class="bigPageCon"> -->
-    <PageHeader
-     :mbBg="'https://static.cmereye.com/imgs/2023/06/09a561c09c1a9e12.jpg'"
-     :headerImg="'https://static.cmereye.com/imgs/2023/06/baaf111867247a7f.png'"
-     :headerBgImg="'https://static.cmereye.com/imgs/2023/06/2c162ddf8e5bfcd7.jpg'"
-     :titlePosition="'left'"
-    />
+    <PageHeader :headerConfig="headerConfig"/>
     <div class="dentistryServices">
       <div class="index_title pageCon">牙科服務</div>
       <!-- 介绍 -->

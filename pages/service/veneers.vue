@@ -18,6 +18,15 @@ useHead({
   ]
 })
 
+const headerConfig = {
+  img: 'https://static.cmereye.com/imgs/2023/06/08c3c37fae7cce23.png',
+  bg: 'https://static.cmereye.com/imgs/2023/06/d22dc37028a9e513.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2023/06/473d12422a9fb1c8.jpg',
+  pageName: 'veneers',
+  pcText: ['自訂零死角潔白微笑線','展現自信微笑'],
+  mbText: ['自訂零死角潔白微笑線','展現自信微笑']
+}
+
 const orthodonticsIntroduceData = {
   // title: '美容牙科',
   title: '瓷貼片',
@@ -153,11 +162,7 @@ const getWindowWidth = () => {
 
 <template>
 <div>
-  <PageHeader 
-    :mbBg="'https://static.cmereye.com/imgs/2023/06/473d12422a9fb1c8.jpg'"
-    :headerImg="'https://static.cmereye.com/imgs/2023/06/08c3c37fae7cce23.png'"
-    :headerBgImg="'https://static.cmereye.com/imgs/2023/06/d22dc37028a9e513.jpg'"
-    :titlePosition="'left'" />
+  <PageHeader :headerConfig="headerConfig" />
   <div class="pageIn whitebgColor">
     <div class="index_title pageCon">牙科服務</div>
     <!-- 介绍 -->

@@ -18,6 +18,15 @@ useHead({
   ]
 })
 
+const headerConfig = {
+  img: 'https://static.cmereye.com/imgs/2023/06/5b601411d7775c30.png',
+  bg: 'https://static.cmereye.com/imgs/2023/06/1f2efa633fda6c65.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2023/06/671098dc7b098348.jpg',
+  pageName: 'pediatric',
+  pcText: ['關注口腔健康，從定期檢查開始','立即預約檢查，展開護牙行動'],
+  mbText: ['關注口腔健康','從定期檢查開始']
+}
+
 const orthodonticsIntroduceData = {
   title: '兒童牙科',
   content: '除了身體健康，小朋友的口腔健康同樣重要，家長可定期找合資格牙醫為孩子進行牙科檢查及諮詢。',
@@ -131,11 +140,7 @@ const handleSkillTab = (_idx:number) => {
 
 <template>
 <div>
-  <PageHeader
-    :mbBg="'https://static.cmereye.com/imgs/2023/06/671098dc7b098348.jpg'"
-    :headerImg="'https://static.cmereye.com/imgs/2023/06/5b601411d7775c30.png'"
-    :headerBgImg="'https://static.cmereye.com/imgs/2023/06/1f2efa633fda6c65.jpg'"
-    :titlePosition="'left'" />
+  <PageHeader :headerConfig="headerConfig" />
   <div class="pageIn whitebgColor">
     <div class="index_title pageCon">牙科服務</div>
     <!-- 介绍 -->

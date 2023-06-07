@@ -18,6 +18,15 @@ useHead({
   ]
 })
 
+const headerConfig = {
+  img: 'https://static.cmereye.com/imgs/2023/06/f86c232b430b77ba.png',
+  bg: 'https://static.cmereye.com/imgs/2023/06/948cba178bd51ad2.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2023/06/61ccc7a66efaf1c3.jpg',
+  pageName: 'rootCanal',
+  pcText: ['根管治療助您解決牙痛，恢復健康的口腔狀態','立即接受專業治療手術，徹底解放美食自由'],
+  mbText: ['根管治療助您解決牙痛','恢復健康的口腔狀態']
+}
+
 const orthodonticsIntroduceData = {
   title: '根管治療',
   content: '根管治療是治療嚴重蛀牙或牙根受細菌感染的手術，當蛀牙菌的感染深入牙髓，以致牙齒內的神經發炎，便需要以杜牙根手術徹底清除感染的部分。',
@@ -238,12 +247,7 @@ const processData = {
 
 <template>
 <div>
-  <PageHeader
-    :mbBg="'https://static.cmereye.com/imgs/2023/06/61ccc7a66efaf1c3.jpg'"
-    :headerImg="'https://static.cmereye.com/imgs/2023/06/f86c232b430b77ba.png'"
-    :headerBgImg="'https://static.cmereye.com/imgs/2023/06/948cba178bd51ad2.jpg'"
-    :titlePosition="'left'"
-  /> 
+  <PageHeader :headerConfig="headerConfig" /> 
   <div class="pageIn whitebgColor">
     <div class="index_title pageCon">牙科服務</div>
     <!-- 介绍 -->

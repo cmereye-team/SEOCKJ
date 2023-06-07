@@ -18,6 +18,15 @@ useHead({
   ]
 })
 
+const headerConfig = {
+  img: 'https://static.cmereye.com/imgs/2023/06/84d8cb1804ceccde.png',
+  bg: 'https://static.cmereye.com/imgs/2023/06/2baa49a13d587aa6.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2023/06/dc5a79b64bbddc8c.jpg',
+  pageName: 'dentalFillings',
+  pcText: ['高質量的修復效果','緊急救援您珍貴的牙齒'],
+  mbText: ['高質量的修復效果','緊急救援您珍貴的牙齒']
+}
+
 const orthodonticsIntroduceData = {
   title: '補牙',
   content: '',
@@ -155,11 +164,7 @@ const problemData = {
 
 <template>
   <div>
-    <PageHeader
-      :mbBg="'https://static.cmereye.com/imgs/2023/06/dc5a79b64bbddc8c.jpg'"
-      :headerImg="'https://static.cmereye.com/imgs/2023/06/84d8cb1804ceccde.png'"
-      :headerBgImg="'https://static.cmereye.com/imgs/2023/06/2baa49a13d587aa6.jpg'"
-      :titlePosition="'left'" />
+    <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor">
       <div class="index_title pageCon">牙科服務</div>
       <!-- 介绍 -->

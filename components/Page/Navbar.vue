@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { useAppState } from '~/stores/appState'
+const appState = useAppState()
 const navbarLists = []
 let navLiBoxBool = ref(false)
 const toPageTop = () =>{
@@ -14,12 +16,14 @@ const toPageTop = () =>{
 }
 let navFormBool = ref(false)
 const handleNavFormNav = () =>{
-  navFormBool.value = true
+  // navFormBool.value = true
+  appState.setIsShowForm(true)
   navLiBoxBool.value = false
 }
-const handleClose = ()=>{
-  navFormBool.value = false
+const navFormClose = () =>{
+  appState.setIsShowForm(false)
 }
+
 const toContactUs = () =>{
   window.location.href = '/contactUs#contactUsFormNav'
 }
@@ -29,7 +33,7 @@ let mbQDCodeBool = ref(false)
 </script>
 
 <template>
-  <div class="navbar-content" :style="{'z-index': navFormBool ? 100 : 50}">
+  <div class="navbar-content" :style="{'z-index': appState.isShowForm ? 100 : 50}">
     <div class="navbar-content-in" id="navPcTel">
       <div class="navbarBox">
         <div class="navbarBox-in">
@@ -39,7 +43,9 @@ let mbQDCodeBool = ref(false)
       <img src="@/assets/images/navIcon_1.png" alt="" />
     </div>
     <div class="navbar-content-in" id="navPcWhatsapp">
-      <img src="@/assets/images/navIcon_2.png" alt="" />
+      <nuxt-link id="navPcWhatsapp" :to="'https://api.whatsapp.com/send/?phone=85269122011'" target="_blank">
+        <img src="@/assets/images/navIcon_2.png" alt="" />
+      </nuxt-link>
     </div>
     <div class="navbar-content-in" id="navPcWeChat">
       <div class="navbarBox">
@@ -86,19 +92,21 @@ let mbQDCodeBool = ref(false)
     </div>
     <div class="navbar-content-mb02">
       <div id="navMbWeChat" @click="mbQDCodeBool = true">WeChat</div>
-      <div id="navMbWhatsapp">Whatsapp</div>
+      <div>
+        <nuxt-link id="navMbWhatsapp" :to="'https://api.whatsapp.com/send/?phone=85269122011'" target="_blank">Whatsapp</nuxt-link>
+      </div>
     </div>
     <div class="navbar-content-mb">
-      <div id="navMbFacebook"><nuxt-link to="https://www.facebook.com/CKJ-%E5%B8%8C%E7%91%AA%E6%84%9B%E5%BA%B7%E5%81%A5-107356075712157" target="_blank">Facebook預約</nuxt-link></div>
+      <div><nuxt-link id="navMbFacebook" to="https://www.facebook.com/CKJ-%E5%B8%8C%E7%91%AA%E6%84%9B%E5%BA%B7%E5%81%A5-107356075712157" target="_blank">Facebook預約</nuxt-link></div>
       <div @click="handleNavFormNav">填寫表格</div>
     </div>
     <div class="navbar-content-mb" v-if="false">
       <div><nuxt-link to="https://www.facebook.com/CKJ-%E5%B8%8C%E7%91%AA%E6%84%9B%E5%BA%B7%E5%81%A5-107356075712157" target="_blank">Facebook預約</nuxt-link></div>
       <div>填寫表格</div>
     </div>
-    <div class="navForm" :style="{bottom: (navFormBool ? '0' : '-100%')}">
+    <div class="navForm" :style="{bottom: (appState.isShowForm ? '0' : '-100%')}">
       <ContactForm />
-      <div class="navForm-icon" @click="navFormBool = false">
+      <div class="navForm-icon" @click="navFormClose">
         <img src="@/assets/images/icon_7.png" alt="">
       </div>
     </div>

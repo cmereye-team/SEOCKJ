@@ -19,6 +19,15 @@ useHead({
   ]
 })
 
+const headerConfig = {
+  img: 'https://static.cmereye.com/imgs/2023/06/a0628e13323a0a23.png',
+  bg: 'https://static.cmereye.com/imgs/2023/06/af082f3968e5712e.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2023/06/a2926036660c1155.jpg',
+  pageName: 'periodontal',
+  pcText: ['健康牙齒，從牙周病治療開始','保持清新口氣、牙肉年輕'],
+  mbText: ['健康牙齒','從牙周病治療開始']
+}
+
 const orthodonticsIntroduceData = {
   title: '牙周病治療',
   content: '牙周病屬慢性炎症，分為輕微的牙齦炎及嚴重的牙周炎兩種。會令牙齒鬆脫、移位，影響外貌及口腔健康。',
@@ -241,11 +250,7 @@ const problemData = {
 
 <template>
 <div>
-  <PageHeader
-    :mbBg="'https://static.cmereye.com/imgs/2023/06/a2926036660c1155.jpg'"
-    :headerImg="'https://static.cmereye.com/imgs/2023/06/a0628e13323a0a23.png'"
-    :headerBgImg="'https://static.cmereye.com/imgs/2023/06/af082f3968e5712e.jpg'"
-    :titlePosition="'left'" />
+  <PageHeader :headerConfig="headerConfig" />
   <div class="pageIn whitebgColor">
     <!-- <LanguageSwitcher /> -->
     <div class="index_title pageCon">牙科服務</div>

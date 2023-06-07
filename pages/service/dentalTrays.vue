@@ -19,6 +19,15 @@ useHead({
   ]
 })
 
+const headerConfig = {
+  img: 'https://static.cmereye.com/imgs/2023/06/d957a86773cda5a8.png',
+  bg: 'https://static.cmereye.com/imgs/2023/06/ac0953834f7561e4.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2023/06/5659637e703a6559.jpg',
+  pageName: 'dentalTrays',
+  pcText: ['回歸自然微笑，恢復咀嚼功能','牙齒更加整齊、美觀、自信、舒適'],
+  mbText: ['回歸自然微笑','恢復咀嚼功能']
+}
+
 const orthodonticsIntroduceData = {
   title: '牙托',
   content: '牙托即活動式假牙，分為局部及全口牙托兩種，可改善缺牙的影響。牙托底部有金屬鉤讓牙托能固定在真牙上，代替缺去的牙齒。活動式假牙可自行配戴，適合缺齒較多的人士使用。',
@@ -139,11 +148,7 @@ const problemData = {
 
 <template>
 <div>
-  <PageHeader 
-    :mbBg="'https://static.cmereye.com/imgs/2023/06/5659637e703a6559.jpg'"
-    :headerImg="'https://static.cmereye.com/imgs/2023/06/d957a86773cda5a8.png'"
-    :headerBgImg="'https://static.cmereye.com/imgs/2023/06/ac0953834f7561e4.jpg'"
-    :titlePosition="'left'" />
+  <PageHeader :headerConfig="headerConfig" />
   <div class="pageIn whitebgColor">
     <div class="index_title pageCon">牙科服務</div>
     <!-- 介绍 -->

@@ -46,7 +46,7 @@ const onSlideChange = (swiper:any) => {
 const newsLists = [
   {
     title: '歐美種植牙 即減￥2000元/顆',
-    imgUrl: 'https://static.cmereye.com/imgs/2023/06/ddf0fcab6c43bc02.jpg',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/06/51812cd58b78a5c3.jpg',
     mbUrl: 'https://static.cmereye.com/imgs/2023/06/0aca88215a59dc48.jpg',
     link: '/service/dentalImplant'
   },
@@ -58,7 +58,7 @@ const newsLists = [
   },
   {
     title: '金屬矯正牙箍 即減￥2000元',
-    imgUrl: 'https://static.cmereye.com/imgs/2023/06/02670cffe16dfd3b.jpg',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/06/1f4f98ff9a37794a.jpg',
     mbUrl: 'https://static.cmereye.com/imgs/2023/06/2ccbb8016b908ca0.jpg',
     link: '/service/orthodontics'
   },

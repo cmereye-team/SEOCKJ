@@ -18,6 +18,15 @@ useHead({
   ]
 })
 
+const headerConfig = {
+  img: 'https://static.cmereye.com/imgs/2023/06/5d98a050a1163042.png',
+  bg: 'https://static.cmereye.com/imgs/2023/06/d22dc37028a9e513.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2023/06/cb2cff6cdf17d72b.jpg',
+  pageName: 'veneers',
+  pcText: ['自然、耐久、性價比首選','讓您恢復美麗微笑，重拾自信'],
+  mbText: ['讓您恢復美麗微笑','重拾自信']
+}
+
 const orthodonticsIntroduceData = {
   title: '全瓷牙冠及全鋯牙冠',
   content: '牙冠（牙套）是一種修復牙齒的方法，用於覆蓋形狀參差不齊或變色的牙齒。當牙齒因不同情況受到損壞，例如沒有足夠的牙齒結構進行補牙或需要修復裂縫的牙齒或保護脆弱的牙齒時，牙醫便會建議使用牙冠（牙套）。',
@@ -89,7 +98,7 @@ const foiblesData = {
 
 <template>
 <div>
-  <PageHeader :mbBg="'https://static.cmereye.com/imgs/2023/06/cb2cff6cdf17d72b.jpg'" />
+  <PageHeader :headerConfig="headerConfig" />
   <div class="pageIn whitebgColor">
     <div class="index_title pageCon">牙科服務</div>
     <!-- 介绍 -->

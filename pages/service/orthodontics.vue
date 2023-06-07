@@ -18,6 +18,15 @@ useHead({
   ]
 })
 
+const headerConfig = {
+  img: 'https://static.cmereye.com/imgs/2023/06/853005c3e17e4c2a.png',
+  bg: 'https://static.cmereye.com/imgs/2023/06/6d1016f37061df54.png',
+  mbImg: 'https://static.cmereye.com/imgs/2023/06/0c4c600f0e07547d.jpg',
+  pageName: 'orthodontics',
+  pcText: ['追求美學極致，展現最燦爛笑容','愛康健為愛美的您打造完美面部輪廓'],
+  mbText: ['追求美學極致','展現最燦爛笑容']
+}
+
 const orthodonticsIntroduceData = {
   title: '矯齒(箍牙)',
   content: '治療除了能矯正不整齊排列的牙齒，改善外觀外，更能有助減低患上各種牙齒問題的風險。',
@@ -250,11 +259,7 @@ const getWindowWidth = () => {
 
 <template>
 <div>
-  <PageHeader
-    :mbBg="'https://static.cmereye.com/imgs/2023/06/0c4c600f0e07547d.jpg'"
-    :headerImg="'https://static.cmereye.com/imgs/2023/06/853005c3e17e4c2a.png'"
-    :headerBgImg="'https://static.cmereye.com/imgs/2023/06/6d1016f37061df54.png'"
-    :titlePosition="'left'" /> 
+  <PageHeader :headerConfig="headerConfig" /> 
   <div class="orthodonticsPage">
     <div class="index_title pageCon">牙科服務</div>
     <!-- 介绍 -->

@@ -19,6 +19,15 @@ useHead({
   ]
 })
 
+const headerConfig = {
+  img: 'https://static.cmereye.com/imgs/2023/06/e232dee8530b4f14.png',
+  bg: 'https://static.cmereye.com/imgs/2023/06/8532edada17034ad.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2023/06/d47974ab8f285e6c.jpg',
+  pageName: 'brand',
+  pcText: ['重拾自信笑容','愛牙愛己，由你做起'],
+  mbText: ['重拾自信笑容','愛牙愛己，由你做起']
+}
+
 const introduceData = {
   title: '品牌榮譽',
   content: 'CKJ希瑪愛康健口腔品牌連鎖\n專注口腔，屢獲殊榮',
@@ -44,7 +53,7 @@ const handleProcessBtn = (_type: string) => {
 
 <template>
 <div>
-  <PageHeader />
+  <PageHeader :headerConfig="headerConfig" />
   <div class="pageIn whitebgColor">
     <div class="index_title pageCon">品牌理念</div>
     <div class="introduce bigPageCon">

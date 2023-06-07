@@ -18,6 +18,15 @@ useHead({
   ]
 })
 
+const headerConfig = {
+  img: 'https://static.cmereye.com/imgs/2023/06/979fc73167dda0fc.png',
+  bg: 'https://static.cmereye.com/imgs/2023/06/e2b235f6189eb9c8.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2023/06/d8283b396076a68d.jpg',
+  pageName: 'scalingTeeth',
+  pcText: ['定期洗牙，全方位清潔口腔盲點','愛牙愛己，愛康健細心守護您牙齒健康'],
+  mbText: ['定期洗牙','全方位清潔口腔盲點']
+}
+
 const orthodonticsIntroduceData = {
   title: '洗牙',
   content: '醫生一般建議每半年至一年洗牙一次，以預防牙周、口腔及其他牙齒問題。',
@@ -88,11 +97,7 @@ const problemData = {
 
 <template>
 <div>
-  <!-- :headerImg="'https://static.cmereye.com/imgs/2023/06/979fc73167dda0fc.png'" -->
-  <!-- :headerBgImg="'https://static.cmereye.com/imgs/2023/06/e2b235f6189eb9c8.jpg'" -->
-  <PageHeader
-    :mbBg="'https://static.cmereye.com/imgs/2023/06/d8283b396076a68d.jpg'"
-    :titlePosition="'left'" />
+  <PageHeader :headerConfig="headerConfig" />
   <div class="pageIn whitebgColor">
     <div class="index_title pageCon">牙科服務</div>
     <!-- 介绍 -->

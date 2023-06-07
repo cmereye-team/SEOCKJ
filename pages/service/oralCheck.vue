@@ -18,6 +18,15 @@ useHead({
   ]
 })
 
+const headerConfig = {
+  img: 'https://static.cmereye.com/imgs/2023/06/97c82cdfd887382a.png',
+  bg: 'https://static.cmereye.com/imgs/2023/06/387acf0954409624.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2023/06/5fb010c120970570.jpg',
+  pageName: 'oralCheck',
+  pcText: ['關注口腔健康，從定期檢查開始','立即預約檢查，展開護牙行動'],
+  mbText: ['關注口腔健康','從定期檢查開始']
+}
+
 const orthodonticsIntroduceData = {
   title: '一般口腔檢查',
   content:
@@ -121,12 +130,7 @@ const getWindowWidth = () => {
 
 <template>
   <div>
-    <PageHeader
-      :mbBg="'https://static.cmereye.com/imgs/2023/06/5fb010c120970570.jpg'"
-      :headerImg="'https://static.cmereye.com/imgs/2023/06/97c82cdfd887382a.png'"
-      :headerBgImg="'https://static.cmereye.com/imgs/2023/06/387acf0954409624.jpg'"
-      :titlePosition="'left'"
-    />
+    <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor">
       <div class="index_title pageCon">牙科服務</div>
       <!-- 介绍 -->

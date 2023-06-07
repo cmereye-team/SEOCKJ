@@ -4,9 +4,20 @@ import { useAppState } from '~/stores/appState'
 import gsap from 'gsap';
 const route = useRoute()
 const appState = useAppState()
-// const lsImgUrl = 'https://static.cmereye.com/imgs/2023/05/71929ca4c90a8d1e.png'
-// const lsBgImgUrl = 'https://static.cmereye.com/imgs/2023/05/d8084e8da90409aa.jpg'
 defineProps({
+  headerConfig: {
+    type: Object,
+    default(){
+      return {
+        img: 'https://static.cmereye.com/imgs/2023/05/71929ca4c90a8d1e.png',
+        bg: 'https://static.cmereye.com/imgs/2023/05/d8084e8da90409aa.jpg',
+        mbImg: 'https://static.cmereye.com/imgs/2023/04/b0d950232420bf46.jpg',
+        pageName: 'index',
+        pcText: ['重拾自信笑容','愛牙愛己，由你做起'],
+        mbText: ['重拾自信笑容','愛牙愛己，由你做起']
+      }
+    }
+  },
   headerImg: {
     type: String,
     default: 'https://static.cmereye.com/imgs/2023/05/71929ca4c90a8d1e.png',
@@ -15,10 +26,6 @@ defineProps({
     type: String,
     default: 'https://static.cmereye.com/imgs/2023/05/d8084e8da90409aa.jpg',
   },
-  // headerBg: {
-  //   type: String,
-  //   default: 'https://static.cmereye.com/imgs/2023/04/c9531b6beee976eb.jpg',
-  // },
   mbBg:{
     type: String,
     default: 'https://static.cmereye.com/imgs/2023/04/b0d950232420bf46.jpg',
@@ -230,10 +237,17 @@ onMounted(() => {
   //     pinSpacing: false
   //   }
   // });
+  getScrollHeight()
   getWindowWidth()
-  window.addEventListener('scroll',getWindowWidth)
+  window.addEventListener('scroll',getScrollHeight)
+  window.addEventListener('resize',getWindowWidth)
 });
+let windowWidth = ref(1920)
+
 const getWindowWidth = () => {
+  windowWidth.value = window.innerWidth
+}
+const getScrollHeight = () => {
   // console.log('windowScrollY: ----->',window.scrollY)
   if(imgBgHeight.value.clientHeight < window.scrollY){
     isFiexdHeader.value = true
@@ -247,10 +261,34 @@ const getWindowWidth = () => {
 
 <template>
   <header>
-    <div class="header-content ">
+    <div class="header-content">
       <div class="header-content-bgImg">
-        <img class="imgBgBox pcBox" :src="headerBgImg" alt="">
-        <!-- <img class="imgBgBox-1 pcBox" :src="headerBgImg" alt=""> -->
+        <img class="imgBgBox pcBox" :src="headerConfig.bg" alt="">
+        <div class="header-content-bgImg-imgInfo bigPageCon">
+          <img
+            :class="['pcBox',headerConfig.pageName]"
+            :src="headerConfig.img"
+            alt=""
+          />
+        </div>
+        <img
+          class="mbBox"
+          :src="headerConfig.mbImg"
+          alt=""
+        />
+        <div class="header-content-bgImg-textInfo pageCon">
+          <div :class="['header-content-bgImg-in',headerConfig.pageName]">
+            <div class="bannerTitle">
+              <span>{{windowWidth>768?headerConfig.pcText[0]:headerConfig.mbText[0]}}</span>
+              <span>{{windowWidth>768?headerConfig.pcText[1]:headerConfig.mbText[1]}}</span>
+            </div>
+            <div class="text">
+              {{headerData.bannerText}}
+              <span>{{headerData.bannerTextSpan}}</span>
+            </div>
+          </div>
+        </div>
+        <!-- <img class="imgBgBox pcBox" :src="headerBgImg" alt="">
         <div class="header-content-bgImg-imgInfo pageCon">
           <img
             :class="['pcBox',{ 'float-right': titlePosition === 'left'}]"
@@ -262,29 +300,29 @@ const getWindowWidth = () => {
           class="mbBox"
           :src="mbBg"
           alt=""
-        />
-        <div class="header-content-bgImg-textInfo pageCon">
-          <div :class="['header-content-bgImg-in',{ 'bannerTitleLeft': titlePosition === 'left'}]">
+        /> -->
+        <!-- <div class="header-content-bgImg-textInfo pageCon">
+          <div :class="['header-content-bgImg-in',{ 'bannerTitleLeft': titlePosition === 'left'},pageName]">
             <div class="bannerTitle">
-              <!-- 重拾自信笑容 -->
               <span>{{headerData.bannerTitleSpanOne}}</span>
-              <!-- 愛牙愛己，由你做起 -->
               <span>{{headerData.bannerTitleSpanTwo}}</span>
             </div>
             <div class="text">
-              <!-- 全程式預約一體化診療服務，讓每一位顧客享受 -->
               {{headerData.bannerText}}
-              <!-- 健康微笑之旅。 -->
               <span>{{headerData.bannerTextSpan}}</span>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="header-content-bgImgBB pageCon pcBox" ref="imgBgHeight">
         <img
-          :src="headerImg"
+          :src="headerConfig.img"
           alt=""
         />
+        <!-- <img
+          :src="headerImg"
+          alt=""
+        /> -->
       </div>
       <!-- pc菜单 -->
       <div :class="isFiexdHeader ? 'headerBox02': 'headerBox01'">
@@ -378,18 +416,37 @@ const getWindowWidth = () => {
   position: relative;
   &-bgImg {
     width: 100%;
-    // max-width: 1920px;
     box-sizing: border-box;
     position: fixed;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
     z-index: -1;
-    // background: #ccc;
     &-imgInfo{
       &>img{
-        // width: 50%;
-        max-width: 50%;
+        &.brand{
+          float: right;
+        }
+        &.dentalImplant{
+          float: right;
+          margin-right: calc((100% - 1452px)/2);
+        }
+        &.orthodontics{
+          float: right;
+          margin-right: calc((100% - 1600px)/2);
+        }
+        &.rootCanal,&.dentalTrays,&.oralCheck{
+          float: right;
+          margin-right: calc((100% - 1700px)/2);
+        }
+        &.invisalign,&.veneers,&.extraction,&.periodontal,&.teethWhitening,&.scalingTeeth,&.pediatric{
+          float: right;
+          margin-right: calc((100% - 1920px)/2);
+        }
+        &.dentalFillings{
+          float: right;
+          margin-right: calc((100% - 1200px)/2);
+        }
       }
     }
     &-textInfo{
@@ -452,8 +509,23 @@ const getWindowWidth = () => {
           color: #FFCECB;
         }
       }
-      &.bannerTitleLeft{
-        left: 0%;
+      // &.bannerTitleLeft{
+      //   left: 0%;
+      // }
+      &.brand{
+        left: 0;
+      }
+      &.dentalImplant,&.orthodontics,&.rootCanal,&.invisalign,&.veneers{
+        left: 0;
+        top: 25%;
+      }
+      &.extraction,&.periodontal,&.dentalTrays,&.teethWhitening,&.scalingTeeth{
+        left: 0;
+        top: 25%;
+      }
+      &.dentalFillings,&.oralCheck,&.pediatric{
+        left: 0;
+        top: 25%;
       }
     }
   }
@@ -462,7 +534,7 @@ const getWindowWidth = () => {
     opacity: 0;
     &>img{
       // width: 50%;
-      max-width: 50%;
+      // max-width: 50%;
     }
     // z-index: 1;
     // background: none;
@@ -633,7 +705,7 @@ const getWindowWidth = () => {
   -webkit-animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
   // filter: drop-shadow(0px -6px 4px #FFDDDA);
-  filter: drop-shadow(0px -6px 4px rgba(77, 77, 77, 0.15));
+  filter: drop-shadow(0px -8px 4px rgba(77, 77, 77, 0.15));
 }
 @keyframes wave1 {
   0% {

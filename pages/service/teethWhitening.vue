@@ -19,6 +19,15 @@ useHead({
   ]
 })
 
+const headerConfig = {
+  img: 'https://static.cmereye.com/imgs/2023/06/c495a817a3a44207.png',
+  bg: 'https://static.cmereye.com/imgs/2023/06/6f9de9264afc70b9.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2023/06/c35d4f80203378f9.jpg',
+  pageName: 'teethWhitening',
+  pcText: ['淨白牙齒，建立閃亮笑容','安全、可靠、快捷'],
+  mbText: ['淨白牙齒','建立閃亮笑容']
+}
+
 const orthodonticsIntroduceData = {
   title: '牙齒美白',
   content: '自然亮白\n讓微笑更加自信美麗',
@@ -238,11 +247,7 @@ const conditionData = {
 
 <template>
   <div>
-    <PageHeader 
-      :mbBg="'https://static.cmereye.com/imgs/2023/06/c35d4f80203378f9.jpg'"
-      :headerImg="'https://static.cmereye.com/imgs/2023/06/c495a817a3a44207.png'"
-      :headerBgImg="'https://static.cmereye.com/imgs/2023/06/6f9de9264afc70b9.jpg'"
-      :titlePosition="'left'" />
+    <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor">
       <div class="index_title pageCon">牙科服務</div>
       <!-- 介绍 -->

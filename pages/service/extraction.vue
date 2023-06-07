@@ -18,6 +18,15 @@ useHead({
   ]
 })
 
+const headerConfig = {
+  img: 'https://static.cmereye.com/imgs/2023/06/be6cbd721fed563e.png',
+  bg: 'https://static.cmereye.com/imgs/2023/06/fc94e41b3cd98d6b.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2023/06/9fd49477afcd2b60.jpg',
+  pageName: 'extraction',
+  pcText: ['拔牙及智慧齒脫除','專業醫療團隊，照顧每一位客人健康與感受'],
+  mbText: ['專業醫療團隊','照顧客人健康']
+}
+
 const orthodonticsIntroduceData = {
   title: '拔牙及智慧齒脫除',
   content: '',
@@ -224,11 +233,7 @@ const problemData = {
 
 <template>
 <div>
-  <PageHeader
-    :mbBg="'https://static.cmereye.com/imgs/2023/06/9fd49477afcd2b60.jpg'"
-    :headerImg="'https://static.cmereye.com/imgs/2023/06/be6cbd721fed563e.png'"
-    :headerBgImg="'https://static.cmereye.com/imgs/2023/06/fc94e41b3cd98d6b.jpg'"
-    :titlePosition="'left'" />
+  <PageHeader :headerConfig="headerConfig" />
   <div class="pageIn whitebgColor">
     <div class="index_title pageCon">牙科服務</div>
     <!-- 介绍 -->
