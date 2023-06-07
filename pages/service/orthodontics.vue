@@ -275,7 +275,7 @@ const getWindowWidth = () => {
       </div>
       <div class="bp-swiper mbBox">
         <swiper
-          :slidesPerView="4"
+          :slidesPerView="1"
           class="swiper-wrapper"
           @slideChange="onSlideChange"
         >

@@ -31,8 +31,8 @@ const headerConfig = {
 const orthodonticsIntroduceData = {
   title: '牙齒美白',
   content: '自然亮白\n讓微笑更加自信美麗',
-  mbImg: 'https://static.cmereye.com/imgs/2023/05/a21ff27ef9b1ec7b.jpg',
-  pcImg: 'https://static.cmereye.com/imgs/2023/05/bde3dfa1732da054.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2023/06/528550d9da6d31f9.jpg',
+  pcImg: 'https://static.cmereye.com/imgs/2023/06/20a2795169586423.jpg',
   tabNavName: '牙齒美白',
   pageName: 'teethWhitening',
 }
@@ -40,7 +40,7 @@ const orthodonticsIntroduceData = {
 const reasonData = {
   title: '關於牙齒美白',
   text: '牙齒美白的原因？',
-  imgUrl: 'https://static.cmereye.com/imgs/2023/05/2fd8bcb619ea1dc0.jpg',
+  imgUrl: 'https://static.cmereye.com/imgs/2023/06/1c0dfb6023dc406a.jpg',
   reasonLists: [
     {
       context: '想擁有更亮白的牙齒，可以考慮進行美白牙齒療程。',

@@ -119,12 +119,10 @@ onMounted(()=>{
             </nuxt-link>
           </div>
         </swiper-slide>
-        <!-- <div class="lineBox">
-          <div class="lineBox-in">
-            <PageSwiperPointLine :latestNewsNum="4" :latestNewsCurrent="latestNewsCurrent"></PageSwiperPointLine>
-          </div>
-        </div> -->
       </Swiper>
+      <div class="index-latestNews-line">
+        <PageSwiperPointLine :latestNewsNum="newsLists.length" :latestNewsCurrent="latestNewsCurrent"></PageSwiperPointLine>
+      </div>
       <!-- <div class="mbBox">
          <dropdownCon  v-if="titleLeftShow" />
       </div> -->
@@ -200,6 +198,10 @@ onMounted(()=>{
   }
   .newsImg{
     width: 100%;
+  }
+  &-line{
+    width: 324px;
+    margin: 38px auto 0;
   }
 }
 @media (min-width: 768px) and (max-width: 1452px) {
@@ -277,6 +279,10 @@ onMounted(()=>{
     }
     &-t{
       flex-direction: column;
+    }
+    &-line{
+      width: 216px;
+      margin: 26px auto 0;
     }
   }
 }

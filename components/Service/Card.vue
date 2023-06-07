@@ -131,6 +131,7 @@ const servicesCardPageData = {
           font-size: 26px;
           color: #4D4D4D;
           text-align: center;
+          white-space: nowrap;
         }
         &>.router-link-exact-active{
           .servicesCard-in-image{
