@@ -90,7 +90,7 @@ const onSubmit = async () => {
         showClose: true,
         message: res.data,
         type: 'success',
-        duration: 0
+        // duration: 0
       })
       // ElMessageBox.alert(res.data, '消息通知', {
       //   confirmButtonText: '好的',
@@ -100,7 +100,7 @@ const onSubmit = async () => {
         showClose: true,
         message: res.data,
         type: 'error',
-        duration: 0
+        // duration: 0
       })
       // ElMessageBox.alert(res.data, '消息通知', {
       //   confirmButtonText: '好的',

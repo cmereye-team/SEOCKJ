@@ -198,13 +198,6 @@ const classNamefilter = ( _menu:any, _idx: number) => {
     }
   }
   
-  // console.log('menu',_menu)
-  // console.log('_idx',_idx)
-  // console.log('areaTabCurNum',appState.areaTabCurNum)
-  // console.log('className',className)
-  // else if(_menu.link.includes('dentistryServices')){
-  //   return 'servicesPageCurrent'
-  // }
   return className
 }
 
@@ -293,6 +286,7 @@ const getWindowWidth = () => {
           alt=""
         />
       </div>
+      <!-- pc菜单 -->
       <div :class="isFiexdHeader ? 'headerBox02': 'headerBox01'">
         <div class="pageCon header-content-in" ref="headerMenu">
           <div class="logo">
@@ -316,11 +310,6 @@ const getWindowWidth = () => {
                 </div>
               </div>
               <div class="menuChild serviceCard" v-if="menuItem.link.includes('/service')">
-                <!-- <div :class="['menuChild-item', classNamefilter(menuChildItem,menuChildIndex)]" v-for="(menuChildItem,menuChildIndex) in menuItem.child" :key="menuChildIndex" @click="handleMenuChild(menuItem,menuChildIndex)">
-                  <nuxt-link :to="menuChildItem.link">
-                  {{menuChildItem.name}}
-                  </nuxt-link>
-                </div> -->
                 <serviceCard :isMenu="true" />
               </div>
             </div>
@@ -331,7 +320,7 @@ const getWindowWidth = () => {
           </div>
         </div>
       </div>
-      
+      <!-- mb菜单 -->
       <div class="menuBox" :style="{top: (menuBoxBool ? '0' : '-100vh')}">
         <div class="menuLists">
           <div :class="['menuLists-item',item.child.length ? 'childIcon' : '']" v-for="(item, index) in menuLists" :key="index">
@@ -376,6 +365,7 @@ const getWindowWidth = () => {
           </div>
         </div>
       </div>
+      <!-- 水波纹盒子 -->
       <div class="waterBg"></div>
     </div>
   </header>
@@ -642,6 +632,8 @@ const getWindowWidth = () => {
   -webkit-animation-duration: 20s;
   -webkit-animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
+  // filter: drop-shadow(0px -6px 4px #FFDDDA);
+  filter: drop-shadow(0px -6px 4px rgba(77, 77, 77, 0.15));
 }
 @keyframes wave1 {
   0% {
@@ -902,7 +894,7 @@ const getWindowWidth = () => {
   .waterBg::after{
     transform: rotate(180deg);
     // box-shadow: 0px 4px 8px rgba(77, 77, 77, 0.15);
-    filter: drop-shadow(0px 4px 8px rgba(77, 77, 77, 0.15));
+    // filter: drop-shadow(0px 4px 8px rgba(77, 77, 77, 0.15));
     top: -30px;
   }
   .waterBg::before{

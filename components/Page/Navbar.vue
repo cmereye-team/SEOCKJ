@@ -49,8 +49,8 @@ let mbQDCodeBool = ref(false)
       </div>
       <img src="@/assets/images/navIcon_3.png" alt="" />
     </div>
-    <div class="navbar-content-in" id="navPcFaceBook">
-      <nuxt-link to="https://www.facebook.com/CKJ-%E5%B8%8C%E7%91%AA%E6%84%9B%E5%BA%B7%E5%81%A5-107356075712157" target="_blank">
+    <div class="navbar-content-in">
+      <nuxt-link id="navPcFaceBook" to="https://www.facebook.com/CKJ-%E5%B8%8C%E7%91%AA%E6%84%9B%E5%BA%B7%E5%81%A5-107356075712157" target="_blank">
         <img src="@/assets/images/navIcon_6.png" alt="" />
       </nuxt-link>
     </div>
