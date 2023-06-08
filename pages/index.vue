@@ -82,18 +82,20 @@ const onSlideDoctorTeamSwiperChange = (swiper:any) => {
 }
 
 // watch(
-//   appState,
-//   (newValue, oldValue) => {
-//     console.log(newValue, oldValue);
-//     console.log(newValue.areaTabCurNum, oldValue.areaTabCurNum);
-//     if(newValue.areaTabCurNum !== oldValue.areaTabCurNum){
-//       doctorTeamCurrent.value = 1
-//     }
-//   },
-//   {
-//     deep: false,
-//   }
+  // appState, (newValue, oldValue) => {
+    // console.log(newValue, oldValue);
+    // console.log(newValue.areaTabCurNum, oldValue.areaTabCurNum);
+    // if(newValue.areaTabCurNum !== oldValue.areaTabCurNum){
+    //   doctorTeamCurrent.value = 1
+    // }
+  // },
+  // {
+    // immediate: true,
+    // deep: true,
+  // }
 // );
+
+
 // const async posts = ({ $content }) => {
 //     const posts = await $content("blog").fetch();
 
