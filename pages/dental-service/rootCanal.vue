@@ -414,7 +414,7 @@ const processData = {
   margin-top: 157px;
   &-bg{
     padding: 70px 0 106px;
-    // background: linear-gradient(270deg, rgba(255, 241, 240, 0) 2.6%, rgba(255, 241, 240, 0.7) 23.89%, rgba(255, 241, 240, 0.7) 75.33%, rgba(255, 241, 240, 0) 97.4%);
+    background: linear-gradient(270deg, rgba(255, 241, 240, 0) 2.6%, rgba(255, 241, 240, 0.7) 23.89%, rgba(255, 241, 240, 0.7) 75.33%, rgba(255, 241, 240, 0) 97.4%);
   }
   &-title{
     display: flex;
@@ -487,6 +487,11 @@ const processData = {
       width: calc(100% - 140px);
       overflow: hidden;
       margin: 0;
+      .swiper-slide{
+        img{
+          width: 100%;
+        }
+      }
     }
   }
 }
