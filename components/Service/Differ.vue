@@ -187,7 +187,7 @@ const onSlideChange = (swiper:any) => {
         &.boxRight.invisalign{
           &>div{
             // color: #CBCBCB;
-            color: #FFA09E;
+            // color: #FFA09E;
           }
         }
       }

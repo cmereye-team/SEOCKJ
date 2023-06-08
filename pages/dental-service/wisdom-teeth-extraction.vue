@@ -29,7 +29,7 @@ const headerConfig = {
 
 const orthodonticsIntroduceData = {
   title: '拔牙及智慧齒脫除',
-  content: '',
+  content: '通過不同形式的工具將牙齒從牙槽骨中取出的過程，把有嚴重問題或不適合保留的牙齒除去，如齲齒、牙周病、裂牙或需要矯正牙齒時所需而進行，以促進口腔健康和整體健康。',
   mbImg: 'https://static.cmereye.com/imgs/2023/06/58299d97d5204cdd.jpg',
   pcImg: 'https://static.cmereye.com/imgs/2023/06/70059336eaad4630.jpg',
   tabNavName: '拔牙及智慧齒脫除',

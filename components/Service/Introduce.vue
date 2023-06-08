@@ -55,14 +55,8 @@ defineProps({
             font-weight: 700;
             font-size: 50px;
             margin-top: 96px;
-            &.wisdom-teeth-extraction{
-              margin-top: 15%;
-            }
             &.teeth-whitening{
               margin-top: 10%;
-            }
-            &.fillings{
-              margin-top: 15%;
             }
           }
           .content{
@@ -158,13 +152,7 @@ defineProps({
               font-weight: 700;
               font-size: 26px;
               margin-top: 0;
-              &.wisdom-teeth-extraction{
-                margin-top: 0;
-              }
               &.teeth-whitening{
-                margin-top: 0;
-              }
-              &.fillings{
                 margin-top: 0;
               }
             }

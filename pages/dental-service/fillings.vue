@@ -29,7 +29,7 @@ const headerConfig = {
 
 const orthodonticsIntroduceData = {
   title: '補牙',
-  content: '',
+  content: '亦稱為「牙體修復」，透過使用適當的物料填補因蛀牙或其他原因導致的牙齒組織缺失部位，以恢復牙齒的功能、完整性和形態。同時，補牙可用於美觀的填補，使笑容更加協調美觀。',
   mbImg: 'https://static.cmereye.com/imgs/2023/05/61b68b2597a8e44d.jpg',
   pcImg: 'https://static.cmereye.com/imgs/2023/05/98c2430bfc65c812.jpg',
   tabNavName: '補牙',
