@@ -19,7 +19,7 @@ useHead({
 })
 
 const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2023/06/b1e52372c1fc8fec.png',
+  img: 'https://static.cmereye.com/imgs/2023/06/870d54eb88782632.png',
   bg: 'https://static.cmereye.com/imgs/2023/06/01d15590f9c0df29.jpg',
   mbImg: 'https://static.cmereye.com/imgs/2023/06/61ccc7a66efaf1c3.jpg',
   pageName: 'rootCanal',

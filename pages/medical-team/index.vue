@@ -69,13 +69,12 @@ onMounted(()=>{
 <template>
   <div>
   <!-- <div class="bigPageCon"> -->
-    <PageHeader
-      :headerBg="'https://static.cmereye.com/imgs/2023/04/3bb8b77175f2c68a.jpg'"
+    <!-- :headerBg="'https://static.cmereye.com/imgs/2023/04/3bb8b77175f2c68a.jpg'"
       :mbBg="'https://static.cmereye.com/imgs/2023/04/f044b7e9793c3038.jpg'"
       :headerImg="'https://static.cmereye.com/imgs/2023/05/c46fcc590da0ffdd.png'"
       :headerBgImg="'https://static.cmereye.com/imgs/2023/05/de7105389a7f04b2.png'"
-      :titlePosition="'left'"
-    />
+      :titlePosition="'left'" -->
+    <PageHeader />
     <div class="doctorPage">
       <div class="doctorPage-in pageCon">
         <!-- 醫生團隊 -->

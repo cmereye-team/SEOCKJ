@@ -18,22 +18,6 @@ defineProps({
       }
     }
   },
-  headerImg: {
-    type: String,
-    default: 'https://static.cmereye.com/imgs/2023/05/71929ca4c90a8d1e.png',
-  },
-  headerBgImg: {
-    type: String,
-    default: 'https://static.cmereye.com/imgs/2023/05/d8084e8da90409aa.jpg',
-  },
-  mbBg:{
-    type: String,
-    default: 'https://static.cmereye.com/imgs/2023/04/b0d950232420bf46.jpg',
-  },
-  titlePosition:{
-    type: String,
-    default: 'right'   //right & left
-  }
 })
 
 const menuLists = [
@@ -186,7 +170,7 @@ const handleMenu = (_idx: number) => {
 }
 
 const handleMenuChild = ( _menu:any, _idx: number) =>{
-  if(_menu.link.includes('doctorPage')){
+  if(_menu.link.includes('medical-team')){
     appState.setCurNum(_idx)
     menuBoxBool.value = false
   }
@@ -194,17 +178,21 @@ const handleMenuChild = ( _menu:any, _idx: number) =>{
 const classNamefilter = ( _menu:any, _idx: number) => {
   let className = ''
   if(route.path === '/medical-team'){
-    if(_menu.link.includes('doctorPage')){
+    if(_menu.link.includes('medical-team')){
       if(appState.areaTabCurNum === _idx){
         className = 'menuChildCurrent'
       }
+    }
+  }else if(route.path.includes('/brand')){
+    if(_menu.link.includes(appState.brand)){
+      className = 'menuChildCurrent'
     }
   }else if(route.path.includes('/dental-service')){
     if(_menu.link.includes(appState.dentistryService)){
       className = 'menuChildCurrent'
     }
   }
-  
+
   return className
 }
 
@@ -288,41 +276,13 @@ const getScrollHeight = () => {
             </div>
           </div>
         </div>
-        <!-- <img class="imgBgBox pcBox" :src="headerBgImg" alt="">
-        <div class="header-content-bgImg-imgInfo pageCon">
-          <img
-            :class="['pcBox',{ 'float-right': titlePosition === 'left'}]"
-            :src="headerImg"
-            alt=""
-          />
-        </div>
-        <img
-          class="mbBox"
-          :src="mbBg"
-          alt=""
-        /> -->
-        <!-- <div class="header-content-bgImg-textInfo pageCon">
-          <div :class="['header-content-bgImg-in',{ 'bannerTitleLeft': titlePosition === 'left'},pageName]">
-            <div class="bannerTitle">
-              <span>{{headerData.bannerTitleSpanOne}}</span>
-              <span>{{headerData.bannerTitleSpanTwo}}</span>
-            </div>
-            <div class="text">
-              {{headerData.bannerText}}
-              <span>{{headerData.bannerTextSpan}}</span>
-            </div>
-          </div>
-        </div> -->
+        
       </div>
       <div class="header-content-bgImgBB pageCon pcBox" ref="imgBgHeight">
         <img
           :src="headerConfig.img"
           alt=""
         />
-        <!-- <img
-          :src="headerImg"
-          alt=""
-        /> -->
       </div>
       <!-- pc菜单 -->
       <div :class="isFiexdHeader ? 'headerBox02': 'headerBox01'">
@@ -431,7 +391,7 @@ const getScrollHeight = () => {
           float: right;
           margin-right: calc((100% - 1452px)/2);
         }
-        &.orthodontics{
+        &.rootCanal,&.orthodontics{
           float: right;
           margin-right: calc((100% - 1600px)/2);
         }
@@ -439,7 +399,7 @@ const getScrollHeight = () => {
           float: right;
           margin-right: calc((100% - 1700px)/2);
         }
-        &.rootCanal,&.invisalign,&.veneers,&.wisdom-teeth-extraction,&.periodontal,&.teeth-whitening,&.scaling-and-polishing,&.children-dentistry{
+        &.invisalign,&.veneers,&.wisdom-teeth-extraction,&.periodontal,&.teeth-whitening,&.scaling-and-polishing,&.children-dentistry{
           float: right;
           margin-right: calc((100% - 1920px)/2);
         }
@@ -459,8 +419,6 @@ const getScrollHeight = () => {
     }
     .imgBgBox{
       width: 100%;
-      // max-width: 1920px;
-      // height: 100%;
       min-height: 100%;
       position: absolute;
       top: 0;
@@ -478,7 +436,6 @@ const getScrollHeight = () => {
     }
     &>img {
       width: 100%;
-      // max-width: 1920px;
     }
     &-in{
       position: absolute;
@@ -493,6 +450,20 @@ const getScrollHeight = () => {
           display: block;
           &:last-child{
             margin-left: 200px;
+          }
+        }
+        &.rootCanal,&.wisdom-teeth-extraction{
+          span{
+            &:last-child{
+              margin-left: 120px;
+            }
+          }
+        }
+        &.toothtray,&.scaling-and-polishing{
+          span{
+            &:last-child{
+              margin-left: 130px;
+            }
           }
         }
       }
@@ -510,9 +481,6 @@ const getScrollHeight = () => {
           color: #FFCECB;
         }
       }
-      // &.bannerTitleLeft{
-      //   left: 0%;
-      // }
       &.brand{
         left: 0;
       }
@@ -531,18 +499,10 @@ const getScrollHeight = () => {
     }
   }
   &-bgImgBB{
-    // width: 100%;
     opacity: 0;
-    &>img{
-      // width: 50%;
-      // max-width: 50%;
-    }
-    // z-index: 1;
-    // background: none;
   }
   &-in {
     width: 100%;
-    // max-width: 1490px;
     max-width: 1512px;
     display: flex;
     background: #fff;
@@ -554,9 +514,6 @@ const getScrollHeight = () => {
     z-index: 40;
     position: relative;
     transition: all .5s;
-    // position: -webkit-sticky;
-    // position: sticky;
-    // left: 0;
     .logo {
       width: 290px;
       margin-bottom: 20px;
@@ -624,7 +581,6 @@ const getScrollHeight = () => {
           background: #FFFFFF;
           filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.15));
           border-radius: 6px;
-          // box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
           &-item{
             width: 100%;
             text-align: center;
@@ -705,7 +661,6 @@ const getScrollHeight = () => {
   -webkit-animation-duration: 20s;
   -webkit-animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
-  // filter: drop-shadow(0px -6px 4px #FFDDDA);
   filter: drop-shadow(0px -8px 4px rgba(77, 77, 77, 0.15));
 }
 @keyframes wave1 {
@@ -744,8 +699,6 @@ const getScrollHeight = () => {
   -webkit-animation-duration: 10s;
   -webkit-animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
-  // transform: rotate(180deg);
-  // -webkit-transform: rotate(180deg);
 }
 @keyframes wave2 {
   0% {

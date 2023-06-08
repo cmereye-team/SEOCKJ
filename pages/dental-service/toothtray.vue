@@ -20,7 +20,7 @@ useHead({
 })
 
 const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2023/06/d957a86773cda5a8.png',
+  img: 'https://static.cmereye.com/imgs/2023/06/e421c3bfe25668cf.png',
   bg: 'https://static.cmereye.com/imgs/2023/06/ac0953834f7561e4.jpg',
   mbImg: 'https://static.cmereye.com/imgs/2023/06/5659637e703a6559.jpg',
   pageName: 'toothtray',
@@ -74,7 +74,7 @@ const contrastData = {
     ],
     data: [
       {
-        th: '固定式假牙',
+        th: '舒適美白',
         td: ['牙套','牙橋'],
         content: [
           {
@@ -96,7 +96,7 @@ const contrastData = {
         ]
       },
       {
-        th: '活動式假牙',
+        th: '輕鬆美白',
         td: ['局部牙托','全口牙托'],
         content: [
           {

@@ -17,6 +17,16 @@ useHead({
    },
   ]
 })
+
+const headerConfig = {
+  img: 'https://static.cmereye.com/imgs/2023/06/e232dee8530b4f14.png',
+  bg: 'https://static.cmereye.com/imgs/2023/06/8532edada17034ad.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2023/06/d47974ab8f285e6c.jpg',
+  pageName: 'brand',
+  pcText: ['重拾自信笑容','愛牙愛己，由你做起'],
+  mbText: ['重拾自信笑容','愛牙愛己，由你做起']
+}
+
 const handleAreaTab = (_idx: number) => {
   appState.setCurNum(_idx)
 }
@@ -101,11 +111,7 @@ onMounted(() => {
 
 <template>
   <div>
-  <!-- <div class="bigPageCon"> -->
-    <PageHeader
-      :headerBg="'https://static.cmereye.com/imgs/2023/04/b398478bdd2d7847.jpg'"
-      :mbBg="'https://static.cmereye.com/imgs/2023/04/aa3a789ff99a6ba3.jpg'"
-    />
+    <PageHeader :headerConfig="headerConfig" />
     <div class="contactUs">
       <ContactUs />
       <ContactForm />
@@ -113,25 +119,7 @@ onMounted(() => {
         <div class="environment-title">
           <div class="index_title">診所環境</div>
         </div>
-        <!-- <div class="environment-in pageCon">
-          <div class="bigImg">
-            <img :data-cfsrc="environmentLists[appState.areaTabCurNum][environmentCur]"
-              :srcset="`${environmentLists[appState.areaTabCurNum][environmentCur]} '768w', ${environmentLists[appState.areaTabCurNum][environmentCur]}`"
-              title="診所環境" alt="診所環境" :src="environmentLists[appState.areaTabCurNum][environmentCur]" />
-          </div>
-          <div class="areaNav">
-            <div class="areaNav-in" v-for="(areaItem,areaIndex) in appState.areaTabs" :key="areaIndex" @click="handleAreaTab(areaIndex)">
-              <span :class="{'current': appState.areaTabCurNum === areaIndex}">{{areaItem}}</span>
-            </div>
-          </div>
-          <div class="imgLists">
-            <div class="imgLists-in" v-for="(imgItem,imgIndex) in environmentLists[appState.areaTabCurNum]" :key="imgIndex" @click="handleImg(imgIndex)">
-              <img :src="imgItem" alt="">
-            </div>
-          </div>
-        </div> -->
         <div class="environment-in pageCon">
-          <!-- slidesPerView="auto" :centeredSlides="windowWidth<768" -->
           <swiper class="environmentSwiperBox" :loop="true" :thumbs="{ swiper: thumbsSwiper }" :modules="[Thumbs,FreeMode]">
             <swiper-slide class="environmentSwiperBox-slide" v-for="(imgItem,imgIndex) in environmentLists02" :key="imgIndex">
                 <img :src="imgItem" />
@@ -141,10 +129,9 @@ onMounted(() => {
             @swiper="setThumbsSwiper"
             :spaceBetween="30"
             :slidesPerView="windowWidth>768 ? 4 : 'auto'"
-            :centeredSlides="windowWidth<768"
             :freeMode="true"
             :loop="true"
-            :navigation="windowWidth>768"
+            :navigation="true"
             :modules="[Navigation,Thumbs,FreeMode]"
             class="mySwiper"
           >
@@ -154,7 +141,6 @@ onMounted(() => {
           </swiper>
         </div>
       </div>
-      <!-- <AboutUs /> -->
     </div>
     <PageFooter />
     <PageNavbar />
@@ -177,62 +163,6 @@ onMounted(() => {
       display: flex;
       flex-direction: column;
       align-items: center;
-      .bigImg{
-        width: 100%;
-        max-width: 636px;
-      }
-      .areaNav{
-        margin-top: 35px;
-        width: 100%;
-        max-width: 840px;
-        display: flex;
-        justify-content: space-between;
-        &-in{
-          width: 121px;
-          height: 49px;
-          cursor: pointer;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          span{
-            border-bottom: 1px solid #4D4D4D;
-            font-style: normal;
-            font-weight: 500;
-            font-size: 20px;
-            line-height: 160%;
-            color: #4D4D4D;
-            &:hover{
-              border-bottom: 1px solid #FFA09E;
-              color: #FFA09E;
-            }
-            &.current{
-              border-bottom: 1px solid #FFA09E;
-              color: #FFA09E;
-            }
-          }
-        }
-      }
-      .imgLists{
-        margin-top: 16px;
-        display: flex;
-        width: 100%;
-        max-width: 1068px;
-        flex-wrap: wrap;
-        padding-left: 41px;
-        box-sizing: border-box;
-        &-in{
-          width: 33.33%;
-          padding-right: 41px;
-          box-sizing: border-box;
-          margin-bottom: 16px;
-          cursor: pointer;
-          img{
-            width: 100%;
-            height: auto;
-            max-width: 329px;
-          }
-        }
-      }
       .environmentSwiperBox{
         width: 100%;
         margin: 0 auto;
@@ -279,24 +209,6 @@ onMounted(() => {
       margin-top: 50px;
       &-in{
         margin-top: 28px;
-        .areaNav{
-          padding: 0 20px;
-          margin-top: 15px;
-          &-in{
-            span{
-              font-size: 16px;
-            }
-          }
-        }
-        .imgLists{
-          padding-right: 10px;
-          padding-left: 30px;
-          margin-top: 6px;
-          &-in{
-            padding-right: 20px;
-            margin-bottom: 6px;
-          }
-        }
         .environmentSwiperBox{
           &-slide{
             width: auto;
@@ -308,15 +220,11 @@ onMounted(() => {
           }
         }
         .mySwiper{
-          // display: none;
           margin: 10px auto;
-          // padding-left: 30px;
-          // padding-right: 15px;
-          padding: 0;
+          padding: 0 0 0 25%;
           &-slide{
             width: auto;
             padding: 0;
-            // padding-right: 15px;
             img{
               max-width: 200px;
               margin: 0 auto;
