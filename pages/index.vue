@@ -23,17 +23,17 @@ useHead({
 
 const caseSharingLists = [
   {
-    name: '陳裳 Jason',
-    skill: '種植牙齒療程',
+    name: '上班族，陳先生',
+    skill: '根管治療(杜牙根)療程',
     text: '安心、舒服、無痛',
-    context: '人們都越來越重視牙齒的健康，所以對於缺牙問題大部分的人都會選擇及時進行修復，更多的人選擇了種植牙。',
+    context: '蛀咗牙自己都唔知，直到有一日真係牙痛先怕！原本以為要剝牙，後來牙醫建議杜牙根，成個治療過程都好快，最緊要可以保留到原來嘅牙齒！',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/cf650f7fe68dfed5.jpg'
   },
   {
-    name: '蔡梓琪 Mandy',
-    skill: '牙齒美白療程',
+    name: '大學生，Jenny',
+    skill: '矯齒(箍牙)療程',
     text: '唔再怕同人合照喇',
-    context: '人們都越來越重視牙齒的健康，所以對於缺牙問題大部分的人都會選擇及時進行修復，更多的人選擇了種植牙。',
+    context: '從前唔整齊嘅牙齒令到我冇自信，經過兩年既箍牙歷程，真係令成個面容改變咗好多！最重要係牙醫手勢非常專業，價錢亦都好合理！',
     imgUrl: 'https://static.cmereye.com/imgs/2023/06/ce91ab62a4a1a581.jpg'
   },
 ]

@@ -20,12 +20,12 @@ useHead({
 })
 
 const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2023/06/e232dee8530b4f14.png',
-  bg: 'https://static.cmereye.com/imgs/2023/06/8532edada17034ad.jpg',
+  img: 'https://static.cmereye.com/imgs/2023/06/4c587827f9cbed56.png',
+  bg: 'https://static.cmereye.com/imgs/2023/06/0ff6a2d8f919e481.jpg',
   mbImg: 'https://static.cmereye.com/imgs/2023/06/95bbceb9fc7469d1.jpg',
   pageName: 'brand',
-  pcText: ['重拾自信笑容','愛牙愛己，由你做起'],
-  mbText: ['重拾自信笑容','愛牙愛己，由你做起']
+  pcText: ['專注口腔 榮獲殊榮','與時俱進 邁步向前'],
+  mbText: ['專注口腔 榮獲殊榮','與時俱進 邁步向前']
 }
 
 const introduceData = {

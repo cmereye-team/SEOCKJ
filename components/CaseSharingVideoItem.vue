@@ -8,11 +8,11 @@
       <div class="name">朱咪咪 Mimi</div>
       <div class="skill">種植牙齒療程</div>
       <div class="process">過程舒適無痛</div>
-      <div class="text">人們都越來越重視牙齒的健康，所以對於缺牙問題大部分的人都會選擇及時進行修復，更多的人選擇了種植牙。</div>
+      <div class="text">已經唔再年輕，除咗身體上冇以前好，原來牙都一樣！而家植牙嘅技術真係非常之好，簡直同真牙一樣擁有正常嘅咀嚼能力，真係食乜都得啊！</div>
       <div class="bg_box"></div>
     </div>
     <div class="caseSaringVideoItem-mb">
-      <div class="text">人們都越來越重視牙齒的健康，所以對於缺牙問題大部分的人都會選擇及時進行修復，更多的人選擇了種植牙。</div>
+      <div class="text">已經唔再年輕，除咗身體上冇以前好，原來牙都一樣！而家植牙嘅技術真係非常之好，簡直同真牙一樣擁有正常嘅咀嚼能力，真係食乜都得啊！</div>
     </div>
   </div>
 </template>
