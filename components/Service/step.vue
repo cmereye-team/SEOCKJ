@@ -192,7 +192,7 @@ defineProps({
       }
       &.rootCanal{
         background: none;
-        padding: 0;
+        padding: 0 30px;
       }
     }
 
