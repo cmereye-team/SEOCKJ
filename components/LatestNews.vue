@@ -48,7 +48,7 @@ let newsLists = [
     title: '歐美種植牙 即減￥2000元/顆',
     imgUrl: 'https://static.cmereye.com/imgs/2023/06/c82c0ef3ec05c145.jpg',
     mbUrl: 'https://static.cmereye.com/imgs/2023/06/a335bdbff16b3cde.jpg',
-    link: '/dental-service/dentalImplant'
+    link: '/dental-service/implant'
   },
   {
     title: '隱形牙箍  即減￥5000元',

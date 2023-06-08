@@ -55,27 +55,27 @@ const navLists = [
   },
   {
     name: '醫生團隊',
-    link: `/doctorPage`,
+    link: `/medical-team`,
     child: [
       {
         name: '羅湖區',
-        link: '/doctorPage',
+        link: '/medical-team',
       },
       {
         name: '福田區',
-        link: '/doctorPage',
+        link: '/medical-team',
       },
       {
         name: '南山區',
-        link: '/doctorPage',
+        link: '/medical-team',
       },
       {
         name: '寶安區',
-        link: '/doctorPage',
+        link: '/medical-team',
       },
       {
         name: '龍華區',
-        link: '/doctorPage',
+        link: '/medical-team',
       },
     ],
   },

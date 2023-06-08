@@ -71,7 +71,7 @@ const menuLists = [
       // }
       {
         name: '種植牙',
-        link: '/dental-service/dentalImplant',
+        link: '/dental-service/implant',
       },
       {
         name: '矯齒',
@@ -91,7 +91,7 @@ const menuLists = [
       },
       {
         name: '全瓷牙冠',
-        link: '/dental-service/crown',
+        link: '/dental-service/all-ceramic-crowns',
       },
       {
         name: '智慧齒脫除',
@@ -129,27 +129,27 @@ const menuLists = [
   },
   {
     name: '醫生團隊',
-    link: `/doctorPage`,
+    link: `/medical-team`,
     child: [
       {
         name: '羅湖區',
-        link: '/doctorPage',
+        link: '/medical-team',
       },
       {
         name: '福田區',
-        link: '/doctorPage',
+        link: '/medical-team',
       },
       {
         name: '南山區',
-        link: '/doctorPage',
+        link: '/medical-team',
       },
       {
         name: '寶安區',
-        link: '/doctorPage',
+        link: '/medical-team',
       },
       {
         name: '龍華區',
-        link: '/doctorPage',
+        link: '/medical-team',
       },
     ],
   },
@@ -193,7 +193,7 @@ const handleMenuChild = ( _menu:any, _idx: number) =>{
 }
 const classNamefilter = ( _menu:any, _idx: number) => {
   let className = ''
-  if(route.path === '/doctorPage'){
+  if(route.path === '/medical-team'){
     if(_menu.link.includes('doctorPage')){
       if(appState.areaTabCurNum === _idx){
         className = 'menuChildCurrent'
@@ -427,7 +427,7 @@ const getScrollHeight = () => {
         &.brand{
           float: right;
         }
-        &.dentalImplant{
+        &.implant{
           float: right;
           margin-right: calc((100% - 1452px)/2);
         }
@@ -516,7 +516,7 @@ const getScrollHeight = () => {
       &.brand{
         left: 0;
       }
-      &.dentalImplant,&.orthodontics,&.rootCanal,&.invisalign,&.veneers{
+      &.implant,&.orthodontics,&.rootCanal,&.invisalign,&.veneers{
         left: 0;
         top: 25%;
       }

@@ -2,7 +2,7 @@ export default [
   {
     name: '植牙',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/5e129af0339856f0.png',
-    link: '/dental-service/dentalImplant'
+    link: '/dental-service/implant'
   },
   {
     name: '矯齒(箍牙)',
@@ -27,7 +27,7 @@ export default [
   {
     name: '全瓷牙冠',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/81b463bfe0377935.png',
-    link: '/dental-service/crown'
+    link: '/dental-service/all-ceramic-crowns'
   },
   {
     name: '智慧齒脫除',

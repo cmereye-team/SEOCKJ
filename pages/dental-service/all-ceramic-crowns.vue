@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
 const appState = useAppState()
-appState.setDentistryService('crown')
+appState.setDentistryService('all-ceramic-crowns')
 useHead({
   title: "全瓷牙冠 | 牙科服務",
   meta: [
@@ -28,7 +28,7 @@ const headerConfig = {
 }
 
 const orthodonticsIntroduceData = {
-  title: '全瓷牙冠及全鋯牙冠',
+  title: '全瓷牙冠',
   content: '牙冠（牙套）是一種修復牙齒的方法，用於覆蓋形狀參差不齊或變色的牙齒。當牙齒因不同情況受到損壞，例如沒有足夠的牙齒結構進行補牙或需要修復裂縫的牙齒或保護脆弱的牙齒時，牙醫便會建議使用牙冠（牙套）。',
   mbImg: 'https://static.cmereye.com/imgs/2023/05/9fc2655c5c081f7d.jpg',
   pcImg: 'https://static.cmereye.com/imgs/2023/05/cafd36416517ada2.jpg',

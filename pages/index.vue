@@ -157,7 +157,7 @@ watch(
               <SwiperSlide v-for="(swiperPage,swiperPageIndex) in Math.ceil( doctorLists_cs[appState.areaTabCurNum].length / 12 )" :key="swiperPageIndex" >
                 <div class="doctorTeamPage">
                   <div class="doctorItem" v-for="(doctorItem,doctorIndex) in doctorLists_cs[appState.areaTabCurNum].slice(swiperPageIndex*12,(swiperPageIndex+1)*12)" :key="doctorIndex">
-                    <nuxt-link :to="`/doctorPage?did=${doctorItem.id}`">
+                    <nuxt-link :to="`/medical-team?did=${doctorItem.id}`">
                       <img :src="doctorItem.mbImg || ''" alt="">
                     </nuxt-link>
                   </div>

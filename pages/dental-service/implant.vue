@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
 const appState = useAppState()
-appState.setDentistryService('dentalImplant')
+appState.setDentistryService('implant')
 useHead({
   title: "種植牙 | 微創植牙 | 牙科服務",
   meta: [
@@ -22,7 +22,7 @@ const headerConfig = {
   img: 'https://static.cmereye.com/imgs/2023/06/baaf111867247a7f.png',
   bg: 'https://static.cmereye.com/imgs/2023/06/2c162ddf8e5bfcd7.jpg',
   mbImg: 'https://static.cmereye.com/imgs/2023/06/09a561c09c1a9e12.jpg',
-  pageName: 'dentalImplant',
+  pageName: 'implant',
   pcText: ['享受失而復得的喜悅','重拾完整人生之旅'],
   mbText: ['享受失而復得的喜悅','重拾完整人生之旅']
 }

@@ -11,7 +11,7 @@ export interface appState {
 export const useAppState = defineStore('appData', {
   state: (): appState => ({
     areaTabCurNum: 0,
-    dentistryService: 'dentalImplant',
+    dentistryService: 'implant',
     brand: 'course',
     areaTabs: [
       '羅湖區','福田區','南山區','寶安區','龍華區'
