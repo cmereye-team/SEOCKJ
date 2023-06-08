@@ -81,23 +81,26 @@ const onSlideDoctorTeamSwiperChange = (swiper:any) => {
   doctorTeamCurrent.value = swiper.realIndex + 1
 }
 
-// let sum = computed(()=>{
-//  return num1.value + num2.value
-// })
+let areaTabCurNum = computed(()=>{
+  return appState.areaTabCurNum
+})
 
-// watch(
-  // appState, (newValue, oldValue) => {
+let doctorTeamSwiperRef = {
+  slideTo: (a,b)=>{}
+}
+const setDoctorTeamSwiperRef = (swiper:any) => {
+  doctorTeamSwiperRef = swiper;
+}
+
+watch(
+  areaTabCurNum, (newValue, oldValue) => {
     // console.log(newValue, oldValue);
-    // console.log(newValue.areaTabCurNum, oldValue.areaTabCurNum);
-    // if(newValue.areaTabCurNum !== oldValue.areaTabCurNum){
-    //   doctorTeamCurrent.value = 1
-    // }
-  // },
-  // {
-    // immediate: true,
-    // deep: true,
-  // }
-// );
+    doctorTeamSwiperRef.slideTo(0, 0);
+  },
+  {
+    deep: true,
+  }
+);
 
 
 // const async posts = ({ $content }) => {
@@ -148,6 +151,7 @@ const onSlideDoctorTeamSwiperChange = (swiper:any) => {
               :autoplay="{
                 disableOnInteraction: true,
               }"
+              @swiper="setDoctorTeamSwiperRef"
               @slideChange="onSlideDoctorTeamSwiperChange"
             >
               <SwiperSlide v-for="(swiperPage,swiperPageIndex) in Math.ceil( doctorLists_cs[appState.areaTabCurNum].length / 12 )" :key="swiperPageIndex" >
