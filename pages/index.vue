@@ -81,6 +81,10 @@ const onSlideDoctorTeamSwiperChange = (swiper:any) => {
   doctorTeamCurrent.value = swiper.realIndex + 1
 }
 
+// let sum = computed(()=>{
+//  return num1.value + num2.value
+// })
+
 // watch(
   // appState, (newValue, oldValue) => {
     // console.log(newValue, oldValue);
@@ -220,7 +224,7 @@ svg:hover path{
         cursor: pointer;
         flex: 1;
         min-width: 16.55%;
-        max-width: 16.7%;
+        max-width: 16.6%;
         // mix-blend-mode: multiply;
         // box-shadow: inset -1px -1px 0px #FFA39E;
         border-right: 1px solid;

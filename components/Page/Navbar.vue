@@ -98,7 +98,7 @@ let mbQDCodeBool = ref(false)
     </div>
     <div class="navbar-content-mb">
       <div><nuxt-link id="navMbFacebook" to="https://www.facebook.com/CKJ-%E5%B8%8C%E7%91%AA%E6%84%9B%E5%BA%B7%E5%81%A5-107356075712157" target="_blank">Facebook預約</nuxt-link></div>
-      <div @click="handleNavFormNav">填寫表格</div>
+      <div id="navMbContactFormBtn" @click="handleNavFormNav">填寫表格</div>
     </div>
     <div class="navbar-content-mb" v-if="false">
       <div><nuxt-link id="navMbFacebook" to="https://www.facebook.com/CKJ-%E5%B8%8C%E7%91%AA%E6%84%9B%E5%BA%B7%E5%81%A5-107356075712157" target="_blank">Facebook預約</nuxt-link></div>
