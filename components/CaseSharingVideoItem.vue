@@ -66,7 +66,7 @@
       font-weight: 700;
       font-size: 2rem;
       line-height: 160%;
-      color: #FFCECB;
+      color: #69B1FF;
       margin-top: 70px;
       z-index: 1;
     }

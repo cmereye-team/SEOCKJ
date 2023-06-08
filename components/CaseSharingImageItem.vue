@@ -81,7 +81,7 @@ defineProps({
         font-weight: 700;
         font-size: 21px;
         line-height: 160%;
-        color: #FFCECB;
+        color: #69B1FF;
         display: block;
         text-align: right;
       }
