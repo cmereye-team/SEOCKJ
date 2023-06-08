@@ -186,7 +186,7 @@ const onSlideProcessSwiperChange = (swiper:any) => {
                 display: block;
                 padding-top: 10px;
                 &-in{
-                  color: #FFA09E;
+                  // color: #FFA09E;
                 }
               }
               &:last-child{
