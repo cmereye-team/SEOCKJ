@@ -129,11 +129,11 @@ const navLists = [
           </nuxt-link>
         </div>
       </div>
-      <div class="w-30 md:absolute md:right-20 md:bottom-10">
+      <!-- <div class="w-30 md:absolute md:right-20 md:bottom-10">
         <nuxt-link :to="'/'">
           <img class="w-full" src="https://static.cmereye.com/imgs/2023/05/5e148b7d20c0be51.png" alt="" />
         </nuxt-link>
-      </div>
+      </div> -->
     </div>
   </footer>
 </template>

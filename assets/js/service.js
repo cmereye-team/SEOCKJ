@@ -1,6 +1,6 @@
 export default [
   {
-    name: '植牙',
+    name: '種植牙',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/5e129af0339856f0.png',
     link: '/dental-service/implant'
   },

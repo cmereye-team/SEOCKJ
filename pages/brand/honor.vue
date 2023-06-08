@@ -30,7 +30,7 @@ const headerConfig = {
 
 const introduceData = {
   title: '品牌榮譽',
-  content: 'CKJ希瑪愛康健口腔品牌連鎖\n專注口腔，屢獲殊榮',
+  content: 'CKJ愛康健口腔品牌連鎖\n專注口腔，屢獲殊榮',
   mbImg: 'https://static.cmereye.com/imgs/2023/05/080b60a67d204e25.jpg',
   pcImg: 'https://static.cmereye.com/imgs/2023/05/3db5860b4c31810e.jpg',
   tabNavName: '品牌榮譽',
@@ -88,7 +88,7 @@ const handleProcessBtn = (_type: string) => {
       <div class="honor-bg">
         <div class="honor-title">
           <span>向匠心致敬</span>
-          <span>希瑪愛康健品牌榮譽榜</span>
+          <span>愛康健品牌榮譽榜</span>
         </div>
         <div class="honor-in pageCon">
           <div class="leftBtn" @click="handleProcessBtn('slidePrev')"></div>
@@ -118,7 +118,7 @@ const handleProcessBtn = (_type: string) => {
       <div class="international-context">
         以醫療品質為本<br />
         注重醫療技術水準整體提升<br />
-        在口腔學術領域競賽希瑪愛康健連年斬獲大獎<br />
+        在口腔學術領域競賽愛康健連年斬獲大獎<br />
         <br />
         與時俱進，技術與世界同步<br />
         攜手國內外口腔研究與教育中心和口腔醫學院校<br />
@@ -152,7 +152,7 @@ const handleProcessBtn = (_type: string) => {
       <div class="brand-title">
         <div class="brand-title-in">
           <span>始於1995</span>
-          <span>希瑪愛康健口腔品牌連鎖</span>
+          <span>愛康健口腔品牌連鎖</span>
         </div>
       </div>
       <div class="brand-context">- 專科 · 專業 · 專注 · 專心 - </div>

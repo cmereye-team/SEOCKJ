@@ -46,7 +46,7 @@ onMounted(() => {
     <div class="brandConcept-left pageCon">
       <div class="index_title brandConceptTitle">品牌理念</div>
       <div class="brandConcept-title">
-        <span>希瑪愛康健品牌</span>
+        <span>愛康健品牌</span>
         <span>28年專注你的口腔健康</span>
       </div>
       <div class="brandConceptBg">
