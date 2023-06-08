@@ -26,7 +26,7 @@ const onSlideChange = (swiper:any) => {
 //   if(res){
 //     console.log('data数据',res.data)
 //     if(res.data && res.data.length){
-//       newsLists.value = res.data.map(item=>{
+//       newsLists = res.data.map(item=>{
 //         return {
 //           title: item.title || '',
 //           imgUrl: `https://admin.ckjhk.com/${item.ico}`,
@@ -37,35 +37,35 @@ const onSlideChange = (swiper:any) => {
 //     }
 //   }
 // }
-
+// getNewsLists()
 // const newsLists = ref([{
 //   title: '',
 //   imgUrl: '',
 //   link: ''
 // }])
-const newsLists = [
+let newsLists = [
   {
     title: '歐美種植牙 即減￥2000元/顆',
     imgUrl: 'https://static.cmereye.com/imgs/2023/06/c82c0ef3ec05c145.jpg',
-    mbUrl: 'https://static.cmereye.com/imgs/2023/06/0aca88215a59dc48.jpg',
+    mbUrl: 'https://static.cmereye.com/imgs/2023/06/a335bdbff16b3cde.jpg',
     link: '/service/dentalImplant'
   },
   {
     title: '隱形牙箍  即減￥5000元',
     imgUrl: 'https://static.cmereye.com/imgs/2023/06/61f1d1e84478d06d.jpg',
-    mbUrl: 'https://static.cmereye.com/imgs/2023/06/7258af491af58385.jpg',
+    mbUrl: 'https://static.cmereye.com/imgs/2023/06/2152e061a9cb2de5.jpg',
     link: '/service/invisalign'
   },
   {
     title: '金屬矯正牙箍 即減￥2000元',
     imgUrl: 'https://static.cmereye.com/imgs/2023/06/3df92744a843178d.jpg',
-    mbUrl: 'https://static.cmereye.com/imgs/2023/06/2ccbb8016b908ca0.jpg',
+    mbUrl: 'https://static.cmereye.com/imgs/2023/06/0372b9f044d8513f.jpg',
     link: '/service/orthodontics'
   },
   {
     title: '成功種牙或矯齒，免費贈送專業潔牙1次',
     imgUrl: 'https://static.cmereye.com/imgs/2023/06/be220b91ee16b2dc.jpg',
-    mbUrl: 'https://static.cmereye.com/imgs/2023/06/4ae29fb6553acd82.jpg',
+    mbUrl: 'https://static.cmereye.com/imgs/2023/06/045c04168a00ad58.jpg',
     link: '/service'
   }
 ]

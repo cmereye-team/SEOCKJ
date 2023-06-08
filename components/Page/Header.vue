@@ -278,7 +278,7 @@ const getScrollHeight = () => {
         />
         <div class="header-content-bgImg-textInfo pageCon">
           <div :class="['header-content-bgImg-in',headerConfig.pageName]">
-            <div class="bannerTitle">
+            <div :class="['bannerTitle',headerConfig.pageName]">
               <span>{{windowWidth>768?headerConfig.pcText[0]:headerConfig.mbText[0]}}</span>
               <span>{{windowWidth>768?headerConfig.pcText[1]:headerConfig.mbText[1]}}</span>
             </div>
@@ -498,6 +498,7 @@ const getScrollHeight = () => {
       }
       .text{
         margin-top: 32px;
+        max-width: 550px;
         font-style: normal;
         font-weight: 700;
         font-size: 1.75rem;
