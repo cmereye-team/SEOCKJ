@@ -29,7 +29,7 @@ const navLists = [
   },
   {
     name: '牙科服務',
-    link: `/service`,
+    link: `/dental-service`,
     // child: [
     //   {
     //     name: '全科牙科',

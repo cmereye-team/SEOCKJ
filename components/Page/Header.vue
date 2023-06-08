@@ -63,7 +63,7 @@ const menuLists = [
   },
   {
     name: '牙科服務',
-    link: `/service`,
+    link: `/dental-service`,
     child: [
       // {
       //   name: '',
