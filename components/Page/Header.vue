@@ -71,59 +71,59 @@ const menuLists = [
       // }
       {
         name: '種植牙',
-        link: '/service/dentalImplant',
+        link: '/dental-service/dentalImplant',
       },
       {
         name: '矯齒',
-        link: '/service/orthodontics',
+        link: '/dental-service/orthodontics',
       },
       {
         name: '杜牙根',
-        link: '/service/rootCanal',
+        link: '/dental-service/rootCanal',
       },
       {
         name: '隱適美',
-        link: '/service/invisalign',
+        link: '/dental-service/invisalign',
       },
       {
         name: '瓷貼片',
-        link: '/service/veneers',
+        link: '/dental-service/veneers',
       },
       {
         name: '全瓷牙冠',
-        link: '/service/crown',
+        link: '/dental-service/crown',
       },
       {
         name: '智慧齒脫除',
-        link: '/service/extraction',
+        link: '/dental-service/extraction',
       },
       {
         name: '牙周病治療',
-        link: '/service/periodontal',
+        link: '/dental-service/periodontal',
       },
       {
         name: '牙托',
-        link: '/service/dentalTrays',
+        link: '/dental-service/dentalTrays',
       },
       {
         name: '牙齒美白',
-        link: '/service/teethWhitening',
+        link: '/dental-service/teethWhitening',
       },
       {
         name: '洗牙',
-        link: '/service/scalingTeeth',
+        link: '/dental-service/scalingTeeth',
       },
       {
         name: '補牙',
-        link: '/service/dentalFillings',
+        link: '/dental-service/dentalFillings',
       },
       {
         name: '一般口腔檢查',
-        link: '/service/oralCheck',
+        link: '/dental-service/oralCheck',
       },
       {
         name: '兒童牙科',
-        link: '/service/pediatric',
+        link: '/dental-service/pediatric',
       }
     ],
   },
@@ -199,7 +199,7 @@ const classNamefilter = ( _menu:any, _idx: number) => {
         className = 'menuChildCurrent'
       }
     }
-  }else if(route.path.includes('/service')){
+  }else if(route.path.includes('/dental-service')){
     if(_menu.link.includes(appState.dentistryService)){
       className = 'menuChildCurrent'
     }
@@ -340,14 +340,14 @@ const getScrollHeight = () => {
               <nuxt-link :class="menuItem.child.length ? 'triangleIcon' : ''" :to="menuItem.link">
               {{ menuItem.name }}
               </nuxt-link>
-              <div class="menuChild" v-if="menuItem.child.length && !menuItem.link.includes('/service')">
+              <div class="menuChild" v-if="menuItem.child.length && !menuItem.link.includes('/dental-service')">
                 <div :class="['menuChild-item', classNamefilter(menuChildItem,menuChildIndex)]" v-for="(menuChildItem,menuChildIndex) in menuItem.child" :key="menuChildIndex" @click="handleMenuChild(menuItem,menuChildIndex)">
                   <nuxt-link :to="menuChildItem.link">
                   {{menuChildItem.name}}
                   </nuxt-link>
                 </div>
               </div>
-              <div class="menuChild serviceCard" v-if="menuItem.link.includes('/service')">
+              <div class="menuChild serviceCard" v-if="menuItem.link.includes('/dental-service')">
                 <serviceCard :isMenu="true" />
               </div>
             </div>

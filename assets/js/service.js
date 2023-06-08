@@ -2,71 +2,71 @@ export default [
   {
     name: '植牙',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/5e129af0339856f0.png',
-    link: '/service/dentalImplant'
+    link: '/dental-service/dentalImplant'
   },
   {
     name: '矯齒(箍牙)',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/4344be2a0c460ef5.png',
-    link: '/service/orthodontics'
+    link: '/dental-service/orthodontics'
   },
   {
     name: '根管治療',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/32034ad5bb8db07a.png',
-    link: '/service/rootCanal'
+    link: '/dental-service/rootCanal'
   },
   {
     name: '隱適美',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/6c3e61117d540a66.png',
-    link: '/service/invisalign'
+    link: '/dental-service/invisalign'
   },
   {
     name: '瓷貼片',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/4fe83a037a03391d.png',
-    link: '/service/veneers'
+    link: '/dental-service/veneers'
   },
   {
     name: '全瓷牙冠',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/81b463bfe0377935.png',
-    link: '/service/crown'
+    link: '/dental-service/crown'
   },
   {
     name: '智慧齒脫除',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/84a4d8dea1e93276.png',
-    link: '/service/extraction'
+    link: '/dental-service/extraction'
   },
   {
     name: '牙周病治療',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/db71b7e766da670e.png',
-    link: '/service/periodontal'
+    link: '/dental-service/periodontal'
   },
   {
     name: '牙托',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/102e8ffea3f3ee05.png',
-    link: '/service/dentalTrays'
+    link: '/dental-service/dentalTrays'
   },
   {
     name: '牙齒美白',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/201d5535b39b4b5f.png',
-    link: '/service/teethWhitening'
+    link: '/dental-service/teethWhitening'
   },
   {
     name: '洗牙',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/e4d3795bb2f0397c.png',
-    link: '/service/scalingTeeth'
+    link: '/dental-service/scalingTeeth'
   },
   {
     name: '補牙',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/b94a717160c05e3a.png',
-    link: '/service/dentalFillings'
+    link: '/dental-service/dentalFillings'
   },
   {
     name: '一般口腔檢查',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/248483fd3f0ca0e2.png',
-    link: '/service/oralCheck'
+    link: '/dental-service/oralCheck'
   },
   {
     name: '兒童牙科',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/0c2dfc7b0c54bc01.png',
-    link: '/service/pediatric'
+    link: '/dental-service/pediatric'
   },
 ]

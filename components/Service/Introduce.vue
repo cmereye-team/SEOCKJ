@@ -26,7 +26,7 @@ defineProps({
       }">
       <div class="tabNav noTitle pageCon">
         <nuxt-link :to="'/'"><span>主頁</span></nuxt-link>
-        <nuxt-link :to="'/service'"><span>牙科服務</span></nuxt-link>
+        <nuxt-link :to="'/dental-service'"><span>牙科服務</span></nuxt-link>
         <span>{{introduceData.tabNavName}}</span>
       </div>
       <div class="introduce-in-t mbBox">
