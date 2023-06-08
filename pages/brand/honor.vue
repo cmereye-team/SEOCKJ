@@ -434,6 +434,7 @@ const handleProcessBtn = (_type: string) => {
         }
         img{
           margin: 0 auto;
+          max-width: 160px;
         }
       }
     }
