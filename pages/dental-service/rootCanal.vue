@@ -323,10 +323,10 @@ const processData = {
             @swiper="setSwiperRef"
           >
             <swiper-slide class="swiper-slide">
-              <img src="https://static.cmereye.com/imgs/2023/05/e9d10c5c79b75694.jpg" alt="">
+              <img src="https://static.cmereye.com/imgs/2023/06/154e36113fa5e579.png" alt="">
             </swiper-slide>
             <swiper-slide class="swiper-slide">
-              <img src="https://static.cmereye.com/imgs/2023/05/f32a467f4a071353.jpg" alt="">
+              <img src="https://static.cmereye.com/imgs/2023/06/ac0aa9264119857f.png" alt="">
             </swiper-slide>
           </swiper>
           <div class="rightBtn" @click="handleProcessBtn('slideNext')"></div>

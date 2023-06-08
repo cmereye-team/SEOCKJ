@@ -52,7 +52,7 @@ let newsLists = [
   },
   {
     title: '隱形牙箍  即減￥5000元',
-    imgUrl: 'https://static.cmereye.com/imgs/2023/06/61f1d1e84478d06d.jpg',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/06/f1c3617872a221a1.jpg',
     mbUrl: 'https://static.cmereye.com/imgs/2023/06/2152e061a9cb2de5.jpg',
     link: '/dental-service/invisalign'
   },
