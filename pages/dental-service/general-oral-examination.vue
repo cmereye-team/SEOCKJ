@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
 const appState = useAppState()
-appState.setDentistryService('oralCheck')
+appState.setDentistryService('general-oral-examination')
 useHead({
   title: '口腔檢查｜牙科服務',
   meta: [
@@ -22,7 +22,7 @@ const headerConfig = {
   img: 'https://static.cmereye.com/imgs/2023/06/97c82cdfd887382a.png',
   bg: 'https://static.cmereye.com/imgs/2023/06/387acf0954409624.jpg',
   mbImg: 'https://static.cmereye.com/imgs/2023/06/5fb010c120970570.jpg',
-  pageName: 'oralCheck',
+  pageName: 'general-oral-examination',
   pcText: ['關注口腔健康，從定期檢查開始','立即預約檢查，展開護牙行動'],
   mbText: ['關注口腔健康','從定期檢查開始']
 }

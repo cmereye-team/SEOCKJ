@@ -55,13 +55,13 @@ defineProps({
             font-weight: 700;
             font-size: 50px;
             margin-top: 96px;
-            &.extraction{
+            &.wisdom-teeth-extraction{
               margin-top: 15%;
             }
-            &.teethWhitening{
+            &.teeth-whitening{
               margin-top: 10%;
             }
-            &.dentalFillings{
+            &.fillings{
               margin-top: 15%;
             }
           }
@@ -74,7 +74,7 @@ defineProps({
             &.orthodontics{
               width: 409px;
             }
-            &.teethWhitening{
+            &.teeth-whitening{
               // margin-top: 0;
               white-space: pre-wrap;
             }
@@ -158,13 +158,13 @@ defineProps({
               font-weight: 700;
               font-size: 26px;
               margin-top: 0;
-              &.extraction{
+              &.wisdom-teeth-extraction{
                 margin-top: 0;
               }
-              &.teethWhitening{
+              &.teeth-whitening{
                 margin-top: 0;
               }
-              &.dentalFillings{
+              &.fillings{
                 margin-top: 0;
               }
             }

@@ -32,7 +32,7 @@ export default [
   {
     name: '智慧齒脫除',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/84a4d8dea1e93276.png',
-    link: '/dental-service/extraction'
+    link: '/dental-service/wisdom-teeth-extraction'
   },
   {
     name: '牙周病治療',
@@ -42,31 +42,31 @@ export default [
   {
     name: '牙托',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/102e8ffea3f3ee05.png',
-    link: '/dental-service/dentalTrays'
+    link: '/dental-service/toothtray'
   },
   {
     name: '牙齒美白',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/201d5535b39b4b5f.png',
-    link: '/dental-service/teethWhitening'
+    link: '/dental-service/teeth-whitening'
   },
   {
     name: '洗牙',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/e4d3795bb2f0397c.png',
-    link: '/dental-service/scalingTeeth'
+    link: '/dental-service/scaling-and-polishing'
   },
   {
     name: '補牙',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/b94a717160c05e3a.png',
-    link: '/dental-service/dentalFillings'
+    link: '/dental-service/fillings'
   },
   {
     name: '一般口腔檢查',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/248483fd3f0ca0e2.png',
-    link: '/dental-service/oralCheck'
+    link: '/dental-service/general-oral-examination'
   },
   {
     name: '兒童牙科',
     imgUrl: 'https://static.cmereye.com/imgs/2023/05/0c2dfc7b0c54bc01.png',
-    link: '/dental-service/pediatric'
+    link: '/dental-service/children-dentistry'
   },
 ]

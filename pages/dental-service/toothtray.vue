@@ -2,7 +2,7 @@
 import { useAppState } from '~/stores/appState'
 import { Scrollbar } from 'swiper';
 const appState = useAppState()
-appState.setDentistryService('dentalTrays')
+appState.setDentistryService('toothtray')
 useHead({
   title: "牙托 | 牙科服務",
   meta: [
@@ -23,7 +23,7 @@ const headerConfig = {
   img: 'https://static.cmereye.com/imgs/2023/06/d957a86773cda5a8.png',
   bg: 'https://static.cmereye.com/imgs/2023/06/ac0953834f7561e4.jpg',
   mbImg: 'https://static.cmereye.com/imgs/2023/06/5659637e703a6559.jpg',
-  pageName: 'dentalTrays',
+  pageName: 'toothtray',
   pcText: ['回歸自然微笑，恢復咀嚼功能','牙齒更加整齊、美觀、自信、舒適'],
   mbText: ['回歸自然微笑','恢復咀嚼功能']
 }
@@ -58,7 +58,7 @@ const reasonData = {
       isSmallFS: true
     }
   ],
-  pageName: 'dentalTrays'
+  pageName: 'toothtray'
 }
 
 const contrastData = {

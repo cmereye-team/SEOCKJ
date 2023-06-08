@@ -34,7 +34,7 @@ defineProps({
 <style lang="scss" scoped>
 .note{
   padding: 96px 0 0;
-  &.pediatric{
+  &.children-dentistry{
     padding: 143px 0 0;
   }
   &-in{
@@ -74,7 +74,7 @@ defineProps({
   .note{
     padding: 96px 30px 0;
     box-sizing: border-box;
-    &.pediatric{
+    &.children-dentistry{
       padding: 96px 30px 0;
     }
     &-in{

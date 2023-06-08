@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
 const appState = useAppState()
-appState.setDentistryService('extraction')
+appState.setDentistryService('wisdom-teeth-extraction')
 useHead({
   title: "拔牙 | 智慧齒",
   meta: [
@@ -22,7 +22,7 @@ const headerConfig = {
   img: 'https://static.cmereye.com/imgs/2023/06/be6cbd721fed563e.png',
   bg: 'https://static.cmereye.com/imgs/2023/06/fc94e41b3cd98d6b.jpg',
   mbImg: 'https://static.cmereye.com/imgs/2023/06/9fd49477afcd2b60.jpg',
-  pageName: 'extraction',
+  pageName: 'wisdom-teeth-extraction',
   pcText: ['拔牙及智慧齒脫除','專業醫療團隊，照顧每一位客人健康與感受'],
   mbText: ['專業醫療團隊','照顧客人健康']
 }
@@ -33,7 +33,7 @@ const orthodonticsIntroduceData = {
   mbImg: 'https://static.cmereye.com/imgs/2023/06/58299d97d5204cdd.jpg',
   pcImg: 'https://static.cmereye.com/imgs/2023/06/70059336eaad4630.jpg',
   tabNavName: '拔牙及智慧齒脫除',
-  pageName: 'extraction'
+  pageName: 'wisdom-teeth-extraction'
 }
 
 const reasonData = {
@@ -57,7 +57,7 @@ const reasonData = {
       context: '配合牙齒矯正治療',
     }
   ],
-  pageName: 'extraction'
+  pageName: 'wisdom-teeth-extraction'
 }
 
 const issueData = {

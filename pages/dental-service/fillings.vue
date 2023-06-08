@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
 const appState = useAppState()
-appState.setDentistryService('dentalFillings')
+appState.setDentistryService('fillings')
 useHead({
   title: '補牙｜牙科服務',
   meta: [
@@ -22,7 +22,7 @@ const headerConfig = {
   img: 'https://static.cmereye.com/imgs/2023/06/84d8cb1804ceccde.png',
   bg: 'https://static.cmereye.com/imgs/2023/06/2baa49a13d587aa6.jpg',
   mbImg: 'https://static.cmereye.com/imgs/2023/06/dc5a79b64bbddc8c.jpg',
-  pageName: 'dentalFillings',
+  pageName: 'fillings',
   pcText: ['高質量的修復效果','緊急救援您珍貴的牙齒'],
   mbText: ['高質量的修復效果','緊急救援您珍貴的牙齒']
 }
@@ -33,7 +33,7 @@ const orthodonticsIntroduceData = {
   mbImg: 'https://static.cmereye.com/imgs/2023/05/61b68b2597a8e44d.jpg',
   pcImg: 'https://static.cmereye.com/imgs/2023/05/98c2430bfc65c812.jpg',
   tabNavName: '補牙',
-  pageName: 'dentalFillings',
+  pageName: 'fillings',
 }
 
 const reasonData = {

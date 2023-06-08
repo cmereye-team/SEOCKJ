@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
 const appState = useAppState()
-appState.setDentistryService('pediatric')
+appState.setDentistryService('children-dentistry')
 useHead({
   title: "兒童牙科保健｜牙科服務",
   meta: [
@@ -22,7 +22,7 @@ const headerConfig = {
   img: 'https://static.cmereye.com/imgs/2023/06/67f203a9b4c651be.png',
   bg: 'https://static.cmereye.com/imgs/2023/06/4a26475cb4471cee.jpg',
   mbImg: 'https://static.cmereye.com/imgs/2023/06/671098dc7b098348.jpg',
-  pageName: 'pediatric',
+  pageName: 'children-dentistry',
   pcText: ['關注口腔健康，從定期檢查開始','立即預約檢查，展開護牙行動'],
   mbText: ['關注口腔健康','從定期檢查開始']
 }
@@ -51,7 +51,7 @@ const reasonData = {
     }
   ],
   isMediumCW: true,
-  pageName: 'pediatric' 
+  pageName: 'children-dentistry' 
 }
 
 const noteData = {
@@ -64,7 +64,7 @@ const noteData = {
       name: '小朋友擁有第一隻牙開始，就可以定期檢查牙齒。定期進行牙科保健，從小了解保持口腔健康的知識和重要性，家長們亦可以緊貼小朋友的牙齒發育進度，及早發現兒童牙齒的潛在問題，作出針對性治療。',
     }
   ],
-  pageName: 'pediatric',
+  pageName: 'children-dentistry',
 }
 
 const problemData = {

@@ -65,7 +65,7 @@ defineProps({
         line-height: 160%;
         text-align: center;
         color: #4D4D4D;
-        &.scalingTeeth{
+        &.scaling-and-polishing{
           max-width: 1042px;
         }
       }

@@ -2,7 +2,7 @@
 import { useAppState } from '~/stores/appState'
 import { Scrollbar } from 'swiper';
 const appState = useAppState()
-appState.setDentistryService('teethWhitening')
+appState.setDentistryService('teeth-whitening')
 useHead({
   title: '牙齒美白 ｜牙科服務',
   meta: [
@@ -23,7 +23,7 @@ const headerConfig = {
   img: 'https://static.cmereye.com/imgs/2023/06/c495a817a3a44207.png',
   bg: 'https://static.cmereye.com/imgs/2023/06/6f9de9264afc70b9.jpg',
   mbImg: 'https://static.cmereye.com/imgs/2023/06/c35d4f80203378f9.jpg',
-  pageName: 'teethWhitening',
+  pageName: 'teeth-whitening',
   pcText: ['淨白牙齒，建立閃亮笑容','安全、可靠、快捷'],
   mbText: ['淨白牙齒','建立閃亮笑容']
 }
@@ -34,7 +34,7 @@ const orthodonticsIntroduceData = {
   mbImg: 'https://static.cmereye.com/imgs/2023/06/528550d9da6d31f9.jpg',
   pcImg: 'https://static.cmereye.com/imgs/2023/06/20a2795169586423.jpg',
   tabNavName: '牙齒美白',
-  pageName: 'teethWhitening',
+  pageName: 'teeth-whitening',
 }
 
 const reasonData = {

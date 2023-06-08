@@ -83,19 +83,19 @@ defineProps({
       flex-direction: column;
       max-width: 520px;
       margin-top: 155px;
-      &.extraction{
+      &.wisdom-teeth-extraction{
         margin-left: 22px;
       }
       &.periodontal{
         max-width: 560px;
       }
-      &.dentalTrays{
+      &.toothtray{
         max-width: 680px;
       }
       &.mediumCW{
         max-width: 663px;
       }
-      &.pediatric{
+      &.children-dentistry{
         margin-left: -10%;
         margin-top: 18%;
       }
@@ -144,7 +144,7 @@ defineProps({
       }
       &-r {
         margin-top: 10.5vw;
-        &.extraction{
+        &.wisdom-teeth-extraction{
           margin-left: 1.5vw;
         }
         & > div {
@@ -187,7 +187,7 @@ defineProps({
       }
       &-r {
         margin-top: 28px;
-        &.extraction{
+        &.wisdom-teeth-extraction{
           margin-left: 0;
         }
         & > div {

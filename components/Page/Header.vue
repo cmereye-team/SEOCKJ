@@ -95,7 +95,7 @@ const menuLists = [
       },
       {
         name: '智慧齒脫除',
-        link: '/dental-service/extraction',
+        link: '/dental-service/wisdom-teeth-extraction',
       },
       {
         name: '牙周病治療',
@@ -103,27 +103,27 @@ const menuLists = [
       },
       {
         name: '牙托',
-        link: '/dental-service/dentalTrays',
+        link: '/dental-service/toothtray',
       },
       {
         name: '牙齒美白',
-        link: '/dental-service/teethWhitening',
+        link: '/dental-service/teeth-whitening',
       },
       {
         name: '洗牙',
-        link: '/dental-service/scalingTeeth',
+        link: '/dental-service/scaling-and-polishing',
       },
       {
         name: '補牙',
-        link: '/dental-service/dentalFillings',
+        link: '/dental-service/fillings',
       },
       {
         name: '一般口腔檢查',
-        link: '/dental-service/oralCheck',
+        link: '/dental-service/general-oral-examination',
       },
       {
         name: '兒童牙科',
-        link: '/dental-service/pediatric',
+        link: '/dental-service/children-dentistry',
       }
     ],
   },
@@ -435,15 +435,15 @@ const getScrollHeight = () => {
           float: right;
           margin-right: calc((100% - 1600px)/2);
         }
-        &.dentalTrays,&.oralCheck{
+        &.toothtray,&.general-oral-examination{
           float: right;
           margin-right: calc((100% - 1700px)/2);
         }
-        &.rootCanal,&.invisalign,&.veneers,&.extraction,&.periodontal,&.teethWhitening,&.scalingTeeth,&.pediatric{
+        &.rootCanal,&.invisalign,&.veneers,&.wisdom-teeth-extraction,&.periodontal,&.teeth-whitening,&.scaling-and-polishing,&.children-dentistry{
           float: right;
           margin-right: calc((100% - 1920px)/2);
         }
-        &.dentalFillings{
+        &.fillings{
           float: right;
           margin-right: calc((100% - 1200px)/2);
         }
@@ -520,11 +520,11 @@ const getScrollHeight = () => {
         left: 0;
         top: 25%;
       }
-      &.extraction,&.periodontal,&.dentalTrays,&.teethWhitening,&.scalingTeeth{
+      &.wisdom-teeth-extraction,&.periodontal,&.toothtray,&.teeth-whitening,&.scaling-and-polishing{
         left: 0;
         top: 25%;
       }
-      &.dentalFillings,&.oralCheck,&.pediatric{
+      &.fillings,&.general-oral-examination,&.children-dentistry{
         left: 0;
         top: 25%;
       }
