@@ -27,14 +27,14 @@ const caseSharingLists = [
     skill: '根管治療(杜牙根)療程',
     text: '安心、舒服、無痛',
     context: '蛀咗牙自己都唔知，直到有一日真係牙痛先怕！原本以為要剝牙，後來牙醫建議杜牙根，成個治療過程都好快，最緊要可以保留到原來嘅牙齒！',
-    imgUrl: 'https://static.cmereye.com/imgs/2023/05/cf650f7fe68dfed5.jpg'
+    imgUrl: 'https://static.cmereye.com/imgs/2023/06/72a1864e2021e804.jpg'
   },
   {
     name: '大學生，Jenny',
     skill: '矯齒(箍牙)療程',
     text: '唔再怕同人合照喇',
     context: '從前唔整齊嘅牙齒令到我冇自信，經過兩年既箍牙歷程，真係令成個面容改變咗好多！最重要係牙醫手勢非常專業，價錢亦都好合理！',
-    imgUrl: 'https://static.cmereye.com/imgs/2023/06/ce91ab62a4a1a581.jpg'
+    imgUrl: 'https://static.cmereye.com/imgs/2023/06/f1fab4a43cdea943.jpg'
   },
 ]
 

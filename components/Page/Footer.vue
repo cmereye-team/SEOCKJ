@@ -110,7 +110,7 @@ const navLists = [
         </nuxt-link>
       </div>
       <div class="footer-content-text">
-        全程式預約一體化診療服務，讓每一位顧客享受健康微笑之旅。
+        全程式預約一體化診療服務 {{'\n'}}讓每一位顧客享受健康微笑之旅
       </div>
       <div class="footer-content-icon">
         <div class="footer-content-icon-in">
@@ -167,12 +167,13 @@ const navLists = [
     }
   }
   &-text {
-    max-width: 360px;
+    // max-width: 360px;
     color: #fff;
     font-size: 22px;
     text-align: center;
     line-height: 160%;
     text-shadow: 0px 0px 4px rgba(255, 120, 117, 0.45);
+    white-space: pre-wrap;
   }
   &-icon {
     margin-top: 30px;

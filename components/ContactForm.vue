@@ -176,7 +176,7 @@ onMounted(() => {
             <el-input v-model="form.email" />
           </el-form-item>
           <el-form-item label="服務選擇：" prop="service" label-width="100%">
-            <el-select v-model="form.service" placeholder="请选择服務">
+            <el-select v-model="form.service" placeholder="請選擇服務">
               <el-option
                 :label="serviceItem"
                 v-for="serviceItem in serviceLists"

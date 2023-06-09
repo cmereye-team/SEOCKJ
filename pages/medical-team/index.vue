@@ -80,7 +80,7 @@ onMounted(()=>{
         <!-- 醫生團隊 -->
         <div class="index_title">醫生團隊</div>
         <!-- 醫療團隊 EXPERTS -->
-        <div class="doctorPage-in-text">醫療團隊 EXPERTS</div>
+        <div class="doctorPage-in-text">醫療團隊 Medical Team</div>
         <!-- 傾心打造貼心,專業的牙科連鎖 -->
         <div class="doctorPage-in-content"><span>傾心打造貼心,</span><span>專業的牙科連鎖</span></div>
         <div class="doctorPage-in-tabNav">
@@ -104,7 +104,7 @@ onMounted(()=>{
               <div class="title">{{item.job || ''}}</div>
               <div class="name">
                 <span>{{item.name || ''}}</span> 
-                <span>{{item.posts || ''}}{{item.educated ? `,${item.educated}` : ''}}</span>
+                <span>{{item.posts || ''}}{{(item.posts && item.educated) ? '，': '' }}{{item.educated || ''}}</span>
               </div>
               <!-- 機構： -->
               <div class="org">
@@ -268,7 +268,7 @@ onMounted(()=>{
             .org{
               font-weight: 600;
               font-size: 24px;
-              width: 45%;
+              // width: 45%;
             }
             .expertise{
               font-weight: 600;

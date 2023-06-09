@@ -15,7 +15,7 @@ defineProps({
 })
 
 let swiperRef ={
-  slideTo: (a,b)=>{}
+  slideToLoop: (a,b)=>{}
 }
 const setSwiperRef = (swiper:any) => {
   swiperRef = swiper;
@@ -24,10 +24,12 @@ const setSwiperRef = (swiper:any) => {
 let processTabsActive = ref(0)
 const handleProcessTabs = (_idx: number) =>{
   processTabsActive.value = _idx
-  swiperRef.slideTo(_idx, 0);
+  console.log('_idx',_idx)
+  // swiperRef.slideToLoop(_idx, 0);
 }
 
 const onSlideProcessSwiperChange = (swiper:any) => {
+  // console.log('swiperrealIndex',swiper.realIndex)
   processTabsActive.value = swiper.realIndex
 }
 </script>

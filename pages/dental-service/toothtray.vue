@@ -63,8 +63,8 @@ const reasonData = {
 
 const contrastData = {
   title: {
-    span1: '固定式假牙',
-    span2: '活動式假牙點揀好？'
+    span1: '固定式假牙 VS ',
+    span2: '活動式假牙 點揀好？'
   },
   context: '固定式假牙與活動式假牙各有其優缺點及適用的情況，通常會經由牙醫評估口內缺牙的情況及剩下牙齒的狀況，再進一步進行全面的考量及建議。',
   tableRemark: '以下為你分析固定式/活動式假牙的優缺點：',

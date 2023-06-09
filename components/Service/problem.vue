@@ -70,6 +70,8 @@ const activeNames = ref(0)
         font-size: 28px;
         color: #505050;
         max-width: calc(100% - 70px);
+        flex: 1;
+        margin-left: 20px;
       }
       &>div:nth-of-type(3){
         margin-right: 32px;
@@ -144,6 +146,7 @@ const activeNames = ref(0)
         }
         &>div:nth-of-type(2){
           font-size: 16px;
+          margin-left: 0px;
         }
         &>div:nth-of-type(3){
           width: 13px;
