@@ -414,17 +414,17 @@ const handleProcessBtn = (_type: string) => {
   }
   &-in{
     width: 100%;
-    max-width: 1622px;
+    max-width: 1452px;
     margin: 61px auto 0;
     display: flex;
     justify-content: space-between;
     &>div{
       flex: 1;
-      padding: 0 40px;
+      padding: 0 30px;
       &>div{
         font-style: normal;
         font-weight: 700;
-        font-size: 26.2167px;
+        font-size: 26px;
         line-height: 160%;
         text-align: center;
         color: #4C4C4C;
@@ -434,7 +434,7 @@ const handleProcessBtn = (_type: string) => {
         }
         img{
           margin: 0 auto;
-          max-width: 160px;
+          max-width: 120px;
         }
       }
     }
@@ -466,7 +466,7 @@ const handleProcessBtn = (_type: string) => {
   .brand{
     &-in{
       &>div{
-        padding: 0 3vw;
+        padding: 0 2vw;
       }
     }
   }

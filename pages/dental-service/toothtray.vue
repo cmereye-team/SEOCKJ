@@ -256,7 +256,7 @@ const problemData = {
     margin: 40px auto 0;
     max-width: 1452px;
     width: 100%;
-    filter: drop-shadow(0px 4px 8px #FFDDDA);
+    // filter: drop-shadow(0px 4px 8px #FFDDDA);
     &-in{
       display: flex;
       flex-direction: column;
@@ -264,10 +264,11 @@ const problemData = {
         display: flex;
         justify-content: center;
         align-items: center;
-        border-right: 1px solid #FFA09E;
+        // border-right: 1px solid #FFA09E;
         flex-direction: column;
         &.content{
           flex-direction: row;
+          margin-bottom: 6px;
           &>div{
             flex: 1;
             height: 100%;
@@ -279,9 +280,11 @@ const problemData = {
             font-size: 24px;
             line-height: 160%;
             color: #4D4D4D;
-            padding-left: 18px;
+            padding: 0 18px;
+            background: #FFFFFF;
             &>div{
               display: flex;
+              
               span{
                 &:first-child{
                   width: 20px;
@@ -293,12 +296,14 @@ const problemData = {
             }
           }
           .content-l{
-            border-right: 1px solid #FFA09E;
+            // border-right: 1px solid #FFA09E;
+            margin-right: 4px;
           }
         }
         &:nth-of-type(1){
           height: 138px;
           display: flex;
+          margin-bottom: 6px;
           .th{
             background: #FFA09E;
             font-style: normal;
@@ -306,6 +311,7 @@ const problemData = {
             font-size: 28px;
             line-height: 160%;
             color: #FFFFFF;
+            margin-bottom: 6px;
           }
           &>div{
             flex: 1;
@@ -313,6 +319,7 @@ const problemData = {
             align-items: center;
             justify-content: center;
             width: 100%;
+            
             .td{
               background: #FFDDDA;
               font-style: normal;
@@ -347,35 +354,39 @@ const problemData = {
           height: 182px;
         } 
         &:not(:last-child){
-          border-bottom: 1px solid #FFA09E;
+          // border-bottom: 1px solid #FFA09E;
         }
       }
     }
     .swiper{
       .swiper-slide{
-        width: 45.17%;
-        background: #FFFFFF;
+        width: 43.1%;
+        // background: #FFFFFF;
         &:nth-of-type(1){
-          width: 9.09%;
+          width: 13.5%;
           border-radius: 60px 0 0 60px;
+          margin-right: 4px;
+          overflow: hidden;
           .contrast-table-in{
             &>div{
               font-style: normal;
               font-weight: 700;
               font-size: 28px;
               line-height: 160%;
+              background: #FFFFFF;
               color: #FFA09E;
+              margin-bottom: 6px;
             }
           }
         }
         &:nth-of-type(3){
-          padding-left: 8px;
+          padding-left: 4px;
           border-radius: 0 60px 60px 0;
           overflow: hidden;
           .contrast-table-in{
             &>div{
               border-right: none;
-              border-left: 1px solid #FFA09E;
+              // border-left: 1px solid #FFA09E;
             }
           }
         } 
@@ -470,9 +481,10 @@ const problemData = {
       &-in{
         &>div{
           &.content{
+            margin-bottom: 3.5px;
               &>div{
                 font-size: 15px;
-                padding-left: 11px;
+                padding: 0 11px;
                 &>div{
                   span{
                     &:first-child{
@@ -481,11 +493,16 @@ const problemData = {
                   }
                 }
               }
+              .content-l{
+                margin-right: 2px;
+              }
           }
           &:nth-of-type(1){
             height: 86.77px;
+            margin-bottom: 3.5px;
             .th{
               font-size: 20px;
+              margin-bottom: 3.5px;
             }
             &>div{
               .td{
@@ -517,10 +534,12 @@ const problemData = {
         .swiper-slide{
           width: 109.86%;
           &:nth-of-type(1){
-            width: 83px;
+            width: 102px;
+            margin-left: 2px;
             .contrast-table-in{
               &>div{
                 font-size: 18px;
+                margin-bottom: 3.5px;
               }
             }
           }

@@ -26,12 +26,12 @@ defineProps({
       {{stepData.remark}}
     </div>
     <div :class="`${stepData.pageName}Bg`">
-      <div class="step-in pageCon">
+      <div :class="['step-in','pageCon',stepData.pageName]">
         <div :class="['step-in-box',stepData.stepLists.length === 1 ? 'oneBox' : '']"
           v-for="(step,stepIndex) in stepData.stepLists" :key="stepIndex">
           <div class="step-itemLists">
             <div :class="['step-itemLists-in',stepData.stepLists.length === 1 ? 'oneBoxListItem' : '']" v-for="(stepChild,stepChildIndex) in step" :key="stepChildIndex">
-              <div class="line"></div>
+              <div :class="['line',{ 'lineNone' : step.length === 1 }]"></div>
               <span class="round"></span>
               <span class="title">{{stepChild.title}}</span>
               <span class="text">
@@ -90,7 +90,9 @@ defineProps({
           .step-itemLists{
             width: 100%;
             &-in{
-              padding-bottom: 90px;
+              // padding-bottom: 90px;
+              padding-bottom: 40px;
+              min-height: 120px;
               display: flex;
               align-items: flex-start;
               cursor: pointer;
@@ -103,6 +105,9 @@ defineProps({
                 top: 20px;
                 left: 10px;
                 z-index: 0;
+                &.lineNone{
+                  height: 0;
+                }
               }
               .round{
                 width: 24px;
@@ -158,6 +163,9 @@ defineProps({
             &-in:last-child{
               .line{
                 height: calc(50% - 24px);
+                &.lineNone{
+                  height: 0;
+                }
               }
             }
           }
@@ -177,6 +185,9 @@ defineProps({
             text-align: center;
             margin-top: 50px;
           }
+        }
+        &.scaling-and-polishing{
+          min-height: 300px;
         }
       }
       .invisalignBg{
@@ -231,6 +242,7 @@ defineProps({
                 height: auto;
                 padding-right: 10px;
                 padding-bottom: 40px;
+                min-height: 0;
                 .line{
                   width: 2px;
                   left: 7px;

@@ -22,7 +22,7 @@ const headerConfig = {
   img: 'https://static.cmereye.com/imgs/2023/06/5d98a050a1163042.png',
   bg: 'https://static.cmereye.com/imgs/2023/06/1bd88089085e1d68.jpg',
   mbImg: 'https://static.cmereye.com/imgs/2023/06/cb2cff6cdf17d72b.jpg',
-  pageName: 'veneers',
+  pageName: 'all-ceramic-crowns',
   pcText: ['自然、耐久、性價比首選','讓您恢復美麗微笑，重拾自信'],
   mbText: ['讓您恢復美麗微笑','重拾自信']
 }

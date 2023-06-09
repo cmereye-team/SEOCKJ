@@ -20,6 +20,15 @@ useHead({
   ],
   link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
 })
+
+onMounted(()=>{
+  // ElMessage({
+  //   showClose: true,
+  //   message: '表單提交成功！我們會盡快回覆閣下。',
+  //   type: 'success',
+  //   duration: 0
+  // })
+})
 </script>
 
 <template>

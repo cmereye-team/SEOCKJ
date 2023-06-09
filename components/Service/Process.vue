@@ -24,8 +24,8 @@ const setSwiperRef = (swiper:any) => {
 let processTabsActive = ref(0)
 const handleProcessTabs = (_idx: number) =>{
   processTabsActive.value = _idx
-  console.log('_idx',_idx)
-  // swiperRef.slideToLoop(_idx, 0);
+  // console.log('_idx',_idx)
+  swiperRef.slideToLoop(_idx, 0);
 }
 
 const onSlideProcessSwiperChange = (swiper:any) => {

@@ -399,7 +399,7 @@ const getScrollHeight = () => {
           float: right;
           margin-right: calc((100% - 1700px)/2);
         }
-        &.invisalign,&.veneers,&.wisdom-teeth-extraction,&.periodontal,&.teeth-whitening,&.scaling-and-polishing,&.children-dentistry{
+        &.invisalign,&.veneers,&.wisdom-teeth-extraction,&.periodontal,&.teeth-whitening,&.scaling-and-polishing,&.children-dentistry,&.all-ceramic-crowns{
           float: right;
           margin-right: calc((100% - 1920px)/2);
         }
@@ -492,7 +492,7 @@ const getScrollHeight = () => {
       &.brand{
         left: 0;
       }
-      &.implant,&.orthodontics,&.rootCanal,&.invisalign,&.veneers{
+      &.implant,&.orthodontics,&.rootCanal,&.invisalign,&.veneers,&.all-ceramic-crowns{
         left: 0;
         top: 25%;
       }
