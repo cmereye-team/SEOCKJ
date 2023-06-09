@@ -40,7 +40,7 @@ defineProps({
               </span>
             </div>
           </div>
-          <div class="step-bottom" v-if="stepData.isShowBottom">
+          <div class="step-bottom" v-if="stepIndex===1 && stepData.isShowBottom">
             {{stepData.bottomText}}
           </div>
         </div>

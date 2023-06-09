@@ -68,7 +68,9 @@ const stepData = {
       {
         title: 'Step 3',
         text: '醫生講解情況及治療方案'
-      },
+      }, 
+    ],
+    [
       {
         title: 'Step 4',
         text: '配戴牙箍及定期覆診'
