@@ -260,7 +260,7 @@ const getScrollHeight = () => {
           />
         </div>
         <img
-          class="mbBox"
+          :class="['mbBox','header-content-bgImg-mbImg',headerConfig.pageName]"
           :src="headerConfig.mbImg"
           alt=""
         />
@@ -407,6 +407,14 @@ const getScrollHeight = () => {
           float: right;
           margin-right: calc((100% - 1200px)/2);
         }
+      }
+    }
+    &-mbImg{
+      &.veneers{
+        -moz-transform: matrix(-1,0,0,1,0,0);
+        -o-transform: matrix(-1,0,0,1,0,0);
+        -webkit-transform: matrix(-1,0,0,1,0,0);
+        transform: matrix(-1,0,0,1,0,0);
       }
     }
     &-textInfo{

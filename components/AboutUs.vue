@@ -22,6 +22,16 @@ const aboutUsLists = [
   }
 ]
 
+let aboutUsSwiperRef ={
+  slideToLoop: (a)=>{}
+}
+const setAboutUsSwiperRefSwiperRef = (swiper:any) => {
+  aboutUsSwiperRef = swiper;
+}
+const handleLineCur = (_value:number) =>{
+  // console.log(_value)
+  aboutUsSwiperRef.slideToLoop(_value-1)
+}
 </script>
 
 <template>
@@ -33,6 +43,7 @@ const aboutUsLists = [
           :autoplay="{
             disableOnInteraction: true,
           }"
+          @swiper="setAboutUsSwiperRefSwiperRef"
           @slideChange="onSlideAboutUsSwiperChange"
         >
           <SwiperSlide v-for="(item,index) in aboutUsLists" :key="index" >
@@ -52,7 +63,7 @@ const aboutUsLists = [
             </div>
           </SwiperSlide>  
           <div class="aboutUs-lineBox">
-            <PageSwiperPointLine :latestNewsNum="aboutUsLists.length" :latestNewsCurrent="aboutUsCurrent"></PageSwiperPointLine>
+            <PageSwiperPointLine :latestNewsNum="aboutUsLists.length" :latestNewsCurrent="aboutUsCurrent" @changeLineCur="handleLineCur"></PageSwiperPointLine>
           </div>
         </Swiper>
     </div>

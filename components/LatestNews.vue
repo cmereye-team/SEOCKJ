@@ -78,7 +78,7 @@ const getWindowWidth = () => {
 }
 
 const handleLineCur = (_value:number) =>{
-  console.log(_value)
+  // console.log(_value)
   latestNewsSwiperRef.slideToLoop(_value-1)
 }
 

@@ -86,10 +86,16 @@ let areaTabCurNum = computed(()=>{
 })
 
 let doctorTeamSwiperRef = {
-  slideTo: (a,b)=>{}
+  slideTo: (a,b)=>{},
+  slideToLoop: (a)=>{}
 }
 const setDoctorTeamSwiperRef = (swiper:any) => {
   doctorTeamSwiperRef = swiper;
+}
+
+const handleLineCur = (_value:number) =>{
+  // console.log(_value)
+  doctorTeamSwiperRef.slideToLoop(_value-1)
 }
 
 watch(
@@ -167,7 +173,7 @@ watch(
         </div>
         <div class="index-doctorTeam-b pageCon">
           <div class="index-doctorTeam-b-in">
-            <PageSwiperPointLine :latestNewsNum="Math.ceil( doctorLists_cs[appState.areaTabCurNum].length / 12 )" :latestNewsCurrent="doctorTeamCurrent" :isAutoWidth="true"></PageSwiperPointLine>
+            <PageSwiperPointLine :latestNewsNum="Math.ceil( doctorLists_cs[appState.areaTabCurNum].length / 12 )" :latestNewsCurrent="doctorTeamCurrent" :isAutoWidth="true" @changeLineCur="handleLineCur"></PageSwiperPointLine>
           </div>
         </div>
       </div>
