@@ -103,7 +103,7 @@ const allAddressLists = [
       time: '9:00-18:00 （假日照常上班）',
       phone: '+852 69122011',
       busRoutes: '福田口岸：203路、B618路、B685路、B689路、B858路、B957路、M204路、M441路、M499路',
-      metroRoutes: '地鐵4號線」福田口岸"站A出口',
+      metroRoutes: '地鐵4號線「福田口岸」站A出口',
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/63dbe40ee13b53e9.png',
       googleMap: 'https://goo.gl/maps/mQgJXrTxvaaLB9Y1A?coh=178572&entry=tt',
       baiduMap: 'https://j.map.baidu.com/1f/kY0'
@@ -118,7 +118,7 @@ const allAddressLists = [
       time: '9:00-18:00 （假日照常上班）',
       phone: '+852 69122011',
       busRoutes: '蛇口沃爾瑪：70路、79路、80路、113路、122路、204路、328路、332路、B605路、M106路、M133路、M241路、M400路、M409路、M409區間車、M448路、M484路、M527線、N1路、N4路、NE30線、高快巴士123路、高快巴士874號、前海行8路',
-      metroRoutes: '地鐵9號線"南油西" 站 B出口；地鐵12號線「四海站」J出口平安銀行拐角處。',
+      metroRoutes: '地鐵9號線「南油西」站 B出口；地鐵12號線「四海站」J出口平安銀行拐角處。',
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/4783ff2e8f17beff.png',
       googleMap: 'https://goo.gl/maps/nK2iuEusGFcbqE216?coh=178572&entry=tt',
       baiduMap: 'https://j.map.baidu.com/2e/Pmif'
@@ -130,7 +130,7 @@ const allAddressLists = [
       time: '9:00-18:00 （假日照常上班）',
       phone: '+852 69122011',
       busRoutes: '海岸城：19路、229路、B605路、B964路、B964路、M201路、M209路、M222路、M299路、M429路、M430路、M474路、M475路、M519路、M519線大站快車、M539路、N24路、N8路、高峰專線12路、歐洲城假日專線',
-      metroRoutes: '地鐵2號線和11號線"後海" 站 D1出口',
+      metroRoutes: '地鐵2號線和11號線「後海」站 D1出口',
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/d6c09b604319be78.png',
       googleMap: 'https://goo.gl/maps/WkeuvYNKWeLNhSzE7?coh=178572&entry=tt',
       baiduMap: 'https://j.map.baidu.com/36/4FH'
@@ -142,7 +142,7 @@ const allAddressLists = [
       time: '9:00-18:00 （假日照常上班）',
       phone: '+852 69122011',
       busRoutes: '海雅百貨：19路、37路、70路、80路、113路、226路、245區間車、328路、M106路、M133路、M242路、M398路、M398區間車、M448路、M527線、M539路、N1路、N8路、NE30線、高快巴士123路、高快巴士874號',
-      metroRoutes: '地鐵9號線"南山書城"站 D出口',
+      metroRoutes: '地鐵9號線「南山書城」站 D出口',
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/47efa458657fb4a5.png',
       googleMap: 'https://goo.gl/maps/ud217ArM8ZGDJ8DJ8?coh=178572&entry=tt',
       baiduMap: 'https://j.map.baidu.com/b8/Mzj'
@@ -157,7 +157,7 @@ const allAddressLists = [
       time: '9:00-18:00 （假日照常上班）',
       phone: '+852 69122011',
       busRoutes: '建行寶安支行： 395路、603路、610路、704路、m235路',
-      metroRoutes: '地鐵5號線「靈芝「站A出口',
+      metroRoutes: '地鐵5號線「靈芝」站A出口',
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/009aa648694461bb.png',
       googleMap: 'https://goo.gl/maps/ntfTf49VNaY9D9VL6?coh=178572&entry=tt',
       baiduMap: 'https://j.map.baidu.com/89/2LD'
@@ -172,7 +172,7 @@ const allAddressLists = [
       time: '9:00-18:00 （假日照常上班）',
       phone: '+852 69122011',
       busRoutes: '高級中學北校區： 43路、74路、b917路、b917路、m130路、m340路、m360路、m369路、m405路、m462路、m504路、m554路、m579路、高峰專線119路、高峰專線150路',
-      metroRoutes: '地鐵4號線「紅山「站D出口',
+      metroRoutes: '地鐵4號線「紅山」站D出口',
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/547f7fa32b8a7154.png',
       googleMap: 'https://goo.gl/maps/jtcrLmft7h8s3xfX6?coh=178572&entry=tt',
       baiduMap: 'https://j.map.baidu.com/3a/nbch'

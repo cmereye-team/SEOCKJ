@@ -122,7 +122,7 @@ const foiblesData = {
             </div>
             <div class="shortcoming listsBox">
               <div class="listsBox-in" v-for="(shortcomingItem,shortcomingIndex) in foiblesItem.shortcomingLists" :key="shortcomingIndex">
-                <div>. </div>
+                <div>· </div>
                 <div>{{shortcomingItem}}</div>
               </div>
             </div>

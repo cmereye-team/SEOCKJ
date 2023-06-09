@@ -84,7 +84,7 @@ const stepData = {
 }
 
 const differData = {
-  title: '貴不等於最好要選擇自己最合適的！',
+  title: '貴不等於最好\t要選擇自己最合適的！',
   text: '價格高不代表就是最好的選擇，選擇適合自己的矯正方式才是最重要的。不同的矯正方式有著各自的優缺點，需要根據自己的口腔情況、個人需求和預算來選擇最適合的方案。所以，在決定矯正牙齒之前，一定要找到專業的牙醫進行詳細的診斷和建議，選擇最適合自己的矯正方式。',
   firstTextTh: '固定式外箍/內箍',
   secondTextTh: '透明配戴式牙箍',
@@ -273,6 +273,9 @@ const getWindowWidth = () => {
           <span>{{bpData.title}}</span>
         </div>
       </div>
+      <div class="bp-text">
+        {{bpData.text}}
+      </div>
       <div class="bp-swiper mbBox">
         <swiper
           :slidesPerView="1"
@@ -289,9 +292,6 @@ const getWindowWidth = () => {
         <div class="bp-swiper-line mbBox">
           <PageSwiperPointLine :latestNewsNum="4" :latestNewsCurrent="bpCurrent"></PageSwiperPointLine>
         </div>
-      </div>
-      <div class="bp-text">
-        {{bpData.text}}
       </div>
       <div class="bp-lists">
         <div class="bp-lists-in" v-for="(bpItem,bpIndex) in bpData.lists" :key="bpIndex">

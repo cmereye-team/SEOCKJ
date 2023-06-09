@@ -410,7 +410,7 @@ const getScrollHeight = () => {
       }
     }
     &-mbImg{
-      &.veneers{
+      &.veneers,&.periodontal{
         -moz-transform: matrix(-1,0,0,1,0,0);
         -o-transform: matrix(-1,0,0,1,0,0);
         -webkit-transform: matrix(-1,0,0,1,0,0);
@@ -467,7 +467,7 @@ const getScrollHeight = () => {
             }
           }
         }
-        &.toothtray,&.scaling-and-polishing{
+        &.toothtray,&.scaling-and-polishing,&.invisalign{
           span{
             &:last-child{
               margin-left: 130px;
@@ -839,7 +839,7 @@ const getScrollHeight = () => {
   .header-content {
     &-bgImg {
       position: relative;
-      padding-top: 20px;
+      // padding-top: 20px;
       &-textInfo{
         position: static;
         width: 100%;

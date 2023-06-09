@@ -96,7 +96,7 @@ const onSubmit = async () => {
     if(res.code){
       ElMessage({
         showClose: true,
-        message: res.data,
+        message: '表單提交成功！我們會盡快回覆閣下。',
         type: 'success',
         duration: 0
       })

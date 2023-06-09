@@ -112,9 +112,9 @@ const skillData ={
     },
     {
       title: '兒童牙齒矯正',
-      introduce: '通過矯治器的方式可以改善兒童牙齒地包天、牙齒不齊等情況。',
+      introduce: '通過矯治器的方式可以改善兒童牙齒反頜、牙齒不齊等情況。',
       characteristic: '恢復牙齒美觀和功能；改善口腔不良習慣；舒適、健康、便捷。',
-      adapt: '兒牙畸形、地包天、牙錯位。'
+      adapt: '牙列畸形、反頜、牙齒錯位。'
     },
     {
       title: '舒適拔牙',
@@ -131,6 +131,11 @@ const skillData ={
   ]
 }
 
+const changeSkillTitle = (_idx:number) => {
+  let a = ['適應期','適應期','適用','適用','適應期','注意事項']
+  // console.log(a[_idx])
+  return a[_idx]
+}
 
 let skillCur = ref(0)
 const handleSkillTab = (_idx:number) => {
@@ -183,7 +188,7 @@ const handleSkillTab = (_idx:number) => {
             <div>{{skillData.lists[skillCur].characteristic}}</div>
           </div>
           <div>
-            <div>適應癥</div>
+            <div>{{changeSkillTitle(skillCur)}}</div>
             <div>{{skillData.lists[skillCur].adapt}}</div>
           </div>
         </div>
@@ -206,7 +211,7 @@ const handleSkillTab = (_idx:number) => {
                 <div>{{skillItem.characteristic}}</div>
               </div>
               <div>
-                <div>適應癥</div>
+                <div>{{changeSkillTitle(skillIndex)}}</div>
                 <div>{{skillItem.adapt}}</div>
               </div>
             </div>

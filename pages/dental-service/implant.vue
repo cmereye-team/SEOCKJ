@@ -379,6 +379,7 @@ const getWindowWidth = () => {
             </div>
           </div>
         </div>
+        <div class="detail-remark">*本收費表所載資料為收費參考資料，最終收費會按不同的牙齒情況或複雜情度有所調整</div>
       </div>
       <!-- 问题 -->
       <ServiceProblem :problemData="problemData" />
@@ -512,6 +513,13 @@ const getWindowWidth = () => {
             }
           }
         }
+      }
+      &-remark{
+        width: 100%;
+        max-width: 1245px;
+        margin: 20px auto 0;
+        font-size: 20px;
+        font-weight: 600;
       }
     }
     .notice{
@@ -756,6 +764,11 @@ const getWindowWidth = () => {
               }
             }
           }
+        }
+        &-remark{
+          padding: 0 30px;
+          font-size: 16px;
+          text-align: center;
         }
       }
       .notice{
