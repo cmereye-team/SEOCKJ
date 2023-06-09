@@ -101,9 +101,7 @@ const onSubmit = async () => {
         duration: 0
       })
       localStorage.setItem('contactForm',JSON.stringify(_form))
-      // ElMessageBox.alert(res.data, '消息通知', {
-      //   confirmButtonText: '好的',
-      // })
+      window.location.href = `/messagePage?c=${res.code}`
     }else{
       ElMessage({
         showClose: true,
@@ -111,9 +109,6 @@ const onSubmit = async () => {
         type: 'error',
         // duration: 0
       })
-      // ElMessageBox.alert(res.data, '消息通知', {
-      //   confirmButtonText: '好的',
-      // })
     }
   }else{
     ElMessage({

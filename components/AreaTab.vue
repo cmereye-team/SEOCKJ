@@ -1,10 +1,15 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
+import { defineEmits } from 'vue'
+const emits = defineEmits(['changeTabCur'])
 
 const appState = useAppState()
 const handleAreaTab = (_idx: number) => {
   appState.setCurNum(_idx)
+  emits('changeTabCur',_idx)
 }
+
+
 </script>
 
 <template>

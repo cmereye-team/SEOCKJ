@@ -77,11 +77,23 @@ const getWindowWidth = () => {
   // console.log(windowWidth)
 }
 
+const handleLineCur = (_value:number) =>{
+  console.log(_value)
+  latestNewsSwiperRef.slideToLoop(_value-1)
+}
+
 onMounted(()=>{
   // getNewsLists()
   getWindowWidth()
   window.addEventListener('resize',getWindowWidth)
 })
+
+let latestNewsSwiperRef ={
+  slideToLoop: (a)=>{}
+}
+const setLatestNewsSwiperRef = (swiper:any) => {
+  latestNewsSwiperRef = swiper;
+}
 
 </script>
 
@@ -100,6 +112,7 @@ onMounted(()=>{
         :autoplay="{
           delay: 2500,
         }"
+        @swiper="setLatestNewsSwiperRef"
         @slideChange="onSlideChange"
       >
         <swiper-slide v-for="(latestNewsItem,latestNewsIndex) in newsLists" :key="latestNewsIndex">
@@ -121,7 +134,7 @@ onMounted(()=>{
         </swiper-slide>
       </Swiper>
       <div class="index-latestNews-line">
-        <PageSwiperPointLine :latestNewsNum="newsLists.length" :latestNewsCurrent="latestNewsCurrent"></PageSwiperPointLine>
+        <PageSwiperPointLine :latestNewsNum="newsLists.length" :latestNewsCurrent="latestNewsCurrent" @changeLineCur="handleLineCur"></PageSwiperPointLine>
       </div>
       <!-- <div class="mbBox">
          <dropdownCon  v-if="titleLeftShow" />

@@ -1,6 +1,8 @@
 
 <script lang="ts" setup>
 import { defineProps } from "vue"
+import { defineEmits } from 'vue'
+
 defineProps({
   // 个数
   latestNewsNum: {
@@ -17,8 +19,10 @@ defineProps({
     default: false
   }
 })
+const emits = defineEmits(['changeLineCur'])
 const handleSwiperItem = (idx: Number) => {
-  console.log(idx)
+  // console.log(idx)
+  emits('changeLineCur', idx)
 }
 
 let lineWidth = ref(0)

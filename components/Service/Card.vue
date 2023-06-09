@@ -16,7 +16,7 @@ const servicesCardLists = serviceLists
 const servicesCardPageData = {
   title: '牙科服務',
   dentalServicesTitleIn: '其他牙科服務',
-  contextIn: '中心提供基本牙科、美容牙科及高階牙科服務，從一般口腔檢查、洗牙、補牙，到牙齒美白、全口修復及各種牙科治療，幫助客人回復自信笑容。'
+  contextIn: '醫院提供基本牙科、美容牙科及高階牙科服務，從一般口腔檢查、洗牙、補牙，到牙齒美白、全口修復及各種牙科治療，幫助客人回復自信笑容。'
 }
 
 // let windowWidth = ref(1920)

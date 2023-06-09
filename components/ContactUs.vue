@@ -28,7 +28,7 @@ const allAddressLists = [
       time: '9:00-18:00 （假日照常應診）',
       phone: '0755-6912 2011',
       busRoutes: '羅湖火車站：1路、7路、12路、17路、38路、82路、83路、97路、101路、102路、205路、215路、306路、387路、E13路、M112路、M152路、M401路、M508路、N14路、N16路、N18路、N2路、N4路、N7路、高峰專線73號',
-      metroRoutes: '地鐵1號線“羅湖站”C出口； 地鐵9號線“人民南站” A1出口',
+      metroRoutes: '地鐵1號線「羅湖站」C出口； 地鐵9號線「人民南站」 A1出口',
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/476419e0bd27692f.png',
       googleMap: 'https://goo.gl/maps/yuWB8353yF3u4EJS6?coh=178572&entry=tt',
       baiduMap: 'https://j.map.baidu.com/b3/j3Yu'
@@ -40,7 +40,7 @@ const allAddressLists = [
       time: '9:00-18:00 （假日照常上班）',
       phone: '0755-6912 2011',
       busRoutes: '深圳書城站：29路、85路、103短線、103路、104路、113路、204路、214路、215路、E8路、M106路、M112路、M133路、M481路、M559路、N4路、大鵬假日專線4路、高快巴士863號、高快巴士97路;都市名苑：7路、8路、14路、M152路、M360路、M383路、M482路',
-      metroRoutes: '地鐵1號線“大劇院”站F出口',
+      metroRoutes: '地鐵1號線「大劇院」站F出口',
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/faf033fd50b18824.png',
       googleMap: 'https://goo.gl/maps/HQsN5jNMTeZNbxuf7?coh=178572&entry=tt',
       baiduMap: 'https://j.map.baidu.com/a5/GtH'
@@ -52,7 +52,7 @@ const allAddressLists = [
       time: '9:00-18:00 （假日照常上班）',
       phone: '0755-6912 2011',
       busRoutes: '羅湖火車站：1路、7路、12路、17路、38路、82路、83路、97路、101路、102路、205路、215路、306路、387路、E13路、M112路、M152路、M401路、M508路、N14路、N16路、N18路、N2路、N4路、N7路、高峰專線73號',
-      metroRoutes: '地鐵1號線“羅湖站”D出口；地鐵9號線“人民南站”A1出口；',
+      metroRoutes: '地鐵1號線「羅湖站」D出口；地鐵9號線「人民南站」A1出口；',
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/b741f54f1b105876.png',
       googleMap: 'https://goo.gl/maps/JMK7Huhaf9k88nbf8?coh=178572&entry=tt',
       baiduMap: 'https://j.map.baidu.com/24/Rxk'
@@ -64,7 +64,7 @@ const allAddressLists = [
       time: '9:00-18:00 （假日照常上班）',
       phone: '0755-6912 2011',
       busRoutes: '羅湖火車站：1路、7路、12路、17路、38路、82路、83路、97路、101路、102路、205路、215路、306路、387路、E13路、M112路、M152路、M401路、M508路、N14路、N16路、N18路、N2路、N4路、N7路、高峰專線73號',
-      metroRoutes: '地鐵1號線“羅湖站”D出口；地鐵9號線“人民南站”A1出口；',
+      metroRoutes: '地鐵1號線「羅湖站」D出口；地鐵9號線「人民南站」A1出口；',
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/fe00a2ba47a161b5.png',
       googleMap: 'https://goo.gl/maps/nSmd9ZL66E4Yizp67?coh=178572&entry=tt',
       baiduMap: 'https://j.map.baidu.com/a9/Xgch'
@@ -76,7 +76,7 @@ const allAddressLists = [
       time: '9:00-18:00 （假日照常上班）',
       phone: '0755-6912 2011',
       busRoutes: '羅湖火车站：1路、7路、12路、17路、38路、82路、83路、97路、101路、102路、205路、215路、306路、387路、E13路、M112路、M152路、M401路、M508路、N14路、N16路、N18路、N2路、N4路、N7路、高峰专线73号',
-      metroRoutes: '地鐵1號線“羅湖站”A出口',
+      metroRoutes: '地鐵1號線「羅湖站」A出口',
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/5f6257f23815c0b8.png',
       googleMap: 'https://goo.gl/maps/HefFWPuSqmdHbyBo9?coh=178572&entry=tt',
       baiduMap: 'https://j.map.baidu.com/d3/Awch'
@@ -91,7 +91,7 @@ const allAddressLists = [
       time: '9:00-18:00 （假日照常上班）',
       phone: '0755-6912 2011',
       busRoutes: '福民地鐵站：60路、62路、73路、202路、303路、385路、B689路、B858路、N9路、高快巴士26路',
-      metroRoutes: '地鐵4號線和7號線“福民站”D出口',
+      metroRoutes: '地鐵4號線和7號線「福民站」D出口',
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/f75bb70e48d1a50e.png',
       googleMap: 'https://goo.gl/maps/evH9Z41S1o4fH3HR6?coh=178572&entry=tt',
       baiduMap: 'https://j.map.baidu.com/ea/Yhh'
@@ -103,7 +103,7 @@ const allAddressLists = [
       time: '9:00-18:00 （假日照常上班）',
       phone: '0755-6912 2011',
       busRoutes: '福田口岸：203路、B618路、B685路、B689路、B858路、B957路、M204路、M441路、M499路',
-      metroRoutes: '地鐵4號線”福田口岸"站A出口',
+      metroRoutes: '地鐵4號線」福田口岸"站A出口',
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/63dbe40ee13b53e9.png',
       googleMap: 'https://goo.gl/maps/mQgJXrTxvaaLB9Y1A?coh=178572&entry=tt',
       baiduMap: 'https://j.map.baidu.com/1f/kY0'
@@ -118,7 +118,7 @@ const allAddressLists = [
       time: '9:00-18:00 （假日照常上班）',
       phone: '0755-6912 2011',
       busRoutes: '蛇口沃爾瑪：70路、79路、80路、113路、122路、204路、328路、332路、B605路、M106路、M133路、M241路、M400路、M409路、M409區間車、M448路、M484路、M527線、N1路、N4路、NE30線、高快巴士123路、高快巴士874號、前海行8路',
-      metroRoutes: '地鐵9號線"南油西" 站 B出口；地鐵12號線“四海站”J出口平安銀行拐角處。',
+      metroRoutes: '地鐵9號線"南油西" 站 B出口；地鐵12號線「四海站」J出口平安銀行拐角處。',
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/4783ff2e8f17beff.png',
       googleMap: 'https://goo.gl/maps/nK2iuEusGFcbqE216?coh=178572&entry=tt',
       baiduMap: 'https://j.map.baidu.com/2e/Pmif'
@@ -157,7 +157,7 @@ const allAddressLists = [
       time: '9:00-18:00 （假日照常上班）',
       phone: '0755-6912 2011',
       busRoutes: '建行寶安支行： 395路、603路、610路、704路、m235路',
-      metroRoutes: '地鐵5號線“靈芝“站A出口',
+      metroRoutes: '地鐵5號線「靈芝「站A出口',
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/009aa648694461bb.png',
       googleMap: 'https://goo.gl/maps/ntfTf49VNaY9D9VL6?coh=178572&entry=tt',
       baiduMap: 'https://j.map.baidu.com/89/2LD'
@@ -172,7 +172,7 @@ const allAddressLists = [
       time: '9:00-18:00 （假日照常上班）',
       phone: '0755-6912 2011',
       busRoutes: '高級中學北校區： 43路、74路、b917路、b917路、m130路、m340路、m360路、m369路、m405路、m462路、m504路、m554路、m579路、高峰專線119路、高峰專線150路',
-      metroRoutes: '地鐵4號線“紅山“站D出口',
+      metroRoutes: '地鐵4號線「紅山「站D出口',
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/547f7fa32b8a7154.png',
       googleMap: 'https://goo.gl/maps/jtcrLmft7h8s3xfX6?coh=178572&entry=tt',
       baiduMap: 'https://j.map.baidu.com/3a/nbch'
@@ -184,7 +184,7 @@ const allAddressLists = [
       time: '9:00-18:00 （假日照常上班）',
       phone: '0755-6912 2011',
       busRoutes: '風和日麗北 : 312路、621路、M152路、M173路、M180路、M222路、M244路、M262路、M269路外環、M365路、M381路順時針、M401路、M577路',
-      metroRoutes: '地鐵4號線“龍華站”A出口',
+      metroRoutes: '地鐵4號線「龍華站」A出口',
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/2d4f2be9d307d63a.png',
       googleMap: 'https://goo.gl/maps/VKT1orRbiS8mAiN39?coh=178572&entry=tt門診門',
       baiduMap: 'https://j.map.baidu.com/c5/AZ4c'
@@ -265,9 +265,9 @@ const handleAddress = (_idx: string) => {
             <span>{{addressItem.metroRoutes || ''}}</span>
           </div>
           <div class="mapBtn">
-            <a :href="addressItem.googleMap" target="_blank">
+            <!-- <a :href="addressItem.googleMap" target="_blank">
             <div class="mapBtn-in">Google地圖</div>
-            </a>
+            </a> -->
             <a :href="addressItem.baiduMap" target="_blank">
               <div class="mapBtn-in">百度地圖</div>
             </a>
@@ -344,7 +344,8 @@ const handleAddress = (_idx: string) => {
         display: flex;
         justify-content: space-between;
         a{
-          flex: 1;
+          // flex: 1;
+          width: 50%;
           &:first-child{
             margin-right: 22px;
           }
