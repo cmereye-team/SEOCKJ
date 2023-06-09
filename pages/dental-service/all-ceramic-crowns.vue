@@ -166,8 +166,18 @@ const foiblesData = {
     margin-top: 54px;
     overflow: hidden;
     overflow-x: auto;
+    padding-bottom: 30px;
     &::-webkit-scrollbar {
-      display: none
+      background: none;
+      height: 3px;
+      position: relative;
+    }
+    &::-webkit-scrollbar-thumb{
+      background: #FFA09E;
+      border: none;
+    }
+    &::-webkit-scrollbar-track{
+      background: #FFF1F0;
     }
     &-box{
       display: flex;
