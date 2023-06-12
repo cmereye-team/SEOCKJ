@@ -83,6 +83,35 @@ const foiblesData = {
   ]
 }
 
+let foiblesSwiperRef ={
+  slideToLoop: (a)=>{}
+}
+const setFoiblesSwiperRef = (swiper:any) => {
+  foiblesSwiperRef = swiper;
+}
+const handleLineCur = (_value:number) =>{
+  // console.log(_value)
+  foiblesSwiperRef.slideToLoop(_value-1)
+}
+
+let foiblesCurrent = ref(1)
+
+//走马灯事件
+const onSlideChange = (swiper:any) => {
+  foiblesCurrent.value = swiper.realIndex + 1
+}
+
+let windowWidth = ref(1920)
+
+onMounted(()=>{
+  getWindowWidth()
+  window.addEventListener('resize',getWindowWidth)
+})
+
+const getWindowWidth = () => {
+  windowWidth.value = window.innerWidth
+  // console.log(windowWidth)
+}
 </script>
 
 
@@ -107,25 +136,71 @@ const foiblesData = {
       </div>
       <div class="foibles-in">
         <div class="foibles-in-box">
-          <div class="foibles-in-box-th">
-            <div class="title"></div>
-            <div class="listsTh">優點</div>
-            <div class="listsTh">缺點</div>
-          </div>
-          <div class="foibles-in-box-item" v-for="(foiblesItem,foiblesIndex) in foiblesData.foiblesLists" :key="foiblesIndex">
-            <div class="title">{{foiblesItem.title}}</div>
-            <div class="merit listsBox">
-              <div class="listsBox-in" v-for="(meritItem,meritIndex) in foiblesItem.meritLists" :key="meritIndex">
-                <div>· </div>
-                <div>{{meritItem}}</div>
+          <swiper
+            class="swiperBox foibles-in-box"
+            :slidesPerView="windowWidth>768 ? '3': '1.2'"
+            @swiper="setFoiblesSwiperRef"
+            @slideChange="onSlideChange"
+          >
+            <swiper-slide class="swiper-slide">
+              <div class="foibles-in-box-th">
+                <div class="title"></div>
+                <div class="listsTh">優點</div>
+                <div class="listsTh">缺點</div>
               </div>
-            </div>
-            <div class="shortcoming listsBox">
-              <div class="listsBox-in" v-for="(shortcomingItem,shortcomingIndex) in foiblesItem.shortcomingLists" :key="shortcomingIndex">
-                <div>· </div>
-                <div>{{shortcomingItem}}</div>
+              <div class="foibles-in-box-item">
+                <div class="title">{{foiblesData.foiblesLists[0].title}}</div>
+                <div class="merit listsBox">
+                  <div class="listsBox-in" v-for="(meritItem,meritIndex) in foiblesData.foiblesLists[0].meritLists" :key="meritIndex">
+                    <div>· </div>
+                    <div>{{meritItem}}</div>
+                  </div>
+                </div>
+                <div class="shortcoming listsBox">
+                  <div class="listsBox-in" v-for="(shortcomingItem,shortcomingIndex) in foiblesData.foiblesLists[0].shortcomingLists" :key="shortcomingIndex">
+                    <div>· </div>
+                    <div>{{shortcomingItem}}</div>
+                  </div>
+                </div>
               </div>
-            </div>
+            </swiper-slide>
+            <swiper-slide class="swiper-slide">
+              <div class="foibles-in-box-item">
+                <div class="title">{{foiblesData.foiblesLists[1].title}}</div>
+                <div class="merit listsBox">
+                  <div class="listsBox-in" v-for="(meritItem,meritIndex) in foiblesData.foiblesLists[1].meritLists" :key="meritIndex">
+                    <div>· </div>
+                    <div>{{meritItem}}</div>
+                  </div>
+                </div>
+                <div class="shortcoming listsBox">
+                  <div class="listsBox-in" v-for="(shortcomingItem,shortcomingIndex) in foiblesData.foiblesLists[1].shortcomingLists" :key="shortcomingIndex">
+                    <div>· </div>
+                    <div>{{shortcomingItem}}</div>
+                  </div>
+                </div>
+              </div>
+            </swiper-slide>
+            <swiper-slide class="swiper-slide">
+              <div class="foibles-in-box-item">
+                <div class="title">{{foiblesData.foiblesLists[2].title}}</div>
+                <div class="merit listsBox">
+                  <div class="listsBox-in" v-for="(meritItem,meritIndex) in foiblesData.foiblesLists[2].meritLists" :key="meritIndex">
+                    <div>· </div>
+                    <div>{{meritItem}}</div>
+                  </div>
+                </div>
+                <div class="shortcoming listsBox">
+                  <div class="listsBox-in" v-for="(shortcomingItem,shortcomingIndex) in foiblesData.foiblesLists[2].shortcomingLists" :key="shortcomingIndex">
+                    <div>· </div>
+                    <div>{{shortcomingItem}}</div>
+                  </div>
+                </div>
+              </div>
+            </swiper-slide>
+          </Swiper>
+          <div class="foibles-line">
+            <PageSwiperPointLine :latestNewsNum="3" :latestNewsCurrent="foiblesCurrent" @changeLineCur="handleLineCur"></PageSwiperPointLine>
           </div>
         </div>
       </div>
@@ -164,27 +239,10 @@ const foiblesData = {
   }
   &-in{
     margin-top: 54px;
-    overflow: hidden;
-    overflow-x: auto;
-    padding-bottom: 30px;
-    &::-webkit-scrollbar {
-      background: none;
-      height: 3px;
-      position: relative;
-    }
-    &::-webkit-scrollbar-thumb{
-      background: #FFA09E;
-      border: none;
-    }
-    &::-webkit-scrollbar-track{
-      background: #FFF1F0;
-    }
     &-box{
-      display: flex;
       width: 100%;
       margin: 0 auto;
       max-width: 1394px;
-      min-width: 778px;
       &-th{
         width: 150px;
         text-align: center;
@@ -207,7 +265,6 @@ const foiblesData = {
         }
       }
       &-item{
-        flex: 1;
         .title{
           text-align: center;
           height: 69px;
@@ -249,7 +306,6 @@ const foiblesData = {
           margin-right: 3px;
         }
         &:last-child{
-          border-radius: 0 60px 60px 0;
           overflow: hidden;
           .title{
             background: #FFCECB;
@@ -268,7 +324,26 @@ const foiblesData = {
           }
         }
       }
+      .swiper-slide{
+        &:nth-of-type(1){
+          display: flex;
+          width: calc(40% - 6px) !important;
+          margin-right: 3px;
+        }
+        &:nth-of-type(2){
+          width: 30% !important;
+        }
+        &:nth-of-type(3){
+          width: 30% !important;
+          border-radius: 0 60px 60px 0;
+          overflow: hidden;
+          margin-left: 3px;
+        }
+      }
     }
+  }
+  &-line{
+    display: none;
   }
 }
 
@@ -331,10 +406,10 @@ const foiblesData = {
     &-in{
       margin-top: 44px;
       &-box{
-        margin: 0 30px;
         &-th{
           width: 64px;
           text-align: left;
+          margin-left: 30px;
           .title{
             height: 40px;
           }
@@ -352,6 +427,7 @@ const foiblesData = {
           }
         }
         &-item{
+          flex: 1;
           .title{
             font-weight: 600;
             font-size: 20px;
@@ -377,7 +453,24 @@ const foiblesData = {
             margin-top: 8px;
           }
         }
+        .swiper-slide{
+          &:nth-of-type(1){
+            width: 90% !important;
+          }
+          &:nth-of-type(2){
+            width: 75% !important;
+          }
+          &:nth-of-type(3){
+            width: 75% !important;
+          }
+        }
       }
+    }
+    &-line{
+      width: 100%;
+      max-width: 150px;
+      margin: 30px auto 0;
+      display: block;
     }
   }
 }

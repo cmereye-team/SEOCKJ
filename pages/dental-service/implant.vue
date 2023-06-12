@@ -282,7 +282,7 @@ const getWindowWidth = () => {
           <div class="dentistryServices-title-in bb">{{featuresData.title}}</div>
         </div>
         <div class="features-in">
-          <div class="features-in-l pcBox">
+          <div class="features-in-l">
             <img src="https://static.cmereye.com/imgs/2023/05/b5a6fc53ad15b758.png" alt="">
           </div>
           <div class="features-in-r">
@@ -719,8 +719,8 @@ const getWindowWidth = () => {
           &::-webkit-scrollbar {
             background: none;
             height: 3px;
+            width: 3px;
             position: relative;
-            // display: none;
           }
           &::-webkit-scrollbar-thumb{
             background: #FFA09E;
@@ -728,6 +728,10 @@ const getWindowWidth = () => {
           }
           &::-webkit-scrollbar-track{
             background: #FFF1F0;
+          }
+          &::-webkit-scrollbar-button{
+            display: block;
+            opacity: 0;
           }
           &-in{
             margin: 0 30px;
@@ -810,6 +814,7 @@ const getWindowWidth = () => {
         &-in{
           padding: 24px 30px;
           box-sizing: border-box;
+          flex-direction: column;
           &-r{
             &-item{
               font-weight: 500;
