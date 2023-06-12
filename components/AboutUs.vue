@@ -25,7 +25,7 @@ const aboutUsLists = [
 let aboutUsSwiperRef ={
   slideToLoop: (a)=>{}
 }
-const setAboutUsSwiperRefSwiperRef = (swiper:any) => {
+const setAboutUsSwiperRef = (swiper:any) => {
   aboutUsSwiperRef = swiper;
 }
 const handleLineCur = (_value:number) =>{
@@ -43,7 +43,7 @@ const handleLineCur = (_value:number) =>{
           :autoplay="{
             disableOnInteraction: true,
           }"
-          @swiper="setAboutUsSwiperRefSwiperRef"
+          @swiper="setAboutUsSwiperRef"
           @slideChange="onSlideAboutUsSwiperChange"
         >
           <SwiperSlide v-for="(item,index) in aboutUsLists" :key="index" >

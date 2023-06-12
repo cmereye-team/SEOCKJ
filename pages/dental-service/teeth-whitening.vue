@@ -306,9 +306,6 @@ const conditionData = {
             </swiper-slide>
           </swiper>
         </div>
-        <!-- <div class="notice-line mbBox">
-          <PageSwiperPointLine :latestNewsNum="2" :latestNewsCurrent="noticeCurrent"></PageSwiperPointLine>
-        </div> -->
       </div>
       <!-- 过程 -->
       <ServiceStep :stepData="stepData" />

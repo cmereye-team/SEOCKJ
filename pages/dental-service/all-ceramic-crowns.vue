@@ -317,14 +317,14 @@ const foiblesData = {
         flex-direction: column;
         align-items: center;
         &>span{
-          width: 70%;
+          width: 80%;
         }
       }
       &>span{
         margin: 0 auto;
         font-weight: 500;
         font-size: 16px;
-        width: 70%;
+        // width: 70%;
         width: 60%;
       }
     }

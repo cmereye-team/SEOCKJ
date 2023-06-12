@@ -35,6 +35,19 @@ let differCurrent = ref(1)
 const onSlideChange = (swiper:any) => {
   differCurrent.value = swiper.realIndex + 1
 }
+
+let differSwiperRef ={
+  slideToLoop: (a)=>{}
+}
+const setDifferSwiperRef = (swiper:any) => {
+  differSwiperRef = swiper;
+}
+const handleLineCur = (_value:number) =>{
+  // console.log(_value)
+  differSwiperRef.slideToLoop(_value-1)
+}
+
+
 </script>
 
 <template>
@@ -50,7 +63,7 @@ const onSlideChange = (swiper:any) => {
         {{differData.text}}
       </div>
       <div class="differ-in">
-        <swiper :slidesPerView="windowWidth>768 ? '2': '1.1'" class="swiper-wrapper" @slideChange="onSlideChange">
+        <swiper :slidesPerView="windowWidth>768 ? '2': '1.1'" class="swiper-wrapper" @slideChange="onSlideChange" @swiper="setDifferSwiperRef">
             <swiper-slide :class="['swiper-slide',differData.pageName]">
               <div class="box">
                 <div class="box-in">
@@ -87,7 +100,7 @@ const onSlideChange = (swiper:any) => {
         </swiper>
       </div>
       <div class="differ-line mbBox">
-        <PageSwiperPointLine :latestNewsNum="2" :latestNewsCurrent="differCurrent"></PageSwiperPointLine>
+        <PageSwiperPointLine :latestNewsNum="2" :latestNewsCurrent="differCurrent" @changeLineCur="handleLineCur"></PageSwiperPointLine>
       </div>
     </div>
 </template>
@@ -131,7 +144,7 @@ const onSlideChange = (swiper:any) => {
         }
         .box-in-r{
           flex: 1;
-          padding: 0 90px;
+          padding: 0 60px;
           margin-left: 3px;
           display: flex;
           &>div{

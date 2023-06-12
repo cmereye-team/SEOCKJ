@@ -157,6 +157,17 @@ const getWindowWidth = () => {
   // console.log(windowWidth)
 }
 
+let veneerSwiperRef ={
+  slideToLoop: (a)=>{}
+}
+const setVeneerSwiperRef = (swiper:any) => {
+  veneerSwiperRef = swiper;
+}
+const handleLineCur = (_value:number) =>{
+  // console.log(_value)
+  veneerSwiperRef.slideToLoop(_value-1)
+}
+
 </script>
 
 
@@ -177,7 +188,7 @@ const getWindowWidth = () => {
         <!-- <div class="dentistryServices-title-line"></div> -->
       </div>
       <div class="notice-in">
-        <swiper :slidesPerView="windowWidth>768 ? '2': '1'" class="swiper-wrapper" @slideChange="onSlideChange">
+        <swiper :slidesPerView="windowWidth>768 ? '2': '1'" class="swiper-wrapper" @slideChange="onSlideChange" @swiper="setVeneerSwiperRef">
             <swiper-slide class="swiper-slide">
               <div class="box box-left">
                 <div class="box-in" v-for="(meritItem,meritIndex) in noticeData.meritLists" :key="meritIndex" >
@@ -195,7 +206,7 @@ const getWindowWidth = () => {
         </swiper>
       </div>
       <div class="notice-line mbBox">
-        <PageSwiperPointLine :latestNewsNum="2" :latestNewsCurrent="noticeCurrent"></PageSwiperPointLine>
+        <PageSwiperPointLine :latestNewsNum="2" :latestNewsCurrent="noticeCurrent"  @changeLineCur="handleLineCur"></PageSwiperPointLine>
       </div>
     </div>
     <!-- 问题 -->
