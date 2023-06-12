@@ -51,7 +51,6 @@ const onSlideProcessSwiperChange = (swiper:any) => {
         <Swiper
           class="swiperBox"
           :loop="true"
-          :activeIndex="processTabsActive"
           @swiper="setSwiperRef"
           @slideChange="onSlideProcessSwiperChange"
         >
