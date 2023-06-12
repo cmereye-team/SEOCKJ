@@ -208,35 +208,29 @@ const processData = {
     [
       {
         title: 'Step 1',
-        text: '牙齒診斷',
-        textIn: '使用X-Ray拍片確定患處結構，制定治療方案'
+        text: '使用X-Ray拍片確定患處結構，制定治療方案'
       },
       {
         title: 'Step 2',
-        text: '口腔麻醉',
-        textIn: '施以口腔局部麻醉，減輕患者對治療的恐懼'
+        text: '施以口腔局部麻醉，減輕患者對治療的恐懼'
       },
       {
         title: 'Step 3',
-        text: '消毒程序',
-        textIn: '施術前進行術區消毒隔離，手術器械消毒滅菌，專人專次使用，防止交叉感染。'
+        text: '施術前進行術區消毒隔離，手術器械消毒滅菌，專人專次使用，防止交叉感染。'
       }
     ],
     [
       {
         title: 'Step 4',
-        text: '清潔根管',
-        textIn: '在顯微鏡下打開牙髓腔，挑出壞死牙髓，擴大根管，沖洗根管內部'
+        text: '在顯微鏡下打開牙髓腔，挑出壞死牙髓，擴大根管，沖洗根管內部'
       },
       {
         title: 'Step 5',
-        text: '根管預備',
-        textIn: '使用顯微鏡進行根管預備，清理根管內的感染物質，施以消炎藥封口。'
+        text: '使用顯微鏡進行根管預備，清理根管內的感染物質，施以消炎藥封口。'
       },
       {
         title: 'Step 6',
-        text: '填充根管',
-        textIn: '在顯微鏡輔助下進行根管內的嚴密填充，隔絕根管和根尖周組織，防止再次感染。'
+        text: '在顯微鏡輔助下進行根管內的嚴密填充，隔絕根管和根尖周組織，防止再次感染。'
       },
     ]
   ]
@@ -295,7 +289,6 @@ const processData = {
                 <span class="title">{{stepChild.title}}</span>
                 <span class="text">
                   <div>{{stepChild.text}}</div>
-                  <div class="text-in" v-if="stepChild.textIn">{{stepChild.textIn}}</div>
                 </span>
               </div>
             </div>
@@ -567,15 +560,11 @@ const processData = {
                 flex: 1;
                 font-style: normal;
                 font-weight: 600;
-                font-size: 24px;
+                font-size: 20px;
                 line-height: 160%;
-                color: #FFA09E;
+                color: #4D4D4D;
                 display: block;
                 padding-top: 10px;
-                &-in{
-                  color: #4D4D4D;
-                  font-size: 20px;
-                }
               }
               &:last-child{
                 margin-bottom: 0;
@@ -741,13 +730,9 @@ const processData = {
                 margin-right: 12px;
               }
               .text{
-                font-weight: 600;
-                font-size: 1rem;
+                font-weight: 500;
+                font-size: 16px;
                 padding-top: 0;
-                &-in{
-                  font-weight: 500;
-                  font-size: 16px;
-                }
               }
               &:first-child{
                 margin-bottom: 0px;

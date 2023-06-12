@@ -78,7 +78,6 @@ defineProps({
         padding: 44px 65px;
         box-sizing: border-box;
         justify-content: center;
-        // align-items: center;
         height: 100%;
         min-height: 460px;
         &-box{
@@ -90,7 +89,6 @@ defineProps({
           .step-itemLists{
             width: 100%;
             &-in{
-              // padding-bottom: 90px;
               padding-bottom: 40px;
               min-height: 120px;
               display: flex;
@@ -187,6 +185,9 @@ defineProps({
           }
         }
         &.scaling-and-polishing{
+          min-height: 300px;
+        }
+        &.invisalign{
           min-height: 300px;
         }
       }

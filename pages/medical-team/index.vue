@@ -153,7 +153,7 @@ onMounted(()=>{
                       </div>
                       <div class="name">
                         <span>{{item.name || ''}}</span> 
-                        <span>{{item.posts || ''}}{{item.educated ? `,${item.educated}` : ''}}</span>
+                        <span>{{item.posts || ''}}{{(item.posts && item.educated) ? '，': '' }}{{item.educated || ''}}</span>
                       </div>
                       <div class="org">
                         機構：{{item.org || ''}}
