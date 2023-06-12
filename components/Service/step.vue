@@ -30,7 +30,7 @@ defineProps({
         <div :class="['step-in-box',stepData.stepLists.length === 1 ? 'oneBox' : '']"
           v-for="(step,stepIndex) in stepData.stepLists" :key="stepIndex">
           <div class="step-itemLists">
-            <div :class="['step-itemLists-in',stepData.stepLists.length === 1 ? 'oneBoxListItem' : '']" v-for="(stepChild,stepChildIndex) in step" :key="stepChildIndex">
+            <div :class="['step-itemLists-in',{'oneBoxListItem':stepData.stepLists.length === 1 ,'listInOneTiem': step.length === 1}]" v-for="(stepChild,stepChildIndex) in step" :key="stepChildIndex">
               <div :class="['line',{ 'lineNone' : step.length === 1 }]"></div>
               <span class="round"></span>
               <span class="title">{{stepChild.title}}</span>
@@ -146,7 +146,7 @@ defineProps({
                 margin-bottom: 0;
                 padding-bottom: 0;
               }
-              &.oneBoxListItem{
+              &.oneBoxListItem,&.listInOneTiem{
                 align-items: flex-start;
               }
               &.oneBoxListItem:last-child{
