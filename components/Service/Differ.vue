@@ -51,7 +51,7 @@ const onSlideChange = (swiper:any) => {
       </div>
       <div class="differ-in">
         <swiper :slidesPerView="windowWidth>768 ? '2': '1.1'" class="swiper-wrapper" @slideChange="onSlideChange">
-            <swiper-slide class="swiper-slide">
+            <swiper-slide :class="['swiper-slide',differData.pageName]">
               <div class="box">
                 <div class="box-in">
                   <div :class="['box-in-l',differData.pageName]"></div>
@@ -70,7 +70,7 @@ const onSlideChange = (swiper:any) => {
                 </div>
               </div>
             </swiper-slide>
-            <swiper-slide class="swiper-slide">
+            <swiper-slide :class="['swiper-slide',differData.pageName]">
               <div class="box">
                 <div :class="['box-in','boxRight',differData.pageName]">
                   <div class="box-in-r">
@@ -123,7 +123,7 @@ const onSlideChange = (swiper:any) => {
           color: #4D4D4D;
         }
         .box-in-l{
-          width: 102px;
+          width: 122px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -131,7 +131,7 @@ const onSlideChange = (swiper:any) => {
         }
         .box-in-r{
           flex: 1;
-          padding: 0 70px;
+          padding: 0 90px;
           margin-left: 3px;
           display: flex;
           &>div{
@@ -164,30 +164,28 @@ const onSlideChange = (swiper:any) => {
             background: #FFF1F0;
           }
         }
-        // &.boxRight:not(:first-child):nth-of-type(odd){
-        //   &>div{
-        //     background: #BAE0FF;
-        //   }
-        // }
         &.boxRight.invisalign:not(:first-child):nth-of-type(odd){
           &>div{
             background: #FFDDDA;
           }
         }
-        // &.boxRight:nth-of-type(even){
-        //   &>div{
-        //     background: #E6F4FF;
-        //   }
-        // }
         &.boxRight.invisalign:nth-of-type(even){
           &>div{
             background: #FFF1F0;
           }
         }
-        &.boxRight.invisalign{
-          &>div{
-            // color: #CBCBCB;
-            // color: #FFA09E;
+      }
+    }
+    .swiper-wrapper{
+      .swiper-slide{
+        &:first-child{
+          &.invisalign{
+            width: 62% !important;
+          }
+        }
+        &:last-child{
+          &.invisalign{
+            width: 38% !important;
           }
         }
       }
@@ -200,14 +198,14 @@ const onSlideChange = (swiper:any) => {
       .box{
         .box-in{
           &>div{
-            font-size: 1.2vw;
+            font-size: 16px;
           }
           .box-in-r{
             padding: 0 3vw;
           }
           &:first-child{
             &>div{
-              font-size: 2vw;
+              font-size: 22px;
             }
           }
         }
@@ -258,12 +256,20 @@ const onSlideChange = (swiper:any) => {
           }
         }
       }
-      .swiper-slide{
-        &:first-child{
-          padding-left: 30px;
-        }
-        &:last-child{
-          padding-right: 30px;
+      .swiper-wrapper{
+        .swiper-slide{
+          &:first-child{
+            padding-left: 30px;
+            &.invisalign{
+              width: 100% !important;
+            }
+          }
+          &:last-child{
+            padding-right: 30px;
+            &.invisalign{
+              width: calc(100% - 60px) !important;
+            }
+          }
         }
       }
     }
