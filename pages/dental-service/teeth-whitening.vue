@@ -366,10 +366,10 @@ const conditionData = {
         font-size: 20px;
         line-height: 160%;
         color: #4d4d4d;
-        padding: 0 80px;
+        padding: 0 70px;
         box-sizing: border-box;
         display: flex;
-        align-items: center;
+        // align-items: center;
         justify-content: center;
         &:first-child {
           background: #ffa09e;
@@ -378,9 +378,11 @@ const conditionData = {
           height: 69px;
           font-weight: 700;
           font-size: 28px;
+          align-items: center;
         }
         &:nth-of-type(2) {
           margin-top: 0;
+          padding-top: 40px;
         }
       }
     }
@@ -505,6 +507,9 @@ const conditionData = {
             height: 48px;
             font-weight: 700;
             font-size: 20px;
+          }
+          &:nth-of-type(2){
+            padding-top: 28px;
           }
         }
       }
