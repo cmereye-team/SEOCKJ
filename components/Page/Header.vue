@@ -245,6 +245,18 @@ const getScrollHeight = () => {
 }
 
 
+const handleMbMenu = () => {
+  // console.log('navigator ----- >',window.navigator.onLine)
+  if(!window.navigator.onLine){
+    ElMessage({
+      showClose: true,
+      message: '網路異常，請檢查網路後重試',
+      type: 'warning',
+      // duration: 0
+    })
+  }
+}
+
 </script>
 
 <template>
@@ -329,7 +341,7 @@ const getScrollHeight = () => {
             </nuxt-link>
             <div class="menuLists-childLists" v-if="item.child.length" v-show="menuActNum === index">
               <div class="menuLists-childLists-item" v-for="(itemChild,itemChildIndex) in item.child" :key="itemChildIndex" @click="handleMenuChild(item,itemChildIndex)">
-                <nuxt-link :to="itemChild.link">
+                <nuxt-link :to="itemChild.link" @click.native="handleMbMenu">
                 {{itemChild.name}}
                 </nuxt-link>
               </div>

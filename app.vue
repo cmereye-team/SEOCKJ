@@ -22,6 +22,12 @@ useHead({
 })
 
 onMounted(()=>{
+  // 监听网络是否关闭
+  // window.addEventListener('offline',(e)=>{
+  //   console.log(e)
+  // })
+
+  // 全局弹窗
   // ElMessage({
   //   showClose: true,
   //   message: '表單提交成功！我們會盡快回覆閣下。',

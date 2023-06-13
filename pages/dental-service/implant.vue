@@ -55,7 +55,7 @@ const noteLists = [
     img: 'https://static.cmereye.com/imgs/2023/05/375325d1f47a3eef.png'
   },
   {
-    name: '48小時內熱敷',
+    name: '48小時後熱敷',
     img: 'https://static.cmereye.com/imgs/2023/05/d2d6a05ff3b7bedc.png'
   },
   {
@@ -706,6 +706,7 @@ const getWindowWidth = () => {
             &-name{
               height: 56px;
               line-height: 56px;
+              font-size: 20px;
             }
           }
         }
@@ -818,6 +819,19 @@ const getWindowWidth = () => {
           &-r{
             &-item{
               font-weight: 500;
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 360px) {
+    .dentistryServices{
+      .note{
+        .noteCard{
+          &-in{
+            &-name{
               font-size: 16px;
             }
           }
