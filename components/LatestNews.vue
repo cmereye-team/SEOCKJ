@@ -2,10 +2,10 @@
 import { defineProps } from "vue"
 import { Autoplay } from 'swiper';
 defineProps({
-  titleLeftShow:{
-    type: Boolean,
-    default: false
-  }
+  // titleLeftShow:{
+  //   type: Boolean,
+  //   default: false
+  // }
 })
 
 
@@ -101,9 +101,6 @@ const setLatestNewsSwiperRef = (swiper:any) => {
   <div class="index-latestNews pageCon">
       <div class="index-latestNews-t">
         <div class="index_title">最新優惠</div>
-        <div class="pcBox">
-           <dropdownCon v-if="titleLeftShow" />
-        </div>
       </div>
       <swiper
         class="swiperBox"
@@ -136,9 +133,6 @@ const setLatestNewsSwiperRef = (swiper:any) => {
       <div class="index-latestNews-line">
         <PageSwiperPointLine :latestNewsNum="newsLists.length" :latestNewsCurrent="latestNewsCurrent" @changeLineCur="handleLineCur"></PageSwiperPointLine>
       </div>
-      <!-- <div class="mbBox">
-         <dropdownCon  v-if="titleLeftShow" />
-      </div> -->
     </div>
 </template>
 

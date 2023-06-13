@@ -8,15 +8,35 @@ const handleNewsItem = (_idx:number) =>{
 }
 const newsLists = ref([
   {
+    imgUrl: 'https://static.cmereye.com/imgs/2023/06/ea16bdef65414cbc.jpg',
+    title: '【我適合植牙嗎？】',
+    context: '雖然植牙有好多好處，不過唔係人人都適合做植牙㗎！植牙同其他牙科治療一樣，如果本身患有未受藥物控制的心血管疾病、免疫系統疾病等等，就需要特別作小心評估或者調整治療時間。',
+    month: 'JAN',
+    day: '16',
     isShow: false
   },
   {
+    imgUrl: 'https://static.cmereye.com/imgs/2023/06/3bfef0469a952097.jpg',
+    title: '【杜牙根後就唔會再蛀牙？】',
+    context: '以為做完杜牙根救返隻嚴重蛀牙，加埋個牙套包住，隻牙就百毒不侵，唔會再蛀多次？對杜牙根療程有疑問，快啲去諮詢牙科醫生啦！',
+    month: 'JAN',
+    day: '15',
     isShow: false
   },
   {
+    imgUrl: 'https://static.cmereye.com/imgs/2023/06/c83f7c9432a168d3.jpg',
+    title: '【「杜牙根」係咩嚟？】',
+    context: '杜牙根係專為蛀牙進行修補嘅手術，目的係將受感染/壞死嘅牙髓組織清除。由於根管治療較複雜，建議如患上蛀牙問題便立即就醫，唔好延誤治療時間呢~',
+    month: 'JAN',
+    day: '14',
     isShow: false
   },
   {
+    imgUrl: 'https://static.cmereye.com/imgs/2023/06/ff117a08ad3d03cb.jpg',
+    title: '【CKJ愛康健 正式加入FB+IG平台】',
+    context: '中心位於深圳市羅湖區, 目前已有13間門診, 提供超過20種牙科服務, 包括: 洗牙, 補牙, 牙齒美白, 箍牙, 植牙, 隱形牙箍, 智慧齒手術, 3D電腦掃描檢查等🙌',
+    month: 'JAN',
+    day: '13',
     isShow: false
   }
 ])
@@ -47,36 +67,49 @@ const getWindowWidth = () => {
     
     <PageHeader /> 
     <div class="newsPage">
-      <LatestNews :titleLeftShow="true" />
+      <LatestNews />
       <div class="newsBox pageCon">
+        <div class="newsBox-title">
+          <div class="index_title">最新消息</div>
+          <div>
+           <dropdownCon />
+          </div>
+        </div>
         <div class="newsItem" v-for="(newItem,newIndex) in newsLists" :key="newIndex" @click="handleNewsItem(newIndex)">
           <div class="newsItem-in">
-            <div class="newsItem-in-l"></div>
+            <div class="newsItem-in-l">
+              <img :src="newItem.imgUrl" alt="" />
+            </div>
             <div class="newsItem-in-c">
-              <div class="title">【新年期間營業時間更改通知】</div>
+              <div class="title">{{newItem.title}}</div>
               <svg v-show="!newItem.isShow" class="mbBox" width="13" height="23" viewBox="0 0 13 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12.5 0H0L6.25 10L12.5 0Z" fill="#FFA09E"/>
                 <path d="M12.5 13H0L6.25 23L12.5 13Z" fill="#FFA09E"/>
               </svg>
               <!-- <div class="pcShow" v-show="true"> -->
                 <div :class="'content'" v-show="windowWidth > 768 ? true : newItem.isShow">
-                  <span>農曆新年期間，我們的門店會繼續營業，</span>
-                  <span>但營業時間將有以下更改： 不便之處, 敬請原諒</span>
+                  <!-- <span>農曆新年期間，我們的門店會繼續營業，</span> -->
+                  <!-- <span>但營業時間將有以下更改： 不便之處, 敬請原諒</span> -->
+                  <span>{{newItem.context}}</span>
                 </div>
                 <div class="time" v-show="windowWidth > 768 ? true : newItem.isShow">
-                  <span>年三十晚 (24/1)：11:00am – 7:00pm</span>
-                  <span>年初一、初二 (25-26/1)：11:00am-6:00pm</span>
-                  <span>年初三、初四 (27-28/1)：照常營業 (11:00am-9:30pm)</span>
+                  <!-- <span>年三十晚 (24/1)：11:00am – 7:00pm</span> -->
+                  <!-- <span>年初一、初二 (25-26/1)：11:00am-6:00pm</span> -->
+                  <!-- <span>年初三、初四 (27-28/1)：照常營業 (11:00am-9:30pm)</span> -->
+                  <span>有任何有關牙齒既問題？愛康健幫到你！</span>
                 </div>
-                <div class="btn" v-show="windowWidth > 768 ? true : newItem.isShow">營業時間安排</div>
+                <div class="btn" v-show="windowWidth > 768 ? true : newItem.isShow">了解詳情</div>
               </div>
             <!-- </div> -->
             <div class="newsItem-in-r">
-              <span>11</span>
-              <span>JAN</span>
+              <span>{{newItem.day}}</span>
+              <span>{{newItem.month}}</span>
             </div>
           </div>
         </div>
+      </div>
+      <div>
+
       </div>
       <ContactUs />
     </div>
@@ -89,6 +122,13 @@ const getWindowWidth = () => {
   .newsPage{
     background: #fff;
     padding-bottom: 140px;
+  }
+  .newsBox{
+    margin-top: 80px;
+    &-title{
+      display: flex;
+      justify-content: space-between;
+    }
   }
   .newsItem{
     width: 100%;
@@ -103,6 +143,7 @@ const getWindowWidth = () => {
       height: 100%;
       display: flex;
       justify-content: space-between;
+      position: relative;
       &-l{
         width: 464px;
         height: 100%;
@@ -124,7 +165,7 @@ const getWindowWidth = () => {
         .title{
           height: 60px;
           font-size: 3.125rem;
-          line-height: 130%;
+          line-height: 110%;
           border-left: 20px solid #FFCECB;
         }
         .content{
@@ -179,6 +220,9 @@ const getWindowWidth = () => {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        position: absolute;
+        bottom: 0;
+        right: 0;
         span{
           font-family: 'Arial';
           font-style: normal;
@@ -194,6 +238,9 @@ const getWindowWidth = () => {
           }
         }
       }
+    }
+    &:first-child{
+      margin-top: 58px;
     }
   }
   @media (min-width: 768px) and (max-width: 1452px) {
@@ -293,6 +340,9 @@ const getWindowWidth = () => {
     .newsBox{
       padding: 30px;
       box-sizing: border-box;
+      &-title{
+        flex-direction: column;
+      }
     }
     .newsItem{
       padding: 24px 24px 22px;
@@ -307,7 +357,7 @@ const getWindowWidth = () => {
         position: relative;
         &-l{
           width: 100%;
-          padding-top: 100%;
+          // padding-top: 100%;
         }
         &-c{
           width: 100%;
