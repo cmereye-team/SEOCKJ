@@ -63,7 +63,7 @@ const getLists = async () => {
     method: 'post'
   });
   // console.log('请求结果--------------->', res)
-  console.log('请求结果',JSON.parse(res.data.value))
+  // console.log('请求结果',JSON.parse(res.data.value))
 }
 onMounted(()=>{
   // setTimeout(()=>{

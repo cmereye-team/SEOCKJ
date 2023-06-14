@@ -15,7 +15,45 @@ let latestNewsCurrent = ref(1)
 const onSlideChange = (swiper:any) => {
   latestNewsCurrent.value = swiper.realIndex + 1
 }
+// let newsLists = ref([{
+//   title: '',
+//   imgUrl: '',
+//   mbUrl: '',
+//   link: ''
+// }])
+// const getNewsLists = async () => {
+//   const _res = await useFetch('/api/api.php/list/12',{
+//     method: 'post'
+//   });
+//   // console.log('请求结果--------------->', _res)
+//   // console.log('请求结果',JSON.parse(_res.data.value))
+//   let res = JSON.parse(_res.data.value) || null
+//   if(res){
+//     // console.log(res.data)
+//     if(res.data && res.data.length){
+//       newsLists.value = res.data.map(item=>{
+//         let _obj = {
 
+//         }
+//         if(windowWidth>768 && item.ext_pcImg_hk){
+
+//         }else if(windowWidth>768 && item.ext_pcImg_hk){
+
+//         }
+//         return {
+//           title: item.title || '',
+//           imgUrl: item.ext_pcImg_hk || '',
+//           mbUrl: item.ext_mbImg_hk || '',
+//           link: item.ext_banner_link || ''
+//         }
+//       })
+//       // console.log(newsLists)
+//     }
+//   }
+// }
+// setTimeout(()=>{
+//   getNewsLists()
+// },0)
 // const getNewsLists = async () => {
 //   console.log('getNewsLists!开始执行')
 //   const { data }:any = await useFetch('https://admin.ckjhk.com/api.php/list/2',{
@@ -38,7 +76,7 @@ const onSlideChange = (swiper:any) => {
 //   }
 // }
 // getNewsLists()
-// const newsLists = ref([{
+// let newsLists = ref([{
 //   title: '',
 //   imgUrl: '',
 //   link: ''
@@ -119,16 +157,6 @@ const setLatestNewsSwiperRef = (swiper:any) => {
       >
         <swiper-slide v-for="(latestNewsItem,latestNewsIndex) in newsLists" :key="latestNewsIndex">
           <div class="index-latestNews-in">
-            <!-- <div class="index-latestNews-in-l">
-              <img class="pcBox" src="https://static.cmereye.com/imgs/2023/04/af8ffdc3e6b0a67c.jpg" alt="">
-              <img class="mbBox" src="https://static.cmereye.com/imgs/2023/04/fbd42a968440461c.jpg" alt="">
-            </div>
-            <div class="index-latestNews-in-r">
-              <img src="https://static.cmereye.com/imgs/2023/05/a50d9e0246e0d460.png" alt="">
-              <div class="btn">
-                <span>了解更多</span>
-              </div>
-            </div> -->
             <nuxt-link :to="latestNewsItem.link">
               <img class="newsImg" :src="windowWidth>768?latestNewsItem.imgUrl:latestNewsItem.mbUrl" :alt="latestNewsItem.title" :title="latestNewsItem.title" />
             </nuxt-link>
@@ -171,38 +199,6 @@ const setLatestNewsSwiperRef = (swiper:any) => {
     border-radius: 20px;
     overflow: hidden;
     display: flex;
-    &-l{
-      width: 58%;
-      img{
-        width: 100%;
-        height: 100%;
-      }
-    }
-    &-r{
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      &>img{
-        margin: 116px 0 0;
-        width: 490px;
-      }
-      .btn{
-        width: 274px;
-        height: 80px;
-        line-height: 80px;
-        background: #FFCECB;
-        box-shadow: 1px 1px 4px rgba(255, 163, 158, 0.45);
-        font-weight: 600;
-        // font-size: 32px;
-        font-size: 2rem;
-        // line-height: 160%;
-        text-align: center;
-        color: #FFFFFF;
-        margin-bottom: 100px;
-      }
-    }
   }
   &-t{
     display: flex;
@@ -225,26 +221,6 @@ const setLatestNewsSwiperRef = (swiper:any) => {
         &-in{
           width: 50%;
           margin: 0 auto;
-        }
-      }
-    }
-    &-in{
-      &-l{
-        width: 58%;
-      }
-      &-r{
-        &>img{
-          margin: 20% 0 0;
-          width: 80%;
-        }
-        .btn{
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 45%;
-          height: 14.5%;
-          margin-bottom: 20%;
-          font-size: 1.5rem;
         }
       }
     }
@@ -271,23 +247,6 @@ const setLatestNewsSwiperRef = (swiper:any) => {
       box-sizing: border-box;
       height: auto;
       flex-direction: column;
-      &-l{
-        width: 100%;
-      }
-      &-r{
-        padding-bottom: 24px;
-        &>img{
-          margin: 18px 0;
-          width: 230px;
-        }
-        .btn{
-          width: 137px;
-          height: 40px;
-          line-height: 40px;
-          font-size: 1rem;
-          margin-bottom: 50px;
-        }
-      }
     }
     &-t{
       flex-direction: column;
