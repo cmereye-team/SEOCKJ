@@ -43,6 +43,11 @@ const onSlideChange = (swiper:any) => {
 //   imgUrl: '',
 //   link: ''
 // }])
+  // const { data }:any = await useFetch('https://admin.ckjhk.com/api.php/cms/slide/gid/1',{
+  //   method: 'post'
+  // });
+  // console.log('请求结果',JSON.parse(data.value))
+
 let newsLists = [
   {
     title: '歐美種植牙 即減￥2000元/顆',

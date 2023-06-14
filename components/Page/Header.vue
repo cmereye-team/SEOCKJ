@@ -359,7 +359,7 @@ const handleMbMenu = () => {
         </div>
         <div class="menuBox-icon">
           <div class="menuBox-icon-in">
-            <nuxt-link to="https://www.facebook.com/CKJ-%E5%B8%8C%E7%91%AA%E6%84%9B%E5%BA%B7%E5%81%A5-107356075712157" target="_blank">
+            <nuxt-link to="https://www.facebook.com/ckjdental.hk/" target="_blank">
               <img src="@/assets/images/icon_01.png" />
             </nuxt-link>
           </div>

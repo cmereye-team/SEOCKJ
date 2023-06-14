@@ -11,6 +11,7 @@ const newsLists = ref([
     imgUrl: 'https://static.cmereye.com/imgs/2023/06/ea16bdef65414cbc.jpg',
     title: '【我適合植牙嗎？】',
     context: '雖然植牙有好多好處，不過唔係人人都適合做植牙㗎！植牙同其他牙科治療一樣，如果本身患有未受藥物控制的心血管疾病、免疫系統疾病等等，就需要特別作小心評估或者調整治療時間。',
+    link: '/service/dentalImplant',
     month: 'JAN',
     day: '16',
     isShow: false
@@ -19,6 +20,7 @@ const newsLists = ref([
     imgUrl: 'https://static.cmereye.com/imgs/2023/06/3bfef0469a952097.jpg',
     title: '【杜牙根後就唔會再蛀牙？】',
     context: '以為做完杜牙根救返隻嚴重蛀牙，加埋個牙套包住，隻牙就百毒不侵，唔會再蛀多次？對杜牙根療程有疑問，快啲去諮詢牙科醫生啦！',
+    link: '/dental-service/rootCanal',
     month: 'JAN',
     day: '15',
     isShow: false
@@ -27,6 +29,7 @@ const newsLists = ref([
     imgUrl: 'https://static.cmereye.com/imgs/2023/06/c83f7c9432a168d3.jpg',
     title: '【「杜牙根」係咩嚟？】',
     context: '杜牙根係專為蛀牙進行修補嘅手術，目的係將受感染/壞死嘅牙髓組織清除。由於根管治療較複雜，建議如患上蛀牙問題便立即就醫，唔好延誤治療時間呢~',
+    link: '/dental-service/rootCanal',
     month: 'JAN',
     day: '14',
     isShow: false
@@ -34,7 +37,8 @@ const newsLists = ref([
   {
     imgUrl: 'https://static.cmereye.com/imgs/2023/06/ff117a08ad3d03cb.jpg',
     title: '【CKJ愛康健 正式加入FB+IG平台】',
-    context: '中心位於深圳市羅湖區, 目前已有13間門診, 提供超過20種牙科服務, 包括: 洗牙, 補牙, 牙齒美白, 箍牙, 植牙, 隱形牙箍, 智慧齒手術, 3D電腦掃描檢查等🙌',
+    context: '中心位於深圳市羅湖區，目前已有13間門診，提供超過20種牙科服務，包括：洗牙，補牙，牙齒美白，箍牙，植牙，隱形牙箍，智慧齒手術，3D電腦掃描檢查等🙌',
+    link: '',
     month: 'JAN',
     day: '13',
     isShow: false
@@ -53,6 +57,20 @@ const getWindowWidth = () => {
   // console.log(windowWidth)
 }
 
+
+const getLists = async () => {
+  const res = await useFetch('/api/api.php/list/2',{
+    method: 'post'
+  });
+  // console.log('请求结果--------------->', res)
+  console.log('请求结果',JSON.parse(res.data.value))
+}
+onMounted(()=>{
+  // setTimeout(()=>{
+  //   getLists()
+  // },0)
+})
+
 </script>
 
 <template>
@@ -64,7 +82,6 @@ const getWindowWidth = () => {
       :headerBgImg="'https://static.cmereye.com/imgs/2023/05/de7105389a7f04b2.png'"
       :mbBg="'https://static.cmereye.com/imgs/2023/04/65b135487a85f4f0.jpg'"
       :titlePosition="'left'" -->
-    
     <PageHeader /> 
     <div class="newsPage">
       <LatestNews />
@@ -209,6 +226,11 @@ const getWindowWidth = () => {
           // margin-top: 46px;
           box-shadow: 1px 1px 4px rgba(255, 163, 158, 0.45);
           border-radius: 40px;
+          cursor: pointer;
+          transition: all .3s;
+          &:hover{
+            box-shadow: 1px 5px 10px rgba(255, 163, 158, 0.45);
+          }
         }
       }
       &-r{
@@ -357,6 +379,9 @@ const getWindowWidth = () => {
         position: relative;
         &-l{
           width: 100%;
+          img{
+            width: 100%;
+          }
           // padding-top: 100%;
         }
         &-c{

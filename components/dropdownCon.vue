@@ -1,26 +1,38 @@
 <script lang="ts" setup>
+import service from '~/assets/js/service'
 const dropdownCategoryText = ref('所有類別')
 
 // 所有类别枚举
+// const dropdownCategoryLists = [
+//   {
+//     name: '所有類別'
+//   },
+//   {
+//     name: '全科牙科'
+//   },
+//   {
+//     name: '種植牙科'
+//   },
+//   {
+//     name: '矯齒牙科'
+//   },
+//   {
+//     name: '美容牙科'
+//   },
+//   {
+//     name: '兒童牙科'
+//   }
+// ]
+const serviceLists = service.map(item=>{
+    return {
+      name: item.name
+    }
+  })
 const dropdownCategoryLists = [
   {
     name: '所有類別'
   },
-  {
-    name: '全科牙科'
-  },
-  {
-    name: '種植牙科'
-  },
-  {
-    name: '矯齒牙科'
-  },
-  {
-    name: '美容牙科'
-  },
-  {
-    name: '兒童牙科'
-  }
+  ...serviceLists
 ]
 let dropdownCategory = ref(false)
 const handleDropdownCategory = (_data: any) =>{
