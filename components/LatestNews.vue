@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import { defineProps } from "vue"
+// import { defineProps } from "vue"
 import { Autoplay } from 'swiper';
-defineProps({
+// defineProps({
   // titleLeftShow:{
   //   type: Boolean,
   //   default: false
   // }
-})
+// })
 
 
 let latestNewsCurrent = ref(1)
@@ -15,103 +15,74 @@ let latestNewsCurrent = ref(1)
 const onSlideChange = (swiper:any) => {
   latestNewsCurrent.value = swiper.realIndex + 1
 }
-// let newsLists = ref([{
-//   title: '',
-//   imgUrl: '',
-//   mbUrl: '',
-//   link: ''
-// }])
-// const getNewsLists = async () => {
-//   const _res = await useFetch('/api/api.php/list/12',{
-//     method: 'post'
-//   });
-//   // console.log('请求结果--------------->', _res)
-//   // console.log('请求结果',JSON.parse(_res.data.value))
-//   let res = JSON.parse(_res.data.value) || null
-//   if(res){
-//     // console.log(res.data)
-//     if(res.data && res.data.length){
-//       newsLists.value = res.data.map(item=>{
-//         let _obj = {
-
-//         }
-//         if(windowWidth>768 && item.ext_pcImg_hk){
-
-//         }else if(windowWidth>768 && item.ext_pcImg_hk){
-
-//         }
-//         return {
-//           title: item.title || '',
-//           imgUrl: item.ext_pcImg_hk || '',
-//           mbUrl: item.ext_mbImg_hk || '',
-//           link: item.ext_banner_link || ''
-//         }
-//       })
-//       // console.log(newsLists)
-//     }
-//   }
-// }
-// setTimeout(()=>{
-//   getNewsLists()
-// },0)
-// const getNewsLists = async () => {
-//   console.log('getNewsLists!开始执行')
-//   const { data }:any = await useFetch('https://admin.ckjhk.com/api.php/list/2',{
-//     method: 'post'
-//   });
-//   console.log('请求结果',JSON.parse(data.value))
-//   let res = JSON.parse(data.value) || []
-//   if(res){
-//     console.log('data数据',res.data)
-//     if(res.data && res.data.length){
-//       newsLists = res.data.map(item=>{
-//         return {
-//           title: item.title || '',
-//           imgUrl: `https://admin.ckjhk.com/${item.ico}`,
-//           link: ''
-//         }
-//       })
-//       console.log(newsLists)
-//     }
-//   }
-// }
-// getNewsLists()
-// let newsLists = ref([{
-//   title: '',
-//   imgUrl: '',
-//   link: ''
-// }])
-  // const { data }:any = await useFetch('https://admin.ckjhk.com/api.php/cms/slide/gid/1',{
-  //   method: 'post'
-  // });
-  // console.log('请求结果',JSON.parse(data.value))
-
-let newsLists = [
-  {
-    title: '歐美種植牙 即減￥2000元/顆',
-    imgUrl: 'https://static.cmereye.com/imgs/2023/06/c82c0ef3ec05c145.jpg',
-    mbUrl: 'https://static.cmereye.com/imgs/2023/06/0507b7e68c818758.jpg',
-    link: '/dental-service/implant'
-  },
-  {
-    title: '隱形牙箍  即減￥5000元',
-    imgUrl: 'https://static.cmereye.com/imgs/2023/06/f1c3617872a221a1.jpg',
-    mbUrl: 'https://static.cmereye.com/imgs/2023/06/e682138cf0372fea.jpg',
-    link: '/dental-service/invisalign'
-  },
-  {
-    title: '金屬矯正牙箍 即減￥2000元',
-    imgUrl: 'https://static.cmereye.com/imgs/2023/06/3df92744a843178d.jpg',
-    mbUrl: 'https://static.cmereye.com/imgs/2023/06/7f53da7aac0a0ac6.jpg',
-    link: '/dental-service/orthodontics'
-  },
-  {
-    title: '成功種牙或矯齒，免費贈送專業潔牙1次',
-    imgUrl: 'https://static.cmereye.com/imgs/2023/06/be220b91ee16b2dc.jpg',
-    mbUrl: 'https://static.cmereye.com/imgs/2023/06/35eddc3953f766d6.jpg',
-    link: '/dental-service'
+let newsLists = ref([{
+  title: '',
+  imgUrl: '',
+  mbUrl: '',
+  link: ''
+}])
+const getNewsLists = async () => {
+  const _res:any = await useFetch('/api/api.php/list/12',{
+    method: 'post'
+  });
+  // console.log('请求结果--------------->', _res)
+  // console.log('请求结果',JSON.parse(_res.data.value))
+  let res = JSON.parse(_res.data.value) || null
+  if(res){
+    // console.log(res.data)
+    if(res.data && res.data.length){
+      newsLists.value = res.data.map(item=>{
+        return {
+          title: item.title || '',
+          imgUrl: item.ext_pcImg_hk && `https://admin.ckjhk.com${item.ext_pcImg_hk}`,
+          mbUrl: item.ext_mbImg_hk && `https://admin.ckjhk.com${item.ext_mbImg_hk}`,
+          link: item.ext_banner_link || ''
+        }
+      })
+      console.log(newsLists)
+    }
   }
-]
+}
+setTimeout(()=>{
+  getNewsLists()
+},0)
+
+const filterBanner = () =>{
+  if(windowWidth.value>768){
+    // console.log(newsLists.value.filter(item => item.imgUrl !== ''))
+    return newsLists.value.filter(item => item.imgUrl !== '')
+  }else{
+    // console.log(newsLists.value.filter(item => item.mbUrl !== ''))
+    return newsLists.value.filter(item => item.mbUrl !== '')
+  }
+}
+
+// let newsLists = [
+//   {
+//     title: '歐美種植牙 即減￥2000元/顆',
+//     imgUrl: 'https://static.cmereye.com/imgs/2023/06/c82c0ef3ec05c145.jpg',
+//     mbUrl: 'https://static.cmereye.com/imgs/2023/06/0507b7e68c818758.jpg',
+//     link: '/dental-service/implant'
+//   },
+//   {
+//     title: '隱形牙箍  即減￥5000元',
+//     imgUrl: 'https://static.cmereye.com/imgs/2023/06/f1c3617872a221a1.jpg',
+//     mbUrl: 'https://static.cmereye.com/imgs/2023/06/e682138cf0372fea.jpg',
+//     link: '/dental-service/invisalign'
+//   },
+//   {
+//     title: '金屬矯正牙箍 即減￥2000元',
+//     imgUrl: 'https://static.cmereye.com/imgs/2023/06/3df92744a843178d.jpg',
+//     mbUrl: 'https://static.cmereye.com/imgs/2023/06/7f53da7aac0a0ac6.jpg',
+//     link: '/dental-service/orthodontics'
+//   },
+//   {
+//     title: '成功種牙或矯齒，免費贈送專業潔牙1次',
+//     imgUrl: 'https://static.cmereye.com/imgs/2023/06/be220b91ee16b2dc.jpg',
+//     mbUrl: 'https://static.cmereye.com/imgs/2023/06/35eddc3953f766d6.jpg',
+//     link: '/dental-service'
+//   }
+// ]
 
 let windowWidth = ref(1920)
 
@@ -155,7 +126,7 @@ const setLatestNewsSwiperRef = (swiper:any) => {
         @swiper="setLatestNewsSwiperRef"
         @slideChange="onSlideChange"
       >
-        <swiper-slide v-for="(latestNewsItem,latestNewsIndex) in newsLists" :key="latestNewsIndex">
+        <swiper-slide v-for="(latestNewsItem,latestNewsIndex) in filterBanner()" :key="latestNewsIndex">
           <div class="index-latestNews-in">
             <nuxt-link :to="latestNewsItem.link">
               <img class="newsImg" :src="windowWidth>768?latestNewsItem.imgUrl:latestNewsItem.mbUrl" :alt="latestNewsItem.title" :title="latestNewsItem.title" />
@@ -164,7 +135,7 @@ const setLatestNewsSwiperRef = (swiper:any) => {
         </swiper-slide>
       </Swiper>
       <div class="index-latestNews-line">
-        <PageSwiperPointLine :latestNewsNum="newsLists.length" :latestNewsCurrent="latestNewsCurrent" @changeLineCur="handleLineCur"></PageSwiperPointLine>
+        <PageSwiperPointLine :latestNewsNum="filterBanner().length" :latestNewsCurrent="latestNewsCurrent" @changeLineCur="handleLineCur"></PageSwiperPointLine>
       </div>
     </div>
 </template>
