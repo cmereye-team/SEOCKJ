@@ -8,11 +8,11 @@
       <div class="name">朱咪咪 Mimi</div>
       <div class="skill">種植牙齒療程</div>
       <div class="process">過程舒適無痛</div>
-      <div class="text">已經唔再年輕，除咗身體上冇以前好，原來牙都一樣！而家植牙嘅技術真係非常之好，簡直同真牙一樣擁有正常嘅咀嚼能力，真係食乜都得啊！</div>
+      <div class="text">咁多年來我只會揀愛康健，原因是他們專業細心！而家植牙嘅技術真係非常之好，簡直同真牙一樣擁有正常嘅咀嚼能力，真係食乜都得啊！</div>
       <div class="bg_box"></div>
     </div>
     <div class="caseSaringVideoItem-mb">
-      <div class="text">已經唔再年輕，除咗身體上冇以前好，原來牙都一樣！而家植牙嘅技術真係非常之好，簡直同真牙一樣擁有正常嘅咀嚼能力，真係食乜都得啊！</div>
+      <div class="text">咁多年來我只會揀愛康健，原因是他們專業細心！而家植牙嘅技術真係非常之好，簡直同真牙一樣擁有正常嘅咀嚼能力，真係食乜都得啊！</div>
     </div>
   </div>
 </template>

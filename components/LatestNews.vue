@@ -39,7 +39,7 @@ const getNewsLists = async () => {
           link: item.ext_banner_link || ''
         }
       })
-      console.log(newsLists)
+      // console.log(newsLists)
     }
   }
 }
