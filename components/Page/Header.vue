@@ -465,7 +465,7 @@ const handleMbMenu = () => {
         font-weight: 700;
         font-size: 3.125rem;
         line-height: 160%;
-        color: #4D4D4D;
+        color: #666666;
         span{
           display: block;
           &:last-child{
@@ -494,7 +494,7 @@ const handleMbMenu = () => {
         font-weight: 700;
         font-size: 1.75rem;
         line-height: 160%;
-        color: #4D4D4D;
+        color: #666666;
         width: 73%;
         span{
           font-size: 1.75rem;
@@ -540,7 +540,7 @@ const handleMbMenu = () => {
     }
     .menu {
       flex: 1;
-      color: #4d4d4d;
+      color: #666666;
       display: flex;
       justify-content: flex-end;
       align-items: flex-end;
@@ -558,7 +558,7 @@ const handleMbMenu = () => {
           width: 0px;
           height: 0px;
           border: 10px solid;
-          border-color: #4d4d4d transparent transparent transparent;
+          border-color: #666666 transparent transparent transparent;
           position: absolute;
           bottom: 0;
           left: 50%;
@@ -607,7 +607,7 @@ const handleMbMenu = () => {
             padding: 10px 0 5px;
             font-weight: 500;
             font-size: 1.25rem;
-            color: #4d4d4d;
+            color: #666666;
             transition: all .3s;
             &:not(:last-child){
               border-bottom: 1px solid #FFF1F0;
@@ -819,7 +819,7 @@ const handleMbMenu = () => {
           }
           .triangleIcon:after {
             border: 5px solid;
-            border-color: #4d4d4d transparent transparent transparent;
+            border-color: #666666 transparent transparent transparent;
           }
           .menuChild{
             padding: 0 10px;

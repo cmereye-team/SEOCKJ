@@ -225,7 +225,7 @@ const getWindowWidth = () => {
     font-size: 20px;
     line-height: 160%;
     text-align: center;
-    color: #4D4D4D;
+    color: #666666;
     div{
       display: flex;
       justify-content: center;
@@ -253,7 +253,7 @@ const getWindowWidth = () => {
           font-style: normal;
           font-weight: 700;
           font-size: 28px;
-          color: #4D4D4D;
+          color: #666666;
           &:nth-of-type(2){
             height: 239px;
             line-height: 239px;
@@ -285,7 +285,7 @@ const getWindowWidth = () => {
             font-weight: 600;
             font-size: 20px;
             line-height: 160%;
-            color: #4D4D4D;
+            color: #666666;
             justify-content: center;
             div:first-child{
               width: 20px;

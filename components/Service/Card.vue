@@ -82,7 +82,7 @@ const servicesCardPageData = {
         font-weight: 600;
         font-size: 20px;
         line-height: 160%;
-        color: #4D4D4D;
+        color: #666666;
         text-align: center;
       }
     }
@@ -129,7 +129,7 @@ const servicesCardPageData = {
           font-style: normal;
           font-weight: 700;
           font-size: 26px;
-          color: #4D4D4D;
+          color: #666666;
           text-align: center;
           white-space: nowrap;
         }

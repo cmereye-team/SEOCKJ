@@ -317,7 +317,7 @@ const courseData = {
     height: 32.709vw;
     max-height: 628px;
     &-l {
-      color: #4d4d4d;
+      color: #666666;
       padding-bottom: 90px;
       .title {
         font-weight: 700;
@@ -368,7 +368,7 @@ const courseData = {
     font-weight: 700;
     font-size: 50px;
     line-height: 160%;
-    color: #4D4D4D;
+    color: #666666;
     &-in{
       border-bottom: 4px solid #FFA09E;
       display: inline-block;
@@ -422,7 +422,7 @@ const courseData = {
             color: #FFA09E;
           }
           .context{
-            color: #4D4D4D;
+            color: #666666;
             white-space: pre-wrap;
           }
         }

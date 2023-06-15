@@ -64,7 +64,7 @@ defineProps({
         font-weight: 600;
         font-size: 28px;
         line-height: 160%;
-        color: #4D4D4D;
+        color: #666666;
         display: block;
         margin-top: 14px;
       }
@@ -94,7 +94,7 @@ defineProps({
     font-weight: 500;
     font-size: 1.25rem;
     line-height: 160%;
-    color: #4D4D4D;
+    color: #666666;
     margin-top: 10px;
   }
 } 

@@ -36,7 +36,7 @@ useHead({
       font-weight: 700;
       font-size: 40px;
       line-height: 160%;
-      color: #4D4D4D;
+      color: #666666;
     }
     &-btn{
       margin-top: 100px;
@@ -45,8 +45,8 @@ useHead({
       font-weight: 700;
       font-size: 20px;
       line-height: 160%;
-      color: #4D4D4D;
-      border-bottom: 2px solid #4D4D4D;
+      color: #666666;
+      border-bottom: 2px solid #666666;
     }
   }
 }

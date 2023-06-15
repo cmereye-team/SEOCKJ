@@ -196,7 +196,7 @@ onMounted(()=>{
         font-weight: 700;
         font-size: 1.75rem;
         line-height: 160%;
-        color: #4D4D4D;
+        color: #666666;
         margin-top: 44px;
       }
       &-content{
@@ -204,7 +204,7 @@ onMounted(()=>{
         font-size: 3.125rem;
         line-height: 160%;
         margin-top: 19px;
-        color: #4D4D4D;
+        color: #666666;
       }
       &-tabNav{
         margin-top: 40px;
@@ -256,7 +256,7 @@ onMounted(()=>{
           &-r{
             flex: 1;
             padding-left: 40px;
-            color: #4D4D4D;
+            color: #666666;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -278,13 +278,13 @@ onMounted(()=>{
               font-weight: 900;
               font-size: 24px;
               line-height: 160%;
-              color: #4D4D4D;
+              color: #666666;
               span{
                 margin-right: 20px;
                 &:last-child{
                   font-weight: 700;
                   padding-left: 20px;
-                  border-left: 2px solid #4D4D4D;
+                  border-left: 2px solid #666666;
                 }
               }
             }
@@ -513,7 +513,7 @@ onMounted(()=>{
                       &:last-child{
                         padding-left: 20px;
                         flex: 1;
-                        border-left: 2px solid #4D4D4D;
+                        border-left: 2px solid #666666;
                       }
                     }
                   }

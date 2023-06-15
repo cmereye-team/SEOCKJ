@@ -270,7 +270,7 @@ const problemData = {
       font-weight: 600;
       font-size: 20px;
       line-height: 160%;
-      color: #4d4d4d;
+      color: #666666;
     }
   }
   
@@ -288,7 +288,7 @@ const problemData = {
         font-weight: 600;
         font-size: 20px;
         line-height: 160%;
-        color: #4d4d4d;
+        color: #666666;
         padding: 0 40px;
         box-sizing: border-box;
         display: flex;

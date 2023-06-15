@@ -49,7 +49,7 @@ defineProps({
         height: 32.709vw;
         max-height: 628px;
         &-l{
-          color: #4D4D4D;
+          color: #666666;
           padding-bottom: 90px;
           .title{
             font-weight: 700;

@@ -208,7 +208,7 @@ const handleProcessBtn = (_type: string) => {
     height: 32.709vw;
     max-height: 628px;
     &-l {
-      color: #4d4d4d;
+      color: #666666;
       padding-bottom: 90px;
       font-style: normal;
       .title {
@@ -267,7 +267,7 @@ const handleProcessBtn = (_type: string) => {
       font-weight: 700;
       font-size: 50px;
       line-height: 160%;
-      color: #4D4D4D;
+      color: #666666;
       &:last-child{
         border-bottom: 4px solid #FFA09E;
       }
@@ -339,7 +339,7 @@ const handleProcessBtn = (_type: string) => {
       font-weight: 700;
       font-size: 50px;
       line-height: 160%;
-      color: #4D4D4D;
+      color: #666666;
       &:last-child{
         border-bottom: 4px solid #FFA09E;
       }
@@ -352,7 +352,7 @@ const handleProcessBtn = (_type: string) => {
     font-weight: 600;
     font-size: 20px;
     line-height: 160%;
-    color: #4D4D4D;
+    color: #666666;
   }
   &-in{
     margin-top: 58px;
@@ -391,7 +391,7 @@ const handleProcessBtn = (_type: string) => {
     font-weight: 700;
     font-size: 50px;
     line-height: 160%;
-    color: #4D4D4D;
+    color: #666666;
     display: flex;
     justify-content: center;
     &-in{

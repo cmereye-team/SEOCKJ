@@ -64,7 +64,7 @@ defineProps({
         font-size: 20px;
         line-height: 160%;
         text-align: center;
-        color: #4D4D4D;
+        color: #666666;
         &.scaling-and-polishing{
           max-width: 1042px;
         }
@@ -122,7 +122,7 @@ defineProps({
                 font-weight: 700;
                 font-size: 28px;
                 line-height: 160%;
-                color: #4D4D4D;
+                color: #666666;
                 display: block;
               }
               .text{
@@ -130,7 +130,7 @@ defineProps({
                 font-weight: 600;
                 font-size: 20px;
                 line-height: 160%;
-                color: #4D4D4D;
+                color: #666666;
                 display: block;
                 padding-top: 10px;
                 &-th{
@@ -138,7 +138,7 @@ defineProps({
                   font-weight: 700;
                   font-size: 28px;
                   padding-bottom: 20px;
-                  color: #4D4D4D;
+                  color: #666666;
                 }
               }
               &:last-child{
@@ -178,7 +178,7 @@ defineProps({
             font-weight: 600;
             font-size: 20px;
             line-height: 160%;
-            color: #4D4D4D;
+            color: #666666;
             width: 100%;
             text-align: center;
             margin-top: 50px;

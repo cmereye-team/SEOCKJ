@@ -418,7 +418,7 @@ const getWindowWidth = () => {
     font-weight: 600;
     font-size: 20px;
     line-height: 160%;
-    color: #4D4D4D;
+    color: #666666;
     width: 100%;
     max-width: 1042px;
     text-align: center;
@@ -517,7 +517,7 @@ const getWindowWidth = () => {
           font-weight: 500;
           font-size: 18px;
           line-height: 160%;
-          color: #4D4D4D;
+          color: #666666;
           text-align: justify;
         }
       }

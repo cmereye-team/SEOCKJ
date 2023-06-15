@@ -298,7 +298,7 @@ svg:hover path{
         display: inline-block;
         padding: 10px 70px;
         background: #FFFFFF;
-        color: #4D4D4D;
+        color: #666666;
         box-shadow: 1px 1px 4px rgba(255, 163, 158, 0.45);
       }
     }
@@ -360,7 +360,7 @@ svg:hover path{
           line-height: 40px;
           padding: 0;
           box-shadow: 1px 1px 4px rgba(255, 163, 158, 0.45);
-          color: #4D4D4D;
+          color: #666666;
           transition: all .3s;
           &:hover{
             background: #FFDDDA;

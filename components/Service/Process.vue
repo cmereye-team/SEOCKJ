@@ -91,7 +91,7 @@ const onSlideProcessSwiperChange = (swiper:any) => {
       font-weight: 600;
       font-size: 20px;
       line-height: 160%;
-      color: #4D4D4D;
+      color: #666666;
     }
   }
   &-tabs{
@@ -174,7 +174,7 @@ const onSlideProcessSwiperChange = (swiper:any) => {
                 font-weight: 700;
                 font-size: 28px;
                 line-height: 160%;
-                color: #4D4D4D;
+                color: #666666;
                 display: block;
               }
               .text{
@@ -183,7 +183,7 @@ const onSlideProcessSwiperChange = (swiper:any) => {
                 font-weight: 600;
                 font-size: 20px;
                 line-height: 160%;
-                color: #4D4D4D;
+                color: #666666;
                 display: block;
                 padding-top: 10px;
                 &-in{

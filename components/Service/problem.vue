@@ -94,7 +94,7 @@ const activeNames = ref(0)
         font-weight: 600;
         font-size: 20px;
         line-height: 160%;
-        color: #4D4D4D;
+        color: #666666;
         padding: 45px 82px 26px 19px;
         white-space: pre-wrap;
       }

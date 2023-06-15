@@ -243,7 +243,7 @@ onMounted(()=>{
           font-weight: 400;
           font-size: 1.25rem;
           line-height: 160%;
-          color: #4D4D4D;
+          color: #666666;
           padding: 5px 0;
           &:not(:last-child){
             border-bottom: 1px solid #FFF1F0;

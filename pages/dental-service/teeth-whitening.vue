@@ -348,7 +348,7 @@ const conditionData = {
         font-weight: 600;
         font-size: 20px;
         line-height: 160%;
-        color: #4D4D4D;
+        color: #666666;
       }
     }
   }
@@ -365,7 +365,7 @@ const conditionData = {
         font-weight: 600;
         font-size: 20px;
         line-height: 160%;
-        color: #4d4d4d;
+        color: #666666;
         padding: 0 70px;
         box-sizing: border-box;
         display: flex;
@@ -416,7 +416,7 @@ const conditionData = {
     font-size: 20px;
     line-height: 160%;
     text-align: center;
-    color: #4D4D4D;
+    color: #666666;
     span{
       color: #FFA09E;
     }
@@ -437,7 +437,7 @@ const conditionData = {
         font-size: 22px;
         line-height: 160%;
         text-align: center;
-        color: #4D4D4D;
+        color: #666666;
         span{
           display: inline-block;
           width: 100%;
@@ -463,7 +463,7 @@ const conditionData = {
     font-weight: 600;
     font-size: 28px;
     line-height: 160%;
-    color: #4D4D4D;
+    color: #666666;
   }
 }
 

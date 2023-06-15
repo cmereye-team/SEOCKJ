@@ -56,7 +56,7 @@ defineProps({
         font-weight: 600;
         font-size: 28px;
         line-height: 160%;
-        color: #4D4D4D;
+        color: #666666;
         display: flex;
         &>div:first-child{
           width: 20px;

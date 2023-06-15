@@ -84,7 +84,7 @@ onMounted(() => {
       // font-size: 28px;
       font-size: 1.75rem;
       line-height: 160%;
-      color: #4d4d4d;
+      color: #666666;
       margin-top: 100px;
       span {
         display: block;
@@ -104,7 +104,7 @@ onMounted(() => {
       // font-size: 20px;
       font-size: 1.25rem;
       line-height: 160%;
-      color: #4d4d4d;
+      color: #666666;
       margin-top: 70px;
     }
   }

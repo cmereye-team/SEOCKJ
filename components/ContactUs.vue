@@ -308,7 +308,7 @@ const handleAddress = (_idx: string) => {
         font-weight: 500;
         font-size: 20px;
         line-height: 160%;
-        color: #4D4D4D;
+        color: #666666;
         display: block;
       }
       .content{
@@ -332,7 +332,7 @@ const handleAddress = (_idx: string) => {
         width: 0px;
         height: 0px;
         border: 7px solid;
-        border-color: #4D4D4D transparent transparent transparent;
+        border-color: #666666 transparent transparent transparent;
         display: inline-block;
         vertical-align: middle;
         margin-left: 5px;

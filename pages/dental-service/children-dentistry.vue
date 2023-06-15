@@ -250,7 +250,7 @@ const handleSkillTab = (_idx:number) => {
       background: #FFF1F0;
       border-radius: 10px;
       text-align: center;
-      color: #4D4D4D;
+      color: #666666;
       &:not(:last-child){
         margin-right: 25px;
       }
@@ -269,7 +269,7 @@ const handleSkillTab = (_idx:number) => {
       font-size: 50px;
       line-height: 160%;
       text-align: center;
-      color: #4D4D4D;
+      color: #666666;
       border-bottom: 4px solid #FFA09E;
       span{
         display: block;
@@ -319,7 +319,7 @@ const handleSkillTab = (_idx:number) => {
           font-weight: 700;
           font-size: 28px;
           line-height: 160%;
-          color: #4D4D4D;
+          color: #666666;
           width: 152px;
         }
         &>div:last-child{
@@ -328,7 +328,7 @@ const handleSkillTab = (_idx:number) => {
           font-weight: 600;
           font-size: 20px;
           line-height: 160%;
-          color: #4D4D4D;
+          color: #666666;
           padding-top: 10px;
           white-space: pre-wrap;
         }
@@ -394,7 +394,7 @@ const handleSkillTab = (_idx:number) => {
           font-size: 20px;
           line-height: 160%;
           text-align: center;
-          color: #4D4D4D;
+          color: #666666;
         }
         &>div:last-child{
           font-style: normal;
@@ -402,7 +402,7 @@ const handleSkillTab = (_idx:number) => {
           font-size: 16px;
           line-height: 160%;
           text-align: center;
-          color: #4D4D4D;
+          color: #666666;
           margin-top: 5px;
           white-space: pre-wrap;
         }

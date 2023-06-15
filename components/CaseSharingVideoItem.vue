@@ -45,13 +45,13 @@
       line-height: 160%;
       display: flex;
       align-items: center;
-      color: #4D4D4D;
+      color: #666666;
     }
     .name{
       font-weight: 600;
       font-size: 34px;
       line-height: 160%;
-      color: #4D4D4D;
+      color: #666666;
       margin-top: 9px;
       z-index: 1;
     }
@@ -74,7 +74,7 @@
       font-weight: 500;
       font-size: 1.5rem;
       line-height: 160%;
-      color: #4D4D4D;
+      color: #666666;
       z-index: 1;
       text-align: justify;
     }
@@ -186,7 +186,7 @@
         font-weight: 500;
         font-size: 16px;
         line-height: 160%;
-        color: #4D4D4D;
+        color: #666666;
       }
     }
   }

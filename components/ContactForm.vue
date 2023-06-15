@@ -243,7 +243,7 @@ onMounted(() => {
       &:first-child {
         font-weight: 500;
         font-size: 20px;
-        color: #4d4d4d;
+        color: #666666;
       }
       &:last-child {
         font-weight: 700;
@@ -269,7 +269,7 @@ onMounted(() => {
       font-weight: 500;
       font-size: 20px;
       line-height: 160%;
-      color: #4d4d4d;
+      color: #666666;
     }
     :deep(.el-select) {
       width: 100%;
@@ -287,7 +287,7 @@ onMounted(() => {
       font-weight: 500;
       font-size: 20px;
       line-height: 160%;
-      color: #4d4d4d;
+      color: #666666;
     }
     :deep(.el-radio){
       --el-radio-input-border-color-hover: #FFA09E;

@@ -348,14 +348,14 @@ const processData = {
     font-size: 50px;
     line-height: 160%;
     text-align: center;
-    color: #4D4D4D;
+    color: #666666;
   }
   &-lists{
     display: flex;
     max-width: 1229px;
     margin:  34px auto 42px;
     &-in{
-      color: #4D4D4D;
+      color: #666666;
       font-style: normal;
       width: 23.3%;
       .num{
@@ -399,7 +399,7 @@ const processData = {
       font-weight: 500;
       font-size: 16px;
       line-height: 160%;
-      color: #4D4D4D;
+      color: #666666;
     }
   }
 }
@@ -420,7 +420,7 @@ const processData = {
       font-weight: 700;
       font-size: 50px;
       line-height: 160%;
-      color: #4D4D4D;
+      color: #666666;
       &:last-child{
         border-bottom: 4px solid #FFA09E;
       }
@@ -502,7 +502,7 @@ const processData = {
       font-weight: 600;
       font-size: 20px;
       line-height: 160%;
-      color: #4D4D4D;
+      color: #666666;
     }
   }
   &-step{
@@ -553,7 +553,7 @@ const processData = {
                 font-weight: 700;
                 font-size: 28px;
                 line-height: 160%;
-                color: #4D4D4D;
+                color: #666666;
                 display: block;
               }
               .text{
@@ -562,7 +562,7 @@ const processData = {
                 font-weight: 600;
                 font-size: 20px;
                 line-height: 160%;
-                color: #4D4D4D;
+                color: #666666;
                 display: block;
                 padding-top: 10px;
               }

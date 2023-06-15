@@ -59,7 +59,7 @@ defineProps({
       padding-left: 103px;
       & > div {
         width: 100%;
-        color: #4d4d4d;
+        color: #666666;
         line-height: 160%;
         font-weight: 700;
       }
@@ -103,7 +103,7 @@ defineProps({
         font-weight: 600;
         font-size: 1.75rem;
         line-height: 160%;
-        color: #4d4d4d;
+        color: #666666;
         display: flex;
         .icon{
           width: 20px;

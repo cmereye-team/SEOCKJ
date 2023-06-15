@@ -414,7 +414,7 @@ const getWindowWidth = () => {
             font-weight: 600;
             font-size: 28px;
             line-height: 160%;
-            color: #4D4D4D;
+            color: #666666;
             &>div:first-child{
               width: 20px;
             }
@@ -470,7 +470,7 @@ const getWindowWidth = () => {
               font-weight: 600;
               font-size: 20px;
               line-height: 160%;
-              color: #4D4D4D;
+              color: #666666;
               display: flex;
               align-items: center;
               justify-content: center;
@@ -535,7 +535,7 @@ const getWindowWidth = () => {
           font-size: 20px;
           line-height: 160%;
           text-align: center;
-          color: #4D4D4D;
+          color: #666666;
         }
       }
       &-topText{
@@ -557,7 +557,7 @@ const getWindowWidth = () => {
             font-weight: 600;
             font-size: 20px;
             line-height: 160%;
-            color: #4D4D4D;
+            color: #666666;
             padding: 0 80px;
             box-sizing: border-box;
             display: flex;
@@ -639,7 +639,7 @@ const getWindowWidth = () => {
             font-style: normal;
             font-weight: 600;
             font-size: 24px;
-            color: #4D4D4D;
+            color: #666666;
             text-align: center;
           }
         }

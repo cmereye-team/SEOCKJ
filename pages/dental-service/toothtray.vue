@@ -239,7 +239,7 @@ const problemData = {
     font-weight: 600;
     font-size: 20px;
     line-height: 160%;
-    color: #4D4D4D;
+    color: #666666;
     max-width: 820px;
     margin: 35px auto 0;
   }
@@ -279,7 +279,7 @@ const problemData = {
             font-weight: 600;
             font-size: 24px;
             line-height: 160%;
-            color: #4D4D4D;
+            color: #666666;
             padding: 0 18px;
             background: #FFFFFF;
             &>div{

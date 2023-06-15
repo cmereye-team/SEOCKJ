@@ -326,7 +326,7 @@ const problemData = {
         font-weight: 600;
         font-size: 24px;
         line-height: 160%;
-        color: #4D4D4D;
+        color: #666666;
       }
       &:nth-of-type(odd){
         .symptom-lists-in-img{
