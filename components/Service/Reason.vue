@@ -96,8 +96,8 @@ defineProps({
         max-width: 663px;
       }
       &.children-dentistry{
-        margin-left: -10%;
-        margin-top: 18%;
+        // margin-left: -10%;
+        // margin-top: 18%;
       }
       & > div {
         font-weight: 600;
