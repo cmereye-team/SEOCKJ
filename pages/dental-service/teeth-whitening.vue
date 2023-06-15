@@ -461,7 +461,7 @@ const conditionData = {
     padding: 59px 102px;
     font-style: normal;
     font-weight: 600;
-    font-size: 28px;
+    font-size: 24px;
     line-height: 160%;
     color: #666666;
   }

@@ -345,7 +345,7 @@ const processData = {
   &-title{
     font-style: normal;
     font-weight: 700;
-    font-size: 50px;
+    font-size: 30px;
     line-height: 160%;
     text-align: center;
     color: #666666;

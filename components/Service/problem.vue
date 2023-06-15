@@ -67,7 +67,7 @@ const activeNames = ref(0)
       &>div:nth-of-type(2){
         font-style: normal;
         font-weight: 700;
-        font-size: 28px;
+        font-size: 24px;
         color: #505050;
         max-width: calc(100% - 70px);
         flex: 1;

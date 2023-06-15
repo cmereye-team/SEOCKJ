@@ -463,7 +463,7 @@ const handleMbMenu = () => {
       top: 30%;
       .bannerTitle{
         font-weight: 700;
-        font-size: 3.125rem;
+        font-size: 42px;
         line-height: 160%;
         color: #666666;
         span{
@@ -606,7 +606,7 @@ const handleMbMenu = () => {
             text-align: center;
             padding: 10px 0 5px;
             font-weight: 500;
-            font-size: 1.25rem;
+            font-size: 18px;
             color: #666666;
             transition: all .3s;
             &:not(:last-child){

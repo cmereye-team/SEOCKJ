@@ -80,7 +80,7 @@ let messageText = ref('服务异常，请稍后重试')
 let messageShow = ref(false)
 
 const onSubmit = async () => {
-  // console.log('submit!', form)
+  const isDebug = false
   let _formData = new FormData()
   let _form = form
   _formData.append('contact_name',_form.name)
@@ -88,11 +88,11 @@ const onSubmit = async () => {
   _formData.append('phone',_form.phone)
   _formData.append('email',_form.email)
   _formData.append('service',_form.service)
+  if(!isDebug){
   const { data }:any = await useFetch('https://admin.ckjhk.com/api.php/cms/addform/fcode/3',{
     method: 'post',
     body: _formData
   });
-  // console.log(JSON.parse(data.value))
   let res = JSON.parse(data.value)
   if (res) {
     if(res.code){
@@ -103,7 +103,6 @@ const onSubmit = async () => {
         duration: 0
       })
       localStorage.setItem('contactForm',JSON.stringify(_form))
-      // https://oapi.dingtalk.com/
       await useFetch('https://oapi.dingtalk.com/robot/send?access_token=a8346e211809bbb6bf82cab55d0c0e4ff7e458999c18b5bb66f4146d34577448',{
         method: 'post',
         headers: {
@@ -128,8 +127,7 @@ const onSubmit = async () => {
       ElMessage({
         showClose: true,
         message: res.data,
-        type: 'error',
-        // duration: 0
+        type: 'error'
       })
     }
   }else{
@@ -139,25 +137,27 @@ const onSubmit = async () => {
       type: 'error',
     })
   }
-//   await useFetch('/ding/robot/send?access_token=a8346e211809bbb6bf82cab55d0c0e4ff7e458999c18b5bb66f4146d34577448',{
-//         method: 'post',
-//         headers: {
-//           "Content-Type": "application/json"
-//         },
-//         body: {
-//          "msgtype": "markdown",
-//          "markdown":{
-//         title: "消息通知",
-//         text: ` **姓名：**   | ${_form.name} 
-// -----------|--------
-//  **稱呼：**   | ${_form.gender}   
-//  **電話號碼：** | ${_form.phone} 
-//  **電郵地址：** | ${_form.email} 
-//  **服務選擇：** | ${_form.service} 
-//  **來源：** | ${location.href} `
-//           }
-//         }
-//       });
+  }else{
+  await useFetch('/ding/robot/send?access_token=a8346e211809bbb6bf82cab55d0c0e4ff7e458999c18b5bb66f4146d34577448',{
+        method: 'post',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: {
+         "msgtype": "markdown",
+         "markdown":{
+        title: "消息通知",
+        text: ` **姓名：**   | ${_form.name} 
+-----------|--------
+ **稱呼：**   | ${_form.gender}   
+ **電話號碼：** | ${_form.phone} 
+ **電郵地址：** | ${_form.email} 
+ **服務選擇：** | ${_form.service} 
+ **來源：** | ${location.href} `
+          }
+        }
+      });
+  }
   formLoading.value = false
   appState.setIsShowForm(false)
 }
