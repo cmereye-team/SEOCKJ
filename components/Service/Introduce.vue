@@ -54,7 +54,8 @@ defineProps({
           .title{
             font-weight: 700;
             font-size: 30px;
-            margin-top: 96px;
+            // margin-top: 96px;
+            margin-top: 150px;
             &.teeth-whitening{
               margin-top: 10%;
             }
