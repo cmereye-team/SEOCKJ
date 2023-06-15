@@ -23,7 +23,24 @@ let newsLists = ref([{
 }])
 const getNewsLists = async () => {
   const _res:any = await useFetch('https://admin.ckjhk.com/api.php/list/12',{
-    method: 'post'
+    method: 'post',
+    // onResponse({ request, response, options }) {
+    //   // console.log('response',response)
+    //   // console.log(JSON.parse(response._data))
+    //   let res = JSON.parse(response._data) || null
+    //   if(res){
+    //     if(res.data && res.data.length){
+    //       newsLists.value = res.data.map(item=>{
+    //         return {
+    //           title: item.title || '',
+    //           imgUrl: item.ext_pcImg_hk && `https://admin.ckjhk.com${item.ext_pcImg_hk}`,
+    //           mbUrl: item.ext_mbImg_hk && `https://admin.ckjhk.com${item.ext_mbImg_hk}`,
+    //           link: item.ext_banner_link || ''
+    //         }
+    //       })
+    //     }
+    //   }
+    // }
   });
   // console.log('请求结果--------------->', _res)
   // console.log('请求结果',JSON.parse(_res.data.value))

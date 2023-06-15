@@ -1,8 +1,6 @@
 <script lang="ts" setup>
 import { defineProps } from 'vue'
 import service from '~/assets/js/service'
-// import { Md5 } from "ts-md5";
-// Md5.hashStr('...')
 import type { FormInstance, FormRules } from 'element-plus'
 import { useAppState } from '~/stores/appState'
 const appState = useAppState()

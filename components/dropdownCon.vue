@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import service from '~/assets/js/service'
-const dropdownCategoryText = ref('所有類別')
+import { defineEmits } from 'vue'
+let dropdownCategoryText = ref('所有類別')
 
 // 所有类别枚举
 // const dropdownCategoryLists = [
@@ -38,59 +39,85 @@ let dropdownCategory = ref(false)
 const handleDropdownCategory = (_data: any) =>{
   // console.log(_data)
   dropdownCategoryText.value = _data.name
+  emits('changeCur', {
+    type: dropdownCategoryText.value,
+    date: dropdownMonthLable.value,
+  })
   dropdownCategory.value = false
   // console.log('执行了下拉框事件handleDropdownCategory')
 }
 
 
-const dropdownMonthText = ref('所有月份')
+let dropdownMonthText = ref('所有月份')
+let dropdownMonthLable = ref('0')
 
 // 所有月份枚举
 const dropdownMonthLists = [
   {
-    name: '所有月份'
+    name: '所有月份',
+    label: '0',
   },
   {
-    name: '一月份'
+    name: '一月份',
+    label: 'JAN',
   },
   {
-    name: '二月份'
+    name: '二月份',
+    label: 'FWB',
   },
   {
-    name: '三月份'
+    name: '三月份',
+    label: 'MAR',
   },
   {
-    name: '四月份'
+    name: '四月份',
+    label: 'APR',
   },
   {
-    name: '五月份'
+    name: '五月份',
+    label: 'MAY',
   },
   {
-    name: '六月份'
+    name: '六月份',
+    label: 'JUN',
   },
   {
-    name: '七月份'
+    name: '七月份',
+    label: 'JUL',
   },
   {
-    name: '八月份'
+    name: '八月份',
+    label: 'AUG',
   },
   {
-    name: '九月份'
+    name: '九月份',
+    label: 'SPT',
   },
   {
-    name: '十月份'
+    name: '十月份',
+    label: 'OCT',
   },
   {
-    name: '十一月份'
+    name: '十一月份',
+    label: 'NOV',
   },
   {
-    name: '十二月份'
+    name: '十二月份',
+    label: 'DEC',
   }
 ]
+
+const emits = defineEmits(['changeCur'])
+
 let dropdownMonth = ref(false)
 const handleDropdownMonth = (_data: any) =>{
   // console.log('执行了下拉框事件handleDropdownMonth')
   dropdownMonthText.value = _data.name
+  dropdownMonthLable.value = _data.label
+  emits('changeCur', {
+    type: dropdownCategoryText.value,
+    date: _data.label
+  })
   dropdownMonth.value = false
 }
 
