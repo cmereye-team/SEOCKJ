@@ -3,6 +3,10 @@ import { defineProps } from 'vue'
 import service from '~/assets/js/service'
 import type { FormInstance, FormRules } from 'element-plus'
 import { useAppState } from '~/stores/appState'
+// import { useTitle } from '@vueuse/core'
+// let pageTitle:any = ref('')
+// pageTitle = useTitle()
+// console.log(document.head)
 const appState = useAppState()
 
 const props = defineProps({
@@ -99,6 +103,26 @@ const onSubmit = async () => {
         duration: 0
       })
       localStorage.setItem('contactForm',JSON.stringify(_form))
+      // https://oapi.dingtalk.com/
+      await useFetch('https://oapi.dingtalk.com/robot/send?access_token=a8346e211809bbb6bf82cab55d0c0e4ff7e458999c18b5bb66f4146d34577448',{
+        method: 'post',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: {
+         "msgtype": "markdown",
+         "markdown":{
+        title: "消息通知",
+        text: ` **姓名：**   | ${_form.name} 
+-----------|--------
+ **稱呼：**   | ${_form.gender}   
+ **電話號碼：** | ${_form.phone} 
+ **電郵地址：** | ${_form.email} 
+ **服務選擇：** | ${_form.service} 
+ **來源：** | ${location.href} `
+          }
+        }
+      });
       window.location.href = `/messagePage?c=${res.code}`
     }else{
       ElMessage({
@@ -115,20 +139,25 @@ const onSubmit = async () => {
       type: 'error',
     })
   }
-
-  // await useFetch('/ding/robot/send?access_token=a8346e211809bbb6bf82cab55d0c0e4ff7e458999c18b5bb66f4146d34577448',{
-  //   method: 'post',
-  //   headers: {
-  //     "Content-Type": "application/json"
-  //   },
-  //   body: {
-  //    "msgtype": "markdown",
-  //    "markdown":{
-  //       title: "消息通知",
-  //       text: `姓名：${_form.name} \n稱呼：${_form.gender} \n電話號碼：${_form.phone} \n電郵地址：${_form.email} \n服務選擇：${_form.service}`
-  //     }
-  //   }
-  // });
+//   await useFetch('/ding/robot/send?access_token=a8346e211809bbb6bf82cab55d0c0e4ff7e458999c18b5bb66f4146d34577448',{
+//         method: 'post',
+//         headers: {
+//           "Content-Type": "application/json"
+//         },
+//         body: {
+//          "msgtype": "markdown",
+//          "markdown":{
+//         title: "消息通知",
+//         text: ` **姓名：**   | ${_form.name} 
+// -----------|--------
+//  **稱呼：**   | ${_form.gender}   
+//  **電話號碼：** | ${_form.phone} 
+//  **電郵地址：** | ${_form.email} 
+//  **服務選擇：** | ${_form.service} 
+//  **來源：** | ${location.href} `
+//           }
+//         }
+//       });
   formLoading.value = false
   appState.setIsShowForm(false)
 }

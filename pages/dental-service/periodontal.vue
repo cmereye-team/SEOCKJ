@@ -324,7 +324,7 @@ const problemData = {
         text-align: center;
         font-style: normal;
         font-weight: 600;
-        font-size: 24px;
+        font-size: 20px;
         line-height: 160%;
         color: #666666;
       }
@@ -359,7 +359,7 @@ const problemData = {
         &-title{
           max-width: 149px;
           padding: 10px 0;
-          font-size: 20px;
+          font-size: 15px;
         }
         &:nth-of-type(4),&:nth-of-type(8){
           .symptom-lists-in-img{

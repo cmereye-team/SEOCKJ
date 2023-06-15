@@ -638,7 +638,7 @@ const getWindowWidth = () => {
             line-height: 64px;
             font-style: normal;
             font-weight: 600;
-            font-size: 24px;
+            font-size: 20px;
             color: #666666;
             text-align: center;
           }
@@ -706,7 +706,7 @@ const getWindowWidth = () => {
             &-name{
               height: 56px;
               line-height: 56px;
-              font-size: 20px;
+              font-size: 15px;
             }
           }
         }
@@ -832,7 +832,7 @@ const getWindowWidth = () => {
         .noteCard{
           &-in{
             &-name{
-              font-size: 16px;
+              font-size: 15px;
             }
           }
         }
