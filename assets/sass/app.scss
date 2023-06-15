@@ -96,12 +96,13 @@ body{
   position: relative;
   font-weight: 600;
   // font-size: 30px;
-  font-size: 1.875rem;
+  font-size: 24px;
   line-height: 150%;
   text-indent: 55px;
   color: #666666;
   background: url(@/assets/images/indexTitle_bg.png) no-repeat;
-  background-position: 0px 5px;
+  background-size: auto 100%;
+  // background-position: 0px 5px;
   padding-bottom: 5px;
 }
 .dentistryServices{
@@ -112,7 +113,7 @@ body{
     flex-direction: column;
     &-in{
       font-weight: 700;
-      font-size: 50px;
+      font-size: 30px;
       line-height: 160%;
       color: #666666;
       text-align: center;
@@ -145,7 +146,7 @@ body{
   .dentistryServices{
     &-title{
       &-in{
-        font-size: 3.4vw;
+        font-size: 30px;
         &.bb{
           border-bottom: 4px solid #FFA09E;
         }
@@ -171,9 +172,9 @@ body{
   }
   .index_title {
     width: calc(100% - 30px);
-    font-size: 1.25rem;
+    font-size: 18px;
     background-size: auto 85%;
-    text-indent: 40px;
+    text-indent: 35px;
     margin-left: 30px;
     background-position: 0px 3px;
   }

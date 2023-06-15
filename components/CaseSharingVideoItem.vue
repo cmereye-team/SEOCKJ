@@ -49,7 +49,7 @@
     }
     .name{
       font-weight: 600;
-      font-size: 34px;
+      font-size: 30px;
       line-height: 160%;
       color: #666666;
       margin-top: 9px;
@@ -57,14 +57,14 @@
     }
     .skill{
       font-weight: 700;
-      font-size: 32px;
+      font-size: 20px;
       line-height: 160%;
       color: #FFA09E;
       z-index: 1;
     }
     .process{
       font-weight: 700;
-      font-size: 2rem;
+      font-size: 20px;
       line-height: 160%;
       color: #FFA09E;
       margin-top: 70px;
@@ -72,7 +72,7 @@
     }
     .text{
       font-weight: 500;
-      font-size: 1.5rem;
+      font-size: 18px;
       line-height: 160%;
       color: #666666;
       z-index: 1;

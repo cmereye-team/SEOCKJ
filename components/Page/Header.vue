@@ -492,12 +492,12 @@ const handleMbMenu = () => {
         max-width: 550px;
         font-style: normal;
         font-weight: 700;
-        font-size: 1.75rem;
+        font-size: 25px;
         line-height: 160%;
         color: #666666;
         width: 73%;
         span{
-          font-size: 1.75rem;
+          font-size: 25px;
           color: #FFCECB;
         }
       }
@@ -547,7 +547,7 @@ const handleMbMenu = () => {
       .menuItem {
         padding: 0 0 20px;
         cursor: pointer;
-        font-size: 22px;
+        font-size: 18px;
         font-weight: 600;
         position: relative;
         &>a{

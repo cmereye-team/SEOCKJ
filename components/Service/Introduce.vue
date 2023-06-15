@@ -53,7 +53,7 @@ defineProps({
           padding-bottom: 90px;
           .title{
             font-weight: 700;
-            font-size: 50px;
+            font-size: 30px;
             margin-top: 96px;
             &.teeth-whitening{
               margin-top: 10%;
@@ -61,7 +61,7 @@ defineProps({
           }
           .content{
             font-weight: 600;
-            font-size: 1.75rem;
+            font-size: 20px;
             max-width: 650px;
             width: 650px;
             margin-top: 68px;

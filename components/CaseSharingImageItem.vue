@@ -62,7 +62,7 @@ defineProps({
       flex: 1;
       .name{
         font-weight: 600;
-        font-size: 28px;
+        font-size: 25px;
         line-height: 160%;
         color: #666666;
         display: block;
@@ -92,7 +92,7 @@ defineProps({
     width: 100%;
     font-style: normal;
     font-weight: 500;
-    font-size: 1.25rem;
+    font-size: 18px;
     line-height: 160%;
     color: #666666;
     margin-top: 10px;

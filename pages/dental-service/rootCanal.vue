@@ -418,7 +418,7 @@ const processData = {
       display: inline-block;
       font-style: normal;
       font-weight: 700;
-      font-size: 50px;
+      font-size: 30px;
       line-height: 160%;
       color: #666666;
       &:last-child{

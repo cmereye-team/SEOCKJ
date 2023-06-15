@@ -44,7 +44,9 @@ onMounted(() => {
 <template>
   <div class="index-brandConcept bigPageCon">
     <div class="brandConcept-left pageCon">
-      <div class="index_title brandConceptTitle">品牌理念</div>
+      <div class="pageCon">
+        <div class="index_title brandConceptTitle">品牌理念</div>
+      </div>
       <div class="brandConcept-title">
         <span>愛康健齒科連鎖品牌</span>
         <span>28年專注你的口腔健康</span>

@@ -267,16 +267,16 @@ onMounted(()=>{
             }
             .org{
               font-weight: 600;
-              font-size: 24px;
+              font-size: 20px;
               // width: 45%;
             }
             .expertise{
               font-weight: 600;
-              font-size: 24px;
+              font-size: 18px;
             }
             .name{
               font-weight: 900;
-              font-size: 24px;
+              font-size: 20px;
               line-height: 160%;
               color: #666666;
               span{
@@ -471,10 +471,12 @@ onMounted(()=>{
                     .title{
                       font-size: 1.25rem;
                       font-weight: 600;
-                      text-overflow: ellipsis;
-                      overflow: hidden;
-                      word-break: break-all;
-                      white-space: nowrap;
+                      line-height: 160%;
+                      // text-overflow: ellipsis;
+                      // overflow: hidden;
+                      // word-break: break-all;
+                      // white-space: nowrap;
+                      white-space: pre-wrap;
                     }
                     .btn{
                       min-width: 83px;

@@ -68,7 +68,7 @@ defineProps({
         margin-top: 83px;
       }
       .text_two {
-        font-size: 3.125rem;
+        font-size: 30px;
         margin-top: 19px;
       }
       .image {
@@ -101,7 +101,7 @@ defineProps({
       }
       & > div {
         font-weight: 600;
-        font-size: 1.75rem;
+        font-size: 20px;
         line-height: 160%;
         color: #666666;
         display: flex;

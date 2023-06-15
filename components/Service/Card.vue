@@ -128,7 +128,7 @@ const servicesCardPageData = {
           line-height: 64px;
           font-style: normal;
           font-weight: 700;
-          font-size: 26px;
+          font-size: 20px;
           color: #666666;
           text-align: center;
           white-space: nowrap;
@@ -146,7 +146,7 @@ const servicesCardPageData = {
           padding: 0 6px;
           &-name{
             font-weight: 600;
-            font-size: 16px;
+            font-size: 11px;
             height: 32px;
             line-height: 32px;
             width: 110%;
@@ -215,6 +215,7 @@ const servicesCardPageData = {
             }
           }
           &-name{
+            font-size: 15px;
             height: 56px;
             line-height: 56px;
           }

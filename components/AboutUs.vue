@@ -36,7 +36,9 @@ const handleLineCur = (_value:number) =>{
 
 <template>
   <div class="index-aboutUs">
-      <div class="index_title pageCon">關於我們</div>
+        <div class="pageCon">
+          <div class="index_title">關於我們</div>
+        </div>
         <Swiper
           class="swiperBox pageCon"
           :loop="true"
