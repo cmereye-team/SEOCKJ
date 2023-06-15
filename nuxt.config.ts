@@ -135,6 +135,11 @@ export default defineNuxtConfig({
         target: 'https://admin.ckjhk.com/',
         prependPath: true,
         changeOrigin: true,
+      },
+      "/ding": {
+        target: 'https://oapi.dingtalk.com/',
+        prependPath: true,
+        changeOrigin: true,
       }
     }
   },

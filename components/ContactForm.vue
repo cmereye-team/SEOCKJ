@@ -115,6 +115,20 @@ const onSubmit = async () => {
       type: 'error',
     })
   }
+
+  // await useFetch('/ding/robot/send?access_token=a8346e211809bbb6bf82cab55d0c0e4ff7e458999c18b5bb66f4146d34577448',{
+  //   method: 'post',
+  //   headers: {
+  //     "Content-Type": "application/json"
+  //   },
+  //   body: {
+  //    "msgtype": "markdown",
+  //    "markdown":{
+  //       title: "消息通知",
+  //       text: `姓名：${_form.name} \n稱呼：${_form.gender} \n電話號碼：${_form.phone} \n電郵地址：${_form.email} \n服務選擇：${_form.service}`
+  //     }
+  //   }
+  // });
   formLoading.value = false
   appState.setIsShowForm(false)
 }
