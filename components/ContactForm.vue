@@ -99,31 +99,24 @@ const onSubmit = async () => {
         duration: 0
       })
       localStorage.setItem('contactForm',JSON.stringify(_form))
-      await useFetch('https://admin.ckjhk.com/robot/send?access_token=f50755f36df72ca18cd09a5f726f0d060560faf182e7bc1dbc2206bdcc88495d',{
-        method: 'post',
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: {
-         "msgtype": "markdown",
-         "markdown":{
-        title: "消息通知",
-//         text: ` **姓名：**   | ${_form.name} 
-// -----------|--------
-//  **稱呼：**   | ${_form.gender}   
-//  **電話號碼：** | ${_form.phone} 
-//  **電郵地址：** | ${_form.email} 
-//  **服務選擇：** | ${_form.service} 
-//  **來源：** | ${location.href} `
-        text: `姓名：${_form.name}\n
-稱呼：${_form.gender}\n
-電話號碼：${_form.phone}\n
-電郵地址：${_form.email}\n
-服務選擇：${_form.service}\n
-來源：[${location.href}](${location.href})`
-          }
-        }
-      });
+//       await useFetch('https://admin.ckjhk.com/robot/send?access_token=f50755f36df72ca18cd09a5f726f0d060560faf182e7bc1dbc2206bdcc88495d',{
+//         method: 'post',
+//         headers: {
+//           "Content-Type": "application/json"
+//         },
+//         body: {
+//          "msgtype": "markdown",
+//          "markdown":{
+//         title: "消息通知",
+//         text: `姓名：${_form.name}\n
+// 稱呼：${_form.gender}\n
+// 電話號碼：${_form.phone}\n
+// 電郵地址：${_form.email}\n
+// 服務選擇：${_form.service}\n
+// 來源：[${location.href}](${location.href})`
+//           }
+//         }
+//       });
       window.location.href = `/messagePage?c=${res.code}`
     }else{
       ElMessage({
