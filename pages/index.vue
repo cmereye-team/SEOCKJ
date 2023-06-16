@@ -71,10 +71,6 @@ onMounted(() => {
   // })
 });
 
-// watch(()=>{
-
-// })
-
 //医生模块轮播图事件
 let doctorTeamCurrent = ref(1)
 const onSlideDoctorTeamSwiperChange = (swiper:any) => {

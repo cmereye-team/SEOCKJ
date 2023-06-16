@@ -3,10 +3,6 @@ import { defineProps } from 'vue'
 import service from '~/assets/js/service'
 import type { FormInstance, FormRules } from 'element-plus'
 import { useAppState } from '~/stores/appState'
-// import { useTitle } from '@vueuse/core'
-// let pageTitle:any = ref('')
-// pageTitle = useTitle()
-// console.log(document.head)
 const appState = useAppState()
 
 const props = defineProps({
@@ -103,7 +99,7 @@ const onSubmit = async () => {
         duration: 0
       })
       localStorage.setItem('contactForm',JSON.stringify(_form))
-      await useFetch('https://oapi.dingtalk.com/robot/send?access_token=a8346e211809bbb6bf82cab55d0c0e4ff7e458999c18b5bb66f4146d34577448',{
+      await useFetch('https://admin.ckjhk.com/robot/send?access_token=f50755f36df72ca18cd09a5f726f0d060560faf182e7bc1dbc2206bdcc88495d',{
         method: 'post',
         headers: {
           "Content-Type": "application/json"
@@ -112,13 +108,19 @@ const onSubmit = async () => {
          "msgtype": "markdown",
          "markdown":{
         title: "消息通知",
-        text: ` **姓名：**   | ${_form.name} 
------------|--------
- **稱呼：**   | ${_form.gender}   
- **電話號碼：** | ${_form.phone} 
- **電郵地址：** | ${_form.email} 
- **服務選擇：** | ${_form.service} 
- **來源：** | ${location.href} `
+//         text: ` **姓名：**   | ${_form.name} 
+// -----------|--------
+//  **稱呼：**   | ${_form.gender}   
+//  **電話號碼：** | ${_form.phone} 
+//  **電郵地址：** | ${_form.email} 
+//  **服務選擇：** | ${_form.service} 
+//  **來源：** | ${location.href} `
+        text: `姓名：${_form.name}\n
+稱呼：${_form.gender}\n
+電話號碼：${_form.phone}\n
+電郵地址：${_form.email}\n
+服務選擇：${_form.service}\n
+來源：[${location.href}](${location.href})`
           }
         }
       });
@@ -138,7 +140,11 @@ const onSubmit = async () => {
     })
   }
   }else{
-  await useFetch('/ding/robot/send?access_token=a8346e211809bbb6bf82cab55d0c0e4ff7e458999c18b5bb66f4146d34577448',{
+    //  /ckj
+    //  http://ckjhk.icun.eu.org 
+    //  https://oapi.dingtalk.com/robot/send?access_token=f50755f36df72ca18cd09a5f726f0d060560faf182e7bc1dbc2206bdcc88495d    //客服群
+    //  https://oapi.dingtalk.com/robot/send?access_token=a8346e211809bbb6bf82cab55d0c0e4ff7e458999c18b5bb66f4146d34577448    //测试群
+    await useFetch('/ckj/robot/send?access_token=a8346e211809bbb6bf82cab55d0c0e4ff7e458999c18b5bb66f4146d34577448',{
         method: 'post',
         headers: {
           "Content-Type": "application/json"
@@ -147,13 +153,19 @@ const onSubmit = async () => {
          "msgtype": "markdown",
          "markdown":{
         title: "消息通知",
-        text: ` **姓名：**   | ${_form.name} 
------------|--------
- **稱呼：**   | ${_form.gender}   
- **電話號碼：** | ${_form.phone} 
- **電郵地址：** | ${_form.email} 
- **服務選擇：** | ${_form.service} 
- **來源：** | ${location.href} `
+//         text: ` **姓名：**   | ${_form.name} 
+// -----------|--------
+//  **稱呼：**   | ${_form.gender}   
+//  **電話號碼：** | ${_form.phone} 
+//  **電郵地址：** | ${_form.email} 
+//  **服務選擇：** | ${_form.service} 
+//  **來源：** | ${location.href} `
+        text: `姓名：${_form.name}\n
+稱呼：${_form.gender}\n
+電話號碼：${_form.phone}\n
+電郵地址：${_form.email}\n
+服務選擇：${_form.service}\n
+來源：[${location.href}](${location.href})`
           }
         }
       });
@@ -168,7 +180,7 @@ let windowWidth = ref(1920)
 
 const getWindowWidth = () => {
   windowWidth.value = window.innerWidth
-  // console.log(windowWidth)
+  console.log(windowWidth)
 }
 
 onMounted(() => {
