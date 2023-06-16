@@ -84,6 +84,7 @@ const onSubmit = async () => {
   _formData.append('phone',_form.phone)
   _formData.append('email',_form.email)
   _formData.append('service',_form.service)
+  _formData.append('formUrl', `${location.href}`)
   if(!isDebug){
   const { data }:any = await useFetch('https://admin.ckjhk.com/api.php/cms/addform/fcode/3',{
     method: 'post',
