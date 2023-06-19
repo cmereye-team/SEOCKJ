@@ -117,7 +117,7 @@ onMounted(() => {
       <ContactForm />
       <div class="environment">
         <div class="environment-title">
-          <div class="index_title">診所環境</div>
+          <div class="index_title">{{$t('contactUs.clinic_environment')}}</div>
         </div>
         <div class="environment-in pageCon">
           <swiper class="environmentSwiperBox" :loop="true" :thumbs="{ swiper: thumbsSwiper }" :modules="[Thumbs,FreeMode]">

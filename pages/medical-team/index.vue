@@ -89,7 +89,7 @@ onMounted(()=>{
             <span>主頁</span>
             <!-- 醫生團隊 -->
             <span>醫生團隊</span>
-            <span>{{appState.areaTabs[appState.areaTabCurNum]}}</span>
+            <span>{{$t(appState.areaTabs[appState.areaTabCurNum])}}</span>
           </div>
           <div>
             <AreaTab />
@@ -175,7 +175,7 @@ onMounted(()=>{
             <span>主頁</span>
             <!-- 醫生團隊 -->
             <span>醫生團隊</span>
-            <span>{{appState.areaTabs[appState.areaTabCurNum]}}</span>
+            <span>{{$t(appState.areaTabs[appState.areaTabCurNum])}}</span>
           </div>
         </div>
       </div>

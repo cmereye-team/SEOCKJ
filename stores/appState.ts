@@ -14,7 +14,11 @@ export const useAppState = defineStore('appData', {
     dentistryService: 'implant',
     brand: 'course',
     areaTabs: [
-      '羅湖區','福田區','南山區','寶安區','龍華區'
+      'components.areaTabs.luohu',
+      'components.areaTabs.futian',
+      'components.areaTabs.nanshan',
+      'components.areaTabs.baoan',
+      'components.areaTabs.longhua'
     ],
     isShowForm: false
   }),

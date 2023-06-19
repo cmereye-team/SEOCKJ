@@ -14,7 +14,7 @@ const handleAreaTab = (_idx: number) => {
 
 <template>
   <div class="areaTab">
-    <div :class="appState.areaTabCurNum === areaTabIndex ? 'isCur' : ''" v-for=" (item,areaTabIndex) in appState.areaTabs" :key="areaTabIndex" @click="handleAreaTab(areaTabIndex)">{{item}}</div>
+    <div :class="appState.areaTabCurNum === areaTabIndex ? 'isCur' : ''" v-for=" (item,areaTabIndex) in appState.areaTabs" :key="areaTabIndex" @click="handleAreaTab(areaTabIndex)">{{$t(item)}}</div>
   </div>
 </template>
 

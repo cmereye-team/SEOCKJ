@@ -40,7 +40,7 @@ export const availableLocales: ILocales = {
   //   flag: '🇹🇷',
   // },
   hk: {
-    name: '繁体',
+    name: '繁体中文',
     iso: 'hk',
     flag: '🇨🇳',
   },

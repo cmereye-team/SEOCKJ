@@ -76,7 +76,6 @@ let messageText = ref('服务异常，请稍后重试')
 let messageShow = ref(false)
 
 const onSubmit = async () => {
-  const isDebug = false
   let _formData = new FormData()
   let _form = form
   _formData.append('contact_name',_form.name)
@@ -85,7 +84,6 @@ const onSubmit = async () => {
   _formData.append('email',_form.email)
   _formData.append('service',_form.service)
   _formData.append('formUrl', `${location.href}`)
-  if(!isDebug){
   const { data }:any = await useFetch('https://admin.ckjhk.com/api.php/cms/addform/fcode/3',{
     method: 'post',
     body: _formData
@@ -133,37 +131,6 @@ const onSubmit = async () => {
       type: 'error',
     })
   }
-  }else{
-    //  /ckj
-    //  http://ckjhk.icun.eu.org 
-    //  https://oapi.dingtalk.com/robot/send?access_token=f50755f36df72ca18cd09a5f726f0d060560faf182e7bc1dbc2206bdcc88495d    //客服群
-    //  https://oapi.dingtalk.com/robot/send?access_token=a8346e211809bbb6bf82cab55d0c0e4ff7e458999c18b5bb66f4146d34577448    //测试群
-    await useFetch('/ckj/robot/send?access_token=a8346e211809bbb6bf82cab55d0c0e4ff7e458999c18b5bb66f4146d34577448',{
-        method: 'post',
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: {
-         "msgtype": "markdown",
-         "markdown":{
-        title: "消息通知",
-//         text: ` **姓名：**   | ${_form.name} 
-// -----------|--------
-//  **稱呼：**   | ${_form.gender}   
-//  **電話號碼：** | ${_form.phone} 
-//  **電郵地址：** | ${_form.email} 
-//  **服務選擇：** | ${_form.service} 
-//  **來源：** | ${location.href} `
-        text: `姓名：${_form.name}\n
-稱呼：${_form.gender}\n
-電話號碼：${_form.phone}\n
-電郵地址：${_form.email}\n
-服務選擇：${_form.service}\n
-來源：[${location.href}](${location.href})`
-          }
-        }
-      });
-  }
   formLoading.value = false
   appState.setIsShowForm(false)
 }
@@ -188,8 +155,8 @@ onMounted(() => {
   <div class="contactForm" id="contactUsFormNav">
     <div class="contactForm-bg">
       <div class="contactForm-title">
-        <span>立即預約，填寫你的資料</span>
-        <span>展開你的健康微笑之旅</span>
+        <span>{{$t('contactUs.contact_form.title.span1')}}</span>
+        <span>{{$t('contactUs.contact_form.title.span2')}}</span>
       </div>
       <div class="contactForm-in">
         <el-form
@@ -201,13 +168,13 @@ onMounted(() => {
         >
           <div class="firstFormItem">
             <el-col :span="windowWidth>768 ? 12:24">
-              <el-form-item label="姓名：" prop="name">
+              <el-form-item :label="`${$t('contactUs.contact_form.formItem.name')}：`" prop="name">
                 <el-input v-model="form.name" name="name" />
               </el-form-item>
             </el-col>
             <el-col :span="3"></el-col>
             <el-col :span="windowWidth>768 ? 9:24">
-              <el-form-item label="稱呼：" prop="gender">
+              <el-form-item :label="`${$t('contactUs.contact_form.formItem.gender')}：`" prop="gender">
                 <el-radio-group v-model="form.gender">
                   <el-radio label="先生" />
                   <el-radio label="女士" />
@@ -216,14 +183,14 @@ onMounted(() => {
               </el-form-item>
             </el-col>
           </div>
-          <el-form-item label="電話號碼：" prop="phone">
+          <el-form-item :label="`${$t('contactUs.contact_form.formItem.telephone_number')}：`" prop="phone">
             <el-input v-model="form.phone" />
           </el-form-item>
-          <el-form-item label="電郵地址：" prop="email">
+          <el-form-item :label="`${$t('contactUs.contact_form.formItem.email_address')}：`" prop="email">
             <el-input v-model="form.email" />
           </el-form-item>
-          <el-form-item label="服務選擇：" prop="service" label-width="100%">
-            <el-select v-model="form.service" placeholder="請選擇服務">
+          <el-form-item :label="`${$t('contactUs.contact_form.formItem.service_selection')}：`" prop="service" label-width="100%">
+            <el-select v-model="form.service" :placeholder="$t('contactUs.contact_form.formItem.please_select_service')">
               <el-option
                 :label="serviceItem"
                 v-for="serviceItem in serviceLists"
@@ -234,7 +201,7 @@ onMounted(() => {
           </el-form-item>
           <el-form-item>
             <!-- <el-button  id="contactUsForm" :loading="formLoading" @click="submitForm(ruleFormRef)" >提交表格</el-button> -->
-            <button :id="windowWidth>768?'contactUsForm':'navMbContactForm'" type="button" class="formBtn" @click.stop="submitForm(ruleFormRef)">提交表格</button>
+            <button :id="windowWidth>768?'contactUsForm':'navMbContactForm'" type="button" class="formBtn" @click.stop="submitForm(ruleFormRef)">{{$t('contactUs.contact_form.formItem.submit_the_form')}}</button>
           </el-form-item>
         </el-form>
       </div>
@@ -567,9 +534,6 @@ onMounted(() => {
       &-in{
         .linkBox{
           flex-wrap: wrap;
-          &-in{
-
-          }
         }
       }
     }
