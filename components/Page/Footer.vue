@@ -2,92 +2,30 @@
 
 import { useAppState } from '~/stores/appState'
 const appState = useAppState()
-// const navLists = [
-//   '主頁',
-//   '最新消息',
-//   '品牌理念',
-//   '牙科服務',
-//   '醫生團隊',
-//   '個案分享',
-//   '聯絡我們',
-// ]
 const navLists = [
   {
-    name: '主頁',
+    name: 'components.footer.nav_index',
     link: '/',
-    child: [],
   },
-  // {
-  //   name: '最新消息',
-  //   link: '/newsPage',
-  //   child: [],
-  // },
   {
-    name: '品牌理念',
+    name: 'components.footer.nav_brand',
     link: `/brand/${appState.brand}`,
-    child: [],
   },
   {
-    name: '牙科服務',
+    name: 'components.footer.nav_dental_service',
     link: `/dental-service`,
-    // child: [
-    //   {
-    //     name: '全科牙科',
-    //     link: '',
-    //   },
-    //   {
-    //     name: '種植牙科',
-    //     link: '',
-    //   },
-    //   {
-    //     name: '矯齒牙科',
-    //     link: '',
-    //   },
-    //   {
-    //     name: '美容牙科',
-    //     link: '',
-    //   },
-    //   {
-    //     name: '兒童牙科',
-    //     link: '',
-    //   }
-    // ],
   },
   {
-    name: '醫生團隊',
+    name: 'components.footer.nav_medical_team',
     link: `/medical-team`,
-    child: [
-      {
-        name: '羅湖區',
-        link: '/medical-team',
-      },
-      {
-        name: '福田區',
-        link: '/medical-team',
-      },
-      {
-        name: '南山區',
-        link: '/medical-team',
-      },
-      {
-        name: '寶安區',
-        link: '/medical-team',
-      },
-      {
-        name: '龍華區',
-        link: '/medical-team',
-      },
-    ],
   },
   // {
   //   name: '個案分享',
   //   link: '/aboutUs',
-  //   child: [],
   // },
   {
-    name: '聯絡我們',
+    name: 'components.footer.nav_contactUs',
     link: '/contactUs',
-    child: [],
   },
 ]
 
@@ -100,7 +38,7 @@ const navLists = [
       <div class="footer-content-nav">
         <div v-for="(navItem, navIndex) in navLists" :key="navIndex">
           <nuxt-link :to="navItem.link">
-            {{ navItem.name }}
+            {{ $t(navItem.name) }}
           </nuxt-link>
         </div>
       </div>
@@ -110,7 +48,7 @@ const navLists = [
         </nuxt-link>
       </div>
       <div class="footer-content-text">
-        全程式預約一體化診療服務 {{'\n'}}讓每一位顧客享受健康微笑之旅
+        {{$t('components.footer.text1')}} {{'\n'}}{{$t('components.footer.text2')}}
       </div>
       <div class="footer-content-icon">
         <div class="footer-content-icon-in">

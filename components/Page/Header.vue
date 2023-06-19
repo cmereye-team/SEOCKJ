@@ -235,12 +235,18 @@ let windowWidth = ref(1920)
 const getWindowWidth = () => {
   windowWidth.value = window.innerWidth
 }
+let isShowLanguageBool = ref(false)
 const getScrollHeight = () => {
   // console.log('windowScrollY: ----->',window.scrollY)
   if(imgBgHeight.value.clientHeight < window.scrollY){
     isFiexdHeader.value = true
   }else{
     isFiexdHeader.value = false
+  }
+  if(window.scrollY === 0){
+    isShowLanguageBool.value = true
+  }else{
+    isShowLanguageBool.value = false
   }
 }
 
@@ -262,6 +268,11 @@ const handleMbMenu = () => {
 <template>
   <header>
     <div class="header-content">
+      <!-- <div class="LanguageSwitcher" :style="{opacity:isShowLanguageBool?'1':'0'}">
+        <div class="LanguageSwitcher-in pageCon">
+          <LanguageSwitcher />
+        </div>
+      </div> -->
       <div class="header-content-bgImg">
         <img class="imgBgBox pcBox" :src="headerConfig.bg" alt="">
         <div class="header-content-bgImg-imgInfo bigPageCon">
@@ -382,6 +393,21 @@ const handleMbMenu = () => {
 </template>
 
 <style lang="scss" scoped>
+.LanguageSwitcher{
+  width: 100%;
+  background: rgba(255, 255, 255,.5);
+  height: 30px;
+  position: fixed;
+  z-index: 38;
+  transition: all 1s;
+  &-in{
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  // display: none;
+}
 .header-content {
   width: 100%;
   box-sizing: border-box;

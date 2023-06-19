@@ -5,13 +5,13 @@ components:
     theme: 主题
     change_theme: 切换主题
   footer:
-    text1: 全程式预约一体化诊疗服务
-    text2: 让每一位顾客享受健康微笑之旅
-    nav_index: 主页
+    text1: 全程式預約一體化診療服務
+    text2: 讓每一位顧客享受健康微笑之旅
+    nav_index: 主頁
     nav_brand: 品牌理念
-    nav_dental_service: 牙科服务
-    nav_medical_team: 医生团队
-    nav_contactUs: 联络我们
+    nav_dental_service: 牙科服務
+    nav_medical_team: 醫生團隊
+    nav_contactUs: 聯絡我們
 pages:
   index:
     title: nuxt 3[]awesome[]starter
@@ -79,17 +79,18 @@ others:
   enabled: 启用
   disabled: 禁用
 service:
-  implant: 种植牙
-  orthodontics: 矫齿(箍牙)
-  rootCanal: 根管治疗
-  invisalign: 隐适美
-  veneers: 瓷贴片
+  implant: 種植牙
+  orthodontics: 矯齒(箍牙)
+  rootCanal: 根管治療
+  invisalign: 隱適美
+  veneers: 瓷貼片
   all_ceramic_crowns: 全瓷牙冠
-  wisdom_teeth_extraction: 智慧齿脱除
-  periodontal: 牙周病治疗
+  wisdom_teeth_extraction: 智慧齒脫除
+  periodontal: 牙周病治療
   toothtray: 牙托
-  teeth_whitening: 牙齿美白
+  teeth_whitening: 牙齒美白
   scaling_and_polishing: 洗牙
-  fillings: 补牙
-  general_oral_examination: 一般口腔检查
-  children_dentistry: 儿童牙科
+  fillings: 補牙
+  general_oral_examination: 一般口腔檢查
+  children_dentistry: 兒童牙科
+  

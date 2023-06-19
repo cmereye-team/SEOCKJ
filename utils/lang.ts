@@ -9,35 +9,40 @@ export interface ILocales {
 }
 
 export const availableLocales: ILocales = {
-  en: {
-    name: 'English',
-    iso: 'en',
-    flag: '🇺🇸',
-  },
-  id: {
-    name: 'Bahasa',
-    iso: 'id',
-    flag: '🇮🇩',
-  },
-  ja: {
-    name: '日本語',
-    iso: 'ja',
-    flag: '🇯🇵',
-  },
-  ko: {
-    name: '한국어',
-    iso: 'ko',
-    flag: '🇰🇷',
-  },
+  // en: {
+  //   name: 'English',
+  //   iso: 'en',
+  //   flag: '🇺🇸',
+  // },
+  // id: {
+  //   name: 'Bahasa',
+  //   iso: 'id',
+  //   flag: '🇮🇩',
+  // },
+  // ja: {
+  //   name: '日本語',
+  //   iso: 'ja',
+  //   flag: '🇯🇵',
+  // },
+  // ko: {
+  //   name: '한국어',
+  //   iso: 'ko',
+  //   flag: '🇰🇷',
+  // },
   zh: {
     name: '简体中文',
     iso: 'zh',
     flag: '🇨🇳',
   },
-  tr: {
-    name: 'Türkçe',
-    iso: 'tr',
-    flag: '🇹🇷',
+  // tr: {
+  //   name: 'Türkçe',
+  //   iso: 'tr',
+  //   flag: '🇹🇷',
+  // },
+  hk: {
+    name: '繁体',
+    iso: 'hk',
+    flag: '🇨🇳',
   },
 }
 
@@ -51,10 +56,10 @@ export function LanguageManager() {
     try {
       const foundLang = window
         ? window.navigator.language.substring(0, 2)
-        : 'en'
-      return availableLocales[foundLang] ? foundLang : 'en'
+        : 'hk'
+      return availableLocales[foundLang] ? foundLang : 'hk'
     } catch (error) {
-      return 'en'
+      return 'hk'
     }
   }
   const getUserLocale = (): string =>
