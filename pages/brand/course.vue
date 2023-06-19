@@ -28,23 +28,23 @@ const headerConfig = {
 }
 
 const introduceData = {
-  title: '品牌歷程',
+  title: 'pages.brand.course.introduce.title',
   content:
-    '我們致力於為客人提供全面、專業、貼心的口腔醫療服務，為客人的口腔健康保駕護航。我們注重醫療設備的更新和升級，引進了最先進的設備和技術，為客人提供更加安全、舒適、高效的醫療體驗。我們還注重醫療研究和教育，提升各醫生的專業水平和技術能力。',
+    'pages.brand.course.introduce.content',
   mbImg: 'https://static.cmereye.com/imgs/2023/05/2dad0e643e10a596.jpg',
   pcImg: 'https://static.cmereye.com/imgs/2023/05/558375ea7ebd62ca.jpg',
-  tabNavName: '品牌歷程',
+  tabNavName: 'pages.brand.course.introduce.tabNavName',
 }
 
 const courseData = {
-  title: '發展歷程',
+  title: 'pages.brand.course.history.title',
   lists: [
     {
       timeNode: '1995年',
       events: [
         {
           month: '',
-          context: '愛康健齒科集團第一間門診	(富康門診)  在羅湖成立',
+          context: 'pages.brand.course.history.time_1995.context',
         },
       ],
     },
@@ -53,7 +53,7 @@ const courseData = {
       events: [
         {
           month: '',
-          context: '集團發展為擁有66間口腔門診的連鎖機構',
+          context: 'pages.brand.course.history.time_2000.context',
         },
       ],
     },
@@ -62,7 +62,7 @@ const courseData = {
       events: [
         {
           month: '',
-          context: '被邀請成為「ATV亞洲小姐競選大賽」指定專科牙齒美容機構',
+          context: 'pages.brand.course.history.time_2006.context',
         },
       ],
     },
@@ -72,20 +72,20 @@ const courseData = {
         {
           month: '5月',
           context:
-            '攜手美、韓種植體研究與教育中心，合作成立中美韓口腔種植技術專科',
+            'pages.brand.course.history.time_2008.context_5',
         },
         {
           month: '7月',
-          context: '集團第10家連鎖門診——恆美門診開業',
+          context: 'pages.brand.course.history.time_2008.context_7',
         },
         {
           month: '10月',
-          context: '與中山大學光華口腔醫學院附屬口腔醫院簽約技術合作',
+          context: 'pages.brand.course.history.time_2008.context_10',
         },
         {
           month: '11月',
           context:
-            '成功舉辦華南口腔種植國際論壇，中華口腔醫學會會長王興教授蒞臨並為大會致辭',
+            'pages.brand.course.history.time_2008.context_11',
         },
       ],
     },
@@ -94,15 +94,15 @@ const courseData = {
       events: [
         {
           month: '4月',
-          context: '成功舉辦華南口腔正畸國際論壇',
+          context: 'pages.brand.course.history.time_2009.context_4',
         },
         {
           month: '6月',
-          context: '成功舉辦首屆華南口腔牙周國際論壇',
+          context: 'pages.brand.course.history.time_2009.context_6',
         },
         {
           month: '7月',
-          context: '成為中山大學光華口腔醫學院研究生課程深圳教學基地',
+          context: 'pages.brand.course.history.time_2009.context_7',
         },
       ],
     },
@@ -111,7 +111,7 @@ const courseData = {
       events: [
         {
           month: '4月',
-          context: '成功舉辦華南口腔正畸國際論壇',
+          context: 'pages.brand.course.history.time_2010.context_4',
         },
       ],
     },
@@ -121,7 +121,7 @@ const courseData = {
         {
           month: '',
           context:
-            '建立廣州愛康健口腔門診，標誌著愛康健齒科集團的事業版圖走出深圳，迅速擴張',
+            'pages.brand.course.history.time_2011.context',
         },
       ],
     },
@@ -131,7 +131,7 @@ const courseData = {
         {
           month: '',
           context:
-            '在羅湖區衛生和人口計劃生育局民營醫療機構醫療服務整體管理與醫療品質控制評估中，獲評	「A級單位級單位	」',
+            'pages.brand.course.history.time_2012.context',
         },
       ],
     },
@@ -141,7 +141,7 @@ const courseData = {
         {
           month: '',
           context:
-            '先後與IBM、萬科集團、中國銀行、建設銀行、中信銀行、中國平安、招商局集團等近百家500强企業簽約合作，成為企業員工口腔健康信任品牌',
+            'pages.brand.course.history.time_2014.context',
         },
       ],
     },
@@ -150,7 +150,7 @@ const courseData = {
       events: [
         {
           month: '',
-          context: '榮獲廣東省著名商標評選委員會認定的「廣東省牙科著名商標」',
+          context: 'pages.brand.course.history.time_2015.context',
         },
       ],
     },
@@ -160,12 +160,12 @@ const courseData = {
         {
           month: '1月',
           context:
-            '掛牌成立深圳市二級專業資質的口腔醫院——深圳愛康健口腔醫院',
+            'pages.brand.course.history.time_2016.context_1',
         },
         {
           month: '12月',
           context:
-            '集團榮獲「深圳老字號」榮譽及牌匾\n榮獲深圳都市報評選的「最具口碑影響力企業」',
+            'pages.brand.course.history.time_2016.context_12',
         },
       ],
     },
@@ -175,12 +175,12 @@ const courseData = {
         {
           month: '5月',
           context:
-            '成為世界五大種植體品牌之一的——瑞士STRUAMANN(士卓曼)公司「鉑金合作夥伴」',
+            'pages.brand.course.history.time_2017.context_5',
         },
         {
           month: '8月',
           context:
-            '愛康健入駐寶安區，成立寶安區第一家旗艦店——炫雅口腔門診部',
+            'pages.brand.course.history.time_2017.context_8',
         },
       ],
     },
@@ -190,7 +190,7 @@ const courseData = {
         {
           month: '',
           context:
-            '在深圳口腔醫療口碑榜中，深圳愛康健口腔醫院獲得2018年度「受市民喜愛種植牙·專科口腔醫療機構」',
+            'pages.brand.course.history.time_2018.context',
         },
       ],
     },
@@ -200,7 +200,7 @@ const courseData = {
         {
           month: '',
           context:
-            '集團在深圳龍華區開設旗艦分院——雅健口腔門診部獲得「廣東省口腔醫療機構感染預防與控制A級單位」',
+            'pages.brand.course.history.time_2019.context',
         },
       ],
     },
@@ -210,12 +210,12 @@ const courseData = {
         {
           month: '11月',
           context:
-            '深圳市口腔醫療行業協會第一屆口腔護理專業及院感專業委員會成立，愛康健護理與防控水平獲認可，10名專業護理人員受聘為副主任委員/委員',
+            'pages.brand.course.history.time_2020.context_11',
         },
         {
           month: '12月',
           context:
-            '榮獲第三屆「圳能量」深圳愛康健摘得 「最值得網民信賴品牌」 獎\n榮獲深圳電視台第一現場《名醫直播問診》優質合作伙伴獎/委員',
+            'pages.brand.course.history.time_2020.context_12',
         },
       ],
     },
@@ -224,16 +224,16 @@ const courseData = {
       events: [
         {
           month: '6月',
-          context: '龍華旗艦店恆樂口腔門診部盛大開業',
+          context: 'pages.brand.course.history.time_2021.context_6',
         },
         {
           month: '9月',
           context:
-            '港資眼科上市集團（3309.HK）達成戰略合作通過共享資源和客戶群體不斷提高市場服務規模和服務效率，開啟醫療服務領域「眼科+口腔」的國民大健康趨勢'
+            'pages.brand.course.history.time_2021.context_9'
         },
         {
           month: '12月',
-          context: '榮獲第四屆「圳能量」及「最值得網民信賴品牌」大獎',
+          context: 'pages.brand.course.history.time_2021.context_12',
         },
       ],
     },
@@ -246,7 +246,7 @@ const courseData = {
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor">
-      <div class="index_title pageCon">品牌理念</div>
+      <div class="index_title pageCon">{{$t('pages.brand.title')}}</div>
       <div class="introduce bigPageCon">
         <div
           class="introduce-in"
@@ -258,19 +258,19 @@ const courseData = {
         >
           <div class="tabNav noTitle pageCon">
             <nuxt-link :to="'/'">
-              <span>主頁</span>
+              <span>{{$t('pages.index.title')}}</span>
             </nuxt-link>
             <nuxt-link :to="''">
-              <span>品牌理念</span>
+              <span>{{$t('pages.brand.title')}}</span>
             </nuxt-link>
-            <span>{{introduceData.tabNavName}}</span>
+            <span>{{$t(introduceData.tabNavName)}}</span>
           </div>
           <div class="introduce-in-t mbBox">
             <img :src="introduceData.mbImg" />
           </div>
           <div class="introduce-in-l pageCon">
-            <div class="title">{{introduceData.title}}</div>
-            <div class="content">{{introduceData.content}}</div>
+            <div class="title">{{$t(introduceData.title)}}</div>
+            <div class="content">{{$t(introduceData.content)}}</div>
           </div>
         </div>
       </div>
@@ -278,7 +278,7 @@ const courseData = {
         <div class="course-bg">
           <div class="course-title pageCon">
             <div class="course-title-in">
-              {{courseData.title}}
+              {{$t(courseData.title)}}
             </div>
           </div>
           <div class="course-in">
@@ -292,7 +292,7 @@ const courseData = {
                 <div class="courseBox-in-lists">
                   <div class="courseBox-in-listItem" v-for="(courseTimeNodeItem,courseTimeNodeIndex) in courseItem.events" :key="courseTimeNodeIndex">
                     <div class="month">{{courseTimeNodeItem.month}}</div>
-                    <div class="context">{{courseTimeNodeItem.context}}</div>
+                    <div class="context">{{$t(courseTimeNodeItem.context)}}</div>
                   </div>
                 </div>
               </div>

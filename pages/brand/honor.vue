@@ -29,11 +29,11 @@ const headerConfig = {
 }
 
 const introduceData = {
-  title: '品牌榮譽',
-  content: 'CKJ愛康健口腔品牌連鎖\n專注口腔，屢獲殊榮',
+  title: 'pages.brand.honor.introduce.title',
+  content: 'pages.brand.honor.introduce.content',
   mbImg: 'https://static.cmereye.com/imgs/2023/05/080b60a67d204e25.jpg',
   pcImg: 'https://static.cmereye.com/imgs/2023/05/3db5860b4c31810e.jpg',
-  tabNavName: '品牌榮譽',
+  tabNavName: 'pages.brand.honor.introduce.tabNavName',
 }
 
 let swiperRef ={
@@ -55,7 +55,7 @@ const handleProcessBtn = (_type: string) => {
 <div>
   <PageHeader :headerConfig="headerConfig" />
   <div class="pageIn whitebgColor">
-    <div class="index_title pageCon">品牌理念</div>
+    <div class="index_title pageCon">{{$t('pages.brand.title')}}</div>
     <div class="introduce bigPageCon">
       <div
         class="introduce-in"
@@ -67,19 +67,19 @@ const handleProcessBtn = (_type: string) => {
         >
         <div class="tabNav noTitle pageCon">
           <nuxt-link :to="'/'">
-            <span>主頁</span>
+            <span>{{$t('pages.index.title')}}</span>
           </nuxt-link>
           <nuxt-link :to="''">
-            <span>品牌理念</span>
+            <span>{{$t('pages.brand.title')}}</span>
           </nuxt-link>
-          <span>{{introduceData.tabNavName}}</span>
+          <span>{{$t(introduceData.tabNavName)}}</span>
         </div>
         <div class="introduce-in-t mbBox">
           <img :src="introduceData.mbImg" />
         </div>
         <div class="introduce-in-l pageCon">
-          <div class="title">{{introduceData.title}}</div>
-          <div class="content">{{introduceData.content}}</div>
+          <div class="title">{{$t(introduceData.title)}}</div>
+          <div class="content">{{$t(introduceData.content)}}</div>
         </div>
       </div>
     </div>
@@ -87,8 +87,8 @@ const handleProcessBtn = (_type: string) => {
     <div class="honor">
       <div class="honor-bg">
         <div class="honor-title">
-          <span>向匠心致敬</span>
-          <span>愛康健品牌榮譽榜</span>
+          <span>{{$t('pages.brand.honor.honorSwiper.title.span_1')}}</span>
+          <span>{{$t('pages.brand.honor.honorSwiper.title.span_2')}}</span>
         </div>
         <div class="honor-in pageCon">
           <div class="leftBtn" @click="handleProcessBtn('slidePrev')"></div>
@@ -112,18 +112,18 @@ const handleProcessBtn = (_type: string) => {
     <!-- 国际 -->
     <div class="international">
       <div class="international-title">
-          <span>與時俱進，博採眾長</span>
-          <span>技術與世界同步</span>
+          <span>{{$t('pages.brand.honor.international.title.span_1')}}</span>
+          <span>{{$t('pages.brand.honor.international.title.span_2')}}</span>
       </div>
       <div class="international-context">
-        以醫療品質為本<br />
-        注重醫療技術水準整體提升<br />
-        在口腔學術領域競賽愛康健連年斬獲大獎<br />
+        {{$t('pages.brand.honor.international.context.item_1')}}<br />
+        {{$t('pages.brand.honor.international.context.item_2')}}<br />
+        {{$t('pages.brand.honor.international.context.item_3')}}<br />
         <br />
-        與時俱進，技術與世界同步<br />
-        攜手國內外口腔研究與教育中心和口腔醫學院校<br />
-        合作成立多專科再教育/教學基地<br />
-        為華南地區培養口腔專業人才<br />
+        {{$t('pages.brand.honor.international.context.item_4')}}<br />
+        {{$t('pages.brand.honor.international.context.item_5')}}<br />
+        {{$t('pages.brand.honor.international.context.item_6')}}<br />
+        {{$t('pages.brand.honor.international.context.item_7')}}<br />
       </div>
       <div class="international-in pageCon">
         <!-- https://static.cmereye.com/imgs/2023/05/f358efedd13763fe.jpg -->
@@ -151,18 +151,18 @@ const handleProcessBtn = (_type: string) => {
     <div class="brand">
       <div class="brand-title">
         <div class="brand-title-in">
-          <span>始於1995</span>
-          <span>愛康健口腔品牌連鎖</span>
+          <span>{{$t('pages.brand.honor.brand_item.title.span_1')}}</span>
+          <span>{{$t('pages.brand.honor.brand_item.title.span_2')}}</span>
         </div>
       </div>
-      <div class="brand-context">- 專科 · 專業 · 專注 · 專心 - </div>
+      <div class="brand-context">{{$t('pages.brand.honor.brand_item.context')}}</div>
       <div class="brand-in">
         <div>
           <div>
             <img src="https://static.cmereye.com/imgs/2023/05/d7e785a21ef31545.png" alt="">
           </div>
           <div>
-            深圳老字號
+            {{$t('pages.brand.honor.brand_item.in_1')}}
           </div>
         </div>
         <div>
@@ -170,7 +170,7 @@ const handleProcessBtn = (_type: string) => {
             <img src="https://static.cmereye.com/imgs/2023/05/6b9b5cbf87f8da95.png" alt="">
           </div>
           <div>
-            廣東省著名商標品牌
+            {{$t('pages.brand.honor.brand_item.in_2')}}
           </div>
         </div>
         <div>
@@ -178,7 +178,7 @@ const handleProcessBtn = (_type: string) => {
             <img src="https://static.cmereye.com/imgs/2023/05/42202884c1b63259.png" alt="">
           </div>
           <div>
-            中山大學光華口腔醫學院<br class="mbBox" />研究生課程深圳教學基地
+            {{$t('pages.brand.honor.brand_item.in_3.span_1')}}<br class="mbBox" />{{$t('pages.brand.honor.brand_item.in_3.span_2')}}
           </div>
         </div>
         <div>
@@ -186,7 +186,7 @@ const handleProcessBtn = (_type: string) => {
             <img src="https://static.cmereye.com/imgs/2023/05/cb849eb2ad0023d4.png" alt="">
           </div>
           <div>
-            最具口碑影響力企業
+            {{$t('pages.brand.honor.brand_item.in_4')}}
           </div>
         </div>
       </div>
