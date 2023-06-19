@@ -69,7 +69,7 @@ const handleProcessBtn = (_type: string) => {
           <nuxt-link :to="'/'">
             <span>主頁</span>
           </nuxt-link>
-          <nuxt-link :to="'/dental-service'">
+          <nuxt-link :to="''">
             <span>品牌理念</span>
           </nuxt-link>
           <span>{{introduceData.tabNavName}}</span>
