@@ -96,34 +96,33 @@ const getNewsLists = async () => {
             ..._saveLists,
             ...localLists.value
           ]
-          // console.log('saveLists',saveLists.value)
-          filterLists()
+          // console.log('saveLists: ---------------------->',saveLists.value)
         }
       }
     }
   });
+  filterLists()
 }
 
 getNewsLists()
 
-
 let dateCur = ref('0')
 let typeCur = ref('所有類別')
 const filterLists = () => {
-  // console.log(saveLists.value)
+  // console.log('saveLists: ---------------------->',saveLists.value)
   newsLists.value = saveLists.value.filter(item=>{
-    if(dateCur.value === '0' && typeCur.value === '所有類別'){
+    if(dateCur.value === '0' && (typeCur.value === '所有類別' || typeCur.value === '所有类别')){
       // console.log('所有月份、所有类型')
       return item
     }else{
-      console.log('非所有月份、非所有类型')
+      // console.log('非所有月份、非所有类型')
       if(dateCur.value === '0'){
-        console.log(item)
+        // console.log(item)
         if( item.type && item.type.indexOf(typeCur.value) !== -1){
           // console.log('指定类型：',typeCur.value)
           return item
         }
-      }else if(typeCur.value === '所有類別'){
+      }else if(typeCur.value === '所有類別' || typeCur.value === '所有类别'){
         if(item.month === dateCur.value){
           // console.log('指定月份：',dateCur.value)
           return item

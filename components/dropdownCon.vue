@@ -4,26 +4,6 @@ import { defineEmits } from 'vue'
 let dropdownCategoryText = ref('所有類別')
 
 // 所有类别枚举
-// const dropdownCategoryLists = [
-//   {
-//     name: '所有類別'
-//   },
-//   {
-//     name: '全科牙科'
-//   },
-//   {
-//     name: '種植牙科'
-//   },
-//   {
-//     name: '矯齒牙科'
-//   },
-//   {
-//     name: '美容牙科'
-//   },
-//   {
-//     name: '兒童牙科'
-//   }
-// ]
 const serviceLists = service.map(item=>{
     return {
       name: item.name
@@ -31,14 +11,14 @@ const serviceLists = service.map(item=>{
   })
 const dropdownCategoryLists = [
   {
-    name: '所有類別'
+    name: 'components.dropdownCon.dropdownCategoryLists_1'
   },
   ...serviceLists
 ]
 let dropdownCategory = ref(false)
 const handleDropdownCategory = (_data: any) =>{
   // console.log(_data)
-  dropdownCategoryText.value = _data.name
+  dropdownCategoryText.value = _data
   emits('changeCur', {
     type: dropdownCategoryText.value,
     date: dropdownMonthLable.value,
@@ -161,8 +141,8 @@ onMounted(()=>{
       </div>
       <div class="dropdown-in-itemBox" v-show="dropdownCategory">
         <ul>
-          <li v-for="(categoryItem,categoryIndex) in dropdownCategoryLists" :key="categoryIndex" @click="handleDropdownCategory(categoryItem)">
-            {{categoryItem.name}}
+          <li v-for="(categoryItem,categoryIndex) in dropdownCategoryLists" :key="categoryIndex" @click="handleDropdownCategory($t(categoryItem.name))">
+            {{$t(categoryItem.name)}}
           </li>
         </ul>
       </div>

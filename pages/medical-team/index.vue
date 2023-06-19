@@ -78,17 +78,17 @@ onMounted(()=>{
     <div class="doctorPage">
       <div class="doctorPage-in pageCon">
         <!-- 醫生團隊 -->
-        <div class="index_title">醫生團隊</div>
+        <div class="index_title">{{$t('pages.medical_team.title')}}</div>
         <!-- 醫療團隊 EXPERTS -->
-        <div class="doctorPage-in-text">醫療團隊 Medical Team</div>
+        <div class="doctorPage-in-text">{{$t('pages.medical_team.text')}}</div>
         <!-- 傾心打造貼心,專業的牙科連鎖 -->
-        <div class="doctorPage-in-content"><span>傾心打造貼心,</span><span>專業的牙科連鎖</span></div>
+        <div class="doctorPage-in-content"><span>{{$t('pages.medical_team.content.span_1')}}</span><span>{{$t('pages.medical_team.content.span_2')}}</span></div>
         <div class="doctorPage-in-tabNav">
           <div class="doctorPage-in-tabNav-l">
             <!-- 主頁 -->
-            <span>主頁</span>
+            <span>{{$t('pages.index.title')}}</span>
             <!-- 醫生團隊 -->
-            <span>醫生團隊</span>
+            <span>{{$t('pages.medical_team.title')}}</span>
             <span>{{$t(appState.areaTabs[appState.areaTabCurNum])}}</span>
           </div>
           <div>

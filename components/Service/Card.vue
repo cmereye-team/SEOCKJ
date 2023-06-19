@@ -14,9 +14,9 @@ defineProps({
 const servicesCardLists = serviceLists
 
 const servicesCardPageData = {
-  title: '牙科服務',
-  dentalServicesTitleIn: '其他牙科服務',
-  contextIn: '醫院提供基本牙科、美容牙科及高階牙科服務，從一般口腔檢查、洗牙、補牙，到牙齒美白、全口修復及各種牙科治療，幫助客人回復自信笑容。'
+  title: 'components.service.card.title',
+  dentalServicesTitleIn: 'components.service.card.dentalServicesTitleIn',
+  contextIn: 'components.service.card.contextIn'
 }
 
 // let windowWidth = ref(1920)
@@ -39,15 +39,15 @@ const servicesCardPageData = {
     <div :class="['index-dentalServices-in', 'pageCon', {'isIndexShow': !isIndexShow,'isMenu': isMenu}]">
       <div class="titile">
         <!-- 牙科服務 -->
-        <div class="index_title" v-if="isIndexShow">{{servicesCardPageData.title}}</div>
+        <div class="index_title" v-if="isIndexShow">{{$t(servicesCardPageData.title)}}</div>
       </div>
       <div class="dentistryServices-title" v-if="!isIndexShow && !isMenu">
         <!-- 牙科服務 -->
-        <div class="dentistryServices-title-in bb">{{servicesCardPageData.dentalServicesTitleIn}}</div>
+        <div class="dentistryServices-title-in bb">{{$t(servicesCardPageData.dentalServicesTitleIn)}}</div>
       </div>
       <div class="context" v-if="!isMenu">
         <!-- 中心提供基本牙科、美容牙科及高階牙科服務，從一般口腔檢查、洗牙、補牙，到牙齒美白、全口修復及各種牙科治療，幫助客人回復自信笑容。 -->
-        <div class="context-in">{{servicesCardPageData.contextIn}}</div>
+        <div class="context-in">{{$t(servicesCardPageData.contextIn)}}</div>
       </div>
       <div :class="{'servicesCard':true,'isMenu': isMenu}">
         <div class="servicesCard-in" v-for="(item,index) in servicesCardLists" :key="index">
@@ -55,7 +55,7 @@ const servicesCardPageData = {
             <div class="servicesCard-in-image">
               <img :src="item.imgUrl" alt="">
             </div>
-            <div class="servicesCard-in-name">{{item.name}}</div>
+            <div class="servicesCard-in-name">{{$t(item.name)}}</div>
           </nuxt-link>
         </div>
       </div>

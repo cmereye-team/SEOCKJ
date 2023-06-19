@@ -4,6 +4,22 @@ components:
   theme_switcher:
     theme: 主题
     change_theme: 切换主题
+  header: 
+    menuLists: 
+      menu_index:
+        name: 主页
+      menu_brand:
+        name: 品牌理念
+        course: 品牌历程
+        honor: 品牌荣誉
+      menu_dental_service:
+        name: 牙科服务
+      menu_medical_team:
+        name: 医生团队
+      menu_caseSharing:
+        name: 个案分享
+      menu_contactUs:
+        name: 联络我们
   footer:
     text1: 全程式预约一体化诊疗服务
     text2: 让每一位顾客享受健康微笑之旅
@@ -32,6 +48,13 @@ components:
     item_2: 
       title: 严谨治疗，为效果护航
       context: 严格执行符合世界牙科联盟(FDI)的诊疗标准，消毒隔离系统达到8个「一」无菌诊疗模式：一人一诊室，一医一助，一机一用，一次一消毒，消毒更全面。
+  dropdownCon:
+    dropdownCategoryLists_1: 所有类别
+  service:
+    card: 
+      title: 牙科服务
+      dentalServicesTitleIn: 其他牙科服务
+      contextIn: 医院提供基本牙科、美容牙科及高阶牙科服务，从一般口腔检查、洗牙、补牙，到牙齿美白、全口修复及各种牙科治疗，帮助客人回复自信笑容。
 pages:
   brand: 
     title: 品牌理念
@@ -143,6 +166,12 @@ pages:
         skill: 种植牙齿疗程
         process: 过程舒适无痛
         text: 咁多年来我只会拣爱康健，原因是他们专业细心！而家植牙嘅技术真系非常之好，简直同真牙一样拥有正常嘅咀嚼能力，真系食乜都得啊！
+  medical_team:
+    title: 医生团队
+    text: 医疗团队 Medical Team
+    content: 
+      span_1: 倾心打造贴心，
+      span_2: 专业的牙科连锁
   404:
     title: 找不到该页面
   blank:

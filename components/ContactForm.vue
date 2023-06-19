@@ -192,10 +192,10 @@ onMounted(() => {
           <el-form-item :label="`${$t('contactUs.contact_form.formItem.service_selection')}：`" prop="service" label-width="100%">
             <el-select v-model="form.service" :placeholder="$t('contactUs.contact_form.formItem.please_select_service')">
               <el-option
-                :label="serviceItem"
+                :label="$t(serviceItem)"
                 v-for="serviceItem in serviceLists"
-                :key="serviceItem"
-                :value="serviceItem"
+                :key="$t(serviceItem)"
+                :value="$t(serviceItem)"
               />
             </el-select>
           </el-form-item>

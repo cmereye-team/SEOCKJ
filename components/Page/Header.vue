@@ -22,7 +22,7 @@ defineProps({
 
 const menuLists = [
   {
-    name: '主頁',
+    name: 'components.header.menuLists.menu_index.name',
     link: '/',
     child: [],
   },
@@ -32,21 +32,21 @@ const menuLists = [
   //   child: [],
   // },
   {
-    name: '品牌理念',
+    name: 'components.header.menuLists.menu_brand.name',
     link: `/brand/${appState.brand}`,
     child: [
       {
-        name: '品牌歷程',
+        name: 'components.header.menuLists.menu_brand.course',
         link: '/brand/course',
       },
       {
-        name: '品牌榮譽',
+        name: 'components.header.menuLists.menu_brand.honor',
         link: '/brand/honor',
       },
     ],
   },
   {
-    name: '牙科服務',
+    name: 'components.header.menuLists.menu_dental_service.name',
     link: `/dental-service`,
     child: [
       // {
@@ -54,96 +54,96 @@ const menuLists = [
       //   link: ''
       // }
       {
-        name: '種植牙',
+        name: 'service.implant',
         link: '/dental-service/implant',
       },
       {
-        name: '矯齒',
+        name: 'service.orthodontics',
         link: '/dental-service/orthodontics',
       },
       {
-        name: '杜牙根',
+        name: 'service.rootCanal',
         link: '/dental-service/rootCanal',
       },
       {
-        name: '隱適美',
+        name: 'service.invisalign',
         link: '/dental-service/invisalign',
       },
       {
-        name: '瓷貼片',
+        name: 'service.veneers',
         link: '/dental-service/veneers',
       },
       {
-        name: '全瓷牙冠',
+        name: 'service.all_ceramic_crowns',
         link: '/dental-service/all-ceramic-crowns',
       },
       {
-        name: '智慧齒脫除',
+        name: 'service.wisdom_teeth_extraction',
         link: '/dental-service/wisdom-teeth-extraction',
       },
       {
-        name: '牙周病治療',
+        name: 'service.periodontal',
         link: '/dental-service/periodontal',
       },
       {
-        name: '牙托',
+        name: 'service.toothtray',
         link: '/dental-service/toothtray',
       },
       {
-        name: '牙齒美白',
+        name: 'service.teeth_whitening',
         link: '/dental-service/teeth-whitening',
       },
       {
-        name: '洗牙',
+        name: 'service.scaling_and_polishing',
         link: '/dental-service/scaling-and-polishing',
       },
       {
-        name: '補牙',
+        name: 'service.fillings',
         link: '/dental-service/fillings',
       },
       {
-        name: '一般口腔檢查',
+        name: 'service.general_oral_examination',
         link: '/dental-service/general-oral-examination',
       },
       {
-        name: '兒童牙科',
+        name: 'service.children_dentistry',
         link: '/dental-service/children-dentistry',
       }
     ],
   },
   {
-    name: '醫生團隊',
+    name: 'components.header.menuLists.menu_medical_team.name',
     link: `/medical-team`,
     child: [
       {
-        name: '羅湖區',
+        name: 'components.areaTabs.luohu',
         link: '/medical-team',
       },
       {
-        name: '福田區',
+        name: 'components.areaTabs.futian',
         link: '/medical-team',
       },
       {
-        name: '南山區',
+        name: 'components.areaTabs.nanshan',
         link: '/medical-team',
       },
       {
-        name: '寶安區',
+        name: 'components.areaTabs.baoan',
         link: '/medical-team',
       },
       {
-        name: '龍華區',
+        name: 'components.areaTabs.longhua',
         link: '/medical-team',
       },
     ],
   },
   // {
-  //   name: '個案分享',
+  //   name: 'components.header.menuLists.menu_caseSharing.name',
   //   link: '/aboutUs',
   //   child: [],
   // },
   {
-    name: '聯絡我們',
+    name: 'components.header.menuLists.menu_contactUs.name',
     link: '/contactUs',
     child: [],
   },
@@ -321,12 +321,12 @@ const handleMbMenu = () => {
               :key="menuIndex"
             >
               <nuxt-link :class="menuItem.child.length ? 'triangleIcon' : ''" :to="menuItem.link">
-              {{ menuItem.name }}
+              {{ $t(menuItem.name) }}
               </nuxt-link>
               <div class="menuChild" v-if="menuItem.child.length && !menuItem.link.includes('/dental-service')">
                 <div :class="['menuChild-item', classNamefilter(menuChildItem,menuChildIndex)]" v-for="(menuChildItem,menuChildIndex) in menuItem.child" :key="menuChildIndex" @click="handleMenuChild(menuItem,menuChildIndex)">
                   <nuxt-link :to="menuChildItem.link">
-                  {{menuChildItem.name}}
+                  {{ $t(menuChildItem.name) }}
                   </nuxt-link>
                 </div>
               </div>
@@ -347,13 +347,13 @@ const handleMbMenu = () => {
           <div :class="['menuLists-item',item.child.length ? 'childIcon' : '']" v-for="(item, index) in menuLists" :key="index">
             <nuxt-link :to="!item.child.length ? item.link : ''">
               <div @click="handleMenu(index)">
-                {{item.name}}
+                {{$t(item.name)}}
               </div>
             </nuxt-link>
             <div class="menuLists-childLists" v-if="item.child.length" v-show="menuActNum === index">
               <div class="menuLists-childLists-item" v-for="(itemChild,itemChildIndex) in item.child" :key="itemChildIndex" @click="handleMenuChild(item,itemChildIndex)">
                 <nuxt-link :to="itemChild.link" @click.native="handleMbMenu">
-                {{itemChild.name}}
+                {{$t(itemChild.name)}}
                 </nuxt-link>
               </div>
             </div>
@@ -555,7 +555,7 @@ const handleMbMenu = () => {
     box-sizing: border-box;
     margin: 0 auto;
     padding: 20px 10px 0 30px;
-    padding-top: 20px;
+    // padding-top: 20px;
     align-items: flex-end;
     z-index: 40;
     position: relative;
@@ -932,6 +932,7 @@ const handleMbMenu = () => {
       top: 0;
       justify-content: space-between;
       margin: 0;
+      padding: 10px 10px 0 30px;
       .logo{
         width: 150px;
         margin-bottom: 0;
