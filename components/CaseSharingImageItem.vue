@@ -27,13 +27,13 @@ defineProps({
         <img :src="userInfo.imgUrl" alt="">
       </div>
       <div class="caseSaringImageItem-t-context">
-        <span class="name">{{userInfo.name}}</span>
-        <span class="skill">{{userInfo.skill}} </span>
-        <span class="text">{{userInfo.text}}</span>
+        <span class="name">{{$t(userInfo.name)}}</span>
+        <span class="skill">{{$t(userInfo.skill)}} </span>
+        <span class="text">{{$t(userInfo.text)}}</span>
       </div>
     </div>
     <div class="caseSaringImageItem-b">
-      {{userInfo.context}}
+      {{$t(userInfo.context)}}
     </div>
   </div>
 </template>

@@ -7,16 +7,16 @@ const onSlideAboutUsSwiperChange = (swiper:any) => {
 
 const aboutUsLists = [
   {
-    title: '科技護航，安全放心',
-    text: '優質的診療服務，在於醫生的專業素養，',
-    context: '以及匹配的醫療設備的先進程度。愛康健從口腔檢查到臨床手術，全程採購主流牙科設備，與時俱進開展醫生職業技能培訓。我們信奉技術，加進口設備，才能有好的診療功效。',
+    title: 'components.aboutUs.item_1.title',
+    text: 'components.aboutUs.item_1.text',
+    context: 'components.aboutUs.item_1.context',
     mbImg: 'https://static.cmereye.com/imgs/2023/04/312ab3f184b7daf5.jpg',
     pcImg: 'https://static.cmereye.com/imgs/2023/05/77e7c4e4a2376aa8.jpg'
   },
   {
-    title: '嚴謹治療，為效果護航',
+    title: 'components.aboutUs.item_2.title',
     text: '',
-    context: '嚴格執行符合世界牙科聯盟(FDI)的診療標準，消毒隔離系統達到8個「一」無菌診療模式：一人一診室，一醫一助，一機一用，一次一消毒，消毒更全面。',
+    context: 'components.aboutUs.item_2.context',
     mbImg: 'https://static.cmereye.com/imgs/2023/05/57398ce56ec905ad.jpg',
     pcImg: 'https://static.cmereye.com/imgs/2023/05/d847d149cd3aef7d.jpg'
   }
@@ -37,7 +37,7 @@ const handleLineCur = (_value:number) =>{
 <template>
   <div class="index-aboutUs">
         <div class="pageCon">
-          <div class="index_title">關於我們</div>
+          <div class="index_title">{{$t('components.aboutUs.title')}}</div>
         </div>
         <Swiper
           class="swiperBox pageCon"
@@ -56,11 +56,11 @@ const handleLineCur = (_value:number) =>{
               </div>
               <div class="index-aboutUs-in-r">
                 <!-- 科技護航，安全放心 -->
-                <div>{{item.title}}</div>
+                <div>{{$t(item.title)}}</div>
                 <!-- 優質的診療服務，在於醫生的專業素養， -->
-                <span>{{item.text}}</span>
+                <span>{{$t(item.text)}}</span>
                 <!-- 以及匹配的醫療設備的先進程度。愛康健從口腔檢查到臨床手術，全程採購主流牙科設備，與時俱進開展醫生職業技能培訓。我們信奉技術，加進口設備，才能有好的診療功效。 -->
-                <span>{{item.context}}</span>
+                <span>{{$t(item.context)}}</span>
               </div>
             </div>
           </SwiperSlide>  

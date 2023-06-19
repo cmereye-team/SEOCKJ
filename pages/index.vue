@@ -23,20 +23,29 @@ useHead({
 
 const caseSharingLists = [
   {
-    name: '上班族，陳先生',
-    skill: '根管治療(杜牙根)療程',
-    text: '安心、舒服、無痛',
-    context: '蛀咗牙自己都唔知，直到有一日真係牙痛先怕！原本以為要剝牙，後來牙醫建議杜牙根，成個治療過程都好快，最緊要可以保留到原來嘅牙齒！',
+    name: 'pages.index.caseSharing.caseSharingLists.caseSharing_1.name',
+    skill: 'pages.index.caseSharing.caseSharingLists.caseSharing_1.skill',
+    text: 'pages.index.caseSharing.caseSharingLists.caseSharing_1.text',
+    context: 'pages.index.caseSharing.caseSharingLists.caseSharing_1.context',
     imgUrl: 'https://static.cmereye.com/imgs/2023/06/72a1864e2021e804.jpg'
   },
   {
-    name: '大學生，Jenny',
-    skill: '矯齒(箍牙)療程',
-    text: '唔再怕同人合照喇',
-    context: '從前唔整齊嘅牙齒令到我冇自信，經過兩年既箍牙歷程，真係令成個面容改變咗好多！最重要係牙醫手勢非常專業，價錢亦都好合理！',
+    name: 'pages.index.caseSharing.caseSharingLists.caseSharing_2.name',
+    skill: 'pages.index.caseSharing.caseSharingLists.caseSharing_2.skill',
+    text: 'pages.index.caseSharing.caseSharingLists.caseSharing_2.text',
+    context: 'pages.index.caseSharing.caseSharingLists.caseSharing_2.context',
     imgUrl: 'https://static.cmereye.com/imgs/2023/06/f1fab4a43cdea943.jpg'
   },
 ]
+
+const caseSharingTopData = {
+  type: 'pages.index.caseSharing.caseSharingTopData.type',
+  name: 'pages.index.caseSharing.caseSharingTopData.name',
+  skill: 'pages.index.caseSharing.caseSharingTopData.skill',
+  process: 'pages.index.caseSharing.caseSharingTopData.process',
+  text: 'pages.index.caseSharing.caseSharingTopData.text',
+  imgUrl: 'https://static.cmereye.com/imgs/2023/06/b6685121c74c93e0.png'
+}
 
 onMounted(() => {
   // gsap.registerPlugin(ScrollTrigger);
@@ -176,11 +185,11 @@ watch(
       <!-- 個案分享 -->
       <div class="index-caseSharing">
         <div class="index-caseSharing-title">
-          <div class="index_title">個案分享</div>
+          <div class="index_title">{{$t('pages.index.caseSharing.title')}}</div>
         </div>
         <div class="index-caseSharing-in">
           <div class="in-top">
-            <CaseSharingVideoItem />
+            <CaseSharingVideoItem :caseSharingData="caseSharingTopData" />
           </div>
           <div class="in-cen">
             <div class="in-cen-box" v-for="(caseSharingItem,caseSharingIndex) in caseSharingLists" :key="caseSharingIndex">

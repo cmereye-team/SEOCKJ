@@ -1,18 +1,39 @@
+<script lang="ts" setup>
+import { defineProps } from "vue";
+const props = defineProps({
+  caseSharingData: {
+    type: Object,
+    default(){
+      return {
+        type: '',
+        name: '',
+        skill: '',
+        process: '',
+        text: '',
+        imgUrl: ''
+      }
+    }
+  }
+})
+
+
+</script>
+
 <template>
   <div class="caseSaringVideoItem">
     <div class="caseSaringVideoItem-l">
       <img src="https://static.cmereye.com/imgs/2023/06/b6685121c74c93e0.png" alt="">
     </div>
     <div class="caseSaringVideoItem-r">
-      <div class="type">星級客戶</div>
-      <div class="name">朱咪咪 Mimi</div>
-      <div class="skill">種植牙齒療程</div>
-      <div class="process">過程舒適無痛</div>
-      <div class="text">咁多年來我只會揀愛康健，原因是他們專業細心！而家植牙嘅技術真係非常之好，簡直同真牙一樣擁有正常嘅咀嚼能力，真係食乜都得啊！</div>
+      <div class="type">{{$t(caseSharingData.type)}}</div>
+      <div class="name">{{$t(caseSharingData.name)}}</div>
+      <div class="skill">{{$t(caseSharingData.skill)}}</div>
+      <div class="process">{{$t(caseSharingData.process)}}</div>
+      <div class="text">{{$t(caseSharingData.text)}}</div>
       <div class="bg_box"></div>
     </div>
     <div class="caseSaringVideoItem-mb">
-      <div class="text">咁多年來我只會揀愛康健，原因是他們專業細心！而家植牙嘅技術真係非常之好，簡直同真牙一樣擁有正常嘅咀嚼能力，真係食乜都得啊！</div>
+      <div class="text">{{$t(caseSharingData.text)}}</div>
     </div>
   </div>
 </template>
