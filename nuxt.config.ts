@@ -75,7 +75,7 @@ export default defineNuxtConfig({
     vueI18n: {
       locale: 'hk',
       fallbackLocale: 'hk',
-      availableLocales: ['hk','cn'],
+      availableLocales: ['hk','zh'],
     },
   },
 

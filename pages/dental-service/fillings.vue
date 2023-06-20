@@ -28,11 +28,11 @@ const headerConfig = {
 }
 
 const orthodonticsIntroduceData = {
-  title: '補牙',
-  content: '亦稱為「牙體修復」，透過使用適當的物料填補因蛀牙或其他原因導致的牙齒組織缺失部位，以恢復牙齒的功能、完整性和形態。同時，補牙可用於美觀的填補，使笑容更加協調美觀。',
+  title: 'pages.dental-service.fillings.introduce.title',
+  content: 'pages.dental-service.fillings.introduce.content',
   mbImg: 'https://static.cmereye.com/imgs/2023/05/61b68b2597a8e44d.jpg',
   pcImg: 'https://static.cmereye.com/imgs/2023/05/98c2430bfc65c812.jpg',
-  tabNavName: '補牙',
+  tabNavName: 'pages.dental-service.fillings.introduce.tabNavName',
   pageName: 'fillings',
 }
 
@@ -118,10 +118,8 @@ const materialData = {
   ]
 }
 
-
 let materialCurrent = ref(1)
 
-//走马灯事件
 const onSlideChange = (swiper:any) => {
   materialCurrent.value = swiper.realIndex + 1
 }
@@ -135,7 +133,6 @@ onMounted(()=>{
 
 const getWindowWidth = () => {
   windowWidth.value = window.innerWidth
-  // console.log(windowWidth)
 }
 
 const problemData = {
@@ -166,16 +163,11 @@ const problemData = {
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor">
-      <div class="index_title pageCon">牙科服務</div>
-      <!-- 介绍 -->
+      <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
       <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
-      <!-- 原因 -->
       <ServiceReason :reasonData="reasonData" />
-      <!-- 过程 -->
       <ServiceStep :stepData="stepData" />
-      <!-- 注意事项 -->
       <ServiceNote :noteData="noteData" />
-      <!-- 材料 -->
       <div class="material">
         <div class="dentistryServices-title">
           <div class="dentistryServices-title-in bb">{{materialData.title}}</div>
@@ -200,15 +192,6 @@ const problemData = {
                     <div>{{meritItem}}</div>
                   </div>
                 </div>
-                <!-- <div class="box">
-                  <div
-                    class="box-in"
-                    v-for="(meritItem,meritIndex) in materialData.tableLeft[1]"
-                    :key="meritIndex"
-                  >
-                    <div>{{meritItem}}</div>
-                  </div>
-                </div> -->
               </div>
             </swiper-slide>
             <swiper-slide class="swiper-slide">
@@ -243,7 +226,6 @@ const problemData = {
           <PageSwiperPointLine :latestNewsNum="3" :latestNewsCurrent="materialCurrent"></PageSwiperPointLine>
         </div>
       </div>
-      <!-- 问题 -->
       <ServiceProblem :problemData="problemData" />
       <serviceCard />
       <ContactUs />
@@ -252,8 +234,6 @@ const problemData = {
     <PageNavbar />
   </div>
 </template>
-
-
 
 <style lang="scss" scoped>
 .material {
@@ -273,7 +253,6 @@ const problemData = {
       color: #666666;
     }
   }
-  
   &-in {
     max-width: 1254px;
     margin: 30px auto 0;
@@ -293,7 +272,6 @@ const problemData = {
         box-sizing: border-box;
         display: flex;
         align-items: center;
-        
         &:first-child {
           background: #ffa09e;
           color: #fff;
@@ -348,11 +326,6 @@ const problemData = {
     margin: 22px auto;
   }
 }
-
-@media (min-width: 768px) and (max-width: 1452px) {
-}
-
-//md
 @media only screen and (max-width: 760px) {
   .material {
     &-context {

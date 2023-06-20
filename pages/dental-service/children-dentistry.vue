@@ -28,11 +28,11 @@ const headerConfig = {
 }
 
 const orthodonticsIntroduceData = {
-  title: '兒童牙科',
-  content: '除了身體健康，小朋友的口腔健康同樣重要，家長可定期找合資格牙醫為孩子進行牙科檢查及諮詢。',
+  title: 'pages.dental-service.children-dentistry.introduce.title',
+  content: 'pages.dental-service.children-dentistry.introduce.content',
   mbImg: 'https://static.cmereye.com/imgs/2023/05/482f1dd094438e98.jpg',
   pcImg: 'https://static.cmereye.com/imgs/2023/05/25a2d1f9e0936571.jpg',
-  tabNavName: '兒童牙科',
+  tabNavName: 'pages.dental-service.children-dentistry.introduce.tabNavName',
 }
 
 const reasonData = {
@@ -133,7 +133,6 @@ const skillData ={
 
 const changeSkillTitle = (_idx:number) => {
   let a = ['適應期','適應期','適用','適用','適應期','注意事項']
-  // console.log(a[_idx])
   return a[_idx]
 }
 
@@ -148,10 +147,8 @@ const handleSkillTab = (_idx:number) => {
 <div>
   <PageHeader :headerConfig="headerConfig" />
   <div class="pageIn whitebgColor">
-    <div class="index_title pageCon">牙科服務</div>
-    <!-- 介绍 -->
+    <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
     <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
-    <!-- 原因 -->
     <ServiceReason :reasonData="reasonData" />
     <div class="faq">
       <div class="dentistryServices-title">
@@ -164,7 +161,6 @@ const handleSkillTab = (_idx:number) => {
         <div>牙齒外傷</div>
       </div>
     </div>
-
     <div class="skill">
       <div class="skill-title">
         <div class="skill-title-in">
@@ -219,9 +215,7 @@ const handleSkillTab = (_idx:number) => {
         </el-collapse>
       </div>
     </div>
-    <!-- 注意事项 -->
     <ServiceNote :noteData="noteData" />
-    <!-- 问题 -->
     <ServiceProblem :problemData="problemData" />
     <serviceCard />
     <ContactUs />
@@ -336,7 +330,6 @@ const handleSkillTab = (_idx:number) => {
     }
   }
 }
-
 @media (min-width: 768px) and (max-width: 1000px) {
   .skill{
     &-tab{
@@ -348,10 +341,7 @@ const handleSkillTab = (_idx:number) => {
     }
   }
 }
-
-//md
 @media only screen and (max-width: 768px) {
-
 .faq{
   margin-top: 90px;
   &-in{
@@ -439,8 +429,5 @@ const handleSkillTab = (_idx:number) => {
     }
   }
 }
-
-
-
 }
 </style>

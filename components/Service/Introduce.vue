@@ -25,16 +25,16 @@ defineProps({
       backgroundSize: 'auto 100%'
       }">
       <div class="tabNav noTitle pageCon">
-        <nuxt-link :to="'/'"><span>主頁</span></nuxt-link>
-        <nuxt-link :to="'/dental-service'"><span>牙科服務</span></nuxt-link>
-        <span>{{introduceData.tabNavName}}</span>
+        <nuxt-link :to="'/'"><span>{{$t('pages.index.title')}}</span></nuxt-link>
+        <nuxt-link :to="'/dental-service'"><span>{{$t('pages.dental-service.title')}}</span></nuxt-link>
+        <span>{{$t(introduceData.tabNavName)}}</span>
       </div>
       <div class="introduce-in-t mbBox">
         <img :src="introduceData.mbImg" alt="">
       </div>
       <div class="introduce-in-l pageCon">
-        <div :class="['title',introduceData.pageName]">{{introduceData.title}}</div>
-        <div :class="['content',introduceData.pageName]">{{introduceData.content}}</div>
+        <div :class="['title',introduceData.pageName]">{{$t(introduceData.title)}}</div>
+        <div :class="['content',introduceData.pageName]">{{$t(introduceData.content)}}</div>
       </div>
     </div>
   </div>
@@ -42,7 +42,6 @@ defineProps({
 
 
 <style lang="scss" scoped>
-// 介绍
     .introduce{
       &-in{
         margin-top: 45px;
@@ -54,7 +53,6 @@ defineProps({
           .title{
             font-weight: 700;
             font-size: 30px;
-            // margin-top: 96px;
             margin-top: 150px;
             &.teeth-whitening{
               margin-top: 10%;
@@ -70,7 +68,6 @@ defineProps({
               width: 409px;
             }
             &.teeth-whitening{
-              // margin-top: 0;
               white-space: pre-wrap;
             }
           }
@@ -121,7 +118,6 @@ defineProps({
                 width: 25vw;
               }
             }
-            
           }
         }
       }
@@ -166,7 +162,6 @@ defineProps({
                 width: 95%;
               }
             }
-            
           }
         }
       }

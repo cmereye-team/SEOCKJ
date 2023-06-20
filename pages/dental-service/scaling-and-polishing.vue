@@ -28,11 +28,11 @@ const headerConfig = {
 }
 
 const orthodonticsIntroduceData = {
-  title: '洗牙',
-  content: '醫生一般建議每半年至一年洗牙一次，以預防牙周、口腔及其他牙齒問題。',
+  title: 'pages.dental-service.scaling-and-polishing.introduce.title',
+  content: 'pages.dental-service.scaling-and-polishing.introduce.content',
   mbImg: 'https://static.cmereye.com/imgs/2023/05/e2bc750495cbd2df.jpg',
   pcImg: 'https://static.cmereye.com/imgs/2023/05/3e4ae32ca30ab023.jpg',
-  tabNavName: '洗牙',
+  tabNavName: 'pages.dental-service.scaling-and-polishing.introduce.tabNavName',
 }
 
 const reasonData = {
@@ -99,14 +99,10 @@ const problemData = {
 <div>
   <PageHeader :headerConfig="headerConfig" />
   <div class="pageIn whitebgColor">
-    <div class="index_title pageCon">牙科服務</div>
-    <!-- 介绍 -->
+    <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
     <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
-    <!-- 原因 -->
     <ServiceReason :reasonData="reasonData" />
-    <!-- 过程 -->
     <ServiceStep :stepData="stepData" />
-    <!-- 问题 -->
     <ServiceProblem :problemData="problemData" />
     <serviceCard />
     <ContactUs />
@@ -115,16 +111,3 @@ const problemData = {
   <PageNavbar />
 </div>
 </template>
-
-
-
-<style lang="scss" scoped>
-
-
-@media (min-width: 768px) and (max-width: 1452px) {}
-
-//md
-@media only screen and (max-width: 760px) {
-
-}
-</style>

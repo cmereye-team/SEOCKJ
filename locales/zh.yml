@@ -175,6 +175,7 @@ pages:
     org: 机构
     expertise: 擅长
   dental-service: 
+    title: 牙科服务
     implant: 
       introduce:
         title: 种植牙

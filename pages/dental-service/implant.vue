@@ -28,11 +28,11 @@ const headerConfig = {
 }
 
 const introduceData = {
-  title: '種植牙',
-  content: '利用鈦金屬等物料製作成植體，然後植入進行牙槽骨當中，代替牙根以作支撐，然後在上面植入假牙、牙橋或假牙托來填補空缺的牙齒。隨着醫療技術的進步，現在不僅有傳統的植牙方式，還有微創植牙。',
+  title: 'pages.dental-service.implant.introduce.title',
+  content: 'pages.dental-service.implant.introduce.content',
   mbImg: 'https://static.cmereye.com/imgs/2023/05/2bc3a5d449c9b42e.jpg',
   pcImg: 'https://static.cmereye.com/imgs/2023/05/611a2ada62c8fa55.jpg',
-  tabNavName: '種植牙',
+  tabNavName: 'pages.dental-service.implant.introduce.tabNavName',
 }
 
 const featuresData = {
@@ -246,7 +246,6 @@ const problemData = {
 
 let noticeCurrent = ref(1)
 
-//走马灯事件
 const onSlideChange = (swiper:any) => {
   noticeCurrent.value = swiper.realIndex + 1
 }
@@ -260,7 +259,6 @@ onMounted(()=>{
 
 const getWindowWidth = () => {
   windowWidth.value = window.innerWidth
-  // console.log(windowWidth)
 }
 
 </script>
@@ -268,15 +266,11 @@ const getWindowWidth = () => {
 
 <template>
   <div>
-  <!-- <div class="bigPageCon"> -->
     <PageHeader :headerConfig="headerConfig"/>
     <div class="dentistryServices">
-      <div class="index_title pageCon">牙科服務</div>
-      <!-- 介绍 -->
+      <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
       <ServiceIntroduce :introduceData="introduceData" />
-      <!-- 原因 -->
       <ServiceReason :reasonData="reasonData" />
-      <!-- 特点 -->
       <div class="features">
         <div class="dentistryServices-title">
           <div class="dentistryServices-title-in bb">{{featuresData.title}}</div>
@@ -293,7 +287,6 @@ const getWindowWidth = () => {
           </div>
         </div>
       </div>
-      <!-- 区别 -->
       <div class="notice">
         <div class="dentistryServices-title">
           <div class="dentistryServices-title-in bb">{{noticeData.title}}</div>
@@ -329,13 +322,10 @@ const getWindowWidth = () => {
           <PageSwiperPointLine :latestNewsNum="2" :latestNewsCurrent="noticeCurrent"></PageSwiperPointLine>
         </div>
       </div>
-      <!-- 六个步骤 -->
       <ServiceStep :stepData="stepData" />
-      <!-- 注意事項 -->
       <div class="note">
         <div class="dentistryServices-title">
           <div class="dentistryServices-title-in bb">種植牙後注意事項</div>
-          <!-- <div class="dentistryServices-title-line"></div> -->
         </div>
         <div class="noteCard pageCon">
           <div class="noteCard-in" v-for="(note,noteIndex) in noteLists" :key="noteIndex">
@@ -381,7 +371,6 @@ const getWindowWidth = () => {
         </div>
         <div class="detail-remark">*本收費表所載資料為收費參考資料，最終收費會按不同的牙齒情況或複雜情度有所調整</div>
       </div>
-      <!-- 问题 -->
       <ServiceProblem :problemData="problemData" />
       <serviceCard />
       <ContactUs />
@@ -585,7 +574,6 @@ const getWindowWidth = () => {
           border-radius:  0 60px 60px 0;
           overflow: hidden;
           .box-in{
-            // color: #FFA09E;
             &:first-child{
               background: #FFCECB;
             }
@@ -597,7 +585,6 @@ const getWindowWidth = () => {
         margin: 22px auto;
       }
     }
-    //注意事项
     .note{
       margin-top: 96px;
       .noteCard{

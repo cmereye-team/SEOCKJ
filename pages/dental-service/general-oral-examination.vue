@@ -28,12 +28,11 @@ const headerConfig = {
 }
 
 const orthodonticsIntroduceData = {
-  title: '一般口腔檢查',
-  content:
-    '一般人常常忽略了定期檢查口腔的重要性，口腔容易滋生各種細菌，缺乏適當護理，有機會會引致各種問題，例如蛀牙、口腔潰瘍、牙周炎、牙齦炎等等。',
+  title: 'pages.dental-service.general-oral-examination.introduce.title',
+  content: 'pages.dental-service.general-oral-examination.introduce.content',
   mbImg: 'https://static.cmereye.com/imgs/2023/05/1adfbf26ba2d3e03.jpg',
   pcImg: 'https://static.cmereye.com/imgs/2023/05/0c05f7b7469e4f0d.jpg',
-  tabNavName: '一般口腔檢查',
+  tabNavName: 'pages.dental-service.general-oral-examination.introduce.tabNavName',
 }
 
 const reasonData = {
@@ -109,7 +108,6 @@ const noticeData = {
 }
 let noticeCurrent = ref(1)
 
-//走马灯事件
 const onSlideChange = (swiper: any) => {
   noticeCurrent.value = swiper.realIndex + 1
 }
@@ -123,7 +121,6 @@ onMounted(() => {
 
 const getWindowWidth = () => {
   windowWidth.value = window.innerWidth
-  // console.log(windowWidth)
 }
 </script>
 
@@ -132,12 +129,9 @@ const getWindowWidth = () => {
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor">
-      <div class="index_title pageCon">牙科服務</div>
-      <!-- 介绍 -->
+      <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
       <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
-      <!-- 原因 -->
       <ServiceReason :reasonData="reasonData" />
-      <!-- 服务 -->
       <div class="notice">
         <div class="dentistryServices-title">
           <div class="dentistryServices-title-in bb">
@@ -212,9 +206,7 @@ const getWindowWidth = () => {
           <div class="frequency-in-bottom">因此，高風險人群需要更加重視口腔健康，並接受更頻繁的口腔檢查</div>
         </div>
       </div>
-      <!-- 过程 -->
       <ServiceStep :stepData="stepData" />
-      <!-- 问题 -->
       <ServiceProblem :problemData="problemData" />
       <serviceCard />
       <ContactUs />
@@ -372,7 +364,6 @@ const getWindowWidth = () => {
   }
 }
 
-//md
 @media only screen and (max-width: 760px) {
   .notice {
     margin: 90px auto 0;

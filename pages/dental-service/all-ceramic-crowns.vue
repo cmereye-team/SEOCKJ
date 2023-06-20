@@ -28,11 +28,11 @@ const headerConfig = {
 }
 
 const orthodonticsIntroduceData = {
-  title: '全瓷牙冠',
-  content: '牙冠（牙套）是一種修復牙齒的方法，用於覆蓋形狀參差不齊或變色的牙齒。當牙齒因不同情況受到損壞，例如沒有足夠的牙齒結構進行補牙或需要修復裂縫的牙齒或保護脆弱的牙齒時，牙醫便會建議使用牙冠（牙套）。',
+  title: 'pages.dental-service.all-ceramic-crowns.introduce.title',
+  content: 'pages.dental-service.all-ceramic-crowns.introduce.content',
   mbImg: 'https://static.cmereye.com/imgs/2023/05/9fc2655c5c081f7d.jpg',
   pcImg: 'https://static.cmereye.com/imgs/2023/05/cafd36416517ada2.jpg',
-  tabNavName: '全瓷牙冠及全鋯牙冠',
+  tabNavName: 'pages.dental-service.all-ceramic-crowns.introduce.tabNavName',
 }
 
 const foiblesData = {
@@ -90,7 +90,6 @@ const setFoiblesSwiperRef = (swiper:any) => {
   foiblesSwiperRef = swiper;
 }
 const handleLineCur = (_value:number) =>{
-  // console.log(_value)
   foiblesSwiperRef.slideToLoop(_value-1)
 }
 
@@ -110,7 +109,6 @@ onMounted(()=>{
 
 const getWindowWidth = () => {
   windowWidth.value = window.innerWidth
-  // console.log(windowWidth)
 }
 </script>
 
@@ -119,10 +117,8 @@ const getWindowWidth = () => {
 <div>
   <PageHeader :headerConfig="headerConfig" />
   <div class="pageIn whitebgColor">
-    <div class="index_title pageCon">牙科服務</div>
-    <!-- 介绍 -->
+    <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
     <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
-    <!-- 全瓷牙冠及全鋯牙冠點揀好 -->
     <div class="foibles">
       <div class="dentistryServices-title">
         <div class="dentistryServices-title-in bb">{{foiblesData.title}}</div>
@@ -382,8 +378,6 @@ const getWindowWidth = () => {
   }
 }
 
-
-//md
 @media only screen and (max-width: 760px) {
   .foibles{
     &-context{
@@ -399,7 +393,6 @@ const getWindowWidth = () => {
         margin: 0 auto;
         font-weight: 500;
         font-size: 16px;
-        // width: 70%;
         width: 60%;
       }
     }

@@ -175,6 +175,7 @@ pages:
     org: 機構
     expertise: 擅長
   dental-service: 
+    title: 牙科服務
     implant: 
       introduce:
         title: 種植牙

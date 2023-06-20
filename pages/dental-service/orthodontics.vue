@@ -28,11 +28,11 @@ const headerConfig = {
 }
 
 const orthodonticsIntroduceData = {
-  title: '矯齒(箍牙)',
-  content: '治療除了能矯正不整齊排列的牙齒，改善外觀外，更能有助減低患上各種牙齒問題的風險。',
+  title: 'pages.dental-service.orthodontics.introduce.title',
+  content: 'pages.dental-service.orthodontics.introduce.content',
   mbImg: 'https://static.cmereye.com/imgs/2023/04/78f038c56a4dc38b.jpg',
   pcImg: 'https://static.cmereye.com/imgs/2023/05/9993e95bc1c6a9c9.jpg',
-  tabNavName: '矯齒(箍牙)',
+  tabNavName: 'pages.dental-service.orthodontics.introduce.tabNavName',
   pageName: 'orthodontics'
 }
 
@@ -253,7 +253,6 @@ onMounted(() => {
 
 const getWindowWidth = () => {
   windowWidth.value = window.innerWidth
-  // console.log(windowWidth)
 }
 
 </script>
@@ -263,12 +262,9 @@ const getWindowWidth = () => {
 <div>
   <PageHeader :headerConfig="headerConfig" /> 
   <div class="orthodonticsPage">
-    <div class="index_title pageCon">牙科服務</div>
-    <!-- 介绍 -->
+    <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
     <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
-    <!-- 原因 -->
     <ServiceReason :reasonData="reasonData" />
-    <!-- 問題困擾 -->
     <div class="bp">
       <div class="dentistryServices-title">
         <div class="dentistryServices-title-in bb">
@@ -302,11 +298,8 @@ const getWindowWidth = () => {
         </div>
       </div>
     </div>
-    <!-- 注意 -->
     <ServiceStep :stepData="stepData" />
-    <!-- 区别 -->
     <ServiceDiffer :differData="differData" />
-    <!-- 美学 -->
     <div class="aesthetics">
       <div class="dentistryServices-title">
         <div class="dentistryServices-title-in bb">
@@ -332,7 +325,6 @@ const getWindowWidth = () => {
         </div>
       </div>
     </div>
-    <!-- 问题 -->
     <ServiceProblem :problemData="problemData" />
     <serviceCard />
     <ContactUs />
@@ -345,12 +337,10 @@ const getWindowWidth = () => {
 
 
 <style lang="scss" scoped>
-
 .orthodonticsPage{
   background: #fff;
   padding: 140px 0;
 }
-
 .bp{
   margin-top: 176px;
   &-swiper{
@@ -472,7 +462,6 @@ const getWindowWidth = () => {
     }
   }
 }
-
 .aesthetics{
   margin-top: 108px;
   &-in{
@@ -524,7 +513,6 @@ const getWindowWidth = () => {
     }
   }
 }
-
 @media (min-width: 768px) and (max-width: 1100px) {
   .bp{
     &-text{
@@ -536,9 +524,7 @@ const getWindowWidth = () => {
       }
     }
   }
-  
 }
-//md
 @media only screen and (max-width: 768px) {
   .orthodonticsPage{
     padding: 90px 0;
@@ -562,11 +548,6 @@ const getWindowWidth = () => {
       margin-top: 28px;
       padding: 0;
       background: none;
-    }
-    &-swiper{
-      .swiper-slide{
-        
-      }
     }
   }
 }

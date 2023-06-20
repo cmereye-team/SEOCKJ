@@ -28,11 +28,11 @@ const headerConfig = {
 }
 
 const orthodonticsIntroduceData = {
-  title: '根管治療',
-  content: '根管治療是治療嚴重蛀牙或牙根受細菌感染的手術，當蛀牙菌的感染深入牙髓，以致牙齒內的神經發炎，便需要以杜牙根手術徹底清除感染的部分。',
+  title: 'pages.dental-service.rootCanal.introduce.title',
+  content: 'pages.dental-service.rootCanal.introduce.content',
   mbImg: 'https://static.cmereye.com/imgs/2023/05/4981f5bda13e2428.jpg',
   pcImg: 'https://static.cmereye.com/imgs/2023/05/3030e00ebf385a45.jpg',
-  tabNavName: '根管治療',
+  tabNavName: 'pages.dental-service.rootCanal.introduce.tabNavName',
   pageName: 'rootCanal',
 }
 
@@ -243,10 +243,8 @@ const processData = {
 <div>
   <PageHeader :headerConfig="headerConfig" /> 
   <div class="pageIn whitebgColor">
-    <div class="index_title pageCon">牙科服務</div>
-    <!-- 介绍 -->
+    <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
     <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
-    <!-- 原因 -->
     <ServiceReason :reasonData="reasonData" />
     <div class="stage">
       <div class="stage-title">
@@ -268,9 +266,7 @@ const processData = {
         <p>{{stageData.remark.p2}}</p>
       </div>
     </div>
-    <!-- 过程1 -->
     <ServiceStep :stepData="stepData" />
-    <!-- 过程2 -->
     <div class="process">
       <div class="dentistryServices-title">
         <div class="dentistryServices-title-in bb">{{processData.title}}</div>
@@ -296,9 +292,7 @@ const processData = {
         </div>
       </div>
     </div>
-    <!-- 注意事项 -->
     <ServiceNote :noteData="noteData" />
-    <!-- 荣誉 -->
     <div class="honor">
       <div class="honor-bg">
         <div class="honor-title">
@@ -326,7 +320,6 @@ const processData = {
         </div>
       </div>
     </div>
-     <!-- 问题 -->
     <ServiceProblem :problemData="problemData" />
     <serviceCard />
     <ContactUs />
@@ -339,7 +332,6 @@ const processData = {
 
 
 <style lang="scss" scoped>
-
 .stage{
   margin-top: 126px;
   &-title{
@@ -570,7 +562,6 @@ const processData = {
                 margin-bottom: 0;
                 padding-bottom: 0;
                 .line{
-                  // height: calc(50% - 24px);
                   height: 0;
                   &.lineNone{
                     height: 0;
@@ -706,7 +697,6 @@ const processData = {
       .step-in{
         flex-direction: column;
         padding: 23px 0 23px 24px;
-        // margin-top: 28px;
         &-box{
           width: 100%;
           .step-itemLists{

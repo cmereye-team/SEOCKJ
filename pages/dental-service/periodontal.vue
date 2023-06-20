@@ -29,11 +29,11 @@ const headerConfig = {
 }
 
 const orthodonticsIntroduceData = {
-  title: '牙周病治療',
-  content: '牙周病屬慢性炎症，分為輕微的牙齦炎及嚴重的牙周炎兩種。會令牙齒鬆脫、移位，影響外貌及口腔健康。',
+  title: 'pages.dental-service.periodontal.introduce.title',
+  content: 'pages.dental-service.periodontal.introduce.content',
   mbImg: 'https://static.cmereye.com/imgs/2023/05/cac188cc7c6a922f.jpg',
   pcImg: 'https://static.cmereye.com/imgs/2023/05/9923e074ca29600b.jpg',
-  tabNavName: '牙周病治療',
+  tabNavName: 'pages.dental-service.periodontal.introduce.tabNavName',
 }
 
 const reasonData = {
@@ -102,7 +102,6 @@ const symptomData = {
 
 const processData = {
   title: '牙周病治療過程',
-  // title: t('pages.blank.title'),
   tabs: ['牙根刮治\n(深層洗牙)','牙肉翻瓣手術','牙周再生手術'],
   context: [],
   lists: [
@@ -252,13 +251,9 @@ const problemData = {
 <div>
   <PageHeader :headerConfig="headerConfig" />
   <div class="pageIn whitebgColor">
-    <!-- <LanguageSwitcher /> -->
-    <div class="index_title pageCon">牙科服務</div>
-    <!-- 介绍 -->
+    <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
     <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
-    <!-- 原因 -->
     <ServiceReason :reasonData="reasonData" />
-    
     <div class="symptom">
       <div class="dentistryServices-title">
         <div class="dentistryServices-title-in bb">{{symptomData.title}}</div>
@@ -274,11 +269,8 @@ const problemData = {
         </div>
       </div>
     </div>
-    <!-- 过程 -->
     <ServiceProcess :processData="processData" />
-    <!-- 注意事项 -->
     <ServiceNote :noteData="noteData" />
-    <!-- 问题 -->
     <ServiceProblem :problemData="problemData" />
     <serviceCard />
     <ContactUs />
@@ -336,10 +328,6 @@ const problemData = {
     }
   }
 }
-
-@media (min-width: 768px) and (max-width: 1452px) {}
-
-//md
 @media only screen and (max-width: 760px) {
   .symptom{
     margin-top: 70px;
