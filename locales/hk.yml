@@ -172,6 +172,8 @@ pages:
     content: 
       span_1: 傾心打造貼心，
       span_2: 專業的牙科連鎖
+    org: 機構
+    expertise: 擅長
   404:
     title: 找不到该页面
   blank:

@@ -1,8 +1,9 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
-import doctorLists from '~/assets/js/doctor'
+import doctorLists_hk from '~/assets/js/doctor'
+import doctorLists_zh from '~/assets/js/doctor_zh'
 import { Scrollbar } from 'swiper';
-
+const locale = useState<string>('locale.setting')
 const appState = useAppState()
 useHead({
   title: "醫生團隊｜牙科醫生",
@@ -19,6 +20,21 @@ useHead({
    },
   ]
 })
+let doctorObjs = {
+  doctorLists_hk,
+  doctorLists_zh
+}
+let doctorLists = ref(doctorObjs[`doctorLists_${locale.value}`])
+watch(
+  locale,(newValue,oldValue)=>{
+    // console.log(newValue,oldValue)
+    doctorLists.value = doctorObjs[`doctorLists_${locale.value}`]
+  },
+  {
+    deep:true
+  }
+)
+
 
 const route = useRoute()
 
@@ -108,14 +124,14 @@ onMounted(()=>{
               </div>
               <!-- 機構： -->
               <div class="org">
-                機構：{{item.org || ''}}
+                {{$t('pages.medical_team.org')}}：{{item.org || ''}}
               </div>
               <!-- 擅長： -->
               <!-- <div class="expertise">
                 擅長：{{item.skilled.length > 100? `${item.skilled.slice(0,110)}...`:item.skilled}}
               </div> -->
               <div class="expertise">
-                擅長：{{item.skilled || ''}}
+                {{$t('pages.medical_team.expertise')}}：{{item.skilled || ''}}
               </div>
               <div class="btn">
                 <!-- 了解更多<img src="@/assets/images/icon_04.png" /> -->
@@ -156,13 +172,13 @@ onMounted(()=>{
                         <span>{{item.posts || ''}}{{(item.posts && item.educated) ? '，': '' }}{{item.educated || ''}}</span>
                       </div>
                       <div class="org">
-                        機構：{{item.org || ''}}
+                        {{$t('pages.medical_team.org')}}：{{item.org || ''}}
                       </div>
                       <!-- <div class="expertise">
                         擅長：{{item.skilled.length > 100? `${item.skilled.slice(0,110)}...`:item.skilled}}
                       </div> -->
                       <div class="expertise">
-                        擅長：{{item.skilled || ''}}
+                        {{$t('pages.medical_team.expertise')}}：{{item.skilled || ''}}
                       </div>
                     </div>
                   </div>
@@ -172,9 +188,9 @@ onMounted(()=>{
           </div>
           <div class="mbDoctorList-b">
             <!-- 主頁 -->
-            <span>主頁</span>
+            <span>{{$t('pages.index.title')}}</span>
             <!-- 醫生團隊 -->
-            <span>醫生團隊</span>
+            <span>{{$t('pages.medical_team.title')}}</span>
             <span>{{$t(appState.areaTabs[appState.areaTabCurNum])}}</span>
           </div>
         </div>

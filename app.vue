@@ -20,7 +20,6 @@ useHead({
   ],
   link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
 })
-
 onMounted(()=>{
   // 监听网络是否关闭
   // window.addEventListener('offline',(e)=>{
@@ -34,6 +33,15 @@ onMounted(()=>{
   //   type: 'success',
   //   duration: 0
   // })
+
+  document.onkeydown = (even:any) =>{
+    if(even.key === 'F9'){
+      if(locale.value === 'zh')
+        locale.value = 'hk'
+      else
+        locale.value = 'zh'
+    }
+  }
 })
 </script>
 
