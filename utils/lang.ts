@@ -54,6 +54,7 @@ export function LanguageManager() {
   // methods
   const getSystemLocale = (): string => {
     try {
+      // console.log(window.navigator.language.substring(0, 2))
       // const foundLang = window
       //   ? window.navigator.language.substring(0, 2)
       //   : 'hk'

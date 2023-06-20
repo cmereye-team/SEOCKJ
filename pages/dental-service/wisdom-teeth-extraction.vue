@@ -28,11 +28,11 @@ const headerConfig = {
 }
 
 const orthodonticsIntroduceData = {
-  title: '拔牙及智慧齒脫除',
-  content: '通過不同形式的工具將牙齒從牙槽骨中取出的過程，把有嚴重問題或不適合保留的牙齒除去，如齲齒、牙周病、裂牙或需要矯正牙齒時所需而進行，以促進口腔健康和整體健康。',
+  title: 'pages.dental-service.wisdom-teeth-extraction.introduce.title',
+  content: 'pages.dental-service.wisdom-teeth-extraction.introduce.content',
   mbImg: 'https://static.cmereye.com/imgs/2023/06/58299d97d5204cdd.jpg',
   pcImg: 'https://static.cmereye.com/imgs/2023/06/70059336eaad4630.jpg',
-  tabNavName: '拔牙及智慧齒脫除',
+  tabNavName: 'pages.dental-service.wisdom-teeth-extraction.introduce.tabNavName',
   pageName: 'wisdom-teeth-extraction'
 }
 
@@ -235,7 +235,7 @@ const problemData = {
 <div>
   <PageHeader :headerConfig="headerConfig" />
   <div class="pageIn whitebgColor">
-    <div class="index_title pageCon">牙科服務</div>
+    <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
     <!-- 介绍 -->
     <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
     <!-- 原因 -->

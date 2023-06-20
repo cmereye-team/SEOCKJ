@@ -29,11 +29,11 @@ const headerConfig = {
 }
 
 const orthodonticsIntroduceData = {
-  title: '牙齒美白',
-  content: '自然亮白\n讓微笑更加自信美麗',
+  title: 'pages.dental-service.teeth-whitening.introduce.title',
+  content: 'pages.dental-service.teeth-whitening.introduce.content',
   mbImg: 'https://static.cmereye.com/imgs/2023/06/528550d9da6d31f9.jpg',
   pcImg: 'https://static.cmereye.com/imgs/2023/06/20a2795169586423.jpg',
-  tabNavName: '牙齒美白',
+  tabNavName: 'pages.dental-service.teeth-whitening.introduce.tabNavName',
   pageName: 'teeth-whitening',
 }
 
@@ -249,7 +249,7 @@ const conditionData = {
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor">
-      <div class="index_title pageCon">牙科服務</div>
+      <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
       <!-- 介绍 -->
       <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
       <!-- 原因 -->
