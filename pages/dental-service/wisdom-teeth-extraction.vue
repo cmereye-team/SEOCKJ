@@ -37,24 +37,24 @@ const orthodonticsIntroduceData = {
 }
 
 const reasonData = {
-  title: '關於拔牙',
-  text: '一般需要拔牙的原因？',
+  title: 'pages.dental-service.wisdom-teeth-extraction.reason.title',
+  text: 'pages.dental-service.wisdom-teeth-extraction.reason.text',
   imgUrl: 'https://static.cmereye.com/imgs/2023/05/44b6fba4b7e68c38.jpg',
   reasonLists:[
     {
-      context: '牙齒嚴重蛀壞或崩裂，無法修補',
+      context: 'pages.dental-service.wisdom-teeth-extraction.reason.lists[0].context',
     },
     {
-      context: '嚴重牙周病，牙齒變得十分鬆動',
+      context: 'pages.dental-service.wisdom-teeth-extraction.reason.lists[1].context',
     },
     {
-      context: '牙齒生長於不理想位置，令附近組織受損及感染',
+      context: 'pages.dental-service.wisdom-teeth-extraction.reason.lists[2].context',
     },
     {
-      context: '牙齒外觀及結構出現問題',
+      context: 'pages.dental-service.wisdom-teeth-extraction.reason.lists[3].context',
     },
     {
-      context: '配合牙齒矯正治療',
+      context: 'pages.dental-service.wisdom-teeth-extraction.reason.lists[4].context',
     }
   ],
   pageName: 'wisdom-teeth-extraction'
@@ -227,20 +227,15 @@ const problemData = {
     },
   ]
 }
-
 </script>
-
 
 <template>
 <div>
   <PageHeader :headerConfig="headerConfig" />
   <div class="pageIn whitebgColor">
     <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
-    <!-- 介绍 -->
     <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
-    <!-- 原因 -->
     <ServiceReason :reasonData="reasonData" />
-    <!-- 智慧齒可能導致的口腔問題 -->
     <div class="issue pageCon">
       <div class="issue-top">
         <span v-for="(titleItem,titleIndex) in issueData.title" :key="titleIndex">{{titleItem}}</span>
@@ -257,9 +252,7 @@ const problemData = {
         </div>
       </div>
     </div>
-    <!-- 拔牙及智慧齒脫除過程 -->
     <ServiceProcess :processData="processData" />
-    <!-- 療程後注意事項 -->
     <div class="note">
       <div class="dentistryServices-title">
         <div class="dentistryServices-title-in bb">{{noteData.title}}</div>
@@ -276,7 +269,6 @@ const problemData = {
         </div>
       </div>
     </div>
-    <!-- 问题 -->
     <ServiceProblem :problemData="problemData" />
     <serviceCard />
     <ContactUs />
@@ -285,8 +277,6 @@ const problemData = {
   <PageNavbar />
 </div>
 </template>
-
-
 
 <style lang="scss" scoped>
 .note{
@@ -380,8 +370,6 @@ const problemData = {
   }
 }
 
-
-
 @media (min-width: 768px) and (max-width: 1452px) {
   .issue{
     margin-top: 10vw;
@@ -406,8 +394,6 @@ const problemData = {
     }
   }
 }
-
-//md
 @media only screen and (max-width: 760px) {
   .note{
     padding: 96px 30px 0;
@@ -467,7 +453,5 @@ const problemData = {
       }
     }
   }
-
-  
 }
 </style>

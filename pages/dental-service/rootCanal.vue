@@ -37,21 +37,21 @@ const orthodonticsIntroduceData = {
 }
 
 const reasonData = {
-  title: '關於根管治療',
-  text: '常見根管治療的原因？',
+  title: 'pages.dental-service.rootCanal.reason.title',
+  text: 'pages.dental-service.rootCanal.reason.text',
   imgUrl: 'https://static.cmereye.com/imgs/2023/05/6e9ea22364596cbd.jpg',
   reasonLists:[
     {
-      context: '切除受感染的牙髓神經，解決牙痛問題',
+      context: 'pages.dental-service.rootCanal.reason.lists[0].context',
     },
     {
-      context: '防止牙髓感染蔓延至牙周組織和牙槽骨，導致更嚴重的口腔問題',
+      context: 'pages.dental-service.rootCanal.reason.lists[1].context',
     },
     {
-      context: '患者出現牙痛問題，經醫生評估後，認為牙齒仍有保留價值而確定保留真牙',
+      context: 'pages.dental-service.rootCanal.reason.lists[2].context',
     },
     {
-      context: '牙齒被蛀蝕得太深、撞斷或嚴重磨耗，需徹底清除牙髓內的感染，解決牙髓壞死、化膿等問題',
+      context: 'pages.dental-service.rootCanal.reason.lists[3].context',
     }
   ]
 }

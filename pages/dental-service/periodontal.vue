@@ -37,18 +37,18 @@ const orthodonticsIntroduceData = {
 }
 
 const reasonData = {
-  title: '關於牙周病',
-  text: '常見牙周病的原因？',
+  title: 'pages.dental-service.periodontal.reason.title',
+  text: 'pages.dental-service.periodontal.reason.text',
   imgUrl: 'https://static.cmereye.com/imgs/2023/05/907c5d9eee09d9ea.jpg',
   reasonLists:[
     {
-      context: '牙齦及牙齒邊緣長期積聚牙菌膜，細菌分泌毒素刺激牙齦，引致牙齦炎。',
+      context: 'pages.dental-service.periodontal.reason.lists[0].context',
     },
     {
-      context: '牙齦發炎時，牙肉紅腫，刷牙時流牙血，牙齒表面積聚十分粗糙的牙石。',
+      context: 'pages.dental-service.periodontal.reason.lists[1].context',
     },
     {
-      context: '牙齦炎情況持續，形成「牙周袋」，食物殘渣、牙菌膜和牙石等更易堆積在內，使牙周組織持續受破壞，而出現牙周炎。',
+      context: 'pages.dental-service.periodontal.reason.lists[2].context',
     }
   ],
   pageName: 'periodontal'

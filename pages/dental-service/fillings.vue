@@ -37,13 +37,13 @@ const orthodonticsIntroduceData = {
 }
 
 const reasonData = {
-  title: '關於補牙',
-  text: '補牙的原因？',
+  title: 'pages.dental-service.fillings.reason.title',
+  text: 'pages.dental-service.fillings.reason.text',
   imgUrl: 'https://static.cmereye.com/imgs/2023/05/d053bb08e7c265a0.jpg',
   reasonLists: [
     {
       context:
-        '當牙齒的硬組織（琺瑯質、象牙質）受到破壞後，容易造成小孔，形成蛀牙。為了修復破損的組織及防止蛀牙情況加劇，會以填充物填補牙齒，使牙齒能恢復原來形狀和功能。',
+        'pages.dental-service.fillings.reason.lists[0].context',
     },
   ],
   isMediumCW: true,

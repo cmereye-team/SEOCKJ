@@ -38,18 +38,18 @@ const orthodonticsIntroduceData = {
 }
 
 const reasonData = {
-  title: '關於牙齒美白',
-  text: '牙齒美白的原因？',
+  title: 'pages.dental-service.teeth-whitening.reason.title',
+  text: 'pages.dental-service.teeth-whitening.reason.text',
   imgUrl: 'https://static.cmereye.com/imgs/2023/06/1c0dfb6023dc406a.jpg',
   reasonLists: [
     {
-      context: '想擁有更亮白的牙齒，可以考慮進行美白牙齒療程。',
+      context: 'pages.dental-service.teeth-whitening.reason.lists[0].context',
     },
     {
-      context: '美白牙齒療程能夠有效地把外在和內在的牙漬清除，令牙齒更加亮白。',
+      context: 'pages.dental-service.teeth-whitening.reason.lists[1].context',
     },
     {
-      context: '診所提供藍光美白牙齒及激光美白牙齒服務，助你建立閃亮笑容。',
+      context: 'pages.dental-service.teeth-whitening.reason.lists[2].context',
     },
   ],
   isMediumCW: true
@@ -250,11 +250,8 @@ const conditionData = {
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor">
       <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
-      <!-- 介绍 -->
       <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
-      <!-- 原因 -->
       <ServiceReason :reasonData="reasonData" />
-      <!-- 你有以下情況嗎 -->
       <div class="condition">
         <div class="dentistryServices-title">
           <div class="dentistryServices-title-in bb">
@@ -276,7 +273,6 @@ const conditionData = {
           </div>
         </div>
       </div>
-      <!-- 区别 -->
       <div class="notice">
         <div class="dentistryServices-title">
           <div class="dentistryServices-title-in bb">
@@ -307,9 +303,7 @@ const conditionData = {
           </swiper>
         </div>
       </div>
-      <!-- 过程 -->
       <ServiceStep :stepData="stepData" />
-      <!-- 藍光美白可以保持多久？ -->
       <div class="maintain">
         <div class="dentistryServices-title">
           <div class="dentistryServices-title-in bb">
@@ -320,9 +314,7 @@ const conditionData = {
           藍光美白牙齒的效果通常可以持續兩年左右，但具體的時間長短取決於患者的飲食和衛生習慣。如果患者平時注意牙齒保養，少食用深色食物，並保持良好口腔衛生習慣，如按時刷牙和飯後漱口，那麼美白效果的持續時間相對會更長。
         </div>
       </div>
-      <!-- 注意事项 -->
       <ServiceNote :noteData="noteData" />
-      <!-- 问题 -->
       <ServiceProblem :problemData="problemData" />
       <serviceCard />
       <ContactUs />
@@ -369,7 +361,6 @@ const conditionData = {
         padding: 0 70px;
         box-sizing: border-box;
         display: flex;
-        // align-items: center;
         justify-content: center;
         &:first-child {
           background: #ffa09e;
@@ -480,7 +471,6 @@ const conditionData = {
   }
 }
 
-//md
 @media only screen and (max-width: 760px) {
   .notice {
     margin: 90px auto 0;

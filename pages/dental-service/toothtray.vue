@@ -37,23 +37,23 @@ const orthodonticsIntroduceData = {
 }
 
 const reasonData = {
-  title: '關於牙托',
-  text: '全口牙托及局部牙托',
+  title: 'pages.dental-service.toothtray.reason.title',
+  text: 'pages.dental-service.toothtray.reason.text',
   imgUrl: 'https://static.cmereye.com/imgs/2023/05/5aaed24997e19f64.jpg',
   reasonLists:[
     {
-      context: '局部牙托',
+      context: 'pages.dental-service.toothtray.reason.lists[0].context',
     },
     {
-      context: '局部牙托適用於口腔內尚有健康牙齒的人士，一般以金屬支架或金屬勾設計，以健康牙齒固定牙托，方便自行配戴。',
+      context: 'pages.dental-service.toothtray.reason.lists[1].context',
       hideIcon: true,
       isSmallFS: true
     },
     {
-      context: '全口牙托',
+      context: 'pages.dental-service.toothtray.reason.lists[2].context',
     },
     {
-      context: '全口牙托適用於所有牙齒已脫落的人士，利用口中黏膜和齒槽骨脊固定，可自行配戴。但全口牙托的咬合感與真牙相差甚大，需以口腔內肌肉及舌頭動作等移動假牙，容易產生不適，需要時間適應。',
+      context: 'pages.dental-service.toothtray.reason.lists[3].context',
       hideIcon: true,
       isSmallFS: true
     }
@@ -151,11 +151,8 @@ const problemData = {
   <PageHeader :headerConfig="headerConfig" />
   <div class="pageIn whitebgColor">
     <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
-    <!-- 介绍 -->
     <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
-    <!-- 原因 -->
     <ServiceReason :reasonData="reasonData" />
-    <!-- 对比 -->
     <div class="contrast">
       <div class="contrast-bg">
         <div class="dentistryServices-title">
@@ -214,7 +211,6 @@ const problemData = {
         </div>
       </div>
     </div>
-    <!-- 问题 -->
     <ServiceProblem :problemData="problemData" />
     <serviceCard />
     <ContactUs />
@@ -256,7 +252,6 @@ const problemData = {
     margin: 40px auto 0;
     max-width: 1452px;
     width: 100%;
-    // filter: drop-shadow(0px 4px 8px #FFDDDA);
     &-in{
       display: flex;
       flex-direction: column;
@@ -264,7 +259,6 @@ const problemData = {
         display: flex;
         justify-content: center;
         align-items: center;
-        // border-right: 1px solid #FFA09E;
         flex-direction: column;
         &.content{
           flex-direction: row;
@@ -284,7 +278,6 @@ const problemData = {
             background: #FFFFFF;
             &>div{
               display: flex;
-              
               span{
                 &:first-child{
                   width: 20px;
@@ -296,7 +289,6 @@ const problemData = {
             }
           }
           .content-l{
-            // border-right: 1px solid #FFA09E;
             margin-right: 4px;
           }
         }
@@ -319,7 +311,6 @@ const problemData = {
             align-items: center;
             justify-content: center;
             width: 100%;
-            
             .td{
               background: #FFDDDA;
               font-style: normal;
@@ -352,16 +343,12 @@ const problemData = {
         } 
         &:nth-of-type(5){
           height: 182px;
-        } 
-        &:not(:last-child){
-          // border-bottom: 1px solid #FFA09E;
         }
       }
     }
     .swiper{
       .swiper-slide{
         width: 43.1%;
-        // background: #FFFFFF;
         &:nth-of-type(1){
           width: 13.5%;
           border-radius: 60px 0 0 60px;
@@ -386,7 +373,6 @@ const problemData = {
           .contrast-table-in{
             &>div{
               border-right: none;
-              // border-left: 1px solid #FFA09E;
             }
           }
         } 
@@ -458,7 +444,6 @@ const problemData = {
   }
 }
 
-//md
 @media only screen and (max-width: 760px) {
   .contrast{
     margin-top: 90px;

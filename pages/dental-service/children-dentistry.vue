@@ -36,18 +36,18 @@ const orthodonticsIntroduceData = {
 }
 
 const reasonData = {
-  title: '關於兒童牙科',
-  text: '兒童定期牙科保健的重要性？',
+  title: 'pages.dental-service.children-dentistry.reason.title',
+  text: 'pages.dental-service.children-dentistry.reason.text',
   imgUrl: 'https://static.cmereye.com/imgs/2023/05/e47c1087b9625bf0.jpg',
   reasonLists:[
     {
-      context: '及早教育小朋友保護牙齒，預防蛀牙及其他口腔疾病',
+      context: 'pages.dental-service.children-dentistry.reason.lists[0].context',
     },
     {
-      context: '緊貼小朋友牙齒發育進度，及早作出針對性治療',
+      context: 'pages.dental-service.children-dentistry.reason.lists[1].context',
     },
     {
-      context: '把握小朋友矯齒黃金期，大大提高改善牙齒排列、面部輪廓、咬字發音等問題的成功率',
+      context: 'pages.dental-service.children-dentistry.reason.lists[2].context',
     }
   ],
   isMediumCW: true,

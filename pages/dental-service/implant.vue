@@ -116,28 +116,28 @@ const stepData = {
 }
 
 const reasonData = {
-  title: '關於植牙',
-  text: '常見種植牙的原因？',
+  title: 'pages.dental-service.implant.reason.title',
+  text: 'pages.dental-service.implant.reason.text',
   imgUrl: 'https://static.cmereye.com/imgs/2023/05/bab7e2cd0e553a7f.jpg',
   reasonLists:[
     {
-      context: '常見種植牙的原因傳統治療方法',
+      context: 'pages.dental-service.implant.reason.lists[0].context',
     },
     {
       hideIcon: true,
-      context: '(牙套、牙橋及假牙托等)',
+      context: 'pages.dental-service.implant.reason.lists[1].context',
     },
     {
-      context: '無法修復缺牙的情況',
+      context: 'pages.dental-service.implant.reason.lists[2].context',
     },
     {
-      context: '缺牙影響儀容，嚴重甚至會令面部變形',
+      context: 'pages.dental-service.implant.reason.lists[3].context',
     },
     {
-      context: '缺牙容易令牙齒移位，影響咬合、發音',
+      context: 'pages.dental-service.implant.reason.lists[4].context',
     },
     {
-      context: '改善咀嚼問題，回復正常飲食',
+      context: 'pages.dental-service.implant.reason.lists[5].context',
     }
   ]
 }

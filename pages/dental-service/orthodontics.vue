@@ -37,18 +37,18 @@ const orthodonticsIntroduceData = {
 }
 
 const reasonData = {
-  title: '關於矯齒',
-  text: '為什麼要矯齒？',
+  title: 'pages.dental-service.orthodontics.reason.title',
+  text: 'pages.dental-service.orthodontics.reason.text',
   imgUrl: 'https://static.cmereye.com/imgs/2023/05/39b4d45b6b7bc2ab.jpg',
   reasonLists:[
     {
-      context: '因先天或其他因素引致上顎或下顎較為突出，影響臉型',
+      context: 'pages.dental-service.orthodontics.reason.lists[0].context',
     },
     {
-      context: '下顎咬合不正的情況，容易導致蛀牙、影響進食及口腔健康',
+      context: 'pages.dental-service.orthodontics.reason.lists[1].context',
     },
     {
-      context: '牙齒排列不整，例如前後重疊、高低不等，影響進食、發音、清潔等，更容易引致牙周病等情況',
+      context: 'pages.dental-service.orthodontics.reason.lists[2].context',
     }
   ]
 }

@@ -36,15 +36,15 @@ const orthodonticsIntroduceData = {
 }
 
 const reasonData = {
-  title: '關於洗牙',
-  text: '洗牙的原因？',
+  title: 'pages.dental-service.scaling-and-polishing.reason.title',
+  text: 'pages.dental-service.scaling-and-polishing.reason.text',
   imgUrl: 'https://static.cmereye.com/imgs/2023/05/a5dde3049c292ece.jpg',
   reasonLists:[
     {
-      context: '單靠刷牙並不能夠把牙垢完全清除，因此必須利用牙科儀器才能徹底清洗牙齒污垢，使牙齒回復平滑，減低細菌滋生的機會。',
+      context: 'pages.dental-service.scaling-and-polishing.reason.lists[0].context',
     },
     {
-      context: '如沒有徹底清潔牙齒、牙齦邊緣及牙齒表面，容易積聚牙菌膜，當中的細菌會分泌毒素刺激牙齦，引致發炎。若情況持續，將有機會惡化成牙周病。',
+      context: 'pages.dental-service.scaling-and-polishing.reason.lists[1].context',
     }
   ],
   isMediumCW: true

@@ -10,7 +10,6 @@ defineProps({
         imgUrl: '',
         reasonLists:[
           {
-            // hideIcon: true,
             context: '',
             pageName: '',
             isSmallFS: false,
@@ -27,8 +26,8 @@ defineProps({
   <div class="reason">
     <div class="reason-in pageCon">
       <div class="reason-in-l">
-        <div class="text_one">{{reasonData.title}}</div>
-        <div class="text_two">{{reasonData.text}}</div>
+        <div class="text_one">{{$t(reasonData.title)}}</div>
+        <div class="text_two">{{$t(reasonData.text)}}</div>
         <div class="image">
           <img :src="reasonData.imgUrl" />
         </div>
@@ -39,7 +38,7 @@ defineProps({
             {{reason.hideIcon ? '': '· '}}
           </div>
           <div :class="{'context':true,'smallFontSize': reason.isSmallFS}">
-            {{reason.context}}
+            {{$t(reason.context)}}
           </div>
         </div>
       </div>
@@ -79,7 +78,6 @@ defineProps({
     }
     &-r {
       display: flex;
-      // justify-content: center;
       flex-direction: column;
       max-width: 520px;
       margin-top: 155px;
@@ -94,10 +92,6 @@ defineProps({
       }
       &.mediumCW{
         max-width: 663px;
-      }
-      &.children-dentistry{
-        // margin-left: -10%;
-        // margin-top: 18%;
       }
       & > div {
         font-weight: 600;

@@ -36,16 +36,15 @@ const orthodonticsIntroduceData = {
 }
 
 const reasonData = {
-  title: '關於一般口腔檢查',
-  text: '一般口腔檢查的原因？',
+  title: 'pages.dental-service.general-oral-examination.reason.title',
+  text: 'pages.dental-service.general-oral-examination.reason.text',
   imgUrl: 'https://static.cmereye.com/imgs/2023/05/4077102eecb8a253.jpg',
   reasonLists: [
     {
-      context: '定期口腔檢查能確保牙齒、牙齦健康，預防各種口腔疾病。',
+      context: 'pages.dental-service.general-oral-examination.reason.lists[0].context',
     },
     {
-      context:
-        '牙科醫生透過檢查評估牙齒、牙齦、面頜及口腔組織的健康情況，能確保沒有潛在蛀牙、牙齦發炎或其他口腔問題。',
+      context: 'pages.dental-service.general-oral-examination.reason.lists[1].context',
     },
   ],
   isMediumCW: true,
