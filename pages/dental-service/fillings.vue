@@ -139,23 +139,23 @@ const getWindowWidth = () => {
 }
 
 const problemData = {
-  title: '補牙常見問題',
+  title: 'pages.dental-service.fillings.problem.title',
   lists: [
     {
-      Q: '補牙後為何會出現牙齒敏感及酸痛？',
-      A: '\t補牙後，牙齒變得敏感或感到酸痛，有以下幾個原因：\n·\t蛀牙位置較深，接近神經。\n·\t填補的範圍較大，當填補的材料聚合時出現收縮。這些情況通常在一至兩週後慢慢消失。',
+      Q: 'pages.dental-service.fillings.problem.lists[0].Q',
+      A: 'pages.dental-service.fillings.problem.lists[0].A',
     },
     {
-      Q: '補牙後就不會再蛀牙嗎?',
-      A: '補牙會先磨走蛀牙部分，再補上填補材料，但填補材料一樣也會黏附牙菌斑，因此，補牙後不代表一定不會再蛀牙，需要更注重牙齒清潔才是上策。',
+      Q: 'pages.dental-service.fillings.problem.lists[1].Q',
+      A: 'pages.dental-service.fillings.problem.lists[1].A',
     },
     {
-      Q: '為何不能一次過處理所有蛀牙?',
-      A: '一般醫生會按蛀牙區域進行補牙。補牙時間不單取決於蛀牙的面積大小，還需減低治療後的不適感，以及避免因咀嚼而令影響補牙的穩定性。因此，不同程度的蛀牙需時不同，需要按流程分開完成。',
+      Q: 'pages.dental-service.fillings.problem.lists[2].Q',
+      A: 'pages.dental-service.fillings.problem.lists[2].A',
     },
     {
-      Q: '可修補水銀補牙後的效果?',
-      A: '醫生可用儀器把舊有的水銀物料磨走，再補上與牙齒顏色相近的補牙物料。',
+      Q: 'pages.dental-service.fillings.problem.lists[3].Q',
+      A: 'pages.dental-service.fillings.problem.lists[3].A',
     },
   ],
 }

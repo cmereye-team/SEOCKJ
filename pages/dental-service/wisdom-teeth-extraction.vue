@@ -199,32 +199,32 @@ const processData = {
 }
 
 const problemData = {
-  title: '拔牙及智慧齒脫除常見問題',
+  title: 'pages.dental-service.wisdom-teeth-extraction.problem.title',
   lists: [
     {
-      Q: '拔牙後多久才能進食？',
-      A: '需確保麻醉藥的藥力完全散退，以及傷口完全止血，一般建議拔牙後４小時後才可開始進食'
+      Q: 'pages.dental-service.wisdom-teeth-extraction.problem.lists[0].Q',
+      A: 'pages.dental-service.wisdom-teeth-extraction.problem.lists[0].A'
     },
     {
-      Q: '拔牙後可以刷牙嗎？',
-      A: '拔牙當天可暫停刷牙，第二天可恢復刷牙程序，但應注意力度，避免觸碰到傷口，造成滲血。'
+      Q: 'pages.dental-service.wisdom-teeth-extraction.problem.lists[1].Q',
+      A: 'pages.dental-service.wisdom-teeth-extraction.problem.lists[1].A'
     },
     {
-      Q: '甚麼情況下需拔掉智慧齒？',
-      A: '一般在智慧齒有機會引起其他口腔及牙齒問題，才會建議進行拔牙手術：\n1. 智慧齒旁的牙肉經常發炎腫痛\n2. 智慧齒橫生或斜生\n3. 智慧齒或附近牙齒出現蛀牙或裂縫'
+      Q: 'pages.dental-service.wisdom-teeth-extraction.problem.lists[2].Q',
+      A: 'pages.dental-service.wisdom-teeth-extraction.problem.lists[2].A'
     },
     {
-      Q: '拔智慧齒痛嗎？',
-      A: '進行手術時，醫生會先在拔牙位置注射局部麻醉藥，大大減低不適感。手術後應按時服用醫生處方的止痛藥，處理手術後的腫痛不適。'
+      Q: 'pages.dental-service.wisdom-teeth-extraction.problem.lists[3].Q',
+      A: 'pages.dental-service.wisdom-teeth-extraction.problem.lists[3].A'
     },
     {
-      Q: '拔智慧齒需要照x光嗎？',
-      A: '拔智慧齒前必須先照X光，必要時或要額外進行電腦掃瞄，了解牙根及神經線的位置，衡量風險，計劃拔智慧齒的方式。'
+      Q: 'pages.dental-service.wisdom-teeth-extraction.problem.lists[4].Q',
+      A: 'pages.dental-service.wisdom-teeth-extraction.problem.lists[4].A'
     },
     {
-      Q: '為何拔智慧齒會比一般拔牙程序複雜？',
-      A: '智慧齒生長於口腔內最後的位置，更有橫生、斜生的情況，拔除時有可能要翻起牙齦。為避免神經線受損，醫生亦有可能將智慧齒分成數個部分，再逐一清除，因此比一般拔牙程序複雜。'
-    }
+      Q: 'pages.dental-service.wisdom-teeth-extraction.problem.lists[5].Q',
+      A: 'pages.dental-service.wisdom-teeth-extraction.problem.lists[5].A'
+    },
   ]
 }
 

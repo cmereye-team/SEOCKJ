@@ -95,27 +95,27 @@ const differData = {
 }
 
 const problemData = {
-  title: 'Invisalign 隱適美常見問題',
+  title: 'pages.dental-service.invisalign.problem.title',
   lists: [
     {
-      Q: '整個隱適美療程需時多久？',
-      A: '療程時間需視乎你的矯齒複雜程度，平均需1年至1年半，複雜個案則可能需2年或以上，而最快約3個月左右可見矯齒效果。'
+      Q: 'pages.dental-service.invisalign.problem.lists[0].Q',
+      A: 'pages.dental-service.invisalign.problem.lists[0].A',
     },
     {
-      Q: '隱適美療程有年齡限制嗎？',
-      A: '隱適美療程並沒有特別的年齡限制，只要有足夠牙齒數量及經牙醫評估你的狀況合適就可以。\n兒童為最理想的矯齒黃金期，由於兒童的骨質較軟，令移動速度及效果較好。家長可考慮於小\n童7歲左右的換牙階段，找牙醫作檢查及評估，及早針對牙冠及早期矯正需要。'
+      Q: 'pages.dental-service.invisalign.problem.lists[1].Q',
+      A: 'pages.dental-service.invisalign.problem.lists[1].A',
     },
     {
-      Q: '戴上隱適美牙箍會有痛楚嗎？',
-      A: '隱適美牙箍以漸進緩和的矯正力道移動你的牙齒，相比其他矯正療程引起的痛楚較低。\n而某些使用者會於剛戴上新牙箍數天內或會感到緊繃的感覺，此為牙齒移動的跡象，不適感亦會於數天後消失。'
+      Q: 'pages.dental-service.invisalign.problem.lists[2].Q',
+      A: 'pages.dental-service.invisalign.problem.lists[2].A',
     },
     {
-      Q: '隱適美的全方位矯齒療程同副線隱適美‧易（Invisalign Go）有什麼分別？',
-      A: '隱適美的全方位矯齒療程可解決輕微至複雜的矯齒個案，包括開咬、深咬、錯咬、倒及、哨牙等較複雜的牙齒問題。\n隱適美‧易（Invisalign Go）矯齒療程主要處理較輕微至中度的牙齒問題，適合想於較短時間內改善牙縫、牙齒擠擁等牙齒排列問題，價格亦較為優惠。'
+      Q: 'pages.dental-service.invisalign.problem.lists[3].Q',
+      A: 'pages.dental-service.invisalign.problem.lists[3].A',
     },
     {
-      Q: '對小朋友而言，隱適美兒童專線 (Invisalign First) 矯齒療程安全嗎？',
-      A: 'Invisalign First 矯齒牙箍採用已獲專利的SmartTrack材料，並且得到美國FDA認證其安全性。\nInvisalign First更根據兒童的短小牙齒進行優化，使用相應附件，提供穩定力度。牙箍亦可加上藍色依從性顯示點，方便檢查及監察牙箍佩戴時間，達致最佳療程效果。'
+      Q: 'pages.dental-service.invisalign.problem.lists[4].Q',
+      A: 'pages.dental-service.invisalign.problem.lists[4].A',
     },
   ]
 }
@@ -128,11 +128,9 @@ const problemData = {
   <PageHeader :headerConfig="headerConfig" />
   <div class="pageIn whitebgColor">
     <div class="index_title pageCon">牙科服務</div>
-    <!-- 介绍 -->
     <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
     <ServiceStep :stepData="stepData" />
     <ServiceDiffer :differData="differData" />
-    <!-- 问题 -->
     <ServiceProblem :problemData="problemData" />
     <serviceCard />
     <ContactUs />

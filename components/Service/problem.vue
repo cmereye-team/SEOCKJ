@@ -19,7 +19,7 @@ const activeNames = ref(0)
 <template>
   <div class="problem">
     <div class="dentistryServices-title">
-      <div class="dentistryServices-title-in bb">{{problemData.title}}</div>
+      <div class="dentistryServices-title-in bb">{{$t(problemData.title)}}</div>
     </div>
     <div class="problem-in pageCon">
       <el-collapse v-model="activeNames" accordion>
@@ -27,7 +27,7 @@ const activeNames = ref(0)
           <template #title>
             <div class="problem-in-title">
               <div>Q</div>
-              <div>{{problemItem.Q}}</div>
+              <div>{{$t(problemItem.Q)}}</div>
               <div>
                 <img src="@/assets/images/icon_9.png" alt="">
               </div>
@@ -35,7 +35,7 @@ const activeNames = ref(0)
           </template>
           <div class="problem-in-context">
             <span>A</span>
-            <span>{{problemItem.A}}</span>
+            <span>{{$t(problemItem.A)}}</span>
           </div>
         </el-collapse-item>
       </el-collapse>

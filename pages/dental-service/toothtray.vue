@@ -122,24 +122,24 @@ const contrastData = {
 }
 
 const problemData = {
-  title: '全口牙托及局部牙托常見問題',
+  title: 'pages.dental-service.toothtray.problem.title',
   lists: [
     {
-      Q: '甚麼情況需要更換牙托？',
-      A: '牙槽骨會因長時間承受牙托的壓力而慢慢收縮，以致影響牙托。因此，當牙托開始有鬆動，便需調整或更換新的牙托。'
+      Q: 'pages.dental-service.toothtray.problem.lists[0].Q',
+      A: 'pages.dental-service.toothtray.problem.lists[0].A'
     },
     {
-      Q: '如何清潔牙托？',
-      A: '牙托需要每日清潔及浸洗。\n1. 先用假牙清潔劑清洗牙托。\n2. 以假牙清潔片溶劑浸泡牙托消毒\n切勿過度刷洗牙托，以免在牙托表面形成凹槽，令細菌積聚。'
+      Q: 'pages.dental-service.toothtray.problem.lists[1].Q',
+      A: 'pages.dental-service.toothtray.problem.lists[1].A'
     },
     {
-      Q: '如何選擇適合的牙托？',
-      A: '牙托有可拆式及固定式，亦有全口及局部的設計。每種牙托以不同物料製作而成，性質及成本皆不一樣。客人應與醫生討論，選擇適合的牙托。'
+      Q: 'pages.dental-service.toothtray.problem.lists[2].Q',
+      A: 'pages.dental-service.toothtray.problem.lists[2].A'
     },
     {
-      Q: '如何護理牙托？',
-      A: '客人應注意牙托及牙齒的清潔，定期檢查確定牙托是否合適，以及會否造成口腔損傷等。如牙托開始鬆動，便有需要調較或換新的牙托。'
-    }
+      Q: 'pages.dental-service.toothtray.problem.lists[3].Q',
+      A: 'pages.dental-service.toothtray.problem.lists[3].A'
+    },
   ]
 }
 

@@ -215,32 +215,32 @@ const detailData = {
 }
 
 const problemData = {
-  title: '植牙常見問題',
+  title: 'pages.dental-service.implant.problem.title',
   lists: [
     {
-      Q: '甚麼人適合接受植牙治療？',
-      A: '如有以下情況，牙醫會建議接受植牙治療：\n1. 一顆或多顆缺牙\n2. 無法以傳統方式修復缺牙\n3. 希望改善咀嚼能力'
+      Q: 'pages.dental-service.implant.problem.lists[0].Q',
+      A: 'pages.dental-service.implant.problem.lists[0].A'
     },
     {
-      Q: '甚麼人不適合接受植牙治療？',
-      A: '以下人士未必適合接受植牙治療:\n1. 未完成牙齒發育的青少年\n2. 孕婦\n3. 病歷複雜的病人\n4. 有酒癮、煙癮的人士\n5. 免疫系統病患者\n6. 正服用抗凝血藥物人士\n7. 高血壓或患有心血管疾病人士\n接受治療前必須先作詳細檢查及評估，讓醫生能計劃治療建議。'
+      Q: 'pages.dental-service.implant.problem.lists[1].Q',
+      A: 'pages.dental-service.implant.problem.lists[1].A'
     },
     {
-      Q: '植牙手術會痛嗎？',
-      A: '進行手術時，醫生會先在植牙位置注射局部麻醉藥，大大減低不適感。手術後應按時服用醫生處方的止痛藥，處理手術後的腫痛不適。'
+      Q: 'pages.dental-service.implant.problem.lists[2].Q',
+      A: 'pages.dental-service.implant.problem.lists[2].A'
     },
     {
-      Q: '植牙有甚麼風險？',
-      A: '植牙治療的成功率達90%至97%。手術前所進行的電腦掃描有助醫生掌握更多口腔重要組織的資訊，如下齒槽神經和上顎竇，完善地計算植牙位置及角度，減少植牙手術的不穩定因素。'
+      Q: 'pages.dental-service.implant.problem.lists[3].Q',
+      A: 'pages.dental-service.implant.problem.lists[3].A'
     },
     {
-      Q: '植牙會有甚麼後遺症？',
-      A: '植牙甚少引起不良反應或其他併發症。唯傷口處理不妥或口腔衛生欠佳則有機會導致植牙周圍的牙齦發炎，繼而影響植體穩定性。'
+      Q: 'pages.dental-service.implant.problem.lists[4].Q',
+      A: 'pages.dental-service.implant.problem.lists[4].A'
     },
     {
-      Q: '可否同時接受拔牙與植牙治療？',
-      A: '在若干情況下，拔牙後可同時進行植牙手術。此類型療程必須由醫生評估情況，確定骨質足夠，口腔健康，沒有任何發炎或細菌感染的情況。醫生會按患者情況給予建議，提供適切治療。'
-    }
+      Q: 'pages.dental-service.implant.problem.lists[5].Q',
+      A: 'pages.dental-service.implant.problem.lists[5].A'
+    },
   ]
 }
 

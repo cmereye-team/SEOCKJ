@@ -179,44 +179,44 @@ const noteData = {
 }
 
 const problemData = {
-  title: '美白牙齒常見問題',
+  title: 'pages.dental-service.teeth-whitening.problem.title',
   lists: [
     {
-      Q: '藍光美白牙齒是否會導致牙齒變黑？',
-      A: '藍光美白牙齒不會使牙齒變黑。美白劑中的成分可以分解染色物質，從而實現美白效果。'
+      Q: 'pages.dental-service.teeth-whitening.problem.lists[0].Q',
+      A: 'pages.dental-service.teeth-whitening.problem.lists[0].A'
     },
     {
-      Q: '藍光美白牙齒是否會導致牙齒變脆弱？',
-      A: '藍光美白牙齒不會使牙齒變得脆弱。美白劑中的成分不會對牙齒結構造成損傷。'
+      Q: 'pages.dental-service.teeth-whitening.problem.lists[1].Q',
+      A: 'pages.dental-service.teeth-whitening.problem.lists[1].A'
     },
     {
-      Q: '藍光美白牙齒是否適合所有人？',
-      A: '藍光美白牙齒適合大部分人，但是對於懷孕或哺乳期婦女、有特定疾病或過敏體質的人，建議在治療前諮詢我們。'
+      Q: 'pages.dental-service.teeth-whitening.problem.lists[2].Q',
+      A: 'pages.dental-service.teeth-whitening.problem.lists[2].A'
     },
     {
-      Q: '藍光美白牙齒會不會傷害牙齒？',
-      A: '藍光美白牙齒不會對牙齒造成傷害。美白劑中的成分已被證明是安全的，輕微的牙齒敏感也可以通過使用敏感牙齒專用牙膏緩解。'
+      Q: 'pages.dental-service.teeth-whitening.problem.lists[3].Q',
+      A: 'pages.dental-service.teeth-whitening.problem.lists[3].A'
     },
     {
-      Q: '藍光美白牙齒是否安全？',
-      A: '藍光美白牙齒是一種安全的治療方法。冷光照射不會對牙齒造成損傷，而且使用的美白劑也符合衛生標準。'
+      Q: 'pages.dental-service.teeth-whitening.problem.lists[4].Q',
+      A: 'pages.dental-service.teeth-whitening.problem.lists[4].A'
     },
     {
-      Q: '藍光美白牙齒的效果能夠持續多久？',
-      A: '藍光美白牙齒的效果通常能夠持續2年左右，但具體時間長短取決於患者的飲食和衛生習慣。'
+      Q: 'pages.dental-service.teeth-whitening.problem.lists[5].Q',
+      A: 'pages.dental-service.teeth-whitening.problem.lists[5].A'
     },
     {
-      Q: '藍光美白牙齒後可以飲食嗎？',
-      A: '治療後的24小時內，建議避免食用染色食物和飲料，以免影響美白效果。此外，還應該避免飲用過熱或過冷的飲料，以免刺激敏感的牙齒。'
+      Q: 'pages.dental-service.teeth-whitening.problem.lists[6].Q',
+      A: 'pages.dental-service.teeth-whitening.problem.lists[6].A'
     },
     {
-      Q: '藍光美白牙齒是否需要多次治療？',
-      A: '治療次數因個人情況而異，一般需要2-3次治療才能達到最佳效果。治療後的效果也會因個人情況而異。'
+      Q: 'pages.dental-service.teeth-whitening.problem.lists[7].Q',
+      A: 'pages.dental-service.teeth-whitening.problem.lists[7].A'
     },
     {
-      Q: '藍光美白牙齒會不會對牙齒神經造成損傷？',
-      A: '藍光美白牙齒不會對牙齒神經造成損傷。美白劑中的成分只會作用在牙齒的表面，不會進入牙齒內部。'
-    }
+      Q: 'pages.dental-service.teeth-whitening.problem.lists[8].Q',
+      A: 'pages.dental-service.teeth-whitening.problem.lists[8].A'
+    },
   ]
 }
 

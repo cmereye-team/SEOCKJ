@@ -156,36 +156,36 @@ const noteData = {
 }
 
 const problemData = {
-  title: '根管治療常見問題',
+  title: 'pages.dental-service.rootCanal.problem.title',
   lists: [
     {
-      Q: '根管治療會很痛嗎？',
-      A: '進行手術時，醫生會先在杜牙根位置注射局部麻醉藥，大大減低不適感。手術後應按時服用醫生處方的止痛藥，處理手術後的腫痛不適。麻醉藥過後，杜牙根的牙齒仍有機會有少許痛楚，如有需要可服食止痛藥，一般幾天後不適便會慢慢舒緩。'
+      Q: 'pages.dental-service.rootCanal.problem.lists[0].Q',
+      A: 'pages.dental-service.rootCanal.problem.lists[0].A'
     },
     {
-      Q: '根管治療過程需時多久？',
-      A: '由於牙根消炎需時，中間過程或要多次替換消炎藥，因此通常要覆診2至4次，每次相距1-2星期，當中或會因不同的牙齒狀況而有所不同。'
+      Q: 'pages.dental-service.rootCanal.problem.lists[1].Q',
+      A: 'pages.dental-service.rootCanal.problem.lists[1].A'
     },
     {
-      Q: '根管治療後是否不會再蛀牙？',
-      A: '杜牙根後，牙神經被抽出，牙齒的琺瑯質及象牙質會被保留下來，所以仍有蛀牙的機會。因此完成治療後，應時刻保持口腔衛生，這樣可延長牙齒的壽命，大大提高治療成功率。'
+      Q: 'pages.dental-service.rootCanal.problem.lists[2].Q',
+      A: 'pages.dental-service.rootCanal.problem.lists[2].A'
     },
     {
-      Q: '完成根管治療後，為何要裝上牙套？',
-      A: '根管治療後的牙齒較為脆弱，有機會斷裂，套上牙套能有效地保護該牙齒。'
+      Q: 'pages.dental-service.rootCanal.problem.lists[3].Q',
+      A: 'pages.dental-service.rootCanal.problem.lists[3].A'
     },
     {
-      Q: '根管治療是否會導致牙齒變黑？',
-      A: '根管治療（杜牙根）後的牙齒可能會變黑，這是因為治療過程中使用的藥物可能會影響牙齒的顏色。但是這可以通過美容修復來解決。'
+      Q: 'pages.dental-service.rootCanal.problem.lists[4].Q',
+      A: 'pages.dental-service.rootCanal.problem.lists[4].A'
     },
     {
-      Q: '根管治療是否適用於所有人？',
-      A: '根管治療適用於大多數人，但是有些人可能不適合進行根管治療，例如牙齒過度破壞或已經失去了支撐力的情況。'
+      Q: 'pages.dental-service.rootCanal.problem.lists[5].Q',
+      A: 'pages.dental-service.rootCanal.problem.lists[5].A'
     },
     {
-      Q: '根管治療後是否需要特殊護理？',
-      A: '根管治療後的牙齒需要與其他健康牙齒一樣的護理，包括刷牙，使用牙線和定期洗牙。'
-    }
+      Q: 'pages.dental-service.rootCanal.problem.lists[6].Q',
+      A: 'pages.dental-service.rootCanal.problem.lists[6].A'
+    },
   ]
 }
 

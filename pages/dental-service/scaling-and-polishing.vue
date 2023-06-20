@@ -79,16 +79,16 @@ const stepData = {
 }
 
 const problemData = {
-  title: '洗牙常見問題',
+  title: 'pages.dental-service.scaling-and-polishing.problem.title',
   lists: [
     {
-      Q: '為甚麼會出現牙石？',
-      A: '口腔的細菌、食物殘渣及口水會在牙齒表面、牙縫及牙齦間形成牙菌膜。若牙菌膜未能仔細清除，便會積聚鈣成牙石。因此建議至少每半年洗牙一次，保持口腔衛生。'
+      Q: 'pages.dental-service.scaling-and-polishing.problem.lists[0].Q',
+      A: 'pages.dental-service.scaling-and-polishing.problem.lists[0].A'
     },
     {
-      Q: '為甚麼牙齒在洗牙後會感到酸軟或會流牙血？',
-      A: '在洗牙後幾天內感到輕微酸痛，甚至有牙齦出血的情況，是由於牙齦在洗牙前出現發炎情況，因此在清除口中細菌時，會引起牙齦紅腫及充血。只要繼續注意口腔衛生，口腔不適及牙齦出血的現象就會逐漸消失，牙齦亦會回復健康。'
-    }
+      Q: 'pages.dental-service.scaling-and-polishing.problem.lists[1].Q',
+      A: 'pages.dental-service.scaling-and-polishing.problem.lists[1].A'
+    },
   ]
 }
 

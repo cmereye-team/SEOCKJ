@@ -220,28 +220,28 @@ const noteData = {
 }
 
 const problemData = {
-  title: '牙周病常見問題',
+  title: 'pages.dental-service.periodontal.problem.title',
   lists: [
     {
-      Q: '牙肉腫脹及刷牙流牙血是牙周病的徵兆嗎？',
-      A: '牙周病的主要原因是口腔衛生狀態不好，令牙垢膜長期積聚，分泌出毒素感染牙周組織，導致牙肉腫脹或流牙血。如發炎情況持續，令牙槽骨受到侵蝕，形成「牙周袋」，當情況持續惡化的時候，便會令牙齒變得鬆動，移位，甚至脫落。'
+      Q: 'pages.dental-service.periodontal.problem.lists[0].Q',
+      A: 'pages.dental-service.periodontal.problem.lists[0].A'
     },
     {
-      Q: '甚麼人較容易有牙周病?',
-      A: '1. 吸煙人士\n2. 沒有定期口腔檢查及洗牙\n3. 全身性疾病患者（如：AIDS、糖尿病等）\n4. 長期服用藥物人士'
+      Q: 'pages.dental-service.periodontal.problem.lists[1].Q',
+      A: 'pages.dental-service.periodontal.problem.lists[1].A'
     },
     {
-      Q: '為何定期洗牙，早晚刷牙，也會患上牙周病？',
-      A: '定期洗牙和早晚刷牙是保護口腔健康的重要方法，但它們並不能完全預防牙周病。牙周病是一種由牙菌斑引起的慢性口腔疾病，如果不及時治療，可能會導致牙齒鬆動、脫落，並對身體健康產生負面影響。\n牙周病的發生和發展與多種因素有關，除了口腔衛生習慣不佳、牙齒清潔不足外，還包括遺傳因素、吸煙、壓力過大、長期患有某些疾病等。如果長期存在牙菌斑，會導致細菌滋生，進而引發口腔炎症，形成牙周袋和牙結石，進一步損壞牙周組織，引發牙周病。'
+      Q: 'pages.dental-service.periodontal.problem.lists[2].Q',
+      A: 'pages.dental-service.periodontal.problem.lists[2].A'
     },
     {
-      Q: '接受牙周治療後，牙齒為何會變酸軟或敏感？',
-      A: '由於牙周病令牙齦萎縮，牙根外露，因此接受牙根刮治後，有些牙齒會變得更敏感，但這些情況一般會在三至四天後慢慢消退。'
+      Q: 'pages.dental-service.periodontal.problem.lists[3].Q',
+      A: 'pages.dental-service.periodontal.problem.lists[3].A'
     },
     {
-      Q: '接受牙周治療後，需要多久覆診一次？',
-      A: '牙醫會按病況的嚴重程度，患者的配合程度而預計覆診時間。一般建議情況受控的患者每三個月覆診一次，監察牙周康復進程。'
-    }
+      Q: 'pages.dental-service.periodontal.problem.lists[4].Q',
+      A: 'pages.dental-service.periodontal.problem.lists[4].A'
+    },
   ]
 }
 

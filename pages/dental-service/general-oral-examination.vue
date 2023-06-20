@@ -83,15 +83,15 @@ const stepData = {
 }
 
 const problemData = {
-  title: '一般口腔檢查常見問題',
+  title: 'pages.dental-service.general-oral-examination.problem.title',
   lists: [
     {
-      Q: '需要多久接受一次口腔檢查？',
-      A: '一般建議半年進行一次口腔檢查，減少引致各種口腔問題的機會。',
+      Q: 'pages.dental-service.general-oral-examination.problem.lists[0].Q',
+      A: 'pages.dental-service.general-oral-examination.problem.lists[0].A',
     },
     {
-      Q: '孕婦可以進行口腔檢查或治療嗎？',
-      A: '孕婦可以接受口腔檢查，但不宜在懷孕期間進行其他牙科治療。雖然牙科的X光機幅射量低，但在非緊急的情況下並不會建議使用。有見及此，所有非緊急的牙科治療應推遲至分娩後才進行。',
+      Q: 'pages.dental-service.general-oral-examination.problem.lists[1].Q',
+      A: 'pages.dental-service.general-oral-examination.problem.lists[1].A',
     },
   ],
 }

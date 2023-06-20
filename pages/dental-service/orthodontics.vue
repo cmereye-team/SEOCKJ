@@ -131,44 +131,44 @@ const differData = {
 }
 
 const problemData = {
-  title: '矯齒(箍牙)常見問題',
+  title: 'pages.dental-service.orthodontics.problem.title',
   lists: [
     {
-      Q: '矯齒會很很痛嗎？',
-      A: '矯齒過程中會有一定的疼痛感，這是正常現象，因為矯正器對牙齒的壓力會引起輕微的不適感，但這種疼痛感通常會在幾天內消失。'
+      Q: 'pages.dental-service.orthodontics.problem.lists[0].Q',
+      A: 'pages.dental-service.orthodontics.problem.lists[0].A'
     },
     {
-      Q: '矯齒需要多久時間？',
-      A: '矯齒的時間因人而異，通常需要一年到三年不等的時間。但矯齒的時間還受到多種因素的影響，如牙齒矯正的類型、矯正器的使用時間和個人牙齒情況等。'
+      Q: 'pages.dental-service.orthodontics.problem.lists[1].Q',
+      A: 'pages.dental-service.orthodontics.problem.lists[1].A'
     },
     {
-      Q: '矯齒後如何保持牙齒的清潔？',
-      A: '矯齒器會影響牙齒的清潔，因此在矯齒期間，要多加注意口腔衛生，定期刷牙、使用漱口水、使用牙線等清潔工具進行清潔，以避免牙結石和牙周炎等口腔問題。'
+      Q: 'pages.dental-service.orthodontics.problem.lists[2].Q',
+      A: 'pages.dental-service.orthodontics.problem.lists[2].A'
     },
     {
-      Q: '矯齒會影響飲食嗎？',
-      A: '矯齒過程中，應避免食用過甜、過硬、過熱或過冷的食物，以免矯齒器受損或影響牙齒矯正效果。同時，建議多食用蔬菜、水果和低糖食品，以維持口腔健康和矯齒效果。'
+      Q: 'pages.dental-service.orthodontics.problem.lists[3].Q',
+      A: 'pages.dental-service.orthodontics.problem.lists[3].A'
     },
     {
-      Q: '矯齒對口腔健康有影響嗎？',
-      A: '矯齒對口腔健康有正面影響，可以幫助改善牙齒排列不整齊等問題，減少患上牙周病、牙齒龍骨吸收等口腔問題的風險，提高口腔健康水平。'
+      Q: 'pages.dental-service.orthodontics.problem.lists[4].Q',
+      A: 'pages.dental-service.orthodontics.problem.lists[4].A'
     },
     {
-      Q: '矯齒期間是否會影響口腔功能？',
-      A: '矯齒期間可能會影響口腔功能，如發音、咀嚼等，但這種影響通常是暫時的，當矯齒完成後，口腔功能會逐漸恢復正常。'
+      Q: 'pages.dental-service.orthodontics.problem.lists[5].Q',
+      A: 'pages.dental-service.orthodontics.problem.lists[5].A'
     },
     {
-      Q: '矯齒後是否需要繼續定期覆診？',
-      A: '矯齒完成後，仍需要定期進行覆診檢查和清潔，以確保牙齒的健康和矯正效果。'
+      Q: 'pages.dental-service.orthodontics.problem.lists[6].Q',
+      A: 'pages.dental-service.orthodontics.problem.lists[6].A'
     },
     {
-      Q: '矯齒對成年人是否有效？',
-      A: '矯齒對成年人同樣有效，但需要根據個人的牙齒情況和矯齒方式來決定最適合的矯正方案，因為成年人的牙齒已經發育完全，所以需要更長的時間和更專業的技術來進行矯正。'
+      Q: 'pages.dental-service.orthodontics.problem.lists[7].Q',
+      A: 'pages.dental-service.orthodontics.problem.lists[7].A'
     },
     {
-      Q: '矯齒是否有年齡限制？',
-      A: '矯齒沒有年齡限制，但建議在牙齒發育完全後進行矯正，一般為12歲左右。如果是成年人進行矯正，需要更多的時間和技術來達到理想的矯正效果。'
-    }
+      Q: 'pages.dental-service.orthodontics.problem.lists[8].Q',
+      A: 'pages.dental-service.orthodontics.problem.lists[8].A'
+    },
   ]
 }
 
