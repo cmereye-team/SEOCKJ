@@ -219,6 +219,100 @@ pages:
           - context: 缺牙影响仪容，严重甚至会令面部变形
           - context: 缺牙容易令牙齿移位，影响咬合、发音
           - context: 改善咀嚼问题，回复正常饮食
+      features:
+        title: 种植牙的特点
+        lists: 
+          - context: 功能和外观近似真牙，耐用美观，能恢复正常咀嚼能力
+          - context: 不需要磨损邻近牙齿
+          - context: 有助防止缺牙后牙槽骨继续萎缩，保持牙骨的厚度
+          - context: 提高全口假牙托的稳定性，加强假牙托的咀嚼和发音功效
+      notice:
+        title: 传统植牙和微创植牙的区别？
+        meritLists: 
+          - context: 传统植牙
+          - context: 传统植牙是一种手术程序，需要在植入牙齿的位置进行切口，通常需要在手术后等待数月的时间，让植牙的骨头组织与人体结合成为一个稳固的基础，然后再安装人造牙齿。
+        shortcomingLists: 
+          - context: 微创植牙
+          - context: 微创植牙是一种相对较新的技术，它采用更小的切口，因此手术的程度和疼痛通常比传统植牙要小得多。微创植牙通常需要较短的康复时间，并且可以更快地恢复正常的口腔功能。
+        topText:
+          - context: 传统植牙和微创植牙都是一种牙科手术，用于取代缺失的牙齿。
+          - context: 两者之间的主要区别在于手术的程度和方法。
+        bottomText:
+          - context: "*总体而言，传统植牙和微创植牙都是安装人造牙齿的有效方法，"
+          - context: 但是微创植牙通常需要较少的手术时间和康复时间，因此对于一些患者来说可能更为适合。然而，
+          - context: 每个人的情况都是不同的，最好向您的牙医师咨询，以了解哪种方法最适合您的情况。
+      step: 
+        title: '认识种植牙的六个步骤'
+        remark: '种植牙于现在是较常见的牙科手术之一，病人最少需要 2 至 3 次的覆诊来完成整个种牙程序，整个程序或需要 3 至 6 个月时间。'
+        stepLists: 
+          - text: '进行全面口腔检查、X光或3D计算机扫描，确定植体的安装位置，需确认患者的身体状况及病历'
+          - text: '注射麻醉药'
+          - text: '翻开牙龈在适合安装的位置钻孔，植入植体，作为假牙的牙根，有需要时可以利用手术导航系统辅助植入理想位置，再缝合伤口'
+          - text: '等待2至3个月后，当牙骨与植体愈合，牙医会安放愈合帽'
+          - text: '牙龈愈合后，再进行下一阶段的疗程进行扫描式印模，再由牙科技师制作义齿'
+          - text: '将义齿固定在植体上，补上缺去的牙齿'
+      note: 
+        title: 种植牙后注意事项
+        lists: 
+          - name: 轻咬纱布止血
+          - name: 28小时内冰敷
+          - name: 48小时后热敷
+          - name: 依指示按时服药
+          - name: 避免饮酒及抽烟
+          - name: 进食流质食物
+          - name: 避免激烈运动
+          - name: 谨记定期复诊
+      detail: 
+        title: 项目收费详情
+        remark: "*本收费表所载资料为收费参考资料，最终收费会按不同的牙齿情况或复杂情度有所调整"
+        tableCol: 
+          - text: 服务
+          - text: 类别
+          - text: 原价 (单只)
+          - text: 优惠价 (单只)
+        tableData: 
+          - service:
+              - context: OSSTEM (韩国）
+              - context: 奥齿泰亲水种植体植入术
+            type: 
+              - context: 口腔种植医疗服务费
+              - context: 博朗全瓷冠/全锆冠
+              - context: 
+                  - text: OSSTEM (韩国）
+                  - text: 奥齿泰亲水
+                  - text: 种植系统
+          - service:
+              - context: ANKYLOS（德国）
+              - context: 种植体植入术
+            type: 
+              - context: 口腔种植医疗服务费
+              - context: 博朗全瓷冠/全锆冠
+              - context: 
+                  - text: ANKYLOS（德国）
+                  - text: 种植系统
+          - service:
+              - context: Straumann（瑞士SLA）
+              - context: 悦锆非亲水种植体植入术
+            type: 
+              - context: 口腔种植医疗服务费
+              - context: 博朗全瓷冠/全锆冠
+              - context: 
+                  - text: Straumann（瑞士SLA）
+                  - text: 悦锆非亲水
+                  - text: " 种植系统"
+          - service:
+              - context: Straumann（瑞士）
+              - context: Roxolid瑞锆亲水
+              - context: SLAcitive种植体植入术
+            type: 
+              - context: 口腔种植医疗服务费
+              - context: 博朗全瓷冠/全锆冠
+              - context: 
+                  - text: Straumann（瑞士）
+                  - text: Roxolid
+                  - text: 瑞锆亲水
+                  - text: " SLAcitive"
+                  - text: 种植系统
     orthodontics: 
       introduce:
         title: 矫齿(箍牙)
@@ -309,6 +403,12 @@ pages:
             A: |
               Invisalign First 矫齿牙箍采用已获专利的SmartTrack材料，并且得到美国FDA认证其安全性。
               Invisalign First更根据儿童的短小牙齿进行优化，使用相应附件，提供稳定力度。牙箍亦可加上蓝色依从性显示点，方便检查及监察牙箍佩戴时间，达致最佳疗程效果。
+      step: 
+        title: 隐适美流程
+        stepLists:
+          - text: 与牙医咨询及沟通过后，专人会为你的牙齿进行拍照、X光片、口腔内扫瞄或牙模套印来建立你的牙齿资料，亦会透过详细讲解令你明白整个疗程过程及效果。
+          - text: 牙医会与厂商方面沟通，为你建立专属的3D矫齿治疗方案。
+          - text: 厂商用3D计算机雷射打印科技制成一系列订制牙箍，寄送至牙医诊所。我们会联络客人安排到诊进行试戴并评估效果。客人需要每6至8星期复诊，与牙医跟进矫齿进度及取得新牙箍。
     veneers:
       introduce:
         title: 瓷贴片
@@ -496,6 +596,14 @@ pages:
         text: 补牙的原因？
         lists: 
           - context: 当牙齿的硬组织（珐琅质、象牙质）受到破坏后，容易造成小孔，形成蛀牙。为了修复破损的组织及防止蛀牙情况加剧，会以填充物填补牙齿，使牙齿能恢复原来形状和功能。
+      step: 
+        title: 补牙过程
+        stepLists:
+          - text: 清除牙齿蛀坏及脆弱的部分
+          - text: 用专用的清洁消毒剂清洁牙齿表面，吹干后，涂上黏固剂
+          - text: 填补牙洞及修补缺损部分
+          - text: 稳固填充物
+          - text: 牙齿修形及抛光（如蛀牙的程度深，或需要使用麻醉剂）
     general-oral-examination:
       introduce:
         title: 一般口腔检查
@@ -514,6 +622,14 @@ pages:
         lists: 
           - context: 定期口腔检查能确保牙齿、牙龈健康，预防各种口腔疾病。
           - context: 牙科医生透过检查评估牙齿、牙龈、面颌及口腔组织的健康情况，能确保没有潜在蛀牙、牙龈发炎或其他口腔问题。
+      step: 
+        title: 一般口腔检查过程
+        stepLists:
+          - text: 检查牙齿、牙龈健康
+          - text: 面部或颈项有否出现异常情况
+          - text: 评估整体口腔健康状况及提供建议
+          - text: 需要时建议进行口腔X光造影检查
+          - text: 提供口腔保健信息
     children-dentistry:
       introduce:
         title: 儿童牙科

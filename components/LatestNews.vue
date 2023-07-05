@@ -49,10 +49,18 @@ const getNewsLists = async () => {
     // console.log(res.data)
     if(res.data && res.data.length){
       newsLists.value = res.data.map(item=>{
+        let _mbUrl = item.ext_mbImg_hk && `https://admin.ckjhk.com${item.ext_mbImg_hk}`
+        let _imgUrl = item.ext_pcImg_hk && `https://admin.ckjhk.com${item.ext_pcImg_hk}`
+        if(item.ext_mbImg_hk && item.ext_mbImg_hk.indexOf('https://') !== -1){
+          _mbUrl = item.ext_mbImg_hk
+        }
+        if(item.ext_pcImg_hk && item.ext_pcImg_hk.indexOf('https://') !== -1){
+          _imgUrl = item.ext_pcImg_hk
+        }
         return {
           title: item.title || '',
-          imgUrl: item.ext_pcImg_hk && `https://admin.ckjhk.com${item.ext_pcImg_hk}`,
-          mbUrl: item.ext_mbImg_hk && `https://admin.ckjhk.com${item.ext_mbImg_hk}`,
+          imgUrl: _imgUrl,
+          mbUrl: _mbUrl,
           link: item.ext_banner_link || ''
         }
       })

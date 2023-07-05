@@ -34,14 +34,14 @@ onMounted(()=>{
   //   duration: 0
   // })
 
-  // document.onkeydown = (even:any) =>{
-  //   if(even.key === 'F9'){
-  //     if(locale.value === 'zh')
-  //       locale.value = 'hk'
-  //     else
-  //       locale.value = 'zh'
-  //   }
-  // }
+  document.onkeydown = (even:any) =>{
+    if(even.key === 'F9'){
+      if(locale.value === 'zh')
+        locale.value = 'hk'
+      else
+        locale.value = 'zh'
+    }
+  }
   locale.value = 'hk'
 })
 </script>

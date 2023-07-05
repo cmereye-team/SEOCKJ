@@ -219,6 +219,100 @@ pages:
           - context: 缺牙影響儀容，嚴重甚至會令面部變形
           - context: 缺牙容易令牙齒移位，影響咬合、發音
           - context: 改善咀嚼問題，回復正常飲食
+      features:
+        title: 種植牙的特點
+        lists: 
+          - context: 功能和外觀近似真牙，耐用美觀，能恢復正常咀嚼能力
+          - context: 不需要磨損鄰近牙齒
+          - context: 有助防止缺牙後牙槽骨繼續萎縮，保持牙骨的厚度
+          - context: 提高全口假牙托的穩定性，加強假牙托的咀嚼和發音功效
+      notice:
+        title: 傳統植牙和微創植牙的區別？
+        meritLists: 
+          - context: 傳統植牙
+          - context: 傳統植牙是一種手術程序，需要在植入牙齒的位置進行切口，通常需要在手術後等待數月的時間，讓植牙的骨頭組織與人體結合成為一個穩固的基礎，然後再安裝人造牙齒。
+        shortcomingLists: 
+          - context: 微創植牙
+          - context: 微創植牙是一種相對較新的技術，它採用更小的切口，因此手術的程度和疼痛通常比傳統植牙要小得多。微創植牙通常需要較短的康復時間，並且可以更快地恢復正常的口腔功能。
+        topText:
+          - context: 傳統植牙和微創植牙都是一種牙科手術，用於取代缺失的牙齒。
+          - context: 兩者之間的主要區別在於手術的程度和方法。
+        bottomText:
+          - context: "*總體而言，傳統植牙和微創植牙都是安裝人造牙齒的有效方法，"
+          - context: 但是微創植牙通常需要較少的手術時間和康復時間，因此對於一些患者來說可能更為適合。然而，
+          - context: 每個人的情況都是不同的，最好向您的牙醫師諮詢，以了解哪種方法最適合您的情況。
+      step: 
+        title: '認識種植牙的六個步驟'
+        remark: '種植牙於現在是較常見的牙科手術之一，病人最少需要 2 至 3 次的覆診來完成整個種牙程序，整個程序或需要 3 至 6 個月時間。'
+        stepLists: 
+          - text: '進行全面口腔檢查、X光或3D電腦掃描，確定植體的安裝位置，需確認患者的身體狀況及病歷'
+          - text: '注射麻醉藥'
+          - text: '翻開牙齦在適合安裝的位置鑽孔，植入植體，作為假牙的牙根，有需要時可以利用手術導航系統輔助植入理想位置，再縫合傷口'
+          - text: '等待2至3個月後，當牙骨與植體癒合，牙醫會安放癒合帽'
+          - text: '牙齦癒合後，再進行下一階段的療程進行掃描式印模，再由牙科技師製作義齒'
+          - text: '將義齒固定在植體上，補上缺去的牙齒'
+      note: 
+        title: 種植牙後注意事項
+        lists: 
+          - name: 輕咬紗布止血
+          - name: 28小時內冰敷
+          - name: 48小時後熱敷
+          - name: 依指示按時服藥
+          - name: 避免飲酒及抽煙
+          - name: 進食流質食物
+          - name: 避免激烈運動
+          - name: 謹記定期複診
+      detail: 
+        title: 項目收費詳情
+        remark: "*本收費表所載資料為收費參考資料，最終收費會按不同的牙齒情況或複雜情度有所調整"
+        tableCol: 
+          - text: 服務
+          - text: 類別
+          - text: 原價 (單隻)
+          - text: 優惠價 (單隻)
+        tableData: 
+          - service:
+              - context: OSSTEM (韓國）
+              - context: 奧齒泰親水種植體植入術
+            type: 
+              - context: 口腔種植醫療服務費
+              - context: 博朗全瓷冠/全鋯冠
+              - context: 
+                  - text: OSSTEM (韓國）
+                  - text: 奧齒泰親水
+                  - text: 種植系統
+          - service:
+              - context: ANKYLOS（德國）
+              - context: 種植體植入術
+            type: 
+              - context: 口腔種植醫療服務費
+              - context: 博朗全瓷冠/全鋯冠
+              - context: 
+                  - text: ANKYLOS（德國）
+                  - text: 種植系統
+          - service:
+              - context: Straumann（瑞士SLA）
+              - context: 悅鋯非親水種植體植入術
+            type: 
+              - context: 口腔種植醫療服務費
+              - context: 博朗全瓷冠/全鋯冠
+              - context: 
+                  - text: Straumann（瑞士SLA）
+                  - text: 悅鋯非親水
+                  - text: " 種植系統"
+          - service:
+              - context: Straumann（瑞士）
+              - context: Roxolid瑞鋯親水
+              - context: SLAcitive種植體植入術
+            type: 
+              - context: 口腔種植醫療服務費
+              - context: 博朗全瓷冠/全鋯冠
+              - context: 
+                  - text: Straumann（瑞士）
+                  - text: Roxolid
+                  - text: 瑞鋯親水
+                  - text: " SLAcitive"
+                  - text: 種植系統
     orthodontics: 
       introduce:
         title: 矯齒(箍牙)
@@ -309,6 +403,12 @@ pages:
             A: |
               Invisalign First 矯齒牙箍採用已獲專利的SmartTrack材料，並且得到美國FDA認證其安全性。
               Invisalign First更根據兒童的短小牙齒進行優化，使用相應附件，提供穩定力度。牙箍亦可加上藍色依從性顯示點，方便檢查及監察牙箍佩戴時間，達致最佳療程效果。
+      step: 
+        title: 隱適美流程
+        stepLists:
+          - text: 與牙醫諮詢及溝通過後，專人會為你的牙齒進行拍照、X光片、口腔內掃瞄或牙模套印來建立你的牙齒資料，亦會透過詳細講解令你明白整個療程過程及效果。
+          - text: 牙醫會與廠商方面溝通，為你建立專屬的3D矯齒治療方案。
+          - text: 廠商用3D電腦雷射列印科技製成一系列訂製牙箍，寄送至牙醫診所。我們會聯絡客人安排到診進行試戴並評估效果。客人需要每6至8星期複診，與牙醫跟進矯齒進度及取得新牙箍。
     veneers:
       introduce:
         title: 瓷貼片
@@ -496,6 +596,14 @@ pages:
         text: 補牙的原因？
         lists: 
           - context: 當牙齒的硬組織（琺瑯質、象牙質）受到破壞後，容易造成小孔，形成蛀牙。為了修復破損的組織及防止蛀牙情況加劇，會以填充物填補牙齒，使牙齒能恢復原來形狀和功能。
+      step: 
+        title: 補牙過程
+        stepLists:
+          - text: 清除牙齒蛀壞及脆弱的部分
+          - text: 用專用的清潔消毒劑清潔牙齒表面，吹乾後，塗上黏固劑
+          - text: 填補牙洞及修補缺損部分
+          - text: 穩固填充物
+          - text: 牙齒修形及拋光（如蛀牙的程度深，或需要使用麻醉劑）
     general-oral-examination:
       introduce:
         title: 一般口腔檢查
@@ -514,6 +622,14 @@ pages:
         lists: 
           - context: 定期口腔檢查能確保牙齒、牙齦健康，預防各種口腔疾病。
           - context: 牙科醫生透過檢查評估牙齒、牙齦、面頜及口腔組織的健康情況，能確保沒有潛在蛀牙、牙齦發炎或其他口腔問題。
+      step: 
+        title: 一般口腔檢查過程
+        stepLists:
+          - text: 檢查牙齒、牙齦健康
+          - text: 面部或頸項有否出現異常情況
+          - text: 評估整體口腔健康狀況及提供建議
+          - text: 需要時建議進行口腔X光造影檢查
+          - text: 提供口腔保健資訊
     children-dentistry:
       introduce:
         title: 兒童牙科

@@ -36,46 +36,46 @@ const introduceData = {
 }
 
 const featuresData = {
-  title: '種植牙的特點',
+  title: 'pages.dental-service.implant.features.title',
   featuresLists: [
-    '功能和外觀近似真牙，耐用美觀，能恢復正常咀嚼能力',
-    '不需要磨損鄰近牙齒',
-    '有助防止缺牙後牙槽骨繼續萎縮，保持牙骨的厚度',
-    '提高全口假牙托的穩定性，加強假牙托的咀嚼和發音功效'
+    'pages.dental-service.implant.features.lists[0].context',
+    'pages.dental-service.implant.features.lists[1].context',
+    'pages.dental-service.implant.features.lists[2].context',
+    'pages.dental-service.implant.features.lists[3].context'
   ]
 }
 
 const noteLists = [
   {
-    name: '輕咬紗布止血',
+    name: 'pages.dental-service.implant.note.lists[0].name',
     img: 'https://static.cmereye.com/imgs/2023/05/786842c578839f96.png'
   },
   {
-    name: '28小時內冰敷',
+    name: 'pages.dental-service.implant.note.lists[1].name',
     img: 'https://static.cmereye.com/imgs/2023/05/375325d1f47a3eef.png'
   },
   {
-    name: '48小時後熱敷',
+    name: 'pages.dental-service.implant.note.lists[2].name',
     img: 'https://static.cmereye.com/imgs/2023/05/d2d6a05ff3b7bedc.png'
   },
   {
-    name: '依指示按時服藥',
+    name: 'pages.dental-service.implant.note.lists[3].name',
     img: 'https://static.cmereye.com/imgs/2023/05/b9bffb9d0a93caf8.png'
   },
   {
-    name: '避免飲酒及抽煙',
+    name: 'pages.dental-service.implant.note.lists[4].name',
     img: 'https://static.cmereye.com/imgs/2023/05/e263a699e37bb71a.png'
   },
   {
-    name: '進食流質食物',
+    name: 'pages.dental-service.implant.note.lists[5].name',
     img: 'https://static.cmereye.com/imgs/2023/05/e8d6a6c148d1a0ac.png'
   },
   {
-    name: '避免激烈運動',
+    name: 'pages.dental-service.implant.note.lists[6].name',
     img: 'https://static.cmereye.com/imgs/2023/05/eeb2f6a620511833.png'
   },
   {
-    name: '謹記定期複診',
+    name: 'pages.dental-service.implant.note.lists[7].name',
     img: 'https://static.cmereye.com/imgs/2023/05/00405fd84dde1a1d.png'
   }
 ]
@@ -143,75 +143,107 @@ const reasonData = {
 }
 
 const noticeData = {
-  title: '傳統植牙和微創植牙的區別？',
+  title: 'pages.dental-service.implant.notice.title',
+  topText: [
+    'pages.dental-service.implant.notice.topText[0].context',
+    'pages.dental-service.implant.notice.topText[1].context'
+  ],
   meritLists: [
-    '傳統植牙',
-    '傳統植牙是一種手術程序，需要在植入牙齒的位置進行切口，通常需要在手術後等待數月的時間，讓植牙的骨頭組織與人體結合成為一個穩固的基礎，然後再安裝人造牙齒。',
+    'pages.dental-service.implant.notice.meritLists[0].context',
+    'pages.dental-service.implant.notice.meritLists[1].context',
   ],
   shortcomingLists: [
-    '微創植牙',
-    '微創植牙是一種相對較新的技術，它採用更小的切口，因此手術的程度和疼痛通常比傳統植牙要小得多。微創植牙通常需要較短的康復時間，並且可以更快地恢復正常的口腔功能。',
+    'pages.dental-service.implant.notice.shortcomingLists[0].context',
+    'pages.dental-service.implant.notice.shortcomingLists[1].context',
+  ],
+  bottomText: [
+    'pages.dental-service.implant.notice.bottomText[0].context',
+    'pages.dental-service.implant.notice.bottomText[1].context',
+    'pages.dental-service.implant.notice.bottomText[2].context'
   ]
 }
 
 const detailData = {
-  title: '項目收費詳情',
-  detailTableCol: ['服務','類別','原價 (單隻)','優惠價 (單隻)'],
+  title: 'pages.dental-service.implant.detail.title',
+  detailTableCol: [
+    'pages.dental-service.implant.detail.tableCol[0].text',
+    'pages.dental-service.implant.detail.tableCol[1].text',
+    'pages.dental-service.implant.detail.tableCol[2].text',
+    'pages.dental-service.implant.detail.tableCol[3].text'
+  ],
   detailTable: [
     {
       service: [
-        'OSSTEM (韓國）',
-        '奧齒泰親水種植體植入術',
+        'pages.dental-service.implant.detail.tableData[0].service[0].context',
+        'pages.dental-service.implant.detail.tableData[0].service[1].context',
       ],
       type: [
-        '口腔種植醫療服務費',
-        '博朗全瓷冠/全鋯冠',
-        ['OSSTEM (韓國）','奧齒泰親水','種植系統']
+        'pages.dental-service.implant.detail.tableData[0].type[0].context',
+        'pages.dental-service.implant.detail.tableData[0].type[1].context',
+        [
+          'pages.dental-service.implant.detail.tableData[0].type[2].context[0].text',
+          'pages.dental-service.implant.detail.tableData[0].type[2].context[1].text',
+          'pages.dental-service.implant.detail.tableData[0].type[2].context[2].text'
+        ]
       ],
       price: '¥13800',
       discountedPrice: '¥8800'
     },
     {
       service: [
-        'ANKYLOS（德國）',
-        '種植體植入術',
+        'pages.dental-service.implant.detail.tableData[1].service[0].context',
+        'pages.dental-service.implant.detail.tableData[1].service[1].context',
       ],
       type: [
-        '口腔種植醫療服務費',
-        '博朗全瓷冠/全鋯冠',
-        ['ANKYLOS（德國）','種植系統']
+        'pages.dental-service.implant.detail.tableData[1].type[0].context',
+        'pages.dental-service.implant.detail.tableData[1].type[1].context',
+        [
+          'pages.dental-service.implant.detail.tableData[1].type[2].context[0].text',
+          'pages.dental-service.implant.detail.tableData[1].type[2].context[1].text'
+        ]
       ],
       price: '¥15800',
       discountedPrice: '¥12800'
     },
     {
       service: [
-        'Straumann（瑞士SLA）',
-        '悅鋯非親水種植體植入術',
+        'pages.dental-service.implant.detail.tableData[2].service[0].context',
+        'pages.dental-service.implant.detail.tableData[2].service[1].context',
       ],
       type: [
-        '口腔種植醫療服務費',
-        '博朗全瓷冠/全鋯冠',
-        ['Straumann（瑞士SLA）','悅鋯非親水',' 種植系統']
+        'pages.dental-service.implant.detail.tableData[2].type[0].context',
+        'pages.dental-service.implant.detail.tableData[2].type[1].context',
+        [
+          'pages.dental-service.implant.detail.tableData[2].type[2].context[0].text',
+          'pages.dental-service.implant.detail.tableData[2].type[2].context[1].text',
+          'pages.dental-service.implant.detail.tableData[2].type[2].context[2].text'
+        ]
       ],
       price: '¥18800',
       discountedPrice: '¥14800'
     },
     {
       service: [
-        'Straumann（瑞士）',
-        'Roxolid瑞鋯親水',
-        'SLAcitive種植體植入術'
+        'pages.dental-service.implant.detail.tableData[3].service[0].context',
+        'pages.dental-service.implant.detail.tableData[3].service[1].context',
+        'pages.dental-service.implant.detail.tableData[3].service[2].context'
       ],
       type: [
-        '口腔種植醫療服務費',
-        '博朗全瓷冠/全鋯冠',
-        ['Straumann（瑞士）','Roxolid','瑞鋯親水',' SLAcitive','種植系統']
+        'pages.dental-service.implant.detail.tableData[3].type[0].context',
+        'pages.dental-service.implant.detail.tableData[3].type[1].context',
+        [
+          'pages.dental-service.implant.detail.tableData[3].type[2].context[0].text',
+          'pages.dental-service.implant.detail.tableData[3].type[2].context[1].text',
+          'pages.dental-service.implant.detail.tableData[3].type[2].context[2].text',
+          'pages.dental-service.implant.detail.tableData[3].type[2].context[3].text',
+          'pages.dental-service.implant.detail.tableData[3].type[2].context[4].text'
+        ]
       ],
       price: '¥26000',
       discountedPrice: '¥18800'
     }
-  ]
+  ],
+  remark: 'pages.dental-service.implant.detail.remark'
 }
 
 const problemData = {
@@ -263,7 +295,6 @@ const getWindowWidth = () => {
 
 </script>
 
-
 <template>
   <div>
     <PageHeader :headerConfig="headerConfig"/>
@@ -273,7 +304,7 @@ const getWindowWidth = () => {
       <ServiceReason :reasonData="reasonData" />
       <div class="features">
         <div class="dentistryServices-title">
-          <div class="dentistryServices-title-in bb">{{featuresData.title}}</div>
+          <div class="dentistryServices-title-in bb">{{$t(featuresData.title)}}</div>
         </div>
         <div class="features-in">
           <div class="features-in-l">
@@ -282,41 +313,38 @@ const getWindowWidth = () => {
           <div class="features-in-r">
             <div class="features-in-r-item" v-for="(featuresItem,index) in featuresData.featuresLists" :key="index">
               <div class="w-20px">· </div>
-              <div>{{featuresItem}}</div>
+              <div>{{$t(featuresItem)}}</div>
             </div>
           </div>
         </div>
       </div>
       <div class="notice">
         <div class="dentistryServices-title">
-          <div class="dentistryServices-title-in bb">{{noticeData.title}}</div>
+          <div class="dentistryServices-title-in bb">{{$t(noticeData.title)}}</div>
         </div>
         <div class="notice-topText">
-          <span>傳統植牙和微創植牙都是一種牙科手術，用於取代缺失的牙齒。</span>
-          <span>兩者之間的主要區別在於手術的程度和方法。</span>
+          <span v-for="(topTextItem,topTextIndex) in noticeData.topText" :key="topTextIndex">{{$t(topTextItem)}}</span>
         </div>
         <div class="notice-in">
           <swiper :slidesPerView="windowWidth>768 ? '2': '1'" class="swiper-wrapper" @slideChange="onSlideChange">
               <swiper-slide class="swiper-slide">
                 <div class="box box-left">
                   <div class="box-in" v-for="(meritItem,meritIndex) in noticeData.meritLists" :key="meritIndex" >
-                    <div>{{meritItem}}</div>
+                    <div>{{$t(meritItem)}}</div>
                   </div>
                 </div>
               </swiper-slide>
               <swiper-slide class="swiper-slide">
                 <div class="box box-right">
                   <div class="box-in" v-for="(shortcomingItem,shortcomingIndex) in noticeData.shortcomingLists" :key="shortcomingIndex" >
-                    <div>{{shortcomingItem}}</div>
+                    <div>{{$t(shortcomingItem)}}</div>
                   </div>
                 </div>
               </swiper-slide>
           </swiper>
         </div>
         <div class="notice-bottomText pcBox">
-          <span>*總體而言，傳統植牙和微創植牙都是安裝人造牙齒的有效方法，</span>
-          <span>但是微創植牙通常需要較少的手術時間和康復時間，因此對於一些患者來說可能更為適合。然而，</span>
-          <span>每個人的情況都是不同的，最好向您的牙醫師諮詢，以了解哪種方法最適合您的情況。</span>
+          <span v-for="(bottomTextItem,bottomTextIndex) in noticeData.bottomText" :key="bottomTextIndex">{{$t(bottomTextItem)}}</span>
         </div>
         <div class="notice-line mbBox">
           <PageSwiperPointLine :latestNewsNum="2" :latestNewsCurrent="noticeCurrent"></PageSwiperPointLine>
@@ -325,41 +353,41 @@ const getWindowWidth = () => {
       <ServiceStep :stepData="stepData" />
       <div class="note">
         <div class="dentistryServices-title">
-          <div class="dentistryServices-title-in bb">種植牙後注意事項</div>
+          <div class="dentistryServices-title-in bb">{{$t('pages.dental-service.implant.note.title')}}</div>
         </div>
         <div class="noteCard pageCon">
           <div class="noteCard-in" v-for="(note,noteIndex) in noteLists" :key="noteIndex">
             <div class="noteCard-in-image">
               <img :src="note.img" alt="">
             </div>
-            <div class="noteCard-in-name">{{note.name}}</div>
+            <div class="noteCard-in-name">{{$t(note.name)}}</div>
           </div>
         </div>
       </div>
       <div class="detail">
         <div class="dentistryServices-title">
-          <div class="dentistryServices-title-in bb">{{detailData.title}}</div>
+          <div class="dentistryServices-title-in bb">{{$t(detailData.title)}}</div>
         </div>
         <div class="detail-table">
           <div class="detail-table-in">
             <div class="detail-table-in-col">
               <div v-for="(col,colIndex) in detailData.detailTableCol" :key="colIndex">
-                <div v-if="col.length <= 2">{{col}}</div>
-                <div v-else>{{col.slice(0,col.length-4)}}</div>
-                <div v-if="col.length > 2">{{col.slice(col.length-4,col.length)}}</div>
+                <div v-if="col.length <= 2">{{$t(col)}}</div>
+                <div v-else>{{$t(col).slice(0,col.length-4)}}</div>
+                <div v-if="col.length > 2">{{$t(col).slice(col.length-4,col.length)}}</div>
               </div>
             </div>
             <div class="detail-table-in-data" v-for="(tableItem,tableItemIndex) in detailData.detailTable" :key="tableItemIndex">
               <div>
-                <span v-for="(serviceTtem,serviceIndex) in tableItem.service" :key="serviceIndex">{{serviceTtem}}</span>
+                <span v-for="(serviceTtem,serviceIndex) in tableItem.service" :key="serviceIndex">{{$t(serviceTtem)}}</span>
               </div>
               <div>
                 <span v-for="(typeTtem,typeIndex) in tableItem.type" :key="typeIndex">
                   <p>· </p>
-                  <p v-if="typeIndex<2">{{typeTtem}}</p>
+                  <p v-if="typeIndex<2">{{$t(typeTtem)}}</p>
                   <div v-else>
                     <p v-for="(typeTtemChild,typeTtemChildIndex) in typeTtem" :key="typeTtemChildIndex">
-                      {{typeTtemChild}}
+                      {{ $t(typeTtemChild)}}
                     </p>
                   </div>
                 </span>
@@ -369,7 +397,7 @@ const getWindowWidth = () => {
             </div>
           </div>
         </div>
-        <div class="detail-remark">*本收費表所載資料為收費參考資料，最終收費會按不同的牙齒情況或複雜情度有所調整</div>
+        <div class="detail-remark">{{$t(detailData.remark)}}</div>
       </div>
       <ServiceProblem :problemData="problemData" />
       <serviceCard />
