@@ -384,10 +384,10 @@ const getWindowWidth = () => {
               <div>
                 <span v-for="(typeTtem,typeIndex) in tableItem.type" :key="typeIndex">
                   <p>· </p>
-                  <p v-if="typeIndex<2">{{$t(typeTtem)}}</p>
+                  <p v-if="typeIndex<2">{{ $t(String(typeTtem)) }}</p>
                   <div v-else>
                     <p v-for="(typeTtemChild,typeTtemChildIndex) in typeTtem" :key="typeTtemChildIndex">
-                      {{ $t(typeTtemChild)}}
+                      {{ $t(typeTtemChild) }}
                     </p>
                   </div>
                 </span>
