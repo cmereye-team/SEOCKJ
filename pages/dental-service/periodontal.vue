@@ -299,7 +299,7 @@ const problemData = {
         width: 184px;
         height: 184px;
         margin: 0 auto;
-        background: #E6F4FF;
+        background: #FFF1F0;
         border-radius: 10px;
         display: flex;
         justify-content: center;
@@ -356,7 +356,7 @@ const problemData = {
         }
         &:nth-of-type(3),&:nth-of-type(7){
           .symptom-lists-in-img{
-            background: #E6F4FF;
+            background: #FFF1F0;
           }
         }
       }
