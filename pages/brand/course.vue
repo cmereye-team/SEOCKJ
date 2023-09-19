@@ -1,7 +1,10 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
+import { Scrollbar } from 'swiper';
 const appState = useAppState()
 appState.setBrand('course')
+
+
 useHead({
   title: '品牌歷程 | 口腔專科醫院',
   meta: [
@@ -282,21 +285,32 @@ const courseData = {
             </div>
           </div>
           <div class="course-in">
-            <div class="courseBox" v-for="(courseItem,courseIndex) in courseData.lists" :key="courseIndex">
-              <div class="courseBox-l">
-                <div class="round"></div>
-                <div class="line"></div>
-              </div>
-              <div class="courseBox-in">
-                <div class="timeNode">{{courseItem.timeNode}}</div>
-                <div class="courseBox-in-lists">
-                  <div class="courseBox-in-listItem" v-for="(courseTimeNodeItem,courseTimeNodeIndex) in courseItem.events" :key="courseTimeNodeIndex">
-                    <div class="month">{{courseTimeNodeItem.month}}</div>
-                    <div class="context">{{$t(courseTimeNodeItem.context)}}</div>
+            <swiper
+              slidesPerView="2"
+              :scrollbar="{
+                hide: true,
+              }"
+              :modules="[Scrollbar]"
+              class="swiper"
+            >
+              <swiper-slide class="swiper-slide" v-for="(courseItem,courseIndex) in courseData.lists" :key="courseIndex">
+                <div class="courseBox" >
+                  <div class="courseBox-l">
+                    <div class="round"></div>
+                    <div class="line"></div>
+                  </div>
+                  <div class="courseBox-in">
+                    <div class="timeNode">{{courseItem.timeNode}}</div>
+                    <div class="courseBox-in-lists">
+                      <div class="courseBox-in-listItem" v-for="(courseTimeNodeItem,courseTimeNodeIndex) in courseItem.events" :key="courseTimeNodeIndex">
+                        <div class="month">{{courseTimeNodeItem.month}}</div>
+                        <div class="context">{{$t(courseTimeNodeItem.context)}}</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              </swiper-slide>
+            </swiper>
           </div>
         </div>
       </div>
@@ -385,40 +399,69 @@ const courseData = {
     // display: flex;
     // overflow-x: scroll;
     // scroll-snap-align: start;
+    :deep(.swiper-scrollbar){
+      opacity: 1 !important;
+      width: calc(100% - 60px);
+      margin: 0 30px;
+      background: var(--indexColor2);
+    }
+    :deep(.swiper-scrollbar-drag){
+      background: var(--indexColor1);
+    }
+    .swiper-slide{
+      &:first-child{
+        .courseBox{
+          &-l{
+            .line{
+              width: 50%;
+              margin-left: 50%;
+            }
+          }
+        }
+      }
+      &:last-child{
+        .courseBox-l{
+          .line{
+            width: 50%;
+          }
+        }
+      }
+    }
     .courseBox{
       display: flex;
-      // flex-direction: column;
-      // justify-content: center;
+      flex-direction: column;
       // min-width: 40%;
       &-l{
-        // width: 100%;
-        width: 44px;
+        width: 100%;
+        // width: 44px;
         .round{
           width: 24px;
           height: 24px;
           border-radius: 50%;
-          // margin-left: 50%;
-          // transform: translateX(-50%);
+          margin-left: 50%;
+          transform: translateX(-50%);
           background: var(--indexColor1);
         }
         .line{
-          // height: 3px;
-          // width: 100%;
-          // margin-top: -12px;
+          height: 3px;
+          width: 100%;
+          margin-top: -13px;
           background: var(--indexColor1);
-          height: 100%;
-          width: 3px;
-          margin-left: 10px;
+          // height: 100%;
+          // width: 3px;
+          // margin-left: 10px;
         }
       }
       &-in{
-        // padding: 60px 30px;
+        cursor: pointer;
+        padding: 60px 30px;
         // padding-top: 50px;
         flex: 1;
-        padding-bottom: 60px;
-        // display: flex;
-        // flex-direction: column;
-        // align-items: center;
+        // padding-bottom: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
         .timeNode{
           font-style: normal;
           font-weight: 700;
@@ -437,10 +480,10 @@ const courseData = {
           line-height: 160%;
           .month{
             color: var(--indexColor1);
-            // text-align: center;
+            text-align: center;
           }
           .context{
-            // text-align: center;
+            text-align: center;
             color: #666666;
             white-space: pre-wrap;
           }
@@ -462,16 +505,16 @@ const courseData = {
       //     }
       //   }
       // }
-      &:last-child{
-        .courseBox-l{
-          .line{
-            display: none;
-          }
-        }
-        .courseBox-in{
-          padding-bottom: 0;
-        }
-      }
+      // &:last-child{
+      //   .courseBox-l{
+      //     .line{
+      //       display: none;
+      //     }
+      //   }
+      //   .courseBox-in{
+      //     padding-bottom: 0;
+      //   }
+      // }
     }
   }
 }
@@ -555,14 +598,16 @@ const courseData = {
       padding: 24px;
       .courseBox{
         &-l{
-          width: 23px;
+          // width: 23px;
           .round{
             width: 16px;
             height: 16px;
           }
           .line{
-            width: 2px;
-            margin-left: 7px;
+            // width: 2px;
+            height: 2px;
+            // margin-left: 7px;
+            margin-top: -9px;
           }
         }
         &-in{
