@@ -352,7 +352,7 @@ const conditionData = {
         height: 187px;
         margin-top: 15px;
         display: flex;
-        background: #fff1f0;
+        background: var(--indexColor2);
         font-style: normal;
         font-weight: 600;
         font-size: 20px;
@@ -363,7 +363,7 @@ const conditionData = {
         display: flex;
         justify-content: center;
         &:first-child {
-          background: #ffa09e;
+          background: var(--indexColor1);
           color: #fff;
           margin-top: 0;
           height: 69px;
@@ -409,7 +409,7 @@ const conditionData = {
     text-align: center;
     color: #666666;
     span{
-      color: #FFA09E;
+      color: var(--indexColor1);
     }
   }
   &-lists{
@@ -434,7 +434,7 @@ const conditionData = {
           width: 100%;
           text-align: center;
           &:last-child{
-            color: #FFA09E;
+            color: var(--indexColor1);
           }
         }
       }
@@ -447,8 +447,8 @@ const conditionData = {
     width: calc(100% - 60px);
     max-width: 1206px;
     margin: 35px auto 0;
-    background: #FFF1F0;
-    box-shadow: 0px 4px 8px #FFDDDA;
+    background: var(--indexColor2);
+    box-shadow: 0px 4px 8px var(--indexColor3);
     padding: 59px 102px;
     font-style: normal;
     font-weight: 600;
@@ -511,10 +511,10 @@ const conditionData = {
         width: calc(100% - 60px);
         opacity: 1 !important;
         left: 30px;
-        background: #FFF1F0;
+        background: var(--indexColor2);
       }
       :deep(.swiper-scrollbar-drag){
-        background: #FFA09E;
+        background: var(--indexColor1);
       }
     }
   }
@@ -530,7 +530,7 @@ const conditionData = {
       &-in{
         flex-direction: row;
         margin-top: 22px;
-        background: linear-gradient(90deg, #FFF1F0 15.38%, rgba(255, 241, 240, 0) 109.42%);
+        background: linear-gradient(90deg, var(--indexColor3) 15.38%, rgba(255, 241, 240, 0) 109.42%);
         border-radius: 10px;
         max-width: 100%;
         &>div:first-child{
@@ -555,7 +555,7 @@ const conditionData = {
         }
         &:nth-of-type(2){
           flex-direction: row-reverse;
-          background: linear-gradient(270deg, #FFF1F0 15.38%, rgba(255, 241, 240, 0) 109.42%);
+          background: linear-gradient(270deg, var(--indexColor3) 15.38%, rgba(255, 241, 240, 0) 109.42%);
           &>div:last-child{
             span{
               text-align: right;

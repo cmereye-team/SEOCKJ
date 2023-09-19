@@ -322,7 +322,7 @@ const problemData = {
       }
       &:nth-of-type(odd){
         .symptom-lists-in-img{
-          background: #FFF1F0;
+          background: var(--indexColor2);
         }
       }
     }
@@ -351,7 +351,7 @@ const problemData = {
         }
         &:nth-of-type(4),&:nth-of-type(8){
           .symptom-lists-in-img{
-            background: #FFF1F0;
+            background: var(--indexColor2);
           }
         }
         &:nth-of-type(3),&:nth-of-type(7){

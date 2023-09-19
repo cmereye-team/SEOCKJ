@@ -97,7 +97,7 @@ defineProps({
       }
       &>span{
         cursor: pointer;
-        color: #FFA09E;
+        color: var(--indexColor1);
       }
     }
     @media (min-width: 768px) and (max-width: 1452px) {

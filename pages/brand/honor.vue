@@ -247,7 +247,7 @@ const handleProcessBtn = (_type: string) => {
   }
   & > span {
     cursor: pointer;
-    color: #ffa09e;
+    color: var(--indexColor1);
   }
 }
 .honor{
@@ -269,7 +269,7 @@ const handleProcessBtn = (_type: string) => {
       line-height: 160%;
       color: #666666;
       &:last-child{
-        border-bottom: 4px solid #FFA09E;
+        border-bottom: 4px solid var(--indexColor1);
       }
     }
   }
@@ -278,7 +278,7 @@ const handleProcessBtn = (_type: string) => {
     display: flex;
     .leftBtn{
       width: 70px;
-      background: #FFF1F0;
+      background: var(--indexColor2);
       cursor: pointer;
       position: relative;
       &::after{
@@ -297,7 +297,7 @@ const handleProcessBtn = (_type: string) => {
     }
     .rightBtn{
       width: 70px;
-      background: #FFCECB;
+      background: var(--indexColor);
       cursor: pointer;
       position: relative;
       &::after{
@@ -341,7 +341,7 @@ const handleProcessBtn = (_type: string) => {
       line-height: 160%;
       color: #666666;
       &:last-child{
-        border-bottom: 4px solid #FFA09E;
+        border-bottom: 4px solid var(--indexColor1);
       }
     }
   }
@@ -374,12 +374,12 @@ const handleProcessBtn = (_type: string) => {
         opacity: 1 !important;
         width: 450px;
         margin: 0 auto;
-        background: #FFF1F0;
+        background: var(--indexColor2);
         left: 50%;
         transform: translateX(-50%);
       }
       :deep(.swiper-scrollbar-drag){
-        background: #FFA09E;
+        background: var(--indexColor1);
       }
     }
   }
@@ -396,7 +396,7 @@ const handleProcessBtn = (_type: string) => {
     justify-content: center;
     &-in{
       display: inline-block;
-      border-bottom: 4px solid #FFA09E;
+      border-bottom: 4px solid var(--indexColor1);
       span{
         text-align: center;
         display: block;
@@ -409,7 +409,7 @@ const handleProcessBtn = (_type: string) => {
     font-size: 28px;
     line-height: 160%;
     text-align: center;
-    color: #FFA09E;
+    color: var(--indexColor1);
     margin-top: 35px;
   }
   &-in{
@@ -518,7 +518,7 @@ const handleProcessBtn = (_type: string) => {
       span{
         font-size: 26px;
         &:last-child{
-          border-bottom: 2.5px solid #FFA09E;
+          border-bottom: 2.5px solid var(--indexColor1);
         }
       }
     }
@@ -555,7 +555,7 @@ const handleProcessBtn = (_type: string) => {
       span{
         font-size: 26px;
         &:last-child{
-          border-bottom: 2.5px solid #FFA09E;
+          border-bottom: 2.5px solid var(--indexColor1);
         }
       }
     }
@@ -585,7 +585,7 @@ const handleProcessBtn = (_type: string) => {
     &-title{
       font-size: 26px;
       &-in{
-        border-bottom: 2.5px solid #FFA09E;
+        border-bottom: 2.5px solid var(--indexColor1);
       }
     }
     &-context{

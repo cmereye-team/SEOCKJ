@@ -229,7 +229,7 @@ const getWindowWidth = () => {
     &>span{
       &:last-child{
         display: block;
-        color: #FFA09E;
+        color: var(--indexColor1);
       }
     }
   }
@@ -271,7 +271,7 @@ const getWindowWidth = () => {
           color: #FFFFFF;
         }
         .listsBox{
-          background: #FFF1F0;
+          background: var(--indexColor2);
           display: flex;
           padding: 22px 52px 0 28px;
           flex-direction: column;
@@ -304,19 +304,19 @@ const getWindowWidth = () => {
         &:last-child{
           overflow: hidden;
           .title{
-            background: #FFCECB;
+            background: var(--indexColor);
           }
         }
         &:nth-of-type(2){
           border-radius: 60px 0 0 60px;
           overflow: hidden;
           .title{
-            background: #FFA09E;
+            background: var(--indexColor1);
           }
         }
         &:nth-of-type(3){
           .title{
-            background: #FFCECB;
+            background: var(--indexColor);
           }
         }
       }

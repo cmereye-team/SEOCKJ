@@ -191,7 +191,7 @@ const setLatestNewsSwiperRef = (swiper:any) => {
   }
   &-in{
     cursor: pointer;
-    background: #FFDDDA;
+    background: var(--indexColor3);
     border-radius: 20px;
     overflow: hidden;
     display: flex;

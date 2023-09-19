@@ -195,7 +195,7 @@ onMounted(() => {
           border-right: 30px solid;
           border-top: 20px solid;
           border-bottom: 20px solid;
-          border-color: transparent transparent transparent #FFCECB;
+          border-color: transparent transparent transparent var(--indexColor);
 
         }
       }

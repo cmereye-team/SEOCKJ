@@ -245,7 +245,7 @@ const problemData = {
     font-weight: 600;
     font-size: 20px;
     line-height: 160%;
-    color: #FFA09E;
+    color: var(--indexColor1);
     text-align: center;
   }
   &-table{
@@ -297,7 +297,7 @@ const problemData = {
           display: flex;
           margin-bottom: 6px;
           .th{
-            background: #FFA09E;
+            background: var(--indexColor1);
             font-style: normal;
             font-weight: 700;
             font-size: 28px;
@@ -312,7 +312,7 @@ const problemData = {
             justify-content: center;
             width: 100%;
             .td{
-              background: #FFDDDA;
+              background: var(--indexColor3);
               font-style: normal;
               font-weight: 700;
               font-size: 28px;
@@ -361,7 +361,7 @@ const problemData = {
               font-size: 28px;
               line-height: 160%;
               background: #FFFFFF;
-              color: #FFA09E;
+              color: var(--indexColor1);
               margin-bottom: 6px;
             }
           }
@@ -534,10 +534,10 @@ const problemData = {
         opacity: 1 !important;
         width: calc(100% - 60px);
         margin: 0 30px;
-        background: #FFF1F0;
+        background: var(--indexColor2);
       }
       :deep(.swiper-scrollbar-drag){
-        background: #FFA09E;
+        background: var(--indexColor1);
       }
     }
   }

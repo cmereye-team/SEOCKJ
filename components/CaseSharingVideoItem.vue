@@ -44,7 +44,7 @@ const props = defineProps({
   &-l{
     width: 35.94%;
     z-index: 1;
-    background: #FFF1F0;
+    background: var(--indexColor2);
     box-shadow: 2px 4px 8px rgba(255, 120, 117, 0.35);
     img{
       width: 100%;
@@ -80,14 +80,14 @@ const props = defineProps({
       font-weight: 700;
       font-size: 20px;
       line-height: 160%;
-      color: #FFA09E;
+      color: var(--indexColor1);
       z-index: 1;
     }
     .process{
       font-weight: 700;
       font-size: 20px;
       line-height: 160%;
-      color: #FFA09E;
+      color: #69B1FF;
       margin-top: 70px;
       z-index: 1;
     }

@@ -362,7 +362,7 @@ const getWindowWidth = () => {
         font-size: 20px;
         text-align: center;
         color: #FFFFFF;
-        background: #FFA09E;
+        background: var(--indexColor1);
         position: relative;
         &::after{
           content: '';
@@ -374,7 +374,7 @@ const getWindowWidth = () => {
           border-left: 8px solid;
           border-right: 8px solid;
           border-bottom: 20px solid;
-          border-color: #FFA09E transparent transparent transparent;
+          border-color: var(--indexColor1) transparent transparent transparent;
         }
       }
       img{
@@ -437,7 +437,7 @@ const getWindowWidth = () => {
         font-size: 20px;
         text-align: center;
         color: #FFFFFF;
-        background: #FFA09E;
+        background: var(--indexColor1);
         position: relative;
         &::after{
           content: '';
@@ -449,7 +449,7 @@ const getWindowWidth = () => {
           border-left: 8px solid;
           border-right: 8px solid;
           border-bottom: 20px solid;
-          border-color: #FFA09E transparent transparent transparent;
+          border-color: var(--indexColor1) transparent transparent transparent;
         }
       }
       img{
@@ -467,7 +467,7 @@ const getWindowWidth = () => {
   &-in{
     margin-top: 40px;
     padding: 88px 0;
-    background: linear-gradient(180deg, #FFF1F0 0%, rgba(255, 241, 240, 0) 100%);
+    background: linear-gradient(180deg, var(--indexColor3) 0%, rgba(255, 241, 240, 0) 100%);
   }
   &-swiper{
     padding-bottom: 10px;
@@ -497,7 +497,7 @@ const getWindowWidth = () => {
           font-size: 28px;
           line-height: 160%;
           text-align: center;
-          color: #FFA09E;
+          color: var(--indexColor1);
           margin-top: 40px;
         }
         &-text{

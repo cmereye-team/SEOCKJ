@@ -57,11 +57,11 @@ onMounted(()=>{
     .boxLine{
       width: 100%;
       height: 4px;
-      background: #FFF1F0;
+      background: var(--indexColor2);
     }
     .boxLine-current{
       height: 4px;
-      background: #FFCECB;
+      background: var(--indexColor);
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
@@ -79,12 +79,12 @@ onMounted(()=>{
       &-in{
         width: 24px;
         height: 24px;
-        background: #FFF1F0;
+        background: var(--indexColor2);
         border-radius: 50%;
         .current{
           width: 100%;
           height: 100%;
-          background: #FFCECB;
+          background: var(--indexColor);
           border-radius: 50%;
           transition: all .5s;
         }

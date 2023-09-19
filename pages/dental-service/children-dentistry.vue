@@ -241,7 +241,7 @@ const handleSkillTab = (_idx:number) => {
       font-size: 28px;
       height: 74px;
       line-height: 74px;
-      background: #FFF1F0;
+      background: var(--indexColor2);
       border-radius: 10px;
       text-align: center;
       color: #666666;
@@ -264,7 +264,7 @@ const handleSkillTab = (_idx:number) => {
       line-height: 160%;
       text-align: center;
       color: #666666;
-      border-bottom: 4px solid #FFA09E;
+      border-bottom: 4px solid var(--indexColor1);
       span{
         display: block;
       }
@@ -272,13 +272,13 @@ const handleSkillTab = (_idx:number) => {
   }
   &-tab{
     margin-top: 46px;
-    box-shadow: 0px 4px 8px #FFDDDA;
+    box-shadow: 0px 4px 8px var(--indexColor3);
     &-t{
       display: flex;
       &>div{
         flex: 1;
         text-align: center;
-        background: #FFDDDA;
+        background: var(--indexColor3);
         font-style: normal;
         font-weight: 700;
         font-size: 28px;
@@ -290,10 +290,10 @@ const handleSkillTab = (_idx:number) => {
           margin-right: 3px;
         }
         &:hover{
-          background: #FFA09E;
+          background: var(--indexColor1);
         }
         &.cur{
-          background: #FFA09E;
+          background: var(--indexColor1);
         }
       }
     }
@@ -373,7 +373,7 @@ const handleSkillTab = (_idx:number) => {
   }
   &-collapse{
     margin-top: 33px;
-    box-shadow: 0px 4px 8px #FFDDDA;
+    box-shadow: 0px 4px 8px var(--indexColor3);
     &-b{
       &>div{
         margin-top: 25px;
@@ -410,7 +410,7 @@ const handleSkillTab = (_idx:number) => {
     }
     :deep(.el-collapse-item__header){
       padding: 10.5px 0;
-      background: #FFDDDA;
+      background: var(--indexColor3);
       border: none;
       box-sizing: initial;
       color: #FFFFFF;
@@ -419,7 +419,7 @@ const handleSkillTab = (_idx:number) => {
       justify-content: center;
     }
     :deep(.el-collapse-item__header.is-active){
-      background: #FFA09E;
+      background: var(--indexColor1);
       .skill-collapse-title{
         color: #FFFFFF;
       }

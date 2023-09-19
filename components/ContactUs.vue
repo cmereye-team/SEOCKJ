@@ -2,6 +2,7 @@
 import { useAppState } from '~/stores/appState'
 const appState = useAppState()
 const mapConShow = ref(true)
+const route = useRoute()
 
 onMounted(()=>{
   getWindowResize()
@@ -13,7 +14,6 @@ const getWindowResize = () => {
     mapConShow.value = true
   else
     mapConShow.value = false
-  // console.log(mapConShow)
 }
 
 let currentAddress = ref('0')
@@ -29,7 +29,7 @@ const allAddressLists = [
       phone: '+852 69122011',
       busRoutes: 'contactUs.addressLists.address_101.busRoutes',
       metroRoutes: 'contactUs.addressLists.address_101.metroRoutes',
-      addressUrl: 'https://static.cmereye.com/imgs/2023/05/476419e0bd27692f.png',
+      addressUrl: 'https://static.cmereye.com/imgs/2023/09/11e84702229e6caf.jpg',
       googleMap: 'https://goo.gl/maps/yuWB8353yF3u4EJS6?coh=178572&entry=tt',
       baiduMap: 'https://j.map.baidu.com/b3/j3Yu'
     },
@@ -192,57 +192,32 @@ const allAddressLists = [
   ]
 ]
 
-// --------------------------------------------------
 let contactUsSwiperRef ={
   slideTo: (a,b)=>{}
 }
-//轮播图setRef事件
+
 const setContactUsSwiperRef = (swiper:any) => {
   contactUsSwiperRef = swiper;
 };
 
 const onSlideContactUsSwiperChange = (swiper:any) => {
-  // console.log('Change',swiper.realIndex)
   currentAddress.value = swiper.realIndex
 }
-// --------------------------------------------------
 
 const handleAddress = (_idx: string) => {
-  console.log(_idx)
+  // console.log(_idx)
   if(currentAddress.value === _idx){
     currentAddress.value = '0'
     return
   }
   currentAddress.value = _idx
-  // contactUsSwiperRef.slideTo(currentAddress.value, 0);
 }
-
-// const handleLeftBtn = () => {
-//   // console.log('left',currentAddress.value)
-//   if(currentAddress.value > 0){
-//     currentAddress.value--
-//   }else{
-//     currentAddress.value = allAddressLists[appState.areaTabCurNum].length-1
-//   }
-//   contactUsSwiperRef.slideTo(currentAddress.value, 0);
-// }
-
-// const handleRightBtn = () => {
-//   // console.log('right',currentAddress.value)
-//   if(currentAddress.value >= 0 && currentAddress.value < allAddressLists[appState.areaTabCurNum].length-1){
-//     currentAddress.value++
-//   }else{
-//     currentAddress.value = 0
-//   }
-//   contactUsSwiperRef.slideTo(currentAddress.value, 0);
-// }
 
 </script>
 
 
 <template>
   <div class="index-contactUs">
-      <!-- <div class="index_title">聯絡我們</div> -->
       <div class="index-contactUs-t pageCon">
         <div class="index_title">{{$t('contactUs.title')}}</div>
         <div>
@@ -250,27 +225,32 @@ const handleAddress = (_idx: string) => {
         </div>
       </div>
       <div class="address">
-        <div class="address-in" v-for="(addressItem,addressIndex) in allAddressLists[appState.areaTabCurNum]" :key="addressIndex">
-          <h3>{{$t(addressItem.name)}}</h3>
-          <div class="content">
-            <span>{{$t('contactUs.hospital_address')}}：{{$t(addressItem.address)}}</span>
-            <span>{{$t('contactUs.hours_of_Operation')}}：{{$t(addressItem.time)}}</span>
-            <span>{{$t('contactUs.check_the_phone')}}：{{addressItem.phone}}</span>
+        <div class="address-in" :class="{'firstBox': addressItem.id === '101' && route.path === '/contactUs'}" v-for="(addressItem,addressIndex) in allAddressLists[appState.areaTabCurNum]" :key="addressIndex">
+          <div class="address-img" v-if="addressItem.id === '101' && route.path === '/contactUs'">
+            <img :src="addressItem.addressUrl" alt="">
           </div>
-          <span class="showIcon" @click="handleAddress(addressItem.id)">{{$t('contactUs.traffic_route')}}:</span>
-          <div class="route" v-show="currentAddress === addressItem.id ">
-            <span>{{$t('contactUs.bus_route')}}</span>
-            <span>{{$t(addressItem.busRoutes)}}</span>
-            <span>{{$t('contactUs.metro_lines')}}</span>
-            <span>{{$t(addressItem.metroRoutes)}}</span>
-          </div>
-          <div class="mapBtn">
-            <!-- <a :href="addressItem.googleMap" target="_blank">
-            <div class="mapBtn-in">{{$t('contactUs.google_map')}}</div>
-            </a> -->
-            <a :href="addressItem.baiduMap" target="_blank">
-              <div class="mapBtn-in">{{$t('contactUs.baidu_map')}}</div>
-            </a>
+          <div class="address-box">
+            <h3>{{$t(addressItem.name)}}</h3>
+            <div class="content">
+              <span>{{$t('contactUs.hospital_address')}}：{{$t(addressItem.address)}}</span>
+              <span>{{$t('contactUs.hours_of_Operation')}}：{{$t(addressItem.time)}}</span>
+              <span>{{$t('contactUs.check_the_phone')}}：{{addressItem.phone}}</span>
+            </div>
+            <span class="showIcon" @click="handleAddress(addressItem.id)">{{$t('contactUs.traffic_route')}}:</span>
+            <div class="route" v-show="currentAddress === addressItem.id ">
+              <span>{{$t('contactUs.bus_route')}}</span>
+              <span>{{$t(addressItem.busRoutes)}}</span>
+              <span>{{$t('contactUs.metro_lines')}}</span>
+              <span>{{$t(addressItem.metroRoutes)}}</span>
+            </div>
+            <div class="mapBtn">
+              <!-- <a :href="addressItem.googleMap" target="_blank">
+              <div class="mapBtn-in">{{$t('contactUs.google_map')}}</div>
+              </a> -->
+              <a :href="addressItem.baiduMap" target="_blank">
+                <div class="mapBtn-in">{{$t('contactUs.baidu_map')}}</div>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -292,13 +272,24 @@ const handleAddress = (_idx: string) => {
     flex-wrap: wrap;
     margin-top: 79px;
     &-in{
+      &.firstBox{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .address-img{
+          max-width: 577px;
+          width: 100%;
+          margin-right: 74px;
+        }
+      }
       width: 33.33%;
       padding: 0 50px 100px;
       h3{
         font-weight: 500;
         font-size: 1.25rem;
         line-height: 160%;
-        color: #FFA09E;
+        color: var(--indexColor1);
         position: relative;
         display: inline-block;
         cursor: pointer;
@@ -344,7 +335,6 @@ const handleAddress = (_idx: string) => {
         display: flex;
         justify-content: space-between;
         a{
-          // flex: 1;
           width: 50%;
           &:first-child{
             margin-right: 22px;
@@ -353,7 +343,7 @@ const handleAddress = (_idx: string) => {
         &-in{
           width: 100%;
           background: #FFFFFF;
-          box-shadow: 1px 1px 4px #FFA09E;
+          box-shadow: 1px 1px 4px var(--indexColor1);
           border-radius: 40px;
           font-family: 'Arial';
           font-style: normal;
@@ -361,14 +351,14 @@ const handleAddress = (_idx: string) => {
           font-size: 2rem;
           line-height: 160%;
           text-align: center;
-          color: #FFA09E;
+          color: var(--indexColor1);
           display: inline-block;
           padding: 13px 0;
           cursor: pointer;
           transition: all .5s;
           &:hover{
             color: #FFFFFF;
-            background: #FFA09E;
+            background: var(--indexColor1);
           }
         }
       }

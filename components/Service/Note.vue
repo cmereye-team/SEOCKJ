@@ -42,8 +42,8 @@ defineProps({
     max-width: 1200px;
     margin: 35px auto;
     padding: 60px 0;
-    background: #FFF1F0;
-    box-shadow: 0px 4px 8px #FFDDDA;
+    background: var(--indexColor2);
+    box-shadow: 0px 4px 8px var(--indexColor3);
     // min-height: 378px;
     display: flex;
     justify-content: center;

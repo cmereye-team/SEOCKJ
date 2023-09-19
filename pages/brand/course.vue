@@ -354,7 +354,7 @@ const courseData = {
   }
   & > span {
     cursor: pointer;
-    color: #ffa09e;
+    color: var(--indexColor1);
   }
 }
 .course{
@@ -370,7 +370,7 @@ const courseData = {
     line-height: 160%;
     color: #666666;
     &-in{
-      border-bottom: 4px solid #FFA09E;
+      border-bottom: 4px solid var(--indexColor1);
       display: inline-block;
     }
   }
@@ -379,35 +379,52 @@ const courseData = {
     max-width: 1452px;
     margin: 35px auto 0;
     background: #FFFFFF;
-    box-shadow: 0px 4px 8px #FFDDDA;
+    box-shadow: 0px 4px 8px var(--indexColor3);
     padding: 54px 65px 44px;
     box-sizing: border-box;
+    // display: flex;
+    // overflow-x: scroll;
+    // scroll-snap-align: start;
     .courseBox{
       display: flex;
+      // flex-direction: column;
+      // justify-content: center;
+      // min-width: 40%;
       &-l{
+        // width: 100%;
         width: 44px;
         .round{
           width: 24px;
           height: 24px;
           border-radius: 50%;
-          background: #FFA09E;
+          // margin-left: 50%;
+          // transform: translateX(-50%);
+          background: var(--indexColor1);
         }
         .line{
+          // height: 3px;
+          // width: 100%;
+          // margin-top: -12px;
+          background: var(--indexColor1);
           height: 100%;
           width: 3px;
-          background: #FFA09E;
           margin-left: 10px;
         }
       }
       &-in{
+        // padding: 60px 30px;
+        // padding-top: 50px;
         flex: 1;
         padding-bottom: 60px;
+        // display: flex;
+        // flex-direction: column;
+        // align-items: center;
         .timeNode{
           font-style: normal;
           font-weight: 700;
           font-size: 28px;
           line-height: 160%;
-          color: #FFA09E;
+          color: var(--indexColor1);
           margin-top: -10px;
         }
         &-lists{
@@ -419,14 +436,32 @@ const courseData = {
           font-size: 20px;
           line-height: 160%;
           .month{
-            color: #FFA09E;
+            color: var(--indexColor1);
+            // text-align: center;
           }
           .context{
+            // text-align: center;
             color: #666666;
             white-space: pre-wrap;
           }
         }
       }
+      // &:first-child{
+      //   .courseBox-l{
+      //     .line{
+      //       width: 50%;
+      //       margin-left: 50%;
+      //     }
+      //   }
+      // }
+      // &:last-child{
+      //   .courseBox-l{
+      //     .line{
+      //       width: 50%;
+            
+      //     }
+      //   }
+      // }
       &:last-child{
         .courseBox-l{
           .line{

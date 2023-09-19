@@ -73,7 +73,7 @@ defineProps({
         font-weight: 700;
         font-size: 21px;
         line-height: 160%;
-        color: #FFA09E;
+        color: var(--indexColor1);
         display: block;
       }
       .text{
@@ -81,7 +81,7 @@ defineProps({
         font-weight: 700;
         font-size: 21px;
         line-height: 160%;
-        color: #FFA09E;
+        color: #69B1FF;
         display: block;
         text-align: right;
       }
@@ -142,7 +142,7 @@ defineProps({
           border-radius: 50%;
           border: none;
           display: inline-block;
-          box-shadow: 0px 1px 2px #FFA09E;
+          box-shadow: 0px 1px 2px var(--indexColor1);
         }
       }
       &-context{

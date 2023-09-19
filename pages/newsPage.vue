@@ -186,8 +186,8 @@ const getWindowWidth = () => {
               <div class="newsItem-in-c">
                 <div class="title">{{newItem.title}}</div>
                 <svg v-show="!newItem.isShow" class="mbBox" width="13" height="23" viewBox="0 0 13 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12.5 0H0L6.25 10L12.5 0Z" fill="#FFA09E"/>
-                  <path d="M12.5 13H0L6.25 23L12.5 13Z" fill="#FFA09E"/>
+                  <path d="M12.5 0H0L6.25 10L12.5 0Z" fill="#FC1682"/>
+                  <path d="M12.5 13H0L6.25 23L12.5 13Z" fill="#FC1682"/>
                 </svg>
                 <!-- <div class="pcShow" v-show="true"> -->
                   <div :class="'content'" v-show="windowWidth > 768 ? true : newItem.isShow">
@@ -254,7 +254,7 @@ const getWindowWidth = () => {
   .newsItem{
     width: 100%;
     height: 550px;
-    background: #FFF1F0;
+    background: var(--indexColor2);
     border-radius: 15px;
     margin-top: 76px;
     padding: 43px;
@@ -268,7 +268,7 @@ const getWindowWidth = () => {
       &-l{
         width: 464px;
         height: 100%;
-        background: #FFDDDA;
+        background: var(--indexColor3);
       }
       &-c{
         flex: 1;
@@ -278,7 +278,7 @@ const getWindowWidth = () => {
         box-sizing: border-box;
         font-family: 'Arial';
         font-weight: 400;
-        color: #FFA09E;
+        color: var(--indexColor1);
         justify-content: space-between;
         svg{
           margin: 10px auto 0;
@@ -287,7 +287,7 @@ const getWindowWidth = () => {
           height: 60px;
           font-size: 3.125rem;
           line-height: 110%;
-          border-left: 20px solid #FFCECB;
+          border-left: 20px solid var(--indexColor);
         }
         .content{
           font-size: 1.75rem;
@@ -310,7 +310,7 @@ const getWindowWidth = () => {
               width: 7px;
               height: 7px;
               display: inline-block;
-              background: #FFA09E;
+              background: var(--indexColor1);
               border-radius: 50%;
               vertical-align: middle;
               margin-top: -5px;
@@ -325,7 +325,7 @@ const getWindowWidth = () => {
           height: 70px;
           line-height: 70px;
           font-size: 2rem;
-          color: #FFA09E;
+          color: var(--indexColor1);
           text-align: center;
           // margin-top: 46px;
           box-shadow: 1px 1px 4px rgba(255, 163, 158, 0.45);
@@ -340,7 +340,7 @@ const getWindowWidth = () => {
       &-r{
         width: 150px;
         height: 150px;
-        background: #FFCECB;
+        background: var(--indexColor);
         border-radius: 50%;
         display: flex;
         flex-direction: column;
@@ -413,7 +413,7 @@ const getWindowWidth = () => {
             height: 50px;
             font-size: 2.5rem;
             line-height: 130%;
-            border-left: 15px solid #FFCECB;
+            border-left: 15px solid var(--indexColor);
           }
           .content{
             font-size: 1.4rem;
@@ -454,7 +454,7 @@ const getWindowWidth = () => {
           .title{
             height: 3.5vw;
             font-size: 3vw;
-            border-left: 10px solid #FFCECB;
+            border-left: 10px solid var(--indexColor);
           }
           .content{
             font-size: 1rem;

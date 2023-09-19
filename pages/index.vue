@@ -253,7 +253,7 @@ svg:hover path{
           height: calc(100% - 1px);
         }
         &:hover{
-          background: #FFDDDA;
+          background: var(--indexColor);
         }
       }
     }
@@ -267,7 +267,7 @@ svg:hover path{
 //個案分享
 .index-caseSharing{
   padding: 35px 0;
-  background: linear-gradient(180deg,rgba(255, 241, 240, 0) 0%,#FFF1F0 100%);
+  background: linear-gradient(180deg,rgba(255, 241, 240, 0) 0%,var(--indexColor2) 100%);
   &-title{
     display: flex;
     justify-content: center;
@@ -368,7 +368,7 @@ svg:hover path{
           color: #666666;
           transition: all .3s;
           &:hover{
-            background: #FFDDDA;
+            background: var(--indexColor3);
             color: #FFFFFF;
             text-shadow: 0px 0px 8px rgba(255, 120, 117, 0.65);
           }

@@ -169,22 +169,22 @@ const handleLineCur = (_value:number) =>{
         }
         &:not(:first-child):nth-of-type(odd){
           &>div{
-            background: #FFDDDA;
+            background: var(--indexColor3);
           }
         }
         &:nth-of-type(even){
           &>div{
-            background: #FFF1F0;
+            background: var(--indexColor2);
           }
         }
         &.boxRight.invisalign:not(:first-child):nth-of-type(odd){
           &>div{
-            background: #FFDDDA;
+            background: var(--indexColor3);
           }
         }
         &.boxRight.invisalign:nth-of-type(even){
           &>div{
-            background: #FFF1F0;
+            background: var(--indexColor2);
           }
         }
       }

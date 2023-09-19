@@ -262,7 +262,7 @@ const problemData = {
         height: 140px;
         margin-top: 4px;
         display: flex;
-        background: #fff1f0;
+        background: var(--indexColor2);
         font-style: normal;
         font-weight: 600;
         font-size: 20px;
@@ -273,7 +273,7 @@ const problemData = {
         display: flex;
         align-items: center;
         &:first-child {
-          background: #ffa09e;
+          background: var(--indexColor1);
           color: #fff;
           margin-top: 0;
           height: 69px;

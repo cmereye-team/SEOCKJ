@@ -72,7 +72,7 @@ defineProps({
       &-in{
         width: 100%;
         background: #FFFFFF;
-        box-shadow: 0px 4px 8px #FFDDDA;
+        box-shadow: 0px 4px 8px var(--indexColor3);
         margin-top: 35px;
         display: flex;
         padding: 44px 65px;
@@ -98,7 +98,7 @@ defineProps({
               .line{
                 width: 4px;
                 height: 100%;
-                background: #FFF1F0;
+                background: var(--indexColor2);
                 position: absolute;
                 top: 20px;
                 left: 10px;
@@ -113,7 +113,7 @@ defineProps({
                 margin-right: 14px;
                 margin-top: 8px;
                 border-radius: 50%;
-                background: #FFF1F0;
+                background: var(--indexColor2);
                 display: block;
                 z-index: 1;
               }
@@ -155,7 +155,7 @@ defineProps({
                 }
               }
               &:hover .round{
-                background: #FFCECB;
+                background: var(--indexColor);
               }
             }
             &-in:last-child{

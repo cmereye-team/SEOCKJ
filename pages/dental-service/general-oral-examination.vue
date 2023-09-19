@@ -230,7 +230,7 @@ const getWindowWidth = () => {
         height: 278px;
         margin-top: 15px;
         display: flex;
-        background: #fff1f0;
+        background: var(--indexColor2);
         font-style: normal;
         font-weight: 600;
         font-size: 20px;
@@ -242,7 +242,7 @@ const getWindowWidth = () => {
         align-items: center;
         justify-content: center;
         &:first-child {
-          background: #ffa09e;
+          background: var(--indexColor1);
           color: #fff;
           margin-top: 0;
           height: 69px;
@@ -264,7 +264,7 @@ const getWindowWidth = () => {
       overflow: hidden;
       .box-in {
         &:first-child {
-          background: #ffcecb;
+          background: var(--indexColor);
         }
       }
     }
@@ -280,8 +280,8 @@ const getWindowWidth = () => {
     width: 100%;
     max-width: 1246px;
     padding: 59px 50px;
-    background: #fff1f0;
-    box-shadow: 0px 4px 8px #ffddda;
+    background: var(--indexColor2);
+    box-shadow: 0px 4px 8px var(--indexColor3);
     margin: 35px auto;
     &-top {
       font-style: normal;
@@ -295,7 +295,7 @@ const getWindowWidth = () => {
         font-weight: 700;
         font-size: 30px;
         line-height: 160%;
-        color: #ffa09e;
+        color: var(--indexColor1);
       }
     }
     &-title {
@@ -304,7 +304,7 @@ const getWindowWidth = () => {
       font-size: 28px;
       line-height: 160%;
       text-align: center;
-      color: #ffa09e;
+      color: var(--indexColor1);
       margin-top: 17px;
     }
     &-lists {
@@ -319,7 +319,7 @@ const getWindowWidth = () => {
         box-sizing: border-box;
         min-height: 304px;
         & > div:first-child {
-          color: #ffa09e;
+          color: var(--indexColor1);
           font-weight: 700;
           font-size: 22px;
           line-height: 160%;
@@ -346,7 +346,7 @@ const getWindowWidth = () => {
       font-size: 28px;
       line-height: 160%;
       text-align: center;
-      color: #ffa09e;
+      color: var(--indexColor1);
     }
   }
 }

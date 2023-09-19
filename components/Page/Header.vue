@@ -311,8 +311,11 @@ const handleMbMenu = () => {
       <div :class="isFiexdHeader ? 'headerBox02': 'headerBox01'">
         <div class="pageCon header-content-in" ref="headerMenu">
           <div class="logo">
-            <nuxt-link :to="'/'"
+            <!-- <nuxt-link :to="'/'"
               ><img src="@/assets/images/logo_1.png" alt=""
+            /></nuxt-link> -->
+            <nuxt-link :to="'/'"
+              ><img src="@/assets/images/logo_11.png" alt=""
             /></nuxt-link>
           </div>
           <div class="menu">
@@ -524,7 +527,7 @@ const handleMbMenu = () => {
         width: 73%;
         span{
           font-size: 25px;
-          color: #FFCECB;
+          color: var(--indexColor);
         }
       }
       &.brand{
@@ -592,21 +595,21 @@ const handleMbMenu = () => {
         }
         .triangleIcon:hover{
           &:after{
-            border-color: #ffa09e transparent transparent transparent;
+            border-color: var(--indexColor1) transparent transparent transparent;
           }
         }
         &>.router-link-exact-active{
-          color: #ffa09e;
+          color: var(--indexColor1);
           text-decoration-line: underline;
           &.triangleIcon:after{
-            border-color: #ffa09e transparent transparent transparent;
+            border-color: var(--indexColor1) transparent transparent transparent;
           }
         }
         &:hover {
-          color: #ffa09e;
+          color: var(--indexColor1);
           text-decoration-line: underline;
           .triangleIcon:after{
-            border-color: #ffa09e transparent transparent transparent;
+            border-color: var(--indexColor1) transparent transparent transparent;
           }
         }
         &:hover .menuChild{
@@ -636,13 +639,13 @@ const handleMbMenu = () => {
             color: #666666;
             transition: all .3s;
             &:not(:last-child){
-              border-bottom: 1px solid #FFF1F0;
+              border-bottom: 1px solid var(--indexColor2);
             }
             &:hover{
-              color: #FFA09E;
+              color: var(--indexColor1);
             }
             &.menuChildCurrent{
-              color: #FFA09E;
+              color: var(--indexColor1);
             }
           }
           &::before{
@@ -682,7 +685,7 @@ const handleMbMenu = () => {
     top: 0;
     width: 100vw;
     z-index: 100;
-    box-shadow: 0px 4px 8px #FFDDDA;
+    box-shadow: 0px 4px 8px var(--indexColor3);
     .header-content-in{
       align-items: center;
     }
@@ -788,7 +791,7 @@ const handleMbMenu = () => {
           line-height: 130%;
           span{
             font-size: 1.2rem;
-            color: #FFCECB;
+            color: var(--indexColor);
           }
         }
       }
@@ -819,7 +822,7 @@ const handleMbMenu = () => {
           line-height: 130%;
           span{
             font-size: 1.4rem;
-            color: #FFCECB;
+            color: var(--indexColor);
           }
         }
       }
@@ -989,7 +992,7 @@ const handleMbMenu = () => {
     font-style: normal;
     font-weight: 600;
     line-height: 160%;
-    color: #FFA09E;
+    color: var(--indexColor1);
     transition: all .3s;
     overflow: hidden;
     overflow-y: auto;
@@ -1016,12 +1019,12 @@ const handleMbMenu = () => {
           content: '';
           width: calc(100% - 60px);
           height: 2px;
-          background: #FFF1F0;
+          background: var(--indexColor2);
           bottom: 0;
           left: 50%;
           transform: translateX(-50%);
           position: absolute;
-          // border-bottom: 2px solid #FFF1F0;
+          // border-bottom: 2px solid var(--indexColor2);
         }
         &.childIcon:after{
           content: '';
@@ -1035,7 +1038,7 @@ const handleMbMenu = () => {
           border-left: 6px solid;
           border-right: 6px solid;
           border-bottom: 10px solid;
-          border-color: #FFA09E transparent transparent transparent;
+          border-color: var(--indexColor1) transparent transparent transparent;
           vertical-align: middle;
         }
       }
@@ -1047,7 +1050,7 @@ const handleMbMenu = () => {
         font-size: 1rem;
         font-weight: 500;
         margin-top: 20px;
-        color: #FFCECB;
+        color: var(--indexColor);
         &-item{
           width: 100%;
           height: 100%;
@@ -1059,7 +1062,7 @@ const handleMbMenu = () => {
             padding: 10px 0;
             display: block;
             &.router-link-exact-active{
-              background: #FFF1F0;
+              background: var(--indexColor2);
             }
           }
         }

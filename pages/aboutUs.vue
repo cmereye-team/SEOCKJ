@@ -48,7 +48,7 @@ useHead({
     background: #fff;
     padding: 143px 0;
     &-in{
-      background: linear-gradient(180deg, rgba(255, 241, 240, 0) 0%, #FFF1F0 44.27%, rgba(255, 241, 240, 0) 100%);
+      background: linear-gradient(180deg, rgba(255, 241, 240, 0) 0%, var(--indexColor3) 44.27%, rgba(255, 241, 240, 0) 100%);
       &-video{
         margin-top: 59px;
       }

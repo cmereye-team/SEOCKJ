@@ -27,25 +27,25 @@ const handleAreaTab = (_idx: number) => {
     cursor: pointer;
     font-weight: 500;
     font-size: 1.31rem;
-    color: #FFA09E;
-    border-top: 2px solid #FFA09E;
-    border-bottom: 2px solid #FFA09E;
-    border-left: 2px solid #FFA09E;
+    color: var(--indexColor1);
+    border-top: 2px solid var(--indexColor1);
+    border-bottom: 2px solid var(--indexColor1);
+    border-left: 2px solid var(--indexColor1);
     transition: all .5s;
     &:first-child{
       border-radius: 5px 0 0 5px;
     }
     &:last-child{
       border-radius: 0 5px 5px 0;
-      border-right: 2px solid #FFA09E;
+      border-right: 2px solid var(--indexColor1);
     }
     &:hover{
-      background: #FFA09E;
+      background: var(--indexColor1);
       color: #fff;
       text-shadow: 0px 0px 8px rgba(179, 54, 54, 0.55);
     }
     &.isCur{
-      background: #FFA09E;
+      background: var(--indexColor1);
       color: #fff;
       text-shadow: 0px 0px 8px rgba(179, 54, 54, 0.55);
     }

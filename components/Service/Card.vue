@@ -109,7 +109,7 @@ const servicesCardPageData = {
           height: 0;
           padding-top: 100%;
           position: relative;
-          background: #FFF1F0;
+          background: var(--indexColor2);
           border-radius: 10px;
           img{
             position: absolute;
@@ -120,7 +120,7 @@ const servicesCardPageData = {
             max-height: 90%;
           }
           &:hover{
-            background: #FFCECB;
+            background: var(--indexColor);
           }
         }
         &-name{
@@ -135,7 +135,7 @@ const servicesCardPageData = {
         }
         &>.router-link-exact-active{
           .servicesCard-in-image{
-            background: #FFCECB;
+            background: var(--indexColor);
           }
         }
       }

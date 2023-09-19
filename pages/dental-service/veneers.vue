@@ -234,7 +234,7 @@ const handleLineCur = (_value:number) =>{
         height: 112px;
         margin-top: 15px;
         display: flex;
-        background: #FFF1F0;
+        background: var(--indexColor2);
         font-style: normal;
         font-weight: 600;
         font-size: 20px;
@@ -247,7 +247,7 @@ const handleLineCur = (_value:number) =>{
         justify-content: center;
         text-align: center;
         &:first-child{
-          background: #FFA09E;
+          background: var(--indexColor1);
           color: #fff;
           margin-top: 0;
           height: 69px;
@@ -272,7 +272,7 @@ const handleLineCur = (_value:number) =>{
           height: 239px;
         }
         &:first-child{
-          background: #FFCECB;
+          background: var(--indexColor);
         }
       }
     }

@@ -1,8 +1,11 @@
-// $IndexColor: #FFCECB;
+// $IndexColor: var(--indexColor);
 //使用 var(font_family)
-// :root{
-//   --IndexColor: #FFCECB;
-// }
+:root{
+  --indexColor: #FF6096; //#FFCECB
+  --indexColor1: #FC1682; //#FFA09E
+  --indexColor2: #FEE6F1; //#FFF1F0
+  --indexColor3: #FEA9D1; //#FFDDDA
+}
 
 //Noto Serif HK
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@300;400;500;600;700&display=swap');
@@ -58,19 +61,19 @@ html.dark {
 body{
   &::-webkit-scrollbar{
     width: 5px;
+    display: none;
   }
   &::-webkit-scrollbar-thumb{
-    background: #FFA09E;
-    border: none;
+    background: var(--indexColor1);
     width: 5px;
   }
   &::-webkit-scrollbar-track{
-    background: #FFF1F0;
+    background: var(--indexColor2);
     width: 5px;
   }
 }
 .bgColor{
-  background: #FFCECB;
+  background: var(--indexColor);
 }
 .whitebgColor{
   background: #ffffff;
@@ -100,7 +103,8 @@ body{
   line-height: 150%;
   text-indent: 55px;
   color: #666666;
-  background: url(@/assets/images/indexTitle_bg.png) no-repeat;
+  // background: url(@/assets/images/indexTitle_bg.png) no-repeat;
+  background: url(@/assets/images/indexTitle_bg_2.png) no-repeat;
   background-size: auto 100%;
   // background-position: 0px 5px;
   padding-bottom: 5px;
@@ -118,13 +122,13 @@ body{
       color: #666666;
       text-align: center;
       &.bb{
-        border-bottom: 5px solid #FFA09E;
+        border-bottom: 5px solid var(--indexColor1);
       }
     }
     &-line{
       width: 100px;
       height: 5px;
-      background: #FFA09E;
+      background: var(--indexColor1);
       border-radius: 2px;
     }
   }
@@ -148,7 +152,7 @@ body{
       &-in{
         font-size: 30px;
         &.bb{
-          border-bottom: 4px solid #FFA09E;
+          border-bottom: 4px solid var(--indexColor1);
         }
       }
       &-line{
@@ -184,7 +188,7 @@ body{
         font-weight: 600;
         font-size: 1.625rem;
         &.bb{
-          border-bottom: 3px solid #FFA09E;
+          border-bottom: 3px solid var(--indexColor1);
           span{
             display: block;
           }

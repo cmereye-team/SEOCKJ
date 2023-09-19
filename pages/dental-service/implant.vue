@@ -456,7 +456,7 @@ const getWindowWidth = () => {
             display: flex;
             height: 69px;
             &>div{
-              background: #FFA09E;
+              background: var(--indexColor1);
               flex: 1;
               font-style: normal;
               font-weight: 700;
@@ -482,7 +482,7 @@ const getWindowWidth = () => {
             height: 172px;
             &>div{
               flex: 1;
-              background: #FFF1F0;
+              background: var(--indexColor2);
               font-style: normal;
               font-weight: 600;
               font-size: 20px;
@@ -569,7 +569,7 @@ const getWindowWidth = () => {
             height: 207px;
             margin-top: 15px;
             display: flex;
-            background: #FFF1F0;
+            background: var(--indexColor2);
             font-style: normal;
             font-weight: 600;
             font-size: 20px;
@@ -581,7 +581,7 @@ const getWindowWidth = () => {
             align-items: center;
             justify-content: center;
             &:first-child{
-              background: #FFA09E;
+              background: var(--indexColor1);
               color: #fff;
               margin-top: 0;
               height: 69px;
@@ -603,7 +603,10 @@ const getWindowWidth = () => {
           overflow: hidden;
           .box-in{
             &:first-child{
-              background: #FFCECB;
+              background: var(--indexColor3);
+            }
+            &:last-child{
+              color: var(--indexColor1);
             }
           }
         }
@@ -634,7 +637,7 @@ const getWindowWidth = () => {
             height: 0;
             padding-top: 100%;
             position: relative;
-            background: #E6F4FF;
+            background: var(--indexColor2);
             border-radius: 10px;
             img{
               position: absolute;
@@ -716,7 +719,7 @@ const getWindowWidth = () => {
               background: #FFF1F0;
             }
             &:nth-of-type(3)>&-image,&:nth-of-type(6)>&-image{
-              background: #E6F4FF;
+              background: var(--indexColor2);
             }
             &-name{
               height: 56px;
@@ -739,11 +742,11 @@ const getWindowWidth = () => {
             position: relative;
           }
           &::-webkit-scrollbar-thumb{
-            background: #FFA09E;
+            background: var(--indexColor1);
             border: none;
           }
           &::-webkit-scrollbar-track{
-            background: #FFF1F0;
+            background: var(--indexColor2);
           }
           &::-webkit-scrollbar-button{
             display: block;

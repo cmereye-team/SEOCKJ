@@ -96,7 +96,7 @@ const handleLineCur = (_value:number) =>{
         font-weight: 700;
         font-size: 28px;
         line-height: 160%;
-        color: #FFA09E;
+        color: var(--indexColor1);
         margin-bottom: 70px;
         margin-top: 100px;
       }

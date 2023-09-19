@@ -29,7 +29,8 @@ const activeNames = ref(0)
               <div>Q</div>
               <div>{{$t(problemItem.Q)}}</div>
               <div>
-                <img src="@/assets/images/icon_9.png" alt="">
+                <!-- <img src="@/assets/images/icon_9.png" alt=""> -->
+                <img src="@/assets/images/icon_91.png" alt="">
               </div>
             </div>
           </template>
@@ -60,7 +61,7 @@ const activeNames = ref(0)
         font-style: normal;
         font-weight: 700;
         font-size: 40px;
-        color: #FFA09E;
+        color: var(--indexColor1);
         margin-left: 32px;
         margin-top: -6px;
       }
@@ -84,7 +85,7 @@ const activeNames = ref(0)
         font-weight: 700;
         font-size: 40px;
         line-height: 160%;
-        color: #FFA09E;
+        color: var(--indexColor1);
         margin-left: 32px;
         margin-top: 20px;
       }
@@ -113,7 +114,7 @@ const activeNames = ref(0)
 }
 :deep(.el-collapse-item__header){
   padding: 12px 0;
-  background: #FFF1F0;
+  background: var(--indexColor2);
   border: none;
   box-sizing: initial;
   line-height: 160%;
@@ -121,9 +122,9 @@ const activeNames = ref(0)
   min-height: 45px;
 }
 :deep(.el-collapse-item__header.is-active){
-  background: #FFA09E;
+  background: var(--indexColor1);
   .problem-in-title>div:nth-of-type(1){
-    color: #FFF1F0;
+    color: var(--indexColor2);
   }
   .problem-in-title>div:nth-of-type(2){
     color: #FFFFFF;

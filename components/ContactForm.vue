@@ -264,7 +264,7 @@ onMounted(() => {
       &:last-child {
         font-weight: 700;
         font-size: 26px;
-        color: #ffa09e;
+        color: var(--indexColor1);
       }
     }
   }
@@ -306,7 +306,7 @@ onMounted(() => {
       color: #666666;
     }
     :deep(.el-radio){
-      --el-radio-input-border-color-hover: #FFA09E;
+      --el-radio-input-border-color-hover: var(--indexColor1);
     }
     :deep(.el-radio__input.is-checked .el-radio__inner){
       border: 1px solid #CBCBCB;
@@ -315,7 +315,7 @@ onMounted(() => {
     :deep(.el-radio__inner::after){
       width: 100%;
       height: 100%;
-      background: #FFA09E;
+      background: var(--indexColor1);
       border: 1px solid #fff;
     }
     :deep(.el-button) {
@@ -326,16 +326,16 @@ onMounted(() => {
       font-weight: 500;
       font-size: 20px;
       line-height: 160%;
-      color: #ffa09e;
+      color: var(--indexColor1);
       background-color: transparent;
       border-color: #cbcbcb;
       &:hover {
         color: #fff;
-        background-color: #ffa09e;
+        background-color: var(--indexColor1);
       }
       &:active {
         color: #fff;
-        background-color: #ffa09e;
+        background-color: var(--indexColor1);
       }
     }
     .formBtn{
@@ -346,16 +346,16 @@ onMounted(() => {
       font-weight: 500;
       font-size: 20px;
       line-height: 160%;
-      color: #ffa09e;
+      color: var(--indexColor1);
       background-color: transparent;
       border: 1px solid #CBCBCB;
       &:hover {
         color: #fff;
-        background-color: #ffa09e;
+        background-color: var(--indexColor1);
       }
       &:active {
         color: #fff;
-        background-color: #ffa09e;
+        background-color: var(--indexColor1);
       }
     }
   }
@@ -374,7 +374,7 @@ onMounted(() => {
     font-size: 28px;
     font-weight: 700px;
     transition: all .5s;
-    box-shadow: 0px 4px 8px #FFDDDA;
+    box-shadow: 0px 4px 8px var(--indexColor3);
     border-radius: 10px;
     &-close{
       position: absolute;
@@ -406,7 +406,7 @@ onMounted(() => {
           width: 100px;
           height: 100px;
           border-radius: 50%;
-          background: #FFDDDA;
+          background: var(--indexColor3);
           display: flex;
           justify-content: center;
           align-items: center;

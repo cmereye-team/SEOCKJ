@@ -414,7 +414,7 @@ const processData = {
       line-height: 160%;
       color: #666666;
       &:last-child{
-        border-bottom: 4px solid #FFA09E;
+        border-bottom: 4px solid var(--indexColor1);
       }
     }
   }
@@ -424,7 +424,7 @@ const processData = {
     font-size: 28px;
     line-height: 160%;
     text-align: center;
-    color: #FFA09E;
+    color: var(--indexColor1);
     margin-top: 35px;
   }
   &-in{
@@ -432,7 +432,7 @@ const processData = {
     display: flex;
     .leftBtn{
       width: 70px;
-      background: #FFF1F0;
+      background: var(--indexColor2);
       cursor: pointer;
       position: relative;
       &::after{
@@ -451,7 +451,7 @@ const processData = {
     }
     .rightBtn{
       width: 70px;
-      background: #FFCECB;
+      background: var(--indexColor);
       cursor: pointer;
       position: relative;
       &::after{
@@ -521,7 +521,7 @@ const processData = {
               .line{
                 width: 4px;
                 height: 100%;
-                background: #FFF1F0;
+                background: var(--indexColor2);
                 position: absolute;
                 top: 20px;
                 left: 10px;
@@ -536,7 +536,7 @@ const processData = {
                 margin-right: 14px;
                 margin-top: 8px;
                 border-radius: 50%;
-                background: #FFF1F0;
+                background: var(--indexColor2);
                 display: block;
                 z-index: 1;
               }
@@ -569,7 +569,7 @@ const processData = {
                 }
               }
               &:hover .round{
-                background: #FFCECB;
+                background: var(--indexColor);
               }
             }
           }
@@ -642,7 +642,7 @@ const processData = {
       span{
         font-size: 26px;
         &:last-child{
-          border-bottom: 2.5px solid #FFA09E;
+          border-bottom: 2.5px solid var(--indexColor1);
         }
       }
     }

@@ -53,7 +53,8 @@ defineProps({
   &-in {
     display: flex;
     &-l {
-      background: linear-gradient(135deg, #fff1f0 2%, #ffddda 75%) no-repeat;
+      // background: linear-gradient(135deg, rgba(255, 255, 255, 0.30) 2%, #ffddda 75%) no-repeat;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.30) 2%, #FEE6F1 75%) no-repeat;
       background-size: 287px 287px;
       padding-left: 103px;
       & > div {

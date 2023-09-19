@@ -244,7 +244,7 @@ onMounted(()=>{
               margin-top: -4px;
             }
             &:last-child{
-              color: #FFA09E;
+              color: var(--indexColor1);
             }
           }
         }
@@ -308,7 +308,7 @@ onMounted(()=>{
               font-weight: 500;
               font-size: 23px;
               margin-top: 66px;
-              color: #FFA09E;
+              color: var(--indexColor1);
               cursor: pointer;
               img{
                 width: 21px;
@@ -321,7 +321,7 @@ onMounted(()=>{
           }
           &:nth-of-type(odd){
             .doctorItem-l{
-              background: #FFDDDA;
+              background: var(--indexColor3);
             }
           }
           &:nth-of-type(even){
@@ -337,10 +337,10 @@ onMounted(()=>{
           background: none;
         }
         &::-webkit-scrollbar-thumb{
-          background: #FFA09E;
+          background: var(--indexColor1);
         }
         &::-webkit-scrollbar-track{
-          background: #FFF1F0;
+          background: var(--indexColor2);
         }
       }
     }
@@ -442,21 +442,21 @@ onMounted(()=>{
                 opacity: 1 !important;
                 width: calc(100% - 60px);
                 margin: 0 30px;
-                background: #FFF1F0;
+                background: var(--indexColor2);
               }
               :deep(.swiper-scrollbar-drag){
-                background: #FFA09E;
+                background: var(--indexColor1);
               }
               &::-webkit-scrollbar{
                 height: 5px;
               }
               &::-webkit-scrollbar-thumb{
-                background: #FFA09E;
+                background: var(--indexColor1);
                 border: none;
                 height: 5px;
               }
               &::-webkit-scrollbar-track{
-                background: #FFF1F0;
+                background: var(--indexColor2);
                 height: 5px;
               }
               .doctorItem{
@@ -558,7 +558,7 @@ onMounted(()=>{
                 margin-top: -4px;
               }
               &:last-child{
-                color: #FFA09E;
+                color: var(--indexColor1);
               }
             }
           }

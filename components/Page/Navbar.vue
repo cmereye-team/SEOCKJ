@@ -132,7 +132,7 @@ let mbQDCodeBool = ref(false)
     height: 66px;
     margin-bottom: 13px;
     cursor: pointer;
-    background: #FFDDDA;
+    background: var(--indexColor3);
     border-radius: 33px;
     display: flex;
     justify-content: center;
@@ -156,11 +156,11 @@ let mbQDCodeBool = ref(false)
         border-left: 20px solid;
         border-bottom: 10px solid;
         border-right: 20px solid;
-        border-color: transparent transparent transparent #FFA09E;
+        border-color: transparent transparent transparent var(--indexColor1);
       }
       &-in{
         transition: all .5s;
-        background: #FFA09E;
+        background: var(--indexColor1);
         height: 100%;
         padding: 20px;
         justify-content: center;
@@ -175,7 +175,7 @@ let mbQDCodeBool = ref(false)
         .weChat{
           width: 200px;
           // height: 200px;
-          background: #FFDDDA;
+          background: var(--indexColor3);
           img{
             width: 100%;
             // height: 100%;
@@ -192,7 +192,7 @@ let mbQDCodeBool = ref(false)
       // }
     }
     &:hover{
-      background: #FFA09E;
+      background: var(--indexColor1);
       .navbarBox{
         display: flex;
       }
@@ -267,7 +267,7 @@ let mbQDCodeBool = ref(false)
     width: 100%;
     // height: 62px;
     height: 124px;
-    background: #FFDDDA;
+    background: var(--indexColor3);
     box-shadow: 0px -1.5px 0px rgba(255, 204, 199, 0.25);
     z-index: 20;
     &-in{
@@ -276,7 +276,7 @@ let mbQDCodeBool = ref(false)
       top: -64px;
       width: 34px;
       height: 34px;
-      background: #FFDDDA;
+      background: var(--indexColor3);
       border-radius: 50%;
       display: flex;
       justify-content: center;
@@ -315,7 +315,7 @@ let mbQDCodeBool = ref(false)
           right: 0;
           bottom: 0;
           z-index: 90;
-          background: #FFDDDA;
+          background: var(--indexColor3);
         }
         .navLiBox{
           width: 100%;
@@ -327,13 +327,13 @@ let mbQDCodeBool = ref(false)
           transition: all .3s;
           z-index: 19;
           &>div{
-            background: #FFF1F0;
-            // color: #FFDDDA;
-            color: #FFA09E;
+            background: var(--indexColor2);
+            // color: var(--indexColor3);
+            color: var(--indexColor1);
             text-shadow: none;
             &:hover{
-              background: #FFDDDA;
-              color: #FFF1F0;
+              background: var(--indexColor3);
+              color: var(--indexColor2);
             }
             &:first-child{
               border-radius: 10px 10px 0px 0px;
@@ -357,8 +357,8 @@ let mbQDCodeBool = ref(false)
         font-weight: 400;
         font-size: 20px;
         position: relative;
-        background: #FFF1F0;
-        color: #FFA09E;
+        background: var(--indexColor2);
+        color: var(--indexColor1);
         img{
           display: inline-block;
           margin-top: -5px;

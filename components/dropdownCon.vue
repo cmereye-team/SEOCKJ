@@ -226,10 +226,10 @@ onMounted(()=>{
           color: #666666;
           padding: 5px 0;
           &:not(:last-child){
-            border-bottom: 1px solid #FFF1F0;
+            border-bottom: 1px solid var(--indexColor2);
           }
           &:hover{
-            color: #FFA09E;
+            color: var(--indexColor1);
           }
         }
         &::before{
