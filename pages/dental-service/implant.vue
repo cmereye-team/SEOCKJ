@@ -845,6 +845,7 @@ const getWindowWidth = () => {
             align-items: center;
             justify-content: center;
             font-size: 20px;
+            color: #666666;
             &:nth-of-type(1){
               width: 67%;
             }
@@ -1043,6 +1044,7 @@ const getWindowWidth = () => {
               align-items: center;
               justify-content: center;
               font-size: 20px;
+              color: #666666;
               &:nth-of-type(1){
                 padding: 0;
                 flex: 1;
@@ -1134,6 +1136,7 @@ const getWindowWidth = () => {
               font-size: 35px;
               font-weight: 700;
               margin-bottom: 15px;
+              color: #666666;
               img{
                 height: auto;
                 margin-right: 15px;
@@ -1159,6 +1162,7 @@ const getWindowWidth = () => {
             .context{
               font-size: 20px;
               font-weight: 700;
+              color: #666666;
             }
           }
           &-r{
