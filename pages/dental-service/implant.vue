@@ -23,7 +23,7 @@ const headerConfig = {
   // bg: 'https://static.cmereye.com/imgs/2023/06/2c162ddf8e5bfcd7.jpg',
   img: 'https://static.cmereye.com/imgs/2023/09/6a8ad85892d0c7cf.jpg',
   bg: 'https://static.cmereye.com/imgs/2023/09/6a8ad85892d0c7cf.jpg',
-  mbImg: 'https://static.cmereye.com/imgs/2023/09/1dbd4ff323e37b76.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2023/09/933fef926682e416.jpg',
   pageName: 'implant',
   pcText: ['享受失而復得的喜悅','重拾完整人生之旅'],
   mbText: ['享受失而復得的喜悅','重拾完整人生之旅']
@@ -440,9 +440,20 @@ const onSlideChange = (swiper:any) => {
 
 let windowWidth = ref(1920)
 
+let showYaAnim = ref(false)
+const detailBtn:any = ref<HTMLElement>()
+const getScrollTop = () => {
+  let _offsetTop = detailBtn.value.offsetTop || 0
+  if(window.scrollY>=_offsetTop-600){
+    showYaAnim.value = true
+  }
+}
+
 onMounted(()=>{
   getWindowWidth()
   window.addEventListener('resize',getWindowWidth)
+  getScrollTop()
+  window.addEventListener('scroll',getScrollTop)
 })
 
 const getWindowWidth = () => {
@@ -605,10 +616,11 @@ const getWindowWidth = () => {
         </div>
         <div class="detail-bottom">
           <div class="text">
-            成功預約送深層洗牙 及 X光口腔檢查 1次
+            成功預約送專業洗牙 及 X光口腔檢查 1次
           </div>
-          <div class="btn">
+          <div class="btn" ref="detailBtn">
             <span @click="toWhatsApp">預約檢查及諮詢</span>
+            <span :class="{showYaAnim:showYaAnim}" @click="toWhatsApp">預約檢查及諮詢</span>
           </div>
         </div>
         <!-- <div class="detail-remark">{{$t(detailData.remark)}}</div> -->
@@ -906,6 +918,10 @@ const getWindowWidth = () => {
         }
         .btn{
           margin-top: 35px;
+          position: relative;
+          width: 100%;
+          display: flex;
+          justify-content: center;
           span{
             box-shadow: 0px 1.74695px 3.4939px 0px rgba(252, 22, 130, 0.38);
             font-size: 35px;
@@ -915,6 +931,24 @@ const getWindowWidth = () => {
             padding: 5px 90px;
             background: var(--indexColor1);
             cursor: pointer;
+            top: 0;
+            &:nth-of-type(2){
+              color: var(--indexColor1);
+              background: #fff;
+              position: absolute;
+              left: 50%;
+              transform: translateX(-50%);
+              z-index: 2;
+              animation: btnAnim 1s linear;
+              animation-fill-mode: forwards;
+              width: max-content;
+              display: none;
+            }
+            &.showYaAnim{
+              display: flex;
+              animation: btnAnim 1s linear;
+              animation-fill-mode: forwards;
+            }
           }
         }
       }
@@ -1189,6 +1223,18 @@ const getWindowWidth = () => {
       }
     }
   }
+  @keyframes btnAnim {
+    0%{
+      clip-path: polygon(-10% 0,0 0,-10% 100%,-20% 100%);
+    }
+    50%{
+      clip-path: polygon(50% 0, 60% 0, 50% 100%,40% 100%);
+    }
+    100%{
+      clip-path: polygon(110% 0, 120% 0,110% 100%,100% 100%);
+    }
+  }
+
   @media (min-width: 768px) and (max-width: 1452px) {
     .dentistryServices{
       padding: 110px 0;
