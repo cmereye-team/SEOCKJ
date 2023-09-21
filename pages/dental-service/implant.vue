@@ -21,8 +21,8 @@ useHead({
 const headerConfig = {
   // img: 'https://static.cmereye.com/imgs/2023/06/baaf111867247a7f.png',
   // bg: 'https://static.cmereye.com/imgs/2023/06/2c162ddf8e5bfcd7.jpg',
-  img: 'https://static.cmereye.com/imgs/2023/09/238c6f4d3499bbfc.jpg',
-  bg: 'https://static.cmereye.com/imgs/2023/09/238c6f4d3499bbfc.jpg',
+  img: 'https://static.cmereye.com/imgs/2023/09/6a8ad85892d0c7cf.jpg',
+  bg: 'https://static.cmereye.com/imgs/2023/09/6a8ad85892d0c7cf.jpg',
   mbImg: 'https://static.cmereye.com/imgs/2023/09/1dbd4ff323e37b76.jpg',
   pageName: 'implant',
   pcText: ['享受失而復得的喜悅','重拾完整人生之旅'],

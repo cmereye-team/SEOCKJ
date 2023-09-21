@@ -94,7 +94,7 @@ let mbQDCodeBool = ref(false)
       <nuxt-link  id="navMbTel" :to="'tel: 6912 2011'" class="mbcc-boxInAA mbcc-boxInAA-1"></nuxt-link>
       <nuxt-link id="navMbWhatsapp" :to="'https://api.whatsapp.com/send/?phone=85269122011'" target="_blank" class="mbcc-boxInAA mbcc-boxInAA-2"></nuxt-link>
       <div id="navMbContactFormBtn" class="mbcc-boxInAA mbcc-boxInAA-3" @click="handleNavFormNav">
-        <img src="https://static.cmereye.com/imgs/2023/07/04ad2f53c65e2fb5.png" alt="">
+        <img src="https://static.cmereye.com/imgs/2023/09/a8f9c3f82bbda125.png" alt="">
         <span>馬上預約</span>
       </div>
       <div id="navMbWeChat" class="mbcc-boxInAA mbcc-boxInAA-4" @click="mbQDCodeBool = true"></div>
@@ -426,7 +426,7 @@ let mbQDCodeBool = ref(false)
             margin-bottom: 5px;
           }
           span{
-            color: var(--topic-text-color);
+            color: #6B6B6B;
             text-align: center;
             font-size: 12.376px;
             font-style: normal;

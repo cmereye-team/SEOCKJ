@@ -21,8 +21,8 @@ components:
       menu_contactUs:
         name: 聯絡我們
   footer:
-    text1: 全程式預約一體化診療服務
-    text2: 讓每一位顧客享受健康微笑之旅
+    text1: 28年專科•專業•專注
+    text2: 港人首選一站式連鎖牙科品牌
     nav_index: 主頁
     nav_brand: 品牌理念
     nav_dental_service: 牙科服務
@@ -257,7 +257,7 @@ pages:
         title: 種植牙後注意事項
         lists: 
           - name: 輕咬紗布止血
-          - name: 28小時內冰敷
+          - name: 48小時內冰敷
           - name: 48小時後熱敷
           - name: 依指示按時服藥
           - name: 避免飲酒及抽煙

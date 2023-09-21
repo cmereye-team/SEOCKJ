@@ -319,6 +319,7 @@ const handleMbMenu = () => {
         <span @click="toWhatsApp">預約檢查及諮詢</span>
         <span @click="toWhatsApp">預約檢查及諮詢</span>
       </div>
+      <div class="waterBg-implant" v-if="headerConfig.pageName === 'implant'"></div>
       <div class="header-content-text-implant" v-if="headerConfig.pageName === 'implant'">
         <div>28年專科•專業•專注</div>
         <div><span>港人首選</span>一站式連鎖牙科品牌</div>
@@ -620,6 +621,9 @@ const handleMbMenu = () => {
       }
     }
   }
+  .waterBg-implant{
+    display: none;
+  }
   &-text-implant{
     position: absolute;
     bottom: 100px;
@@ -632,6 +636,7 @@ const handleMbMenu = () => {
     &>div{
       font-size: 28px;
       font-weight: 700;
+      color: #666666;
       span{
         color: var(--indexColor1);
       }
@@ -1055,6 +1060,52 @@ const handleMbMenu = () => {
         font-size: 20px;
       }
     }
+    .waterBg-implant{
+      display: block;
+      // position: relative;
+      &::before{
+        content: '';
+        background-image: url(@/assets/images/back_wave03.png);
+        background-repeat: repeat-x;
+        background-position: center bottom;
+        // background-size: auto 80px;
+        height: 162px;
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+        left: 0px;
+        bottom: -30px;
+        animation-name: wave2;
+        animation-duration: 10s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        -webkit-animation-name: wave2;
+        -webkit-animation-duration: 10s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-iteration-count: infinite;
+      }
+      &::after{
+        content: '';
+        background-image: url(@/assets/images/back_wave01.png);
+        background-repeat: repeat-x;
+        background-position: center 20px;
+        height: 162px;
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+        left: 0px;
+        bottom: -30px;
+        animation-name: wave1;
+        animation-duration: 20s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        -webkit-animation-name: wave1;
+        -webkit-animation-duration: 20s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-iteration-count: infinite;
+        filter: drop-shadow(0px -8px 4px rgba(77, 77, 77, 0.15));
+      }
+    }
     &-bgImg-implant-mb{
       display: block;
       padding-top: 80px;
@@ -1110,8 +1161,6 @@ const handleMbMenu = () => {
   }
   .waterBg::after{
     transform: rotate(180deg);
-    // box-shadow: 0px 4px 8px rgba(77, 77, 77, 0.15);
-    // filter: drop-shadow(0px 4px 8px rgba(77, 77, 77, 0.15));
     top: -30px;
   }
   .waterBg::before{

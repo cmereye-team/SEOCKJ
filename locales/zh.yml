@@ -21,8 +21,8 @@ components:
       menu_contactUs:
         name: 联络我们
   footer:
-    text1: 全程式预约一体化诊疗服务
-    text2: 让每一位顾客享受健康微笑之旅
+    text1: 28年專科•專業•專注
+    text2: 港人首選一站式連鎖牙科品牌
     nav_index: 主页
     nav_brand: 品牌理念
     nav_dental_service: 牙科服务
@@ -255,7 +255,7 @@ pages:
         title: 种植牙后注意事项
         lists: 
           - name: 轻咬纱布止血
-          - name: 28小时内冰敷
+          - name: 48小时内冰敷
           - name: 48小时后热敷
           - name: 依指示按时服药
           - name: 避免饮酒及抽烟
