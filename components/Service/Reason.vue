@@ -24,7 +24,7 @@ defineProps({
 
 <template>
   <div class="reason">
-    <div class="reason-in pageCon">
+    <div class="reason-in pageCon" :class="reasonData.pageName">
       <div class="reason-in-l">
         <div class="text_one">{{$t(reasonData.title)}}</div>
         <div class="text_two">{{$t(reasonData.text)}}</div>
@@ -32,12 +32,22 @@ defineProps({
           <img :src="reasonData.imgUrl" />
         </div>
       </div>
-      <div :class="['reason-in-r',reasonData.pageName,{'mediumCW': reasonData.isMediumCW}]">
+      <div v-if="reasonData.pageName !== 'implant'" :class="['reason-in-r',reasonData.pageName,{'mediumCW': reasonData.isMediumCW}]">
         <div v-for="(reason,reasonIndex) in reasonData.reasonLists" :key="reasonIndex">
           <div class="icon">
             {{reason.hideIcon ? '': '· '}}
           </div>
           <div :class="{'context':true,'smallFontSize': reason.isSmallFS}">
+            {{$t(reason.context)}}
+          </div>
+        </div>
+      </div>
+      <div v-else :class="['reason-in-r',reasonData.pageName]">
+        <div v-for="(reason,reasonIndex) in reasonData.reasonLists" :key="reasonIndex">
+          <div class="title">
+            <span>{{reasonIndex + 1}}</span>{{reason.title}}
+          </div>
+          <div :class="{'context':true}">
             {{$t(reason.context)}}
           </div>
         </div>
@@ -52,6 +62,15 @@ defineProps({
   padding: 108px 0 0;
   &-in {
     display: flex;
+    &.implant{
+      margin-top: 100px;
+      align-items: center;
+      .reason-in-l{
+        .text_two {
+          font-size: 50px;
+        }
+      }
+    }
     &-l {
       // background: linear-gradient(135deg, rgba(255, 255, 255, 0.30) 2%, #ffddda 75%) no-repeat;
       background: linear-gradient(135deg, rgba(255, 255, 255, 0.30) 2%, #FEE6F1 75%) no-repeat;
@@ -113,6 +132,43 @@ defineProps({
           }
         }
       }
+      &.implant{
+        max-width: 100%;
+        margin-top: 0;
+        &>div{
+          display: flex;
+          flex-direction: column;
+          &:not(:last-child){
+            margin-bottom: 40px;
+          }
+          .title{
+            color: var(--indexColor1);
+            font-size: 32px;
+            font-weight: 900;
+            span{
+              font-size: 50px;
+              padding-right: 10px;
+              position: relative;
+              z-index: 1;
+              &::before{
+                content: "";
+                width: 50px;
+                height: 50px;
+                background: #FFEBF4;
+                position: absolute;
+                right: 10px;
+                bottom: 20px;
+                z-index: -1;
+                border-radius: 50%;
+              }
+            }
+          }
+          .context{
+            font-size: 26px;
+            margin-top: 25px;
+          }
+        }
+      }
     }
   }
 }
@@ -162,6 +218,15 @@ defineProps({
     &-in {
       width: 100%;
       flex-direction: column;
+       &.implant{
+        margin-top: 0;
+        align-items: center;
+        .reason-in-l{
+          .text_two {
+            font-size: 26px;
+          }
+        }
+      }
       &-l {
         background-size: 204px 204px;
         padding-left: 42px;
@@ -192,6 +257,30 @@ defineProps({
             &.smallFontSize{
               font-size: 14px;
               margin-bottom: 12px;
+            }
+          }
+        }
+        &.implant{
+          margin-top: 30px;
+          margin-left: 20px;
+          &>div{
+            &:not(:last-child){
+              margin-bottom: 30px;
+            }
+            .title{
+              font-size: 21px;
+              span{
+                font-size: 41px;
+                &::before{
+                  width: 35px;
+                  height: 35px;
+                  bottom: 15px;
+                }
+              }
+            }
+            .context{
+              margin-top: 5px;
+              font-size: 16px;
             }
           }
         }

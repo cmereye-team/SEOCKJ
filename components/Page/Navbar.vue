@@ -90,13 +90,23 @@ let mbQDCodeBool = ref(false)
         </div>
       </div>
     </div>
-    <div class="navbar-content-mb02">
+    <div class="navbar-content-mb">
+      <nuxt-link  id="navMbTel" :to="'tel: 6912 2011'" class="mbcc-boxInAA mbcc-boxInAA-1"></nuxt-link>
+      <nuxt-link id="navMbWhatsapp" :to="'https://api.whatsapp.com/send/?phone=85269122011'" target="_blank" class="mbcc-boxInAA mbcc-boxInAA-2"></nuxt-link>
+      <div id="navMbContactFormBtn" class="mbcc-boxInAA mbcc-boxInAA-3" @click="handleNavFormNav">
+        <img src="https://static.cmereye.com/imgs/2023/07/04ad2f53c65e2fb5.png" alt="">
+        <span>馬上預約</span>
+      </div>
+      <div id="navMbWeChat" class="mbcc-boxInAA mbcc-boxInAA-4" @click="mbQDCodeBool = true"></div>
+      <nuxt-link id="navMbFacebook" to="https://www.facebook.com/ckjdental.hk/"  target="_blank" class="mbcc-boxInAA mbcc-boxInAA-5"></nuxt-link>
+    </div>
+    <div class="navbar-content-mb02" v-if="false">
       <div id="navMbWeChat" @click="mbQDCodeBool = true">WeChat</div>
       <div>
         <nuxt-link id="navMbWhatsapp" :to="'https://api.whatsapp.com/send/?phone=85269122011'" target="_blank">Whatsapp</nuxt-link>
       </div>
     </div>
-    <div class="navbar-content-mb">
+    <div class="navbar-content-mb" v-if="false">
       <div><nuxt-link id="navMbFacebook" to="https://www.facebook.com/ckjdental.hk/" target="_blank">Facebook預約</nuxt-link></div>
       <div id="navMbContactFormBtn" @click="handleNavFormNav">填寫表格</div>
     </div>
@@ -265,15 +275,14 @@ let mbQDCodeBool = ref(false)
     bottom: 0;
     left: 0;
     width: 100%;
-    // height: 62px;
-    height: 124px;
+    // height: 124px;
     background: var(--indexColor3);
     box-shadow: 0px -1.5px 0px rgba(255, 204, 199, 0.25);
     z-index: 20;
     &-in{
       position: absolute;
       right: 30px;
-      top: -64px;
+      top: -164px;
       width: 34px;
       height: 34px;
       background: var(--indexColor3);
@@ -281,95 +290,207 @@ let mbQDCodeBool = ref(false)
       display: flex;
       justify-content: center;
       align-items: center;
+      display: none;
       img{
         width: 24px;
       }
-    }
-    &-in::not(:last-child){
-      display: none;
-    }
-    &-mb{
-      display: flex;
-      height: 100%;
-      &>div{
-        height: 100%;
-        line-height: 62px;
-        text-align: center;
-        flex: 1;
-        font-weight: 400;
-        // font-size: 20px;
-        font-size: 1.25rem;
-        color: #FFFFFF;
-        text-shadow: 0px 0px 8px rgba(255, 120, 117, 0.65);
-        position: relative;
-        img{
-          display: inline-block;
-          margin-top: -5px;
-        }
-        &:first-child{
-          border-right: 1px solid #fff;
-        }
-        .navBtn{
-          width: 100%;
-          position: absolute;
-          right: 0;
-          bottom: 0;
-          z-index: 90;
-          background: var(--indexColor3);
-        }
-        .navLiBox{
-          width: 100%;
-          height: 248px;
-          line-height: 62px;
-          position: absolute;
-          // bottom: -50%;
-          left: 0;
-          transition: all .3s;
-          z-index: 19;
-          &>div{
-            background: var(--indexColor2);
-            // color: var(--indexColor3);
-            color: var(--indexColor1);
-            text-shadow: none;
-            &:hover{
-              background: var(--indexColor3);
-              color: var(--indexColor2);
-            }
-            &:first-child{
-              border-radius: 10px 10px 0px 0px;
-              box-shadow: 0px -1.5px 0px rgba(255, 204, 199, 0.25);
-            }
-            &:not(:last-child){
-              border-bottom: 1px solid #fff;
-            }
-          }
-        }
+      &:nth-of-type(4){
+        display: flex;
       }
     }
-    &-mb02{
+    // &-in::not(:last-child){
+    //   display: none;
+    // }
+    // &-mb{
+    //   display: flex;
+    //   height: 100%;
+    //   &>div{
+    //     height: 100%;
+    //     line-height: 62px;
+    //     text-align: center;
+    //     flex: 1;
+    //     font-weight: 400;
+    //     font-size: 1.25rem;
+    //     color: #FFFFFF;
+    //     text-shadow: 0px 0px 8px rgba(255, 120, 117, 0.65);
+    //     position: relative;
+    //     img{
+    //       display: inline-block;
+    //       margin-top: -5px;
+    //     }
+    //     &:first-child{
+    //       border-right: 1px solid #fff;
+    //     }
+    //     .navBtn{
+    //       width: 100%;
+    //       position: absolute;
+    //       right: 0;
+    //       bottom: 0;
+    //       z-index: 90;
+    //       background: var(--indexColor3);
+    //     }
+    //     .navLiBox{
+    //       width: 100%;
+    //       height: 248px;
+    //       line-height: 62px;
+    //       position: absolute;
+    //       left: 0;
+    //       transition: all .3s;
+    //       z-index: 19;
+    //       &>div{
+    //         background: var(--indexColor2);
+    //         color: var(--indexColor1);
+    //         text-shadow: none;
+    //         &:hover{
+    //           background: var(--indexColor3);
+    //           color: var(--indexColor2);
+    //         }
+    //         &:first-child{
+    //           border-radius: 10px 10px 0px 0px;
+    //           box-shadow: 0px -1.5px 0px rgba(255, 204, 199, 0.25);
+    //         }
+    //         &:not(:last-child){
+    //           border-bottom: 1px solid #fff;
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+    // &-mb02{
+    //   display: flex;
+    //   height: 62px;
+    //   &>div{
+    //     height: 100%;
+    //     line-height: 62px;
+    //     text-align: center;
+    //     flex: 1;
+    //     font-weight: 400;
+    //     font-size: 20px;
+    //     position: relative;
+    //     background: var(--indexColor2);
+    //     color: var(--indexColor1);
+    //     img{
+    //       display: inline-block;
+    //       margin-top: -5px;
+    //     }
+    //     &:first-child{
+    //       border-right: 1px solid #fff;
+    //     }
+    //   }
+    // }
+    &-mb{
+      display: block;
+      width: 100%;
+      height: auto;
+      background: #FFF;
+      box-shadow: 0px 4px 19px 0px rgba(0, 0, 0, 0.25);
+      position: fixed;
+      bottom: 0;
+      left: 0;
       display: flex;
-      height: 62px;
-      &>div{
-        height: 100%;
-        line-height: 62px;
-        text-align: center;
+      justify-content: center;
+      padding: 0 10px;
+      padding-bottom: constant(safe-area-inset-bottom);
+      padding-bottom: env(safe-area-inset-bottom);
+      .mbcc-boxInAA{
         flex: 1;
-        font-weight: 400;
-        font-size: 20px;
-        position: relative;
-        background: var(--indexColor2);
-        color: var(--indexColor1);
-        img{
-          display: inline-block;
-          margin-top: -5px;
+        height: 60px;
+        &-1{
+          background: url(https://static.cmereye.com/imgs/2023/07/ac801f63f6e35840.png) no-repeat;
+          background-position: center center;
+          animation: fromRight 1s none;
         }
-        &:first-child{
-          border-right: 1px solid #fff;
+        &-2{
+          background: url(https://static.cmereye.com/imgs/2023/07/c631714e6eab7b74.png) no-repeat;
+          background-position: center center;
+          animation: fromRight 1s none;
+        }
+        &-3{
+          width: 103px;
+          height: 103px;
+          min-width: 103px;
+          max-width: 103px;
+          background: #fff;
+          box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25);
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          margin: -30px 10px -10px;
+          animation: mbIn3Anim 1s 1s none;
+          opacity: 0;
+          animation-fill-mode: forwards;
+          img{
+            width: 28px;
+            margin-bottom: 5px;
+          }
+          span{
+            color: var(--topic-text-color);
+            text-align: center;
+            font-size: 12.376px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 1.6; /* 34.53px */
+            letter-spacing: 3.094px;
+          }
+        }
+        &-4{
+          background: url(https://static.cmereye.com/imgs/2023/07/d1ec7e5ab5a240b6.png) no-repeat;
+          background-position: center center;
+          animation: fromLeft 1s none;
+        }
+        &-5{
+          background: url(https://static.cmereye.com/imgs/2023/07/d067e48cd2a6f7a4.png) no-repeat;
+          background-position: center center;
+          animation: fromLeft 1s none;
         }
       }
     }
     .navForm{
       display: flex;
+    }
+  }
+  @keyframes mbIn3Anim {
+    0%{
+      opacity: 0;
+      transform: translateY(100%) scale(1);
+    }
+    30%{
+      transform: translateY(-30px) scale(1.3);
+      opacity: 1;
+    }
+    60%{
+      transform: translateY(0px) scale(1);
+      opacity: 1;
+    }
+    80%{
+      transform: translateY(-5px) scale(1.07);
+      opacity: 1;
+    }
+    100%{
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  @keyframes fromRight {
+    from{
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to{
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @keyframes fromLeft {
+    from{
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to{
+      opacity: 1;
+      transform: translateX(0);
     }
   }
 }

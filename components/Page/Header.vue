@@ -250,6 +250,9 @@ const getScrollHeight = () => {
   }
 }
 
+const toWhatsApp = () =>{
+  location.href="https://api.whatsapp.com/send/?phone=85269122011"
+}
 
 const handleMbMenu = () => {
   // console.log('navigator ----- >',window.navigator.onLine)
@@ -273,7 +276,7 @@ const handleMbMenu = () => {
           <LanguageSwitcher />
         </div>
       </div> -->
-      <div class="header-content-bgImg">
+      <div class="header-content-bgImg" :class="headerConfig.pageName">
         <img class="imgBgBox pcBox" :src="headerConfig.bg" alt="">
         <div class="header-content-bgImg-imgInfo bigPageCon">
           <img
@@ -299,16 +302,29 @@ const handleMbMenu = () => {
             </div>
           </div>
         </div>
-        
       </div>
-      <div class="header-content-bgImgBB pageCon pcBox" ref="imgBgHeight">
+      <div class="header-content-bgImg-implant" v-if="headerConfig.pageName === 'implant'">
+        <img :src="headerConfig.img" alt="" />
+      </div>
+      <div class="header-content-bgImg-implant-mb" v-if="headerConfig.pageName === 'implant'">
+        <img :src="headerConfig.mbImg" alt="" />
+      </div>
+      <div class="header-content-bgImgBB pageCon pcBox" :class="headerConfig.pageName" ref="imgBgHeight">
         <img
           :src="headerConfig.img"
           alt=""
         />
       </div>
+      <div class="header-content-btn-implant" v-if="headerConfig.pageName === 'implant'">
+        <span @click="toWhatsApp">預約檢查及諮詢</span>
+        <span @click="toWhatsApp">預約檢查及諮詢</span>
+      </div>
+      <div class="header-content-text-implant" v-if="headerConfig.pageName === 'implant'">
+        <div>28年專科•專業•專注</div>
+        <div><span>港人首選</span>一站式連鎖牙科品牌</div>
+      </div>
       <!-- pc菜单 -->
-      <div :class="isFiexdHeader ? 'headerBox02': 'headerBox01'">
+      <div :class="[isFiexdHeader ? 'headerBox02': 'headerBox01', 'pcMenuBox', headerConfig.pageName]">
         <div class="pageCon header-content-in" ref="headerMenu">
           <div class="logo">
             <!-- <nuxt-link :to="'/'"
@@ -339,7 +355,7 @@ const handleMbMenu = () => {
             </div>
           </div>
           <div class="icon" @click="menuBoxBool = !menuBoxBool">
-            <img v-if="!menuBoxBool" src="@/assets/images/icon_6.png" >
+            <img v-if="!menuBoxBool" src="@/assets/images/icon_61.png" >
             <img v-else src="@/assets/images/icon_7.png" >
           </div>
         </div>
@@ -390,12 +406,23 @@ const handleMbMenu = () => {
         </div>
       </div>
       <!-- 水波纹盒子 -->
-      <div class="waterBg"></div>
+      <div class="waterBg" :class="headerConfig.pageName"></div>
     </div>
   </header>
 </template>
 
 <style lang="scss" scoped>
+@keyframes btnAnim {
+  0%{
+    clip-path: polygon(-10% 0,0 0,-10% 100%,-20% 100%);
+  }
+  50%{
+    clip-path: polygon(50% 0, 60% 0, 50% 100%,40% 100%);
+  }
+  100%{
+    clip-path: polygon(110% 0, 120% 0,110% 100%,100% 100%);
+  }
+}
 .LanguageSwitcher{
   width: 100%;
   background: rgba(255, 255, 255,.5);
@@ -423,6 +450,9 @@ const handleMbMenu = () => {
     left: 50%;
     transform: translateX(-50%);
     z-index: -1;
+    &.implant{
+      display: none;
+    }
     &-imgInfo{
       &>img{
         &.brand{
@@ -431,6 +461,7 @@ const handleMbMenu = () => {
         &.implant{
           float: right;
           margin-right: calc((100% - 1452px)/2);
+          // display: none;
         }
         &.rootCanal,&.orthodontics{
           float: right;
@@ -547,8 +578,73 @@ const handleMbMenu = () => {
       }
     }
   }
+  &-bgImg-implant{
+    position: fixed;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    img{
+      width: 100%;
+    }
+  }
+  &-bgImg-implant-mb{
+    display: none;
+  }
+  &-btn-implant{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 240px;
+    left: 0;
+    z-index: 40;
+    width: 100%;
+    span{
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      background: var(--indexColor1);
+      font-size: 35px;
+      font-weight: 900;
+      border-radius: 40px;
+      padding: 5px 80px;
+      box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
+      cursor: pointer;
+      z-index: 1;
+      &:nth-of-type(2){
+        color: var(--indexColor1);
+        background: #fff;
+        z-index: 2;
+        animation: btnAnim 1s linear;
+        animation-fill-mode: forwards;
+      }
+    }
+  }
+  &-text-implant{
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 40;
+    width: 100%;
+    max-width: 1450px;
+    text-align: right;
+    &>div{
+      font-size: 28px;
+      font-weight: 700;
+      span{
+        color: var(--indexColor1);
+      }
+    }
+  }
   &-bgImgBB{
     opacity: 0;
+    &.implant{
+      max-width: 100%;
+      img{
+        width: 100%;
+      }
+    }
   }
   &-in {
     width: 100%;
@@ -673,6 +769,15 @@ const handleMbMenu = () => {
   .waterBg{
     position: relative;
     z-index: 35;
+    &.implant{
+      bottom: 100px;
+    }
+  }
+  .pcMenuBox{
+    &.implant{
+      margin-top: 100px;
+      transition: all .3s;
+    }
   }
   .headerBox01{
     position: relative;
@@ -686,6 +791,7 @@ const handleMbMenu = () => {
     width: 100vw;
     z-index: 100;
     box-shadow: 0px 4px 8px var(--indexColor3);
+    margin-top: 0 !important;
     .header-content-in{
       align-items: center;
     }
@@ -880,7 +986,9 @@ const handleMbMenu = () => {
   .header-content {
     &-bgImg {
       position: relative;
-      // padding-top: 20px;
+      // &.implant{
+      //   display: block;
+      // }
       &-textInfo{
         position: static;
         width: 100%;
@@ -930,12 +1038,36 @@ const handleMbMenu = () => {
         }
       }
     }
+    &-bgImg-implant{
+      display: none;
+    }
+    &-btn-implant{
+      display: none;
+    }
+    &-text-implant{
+      position: relative;
+      margin-top: 25px;
+      width: calc(100% - 60px);
+      bottom: auto;
+      text-align: left;
+      z-index: 1;
+      &>div{
+        font-size: 20px;
+      }
+    }
+    &-bgImg-implant-mb{
+      display: block;
+      padding-top: 80px;
+      img{
+        width: 100%;
+      }
+    }
     &-in {
       position: fixed;
       top: 0;
       justify-content: space-between;
       margin: 0;
-      padding: 10px 10px 0 30px;
+      padding: 20px 0 0 30px;
       .logo{
         width: 150px;
         margin-bottom: 0;
@@ -961,6 +1093,15 @@ const handleMbMenu = () => {
       top: 0;
       left: 0;
       width: 100%;
+      &.implant{
+        bottom: auto;
+      }
+    }
+    .pcMenuBox{
+      &.implant{
+        margin-top: 0px;
+        transition: all .3s;
+      }
     }
     .headerBox02{
       position: relative;

@@ -120,7 +120,7 @@ const servicesCardPageData = {
             max-height: 90%;
           }
           &:hover{
-            background: var(--indexColor);
+            background: #FFA8C6;
           }
         }
         &-name{
@@ -135,7 +135,7 @@ const servicesCardPageData = {
         }
         &>.router-link-exact-active{
           .servicesCard-in-image{
-            background: var(--indexColor);
+            background: #FFA8C6;
           }
         }
       }
@@ -203,11 +203,11 @@ const servicesCardPageData = {
         }
       }
       .servicesCard{
-        padding: 0 21.5px;
+        padding: 0 15px;
         box-sizing: border-box;
         &-in{
-          width: 50%;
-          padding: 0 8.5px;
+          width: calc(100% / 3);
+          padding: 0 5px;
           &-image{
             img{
               max-width: 70%;
@@ -216,8 +216,9 @@ const servicesCardPageData = {
           }
           &-name{
             font-size: 15px;
-            height: 56px;
-            line-height: 56px;
+            height: 50px;
+            line-height: 30px;
+            padding-bottom: 20px;
           }
         }
       }

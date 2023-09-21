@@ -18,8 +18,8 @@ const activeNames = ref(0)
 
 <template>
   <div class="problem">
-    <div class="dentistryServices-title">
-      <div class="dentistryServices-title-in bb">{{$t(problemData.title)}}</div>
+    <div class="dentistryServices-title problem-title">
+      <div class="dentistryServices-title-in bb problem-title-in">{{$t(problemData.title)}}</div>
     </div>
     <div class="problem-in pageCon">
       <el-collapse v-model="activeNames" accordion>
@@ -48,6 +48,11 @@ const activeNames = ref(0)
 <style lang="scss" scoped>
 .problem{
   margin-top: 98px;
+  &-title{
+    &-in{
+      font-size: 50px;
+    }
+  }
   &-in{
     margin-top: 35px;
     width: 100%;
@@ -137,6 +142,11 @@ const activeNames = ref(0)
 @media screen and (max-width: 768px) {
   .problem{
     margin-top: 90px;
+    &-title{
+      &-in{
+        font-size: 26px;
+      }
+    }
     &-in{
       margin-top: 30px;
       width: calc(100% - 60px);
