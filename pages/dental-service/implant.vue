@@ -1047,6 +1047,7 @@ const getWindowWidth = () => {
                 padding: 0;
                 flex: 1;
                 color: var(--indexColor);
+                font-weight: 900;
               }
               &:nth-of-type(2){
                 width: 43.5%;
