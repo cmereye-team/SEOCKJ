@@ -444,19 +444,19 @@ const onSlideChange = (swiper:any) => {
 let windowWidth = ref(1920)
 
 let showYaAnim = ref(false)
-const detailBtn:any = ref<HTMLElement>()
-const getScrollTop = () => {
-  let _offsetTop = detailBtn.value.offsetTop || 0
-  if(window.scrollY>=_offsetTop-600){
-    showYaAnim.value = true
-  }
-}
+// const detailBtn:any = ref<HTMLElement>()
+// const getScrollTop = () => {
+//   let _offsetTop = detailBtn.value.offsetTop || 0
+//   if(window.scrollY>=_offsetTop-600){
+//     showYaAnim.value = true
+//   }
+// }
 
 onMounted(()=>{
   getWindowWidth()
   window.addEventListener('resize',getWindowWidth)
-  getScrollTop()
-  window.addEventListener('scroll',getScrollTop)
+  // getScrollTop()
+  // window.addEventListener('scroll',getScrollTop)
 })
 
 const getWindowWidth = () => {
@@ -577,38 +577,11 @@ const getWindowWidth = () => {
           </div>
         </div>
       </div>
-      <div class="detail">
+      <!-- <div class="detail">
         <div class="dentistryServices-title detail-title">
           <div class="dentistryServices-title-in bb detail-title-in">{{$t(detailData.title)}}</div>
         </div>
         <div class="detail-table">
-          <!-- <div class="detail-table-in">
-            <div class="detail-table-in-col">
-              <div v-for="(col,colIndex) in detailData.detailTableCol" :key="colIndex">
-                <div v-if="col.length <= 2">{{$t(col)}}</div>
-                <div v-else>{{$t(col).slice(0,col.length-4)}}</div>
-                <div v-if="col.length > 2">{{$t(col).slice(col.length-4,col.length)}}</div>
-              </div>
-            </div>
-            <div class="detail-table-in-data" v-for="(tableItem,tableItemIndex) in detailData.detailTable" :key="tableItemIndex">
-              <div>
-                <span v-for="(serviceTtem,serviceIndex) in tableItem.service" :key="serviceIndex">{{$t(serviceTtem)}}</span>
-              </div>
-              <div>
-                <span v-for="(typeTtem,typeIndex) in tableItem.type" :key="typeIndex">
-                  <p>· </p>
-                  <p v-if="typeIndex<2">{{ $t(String(typeTtem)) }}</p>
-                  <div v-else>
-                    <p v-for="(typeTtemChild,typeTtemChildIndex) in typeTtem" :key="typeTtemChildIndex">
-                      {{ $t(typeTtemChild) }}
-                    </p>
-                  </div>
-                </span>
-              </div>
-              <div>{{tableItem.price}}</div>
-              <div>{{tableItem.discountedPrice}}</div>
-            </div>
-          </div> -->
           <div class="detail-table-in" v-for="(tableItem,tableItemIndex) in detailData.detailTable" :key="tableItemIndex">
             <div class="service">{{tableItem.service}}</div>
             <div class="price">
@@ -626,8 +599,7 @@ const getWindowWidth = () => {
             <span :class="{showYaAnim:showYaAnim}" @click="toWhatsApp">預約檢查及諮詢</span>
           </div>
         </div>
-        <!-- <div class="detail-remark">{{$t(detailData.remark)}}</div> -->
-      </div>
+      </div> -->
       <ServiceProblem :problemData="problemData" />
       <serviceCard />
       <ContactUs />
