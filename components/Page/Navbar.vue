@@ -37,20 +37,20 @@ let mbQDCodeBool = ref(false)
     <div class="navbar-content-in" id="navPcTel">
       <div class="navbarBox">
         <div class="navbarBox-in">
-          <div class="tel">6912 2011</div>
+          <div class="tel">6933 8128</div>
         </div>
       </div>
       <!-- <img src="@/assets/images/navIcon_1.png" alt="" /> -->
     </div>
     <!-- <div class="navbar-content-in"> -->
-      <nuxt-link class="navbar-content-in" id="navPcWhatsapp" :to="'https://api.whatsapp.com/send/?phone=85269122011'" target="_blank">
+      <nuxt-link class="navbar-content-in" id="navPcWhatsapp" :to="'https://api.whatsapp.com/send/?phone=85269338128'" target="_blank">
         <!-- <img src="@/assets/images/navIcon_2.png" alt="" /> -->
       </nuxt-link>
     <!-- </div> -->
     <div class="navbar-content-in" id="navPcWeChat">
       <div class="navbarBox">
         <div class="navbarBox-in">
-          <div class="weChat"><img src="https://static.cmereye.com/imgs/2023/06/c5ecb382a7e0eeb2.jpg" alt="二维码"></div>
+          <div class="weChat"><img src="https://static.cmereye.com/imgs/2023/09/a43a869a1fc07eea.jpg" alt="二维码"></div>
         </div>
       </div>
       <!-- <img src="@/assets/images/navIcon_3.png" alt="" /> -->
@@ -68,7 +68,7 @@ let mbQDCodeBool = ref(false)
     </div>
     <div class="navbar-content-mb" v-if="false">
       <div id="navMbTel">
-        <img src="@/assets/images/icon_8.png">6912 2011
+        <img src="@/assets/images/icon_8.png">6933 8128
       </div>
       <div>
         <div class="navBtn" @click="navLiBoxBool = !navLiBoxBool">立即預約</div>
@@ -91,8 +91,8 @@ let mbQDCodeBool = ref(false)
       </div>
     </div>
     <div class="navbar-content-mb">
-      <nuxt-link  id="navMbTel" :to="'tel: 6912 2011'" class="mbcc-boxInAA mbcc-boxInAA-1"></nuxt-link>
-      <nuxt-link id="navMbWhatsapp" :to="'https://api.whatsapp.com/send/?phone=85269122011'" target="_blank" class="mbcc-boxInAA mbcc-boxInAA-2"></nuxt-link>
+      <nuxt-link  id="navMbTel" :to="'tel: 6933 8128'" class="mbcc-boxInAA mbcc-boxInAA-1"></nuxt-link>
+      <nuxt-link id="navMbWhatsapp" :to="'https://api.whatsapp.com/send/?phone=85269338128'" target="_blank" class="mbcc-boxInAA mbcc-boxInAA-2"></nuxt-link>
       <div id="navMbContactFormBtn" class="mbcc-boxInAA mbcc-boxInAA-3" @click="handleNavFormNav">
         <img src="https://static.cmereye.com/imgs/2023/09/a8f9c3f82bbda125.png" alt="">
         <span>馬上預約</span>
@@ -103,7 +103,7 @@ let mbQDCodeBool = ref(false)
     <div class="navbar-content-mb02" v-if="false">
       <div id="navMbWeChat" @click="mbQDCodeBool = true">WeChat</div>
       <div>
-        <nuxt-link id="navMbWhatsapp" :to="'https://api.whatsapp.com/send/?phone=85269122011'" target="_blank">Whatsapp</nuxt-link>
+        <nuxt-link id="navMbWhatsapp" :to="'https://api.whatsapp.com/send/?phone=85269338128'" target="_blank">Whatsapp</nuxt-link>
       </div>
     </div>
     <div class="navbar-content-mb" v-if="false">
@@ -122,7 +122,7 @@ let mbQDCodeBool = ref(false)
     </div>
     <div class="navForm" :style="{bottom: (mbQDCodeBool ? '0' : '-150%')}">
       <div class="qdCode">
-        <img src="https://static.cmereye.com/imgs/2023/06/c5ecb382a7e0eeb2.jpg" alt="二维码" />
+        <img src="https://static.cmereye.com/imgs/2023/09/a43a869a1fc07eea.jpg" alt="二维码" />
       </div>
       <div class="navForm-icon" @click="mbQDCodeBool = false">
         <img src="@/assets/images/icon_7.png" alt="">

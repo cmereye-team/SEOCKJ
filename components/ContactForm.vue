@@ -214,7 +214,7 @@ onMounted(() => {
           <div class="linkBox">
             <div class="linkBox-in">
               <img src="@/assets/images/navIcon_1.png" alt="" />
-              <span>6912 2011</span>
+              <span>6933 8128</span>
             </div>
             <div class="linkBox-in">
               <img src="@/assets/images/navIcon_2.png" alt="" />

@@ -155,7 +155,7 @@ const headerData = {
   bannerText: '全程式預約一體化診療服務，讓每一位顧客享受',
   bannerTextSpan: '健康微笑之旅。',
   menuBoxBtn: '立即預約',
-  menuBoxPhone: '6912 2011'
+  menuBoxPhone: '6933 8128'
 }
 
 let menuBoxBool = ref(false)
@@ -251,7 +251,7 @@ const getScrollHeight = () => {
 }
 
 const toWhatsApp = () =>{
-  location.href="https://api.whatsapp.com/send/?phone=85269122011"
+  location.href="https://api.whatsapp.com/send/?phone=85269338128"
 }
 
 const handleMbMenu = () => {
@@ -380,7 +380,7 @@ const handleMbMenu = () => {
           </div>
         </div>
         <!-- 立即預約 -->
-        <nuxt-link to="tel: 6912 2011">
+        <nuxt-link to="tel: 6933 8128">
           <div class="menuBox-btn">
             {{headerData.menuBoxBtn}}
           </div>
