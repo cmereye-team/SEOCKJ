@@ -37,13 +37,13 @@ let mbQDCodeBool = ref(false)
     <div class="navbar-content-in" id="navPcTel">
       <div class="navbarBox">
         <div class="navbarBox-in">
-          <div class="tel">6933 8128</div>
+          <div class="tel">3892 5049</div>
         </div>
       </div>
       <!-- <img src="@/assets/images/navIcon_1.png" alt="" /> -->
     </div>
     <!-- <div class="navbar-content-in"> -->
-      <nuxt-link class="navbar-content-in" id="navPcWhatsapp" :to="'https://api.whatsapp.com/send/?phone=85269338128'" target="_blank">
+      <nuxt-link class="navbar-content-in" id="navPcWhatsapp" :to="'https://api.whatsapp.com/send/?phone=85238925049'" target="_blank">
         <!-- <img src="@/assets/images/navIcon_2.png" alt="" /> -->
       </nuxt-link>
     <!-- </div> -->
@@ -68,7 +68,7 @@ let mbQDCodeBool = ref(false)
     </div>
     <div class="navbar-content-mb" v-if="false">
       <div id="navMbTel">
-        <img src="@/assets/images/icon_8.png">6933 8128
+        <img src="@/assets/images/icon_8.png">3892 5049
       </div>
       <div>
         <div class="navBtn" @click="navLiBoxBool = !navLiBoxBool">立即預約</div>
@@ -91,8 +91,8 @@ let mbQDCodeBool = ref(false)
       </div>
     </div>
     <div class="navbar-content-mb">
-      <nuxt-link  id="navMbTel" :to="'tel: 6933 8128'" class="mbcc-boxInAA mbcc-boxInAA-1"></nuxt-link>
-      <nuxt-link id="navMbWhatsapp" :to="'https://api.whatsapp.com/send/?phone=85269338128'" target="_blank" class="mbcc-boxInAA mbcc-boxInAA-2"></nuxt-link>
+      <nuxt-link  id="navMbTel" :to="'tel: 3892 5049'" class="mbcc-boxInAA mbcc-boxInAA-1"></nuxt-link>
+      <nuxt-link id="navMbWhatsapp" :to="'https://api.whatsapp.com/send/?phone=85238925049'" target="_blank" class="mbcc-boxInAA mbcc-boxInAA-2"></nuxt-link>
       <div id="navMbContactFormBtn" class="mbcc-boxInAA mbcc-boxInAA-3" @click="handleNavFormNav">
         <img src="https://static.cmereye.com/imgs/2023/09/a8f9c3f82bbda125.png" alt="">
         <span>馬上預約</span>
@@ -103,7 +103,7 @@ let mbQDCodeBool = ref(false)
     <div class="navbar-content-mb02" v-if="false">
       <div id="navMbWeChat" @click="mbQDCodeBool = true">WeChat</div>
       <div>
-        <nuxt-link id="navMbWhatsapp" :to="'https://api.whatsapp.com/send/?phone=85269338128'" target="_blank">Whatsapp</nuxt-link>
+        <nuxt-link id="navMbWhatsapp" :to="'https://api.whatsapp.com/send/?phone=85238925049'" target="_blank">Whatsapp</nuxt-link>
       </div>
     </div>
     <div class="navbar-content-mb" v-if="false">
