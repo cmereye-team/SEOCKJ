@@ -432,7 +432,7 @@ const plagueData = {
 }
 
 const toWhatsApp = () =>{
-  location.href="https://api.whatsapp.com/send/?phone=85238925049"
+  location.href="https://api.whatsapp.com/send/?phone=85269338128"
 }
 
 let noticeCurrent = ref(1)
