@@ -67,12 +67,12 @@ const navLists = [
           </nuxt-link>
         </div>
       </div>
-      <div class="footer-content-copyright">©2023 CKJ愛康健齒科版權所有</div>
       <div class="footer-content-Disclaimer">
         <nuxt-link to="/privacyPolicy">私隱政策</nuxt-link>
         &
         <nuxt-link to="/disclaimer">免責條款</nuxt-link>
       </div>
+      <div class="footer-content-copyright">©2023 CKJ愛康健齒科版權所有</div>
     </div>
   </footer>
 </template>
@@ -129,16 +129,18 @@ const navLists = [
   &-copyright{
     color: #fff;
     font-size: 16px;
-    margin-top: 20px;
     text-align: center;
+    margin-top: 5px;
   }
   &-Disclaimer{
     color: #fff;
     font-size: 16px;
     text-align: center;
+    margin-top: 20px;
     a{
       transition: all .3s;
       display: inline-block;
+      border-bottom: 1px solid var(--indexColor);
       &:hover{
         border-bottom: 1px solid #fff;
       }
@@ -159,7 +161,7 @@ const navLists = [
     &-icon {
       margin: 30px 0;
     }
-    &-copyright{
+    &-Disclaimer{
       margin-top: 0;
     }
   }
