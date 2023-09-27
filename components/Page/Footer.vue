@@ -67,11 +67,11 @@ const navLists = [
           </nuxt-link>
         </div>
       </div>
-      <!-- <div class="w-30 md:absolute md:right-20 md:bottom-10">
-        <nuxt-link :to="'/'">
-          <img class="w-full" src="https://static.cmereye.com/imgs/2023/05/5e148b7d20c0be51.png" alt="" />
-        </nuxt-link>
-      </div> -->
+      <div class="footer-content-Disclaimer">
+        <nuxt-link to="/privacyPolicy">私隱政策</nuxt-link>
+        &
+        <nuxt-link to="/disclaimer">免責條款</nuxt-link>
+      </div>
     </div>
   </footer>
 </template>
@@ -105,7 +105,6 @@ const navLists = [
     }
   }
   &-text {
-    // max-width: 360px;
     color: #fff;
     font-size: 22px;
     text-align: center;
@@ -126,6 +125,19 @@ const navLists = [
       }
     }
   }
+  &-Disclaimer{
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 20px;
+    a{
+      transition: all .3s;
+      display: inline-block;
+      &:hover{
+        border-bottom: 1px solid #fff;
+      }
+    }
+  }
 }
 @media screen and (max-width: 768px) {
   .footer-content {
@@ -140,6 +152,9 @@ const navLists = [
     }
     &-icon {
       margin: 30px 0;
+    }
+    &-Disclaimer{
+      margin-top: 0;
     }
   }
 }
