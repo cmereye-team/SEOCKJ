@@ -139,19 +139,19 @@ const stepData = {
     },
     {
       title: '第4步',
-      img: 'https://static.cmereye.com/imgs/2023/09/7096607a2bb3d79e.jpg',
+      img: 'https://static.cmereye.com/imgs/2023/09/915fb53ec41c5511.jpg',
       name: '安裝臨時假牙', //'當牙骨與植體癒合，牙醫會安放癒合帽',
       context: '確保植體與牙骨處於良好狀況後，根據客人實際情況，安裝臨時假牙。' //'等待2至3個月後，當牙骨與植體癒合，牙醫會安放癒合帽'
     },
     {
       title: '第5步',
-      img: 'https://static.cmereye.com/imgs/2023/09/ff64dced44370230.jpg',
+      img: 'https://static.cmereye.com/imgs/2023/09/7096607a2bb3d79e.jpg',
       name: '套上牙冠及微調', //'牙齦癒合後進行掃描式印模，製作義齒',
       context: '確認植體在顎骨已穩固，套上客人心儀的牙色牙冠，作最後全體牙齒微調。' //'牙齦癒合後，再進行下一階段的療程進行掃描式印模，再由牙科技師製作義齒'
     },
     {
       title: '第6步',
-      img: 'https://static.cmereye.com/imgs/2023/09/915fb53ec41c5511.jpg',
+      img: 'https://static.cmereye.com/imgs/2023/09/9e044f535b6a7b46.jpg',
       name: '定期覆診', //'將義齒固定在植體上及最後微調',
       context: '根據客人情況，定期覆診跟進情況。', //'將義齒固定在植體上，補上缺去的牙齒'
     }
