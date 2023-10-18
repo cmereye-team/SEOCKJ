@@ -357,7 +357,7 @@ const handleMbMenu = () => {
         class="header-content-text-implant"
       >
         <div>保留原生牙齒</div>
-        <div><span>徹底</span>解放美食自由</div>
+        <div>徹底<span>解放美食自由</span></div>
       </div>
       <div
         v-if="headerConfig.pageName === 'scaling-and-polishing-test'"
