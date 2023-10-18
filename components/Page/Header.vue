@@ -1,22 +1,22 @@
 <script lang="ts" setup>
-import { defineProps } from "vue"
+import { defineProps } from 'vue'
+import gsap from 'gsap'
 import { useAppState } from '~/stores/appState'
-import gsap from 'gsap';
 const route = useRoute()
 const appState = useAppState()
 defineProps({
   headerConfig: {
     type: Object,
-    default(){
+    default() {
       return {
         img: 'https://static.cmereye.com/imgs/2023/05/71929ca4c90a8d1e.png',
         bg: 'https://static.cmereye.com/imgs/2023/05/d8084e8da90409aa.jpg',
         mbImg: 'https://static.cmereye.com/imgs/2023/04/b0d950232420bf46.jpg',
         pageName: 'index',
-        pcText: ['重拾自信笑容','愛牙愛己，由你做起'],
-        mbText: ['重拾自信笑容','愛牙愛己，由你做起']
+        pcText: ['重拾自信笑容', '愛牙愛己，由你做起'],
+        mbText: ['重拾自信笑容', '愛牙愛己，由你做起'],
       }
-    }
+    },
   },
 })
 
@@ -108,7 +108,7 @@ const menuLists = [
       {
         name: 'service.children_dentistry',
         link: '/dental-service/children-dentistry',
-      }
+      },
     ],
   },
   {
@@ -155,40 +155,38 @@ const headerData = {
   bannerText: '全程式預約一體化診療服務，讓每一位顧客享受',
   bannerTextSpan: '健康微笑之旅。',
   menuBoxBtn: '立即預約',
-  menuBoxPhone: '3892 5049'
+  menuBoxPhone: '3892 5049',
 }
 
-let menuBoxBool = ref(false)
+const menuBoxBool = ref(false)
 
-let menuActNum = ref(0)
+const menuActNum = ref(0)
 const handleMenu = (_idx: number) => {
-  if(menuActNum.value === _idx)
-    menuActNum.value = 0
-  else
-    menuActNum.value = _idx
+  if (menuActNum.value === _idx) menuActNum.value = 0
+  else menuActNum.value = _idx
   // console.log(menuActNum)
 }
 
-const handleMenuChild = ( _menu:any, _idx: number) =>{
-  if(_menu.link.includes('medical-team')){
+const handleMenuChild = (_menu: any, _idx: number) => {
+  if (_menu.link.includes('medical-team')) {
     appState.setCurNum(_idx)
     menuBoxBool.value = false
   }
 }
-const classNamefilter = ( _menu:any, _idx: number) => {
+const classNamefilter = (_menu: any, _idx: number) => {
   let className = ''
-  if(route.path === '/medical-team'){
-    if(_menu.link.includes('medical-team')){
-      if(appState.areaTabCurNum === _idx){
+  if (route.path === '/medical-team') {
+    if (_menu.link.includes('medical-team')) {
+      if (appState.areaTabCurNum === _idx) {
         className = 'menuChildCurrent'
       }
     }
-  }else if(route.path.includes('/brand')){
-    if(_menu.link.includes(appState.brand)){
+  } else if (route.path.includes('/brand')) {
+    if (_menu.link.includes(appState.brand)) {
       className = 'menuChildCurrent'
     }
-  }else if(route.path.includes('/dental-service')){
-    if(_menu.link.includes(appState.dentistryService)){
+  } else if (route.path.includes('/dental-service')) {
+    if (_menu.link.includes(appState.dentistryService)) {
       className = 'menuChildCurrent'
     }
   }
@@ -197,66 +195,53 @@ const classNamefilter = ( _menu:any, _idx: number) => {
 }
 
 const imgBgHeight = ref({
-  clientHeight: 0
+  clientHeight: 0,
 })
 
-let isFiexdHeader = ref(false)
+const isFiexdHeader = ref(false)
 onMounted(() => {
   gsap.from('.header-content-bgImg-in', {
-    opacity: 0, 
-    y: 100, 
-    duration: 2
+    opacity: 0,
+    y: 100,
+    duration: 2,
   })
   gsap.from('.header-content-bgImg-imgInfo', {
-    opacity: 0, 
-    y: 100, 
-    duration: 2
+    opacity: 0,
+    y: 100,
+    duration: 2,
   })
-  // gsap.to(".header-content-in", {
-  //   duration: 0.5,
-  //   y: 0,
-  //   ease: "power1.inOut",
-  //   scrollTrigger: {
-  //     trigger: ".header-content-in",
-  //     start: "top top",
-  //     end: "bottom top",
-  //     scrub: true,
-  //     pin: true,
-  //     pinSpacing: false
-  //   }
-  // });
   getScrollHeight()
   getWindowWidth()
-  window.addEventListener('scroll',getScrollHeight)
-  window.addEventListener('resize',getWindowWidth)
-});
-let windowWidth = ref(1920)
+  window.addEventListener('scroll', getScrollHeight)
+  window.addEventListener('resize', getWindowWidth)
+})
+const windowWidth = ref(1920)
 
 const getWindowWidth = () => {
   windowWidth.value = window.innerWidth
 }
-let isShowLanguageBool = ref(false)
+const isShowLanguageBool = ref(false)
 const getScrollHeight = () => {
   // console.log('windowScrollY: ----->',window.scrollY)
-  if(imgBgHeight.value.clientHeight < window.scrollY){
+  if (imgBgHeight.value.clientHeight < window.scrollY) {
     isFiexdHeader.value = true
-  }else{
+  } else {
     isFiexdHeader.value = false
   }
-  if(window.scrollY === 0){
+  if (window.scrollY === 0) {
     isShowLanguageBool.value = true
-  }else{
+  } else {
     isShowLanguageBool.value = false
   }
 }
 
-const toWhatsApp = () =>{
-  location.href="https://api.whatsapp.com/send/?phone=85269338128"
+const toWhatsApp = () => {
+  location.href = 'https://api.whatsapp.com/send/?phone=85269338128'
 }
 
 const handleMbMenu = () => {
   // console.log('navigator ----- >',window.navigator.onLine)
-  if(!window.navigator.onLine){
+  if (!window.navigator.onLine) {
     ElMessage({
       showClose: true,
       message: '網路異常，請檢查網路後重試',
@@ -265,7 +250,6 @@ const handleMbMenu = () => {
     })
   }
 }
-
 </script>
 
 <template>
@@ -277,103 +261,197 @@ const handleMbMenu = () => {
         </div>
       </div> -->
       <div class="header-content-bgImg" :class="headerConfig.pageName">
-        <img class="imgBgBox pcBox" :src="headerConfig.bg" alt="">
+        <img class="imgBgBox pcBox" :src="headerConfig.bg" alt="" />
         <div class="header-content-bgImg-imgInfo bigPageCon">
           <img
-            :class="['pcBox',headerConfig.pageName]"
+            :class="['pcBox', headerConfig.pageName]"
             :src="headerConfig.img"
             alt=""
           />
         </div>
         <img
-          :class="['mbBox','header-content-bgImg-mbImg',headerConfig.pageName]"
+          :class="[
+            'mbBox',
+            'header-content-bgImg-mbImg',
+            headerConfig.pageName,
+          ]"
           :src="headerConfig.mbImg"
           alt=""
         />
         <div class="header-content-bgImg-textInfo pageCon">
-          <div :class="['header-content-bgImg-in',headerConfig.pageName]">
-            <div :class="['bannerTitle',headerConfig.pageName]">
-              <span>{{windowWidth>768?headerConfig.pcText[0]:headerConfig.mbText[0]}}</span>
-              <span>{{windowWidth>768?headerConfig.pcText[1]:headerConfig.mbText[1]}}</span>
+          <div :class="['header-content-bgImg-in', headerConfig.pageName]">
+            <div :class="['bannerTitle', headerConfig.pageName]">
+              <span>{{
+                windowWidth > 768
+                  ? headerConfig.pcText[0]
+                  : headerConfig.mbText[0]
+              }}</span>
+              <span>{{
+                windowWidth > 768
+                  ? headerConfig.pcText[1]
+                  : headerConfig.mbText[1]
+              }}</span>
             </div>
             <div class="text">
-              {{headerData.bannerText}}
-              <span>{{headerData.bannerTextSpan}}</span>
+              {{ headerData.bannerText }}
+              <span>{{ headerData.bannerTextSpan }}</span>
             </div>
           </div>
         </div>
       </div>
-      <div class="header-content-bgImg-implant" v-if="headerConfig.pageName === 'implant'">
+      <div
+        v-if="
+          ['implant', 'rootCanal-test', 'scaling-and-polishing-test'].includes(
+            headerConfig.pageName
+          )
+        "
+        class="header-content-bgImg-implant"
+      >
         <img :src="headerConfig.img" alt="" />
       </div>
-      <div class="header-content-bgImg-implant-mb" v-if="headerConfig.pageName === 'implant'">
+      <div
+        v-if="
+          ['implant', 'rootCanal-test', 'scaling-and-polishing-test'].includes(
+            headerConfig.pageName
+          )
+        "
+        class="header-content-bgImg-implant-mb"
+      >
         <img :src="headerConfig.mbImg" alt="" />
       </div>
-      <div class="header-content-bgImgBB pageCon pcBox" :class="headerConfig.pageName" ref="imgBgHeight">
-        <img
-          :src="headerConfig.img"
-          alt=""
-        />
+      <div
+        ref="imgBgHeight"
+        class="header-content-bgImgBB pageCon pcBox"
+        :class="headerConfig.pageName"
+      >
+        <img :src="headerConfig.img" alt="" />
       </div>
-      <div class="header-content-btn-implant" v-if="headerConfig.pageName === 'implant'">
+      <div
+        v-if="
+          ['implant', 'rootCanal-test', 'scaling-and-polishing-test'].includes(
+            headerConfig.pageName
+          )
+        "
+        class="header-content-btn-implant"
+      >
         <span @click="toWhatsApp">預約檢查及諮詢</span>
         <span @click="toWhatsApp">預約檢查及諮詢</span>
       </div>
-      <div class="waterBg-implant" v-if="headerConfig.pageName === 'implant'"></div>
-      <div class="header-content-text-implant" v-if="headerConfig.pageName === 'implant'">
+      <div
+        v-if="
+          ['implant', 'rootCanal-test', 'scaling-and-polishing-test'].includes(
+            headerConfig.pageName
+          )
+        "
+        class="waterBg-implant"
+      ></div>
+      <div
+        v-if="headerConfig.pageName === 'implant'"
+        class="header-content-text-implant"
+      >
         <div>28年專科•專業•專注</div>
         <div><span>港人首選</span>一站式連鎖牙科品牌</div>
       </div>
+      <div
+        v-if="headerConfig.pageName === 'rootCanal-test'"
+        class="header-content-text-implant"
+      >
+        <div>保留原生牙齒</div>
+        <div><span>徹底</span>解放美食自由</div>
+      </div>
+      <div
+        v-if="headerConfig.pageName === 'scaling-and-polishing-test'"
+        class="header-content-text-implant"
+      >
+        <div>口腔健康，從洗牙開始！</div>
+      </div>
       <!-- pc菜单 -->
-      <div :class="[isFiexdHeader ? 'headerBox02': 'headerBox01', 'pcMenuBox', headerConfig.pageName]">
-        <div class="pageCon header-content-in" ref="headerMenu">
+      <div
+        :class="[
+          isFiexdHeader ? 'headerBox02' : 'headerBox01',
+          'pcMenuBox',
+          headerConfig.pageName,
+        ]"
+      >
+        <div ref="headerMenu" class="pageCon header-content-in">
           <div class="logo">
-            <!-- <nuxt-link :to="'/'"
-              ><img src="@/assets/images/logo_1.png" alt=""
-            /></nuxt-link> -->
             <nuxt-link :to="'/'"
               ><img src="@/assets/images/logo_11.png" alt=""
             /></nuxt-link>
           </div>
           <div class="menu">
-            <div class="menuItem"
+            <div
               v-for="(menuItem, menuIndex) in menuLists"
               :key="menuIndex"
+              class="menuItem"
             >
-              <nuxt-link :class="menuItem.child.length ? 'triangleIcon' : ''" :to="menuItem.link">
-              {{ $t(menuItem.name) }}
+              <nuxt-link
+                :class="menuItem.child.length ? 'triangleIcon' : ''"
+                :to="menuItem.link"
+              >
+                {{ $t(menuItem.name) }}
               </nuxt-link>
-              <div class="menuChild" v-if="menuItem.child.length && !menuItem.link.includes('/dental-service')">
-                <div :class="['menuChild-item', classNamefilter(menuChildItem,menuChildIndex)]" v-for="(menuChildItem,menuChildIndex) in menuItem.child" :key="menuChildIndex" @click="handleMenuChild(menuItem,menuChildIndex)">
+              <div
+                v-if="
+                  menuItem.child.length &&
+                  !menuItem.link.includes('/dental-service')
+                "
+                class="menuChild"
+              >
+                <div
+                  v-for="(menuChildItem, menuChildIndex) in menuItem.child"
+                  :key="menuChildIndex"
+                  :class="[
+                    'menuChild-item',
+                    classNamefilter(menuChildItem, menuChildIndex),
+                  ]"
+                  @click="handleMenuChild(menuItem, menuChildIndex)"
+                >
                   <nuxt-link :to="menuChildItem.link">
-                  {{ $t(menuChildItem.name) }}
+                    {{ $t(menuChildItem.name) }}
                   </nuxt-link>
                 </div>
               </div>
-              <div class="menuChild serviceCard" v-if="menuItem.link.includes('/dental-service')">
-                <serviceCard :isMenu="true" />
+              <div
+                v-if="menuItem.link.includes('/dental-service')"
+                class="menuChild serviceCard"
+              >
+                <serviceCard :is-menu="true" />
               </div>
             </div>
           </div>
           <div class="icon" @click="menuBoxBool = !menuBoxBool">
-            <img v-if="!menuBoxBool" src="@/assets/images/icon_61.png" >
-            <img v-else src="@/assets/images/icon_7.png" >
+            <img v-if="!menuBoxBool" src="@/assets/images/icon_61.png" />
+            <img v-else src="@/assets/images/icon_7.png" />
           </div>
         </div>
       </div>
       <!-- mb菜单 -->
-      <div class="menuBox" :style="{top: (menuBoxBool ? '0' : '-100vh')}">
+      <div class="menuBox" :style="{ top: menuBoxBool ? '0' : '-100vh' }">
         <div class="menuLists">
-          <div :class="['menuLists-item',item.child.length ? 'childIcon' : '']" v-for="(item, index) in menuLists" :key="index">
+          <div
+            v-for="(item, index) in menuLists"
+            :key="index"
+            :class="['menuLists-item', item.child.length ? 'childIcon' : '']"
+          >
             <nuxt-link :to="!item.child.length ? item.link : ''">
               <div @click="handleMenu(index)">
-                {{$t(item.name)}}
+                {{ $t(item.name) }}
               </div>
             </nuxt-link>
-            <div class="menuLists-childLists" v-if="item.child.length" v-show="menuActNum === index">
-              <div class="menuLists-childLists-item" v-for="(itemChild,itemChildIndex) in item.child" :key="itemChildIndex" @click="handleMenuChild(item,itemChildIndex)">
+            <div
+              v-if="item.child.length"
+              v-show="menuActNum === index"
+              class="menuLists-childLists"
+            >
+              <div
+                v-for="(itemChild, itemChildIndex) in item.child"
+                :key="itemChildIndex"
+                class="menuLists-childLists-item"
+                @click="handleMenuChild(item, itemChildIndex)"
+              >
                 <nuxt-link :to="itemChild.link" @click.native="handleMbMenu">
-                {{$t(itemChild.name)}}
+                  {{ $t(itemChild.name) }}
                 </nuxt-link>
               </div>
             </div>
@@ -382,15 +460,18 @@ const handleMbMenu = () => {
         <!-- 立即預約 -->
         <nuxt-link to="tel: 3892 5049">
           <div class="menuBox-btn">
-            {{headerData.menuBoxBtn}}
+            {{ headerData.menuBoxBtn }}
           </div>
         </nuxt-link>
         <div class="menuBox-phone">
-          <img src="@/assets/images/icon_11.png" >{{headerData.menuBoxPhone}}
+          <img src="@/assets/images/icon_11.png" />{{ headerData.menuBoxPhone }}
         </div>
         <div class="menuBox-icon">
           <div class="menuBox-icon-in">
-            <nuxt-link to="https://www.facebook.com/ckjdental.hk/" target="_blank">
+            <nuxt-link
+              to="https://www.facebook.com/ckjdental.hk/"
+              target="_blank"
+            >
               <img src="@/assets/images/icon_01.png" />
             </nuxt-link>
           </div>
@@ -400,7 +481,10 @@ const handleMbMenu = () => {
             </nuxt-link>
           </div>
           <div class="menuBox-icon-in">
-            <nuxt-link to="https://www.youtube.com/channel/UCKYINBITo-8P37-SQDRSr_g"  target="_blank">
+            <nuxt-link
+              to="https://www.youtube.com/channel/UCKYINBITo-8P37-SQDRSr_g"
+              target="_blank"
+            >
               <img src="@/assets/images/icon_03.png" />
             </nuxt-link>
           </div>
@@ -414,30 +498,29 @@ const handleMbMenu = () => {
 
 <style lang="scss" scoped>
 @keyframes btnAnim {
-  0%{
-    clip-path: polygon(-10% 0,0 0,-10% 100%,-20% 100%);
+  0% {
+    clip-path: polygon(-10% 0, 0 0, -10% 100%, -20% 100%);
   }
-  50%{
-    clip-path: polygon(50% 0, 60% 0, 50% 100%,40% 100%);
+  50% {
+    clip-path: polygon(50% 0, 60% 0, 50% 100%, 40% 100%);
   }
-  100%{
-    clip-path: polygon(110% 0, 120% 0,110% 100%,100% 100%);
+  100% {
+    clip-path: polygon(110% 0, 120% 0, 110% 100%, 100% 100%);
   }
 }
-.LanguageSwitcher{
+.LanguageSwitcher {
   width: 100%;
-  background: rgba(255, 255, 255,.5);
+  background: rgba(255, 255, 255, 0.5);
   height: 30px;
   position: fixed;
   z-index: 38;
   transition: all 1s;
-  &-in{
+  &-in {
     height: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
   }
-  // display: none;
 }
 .header-content {
   width: 100%;
@@ -451,46 +534,58 @@ const handleMbMenu = () => {
     left: 50%;
     transform: translateX(-50%);
     z-index: -1;
-    &.implant{
+    &.implant,
+    &.rootCanal-test,
+    &.scaling-and-polishing-test {
       display: none;
     }
-    &-imgInfo{
-      &>img{
-        &.brand{
+    &-imgInfo {
+      & > img {
+        &.brand {
           float: right;
         }
-        &.implant{
+        &.implant {
           float: right;
-          margin-right: calc((100% - 1452px)/2);
+          margin-right: calc((100% - 1452px) / 2);
           // display: none;
         }
-        &.rootCanal,&.orthodontics{
+        &.rootCanal,
+        &.orthodontics {
           float: right;
-          margin-right: calc((100% - 1600px)/2);
+          margin-right: calc((100% - 1600px) / 2);
         }
-        &.toothtray,&.general-oral-examination{
+        &.toothtray,
+        &.general-oral-examination {
           float: right;
-          margin-right: calc((100% - 1700px)/2);
+          margin-right: calc((100% - 1700px) / 2);
         }
-        &.invisalign,&.veneers,&.wisdom-teeth-extraction,&.periodontal,&.teeth-whitening,&.scaling-and-polishing,&.children-dentistry,&.all-ceramic-crowns{
+        &.invisalign,
+        &.veneers,
+        &.wisdom-teeth-extraction,
+        &.periodontal,
+        &.teeth-whitening,
+        &.scaling-and-polishing,
+        &.children-dentistry,
+        &.all-ceramic-crowns {
           float: right;
-          margin-right: calc((100% - 1920px)/2);
+          margin-right: calc((100% - 1920px) / 2);
         }
-        &.fillings{
+        &.fillings {
           float: right;
-          margin-right: calc((100% - 1200px)/2);
+          margin-right: calc((100% - 1200px) / 2);
         }
       }
     }
-    &-mbImg{
-      &.veneers,&.periodontal{
-        -moz-transform: matrix(-1,0,0,1,0,0);
-        -o-transform: matrix(-1,0,0,1,0,0);
-        -webkit-transform: matrix(-1,0,0,1,0,0);
-        transform: matrix(-1,0,0,1,0,0);
+    &-mbImg {
+      &.veneers,
+      &.periodontal {
+        -moz-transform: matrix(-1, 0, 0, 1, 0, 0);
+        -o-transform: matrix(-1, 0, 0, 1, 0, 0);
+        -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
+        transform: matrix(-1, 0, 0, 1, 0, 0);
       }
     }
-    &-textInfo{
+    &-textInfo {
       position: absolute;
       width: 100%;
       height: 100%;
@@ -498,7 +593,7 @@ const handleMbMenu = () => {
       top: 0;
       transform: translateX(-50%);
     }
-    .imgBgBox{
+    .imgBgBox {
       width: 100%;
       min-height: 100%;
       position: absolute;
@@ -507,7 +602,7 @@ const handleMbMenu = () => {
       transform: translateX(-50%);
       z-index: -2;
     }
-    .imgBgBox-1{
+    .imgBgBox-1 {
       width: 100%;
       position: absolute;
       top: 0;
@@ -515,40 +610,43 @@ const handleMbMenu = () => {
       z-index: -3;
       filter: blur(10px);
     }
-    &>img {
+    & > img {
       width: 100%;
     }
-    &-in{
+    &-in {
       position: absolute;
       left: 55%;
       top: 30%;
-      .bannerTitle{
+      .bannerTitle {
         font-weight: 700;
         font-size: 42px;
         line-height: 160%;
         color: #666666;
-        span{
+        span {
           display: block;
-          &:last-child{
+          &:last-child {
             margin-left: 200px;
           }
         }
-        &.rootCanal,&.wisdom-teeth-extraction{
-          span{
-            &:last-child{
+        &.rootCanal,
+        &.wisdom-teeth-extraction {
+          span {
+            &:last-child {
               margin-left: 120px;
             }
           }
         }
-        &.toothtray,&.scaling-and-polishing,&.invisalign{
-          span{
-            &:last-child{
+        &.toothtray,
+        &.scaling-and-polishing,
+        &.invisalign {
+          span {
+            &:last-child {
               margin-left: 130px;
             }
           }
         }
       }
-      .text{
+      .text {
         margin-top: 32px;
         max-width: 550px;
         font-style: normal;
@@ -557,41 +655,52 @@ const handleMbMenu = () => {
         line-height: 160%;
         color: #666666;
         width: 73%;
-        span{
+        span {
           font-size: 25px;
           color: var(--indexColor);
         }
       }
-      &.brand{
+      &.brand {
         left: 0;
       }
-      &.implant,&.orthodontics,&.rootCanal,&.invisalign,&.veneers,&.all-ceramic-crowns{
+      &.implant,
+      &.orthodontics,
+      &.rootCanal,
+      &.invisalign,
+      &.veneers,
+      &.all-ceramic-crowns {
         left: 0;
         top: 25%;
       }
-      &.wisdom-teeth-extraction,&.periodontal,&.toothtray,&.teeth-whitening,&.scaling-and-polishing{
+      &.wisdom-teeth-extraction,
+      &.periodontal,
+      &.toothtray,
+      &.teeth-whitening,
+      &.scaling-and-polishing {
         left: 0;
         top: 25%;
       }
-      &.fillings,&.general-oral-examination,&.children-dentistry{
+      &.fillings,
+      &.general-oral-examination,
+      &.children-dentistry {
         left: 0;
         top: 25%;
       }
     }
   }
-  &-bgImg-implant{
+  &-bgImg-implant {
     position: fixed;
     top: 0;
     z-index: -1;
     width: 100%;
-    img{
+    img {
       width: 100%;
     }
   }
-  &-bgImg-implant-mb{
+  &-bgImg-implant-mb {
     display: none;
   }
-  &-btn-implant{
+  &-btn-implant {
     display: flex;
     justify-content: center;
     position: absolute;
@@ -599,7 +708,7 @@ const handleMbMenu = () => {
     left: 0;
     z-index: 40;
     width: 100%;
-    span{
+    span {
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
@@ -612,7 +721,7 @@ const handleMbMenu = () => {
       box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
       cursor: pointer;
       z-index: 1;
-      &:nth-of-type(2){
+      &:nth-of-type(2) {
         color: var(--indexColor1);
         background: #fff;
         z-index: 2;
@@ -621,10 +730,10 @@ const handleMbMenu = () => {
       }
     }
   }
-  .waterBg-implant{
+  .waterBg-implant {
     display: none;
   }
-  &-text-implant{
+  &-text-implant {
     position: absolute;
     bottom: 100px;
     left: 50%;
@@ -633,20 +742,22 @@ const handleMbMenu = () => {
     width: 100%;
     max-width: 1450px;
     text-align: right;
-    &>div{
+    & > div {
       font-size: 28px;
       font-weight: 700;
       color: #666666;
-      span{
+      span {
         color: var(--indexColor1);
       }
     }
   }
-  &-bgImgBB{
+  &-bgImgBB {
     opacity: 0;
-    &.implant{
+    &.implant,
+    &.rootCanal-test,
+    &.scaling-and-polishing-test {
       max-width: 100%;
-      img{
+      img {
         width: 100%;
       }
     }
@@ -663,7 +774,7 @@ const handleMbMenu = () => {
     align-items: flex-end;
     z-index: 40;
     position: relative;
-    transition: all .5s;
+    transition: all 0.5s;
     .logo {
       width: 290px;
       margin-bottom: 20px;
@@ -680,7 +791,7 @@ const handleMbMenu = () => {
         font-size: 18px;
         font-weight: 600;
         position: relative;
-        &>a{
+        & > a {
           padding: 0 20px 20px;
         }
         .triangleIcon:after {
@@ -694,29 +805,29 @@ const handleMbMenu = () => {
           left: 50%;
           transform: translateX(-50%);
         }
-        .triangleIcon:hover{
-          &:after{
+        .triangleIcon:hover {
+          &:after {
             border-color: var(--indexColor1) transparent transparent transparent;
           }
         }
-        &>.router-link-exact-active{
+        & > .router-link-exact-active {
           color: var(--indexColor1);
           text-decoration-line: underline;
-          &.triangleIcon:after{
+          &.triangleIcon:after {
             border-color: var(--indexColor1) transparent transparent transparent;
           }
         }
         &:hover {
           color: var(--indexColor1);
           text-decoration-line: underline;
-          .triangleIcon:after{
+          .triangleIcon:after {
             border-color: var(--indexColor1) transparent transparent transparent;
           }
         }
-        &:hover .menuChild{
+        &:hover .menuChild {
           display: flex;
         }
-        .menuChild{
+        .menuChild {
           position: absolute;
           top: 100%;
           left: 50%;
@@ -725,31 +836,31 @@ const handleMbMenu = () => {
           z-index: 2;
           display: none;
           flex-direction: column;
-          transition: all .3s;
+          transition: all 0.3s;
           padding: 0 20px 5px;
           box-sizing: border-box;
-          background: #FFFFFF;
+          background: #ffffff;
           filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.15));
           border-radius: 6px;
-          &-item{
+          &-item {
             width: 100%;
             text-align: center;
             padding: 10px 0 5px;
             font-weight: 500;
             font-size: 18px;
             color: #666666;
-            transition: all .3s;
-            &:not(:last-child){
+            transition: all 0.3s;
+            &:not(:last-child) {
               border-bottom: 1px solid var(--indexColor2);
             }
-            &:hover{
+            &:hover {
               color: var(--indexColor1);
             }
-            &.menuChildCurrent{
+            &.menuChildCurrent {
               color: var(--indexColor1);
             }
           }
-          &::before{
+          &::before {
             content: '';
             width: 0px;
             height: 0px;
@@ -761,35 +872,39 @@ const handleMbMenu = () => {
             transform: translateX(-50%);
           }
         }
-        .serviceCard{
+        .serviceCard {
           width: 428px;
           padding: 12px 6px;
         }
       }
     }
-    .icon{
+    .icon {
       display: none;
     }
   }
-  .waterBg{
+  .waterBg {
     position: relative;
     z-index: 35;
-    &.implant{
+    &.implant,
+    &.rootCanal-test,
+    &.scaling-and-polishing-test {
       bottom: 100px;
     }
   }
-  .pcMenuBox{
-    &.implant{
+  .pcMenuBox {
+    &.implant,
+    &.rootCanal-test,
+    &.scaling-and-polishing-test {
       margin-top: 100px;
-      transition: all .3s;
+      transition: all 0.3s;
     }
   }
-  .headerBox01{
+  .headerBox01 {
     position: relative;
     background: #fff;
     width: 100%;
   }
-  .headerBox02{
+  .headerBox02 {
     position: fixed;
     background: #fff;
     top: 0;
@@ -797,7 +912,7 @@ const handleMbMenu = () => {
     z-index: 100;
     box-shadow: 0px 4px 8px var(--indexColor3);
     margin-top: 0 !important;
-    .header-content-in{
+    .header-content-in {
       align-items: center;
     }
   }
@@ -876,31 +991,31 @@ const handleMbMenu = () => {
     background-position: 1080px bottom;
   }
 }
-.menuBox{
+.menuBox {
   display: none;
 }
 
 @media (min-width: 768px) and (max-width: 1000px) {
   .header-content {
     &-bgImg {
-      &-in{
+      &-in {
         left: 50%;
         // top: 15%;
-        .bannerTitle{
-          font-size: 2.0rem;
+        .bannerTitle {
+          font-size: 2rem;
           line-height: 130%;
-          span{
+          span {
             display: block;
-            &:last-child{
+            &:last-child {
               margin-left: 10%;
             }
           }
         }
-        .text{
+        .text {
           margin-top: 1%;
           font-size: 1.2rem;
           line-height: 130%;
-          span{
+          span {
             font-size: 1.2rem;
             color: var(--indexColor);
           }
@@ -908,30 +1023,31 @@ const handleMbMenu = () => {
       }
     }
   }
-  .waterBg::after,.waterBg::before {
+  .waterBg::after,
+  .waterBg::before {
     height: 140px;
   }
 }
 @media (min-width: 1000px) and (max-width: 1452px) {
   .header-content {
     &-bgImg {
-      &-in{
+      &-in {
         top: 30%;
-        .bannerTitle{
+        .bannerTitle {
           font-size: 2.5rem;
           line-height: 130%;
-          span{
+          span {
             display: block;
-            &:last-child{
+            &:last-child {
               margin-left: 15%;
             }
           }
         }
-        .text{
+        .text {
           margin-top: 2%;
           font-size: 1.4rem;
           line-height: 130%;
-          span{
+          span {
             font-size: 1.4rem;
             color: var(--indexColor);
           }
@@ -953,7 +1069,7 @@ const handleMbMenu = () => {
         .menuItem {
           font-size: 100%;
           padding: 0 0 10px;
-          &>a{
+          & > a {
             padding: 0 1.3vw 10px;
             box-sizing: border-box;
           }
@@ -961,12 +1077,12 @@ const handleMbMenu = () => {
             border: 5px solid;
             border-color: #666666 transparent transparent transparent;
           }
-          .menuChild{
+          .menuChild {
             padding: 0 10px;
-            &-item{
+            &-item {
               font-size: 1rem;
             }
-            &::before{
+            &::before {
               border: 5px solid;
               border-color: transparent transparent #fff transparent;
               position: absolute;
@@ -975,7 +1091,7 @@ const handleMbMenu = () => {
               transform: translateX(-50%);
             }
           }
-          .serviceCard{
+          .serviceCard {
             padding: 12px 6px;
           }
         }
@@ -985,8 +1101,8 @@ const handleMbMenu = () => {
 }
 @media screen and (max-width: 768px) {
   // header{
-    // position: relative;
-    // z-index: 60;
+  // position: relative;
+  // z-index: 60;
   // }
   .header-content {
     &-bgImg {
@@ -994,15 +1110,15 @@ const handleMbMenu = () => {
       // &.implant{
       //   display: block;
       // }
-      &-textInfo{
+      &-textInfo {
         position: static;
         width: 100%;
         background: #fff;
         transform: none;
       }
-      &-in{
+      &-in {
         position: static;
-        .bannerTitle{
+        .bannerTitle {
           position: absolute;
           line-height: 140%;
           color: #000;
@@ -1029,7 +1145,7 @@ const handleMbMenu = () => {
             }
           }
         }
-        .text{
+        .text {
           left: 55%;
           font-weight: 500;
           font-size: 1.25rem;
@@ -1037,33 +1153,33 @@ const handleMbMenu = () => {
           padding-left: 30px;
           // margin-top: 30px;
           margin-top: 0;
-          span{
+          span {
             font-size: 1.25rem;
           }
         }
       }
     }
-    &-bgImg-implant{
+    &-bgImg-implant {
       display: none;
     }
-    &-btn-implant{
+    &-btn-implant {
       display: none;
     }
-    &-text-implant{
+    &-text-implant {
       position: relative;
       margin-top: 25px;
       width: calc(100% - 60px);
       bottom: auto;
       text-align: left;
       z-index: 1;
-      &>div{
+      & > div {
         font-size: 20px;
       }
     }
-    .waterBg-implant{
+    .waterBg-implant {
       display: block;
       // position: relative;
-      &::before{
+      &::before {
         content: '';
         background-image: url(@/assets/images/back_wave03.png);
         background-repeat: repeat-x;
@@ -1084,7 +1200,7 @@ const handleMbMenu = () => {
         -webkit-animation-timing-function: linear;
         -webkit-animation-iteration-count: infinite;
       }
-      &::after{
+      &::after {
         content: '';
         background-image: url(@/assets/images/back_wave01.png);
         background-repeat: repeat-x;
@@ -1106,10 +1222,10 @@ const handleMbMenu = () => {
         filter: drop-shadow(0px -8px 4px rgba(77, 77, 77, 0.15));
       }
     }
-    &-bgImg-implant-mb{
+    &-bgImg-implant-mb {
       display: block;
       padding-top: 80px;
-      img{
+      img {
         width: 100%;
       }
     }
@@ -1119,14 +1235,14 @@ const handleMbMenu = () => {
       justify-content: space-between;
       margin: 0;
       padding: 20px 0 0 30px;
-      .logo{
+      .logo {
         width: 150px;
         margin-bottom: 0;
       }
-      .menu{
+      .menu {
         display: none;
       }
-      .icon{
+      .icon {
         display: block;
         width: 24px;
         margin-right: 30px;
@@ -1139,35 +1255,39 @@ const handleMbMenu = () => {
       right: 30px;
       bottom: 60px;
     }
-    .waterBg{
+    .waterBg {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      &.implant{
+      &.implant,
+      &.rootCanal-test,
+      &.scaling-and-polishing-test {
         bottom: auto;
       }
     }
-    .pcMenuBox{
-      &.implant{
+    .pcMenuBox {
+      &.implant,
+      &.rootCanal-test,
+      &.scaling-and-polishing-test {
         margin-top: 0px;
-        transition: all .3s;
+        transition: all 0.3s;
       }
     }
-    .headerBox02{
+    .headerBox02 {
       position: relative;
       z-index: 40;
     }
   }
-  .waterBg::after{
+  .waterBg::after {
     transform: rotate(180deg);
     top: -30px;
   }
-  .waterBg::before{
+  .waterBg::before {
     transform: rotate(180deg);
     top: -40px;
   }
-  .menuBox{
+  .menuBox {
     position: fixed;
     top: -100vh;
     left: 0;
@@ -1183,13 +1303,13 @@ const handleMbMenu = () => {
     font-weight: 600;
     line-height: 160%;
     color: var(--indexColor1);
-    transition: all .3s;
+    transition: all 0.3s;
     overflow: hidden;
     overflow-y: auto;
-    &::-webkit-scrollbar{
+    &::-webkit-scrollbar {
       display: none;
     }
-    .menuLists{
+    .menuLists {
       margin-top: 120px;
       width: 100%;
       display: flex;
@@ -1197,15 +1317,15 @@ const handleMbMenu = () => {
       align-items: center;
       // padding: 0 30px;
       // box-sizing: border-box;
-      &-item{
+      &-item {
         width: 100%;
         text-align: center;
         padding: 20px 0;
         font-size: 18px;
         position: relative;
-        &.childIcon{
+        &.childIcon {
         }
-        &:not(:last-child)::before{
+        &:not(:last-child)::before {
           content: '';
           width: calc(100% - 60px);
           height: 2px;
@@ -1216,7 +1336,7 @@ const handleMbMenu = () => {
           position: absolute;
           // border-bottom: 2px solid var(--indexColor2);
         }
-        &.childIcon:after{
+        &.childIcon:after {
           content: '';
           width: 0;
           height: 0;
@@ -1232,7 +1352,7 @@ const handleMbMenu = () => {
           vertical-align: middle;
         }
       }
-      &-childLists{
+      &-childLists {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -1241,46 +1361,46 @@ const handleMbMenu = () => {
         font-weight: 500;
         margin-top: 20px;
         color: var(--indexColor);
-        &-item{
+        &-item {
           width: 100%;
           height: 100%;
           // box-sizing: border-box;
           // padding: 10px 0;
-          a{
+          a {
             width: 100%;
             height: 100%;
             padding: 10px 0;
             display: block;
-            &.router-link-exact-active{
+            &.router-link-exact-active {
               background: var(--indexColor2);
             }
           }
         }
       }
     }
-    &-btn{
+    &-btn {
       margin-top: 51px;
       // font-size: 20px;
       font-size: 1.25rem;
     }
-    &-phone{
+    &-phone {
       font-weight: 400;
       // font-size: 20px;
       font-size: 1.25rem;
       line-height: 23px;
       margin-top: 20px;
-      img{
+      img {
         display: inline-block;
         vertical-align: middle;
         margin-top: -5px;
       }
     }
-    &-icon{
+    &-icon {
       display: flex;
       justify-content: center;
       align-items: center;
       margin: 50px auto 180px;
-      &-in:not(:last-child){
+      &-in:not(:last-child) {
         margin-right: 25px;
       }
     }
