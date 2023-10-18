@@ -363,7 +363,7 @@ onMounted(()=>{
                 <div><img src="@/assets/images/icon_13.png" alt="" /></div>
               </div>
               <div class="lastBox-b">
-                <span>立即預約牙齒檢查</span>
+                <span @click="toWhatsApp">立即預約牙齒檢查</span>
               </div>
             </div>
           </div>
