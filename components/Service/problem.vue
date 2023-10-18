@@ -163,6 +163,7 @@ const activeNames = ref(0)
         & > div:nth-of-type(2) {
           font-size: 16px;
           margin-left: 0px;
+          text-align: left;
         }
         & > div:nth-of-type(3) {
           width: 13px;
