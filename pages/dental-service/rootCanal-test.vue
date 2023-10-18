@@ -231,13 +231,17 @@ const toWhatsApp = () => {
   location.href = 'https://api.whatsapp.com/send/?phone=85269338128'
 }
 const showYaAnim = ref(false)
-// const detailBtn:any = ref<HTMLElement>()
-// const getScrollTop = () => {
-//   let _offsetTop = detailBtn.value.offsetTop || 0
-//   if(window.scrollY>=_offsetTop-600){
-//     showYaAnim.value = true
-//   }
-// }
+const detailBtn:any = ref<HTMLElement>()
+const getScrollTop = () => {
+  let _offsetTop = detailBtn.value.offsetTop || 0
+  if(window.scrollY>=_offsetTop-600){
+    showYaAnim.value = true
+  }
+}
+onMounted(()=>{
+  getScrollTop()
+  window.addEventListener('scroll',getScrollTop)
+})
 </script>
 
 <template>
@@ -754,6 +758,29 @@ const showYaAnim = ref(false)
             border-radius: 30px;
             display: block;
             box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
+            position: relative;
+            z-index: 1;
+            &::after,&::before{
+              content: '';
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%,-50%);
+              opacity: 0;
+              border-radius: 50px;
+              background: var(--indexColor1);
+              z-index: -1;
+            }
+            &:hover{
+              &::after{
+                animation: btnAnim2 3s infinite;
+              }
+              &::before{
+                animation: btnAnim3 3s infinite;
+              }
+            }
           }
         }
       }
@@ -892,6 +919,57 @@ const showYaAnim = ref(false)
     }
   }
 }
+@keyframes btnAnim {
+  0%{
+    clip-path: polygon(-10% 0,0 0,-10% 100%,-20% 100%);
+  }
+  50%{
+    clip-path: polygon(50% 0, 60% 0, 50% 100%,40% 100%);
+  }
+  100%{
+    clip-path: polygon(110% 0, 120% 0,110% 100%,100% 100%);
+  }
+}
+@keyframes btnAnim2 {
+  0%{
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+  50%{
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  90%{
+    width: 130%;
+    height: 160%;
+    opacity: 0;
+  }
+  100%{
+    width: 130%;
+    height: 160%;
+    opacity: 0;
+  }
+}
+@keyframes btnAnim3 {
+  0%{
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+  60%{
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  100%{
+    width: 130%;
+    height: 160%;
+    opacity: 0;
+  }
+}
+
 @media (min-width: 768px) and (max-width: 1200px) {
   .reason {
     &-lists {
