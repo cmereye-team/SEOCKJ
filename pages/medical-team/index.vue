@@ -284,7 +284,6 @@ onMounted(()=>{
             .org{
               font-weight: 600;
               font-size: 20px;
-              // width: 45%;
             }
             .expertise{
               font-weight: 600;
@@ -425,16 +424,11 @@ onMounted(()=>{
         }
         .mbDoctorList{
           &-c{
-            // margin: 0 auto;
             box-sizing: border-box;
-            // width: calc(100% - 60px);
             .doctorPage-in-lists{
               width: 100%;
               margin-top: 33px;
               display: flex;
-              // padding-bottom: 30px;
-              // overflow-x: scroll;
-              // scroll-snap-type: x mandatory;
               .swiper{
                 padding-bottom: 30px;
               }
@@ -460,12 +454,10 @@ onMounted(()=>{
                 height: 5px;
               }
               .doctorItem{
-                // width: calc(100vw - 60px);
                 display: block;
                 flex-shrink: 0;
                 float: left;
                 height: auto;
-                // margin: 30px 0;
                 padding: 0 30px;
                 scroll-snap-align: start;
                 &-l{
@@ -488,10 +480,6 @@ onMounted(()=>{
                       font-size: 1.25rem;
                       font-weight: 600;
                       line-height: 160%;
-                      // text-overflow: ellipsis;
-                      // overflow: hidden;
-                      // word-break: break-all;
-                      // white-space: nowrap;
                       white-space: pre-wrap;
                     }
                     .btn{
@@ -521,7 +509,6 @@ onMounted(()=>{
                     margin-top: 25px;
                     display: flex;
                     span{
-                      margin-right: 20px;
                       display: flex;
                       align-items: center;
                       &:first-child{
@@ -532,6 +519,7 @@ onMounted(()=>{
                         padding-left: 20px;
                         flex: 1;
                         border-left: 2px solid #666666;
+                        margin-right: 0;
                       }
                     }
                   }

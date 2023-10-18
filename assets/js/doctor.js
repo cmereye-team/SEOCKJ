@@ -15,6 +15,18 @@ export default [
       educated: '口腔醫學碩士'
     },
     {
+      id: '150',
+      imgUrl: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor150pc.png',
+      mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor150.png',
+      name: '刘鑫',
+      org: '羅湖區 深圳愛康健口腔醫院，口腔種植科',
+      posts: '主治醫師',
+      job:'主治醫師',
+      skilled: '穿顴穿翼種植、全口無牙顎種植、上顎竇提升術、複雜的軟硬組織移植術、即時植牙，即時修復、前牙美學種植、數位化口腔種植。',
+      context: '穿顴穿翼種植、全口無牙顎種植、上顎竇提升術、複雜的軟硬組織移植術、即時植牙，即時修復、前牙美學種植、數位化口腔種植。',
+      educated: '口腔種植專業博士'
+    },
+    {
       id: '102',
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/d9f1c5bebf5ff081.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor102.png',

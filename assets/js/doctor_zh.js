@@ -15,6 +15,18 @@ export default [
       educated: '口腔医学硕士'
     },
     {
+      id: '150',
+      imgUrl: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor150pc.png',
+      mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor150.png',
+      name: '刘鑫',
+      org: '罗湖区 深圳爱康健口腔医院，口腔种植科',
+      posts: '主治医师',
+      job:'主治医师',
+      skilled: '穿颧穿翼种植、全口无牙颚种植、上颚窦提升术、复杂的软硬组织移植术、即时植牙，即时修复、前牙美学种植、数位化口腔种植。',
+      context: '穿颧穿翼种植、全口无牙颚种植、上颚窦提升术、复杂的软硬组织移植术、即时植牙，即时修复、前牙美学种植、数位化口腔种植。',
+      educated: '口腔种植专业博士'
+    },
+    {
       id: '102',
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/d9f1c5bebf5ff081.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor102.png',

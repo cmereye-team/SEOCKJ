@@ -395,8 +395,8 @@ onMounted(()=>{
       </div>
       <div class="honor">
         <div class="honor-bg">
-          <div class="honor-title">
-            <span>愛康健齒科品牌連鎖</span>
+          <div class="dentistryServices-title honor-title">
+            <div class="dentistryServices-title-in bb honor-title-in">愛康健齒科品牌連鎖</div>
           </div>
           <div class="honor-text">
             <span>致力於口腔健康28年</span>
@@ -840,20 +840,8 @@ onMounted(()=>{
     );
   }
   &-title {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    span {
-      display: inline-block;
-      font-style: normal;
-      font-weight: 700;
+    &-in{
       font-size: 50px;
-      line-height: 160%;
-      color: #666666;
-      &:last-child {
-        border-bottom: 4px solid var(--indexColor1);
-      }
     }
   }
   &-text {
@@ -1229,9 +1217,9 @@ onMounted(()=>{
     }
   }
   .honor {
-    margin-top: 90px;
+    margin-top: 21px;
     &-bg {
-      padding: 0 30px;
+      padding: 46px 30px;
       background: linear-gradient(
         360deg,
         rgba(255, 241, 240, 0) 0%,
@@ -1241,11 +1229,8 @@ onMounted(()=>{
       );
     }
     &-title {
-      span {
+      &-in{
         font-size: 26px;
-        &:last-child {
-          border-bottom: 2.5px solid var(--indexColor1);
-        }
       }
     }
     &-text {
