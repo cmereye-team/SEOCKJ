@@ -21,7 +21,7 @@ useHead({
 })
 
 const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2023/09/924a3dca573cd7e8.jpg',
+  img: 'https://static.cmereye.com/imgs/2023/10/3b0875c783b7ea7a.jpg',
   bg: 'https://static.cmereye.com/imgs/2023/09/924a3dca573cd7e8.jpg',
   mbImg: 'https://static.cmereye.com/imgs/2023/09/e611e6542ec48641.jpg',
   pageName: 'rootCanal-test',

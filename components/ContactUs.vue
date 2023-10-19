@@ -225,8 +225,8 @@ const handleAddress = (_idx: string) => {
         </div>
       </div>
       <div class="address">
-        <div class="address-in" :class="{'firstBox': addressItem.id === '101' && route.path === '/contactUs'}" v-for="(addressItem,addressIndex) in allAddressLists[appState.areaTabCurNum]" :key="addressIndex">
-          <div class="address-img" v-if="addressItem.id === '101' && route.path === '/contactUs'">
+        <div class="address-in" :class="{'firstBox': addressItem.id === '101' && ['/contactUs','/dental-service/implant','/dental-service/rootCanal','/dental-service/rootCanal-test','/dental-service/scaling-and-polishing','/dental-service/scaling-and-polishing-test'].includes(route.path)}" v-for="(addressItem,addressIndex) in allAddressLists[appState.areaTabCurNum]" :key="addressIndex">
+          <div class="address-img" v-if="addressItem.id === '101' && ['/contactUs','/dental-service/implant','/dental-service/rootCanal','/dental-service/rootCanal-test','/dental-service/scaling-and-polishing','/dental-service/scaling-and-polishing-test'].includes(route.path)">
             <img :src="addressItem.addressUrl" alt="">
           </div>
           <div class="address-box">
@@ -421,6 +421,9 @@ const handleAddress = (_idx: string) => {
     }
     .address{
       margin-top: 24px;
+      &-img{
+        display: none !important;
+      }
       &-in{
         width: 100%;
         padding: 0 30px 45px;
