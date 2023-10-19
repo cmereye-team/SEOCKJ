@@ -21,9 +21,9 @@ useHead({
 })
 
 const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2023/10/3b0875c783b7ea7a.jpg',
-  bg: 'https://static.cmereye.com/imgs/2023/09/924a3dca573cd7e8.jpg',
-  mbImg: 'https://static.cmereye.com/imgs/2023/09/e611e6542ec48641.jpg',
+  img: 'https://static.cmereye.com/imgs/2023/10/34a9dd6dea8b90ae.jpg',
+  bg: 'https://static.cmereye.com/imgs/2023/10/34a9dd6dea8b90ae.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2023/10/586d8a109e9fe20d.jpg',
   pageName: 'rootCanal-test',
   pcText: [
     '根管治療助您解決牙痛，恢復健康的口腔狀態',
