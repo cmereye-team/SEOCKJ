@@ -421,12 +421,17 @@ const handleAddress = (_idx: string) => {
     }
     .address{
       margin-top: 24px;
-      &-img{
-        display: none !important;
-      }
       &-in{
         width: 100%;
         padding: 0 30px 45px;
+        flex-direction: column;
+        &.firstBox{
+          .address-img{
+            display: block !important;
+            margin-right: 0 !important;
+            margin-bottom: 20px;
+          }
+        }
         h3{
           font-size: 18px;
         }
