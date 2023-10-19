@@ -91,7 +91,7 @@ let mbQDCodeBool = ref(false)
       </div>
     </div>
     <div class="navbar-content-mb">
-      <nuxt-link  id="navMbTel" :to="'tel: 3892 5049'" class="mbcc-boxInAA mbcc-boxInAA-1"></nuxt-link>
+      <nuxt-link  id="navMbTel" :to="'tel: +852 3892 5049'" class="mbcc-boxInAA mbcc-boxInAA-1"></nuxt-link>
       <nuxt-link id="navMbWhatsapp" :to="'https://api.whatsapp.com/send/?phone=85269338128'" target="_blank" class="mbcc-boxInAA mbcc-boxInAA-2"></nuxt-link>
       <div id="navMbContactFormBtn" class="mbcc-boxInAA mbcc-boxInAA-3" @click="handleNavFormNav">
         <img src="https://static.cmereye.com/imgs/2023/09/a8f9c3f82bbda125.png" alt="">

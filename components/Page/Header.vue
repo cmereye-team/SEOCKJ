@@ -458,7 +458,7 @@ const handleMbMenu = () => {
           </div>
         </div>
         <!-- 立即預約 -->
-        <nuxt-link to="tel: 3892 5049">
+        <nuxt-link to="tel: +852 3892 5049">
           <div class="menuBox-btn">
             {{ headerData.menuBoxBtn }}
           </div>
