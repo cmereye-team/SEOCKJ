@@ -16,7 +16,7 @@ const getWindowResize = () => {
     mapConShow.value = false
 }
 
-let currentAddress = ref('101')
+let currentAddress = ref('0')
 
 const allAddressLists = [
   // 罗湖区
