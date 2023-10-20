@@ -16,7 +16,7 @@ const getWindowResize = () => {
     mapConShow.value = false
 }
 
-let currentAddress = ref('0')
+let currentAddress = ref('101')
 
 const allAddressLists = [
   // 罗湖区
@@ -237,12 +237,13 @@ const handleAddress = (_idx: string) => {
               <span>{{$t('contactUs.check_the_phone')}}：{{addressItem.phone}}</span>
             </div>
             <span class="showIcon" @click="handleAddress(addressItem.id)">{{$t('contactUs.traffic_route')}}:</span>
-            <div class="route" v-show="currentAddress === addressItem.id ">
+            <div class="route" v-show="currentAddress === addressItem.id">
               <span>{{$t('contactUs.bus_route')}}</span>
               <span>{{$t(addressItem.busRoutes)}}</span>
               <span>{{$t('contactUs.metro_lines')}}</span>
               <span>{{$t(addressItem.metroRoutes)}}</span>
             </div>
+            <div class="route-cc" v-if="addressItem.id === '101' && ['/contactUs','/dental-service/implant','/dental-service/rootCanal','/dental-service/rootCanal-test','/dental-service/scaling-and-polishing','/dental-service/scaling-and-polishing-test'].includes(route.path)"></div>
             <div class="mapBtn">
               <!-- <a :href="addressItem.googleMap" target="_blank">
               <div class="mapBtn-in">{{$t('contactUs.google_map')}}</div>
@@ -275,12 +276,27 @@ const handleAddress = (_idx: string) => {
       &.firstBox{
         width: 100%;
         display: flex;
-        justify-content: center;
+        // justify-content: center;
         align-items: center;
         .address-img{
           max-width: 577px;
           width: 100%;
           margin-right: 74px;
+        }
+        .address-box{
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 100%;
+          .route-cc{
+            flex: 1;
+          }
+          .mapBtn{
+            a{
+              width: 30%;
+            }
+          }
         }
       }
       width: 33.33%;
@@ -431,6 +447,14 @@ const handleAddress = (_idx: string) => {
             margin-right: 0 !important;
             margin-bottom: 20px;
           }
+          .address-box{
+            width: 100%;
+            .mapBtn{
+              a{
+                width: 50%;
+              }
+            }
+          }
         }
         h3{
           font-size: 18px;
@@ -439,7 +463,7 @@ const handleAddress = (_idx: string) => {
           font-size: 16px;
         }
         .content{
-          min-height: 120px;
+          min-height: auto;
         }
         .route{
           span{
