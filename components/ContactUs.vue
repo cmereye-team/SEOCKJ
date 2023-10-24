@@ -205,7 +205,6 @@ const onSlideContactUsSwiperChange = (swiper:any) => {
 }
 
 const handleAddress = (_idx: string) => {
-  // console.log(_idx)
   if(currentAddress.value === _idx){
     currentAddress.value = '0'
     return
@@ -276,7 +275,6 @@ const handleAddress = (_idx: string) => {
       &.firstBox{
         width: 100%;
         display: flex;
-        // justify-content: center;
         align-items: center;
         .address-img{
           max-width: 577px;

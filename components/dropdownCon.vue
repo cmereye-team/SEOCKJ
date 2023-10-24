@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import service from '~/assets/js/service'
-import { defineEmits } from 'vue'
 let dropdownCategoryText = ref('所有類別')
 
 // 所有类别枚举

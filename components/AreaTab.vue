@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
-import { defineEmits } from 'vue'
 const emits = defineEmits(['changeTabCur'])
 
 const appState = useAppState()

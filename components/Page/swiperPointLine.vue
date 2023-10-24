@@ -1,7 +1,5 @@
 
 <script lang="ts" setup>
-import { defineProps } from "vue"
-import { defineEmits } from 'vue'
 
 defineProps({
   // 个数

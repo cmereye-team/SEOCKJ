@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { defineProps } from 'vue'
+
 import gsap from 'gsap'
 import { useAppState } from '~/stores/appState'
 const route = useRoute()

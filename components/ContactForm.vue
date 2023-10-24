@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { defineProps } from 'vue'
+
 import service from '~/assets/js/service'
 import type { FormInstance, FormRules } from 'element-plus'
 import { useAppState } from '~/stores/appState'
@@ -98,24 +98,6 @@ const onSubmit = async () => {
         duration: 0
       })
       localStorage.setItem('contactForm',JSON.stringify(_form))
-//       await useFetch('https://admin.ckjhk.com/robot/send?access_token=f50755f36df72ca18cd09a5f726f0d060560faf182e7bc1dbc2206bdcc88495d',{
-//         method: 'post',
-//         headers: {
-//           "Content-Type": "application/json"
-//         },
-//         body: {
-//          "msgtype": "markdown",
-//          "markdown":{
-//         title: "消息通知",
-//         text: `姓名：${_form.name}\n
-// 稱呼：${_form.gender}\n
-// 電話號碼：${_form.phone}\n
-// 電郵地址：${_form.email}\n
-// 服務選擇：${_form.service}\n
-// 來源：[${location.href}](${location.href})`
-//           }
-//         }
-//       });
       window.location.href = `/messagePage?c=${res.code}`
     }else{
       ElMessage({
@@ -141,7 +123,6 @@ let windowWidth = ref(1920)
 
 const getWindowWidth = () => {
   windowWidth.value = window.innerWidth
-  // console.log(windowWidth)
 }
 
 onMounted(() => {
@@ -200,7 +181,6 @@ onMounted(() => {
             </el-select>
           </el-form-item>
           <el-form-item>
-            <!-- <el-button  id="contactUsForm" :loading="formLoading" @click="submitForm(ruleFormRef)" >提交表格</el-button> -->
             <button :id="windowWidth>768?'contactUsForm':'navMbContactForm'" type="button" class="formBtn" @click.stop="submitForm(ruleFormRef)">{{$t('contactUs.contact_form.formItem.submit_the_form')}}</button>
           </el-form-item>
         </el-form>

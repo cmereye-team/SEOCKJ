@@ -64,12 +64,10 @@ export default defineNuxtConfig({
 
   // app config
   app: {
-    // global transition
     pageTransition: { name: 'page', mode: 'out-in' },
     layoutTransition: { name: 'layout', mode: 'out-in' },
   },
   
-  // localization - i18n config
   intlify: {
     localeDir: 'locales',
     vueI18n: {
@@ -142,7 +140,6 @@ export default defineNuxtConfig({
         changeOrigin: true,
       },
       "/ckj": {
-        // target: 'http://ckjhk.icun.eu.org/',
         target: 'http://admin.ckjhk.com/',
         prependPath: true,
         changeOrigin: true,

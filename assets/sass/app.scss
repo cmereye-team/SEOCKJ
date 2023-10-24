@@ -1,18 +1,16 @@
 // $IndexColor: var(--indexColor);
 //使用 var(font_family)
 :root{
-  --indexColor: #FF6096; //#FFCECB
-  --indexColor1: #FC1682; //#FFA09E
-  --indexColor2: #FEE6F1; //#FFF1F0
-  --indexColor3: #FEA9D1; //#FFDDDA
+  --indexColor: #FF6096;
+  --indexColor1: #FC1682;
+  --indexColor2: #FEE6F1;
+  --indexColor3: #FEA9D1;
 }
 
-//Noto Serif HK
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@300;400;500;600;700;900&display=swap');
-// Noto Serif Hong Kong
+
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
 
-// vars
 @import 'variables';
 
 body,div,span,h1,h2,h3,h4,h5,h6,p,li{
