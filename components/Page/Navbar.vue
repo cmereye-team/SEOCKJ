@@ -4,9 +4,7 @@ const appState = useAppState()
 const navbarLists = []
 let navLiBoxBool = ref(false)
 const toPageTop = () =>{
-  // window.scrollTo(0,0);
   let top = document.documentElement.scrollTop || document.body.scrollTop;
-  // 实现滚动效果 
   const timeTop = setInterval(() => {
       document.body.scrollTop = document.documentElement.scrollTop = top -= 50;
       if (top <= 0) {
@@ -16,7 +14,6 @@ const toPageTop = () =>{
 }
 let navFormBool = ref(false)
 const handleNavFormNav = () =>{
-  // navFormBool.value = true
   appState.setIsShowForm(true)
   navLiBoxBool.value = false
 }
@@ -42,51 +39,29 @@ let mbQDCodeBool = ref(false)
       </div>
       <!-- <img src="@/assets/images/navIcon_1.png" alt="" /> -->
     </div>
-    <!-- <div class="navbar-content-in"> -->
       <nuxt-link class="navbar-content-in" id="navPcWhatsapp" :to="'https://api.whatsapp.com/send/?phone=85269338128'" target="_blank">
-        <!-- <img src="@/assets/images/navIcon_2.png" alt="" /> -->
       </nuxt-link>
-    <!-- </div> -->
     <div class="navbar-content-in" id="navPcWeChat">
       <div class="navbarBox">
         <div class="navbarBox-in">
           <div class="weChat"><img src="https://static.cmereye.com/imgs/2023/09/a43a869a1fc07eea.jpg" alt="二维码"></div>
         </div>
       </div>
-      <!-- <img src="@/assets/images/navIcon_3.png" alt="" /> -->
     </div>
-    <!-- <div class="navbar-content-in"> -->
       <nuxt-link class="navbar-content-in" id="navPcFaceBook" to="https://www.facebook.com/ckjdental.hk/" target="_blank">
-        <!-- <img src="@/assets/images/navIcon_6.png" alt="" /> -->
       </nuxt-link>
-    <!-- </div> -->
-    <div class="navbar-content-in" id="navPcContactForm" @click="toContactUs">
-      <!-- <img src="@/assets/images/navIcon_5.png" alt="" /> -->
+      <div class="navbar-content-in" id="navPcContactForm" @click="toContactUs">
     </div>
     <div class="navbar-content-in" @click="toPageTop">
-      <img src="@/assets/images/navIcon_4.png" alt="" />
+      <img src="@/assets/images/navIcon_4.png" alt="toTop" />
     </div>
     <div class="navbar-content-mb" v-if="false">
       <div id="navMbTel">
-        <img src="@/assets/images/icon_8.png">3892 5049
+        <img src="@/assets/images/icon_8.png" alt="立即預約">3892 5049
       </div>
       <div>
         <div class="navBtn" @click="navLiBoxBool = !navLiBoxBool">立即預約</div>
         <div class="navLiBox" :style="{bottom: (navLiBoxBool ? '100%' : '-350%')}">
-          <!-- <div id="navMbContactForm" @click="handleNavFormNav">
-            填寫表格
-          </div> -->
-          <!-- <div id="navMbFacebook">
-            <nuxt-link to="https://www.facebook.com/ckjdental.hk/" target="_blank">
-            Facebook
-            </nuxt-link >
-          </div> -->
-          <!-- <div id="navMbWeChat">
-            WeChat
-          </div> -->
-          <!-- <div id="navMbWhatsapp">
-            Whatsapp
-          </div> -->
         </div>
       </div>
     </div>
@@ -94,7 +69,7 @@ let mbQDCodeBool = ref(false)
       <nuxt-link  id="navMbTel" :to="'tel: +852 3892 5049'" class="mbcc-boxInAA mbcc-boxInAA-1"></nuxt-link>
       <nuxt-link id="navMbWhatsapp" :to="'https://api.whatsapp.com/send/?phone=85269338128'" target="_blank" class="mbcc-boxInAA mbcc-boxInAA-2"></nuxt-link>
       <div id="navMbContactFormBtn" class="mbcc-boxInAA mbcc-boxInAA-3" @click="handleNavFormNav">
-        <img src="https://static.cmereye.com/imgs/2023/09/a8f9c3f82bbda125.png" alt="">
+        <img src="https://static.cmereye.com/imgs/2023/09/a8f9c3f82bbda125.png" alt="馬上預約">
         <span>馬上預約</span>
       </div>
       <div id="navMbWeChat" class="mbcc-boxInAA mbcc-boxInAA-4" @click="mbQDCodeBool = true"></div>
@@ -117,7 +92,7 @@ let mbQDCodeBool = ref(false)
     <div class="navForm" :style="{bottom: (appState.isShowForm ? '0' : '-150%')}">
       <ContactForm />
       <div class="navForm-icon" @click="navFormClose">
-        <img src="@/assets/images/icon_7.png" alt="">
+        <img src="@/assets/images/icon_7.png" alt="close">
       </div>
     </div>
     <div class="navForm" :style="{bottom: (mbQDCodeBool ? '0' : '-150%')}">
@@ -125,7 +100,7 @@ let mbQDCodeBool = ref(false)
         <img src="https://static.cmereye.com/imgs/2023/09/a43a869a1fc07eea.jpg" alt="二维码" />
       </div>
       <div class="navForm-icon" @click="mbQDCodeBool = false">
-        <img src="@/assets/images/icon_7.png" alt="">
+        <img src="@/assets/images/icon_7.png" alt="close">
       </div>
     </div>
   </div>
@@ -184,22 +159,15 @@ let mbQDCodeBool = ref(false)
         }
         .weChat{
           width: 200px;
-          // height: 200px;
           background: var(--indexColor3);
           img{
             width: 100%;
-            // height: 100%;
           }
         }
       }
     }
     img {
       width: 40px;
-    }
-    &:nth-of-type(4){
-      // img{
-      //   width: 100%;
-      // }
     }
     &:hover{
       background: var(--indexColor1);
@@ -264,18 +232,12 @@ let mbQDCodeBool = ref(false)
     }
   }
 }
-// @media (min-width: 1920px){
-  // .navbar-content {
-    // right: calc((100% - 1920px) / 2 + 90px);
-  // }
-// }
 @media screen and (max-width: 768px) {
   .navbar-content {
     top: auto;
     bottom: 0;
     left: 0;
     width: 100%;
-    // height: 124px;
     background: var(--indexColor3);
     box-shadow: 0px -1.5px 0px rgba(255, 204, 199, 0.25);
     z-index: 20;
@@ -298,86 +260,6 @@ let mbQDCodeBool = ref(false)
         display: flex;
       }
     }
-    // &-in::not(:last-child){
-    //   display: none;
-    // }
-    // &-mb{
-    //   display: flex;
-    //   height: 100%;
-    //   &>div{
-    //     height: 100%;
-    //     line-height: 62px;
-    //     text-align: center;
-    //     flex: 1;
-    //     font-weight: 400;
-    //     font-size: 1.25rem;
-    //     color: #FFFFFF;
-    //     text-shadow: 0px 0px 8px rgba(255, 120, 117, 0.65);
-    //     position: relative;
-    //     img{
-    //       display: inline-block;
-    //       margin-top: -5px;
-    //     }
-    //     &:first-child{
-    //       border-right: 1px solid #fff;
-    //     }
-    //     .navBtn{
-    //       width: 100%;
-    //       position: absolute;
-    //       right: 0;
-    //       bottom: 0;
-    //       z-index: 90;
-    //       background: var(--indexColor3);
-    //     }
-    //     .navLiBox{
-    //       width: 100%;
-    //       height: 248px;
-    //       line-height: 62px;
-    //       position: absolute;
-    //       left: 0;
-    //       transition: all .3s;
-    //       z-index: 19;
-    //       &>div{
-    //         background: var(--indexColor2);
-    //         color: var(--indexColor1);
-    //         text-shadow: none;
-    //         &:hover{
-    //           background: var(--indexColor3);
-    //           color: var(--indexColor2);
-    //         }
-    //         &:first-child{
-    //           border-radius: 10px 10px 0px 0px;
-    //           box-shadow: 0px -1.5px 0px rgba(255, 204, 199, 0.25);
-    //         }
-    //         &:not(:last-child){
-    //           border-bottom: 1px solid #fff;
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
-    // &-mb02{
-    //   display: flex;
-    //   height: 62px;
-    //   &>div{
-    //     height: 100%;
-    //     line-height: 62px;
-    //     text-align: center;
-    //     flex: 1;
-    //     font-weight: 400;
-    //     font-size: 20px;
-    //     position: relative;
-    //     background: var(--indexColor2);
-    //     color: var(--indexColor1);
-    //     img{
-    //       display: inline-block;
-    //       margin-top: -5px;
-    //     }
-    //     &:first-child{
-    //       border-right: 1px solid #fff;
-    //     }
-    //   }
-    // }
     &-mb{
       display: block;
       width: 100%;
@@ -431,7 +313,7 @@ let mbQDCodeBool = ref(false)
             font-size: 12.376px;
             font-style: normal;
             font-weight: 600;
-            line-height: 1.6; /* 34.53px */
+            line-height: 1.6;
             letter-spacing: 3.094px;
           }
         }

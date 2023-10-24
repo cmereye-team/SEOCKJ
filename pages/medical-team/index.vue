@@ -27,7 +27,6 @@ let doctorObjs = {
 let doctorLists = ref(doctorObjs[`doctorLists_${locale.value}`])
 watch(
   locale,(newValue,oldValue)=>{
-    // console.log(newValue,oldValue)
     doctorLists.value = doctorObjs[`doctorLists_${locale.value}`]
   },
   {
@@ -48,11 +47,8 @@ const doctorPageSwiperChange = (_idx: number) => {
   
 }
 const goAnchor = (_hash: any)=>{
-  // console.log('_hash',_hash)
   const a = document.querySelector(_hash)
-  // console.log('a', a.offsetTop+300)
   let top = a.offsetTop-400
-  // if(a) a.scrollIntoView()
   if(a){
     let b = 0
     const timeTop = setInterval(() => {
@@ -67,9 +63,7 @@ const goAnchor = (_hash: any)=>{
 
 onMounted(()=>{
   if(route.query.did){
-    // console.log(route.query.did)
     setTimeout(()=>{
-      // console.log('windowInnerWidth',window.innerWidth)
       if(window.innerWidth > 768){
         goAnchor(`#d${route.query.did}`)
       }else{
@@ -84,26 +78,15 @@ onMounted(()=>{
 
 <template>
   <div>
-  <!-- <div class="bigPageCon"> -->
-    <!-- :headerBg="'https://static.cmereye.com/imgs/2023/04/3bb8b77175f2c68a.jpg'"
-      :mbBg="'https://static.cmereye.com/imgs/2023/04/f044b7e9793c3038.jpg'"
-      :headerImg="'https://static.cmereye.com/imgs/2023/05/c46fcc590da0ffdd.png'"
-      :headerBgImg="'https://static.cmereye.com/imgs/2023/05/de7105389a7f04b2.png'"
-      :titlePosition="'left'" -->
     <PageHeader />
     <div class="doctorPage">
       <div class="doctorPage-in pageCon">
-        <!-- 醫生團隊 -->
         <div class="index_title">{{$t('pages.medical_team.title')}}</div>
-        <!-- 醫療團隊 EXPERTS -->
         <div class="doctorPage-in-text">{{$t('pages.medical_team.text')}}</div>
-        <!-- 傾心打造貼心,專業的牙科連鎖 -->
         <div class="doctorPage-in-content"><span>{{$t('pages.medical_team.content.span_1')}}</span><span>{{$t('pages.medical_team.content.span_2')}}</span></div>
         <div class="doctorPage-in-tabNav">
           <div class="doctorPage-in-tabNav-l">
-            <!-- 主頁 -->
             <span>{{$t('pages.index.title')}}</span>
-            <!-- 醫生團隊 -->
             <span>{{$t('pages.medical_team.title')}}</span>
             <span>{{$t(appState.areaTabs[appState.areaTabCurNum])}}</span>
           </div>
@@ -114,7 +97,7 @@ onMounted(()=>{
         <div class="doctorPage-in-lists pcBox">
           <div class="doctorItem" v-for="(item,index) in doctorLists[appState.areaTabCurNum]" :key="index" :id="`d${item.id}`">
             <div class="doctorItem-l">
-              <img :src="item.imgUrl" alt="">
+              <img :src="item.imgUrl" :alt="item.name">
             </div>
             <div class="doctorItem-r">
               <div class="title">{{item.job || ''}}</div>
@@ -122,7 +105,6 @@ onMounted(()=>{
                 <span>{{item.name || ''}}</span> 
                 <span>{{item.posts || ''}}{{(item.posts && item.educated) ? '，': '' }}{{item.educated || ''}}</span>
               </div>
-              <!-- 機構： -->
               <div class="org">
                 {{$t('pages.medical_team.org')}}：{{item.org || ''}}
               </div>

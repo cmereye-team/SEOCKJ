@@ -47,39 +47,6 @@ const caseSharingTopData = {
   imgUrl: 'https://static.cmereye.com/imgs/2023/06/b6685121c74c93e0.png'
 }
 
-onMounted(() => {
-  // gsap.registerPlugin(ScrollTrigger);
-  // const animRightIn = (name: string) => {
-  //   return gsap.from(name, {
-  //     opacity: 0, 
-  //     x: 100, 
-  //     duration: 3
-  //   })
-  // }
-  // const animBottomIn = (name: string) => {
-  //   return gsap.from(name, {
-  //     opacity: 0, 
-  //     y: 100, 
-  //     duration: 3
-  //   })
-  // }
-  // ScrollTrigger.create({
-  //   trigger: ".index_title_1",
-  //   animation: animRightIn(".index_title_1"),
-  //   start: "bottom bottom",
-  // })
-  // ScrollTrigger.create({
-  //   trigger: ".index_title_2",
-  //   animation: animRightIn(".index_title_2"),
-  //   start: "bottom bottom",
-  // })
-  // ScrollTrigger.create({
-  //   trigger: ".dentalServices-box-in",
-  //   animation: animBottomIn(".dentalServices-box-in"),
-  //   start: "bottom bottom",
-  // })
-});
-
 //医生模块轮播图事件
 let doctorTeamCurrent = ref(1)
 const onSlideDoctorTeamSwiperChange = (swiper:any) => {
@@ -99,13 +66,11 @@ const setDoctorTeamSwiperRef = (swiper:any) => {
 }
 
 const handleLineCur = (_value:number) =>{
-  // console.log(_value)
   doctorTeamSwiperRef.slideToLoop(_value-1)
 }
 
 watch(
   areaTabCurNum, (newValue, oldValue) => {
-    // console.log(newValue, oldValue);
     doctorTeamSwiperRef.slideTo(0, 0);
   },
   {
@@ -113,39 +78,17 @@ watch(
   }
 );
 
-
-// const async posts = ({ $content }) => {
-//     const posts = await $content("blog").fetch();
-
-//     return {
-//       posts,
-//     };
-//   },
-// const posts = ({$content}) => useAsyncData('count', () => {
-//   return $content("blog").fetch();
-// })
-// asyncData
-// const { posts } = await this.$content('blog').fetch()
-// const posts = await queryContent('blog')
-// console.log(posts)
 </script>
 
 <template>
   <div>
-  <!-- <div class="bigPageCon"> -->
     <PageHeader /> 
     <div class="indexPage">
-      <!-- <div>
-        <li v-for="post of posts" :key="post.slug">
-          <NuxtLink :to="post.slug">{{ post.title }}</NuxtLink>
-        </li>
-      </div> -->
       <!-- 最新消息 -->
       <LatestNews />
       <!-- 品牌理念 -->
       <brandConcept />
       <!-- 牙科服務 -->
-      <!-- 全科牙科,種植牙科,矯齒牙科,美容牙科,兒童牙科 -->
       <serviceCard :isIndexShow="true" />
       <!-- 關於我們 -->
       <AboutUs />
@@ -229,7 +172,6 @@ svg:hover path{
   }
   &-c{
     margin-top: 45px;
-    // box-shadow: 2px 0px 8px rgba(255, 163, 158, 0.25);
     .doctorTeamPage{
       display: flex;
       flex-wrap: wrap;
@@ -240,8 +182,6 @@ svg:hover path{
         flex: 1;
         min-width: 16.55%;
         max-width: 16.6%;
-        // mix-blend-mode: multiply;
-        // box-shadow: inset -1px -1px 0px #FFA39E;
         border-right: 1px solid;
         border-bottom: 1px solid;
         border-color: #FFA39E;

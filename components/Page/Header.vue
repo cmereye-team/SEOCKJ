@@ -222,7 +222,6 @@ const getWindowWidth = () => {
 }
 const isShowLanguageBool = ref(false)
 const getScrollHeight = () => {
-  // console.log('windowScrollY: ----->',window.scrollY)
   if (imgBgHeight.value.clientHeight < window.scrollY) {
     isFiexdHeader.value = true
   } else {
@@ -240,13 +239,11 @@ const toWhatsApp = () => {
 }
 
 const handleMbMenu = () => {
-  // console.log('navigator ----- >',window.navigator.onLine)
   if (!window.navigator.onLine) {
     ElMessage({
       showClose: true,
       message: '網路異常，請檢查網路後重試',
       type: 'warning',
-      // duration: 0
     })
   }
 }
@@ -547,7 +544,6 @@ const handleMbMenu = () => {
         &.implant {
           float: right;
           margin-right: calc((100% - 1452px) / 2);
-          // display: none;
         }
         &.rootCanal,
         &.orthodontics {
@@ -770,7 +766,6 @@ const handleMbMenu = () => {
     box-sizing: border-box;
     margin: 0 auto;
     padding: 20px 10px 0 30px;
-    // padding-top: 20px;
     align-items: flex-end;
     z-index: 40;
     position: relative;
@@ -959,7 +954,6 @@ const handleMbMenu = () => {
   background-image: url(@/assets/images/back_wave03.png);
   background-repeat: repeat-x;
   background-position: center bottom;
-  // background-size: auto 80px;
   height: 162px;
   width: 100%;
   position: absolute;
@@ -1000,7 +994,6 @@ const handleMbMenu = () => {
     &-bgImg {
       &-in {
         left: 50%;
-        // top: 15%;
         .bannerTitle {
           font-size: 2rem;
           line-height: 130%;
@@ -1100,16 +1093,9 @@ const handleMbMenu = () => {
   }
 }
 @media screen and (max-width: 768px) {
-  // header{
-  // position: relative;
-  // z-index: 60;
-  // }
   .header-content {
     &-bgImg {
       position: relative;
-      // &.implant{
-      //   display: block;
-      // }
       &-textInfo {
         position: static;
         width: 100%;
@@ -1151,7 +1137,6 @@ const handleMbMenu = () => {
           font-size: 1.25rem;
           width: 60vw;
           padding-left: 30px;
-          // margin-top: 30px;
           margin-top: 0;
           span {
             font-size: 1.25rem;
@@ -1178,13 +1163,11 @@ const handleMbMenu = () => {
     }
     .waterBg-implant {
       display: block;
-      // position: relative;
       &::before {
         content: '';
         background-image: url(@/assets/images/back_wave03.png);
         background-repeat: repeat-x;
         background-position: center bottom;
-        // background-size: auto 80px;
         height: 162px;
         width: 100%;
         position: absolute;
@@ -1295,7 +1278,6 @@ const handleMbMenu = () => {
     height: 100vh;
     background: #fff;
     display: flex;
-    // justify-content: center;
     align-items: center;
     flex-direction: column;
     z-index: 30;
@@ -1315,16 +1297,12 @@ const handleMbMenu = () => {
       display: flex;
       flex-direction: column;
       align-items: center;
-      // padding: 0 30px;
-      // box-sizing: border-box;
       &-item {
         width: 100%;
         text-align: center;
         padding: 20px 0;
         font-size: 18px;
         position: relative;
-        &.childIcon {
-        }
         &:not(:last-child)::before {
           content: '';
           width: calc(100% - 60px);
@@ -1334,7 +1312,6 @@ const handleMbMenu = () => {
           left: 50%;
           transform: translateX(-50%);
           position: absolute;
-          // border-bottom: 2px solid var(--indexColor2);
         }
         &.childIcon:after {
           content: '';
@@ -1364,8 +1341,6 @@ const handleMbMenu = () => {
         &-item {
           width: 100%;
           height: 100%;
-          // box-sizing: border-box;
-          // padding: 10px 0;
           a {
             width: 100%;
             height: 100%;
@@ -1380,12 +1355,10 @@ const handleMbMenu = () => {
     }
     &-btn {
       margin-top: 51px;
-      // font-size: 20px;
       font-size: 1.25rem;
     }
     &-phone {
       font-weight: 400;
-      // font-size: 20px;
       font-size: 1.25rem;
       line-height: 23px;
       margin-top: 20px;

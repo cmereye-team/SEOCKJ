@@ -44,7 +44,7 @@ const navLists = [
       </div>
       <div class="footer-content-logo_one">
         <nuxt-link :to="'/'">
-          <img src="@/assets/images/logo_2.png" alt="" />
+          <img src="@/assets/images/logo_2.png" alt="logo" />
         </nuxt-link>
       </div>
       <div class="footer-content-text">
@@ -53,17 +53,17 @@ const navLists = [
       <div class="footer-content-icon">
         <div class="footer-content-icon-in">
           <nuxt-link to="https://www.facebook.com/ckjdental.hk/" target="_blank">
-            <img src="@/assets/images/icon_1.png" />
+            <img src="@/assets/images/icon_1.png" alt="facebook" />
           </nuxt-link>
         </div>
         <div class="footer-content-icon-in">
           <nuxt-link to="https://www.instagram.com/ckj_hk/" target="_blank">
-            <img src="@/assets/images/icon_2.png" />
+            <img src="@/assets/images/icon_2.png" alt="instagram" />
           </nuxt-link>
         </div>
         <div class="footer-content-icon-in">
           <nuxt-link to="https://www.youtube.com/channel/UCKYINBITo-8P37-SQDRSr_g" target="_blank">
-            <img src="@/assets/images/icon_3.png" />
+            <img src="@/assets/images/icon_3.png" alt="youtube" />
           </nuxt-link>
         </div>
       </div>
