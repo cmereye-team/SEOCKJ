@@ -224,8 +224,8 @@ const handleAddress = (_idx: string) => {
         </div>
       </div>
       <div class="address">
-        <div class="address-in" :class="{'firstBox': addressItem.id === '101' && ['/contactUs','/dental-service/implant','/dental-service/rootCanal','/dental-service/rootCanal-test','/dental-service/scaling-and-polishing','/dental-service/scaling-and-polishing-test'].includes(route.path)}" v-for="(addressItem,addressIndex) in allAddressLists[appState.areaTabCurNum]" :key="addressIndex">
-          <div class="address-img" v-if="addressItem.id === '101' && ['/contactUs','/dental-service/implant','/dental-service/rootCanal','/dental-service/rootCanal-test','/dental-service/scaling-and-polishing','/dental-service/scaling-and-polishing-test'].includes(route.path)">
+        <div class="address-in" :class="{'firstBox': addressItem.id === '101'}" v-for="(addressItem,addressIndex) in allAddressLists[appState.areaTabCurNum]" :key="addressIndex">
+          <div class="address-img" v-if="addressItem.id === '101'">
             <img :src="addressItem.addressUrl" alt="">
           </div>
           <div class="address-box">
@@ -235,14 +235,14 @@ const handleAddress = (_idx: string) => {
               <span>{{$t('contactUs.hours_of_Operation')}}：{{$t(addressItem.time)}}</span>
               <span>{{$t('contactUs.check_the_phone')}}：{{addressItem.phone}}</span>
             </div>
-            <span class="showIcon" @click="handleAddress(addressItem.id)">{{$t('contactUs.traffic_route')}}:</span>
+            <span class="showIcon" :class="{cc: currentAddress === addressItem.id}" @click="handleAddress(addressItem.id)">{{$t('contactUs.traffic_route')}}:</span>
             <div class="route" v-show="currentAddress === addressItem.id">
               <span>{{$t('contactUs.bus_route')}}</span>
               <span>{{$t(addressItem.busRoutes)}}</span>
               <span>{{$t('contactUs.metro_lines')}}</span>
               <span>{{$t(addressItem.metroRoutes)}}</span>
             </div>
-            <div class="route-cc" v-if="addressItem.id === '101' && ['/contactUs','/dental-service/implant','/dental-service/rootCanal','/dental-service/rootCanal-test','/dental-service/scaling-and-polishing','/dental-service/scaling-and-polishing-test'].includes(route.path)"></div>
+            <div class="route-cc" v-if="addressItem.id === '101'"></div>
             <div class="mapBtn">
               <!-- <a :href="addressItem.googleMap" target="_blank">
               <div class="mapBtn-in">{{$t('contactUs.google_map')}}</div>
@@ -331,6 +331,12 @@ const handleAddress = (_idx: string) => {
       }
       .showIcon{
         cursor: pointer;
+        &.cc{
+          &::after{
+            transform: rotate(0);
+            transform-origin: center 25%;
+          }
+        }
       }
       .showIcon::after{
         content: '';
@@ -342,6 +348,9 @@ const handleAddress = (_idx: string) => {
         vertical-align: middle;
         margin-left: 5px;
         margin-top: 5px;
+        transition: all .3s;
+        transform: rotate(180deg);
+        transform-origin: center 25%;
       }
       .mapBtn{
         width: 100%;
