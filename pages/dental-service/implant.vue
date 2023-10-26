@@ -24,7 +24,7 @@ const headerConfig = {
   // img: 'https://static.cmereye.com/imgs/2023/09/d40dfb893cdf9658.jpg',
   // bg: 'https://static.cmereye.com/imgs/2023/09/d40dfb893cdf9658.jpg',
   // mbImg: 'https://static.cmereye.com/imgs/2023/09/933fef926682e416.jpg',
-  img: 'https://static.cmereye.com/imgs/2023/09/924a3dca573cd7e8.jpg',
+  img: 'https://static.cmereye.com/imgs/2023/10/29280188e1b68fee.jpg',
   bg: '',
   mbImg: 'https://static.cmereye.com/imgs/2023/09/e611e6542ec48641.jpg',
   pageName: 'implant',

@@ -21,9 +21,9 @@ useHead({
 })
 
 const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2023/09/924a3dca573cd7e8.jpg',
+  img: 'https://static.cmereye.com/imgs/2023/10/d30760066b45d1e4.jpg',
   bg: '',
-  mbImg: 'https://static.cmereye.com/imgs/2023/09/e611e6542ec48641.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2023/10/595a77c6d3c34be1.jpg',
   pageName: 'scaling-and-polishing-test',
   pcText: [
     '定期洗牙，全方位清潔口腔盲點',

@@ -303,6 +303,7 @@ const handleMbMenu = () => {
           )
         "
         class="header-content-bgImg-implant"
+        :class="headerConfig.pageName"
       >
         <img :data-cfsrc="headerConfig.img" :srcset="`${headerConfig.mbImg} 768w, ${headerConfig.img}`" :src="headerConfig.img" alt="banner"   />
       </div>
@@ -1148,6 +1149,12 @@ const handleMbMenu = () => {
       // display: none;
       position: relative;
       top: 80px;
+      &.rootCanal-test{
+        padding-bottom: 60px;
+      }
+      &.scaling-and-polishing-test{
+        padding-bottom: 80px;
+      }
     }
     &-btn-implant {
       display: none;
