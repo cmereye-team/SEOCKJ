@@ -1152,7 +1152,16 @@ const handleMbMenu = () => {
       &.rootCanal-test{
         padding-bottom: 60px;
       }
+      &.rootCanal{
+        padding-bottom: 60px;
+      }
+      &.scaling-and-polishing{
+        padding-bottom: 80px;
+      }
       &.scaling-and-polishing-test{
+        padding-bottom: 80px;
+      }
+      &.implant{
         padding-bottom: 80px;
       }
     }
