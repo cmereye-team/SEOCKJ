@@ -25,7 +25,7 @@ const headerConfig = {
   // bg: 'https://static.cmereye.com/imgs/2023/09/d40dfb893cdf9658.jpg',
   // mbImg: 'https://static.cmereye.com/imgs/2023/09/933fef926682e416.jpg',
   img: 'https://static.cmereye.com/imgs/2023/09/924a3dca573cd7e8.jpg',
-  bg: 'https://static.cmereye.com/imgs/2023/09/924a3dca573cd7e8.jpg',
+  bg: '',
   mbImg: 'https://static.cmereye.com/imgs/2023/09/e611e6542ec48641.jpg',
   pageName: 'implant',
   pcText: ['享受失而復得的喜悅','重拾完整人生之旅'],

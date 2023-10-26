@@ -22,7 +22,7 @@ useHead({
 
 const headerConfig = {
   img: 'https://static.cmereye.com/imgs/2023/09/924a3dca573cd7e8.jpg',
-  bg: 'https://static.cmereye.com/imgs/2023/09/924a3dca573cd7e8.jpg',
+  bg: '',
   mbImg: 'https://static.cmereye.com/imgs/2023/09/e611e6542ec48641.jpg',
   pageName: 'scaling-and-polishing-test',
   pcText: [
@@ -463,11 +463,11 @@ const careData = {
               </div>
             </div>
           </div>
-          <div class="charge-rightBox">
+          <!-- <div class="charge-rightBox">
             <div class="a">二人同行優惠</div>
             <div class="b">¥<span>320</span>/2次</div>
             <div class="c">原價¥700/2次</div>
-          </div>
+          </div> -->
         </div>
         <div class="charge-text">
           <span>把握限時優惠</span>
@@ -1022,7 +1022,8 @@ const careData = {
     &-tables {
       margin: 28px auto 0;
       &-in {
-        margin: 0 50px 0 30px;
+        // margin: 0 50px 0 30px;
+        margin: 0 30px;
         border-radius: 20px;
       }
       &-item {

@@ -263,7 +263,7 @@ const handleMbMenu = () => {
           <img
             :class="['pcBox', headerConfig.pageName]"
             :src="headerConfig.img"
-            alt=""
+            alt="banner"
           />
         </div>
         <img
@@ -273,7 +273,7 @@ const handleMbMenu = () => {
             headerConfig.pageName,
           ]"
           :src="headerConfig.mbImg"
-          alt=""
+          alt="banner"
         />
         <div class="header-content-bgImg-textInfo pageCon">
           <div :class="['header-content-bgImg-in', headerConfig.pageName]">
@@ -304,9 +304,9 @@ const handleMbMenu = () => {
         "
         class="header-content-bgImg-implant"
       >
-        <img :src="headerConfig.img" alt="" />
+        <img :data-cfsrc="headerConfig.img" :srcset="`${headerConfig.mbImg} 768w, ${headerConfig.img}`" :src="headerConfig.img" alt="banner"   />
       </div>
-      <div
+      <!-- <div
         v-if="
           ['implant', 'rootCanal-test', 'scaling-and-polishing-test'].includes(
             headerConfig.pageName
@@ -314,14 +314,14 @@ const handleMbMenu = () => {
         "
         class="header-content-bgImg-implant-mb"
       >
-        <img :src="headerConfig.mbImg" alt="" />
-      </div>
+        <img :src="headerConfig.mbImg" alt="banner" />
+      </div> -->
       <div
         ref="imgBgHeight"
         class="header-content-bgImgBB pageCon pcBox"
         :class="headerConfig.pageName"
       >
-        <img :src="headerConfig.img" alt="" />
+        <img :data-cfsrc="headerConfig.img" :srcset="`${headerConfig.mbImg} 768w, ${headerConfig.img}`" :src="headerConfig.img"  alt="banner" />
       </div>
       <div
         v-if="
@@ -693,9 +693,9 @@ const handleMbMenu = () => {
       width: 100%;
     }
   }
-  &-bgImg-implant-mb {
-    display: none;
-  }
+  // &-bgImg-implant-mb {
+  //   display: none;
+  // }
   &-btn-implant {
     display: flex;
     justify-content: center;
@@ -1145,7 +1145,9 @@ const handleMbMenu = () => {
       }
     }
     &-bgImg-implant {
-      display: none;
+      // display: none;
+      position: relative;
+      top: 80px;
     }
     &-btn-implant {
       display: none;
@@ -1205,13 +1207,13 @@ const handleMbMenu = () => {
         filter: drop-shadow(0px -8px 4px rgba(77, 77, 77, 0.15));
       }
     }
-    &-bgImg-implant-mb {
-      display: block;
-      padding-top: 80px;
-      img {
-        width: 100%;
-      }
-    }
+    // &-bgImg-implant-mb {
+    //   display: block;
+    //   padding-top: 80px;
+    //   img {
+    //     width: 100%;
+    //   }
+    // }
     &-in {
       position: fixed;
       top: 0;

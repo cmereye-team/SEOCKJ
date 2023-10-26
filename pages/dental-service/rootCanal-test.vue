@@ -22,7 +22,7 @@ useHead({
 
 const headerConfig = {
   img: 'https://static.cmereye.com/imgs/2023/10/34a9dd6dea8b90ae.jpg',
-  bg: 'https://static.cmereye.com/imgs/2023/10/34a9dd6dea8b90ae.jpg',
+  bg: '',
   mbImg: 'https://static.cmereye.com/imgs/2023/10/586d8a109e9fe20d.jpg',
   pageName: 'rootCanal-test',
   pcText: [
