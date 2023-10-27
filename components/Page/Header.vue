@@ -354,14 +354,18 @@ const handleMbMenu = () => {
         v-if="headerConfig.pageName === 'rootCanal-test'"
         class="header-content-text-implant"
       >
-        <div>保留原生牙齒</div>
-        <div>徹底<span>解放美食自由</span></div>
+        <!-- <div>保留原生牙齒</div>
+        <div>徹底<span>解放美食自由</span></div> -->
+        <div>28年專科•專業•專注</div>
+        <div><span>港人首選</span>一站式連鎖牙科品牌</div>
       </div>
       <div
         v-if="headerConfig.pageName === 'scaling-and-polishing-test'"
         class="header-content-text-implant"
       >
-        <div>口腔健康，從洗牙開始！</div>
+        <!-- <div>口腔健康，從洗牙開始！</div> -->
+        <div>28年專科•專業•專注</div>
+        <div><span>港人首選</span>一站式連鎖牙科品牌</div>
       </div>
       <!-- pc菜单 -->
       <div
