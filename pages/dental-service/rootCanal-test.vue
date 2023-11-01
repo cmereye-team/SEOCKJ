@@ -393,7 +393,7 @@ onMounted(()=>{
           </div>
         </div>
       </div>
-      <div class="honor">
+      <!-- <div class="honor">
         <div class="honor-bg">
           <div class="dentistryServices-title honor-title">
             <div class="dentistryServices-title-in bb honor-title-in">愛康健齒科品牌連鎖</div>
@@ -427,7 +427,7 @@ onMounted(()=>{
             <div class="rightBtn" @click="handleProcessBtn('slideNext')"></div>
           </div>
         </div>
-      </div>
+      </div> -->
       <ServiceProblem :problem-data="problemData" />
       <serviceCard />
       <ContactUs />
