@@ -1,131 +1,158 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
 const appState = useAppState()
-appState.setDentistryService('rootCanal')
+appState.setDentistryService('rootCanal-test')
 useHead({
-  title: "根管治療(杜牙根) | 牙科服務",
+  title: '根管治療(杜牙根) | 牙科服務',
   meta: [
-   {
+    {
       hid: 'description',
       name: 'description',
-      content: '愛康健提供根管治療（杜牙根）服務，用於治療嚴重蛀牙或牙根受細菌感染的情況。當蛀牙菌感染深入牙髓並引發神經發炎時，需要進行根管治療手術，以徹底清除感染部分。',
-   },
-   {
+      content:
+        '愛康健提供根管治療（杜牙根）服務，用於治療嚴重蛀牙或牙根受細菌感染的情況。當蛀牙菌感染深入牙髓並引發神經發炎時，需要進行根管治療手術，以徹底清除感染部分。',
+    },
+    {
       hid: 'Keywords',
       name: 'Keywords',
-      content: '牙齦炎治療 根管治療 杜牙根 杜牙根價錢 愛康健 深圳愛康健 深圳專業牙科中心 愛康健醫院 愛康健口腔醫院 深圳愛康健口腔醫院愛康健 CKJ愛康健齒科集團 深圳口腔專科醫院 愛康健齒科集團 深圳牙科醫院牙科服務內地牙科 深圳口腔專科',
-   },
-  ]
+      content:
+        '牙齦炎治療 根管治療 杜牙根 杜牙根價錢 愛康健 深圳愛康健 深圳專業牙科中心 愛康健醫院 愛康健口腔醫院 深圳愛康健口腔醫院愛康健 CKJ愛康健齒科集團 深圳口腔專科醫院 愛康健齒科集團 深圳牙科醫院牙科服務內地牙科 深圳口腔專科',
+    },
+  ],
 })
 
 const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2023/06/870d54eb88782632.png',
-  bg: 'https://static.cmereye.com/imgs/2023/06/01d15590f9c0df29.jpg',
-  mbImg: 'https://static.cmereye.com/imgs/2023/06/61ccc7a66efaf1c3.jpg',
-  pageName: 'rootCanal',
-  pcText: ['根管治療助您解決牙痛，恢復健康的口腔狀態','立即接受專業治療手術，徹底解放美食自由'],
-  mbText: ['根管治療助您解決牙痛','恢復健康的口腔狀態']
+  img: 'https://static.cmereye.com/imgs/2023/10/34a9dd6dea8b90ae.jpg',
+  bg: '',
+  mbImg: 'https://static.cmereye.com/imgs/2023/10/586d8a109e9fe20d.jpg',
+  pageName: 'rootCanal-test',
+  pcText: [
+    '根管治療助您解決牙痛，恢復健康的口腔狀態',
+    '立即接受專業治療手術，徹底解放美食自由',
+  ],
+  mbText: ['根管治療助您解決牙痛', '恢復健康的口腔狀態'],
 }
 
-const orthodonticsIntroduceData = {
-  title: 'pages.dental-service.rootCanal.introduce.title',
-  content: 'pages.dental-service.rootCanal.introduce.content',
+const introduceData = {
+  title: '什麽是杜牙根(根管治療)?',
+  content:
+    '杜牙根(根管治療)是治療嚴重蛀牙或牙根受細菌感染的療程，當蛀牙菌的感染深入牙髓，以致牙齒內的神經發炎，便需要以杜牙根療程徹底清除感染的部分。',
   mbImg: 'https://static.cmereye.com/imgs/2023/05/4981f5bda13e2428.jpg',
   pcImg: 'https://static.cmereye.com/imgs/2023/05/3030e00ebf385a45.jpg',
   tabNavName: 'pages.dental-service.rootCanal.introduce.tabNavName',
-  pageName: 'rootCanal',
+  pageName: 'rootCanal-test',
 }
 
 const reasonData = {
-  title: 'pages.dental-service.rootCanal.reason.title',
-  text: 'pages.dental-service.rootCanal.reason.text',
-  imgUrl: 'https://static.cmereye.com/imgs/2023/05/6e9ea22364596cbd.jpg',
-  reasonLists:[
+  title: '蛀牙階段',
+  reasonLists: [
     {
-      context: 'pages.dental-service.rootCanal.reason.lists[0].context',
+      img: 'https://static.cmereye.com/imgs/2023/10/fafa2f37cf68b4fb.jpg',
+      title: '蛀牙初期',
+      context: '最外層琺瑯質受損',
     },
     {
-      context: 'pages.dental-service.rootCanal.reason.lists[1].context',
+      img: 'https://static.cmereye.com/imgs/2023/10/91c57e27b6a68095.jpg',
+      title: '蛀牙中期',
+      context: '受損至象牙質',
     },
     {
-      context: 'pages.dental-service.rootCanal.reason.lists[2].context',
+      img: 'https://static.cmereye.com/imgs/2023/10/681ccc8143796f14.jpg',
+      title: '蛀牙後期',
+      context: '細菌深入牙髓\n內部組織發炎',
     },
-    {
-      context: 'pages.dental-service.rootCanal.reason.lists[3].context',
-    }
-  ]
+  ],
 }
 
-const stageData = {
-  title: {
-    span1: '根管治療用以治理蛀牙，',
-    span2: '蛀牙可分為以下數個階段：'
-  },
-  stageLists: [
+const careData = {
+  title: ['什麽情況下', '會考慮做根管治療？'],
+  lists: [
     {
-      num: 1,
-      imgUrl: 'https://static.cmereye.com/imgs/2023/05/26f87784ff84ce3f.jpg',
-      name: '受到感染',
-      text: '當琺瑯質被破壞，蛀洞擴大至牙本質（即琺瑯質下面的一層），牙齒便會受到感染或有膿腫。',
+      img: 'https://static.cmereye.com/imgs/2023/10/a508f80b579ed63e.png',
+      text: '牙髓壞死',
     },
     {
-      num: 2,
-      imgUrl: 'https://static.cmereye.com/imgs/2023/05/0e76a7c55a53e406.jpg',
-      name: '影響深遠',
-      text: '最終蛀進牙神經，亦即牙髓，此階段蛀牙已導致永久的發炎，牙神經開始壞死。',
+      img: 'https://static.cmereye.com/imgs/2023/10/3d61ee4cd60a9d28.png',
+      text: '深齦蛀牙',
     },
     {
-      num: 3,
-      imgUrl: 'https://static.cmereye.com/imgs/2023/05/672e9cafcbb9a069.jpg',
-      name: '腫痛難耐',
-      text: '此時釋放出的化學物質可造成牙根頂部感染，導致紅腫及疼痛。這時牙痛感覺變得十分明顯。',
+      img: 'https://static.cmereye.com/imgs/2023/10/c4471a0fdbd2eef9.png',
+      text: '牙髓發炎',
     },
     {
-      num: 4,
-      imgUrl: 'https://static.cmereye.com/imgs/2023/05/ee7dc07f02961402.jpg',
-      name: '立即求醫',
-      text: '病人通常會求醫，以求減輕痛楚及進行根管治療。',
-    }
+      img: 'https://static.cmereye.com/imgs/2023/10/bfe0997793014633.png',
+      text: '根尖發炎',
+    },
+    {
+      img: 'https://static.cmereye.com/imgs/2023/10/78e7d8ea517b188e.png',
+      text: '牙外傷',
+    },
+    {
+      img: 'https://static.cmereye.com/imgs/2023/10/88e72fd91eb8aca5.png',
+      text: '殘冠殘根',
+    },
   ],
-  remark: {
-    p1: '*根管治療非常複雜，需適當地進行，',
-    p2: '因此你應該找個在此領域經驗豐富的牙醫。'
-  }
+}
+
+const infoCardData = {
+  lists: [
+    {
+      text: '顯微根管治療，即在顯微鏡下輔助放大局部來進行根管治療的操作。',
+    },
+    {
+      text: '牙科顯微鏡可以在手術中提供放大畫面，這樣擁有良好照明環境，保證視野穩定的前提下，將根管治療推進到可視化階段。',
+    },
+    {
+      text: '愛康健引進德國蔡司顯微鏡根管治療儀，結合顯微鏡技術和醫學技術。能清楚觀察牙齒的解剖結構和根管形態。',
+    },
+  ],
 }
 
 const stepData = {
-  title: '根管治療過程',
-  stepLists: [
-    [
-      {
-        title: 'Step 1',
-        text: '為受感染的牙齒照X光，了解根管形狀及長度'
-      },
-      {
-        title: 'Step 2',
-        text: '局部麻醉，進行牙根消毒'
-      },
-      {
-        title: 'Step 3',
-        text: '從牙冠進入牙髓腔，把牙髓組織刮除或吸出'
-      }
-    ],
-    [
-      {
-        title: 'Step 4',
-        text: '以藥水徹底消毒乾淨根管內壁'
-      },
-      {
-        title: 'Step 5',
-        text: ' 把牙冠髓腔填封及覆蓋牙洞，以降低蛀牙菌再度入侵的機會'
-      },
-      {
-        title: 'Step 6',
-        text: '如經治療後的牙齒太脆弱，需為牙齒套上牙套，預防再被咬崩而要拔除'
-      }
-    ]
+  title: '治療7大步驟',
+  lists: [
+    {
+      title: '第1步',
+      img: 'https://static.cmereye.com/imgs/2023/11/8c25f9c3f1d8c834.jpg',
+      name: '診斷',
+      context: '進行X光檢查，以確定牙齒損壞程度，制定治療方案',
+    },
+    {
+      title: '第2步',
+      img: 'https://static.cmereye.com/imgs/2023/10/0b7ef1a0f39e9ca9.jpg',
+      name: '麻醉',
+      context: '治療前會先為客人口腔局部麻醉',
+    },
+    {
+      title: '第3步',
+      img: 'https://static.cmereye.com/imgs/2023/11/b7337bbff6017483.jpg',
+      name: '牙齒分隔',
+      context: '使用橡皮障將需治療的牙齒分隔出來，減低細菌感染其他牙齒的機會',
+    },
+    {
+      title: '第4步',
+      img: 'https://static.cmereye.com/imgs/2023/11/bfd54a465dbc28b8.jpg',
+      name: '計算根管長度',
+      context: '以牙根探針放入根管，以X光或電子儀器量度牙根深度',
+    },
+    {
+      title: '第5步',
+      img: 'https://static.cmereye.com/imgs/2023/11/8e3ca8afdfa82d6c.jpg',
+      name: '清理牙根管',
+      context: '使用藥水清理，消毒牙根管',
+    },
+    {
+      title: '第6步',
+      img: 'https://static.cmereye.com/imgs/2023/11/8f9ed7b27c9c0fdc.jpg',
+      name: '根管充填',
+      context: '將牙膠等物質充填牙根',
+    },
+    {
+      title: '第7步',
+      img: 'https://static.cmereye.com/imgs/2023/11/d542e53ca685f034.jpg',
+      name: '定期覆診',
+      context: '用牙套保護已杜牙根的牙齒，減低其損壞機會',
+    },
   ],
-  pageName: 'rootCanal'
 }
 
 const noteData = {
@@ -151,8 +178,8 @@ const noteData = {
     },
     {
       name: '定期到口腔醫院進行檢查和清潔，以確保治療後的牙齒保持健康。',
-    }
-  ]
+    },
+  ],
 }
 
 const problemData = {
@@ -160,287 +187,686 @@ const problemData = {
   lists: [
     {
       Q: 'pages.dental-service.rootCanal.problem.lists[0].Q',
-      A: 'pages.dental-service.rootCanal.problem.lists[0].A'
+      A: 'pages.dental-service.rootCanal.problem.lists[0].A',
     },
     {
       Q: 'pages.dental-service.rootCanal.problem.lists[1].Q',
-      A: 'pages.dental-service.rootCanal.problem.lists[1].A'
+      A: 'pages.dental-service.rootCanal.problem.lists[1].A',
     },
     {
       Q: 'pages.dental-service.rootCanal.problem.lists[2].Q',
-      A: 'pages.dental-service.rootCanal.problem.lists[2].A'
+      A: 'pages.dental-service.rootCanal.problem.lists[2].A',
     },
     {
       Q: 'pages.dental-service.rootCanal.problem.lists[3].Q',
-      A: 'pages.dental-service.rootCanal.problem.lists[3].A'
+      A: 'pages.dental-service.rootCanal.problem.lists[3].A',
     },
     {
       Q: 'pages.dental-service.rootCanal.problem.lists[4].Q',
-      A: 'pages.dental-service.rootCanal.problem.lists[4].A'
+      A: 'pages.dental-service.rootCanal.problem.lists[4].A',
     },
     {
       Q: 'pages.dental-service.rootCanal.problem.lists[5].Q',
-      A: 'pages.dental-service.rootCanal.problem.lists[5].A'
+      A: 'pages.dental-service.rootCanal.problem.lists[5].A',
     },
     {
       Q: 'pages.dental-service.rootCanal.problem.lists[6].Q',
-      A: 'pages.dental-service.rootCanal.problem.lists[6].A'
+      A: 'pages.dental-service.rootCanal.problem.lists[6].A',
     },
-  ]
+  ],
 }
 
-let swiperRef ={
-  slidePrev: ()=>{},
-  slideNext: ()=>{}
+let swiperRef = {
+  slidePrev: () => {},
+  slideNext: () => {},
 }
-const setSwiperRef = (swiper:any) => {
-  swiperRef = swiper;
-};
+const setSwiperRef = (swiper: any) => {
+  swiperRef = swiper
+}
 const handleProcessBtn = (_type: string) => {
-  swiperRef[_type]();
+  swiperRef[_type]()
 }
 
-
-const processData = {
-  title: '顯微根管治療',
-  context: ['愛康健引進德國蔡司顯微鏡根管治療儀，','結合顯微鏡技術和醫學技術，可清晰觀察牙齒的結構和根管形態。這項技術不僅適用於常規根管治療，還可用於根尖顯微外科手術，幫助醫生更好地維護正常組織，提高手術治療效率。'],
-  lists: [
-    [
-      {
-        title: 'Step 1',
-        text: '使用X-Ray拍片確定患處結構，制定治療方案'
-      },
-      {
-        title: 'Step 2',
-        text: '施以口腔局部麻醉，減輕患者對治療的恐懼'
-      },
-      {
-        title: 'Step 3',
-        text: '施術前進行術區消毒隔離，手術器械消毒滅菌，專人專次使用，防止交叉感染。'
-      }
-    ],
-    [
-      {
-        title: 'Step 4',
-        text: '在顯微鏡下打開牙髓腔，挑出壞死牙髓，擴大根管，沖洗根管內部'
-      },
-      {
-        title: 'Step 5',
-        text: '使用顯微鏡進行根管預備，清理根管內的感染物質，施以消炎藥封口。'
-      },
-      {
-        title: 'Step 6',
-        text: '在顯微鏡輔助下進行根管內的嚴密填充，隔絕根管和根尖周組織，防止再次感染。'
-      },
-    ]
-  ]
+const toWhatsApp = () => {
+  location.href = 'https://api.whatsapp.com/send/?phone=85269338128'
 }
-
+const showYaAnim = ref(false)
+const detailBtn:any = ref<HTMLElement>()
+const getScrollTop = () => {
+  let _offsetTop = detailBtn.value.offsetTop || 0
+  if(window.scrollY>=_offsetTop-600){
+    showYaAnim.value = true
+  }
+}
+onMounted(()=>{
+  getScrollTop()
+  window.addEventListener('scroll',getScrollTop)
+})
 </script>
 
-
 <template>
-<div>
-  <PageHeader :headerConfig="headerConfig" /> 
-  <div class="pageIn whitebgColor">
-    <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
-    <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
-    <ServiceReason :reasonData="reasonData" />
-    <div class="stage">
-      <div class="stage-title">
-        <span>{{stageData.title.span1}}</span>
-        <span>{{stageData.title.span2}}</span>
+  <div>
+    <PageHeader :header-config="headerConfig" />
+    <div class="pageIn whitebgColor">
+      <div class="index_title pageCon">
+        {{ $t('pages.dental-service.title') }}
       </div>
-      <div class="stage-lists">
-        <div class="stage-lists-in" v-for="(stage,index) in stageData.stageLists" :key="index">
-          <div class="num">{{stage.num}}</div>
-          <div class="image">
-            <img :src="stage.imgUrl" alt="">
+      <ServiceIntroduce :introduce-data="introduceData" />
+      <div class="reason">
+        <div class="dentistryServices-title reason-title">
+          <div class="dentistryServices-title-in bb reason-title-in">
+            {{ reasonData.title }}
           </div>
-          <div class="name">{{stage.name}}</div>
-          <div class="text">{{stage.text}}</div>
+        </div>
+        <div class="reason-lists">
+          <div
+            v-for="(item, index) in reasonData.reasonLists"
+            :key="index"
+            class="reason-lists-item"
+          >
+            <div class="image">
+              <img :src="item.img" alt="" />
+            </div>
+            <div class="text">
+              <span>{{ item.title }}</span>
+              <span>{{ item.context }}</span>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="stage-remark">
-        <p>{{stageData.remark.p1}}</p>
-        <p>{{stageData.remark.p2}}</p>
+      <div class="care">
+        <div class="dentistryServices-title care-title">
+          <div class="dentistryServices-title-in bb care-title-in">
+            <span>{{ careData.title[0] }}</span>
+            <span>{{ careData.title[1] }}</span>
+          </div>
+        </div>
+        <div class="care-lists">
+          <div
+            v-for="(careItem, careIndex) in careData.lists"
+            :key="careIndex"
+            class="care-lists-item"
+          >
+            <div>
+              <div class="image">
+                <div class="image-in">
+                  <img :src="careItem.img" :alt="careItem.text" />
+                </div>
+              </div>
+              <div class="text">{{ careItem.text }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="care-btn">
+          <div ref="detailBtn" class="btn">
+            <span @click="toWhatsApp">與我們了解更多</span>
+            <span :class="{ showYaAnim: showYaAnim }" @click="toWhatsApp"
+              >與我們了解更多</span
+            >
+          </div>
+        </div>
       </div>
-    </div>
-    <ServiceStep :stepData="stepData" />
-    <div class="process">
-      <div class="dentistryServices-title">
-        <div class="dentistryServices-title-in bb">{{processData.title}}</div>
+      <div class="infoCard">
+        <div class="dentistryServices-title infoCard-title">
+          <div class="dentistryServices-title-in bb infoCard-title-in">
+            什麼是<span>顯微根管治療</span>？
+          </div>
+        </div>
+        <div class="infoCard-content">
+          <div class="infoCard-content-l">
+            <img
+              src="https://static.cmereye.com/imgs/2023/10/493b437603fc5e0d.jpg"
+              alt=""
+            />
+          </div>
+          <div class="infoCard-content-r">
+            <div
+              v-for="(infoCardItem, infoCardIndex) in infoCardData.lists"
+              :key="infoCardIndex"
+            >
+              <span>·</span>
+              <span>{{ infoCardItem.text }}</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="process-context pageCon">
-        <span v-for="(processContextItem,processContextIndex) in processData.context" :key="processContextIndex">{{processContextItem}}</span>
-      </div>
-      <div class="process-step pageCon">
+      <div class="step">
         <div class="step-in">
-          <div class="step-in-box"
-            v-for="(step,stepIndex) in processData.lists" :key="stepIndex">
-            <div class="step-itemLists">
-              <div class="step-itemLists-in" v-for="(stepChild,stepChildIndex) in step" :key="stepChildIndex">
-                <div :class="['line', { 'lineNone' : step.length === 2 && stepChildIndex === 1 }]"></div>
-                <span class="round"></span>
-                <span class="title">{{stepChild.title}}</span>
-                <span class="text">
-                  <div>{{stepChild.text}}</div>
-                </span>
+          <div class="dentistryServices-title step-title">
+            <div class="dentistryServices-title-in bb step-title-in">
+              {{ stepData.title }}
+            </div>
+          </div>
+          <div class="step-lists">
+            <div
+              v-for="(stepItem, stepIndex) in stepData.lists"
+              :key="stepIndex"
+              class="step-lists-in"
+            >
+              <div class="step-lists-in-l">
+                <div class="title">
+                  <img src="@/assets/images/icon_13.png" alt="" />
+                  {{ stepItem.title }}
+                </div>
+                <div class="image"><img :src="stepItem.img" alt="" /></div>
+                <div class="name">{{ stepItem.name }}</div>
+                <div class="context">{{ stepItem.context }}</div>
+              </div>
+              <div class="step-lists-in-r">
+                <img src="@/assets/images/icon_12.png" alt="" />
+              </div>
+            </div>
+            <div class="step-lists-in">
+              <div class="lastBox-t">
+                <div><img src="@/assets/images/icon_13.png" alt="" /></div>
+                <div>療程最快<span>即日完成 !</span></div>
+                <div><img src="@/assets/images/icon_13.png" alt="" /></div>
+              </div>
+              <div class="lastBox-b">
+                <span @click="toWhatsApp">立即預約牙齒檢查</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <ServiceNote :noteData="noteData" />
-    <!-- <div class="honor">
-      <div class="honor-bg">
-        <div class="honor-title">
-          <span>愛康健齒科品牌連鎖</span>
+      <div class="note">
+        <div class="dentistryServices-title note-title">
+          <div class="dentistryServices-title-in bb note-title-in">
+            療程後注意事項
+          </div>
         </div>
-        <div class="honor-text">
-          致力於口腔健康28年，多次榮獲殊榮，信心保證
-        </div>
-        <div class="honor-in pageCon">
-          <div class="leftBtn" @click="handleProcessBtn('slidePrev')"></div>
-          <swiper
-            slidesPerView="auto"
-            :loop="true"
-            class="honorSwiper"
-            @swiper="setSwiperRef"
-          >
-            <swiper-slide class="swiper-slide">
-              <img src="https://static.cmereye.com/imgs/2023/06/154e36113fa5e579.png" alt="">
-            </swiper-slide>
-            <swiper-slide class="swiper-slide">
-              <img src="https://static.cmereye.com/imgs/2023/06/ac0aa9264119857f.png" alt="">
-            </swiper-slide>
-          </swiper>
-          <div class="rightBtn" @click="handleProcessBtn('slideNext')"></div>
+        <div class="note-content">
+          <div class="note-content-l">
+            <img
+              src="https://static.cmereye.com/imgs/2023/10/9ecad6effa1796bd.jpg"
+              alt=""
+            />
+          </div>
+          <div class="note-content-r">
+            <div
+              v-for="(noteItem, noteIndex) in noteData.lists"
+              :key="noteIndex"
+            >
+              <span>·</span>
+              <span>{{ $t(noteItem.name) }}</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div> -->
-    <ServiceProblem :problemData="problemData" />
-    <serviceCard />
-    <ContactUs />
+      <!-- <div class="honor">
+        <div class="honor-bg">
+          <div class="dentistryServices-title honor-title">
+            <div class="dentistryServices-title-in bb honor-title-in">愛康健齒科品牌連鎖</div>
+          </div>
+          <div class="honor-text">
+            <span>致力於口腔健康28年</span>
+            <span>，</span>
+            <span>多次榮獲殊榮，信心保證</span>
+          </div>
+          <div class="honor-in pageCon">
+            <div class="leftBtn" @click="handleProcessBtn('slidePrev')"></div>
+            <swiper
+              slides-per-view="auto"
+              :loop="true"
+              class="honorSwiper"
+              @swiper="setSwiperRef"
+            >
+              <swiper-slide class="swiper-slide">
+                <img
+                  src="https://static.cmereye.com/imgs/2023/06/154e36113fa5e579.png"
+                  alt=""
+                />
+              </swiper-slide>
+              <swiper-slide class="swiper-slide">
+                <img
+                  src="https://static.cmereye.com/imgs/2023/06/ac0aa9264119857f.png"
+                  alt=""
+                />
+              </swiper-slide>
+            </swiper>
+            <div class="rightBtn" @click="handleProcessBtn('slideNext')"></div>
+          </div>
+        </div>
+      </div> -->
+      <ServiceProblem :problem-data="problemData" />
+      <serviceCard />
+      <ContactUs />
+    </div>
+    <PageFooter />
+    <PageNavbar />
   </div>
-  <PageFooter />
-  <PageNavbar />
-</div>
 </template>
 
-
-
 <style lang="scss" scoped>
-.stage{
-  margin-top: 126px;
-  &-title{
-    font-style: normal;
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 160%;
-    text-align: center;
-    color: #666666;
+.reason {
+  margin-top: 188px;
+  &-title {
+    &-in {
+      font-size: 50px;
+    }
   }
-  &-lists{
+  &-lists {
+    width: 100%;
+    max-width: 1656px;
     display: flex;
-    max-width: 1229px;
-    margin:  34px auto 42px;
-    &-in{
-      color: #666666;
-      font-style: normal;
-      width: 23.3%;
-      .num{
-        font-weight: 700;
-        font-size: 50px;
-        z-index: 2;
+    margin: 116px auto 0;
+    &-item {
+      padding: 0 55px;
+      width: calc(100% / 3);
+      .image {
         position: relative;
+        img {
+          width: 100%;
+        }
       }
-      .image{
-        margin-top: -10px;
+      .text {
+        font-style: normal;
+        text-align: center;
+        margin-top: -45px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         position: relative;
         z-index: 1;
-      }
-      .name{
-        font-weight: 700;
-        font-size: 28px;
-        margin-top: 15px;
-        line-height: 160%;
-      }
-      .text{
-        font-weight: 600;
-        font-size: 20px;
-        line-height: 160%;
-        margin-top: 17px;
-      }
-      &:not(:last-child){
-        margin-right: 28px;
-      }
-      &:last-child{
-        .image{
-          margin-top: calc(-7% - 10px);
+        span {
+          font-size: 35px;
+          font-weight: 900;
+          &:nth-of-type(1) {
+            color: #fff;
+            border-radius: 30px;
+            background: var(--indexColor1);
+            text-align: center;
+            width: max-content;
+            padding: 0 40px;
+            filter: drop-shadow(
+              0px 3.7044363021850586px 7.408872604370117px
+                rgba(252, 22, 130, 0.38)
+            );
+          }
+          &:nth-of-type(2) {
+            color: var(--indexColor1);
+            white-space: pre-wrap;
+            margin-top: 44px;
+          }
         }
       }
     }
   }
-  &-remark{
-    max-width: 1229px;
-    margin:  0 auto;
-    p{
-      font-style: normal;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 160%;
-      color: #666666;
+}
+.care {
+  margin-top: 206px;
+  &-title {
+    &-in {
+      font-size: 50px;
     }
   }
-}
-.honor{
-  margin-top: 157px;
-  &-bg{
-    padding: 70px 0 106px;
-    background: linear-gradient(270deg, rgba(255, 241, 240, 0) 2.6%, rgba(255, 241, 240, 0.7) 23.89%, rgba(255, 241, 240, 0.7) 75.33%, rgba(255, 241, 240, 0) 97.4%);
-  }
-  &-title{
+  &-lists {
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    span{
-      display: inline-block;
-      font-style: normal;
-      font-weight: 700;
-      font-size: 30px;
-      line-height: 160%;
-      color: #666666;
-      &:last-child{
-        border-bottom: 4px solid var(--indexColor1);
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 819px;
+    margin: 127px auto 0;
+    &-item {
+      width: calc(100% / 3);
+      & > div {
+        .image {
+          width: 100%;
+          position: relative;
+          padding: 0 calc((89px / 273px) * 100% / 2);
+          &-in {
+            width: 100%;
+            height: 0;
+            padding-bottom: 100%;
+            background: #fff1f0;
+            margin-bottom: 13px;
+            border-radius: 10px;
+            position: relative;
+            img {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              max-width: 90%;
+              max-height: 90%;
+            }
+          }
+        }
+        .text {
+          text-align: center;
+          font-size: 24px;
+          font-weight: 600;
+          white-space: nowrap;
+        }
+      }
+      &:nth-of-type(n + 4) {
+        margin-top: 90px;
+      }
+      &:nth-of-type(2n + 2) {
+        & > div {
+          .image {
+            &-in {
+              background: #fee6f1;
+            }
+          }
+        }
       }
     }
   }
-  &-text{
+  &-btn {
+    .btn {
+      margin-top: 106px;
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      span {
+        box-shadow: 0px 1.74695px 3.4939px 0px rgba(252, 22, 130, 0.38);
+        font-size: 35px;
+        font-weight: 900;
+        color: #fff;
+        border-radius: 40px;
+        padding: 5px 90px;
+        background: var(--indexColor1);
+        cursor: pointer;
+        top: 0;
+        &:nth-of-type(2) {
+          color: var(--indexColor1);
+          background: #fff;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 2;
+          animation: btnAnim 1s linear;
+          animation-fill-mode: forwards;
+          width: max-content;
+          display: none;
+        }
+        &.showYaAnim {
+          display: flex;
+          animation: btnAnim 1s linear;
+          animation-fill-mode: forwards;
+        }
+      }
+    }
+  }
+}
+.infoCard {
+  margin-top: 230px;
+  &-title {
+    &-in {
+      font-size: 50px;
+      span {
+        color: var(--indexColor1);
+      }
+    }
+  }
+  &-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1242px;
+    margin: 60px auto 0;
+    &-l {
+      width: calc((509 / 1242) * 100%);
+      img {
+        width: 100%;
+      }
+    }
+    &-r {
+      margin-left: calc((56 / 1242) * 100%);
+      flex: 1;
+      & > div {
+        display: flex;
+        span {
+          color: #4d4d4d;
+          font-size: 28px;
+          line-height: 160%;
+          font-weight: 600;
+          &:nth-of-type(1) {
+            min-width: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+.step {
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 241, 240, 0) 0%,
+    rgba(255, 241, 240, 0.7) 12.5%,
+    rgba(255, 241, 240, 0.7) 81.99%,
+    rgba(255, 241, 240, 0) 100%
+  );
+  padding: 61px 0 140px;
+  margin-top: 77px;
+  &-in {
+    width: 100%;
+    max-width: 1444px;
+    margin: 0 auto;
+  }
+  &-title {
+    &-in {
+      font-size: 50px;
+    }
+  }
+  &-lists {
+    margin-top: 98px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    &-in {
+      display: flex;
+      align-items: center;
+      margin-bottom: 92px;
+      &:nth-of-type(7),
+      &:nth-of-type(8) {
+        margin-bottom: 0;
+      }
+      &:nth-of-type(3),
+      &:nth-of-type(6),
+      &:nth-of-type(7) {
+        .step-lists-in-r {
+          display: none;
+        }
+      }
+      &-l {
+        width: 100%;
+        max-width: 400px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        .title {
+          display: flex;
+          align-items: center;
+          font-size: 35px;
+          font-weight: 700;
+          margin-bottom: 15px;
+          color: #666666;
+          img {
+            height: auto;
+            margin-right: 15px;
+          }
+        }
+        .image {
+          width: 100%;
+          img {
+            width: 100%;
+            border-radius: 30px;
+          }
+        }
+        .name {
+          color: #fff;
+          font-size: 20px;
+          font-weight: 700;
+          background: var(--indexColor1);
+          margin-top: 24px;
+          margin-bottom: 15px;
+          padding: 8px 15px;
+          clip-path: polygon(0 0, 80% 0, 85% 100%, 0 100%);
+        }
+        .context {
+          font-size: 20px;
+          font-weight: 700;
+          color: #666666;
+          padding: 0 15px;
+        }
+      }
+      &-r {
+        margin-left: 50px;
+        img {
+          width: 15px;
+          height: auto;
+        }
+      }
+      &:nth-of-type(8) {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .lastBox-t {
+          display: flex;
+          align-items: flex-end;
+          & > div {
+            color: var(--indexColor1);
+            font-size: 35px;
+            font-weight: 700;
+            span {
+              font-size: 85px;
+            }
+            &:nth-of-type(1) {
+              padding-bottom: 25px;
+              margin-right: 30px;
+            }
+            &:nth-of-type(3) {
+              padding-bottom: 25px;
+              margin-left: 30px;
+            }
+          }
+        }
+        .lastBox-b {
+          margin-top: 15px;
+          span {
+            cursor: pointer;
+            background: var(--indexColor1);
+            color: #fff;
+            font-size: 35px;
+            font-weight: 700;
+            padding: 5px 50px;
+            border-radius: 30px;
+            display: block;
+            box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
+            position: relative;
+            z-index: 1;
+            &::after,&::before{
+              content: '';
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%,-50%);
+              opacity: 0;
+              border-radius: 50px;
+              background: var(--indexColor1);
+              z-index: -1;
+            }
+            &:hover{
+              &::after{
+                animation: btnAnim2 3s infinite;
+              }
+              &::before{
+                animation: btnAnim3 3s infinite;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.note {
+  margin-top: 140px;
+  &-title {
+    &-in {
+      font-size: 50px;
+      span {
+        color: var(--indexColor1);
+      }
+    }
+  }
+  &-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1286px;
+    margin: 80px auto 0;
+    &-l {
+      width: calc((482 / 1242) * 100%);
+      img {
+        width: 100%;
+      }
+    }
+    &-r {
+      margin-left: calc((42 / 1242) * 100%);
+      flex: 1;
+      & > div {
+        display: flex;
+        span {
+          color: #4d4d4d;
+          font-size: 28px;
+          line-height: 160%;
+          font-weight: 600;
+          &:nth-of-type(1) {
+            min-width: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+.honor {
+  margin-top: 157px;
+  &-bg {
+    padding: 70px 0 106px;
+    background: linear-gradient(
+      270deg,
+      rgba(255, 241, 240, 0) 2.6%,
+      rgba(255, 241, 240, 0.7) 23.89%,
+      rgba(255, 241, 240, 0.7) 75.33%,
+      rgba(255, 241, 240, 0) 97.4%
+    );
+  }
+  &-title {
+    &-in{
+      font-size: 50px;
+    }
+  }
+  &-text {
     font-style: normal;
     font-weight: 700;
-    font-size: 28px;
+    font-size: 50px;
     line-height: 160%;
     text-align: center;
     color: var(--indexColor1);
     margin-top: 35px;
   }
-  &-in{
+  &-in {
     margin-top: 39.2px;
     display: flex;
-    .leftBtn{
+    .leftBtn {
       width: 70px;
       background: var(--indexColor2);
       cursor: pointer;
       position: relative;
-      &::after{
+      &::after {
         content: '';
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-75%,-50%);
+        transform: translate(-75%, -50%);
         border-top: 20px solid;
         border-right: 30px solid;
         border-bottom: 20px solid;
@@ -449,17 +875,17 @@ const processData = {
         filter: drop-shadow(0px 0px 7.21491px rgba(255, 120, 117, 0.25));
       }
     }
-    .rightBtn{
+    .rightBtn {
       width: 70px;
       background: var(--indexColor);
       cursor: pointer;
       position: relative;
-      &::after{
+      &::after {
         content: '';
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-25%,-50%);
+        transform: translate(-25%, -50%);
         border-top: 20px solid;
         border-right: 30px solid;
         border-bottom: 20px solid;
@@ -468,194 +894,361 @@ const processData = {
         filter: drop-shadow(0px 0px 7.21491px rgba(255, 120, 117, 0.25));
       }
     }
-    .honorSwiper{
+    .honorSwiper {
       width: calc(100% - 140px);
       overflow: hidden;
       margin: 0;
-      .swiper-slide{
-        img{
+      .swiper-slide {
+        background: #fff;
+        img {
           width: 100%;
         }
       }
     }
   }
 }
-.process{
-  background: linear-gradient(270deg, rgba(255, 241, 240, 0) 2.6%, rgba(255, 241, 240, 0.7) 23.89%, rgba(255, 241, 240, 0.7) 75.33%, rgba(255, 241, 240, 0) 97.4%);
-  margin-top: 153px;
-  padding-top: 70px;
-  &-context{
-    text-align: center;
-    width: calc(100% - 60px);
-    max-width: 1102px;
-    margin: 35px auto;
-    span{
-      font-style: normal;
-      font-weight: 600;
-      font-size: 20px;
-      line-height: 160%;
-      color: #666666;
-    }
+@keyframes btnAnim {
+  0%{
+    clip-path: polygon(-10% 0,0 0,-10% 100%,-20% 100%);
   }
-  &-step{
-    padding-bottom: 106px;
-    .step-in{
-        width: 100%;
-        background: #FFFFFF;
-        display: flex;
-        padding: 44px 65px;
-        box-sizing: border-box;
-        height: 100%;
-        min-height: 460px;
-        &-box{
-          width: 50%;
-          height: 100%;
-          .step-itemLists{
-            width: 100%;
-            &-in{
-              padding-bottom: 90px;
-              display: flex;
-              align-items: flex-start;
-              cursor: pointer;
-              position: relative;
-              .line{
-                width: 4px;
-                height: 100%;
-                background: var(--indexColor2);
-                position: absolute;
-                top: 20px;
-                left: 10px;
-                z-index: 0;
-                &.lineNone{
-                  height: 0;
-                }
-              }
-              .round{
-                width: 24px;
-                height: 24px;
-                margin-right: 14px;
-                margin-top: 8px;
-                border-radius: 50%;
-                background: var(--indexColor2);
-                display: block;
-                z-index: 1;
-              }
-              .title{
-                margin-right: 28px;
-                font-weight: 700;
-                font-size: 28px;
-                line-height: 160%;
-                color: #666666;
-                display: block;
-              }
-              .text{
-                flex: 1;
-                font-style: normal;
-                font-weight: 600;
-                font-size: 20px;
-                line-height: 160%;
-                color: #666666;
-                display: block;
-                padding-top: 10px;
-              }
-              &:last-child{
-                margin-bottom: 0;
-                padding-bottom: 0;
-                .line{
-                  height: 0;
-                  &.lineNone{
-                    height: 0;
-                  }
-                }
-              }
-              &:hover .round{
-                background: var(--indexColor);
-              }
-            }
-          }
-          &:first-child{
-            padding-right: 40px;
-          }
-          &:last-child{
-            margin-left: 40px;
+  50%{
+    clip-path: polygon(50% 0, 60% 0, 50% 100%,40% 100%);
+  }
+  100%{
+    clip-path: polygon(110% 0, 120% 0,110% 100%,100% 100%);
+  }
+}
+@keyframes btnAnim2 {
+  0%{
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+  50%{
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  90%{
+    width: 130%;
+    height: 160%;
+    opacity: 0;
+  }
+  100%{
+    width: 130%;
+    height: 160%;
+    opacity: 0;
+  }
+}
+@keyframes btnAnim3 {
+  0%{
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+  60%{
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  100%{
+    width: 130%;
+    height: 160%;
+    opacity: 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  .reason {
+    &-lists {
+      &-item {
+        .image {
+          div {
+            font-size: 4vw;
+            width: 9vw;
+            height: calc(9vw + 3px);
+            background-size: 100% 100%;
           }
         }
+        .text {
+          font-size: 3vw;
+        }
       }
+    }
   }
 }
 @media only screen and (max-width: 760px) {
-  .stage{
-    padding: 0 20px;
-    box-sizing: border-box;
-    &-title{
-      font-size: 28px;
-      span{
-        display: block;
-        text-align: center;
+  .reason {
+    margin-top: 54px;
+    &-title {
+      &-in {
+        font-size: 26px;
       }
     }
-    &-lists{
-      flex-wrap: wrap;
-      margin:  34px auto 0;
-      &-in{
-        padding: 0 10px;
-        box-sizing: border-box;
-        width: 50%;
-        margin-bottom: 20px;
-        .num{
-          font-size: 26px;
-          font-weight: 700;
+    &-lists {
+      flex-direction: column;
+      margin: 72px auto 0;
+      &-item {
+        width: 100%;
+        padding: 0 53px;
+        .text {
+          margin-top: -34px;
+          span {
+            font-size: 20px;
+            &:nth-of-type(1) {
+              padding: 8px 40px;
+            }
+            &:nth-of-type(2) {
+              margin-top: 20px;
+              white-space: normal;
+            }
+          }
         }
-        .image{
-          width: 100%;
+        &:not(:last-child) {
+          margin-bottom: 35px;
         }
-        .name{
-          font-weight: 600;
-          font-size: 20px;
-          margin-top: 7px;
-        }
-        .text{
-          font-weight: 600;
-          font-size: 15px;
-          margin-top: 10px;
-        }
-        &:not(:last-child){
-          margin-right: 0;
-        }
-      }
-    }
-    &-remark{
-      margin-left: 10px;
-      p{
-        font-weight: 500;
-        font-size: 15px;
       }
     }
   }
-  .honor{
-    margin-top: 90px;
-    &-bg{
-      padding: 44px 30px;
-      background: linear-gradient(360deg, rgba(255, 241, 240, 0) 0%, rgba(255, 241, 240, 0.3) 12.5%, rgba(255, 241, 240, 0.3) 81.99%, rgba(255, 241, 240, 0) 100%);
-    }
-    &-title{
-      span{
+  .care {
+    margin-top: 80px;
+    padding-bottom: 0px;
+    &-title {
+      &-in {
         font-size: 26px;
-        &:last-child{
-          border-bottom: 2.5px solid var(--indexColor1);
+      }
+    }
+    &-lists {
+      width: auto;
+      margin: 34px 15px 0;
+      &-item {
+        width: calc(100% / 3);
+        & > div {
+          .image {
+            padding: 0 5px;
+          }
+          .text {
+            white-space: pre-wrap;
+            font-size: 14px;
+          }
+        }
+        &:nth-of-type(1) {
+          & > div {
+            .text {
+              padding: 0 30px;
+            }
+          }
+        }
+        &:nth-of-type(3) {
+          & > div {
+            .text {
+              padding: 0 15px;
+            }
+          }
+        }
+        &:nth-of-type(n + 4) {
+          margin-top: 30px;
         }
       }
     }
-    &-text{
-      font-weight: 600;
-      font-size: 14px;
-      margin-top: 8px;
+    &-btn {
+      .btn {
+        margin-top: 30px;
+        span {
+          font-size: 20px;
+          padding: 5px 70px;
+          box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
+        }
+      }
     }
-    &-in{
+  }
+  .infoCard {
+    margin-top: 80px;
+    &-title {
+      &-in {
+        font-size: 26px;
+        span {
+          display: inline-block;
+        }
+      }
+    }
+    &-content {
+      flex-direction: column;
+      align-items: flex-start;
+      margin: 54px auto 0;
+      &-l {
+        width: 100%;
+        padding: 0 53px;
+      }
+      &-r {
+        margin-left: 0;
+        padding: 35px 30px 0;
+        & > div {
+          span {
+            font-size: 16px;
+            font-weight: 500;
+            &:nth-of-type(1) {
+              min-width: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .step {
+    background: linear-gradient(
+      0deg,
+      rgba(255, 241, 240, 0) 0%,
+      rgba(255, 241, 240, 0.7) 12.5%,
+      rgba(255, 241, 240, 0.7) 81.99%,
+      rgba(255, 241, 240, 0) 100%
+    );
+    margin-top: 80px;
+    padding: 46px 0;
+    &-title {
+      &-in {
+        font-size: 26px;
+      }
+    }
+    &-lists {
+      width: auto;
+      margin: 57px 40px 0;
+      &-in {
+        flex-direction: column;
+        margin-bottom: 30px;
+        &:nth-of-type(n + 4) {
+          margin-bottom: 30px;
+        }
+        &:nth-of-type(3),
+        &:nth-of-type(6) {
+          .step-lists-in-r {
+            display: block;
+          }
+        }
+        &-l {
+          .title {
+            padding: 0 6px;
+            font-size: 26px;
+          }
+          .image {
+            padding: 0 6px;
+          }
+          .name {
+            margin-top: -25px;
+            font-size: 16px;
+            clip-path: polygon(0 0, 80% 0, 85% 100%, 0 100%);
+          }
+          .context {
+            font-size: 16px;
+          }
+        }
+        &-r {
+          margin-top: 30px;
+          margin-left: 0;
+          img {
+            transform: rotate(90deg);
+          }
+        }
+        &:nth-of-type(8) {
+          margin-top: 15px;
+          .lastBox-t {
+            & > div {
+              font-size: 15px;
+              span {
+                font-size: 34px;
+              }
+              img {
+                width: 14px;
+                height: 16px;
+              }
+              &:nth-of-type(1) {
+                padding-bottom: 10px;
+                margin-right: 7px;
+              }
+              &:nth-of-type(3) {
+                padding-bottom: 10px;
+                margin-left: 7px;
+              }
+            }
+          }
+          .lastBox-b {
+            margin-top: 20px;
+            span {
+              font-size: 20px;
+              padding: 5px 50px;
+              border-radius: 25px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .note {
+    margin-top: 34px;
+    &-title {
+      &-in {
+        font-size: 26px;
+        span {
+          display: inline-block;
+        }
+      }
+    }
+    &-content {
+      flex-direction: column;
+      align-items: flex-start;
+      margin: 72px auto 0;
+      &-l {
+        width: 100%;
+        padding: 0 53px;
+      }
+      &-r {
+        margin-left: 0;
+        padding: 35px 30px 0;
+        & > div {
+          span {
+            font-size: 16px;
+            font-weight: 500;
+            &:nth-of-type(1) {
+              min-width: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .honor {
+    margin-top: 21px;
+    &-bg {
+      padding: 46px 30px;
+      background: linear-gradient(
+        360deg,
+        rgba(255, 241, 240, 0) 0%,
+        rgba(255, 241, 240, 0.3) 12.5%,
+        rgba(255, 241, 240, 0.3) 81.99%,
+        rgba(255, 241, 240, 0) 100%
+      );
+    }
+    &-title {
+      &-in{
+        font-size: 26px;
+      }
+    }
+    &-text {
+      font-weight: 600;
+      font-size: 20px;
+      margin-top: 8px;
+      span {
+        display: block;
+        &:nth-of-type(2) {
+          display: none;
+        }
+      }
+    }
+    &-in {
       margin-top: 22px;
-      .leftBtn{
+      .leftBtn {
         width: 15.5px;
-        &::after{
+        &::after {
           border-top: 5px solid;
           border-right: 7px solid;
           border-bottom: 5px solid;
@@ -663,9 +1256,9 @@ const processData = {
           border-color: transparent #fff transparent transparent;
         }
       }
-      .rightBtn{
+      .rightBtn {
         width: 15.5px;
-        &::after{
+        &::after {
           border-top: 5px solid;
           border-right: 7px solid;
           border-bottom: 5px solid;
@@ -673,92 +1266,8 @@ const processData = {
           border-color: transparent transparent transparent #fff;
         }
       }
-      .honorSwiper{
+      .honorSwiper {
         width: calc(100% - 31px);
-      }
-    }
-  }
-  .process{
-    background: linear-gradient(360deg, rgba(255, 241, 240, 0) 0%, rgba(255, 241, 240, 0.7) 12.5%, rgba(255, 241, 240, 0.7) 81.99%, rgba(255, 241, 240, 0) 100%);
-    margin-top: 69px;
-    padding-top: 44px;
-    &-context{
-      margin-top: 15px;
-      span{
-        font-weight: 500;
-        font-size: 14px;
-        width: 100%;
-        display: inline-block;
-        text-align: center;
-      }
-    }
-    &-step{
-      padding: 0 30px 46px;
-      .step-in{
-        flex-direction: column;
-        padding: 23px 0 23px 24px;
-        &-box{
-          width: 100%;
-          .step-itemLists{
-            &-in{
-              height: auto;
-              padding-right: 10px;
-              padding-bottom: 40px;
-              .line{
-                width: 2px;
-                left: 7px;
-              }
-              .round{
-                width: 16px;
-                height: 16px;
-                margin-top: 4px;
-                margin-right: 7px;
-              }
-              .title{
-                font-weight: 500;
-                font-size: 1rem;
-                margin-right: 12px;
-              }
-              .text{
-                font-weight: 500;
-                font-size: 16px;
-                padding-top: 0;
-              }
-              &:first-child{
-                margin-bottom: 0px;
-                margin-top: 0;
-              }
-              &:last-child{
-                align-items: flex-start;
-                padding-bottom: 40px;
-                .round{
-                  margin-top: 4px;
-                }
-              }
-            }
-            &-in:last-child{
-              .line{
-                width: 2px;
-                left: 7px;
-                height: 100%;
-              }
-            }
-          }
-          &:first-child{
-            padding-right: 0;
-          }
-          &:last-child{
-            margin-left: 0;
-            .step-itemLists{
-              &-in:last-child{
-                padding-bottom: 0;
-                .line{
-                  display: none;
-                }
-              }
-            }
-          }
-        }
       }
     }
   }
