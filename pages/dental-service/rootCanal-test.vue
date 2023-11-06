@@ -112,7 +112,7 @@ const stepData = {
   lists: [
     {
       title: '第1步',
-      img: 'https://static.cmereye.com/imgs/2023/10/a733c99aed8066db.jpg',
+      img: 'https://static.cmereye.com/imgs/2023/11/8c25f9c3f1d8c834.jpg',
       name: '診斷',
       context: '進行X光檢查，以確定牙齒損壞程度，制定治療方案',
     },
@@ -124,31 +124,31 @@ const stepData = {
     },
     {
       title: '第3步',
-      img: 'https://static.cmereye.com/imgs/2023/10/8d1fef5437257d62.jpg',
+      img: 'https://static.cmereye.com/imgs/2023/11/b7337bbff6017483.jpg',
       name: '牙齒分隔',
       context: '使用橡皮障將需治療的牙齒分隔出來，減低細菌感染其他牙齒的機會',
     },
     {
       title: '第4步',
-      img: 'https://static.cmereye.com/imgs/2023/10/6f79d1d085feecec.jpg',
+      img: 'https://static.cmereye.com/imgs/2023/11/bfd54a465dbc28b8.jpg',
       name: '計算根管長度',
       context: '以牙根探針放入根管，以X光或電子儀器量度牙根深度',
     },
     {
       title: '第5步',
-      img: 'https://static.cmereye.com/imgs/2023/10/403359ff8161cbc1.jpg',
+      img: 'https://static.cmereye.com/imgs/2023/11/8e3ca8afdfa82d6c.jpg',
       name: '清理牙根管',
       context: '使用藥水清理，消毒牙根管',
     },
     {
       title: '第6步',
-      img: 'https://static.cmereye.com/imgs/2023/10/9d7d91c8cb8f0405.jpg',
+      img: 'https://static.cmereye.com/imgs/2023/11/8f9ed7b27c9c0fdc.jpg',
       name: '根管充填',
       context: '將牙膠等物質充填牙根',
     },
     {
       title: '第7步',
-      img: 'https://static.cmereye.com/imgs/2023/10/984ee9e31a3c9d7f.jpg',
+      img: 'https://static.cmereye.com/imgs/2023/11/d542e53ca685f034.jpg',
       name: '定期覆診',
       context: '用牙套保護已杜牙根的牙齒，減低其損壞機會',
     },
