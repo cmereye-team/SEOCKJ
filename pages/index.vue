@@ -78,11 +78,20 @@ watch(
   }
 );
 
+const headerConfigData = {
+  img: 'https://static.cmereye.com/imgs/2023/11/e9f317c46f2242ed.jpg',
+  bg: 'https://static.cmereye.com/imgs/2023/11/be45851e1f050a5b.png',
+  mbImg: 'https://static.cmereye.com/imgs/2023/11/50a66a8efbcfcc12.jpg',
+  pageName: 'index-test',
+  pcText: ['重拾自信笑容', '愛牙愛己，由你做起'],
+  mbText: ['重拾自信笑容', '愛牙愛己，由你做起'],
+}
+
 </script>
 
 <template>
   <div>
-    <PageHeader /> 
+    <PageHeader :headerConfig="headerConfigData" /> 
     <div class="indexPage">
       <!-- 最新消息 -->
       <LatestNews />
