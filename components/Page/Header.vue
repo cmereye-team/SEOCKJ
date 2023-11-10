@@ -337,7 +337,7 @@ const handleMbMenu = () => {
       </div>
       <div
         v-if="
-          ['implant', 'rootCanal-test', 'scaling-and-polishing-test'].includes(
+          ['implant', 'rootCanal-test', 'scaling-and-polishing-test','index-test'].includes(
             headerConfig.pageName
           )
         "
@@ -366,6 +366,15 @@ const handleMbMenu = () => {
         <!-- <div>口腔健康，從洗牙開始！</div> -->
         <div>28年專科•專業•專注</div>
         <div><span>港人首選</span>一站式連鎖牙科品牌</div>
+      </div>
+      <div
+        v-if="headerConfig.pageName === 'index-test'"
+        class="header-content-text-implant"
+        :class="headerConfig.pageName"
+      >
+        <!-- <div>口腔健康，從洗牙開始！</div> -->
+        <div>全程式預約一體化診療服務</div>
+        <div>讓每一位顧客享受<span>健康微笑之旅。</span></div>
       </div>
       <!-- pc菜单 -->
       <div
@@ -687,6 +696,9 @@ const handleMbMenu = () => {
         left: 0;
         top: 25%;
       }
+      &.index-test{
+        display: none;
+      }
     }
   }
   &-bgImg-implant {
@@ -751,9 +763,15 @@ const handleMbMenu = () => {
         color: var(--indexColor1);
       }
     }
+    &.index-test{
+      display: none;
+    }
   }
   &-bgImgBB {
     opacity: 0;
+    &.index-test{
+      max-width: 1920px;
+    }
     &.implant,
     &.rootCanal-test,
     &.scaling-and-polishing-test {
@@ -1147,6 +1165,13 @@ const handleMbMenu = () => {
             font-size: 1.25rem;
           }
         }
+        &.index-test{
+          // display: block;
+        }
+      }
+      &.index-test{
+        margin-top: 70px;
+        // padding-bottom: 80px;
       }
     }
     &-bgImg-implant {
@@ -1181,6 +1206,9 @@ const handleMbMenu = () => {
       z-index: 1;
       & > div {
         font-size: 20px;
+      }
+      &.index-test{
+        display: block;
       }
     }
     .waterBg-implant {
