@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 
-import gsap from 'gsap'
+// import gsap from 'gsap'
 import { useAppState } from '~/stores/appState'
 const route = useRoute()
 const appState = useAppState()
@@ -200,16 +200,16 @@ const imgBgHeight = ref({
 
 const isFiexdHeader = ref(false)
 onMounted(() => {
-  gsap.from('.header-content-bgImg-in', {
-    opacity: 0,
-    y: 100,
-    duration: 2,
-  })
-  gsap.from('.header-content-bgImg-imgInfo', {
-    opacity: 0,
-    y: 100,
-    duration: 2,
-  })
+  // gsap.from('.header-content-bgImg-in', {
+  //   opacity: 0,
+  //   y: 100,
+  //   duration: 2,
+  // })
+  // gsap.from('.header-content-bgImg-imgInfo', {
+  //   opacity: 0,
+  //   y: 100,
+  //   duration: 2,
+  // })
   getScrollHeight()
   getWindowWidth()
   window.addEventListener('scroll', getScrollHeight)
