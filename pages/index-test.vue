@@ -99,6 +99,24 @@ const headerConfigData = {
       <brandConcept />
       <!-- 牙科服務 -->
       <serviceCard :isIndexShow="true" />
+      <!-- 视频地址 -->
+      <div class="index-videoBox">
+        <div class="index-videoBox-t pageCon">
+          <div class="index_title index_title_2">專題報導</div>
+        </div>
+        <div class="index-videoBox-c pageCon">
+          <div class="index-videoBox-c-l">
+            <div>HK01</div>
+            <div>深圳食買玩，點少得睇牙!口岸位置、性價比高 咪咪姐推薦口腔醫院</div>
+            <a href="https://www.hk01.com/%E5%81%A5%E5%BA%B7Easy/959987/%E6%B7%B1%E5%9C%B3%E9%A3%9F%E8%B2%B7%E7%8E%A9-%E9%BB%9E%E5%B0%91%E5%BE%97%E7%9D%87%E7%89%99-%E5%8F%A3%E5%B2%B8%E4%BD%8D%E7%BD%AE-%E6%80%A7%E5%83%B9%E6%AF%94%E9%AB%98-%E5%92%AA%E5%92%AA%E5%A7%90%E6%8E%A8%E8%96%A6%E5%8F%A3%E8%85%94%E9%86%AB%E9%99%A2" target="black">
+              查看原文
+            </a>
+          </div>
+          <div class="index-videoBox-c-r">
+            <a href="https://www.hk01.com/%E5%81%A5%E5%BA%B7Easy/959987/%E6%B7%B1%E5%9C%B3%E9%A3%9F%E8%B2%B7%E7%8E%A9-%E9%BB%9E%E5%B0%91%E5%BE%97%E7%9D%87%E7%89%99-%E5%8F%A3%E5%B2%B8%E4%BD%8D%E7%BD%AE-%E6%80%A7%E5%83%B9%E6%AF%94%E9%AB%98-%E5%92%AA%E5%92%AA%E5%A7%90%E6%8E%A8%E8%96%A6%E5%8F%A3%E8%85%94%E9%86%AB%E9%99%A2" target="black"><img src="https://static.cmereye.com/imgs/2023/11/aa60e9513e718824.jpg" alt="專題報導" title="專題報導"></a>
+          </div>
+        </div>
+      </div>
       <!-- 關於我們 -->
       <AboutUs />
       <!-- 醫生團隊 -->
@@ -258,7 +276,57 @@ svg:hover path{
     }
   }
 }
-
+.index-videoBox{
+  margin-top: 132px;
+  &-c{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 50px;
+    &-l{
+      flex: 1;
+      div{
+        &:nth-of-type(1){
+          color: #4D4D4D;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 160%; 
+        }
+        &:nth-of-type(2){
+          color: #FC1682;
+          font-size: 28px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 160%; 
+        }
+      }
+      a{
+        display: block;
+        color: #fff;
+        background: #FC1682;
+        border-radius: 30px;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        font-size: 35px;
+        font-style: normal;
+        font-weight: 900;
+        width: 100%;
+        max-width: 400px;
+        margin-top: 47px;
+        box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
+      }
+    }
+    &-r{
+      width: calc((966 / 1432) * 100%);
+      padding-left: calc((100 / 1432) * 100%);
+      img{
+        width: 100%;
+      }
+    }
+  }
+}
 @media (min-width: 768px) and (max-width: 1452px) {
 }
 
@@ -322,6 +390,37 @@ svg:hover path{
             text-shadow: 0px 0px 8px rgba(255, 120, 117, 0.65);
           }
         }
+      }
+    }
+  }
+  .index-videoBox{
+    margin-top: 48px;
+    &-c{
+      flex-direction: column-reverse;
+      text-align: center;
+      margin-top: 34px;
+      &-l{
+        width: auto;
+        margin: 19px 30px 0;
+        div{
+          &:nth-of-type(1){
+            font-size: 16px;
+          }
+          &:nth-of-type(2){
+            font-size: 18px;
+          }
+        }
+        a{
+          font-size: 20px;
+          height: 40px;
+          line-height: 40px;
+          max-width: 267px;
+          margin: 30px auto 0;
+        }
+      }
+      &-r{
+        width: 100%;
+        padding-left: 0;
       }
     }
   }
