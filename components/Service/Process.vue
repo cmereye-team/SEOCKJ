@@ -42,7 +42,7 @@ const onSlideProcessSwiperChange = (swiper:any) => {
       <div class="process-context pageCon" :class="processData.pageName">
         <span v-for="(processContextItem,processContextIndex) in processData.context" :key="processContextIndex">{{processContextItem}}</span>
       </div>
-      <div class="process-tabs pageCon">
+      <div class="process-tabs pageCon" :class="processData.pageName">
         <div :class="{'active': processTabsActive === processTabIndex}" @click="handleProcessTabs(processTabIndex)" v-for="(processTabItem,processTabIndex) in processData.tabs" :key="processTabIndex">
           {{processTabItem}}
         </div>
@@ -103,6 +103,9 @@ const onSlideProcessSwiperChange = (swiper:any) => {
   &-tabs{
     display: flex;
     margin-top: 56px;
+    &.periodontal-test{
+      margin-top: 20px;
+    }
     div{
       flex: 1;
       height: 69px;

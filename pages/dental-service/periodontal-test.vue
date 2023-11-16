@@ -228,11 +228,11 @@ const processData = {
             text: '牙周組織增加，使牙周更鞏固，牙齒存活時間更長',
             textIn: ''
           },
-          {
-            title: 'Step 6',
-            text: '咬緊棉花或紗布止血',
-            textIn: ''
-          },
+          // {
+          //   title: 'Step 6',
+          //   text: '咬緊棉花或紗布止血',
+          //   textIn: ''
+          // },
         ]
       ]
     }
