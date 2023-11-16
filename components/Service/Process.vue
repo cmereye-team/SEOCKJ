@@ -7,7 +7,8 @@ defineProps({
         title: '',
         tabs: [],
         context: [],
-        lists: []
+        lists: [],
+        pageName: ''
       }
     }
   }
@@ -38,7 +39,7 @@ const onSlideProcessSwiperChange = (swiper:any) => {
       <div class="dentistryServices-title">
         <div class="dentistryServices-title-in bb">{{processData.title}}</div>
       </div>
-      <div class="process-context pageCon">
+      <div class="process-context pageCon" :class="processData.pageName">
         <span v-for="(processContextItem,processContextIndex) in processData.context" :key="processContextIndex">{{processContextItem}}</span>
       </div>
       <div class="process-tabs pageCon">
@@ -91,6 +92,12 @@ const onSlideProcessSwiperChange = (swiper:any) => {
       font-size: 20px;
       line-height: 160%;
       color: #666666;
+    }
+    &.periodontal-test{
+      max-width: 1246px;
+      span{
+        font-size: 28px;
+      }
     }
   }
   &-tabs{
@@ -236,6 +243,9 @@ const onSlideProcessSwiperChange = (swiper:any) => {
         width: 100%;
         display: inline-block;
         text-align: center;
+      }
+      &.periodontal-test{
+        display: none;
       }
     }
     &-tabs{

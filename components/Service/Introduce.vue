@@ -71,6 +71,10 @@ defineProps({
           margin-top: 96px;
           font-size: 50px;
         }
+        &.periodontal-test{
+          margin-top: 96px;
+          font-size: 50px;
+        }
         &.scaling-and-polishing-test {
           margin-top: 96px;
           font-size: 50px;
@@ -84,6 +88,9 @@ defineProps({
         margin-top: 68px;
         &.orthodontics {
           width: 409px;
+        }
+        &.periodontal-test{
+          font-size: 28px;
         }
         &.rootCanal-test {
           font-size: 28px;
@@ -133,7 +140,7 @@ defineProps({
         .title {
           font-size: 2.2vw;
           margin-top: 6vw;
-          &.rootCanal-test {
+          &.rootCanal-test,&.periodontal-test {
             margin-top: 5vw;
             font-size: 3.5vw;
           }
@@ -149,7 +156,7 @@ defineProps({
           &.orthodontics {
             width: 25vw;
           }
-          &.rootCanal-test {
+          &.rootCanal-test,&.periodontal-test {
             width: 43vw;
             font-size: 1.8vw;
           }
@@ -191,7 +198,7 @@ defineProps({
           &.teeth-whitening {
             margin-top: 0;
           }
-          &.rootCanal-test {
+          &.rootCanal-test,&.periodontal-test {
             margin-top: 0;
             font-size: 26px;
           }
@@ -208,7 +215,7 @@ defineProps({
           &.orthodontics {
             width: 95%;
           }
-          &.rootCanal-test {
+          &.rootCanal-test,&.periodontal-test {
             width: 100%;
             font-size: 16px;
           }

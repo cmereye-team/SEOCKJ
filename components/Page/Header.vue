@@ -298,7 +298,7 @@ const handleMbMenu = () => {
       </div>
       <div
         v-if="
-          ['implant', 'rootCanal-test', 'scaling-and-polishing-test'].includes(
+          ['implant', 'rootCanal-test', 'scaling-and-polishing-test','periodontal-test'].includes(
             headerConfig.pageName
           )
         "
@@ -337,7 +337,18 @@ const handleMbMenu = () => {
       </div>
       <div
         v-if="
-          ['implant', 'rootCanal-test', 'scaling-and-polishing-test','index-test'].includes(
+          ['periodontal-test'].includes(
+            headerConfig.pageName
+          )
+        "
+        class="header-content-btn-implant"
+      >
+        <span @click="toWhatsApp">獲取免費諮詢</span>
+        <span @click="toWhatsApp">獲取免費諮詢</span>
+      </div>
+      <div
+        v-if="
+          ['implant', 'rootCanal-test', 'scaling-and-polishing-test','index-test','periodontal-test'].includes(
             headerConfig.pageName
           )
         "
@@ -375,6 +386,14 @@ const handleMbMenu = () => {
         <!-- <div>口腔健康，從洗牙開始！</div> -->
         <div>全程式預約一體化診療服務</div>
         <div>讓每一位顧客享受<span>健康微笑之旅。</span></div>
+      </div>
+      <div
+        v-if="headerConfig.pageName === 'periodontal-test'"
+        class="header-content-text-implant"
+        :class="headerConfig.pageName"
+      >
+        <div>健康牙齒，從<span>牙周病治療</span>開始</div>
+        <div>保持口氣清新、牙周健康</div>
       </div>
       <!-- pc菜单 -->
       <div
@@ -547,6 +566,7 @@ const handleMbMenu = () => {
     z-index: -1;
     &.implant,
     &.rootCanal-test,
+    &.periodontal-test,
     &.scaling-and-polishing-test {
       display: none;
     }
@@ -766,6 +786,9 @@ const handleMbMenu = () => {
     &.index-test{
       display: none;
     }
+    &.periodontal-test{
+      display: none;
+    }
   }
   &-bgImgBB {
     opacity: 0;
@@ -774,6 +797,7 @@ const handleMbMenu = () => {
     }
     &.implant,
     &.rootCanal-test,
+    &.periodontal-test,
     &.scaling-and-polishing-test {
       max-width: 100%;
       img {
@@ -905,6 +929,7 @@ const handleMbMenu = () => {
     z-index: 35;
     &.implant,
     &.rootCanal-test,
+    &.periodontal-test,
     &.scaling-and-polishing-test {
       bottom: 100px;
     }
@@ -912,6 +937,7 @@ const handleMbMenu = () => {
   .pcMenuBox {
     &.implant,
     &.rootCanal-test,
+    &.periodontal-test,
     &.scaling-and-polishing-test {
       margin-top: 100px;
       transition: all 0.3s;
@@ -1190,6 +1216,9 @@ const handleMbMenu = () => {
       &.scaling-and-polishing-test{
         padding-bottom: 80px;
       }
+      &.periodontal-test{
+        padding-bottom: 80px;
+      }
       &.implant{
         padding-bottom: 80px;
       }
@@ -1208,6 +1237,9 @@ const handleMbMenu = () => {
         font-size: 20px;
       }
       &.index-test{
+        display: block;
+      }
+      &.periodontal-test{
         display: block;
       }
     }
@@ -1295,6 +1327,7 @@ const handleMbMenu = () => {
       width: 100%;
       &.implant,
       &.rootCanal-test,
+      &.periodontal-test,
       &.scaling-and-polishing-test {
         bottom: auto;
       }
@@ -1302,6 +1335,7 @@ const handleMbMenu = () => {
     .pcMenuBox {
       &.implant,
       &.rootCanal-test,
+      &.periodontal-test,
       &.scaling-and-polishing-test {
         margin-top: 0px;
         transition: all 0.3s;
