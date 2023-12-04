@@ -1077,6 +1077,11 @@ const handleMbMenu = () => {
   .header-content {
     &-in{
       width: calc(80% + 60px);
+      padding: 10px 10px 0 30px;
+      .logo{
+        width: 200px;
+        margin-bottom: 15px;
+      }
     }
     &-bgImg {
       &-in {
@@ -1108,10 +1113,10 @@ const handleMbMenu = () => {
 @media (min-width: 768px) and (max-width: 1200px) {
   .header-content {
     &-in {
-      padding: 20px 15px 0 30px;
+      padding: 10px 15px 0 30px;
       .logo {
         width: 22%;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
       }
       .menu {
         .menuItem {
