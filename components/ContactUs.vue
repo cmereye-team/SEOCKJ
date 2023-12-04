@@ -293,6 +293,7 @@ const handleAddress = (_idx: string) => {
           .mapBtn{
             a{
               width: 30%;
+              min-width: 200px;
             }
           }
         }
@@ -392,7 +393,8 @@ const handleAddress = (_idx: string) => {
   .index-contactUs{
     padding: 110px 0 0;
     .address{
-      margin-top: 50px;
+      max-width: calc(80% + 60px);
+      margin: 50px auto 0;
       &-in{
         padding: 0 30px 75px;
         h3{
@@ -414,9 +416,21 @@ const handleAddress = (_idx: string) => {
             }
           }
         }
+        &.firstBox{
+          .address-box{
+            .mapBtn{
+              a{
+                min-width: 150px;
+              }
+            }
+          }
+        }
         .mapBtn{
+          a{
+            width: 40%;
+          }
           &-in{
-            font-size: 26px;
+            font-size: 20px;
             padding: 10px 0;
             &:first-child{
               margin-right: 20px;

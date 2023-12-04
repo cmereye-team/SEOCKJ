@@ -1064,14 +1064,20 @@ const handleMbMenu = () => {
         }
       }
     }
+    &-in{
+      width: calc(80% + 60px);
+    }
   }
   .waterBg::after,
   .waterBg::before {
     height: 140px;
   }
 }
-@media (min-width: 1000px) and (max-width: 1452px) {
+@media (min-width: 1001px) and (max-width: 1452px) {
   .header-content {
+    &-in{
+      width: calc(80% + 60px);
+    }
     &-bgImg {
       &-in {
         top: 30%;
@@ -1141,6 +1147,7 @@ const handleMbMenu = () => {
     }
   }
 }
+
 @media screen and (max-width: 768px) {
   .header-content {
     &-bgImg {
