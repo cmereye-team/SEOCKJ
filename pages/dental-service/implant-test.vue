@@ -705,7 +705,7 @@ const implantCaseData = [
             :loop="true"
             :modules="[Autoplay]"
             :autoplay="{
-              delay: 5000,
+              delay: 3000,
             }"
             @swiper="setImplantCaseSwiperRef"
             @slideChange="onSlideImplantCaseChange"
