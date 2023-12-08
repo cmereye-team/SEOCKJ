@@ -192,13 +192,13 @@ const caseLists = [
     context: '未箍牙之前，每次露齒笑都好尷尬，喺學校真係唔敢識新朋友。經過年半箍牙療程，成個人自信返晒嚟，更容易識到新朋友添！'
   },
   {
-    img: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Ellipse5634604.35rbxs3bw6e0.png',
+    img: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Ellipse568202.1tnubdc0cgo0.png',
     name: 'Chloe',
     jos: '職場OL',
     context: '平日返工都好羨慕啲女同事個個牙齒整齊又白淨，搞到我心郁郁想箍牙。箍牙後塊面望起上嚟瘦咗，笑容都自信咗好多。'
   },
   {
-    img: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Ellipse568202.1tnubdc0cgo0.png',
+    img: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Ellipse5634604.35rbxs3bw6e0.png',
     name: 'Shirley',
     jos: '職場OL',
     context: '做Model除咗個樣要靚之外，笑容都好重要，所以我揀咗隱形牙箍療程，令我喺平日拍攝工作上笑得更上鏡自然。'
@@ -235,15 +235,15 @@ const bpData ={
       imgUrl: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Component-41-(1).3fzvrknw66c0.jpg'
     },
     {
-      title: '錯咬/反咬合',
+      title: '反咬合',
       imgUrl: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Component-39-(1).5dt9vtsy9w00.jpg'
     },
     {
-      title: '牙縫過大',
+      title: '牙縫疏大',
       imgUrl: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Component-40-(1).2l66y7enxs80.jpg'
     },
     {
-      title: '倒 及',
+      title: '牙齒倒及',
       imgUrl: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Group-1556.6xop3m9cz3k0.jpg'
     },
     {
@@ -361,7 +361,7 @@ const differData = {
       <div class="advantage-lists">
         <div class="advantage-lists-in" v-for="(advantageItem,advantageIndex) in advantageData.lists" :key="advantageIndex">
           <div class="advantage-lists-in-image">
-            <span>{{advantageIndex}}</span>
+            <span>{{advantageIndex + 1}}</span>
             <img :src="advantageItem.img" alt="">
           </div>
           <div class="advantage-lists-in-name">{{advantageItem.name}}</div>
@@ -422,7 +422,7 @@ const differData = {
     </div>
     <div class="case">
       <div class="case-title">
-        <div class="index_title">個案分享</div>
+        <div class="case-title-in">個案分享</div>
       </div>
       <div class="case-context">
         <span>
@@ -531,7 +531,7 @@ const differData = {
       min-width: 33.33%;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       padding: 0 39.5px 80px;
       box-sizing: border-box;
       align-items: center;
@@ -654,7 +654,7 @@ const differData = {
         }
       }
       &-name{
-        color: var(--indexColor);
+        color: var(--indexColor1);
         text-align: center;
         font-size: 28px;
         font-style: normal;
@@ -789,7 +789,7 @@ const differData = {
           font-size: 35px;
           font-weight: 700;
           margin-bottom: 15px;
-          color: #666666;
+          color: #4d4d4d;
           img {
             height: auto;
             margin-right: 15px;
@@ -815,7 +815,7 @@ const differData = {
         .context {
           font-size: 20px;
           font-weight: 700;
-          color: #666666;
+          color: #4d4d4d;
           padding: 0 15px;
         }
       }
@@ -899,6 +899,19 @@ const differData = {
   &-title{
     display: flex;
     justify-content: center;
+    &-in{
+      font-style: normal;
+      position: relative;
+      font-weight: 600;
+      font-size: 30px;
+      line-height: 150%;
+      text-indent: 65px;
+      color: #666666;
+      background: url(@/assets/images/indexTitle_bg_2.png) no-repeat;
+      background-size: auto 100%;
+      padding-bottom: 5px;
+      padding-right: 7px;
+    }
   }
   &-context{
     display: flex;
@@ -1153,33 +1166,16 @@ const differData = {
     }
   }
   .case{
-    margin-top: 40px;
+    margin-top: 20px;
     background: linear-gradient(279deg, rgba(252, 22, 130, 0.40) -0.55%, rgba(252, 22, 130, 0.28) -0.54%, rgba(255, 168, 198, 0.00) 99.3%);
     padding: 44px 30px;
     &-title{
-      .index_title{
-        width: auto;
-        margin-left: 0;
-        background: none;
-        position: relative;
-        text-indent: 0;
-        font-weight: 600;
-        font-size: 1.625rem;
-        line-height: 1.6;
-        &::before{
-          content: '';
-          height: 3px;
-          border-radius: 1.5px;
-          width: 100%;
-          background: var(--indexColor);
-          position: absolute;
-          left: 0;
-          bottom: 0;
-        }
+      &-in{
+        font-size: 20px;
+        text-indent: 45px;
       }
     }
     &-context{
-      // display: none;
       margin-top: 44px;
       span{
         font-size: 16px;
