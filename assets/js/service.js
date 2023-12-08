@@ -16,7 +16,7 @@ export default [
   },
   {
     name: 'service.invisalign',
-    imgUrl: 'https://static.cmereye.com/imgs/2023/05/6c3e61117d540a66.png',
+    imgUrl: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/z0x4bI.tif.48men0yif480.png',
     link: '/dental-service/invisalign'
   },
   {

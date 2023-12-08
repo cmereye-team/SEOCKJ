@@ -68,8 +68,6 @@ const caseLists = [
   width: 100%;
   margin-top: 97px;
   &-title{
-    // width: 100%;
-    // width: max-content;
     display: flex;
     justify-content: center;
   }
@@ -116,7 +114,6 @@ const caseLists = [
         display: flex;
         img{
           border-radius: 50%;
-          // transform: translateY(-50%);
           margin-top: -36%;
           border: 8px solid #fff;
         }
