@@ -41,7 +41,7 @@ export default [
   },
   {
     name: 'service.toothtray',
-    imgUrl: 'https://static.cmereye.com/imgs/2023/05/102e8ffea3f3ee05.png',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/12/f9139f98feecb5d0.png',
     link: '/dental-service/toothtray'
   },
   {

@@ -138,7 +138,7 @@ const differData = {
     },
     {
       name: '物料',
-      firstText: '金屬/ 搪瓷/ 樹脂',
+      firstText: '金屬/ 陶瓷/ 樹脂',
       secondText: '醫學塑膠'
     },
     {
@@ -316,7 +316,7 @@ const careData = {
       text: '盡量避免\n劇烈運動',
     },
     {
-      img: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Group-1050.6eemhbb9hvc0.jpg',
+      img: 'https://static.cmereye.com/imgs/2023/12/d1b77fe7ddd90ec3.jpg',
       text: '持續配戴固定器',
     },
     {
