@@ -43,7 +43,7 @@ const allAddressLists = [
       metroRoutes: 'contactUs.addressLists.address_102.metroRoutes',
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/faf033fd50b18824.png',
       googleMap: 'https://goo.gl/maps/HQsN5jNMTeZNbxuf7?coh=178572&entry=tt',
-      baiduMap: 'https://j.map.baidu.com/a5/GtH'
+      baiduMap: 'https://j.map.baidu.com/36/OZ5'
     },
     {
       id: '103',

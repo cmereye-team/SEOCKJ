@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
+import { Autoplay } from 'swiper';
 const appState = useAppState()
 appState.setDentistryService('implant')
 useHead({
@@ -463,6 +464,100 @@ const getWindowWidth = () => {
   windowWidth.value = window.innerWidth
 }
 
+let implantCaseCurrent = ref(1)
+
+//走马灯事件
+const onSlideImplantCaseChange = (swiper:any) => {
+  implantCaseCurrent.value = swiper.realIndex + 1
+}
+
+let implantCaseSwiperRef ={
+  slideToLoop: (a)=>{},
+  slidePrev: ()=>{},
+  slideNext: ()=>{}
+}
+
+const handleLineCur = (_value:number) =>{
+  implantCaseSwiperRef.slideToLoop(_value-1)
+}
+
+const setImplantCaseSwiperRef = (swiper:any) => {
+  implantCaseSwiperRef = swiper;
+}
+
+const handleProcessBtn = (_type: string) => {
+  implantCaseSwiperRef[_type]();
+}
+
+const implantCaseData = [
+  {
+    dataLists: [
+      {
+        title: '療程前',
+        imgs: [
+          'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Rectangle-662.4ftyh9pdkhe0.jpg'
+        ]
+      },
+      {
+        title: '療程後',
+        imgs: [
+          'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Rectangle-663.5ss61sod3qk0.jpg'
+        ]
+      }
+    ]
+  },
+  {
+    dataLists: [
+      {
+        title: '療程前',
+        imgs: [
+          'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Rectangle-656.1sruabv8hag0.jpg'
+        ]
+      },
+      {
+        title: '療程後',
+        imgs: [
+          'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Rectangle-657.46aijuwwb940.jpg',
+          'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Rectangle-658.1kva3b5gd928.jpg'
+        ]
+      }
+    ]
+  },
+  {
+    dataLists: [
+      {
+        title: '療程前',
+        imgs: [
+          'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Rectangle-659.77ltqq7eplg0.jpg'
+        ]
+      },
+      {
+        title: '療程後',
+        imgs: [
+          'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Rectangle-660.4vvjppol91q0.jpg',
+          'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Rectangle-661.3hny19y4e0g0.jpg'
+        ]
+      }
+    ]
+  },
+  {
+    dataLists: [
+      {
+        title: '療程前',
+        imgs: [
+          'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Rectangle-654.6nh16b1gl8o0.jpg'
+        ]
+      },
+      {
+        title: '療程後',
+        imgs: [
+          'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Rectangle-655.3e6w9ehoi4g0.jpg',
+          'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Rectangle-429.60d0faxtxq00.jpg'
+        ]
+      }
+    ]
+  }
+]
 </script>
 
 <template>
@@ -600,6 +695,83 @@ const getWindowWidth = () => {
           </div>
         </div>
       </div> -->
+      <div class="implantCase">
+        <div class="implantCase-title dentistryServices-title">
+          <div class="dentistryServices-title-in bb implantCase-title-in">植牙案例</div>
+        </div>
+        <div class="implantCase-content">
+          <swiper
+            class="implantCaseBoxSwiper"
+            :loop="true"
+            :modules="[Autoplay]"
+            :autoplay="{
+              delay: 3000,
+            }"
+            @swiper="setImplantCaseSwiperRef"
+            @slideChange="onSlideImplantCaseChange"
+          >
+            <swiper-slide v-for="(implantCaseItem,implantCaseIndex) in implantCaseData" :key="implantCaseIndex">
+              <div class="implantCase-content-in">
+                <div class="implantCaseBox" v-for="(dataItem,dataIndex) in implantCaseItem.dataLists" :key="dataIndex">
+                  <div class="implantCaseBox-t">
+                    <img src="@/assets/images/icon_13.png" alt="">
+                    <span>{{dataItem.title}}</span>
+                  </div>
+                  <div class="implantCaseBox-b">
+                    <div v-for="(imgItem,imgIdx) in dataItem.imgs" :key="imgIdx">
+                      <img :src="imgItem" :class="{isw: (implantCaseIndex===3&&dataIndex===1)&&imgIdx===1}" alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </swiper-slide>
+          </Swiper>
+          <div class="leftBtn" @click="handleProcessBtn('slidePrev')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="107" height="107" viewBox="0 0 107 107" fill="none">
+              <g filter="url(#filter0_d_1167_2367)">
+                <circle cx="51.5" cy="51.5" r="49.5" fill="white"/>
+              </g>
+              <path d="M59.0859 69.3037L38.999 51.4994L59.0859 33.695" stroke="#FC1682" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+                <filter id="filter0_d_1167_2367" x="0" y="0" width="107" height="107" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                  <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                  <feOffset dx="2" dy="2"/>
+                  <feGaussianBlur stdDeviation="2"/>
+                  <feComposite in2="hardAlpha" operator="out"/>
+                  <feColorMatrix type="matrix" values="0 0 0 0 0.988235 0 0 0 0 0.0862745 0 0 0 0 0.509804 0 0 0 0.24 0"/>
+                  <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1167_2367"/>
+                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1167_2367" result="shape"/>
+                </filter>
+              </defs>
+            </svg>
+          </div>
+          <div class="rightBtn" @click="handleProcessBtn('slideNext')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="107" height="107" viewBox="0 0 107 107" fill="none">
+              <g filter="url(#filter0_d_1166_2259)">
+                <circle cx="51.5" cy="51.5" r="49.5" fill="white"/>
+              </g>
+              <path d="M43 31L65.6154 51.4878L43 73" stroke="#FC1682" stroke-width="9.69231" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+                <filter id="filter0_d_1166_2259" x="0" y="0" width="107" height="107" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                  <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                  <feOffset dx="2" dy="2"/>
+                  <feGaussianBlur stdDeviation="2"/>
+                  <feComposite in2="hardAlpha" operator="out"/>
+                  <feColorMatrix type="matrix" values="0 0 0 0 0.988235 0 0 0 0 0.0862745 0 0 0 0 0.509804 0 0 0 0.24 0"/>
+                  <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1166_2259"/>
+                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1166_2259" result="shape"/>
+                </filter>
+              </defs>
+            </svg>
+          </div>
+          <div class="implantCase-content-line">
+            <PageSwiperPointLine :latestNewsNum="implantCaseData.length" :latestNewsCurrent="implantCaseCurrent" @changeLineCur="handleLineCur"></PageSwiperPointLine>
+          </div>
+        </div>
+      </div>
+      <ServiceCase />
       <ServiceProblem :problemData="problemData" />
       <serviceCard />
       <ContactUs />
@@ -1202,6 +1374,81 @@ const getWindowWidth = () => {
         }
       }
     }
+    .implantCase{
+      margin-top: 112px;
+      &-content{
+        margin-top: 40px;
+        padding: 58px 0 51px;
+        background: linear-gradient(269deg, rgba(255, 241, 240, 0.00) 0.53%, rgba(255, 241, 240, 0.70) 12.92%, rgba(255, 241, 240, 0.70) 81.78%, rgba(255, 241, 240, 0.00) 99.62%);
+        width: 100%;
+        position: relative;
+        .implantCaseBoxSwiper{
+          width: 100%;
+          // max-width: 1200px;
+          margin: 0 auto;
+          .implantCaseBox{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            // align-items: center;
+            width: max-content;
+            margin: 0 auto;
+            &-t{
+              width: 100%;
+              color: #4D4D4D;
+              font-size: 35px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 160%;
+              display: flex;
+              align-items: center;
+              margin-left: -39px;
+              img{
+                width: 24px;
+                height: 26px;
+                margin-right: 15px;
+              }
+            }
+            &:not(:first-child){
+              .implantCaseBox-t{
+                margin-top: 59px;
+              }
+            }
+            &-b{
+              div{
+                img{
+                  border-radius: 30px;
+                  margin: 0 auto;
+                }
+                &:not(:first-child){
+                  margin-top: 33px;
+                }
+              }
+            }
+          }
+        }
+        .leftBtn{
+          position: absolute;
+          left: calc((100% - 562px - 350px) / 2);
+          top: 50%;
+          transform: translateY(-50%);
+          cursor: pointer;
+          z-index: 2;
+        }
+        .rightBtn{
+          position: absolute;
+          right: calc((100% - 562px - 350px) / 2);
+          top: 50%;
+          transform: translateY(-50%);
+          cursor: pointer;
+          z-index: 2;
+        }
+        &-line{
+          width: 326px;
+          margin: 60px auto 0;
+        }
+      }
+    }
   }
   @keyframes btnAnim {
     0%{
@@ -1585,6 +1832,68 @@ const getWindowWidth = () => {
               font-weight: 500;
               font-size: 16px;
             }
+          }
+        }
+      }
+      .implantCase{
+        margin-top: 90px;
+        &-content{
+          margin-top: 31px;
+          background: linear-gradient(0deg, rgba(255, 241, 240, 0.00) 0%, rgba(255, 241, 240, 0.70) 12.5%, rgba(255, 241, 240, 0.70) 81.99%, rgba(255, 241, 240, 0.00) 100%);
+          padding: 16px 0 27px;
+          .implantCaseBoxSwiper{
+            .implantCaseBox{
+              padding: 0 44px;
+              width: 100%;
+              box-sizing: border-box;
+              &-t{
+                margin-left: 0;
+                font-size: 26px;
+                img{
+                  width: 17px;
+                  height: 18px;
+                }
+              }
+              &:not(:first-child){
+                .implantCaseBox-t{
+                  margin-top: 33px;
+                }
+              }
+              &-b{
+                div{
+                  margin-top: 12px;
+                  img{
+                    border-radius: 30px;
+                    margin: 0 auto;
+                    &.isw{
+                      width: calc((100 / 270) * 100%);
+                    }
+                  }
+                  &:not(:first-child){
+                    margin-top: 18px;
+                  }
+                }
+              }
+            }
+            
+          }
+          .leftBtn{
+            left: 13px;
+            svg{
+              width: 52px;
+              height: 52px;
+            }
+          }
+          .rightBtn{
+            right: 13px;
+            svg{
+              width: 52px;
+              height: 52px;
+            }
+          }
+          &-line{
+            width: 216px;
+            margin: 30px auto 0;
           }
         }
       }
