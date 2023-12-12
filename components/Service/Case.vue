@@ -17,7 +17,7 @@ const caseLists = [
     img: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Ellipse-202.4xq7h8rvl680.png',
     name: 'Mrs Chan',
     jos: '中學老師',
-    context: '學生踢足球打中我塊臉，有一隻門牙嚴重斷開咗救唔返。塊臉好返之後即刻安排植牙，依加有返隻牙開心返晒，唔使再戴口罩教書。'
+    context: '因課外活動小意外，其中隻門牙嚴重斷開咗。經同事介紹搵愛康健，翌日就可以安排到植牙，醫生專業及服務效率度高，深圳植牙信心推薦！'
   },
   {
     img: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Ellipse-204.59hem870vfw0.png',
@@ -35,10 +35,10 @@ const caseLists = [
     </div>
     <div class="case-context">
       <span>
-        締造自信燦爛笑顏
+        種植牙專科實力
       </span>
       <span>
-        我只揀愛康健！
+        我揀愛康健！
       </span>
     </div>
     <div class="case-content">
