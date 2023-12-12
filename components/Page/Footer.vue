@@ -62,7 +62,7 @@ const navLists = [
           </nuxt-link>
         </div>
         <div class="footer-content-icon-in">
-          <nuxt-link to="https://www.youtube.com/channel/UCKYINBITo-8P37-SQDRSr_g" target="_blank">
+          <nuxt-link to="https://www.youtube.com/channel/UC4AQD5eeOiHIGd3QYFGK4aA" target="_blank">
             <img src="@/assets/images/icon_3.png" alt="youtube" />
           </nuxt-link>
         </div>

@@ -550,7 +550,7 @@ const handleMbMenu = () => {
           </div>
           <div class="menuBox-icon-in">
             <nuxt-link
-              to="https://www.youtube.com/channel/UCKYINBITo-8P37-SQDRSr_g"
+              to="https://www.youtube.com/channel/UC4AQD5eeOiHIGd3QYFGK4aA"
               target="_blank"
             >
               <img src="@/assets/images/icon_03.png" />
