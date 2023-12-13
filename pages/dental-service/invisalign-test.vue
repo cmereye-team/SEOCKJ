@@ -127,7 +127,7 @@ const problemData = {
     },
     {
       Q: '隱形矯正有年齡限制嗎？',
-      A: '隱形矯正無明確年齡界線，只需擁有充足牙齒且專科主任 評估適合便可。兒童為最理想的矯齒黃金期，於7歲起換牙期進行牙科評估，提前處理牙冠及矯正需求。'
+      A: '隱形矯正無明確年齡界線，只需擁有充足牙齒且專科主任評估適合便可。兒童為最理想的矯齒黃金期，於7歲起換牙期進行牙科評估，提前處理牙冠及矯正需求。'
     },
     {
       Q: '隱形矯正會產生痛楚嗎？',
@@ -155,13 +155,13 @@ const stepData = {
       title: '第3步',
       img: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Rectang786727.3m6icbbgac80.jpg',
       name: '定制方案',
-      context: '根據口腔檢查結果及客人需求，研擬個人化治療方案，目標達到最佳矯正效果。',
+      context: '根據口腔檢查結果及客人需求，定製個人化治療方案，達到最佳矯正效果。',
     },
     {
       title: '第4步',
       img: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Rectangl6956727.3uyz0rhi2tm0.jpg',
       name: '牙箍製作',
-      context: '依照方案，我們與專業廠商運用現代科技製作系列隱形牙箍，並寄回門診醫院。',
+      context: '依照方案，我們與專業廠商運用現代科技定製隱形牙箍，並寄回門診醫院。',
     },
     {
       title: '第5步',
@@ -200,7 +200,7 @@ const caseLists = [
   {
     img: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Ellipse5634604.35rbxs3bw6e0.png',
     name: 'Shirley',
-    jos: '職場OL',
+    jos: '平面模特兒',
     context: '做Model除咗個樣要靚之外，笑容都好重要，所以我揀咗隱形牙箍療程，令我喺平日拍攝工作上笑得更上鏡自然。'
   },
 ]
@@ -299,7 +299,7 @@ const differData = {
     {
       name: '療程時長',
       firstText: '療程時長因人而異，需要一年至兩年的時間，具體取決於個人的牙齒情況。',
-      secondText: '矯正過程需時較長，需要一年半或更長的時間才能達到理想的矯正效果。'
+      secondText: '需要一年半或更長的時間才能達到理想的矯正效果。'
     },
     {
       name: '回診時間',
