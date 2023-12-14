@@ -40,9 +40,9 @@ const servicesCardPageData = {
         <!-- 牙科服務 -->
         <div class="index_title" v-if="isIndexShow">{{$t(servicesCardPageData.title)}}</div>
       </div>
-      <div class="dentistryServices-title" v-if="!isIndexShow && !isMenu">
+      <div class="index-dentistryServices-in-title" v-if="!isIndexShow && !isMenu">
         <!-- 牙科服務 -->
-        <div class="dentistryServices-title-in bb">{{$t(servicesCardPageData.dentalServicesTitleIn)}}</div>
+        <div class="services_title">{{$t(servicesCardPageData.dentalServicesTitleIn)}}</div>
       </div>
       <div class="context" v-if="!isMenu">
         <!-- 中心提供基本牙科、美容牙科及高階牙科服務，從一般口腔檢查、洗牙、補牙，到牙齒美白、全口修復及各種牙科治療，幫助客人回復自信笑容。 -->
@@ -63,7 +63,23 @@ const servicesCardPageData = {
 </template>
 
 <style lang="scss" scoped>
-
+.index-dentistryServices-in-title{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.services_title{
+  font-style: normal;
+  position: relative;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 120%;
+  text-indent: 45px;
+  color: #666666;
+  background: url(@/assets/images/indexTitle_bg_3.png) no-repeat;
+  background-size: auto 80%;
+  padding-bottom: 15px;
+}
 .index-dentalServices{
   padding: 189px 0 0;
   &-in{
@@ -192,6 +208,19 @@ const servicesCardPageData = {
   }
 }
 @media screen and (max-width: 768px) {
+  .index-dentistryServices-in-title{
+    justify-content: flex-start;
+  }
+  .services_title {
+    width: calc(100% - 30px);
+    font-size: 18px;
+    background-size: auto 85%;
+    text-indent: 35px;
+    margin-left: 30px;
+    background-position: 0px 3px;
+    padding-bottom: 5px;
+    line-height: 160%;
+  }
   .index-dentalServices{
     padding: 100px 0 0;
     &-in{

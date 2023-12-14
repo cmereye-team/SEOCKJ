@@ -346,26 +346,6 @@ const toWhatsApp = () => {
           <span>{{bpData.title}}</span>
         </div>
       </div>
-      <!-- <div class="bp-text">
-        {{bpData.text}}
-      </div> -->
-      <!-- <div class="bp-swiper mbBox">
-        <swiper
-          :slidesPerView="1"
-          class="swiper-wrapper"
-          @slideChange="onSlideChange"
-        >
-          <swiper-slide class="swiper-slide" v-for="slideItem in 4" :key="slideItem">
-            <div class="swiper-slide-in" v-for="(bpItem,bpIndex) in bpData.lists.slice(2*(slideItem-1),2*slideItem)" :key="bpIndex">
-              <div class="swiper-slide-in-title">{{bpItem.title}}</div>
-              <img :src="bpItem.imgUrl" alt="" />
-            </div>
-          </swiper-slide>
-        </swiper>
-        <div class="bp-swiper-line mbBox">
-          <PageSwiperPointLine :latestNewsNum="4" :latestNewsCurrent="bpCurrent"></PageSwiperPointLine>
-        </div>
-      </div> -->
       <div class="bp-lists">
         <div class="bp-lists-in" v-for="(bpItem,bpIndex) in bpData.lists" :key="bpIndex">
           <div class="bp-lists-in-title">{{bpItem.title}}</div>
