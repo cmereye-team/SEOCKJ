@@ -6,7 +6,8 @@ export default [
   },
   {
     name: 'service.orthodontics',
-    imgUrl: 'https://static.cmereye.com/imgs/2023/05/4344be2a0c460ef5.png',
+    // imgUrl: 'https://static.cmereye.com/imgs/2023/05/4344be2a0c460ef5.png',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/12/7da6bba89026b274.png',
     link: '/dental-service/orthodontics'
   },
   {
@@ -41,7 +42,8 @@ export default [
   },
   {
     name: 'service.toothtray',
-    imgUrl: 'https://static.cmereye.com/imgs/2023/12/f9139f98feecb5d0.png',
+    // imgUrl: 'https://static.cmereye.com/imgs/2023/12/f9139f98feecb5d0.png',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/12/649dce292f6182b6.png',
     link: '/dental-service/toothtray'
   },
   {
@@ -66,7 +68,8 @@ export default [
   },
   {
     name: 'service.children_dentistry',
-    imgUrl: 'https://static.cmereye.com/imgs/2023/05/0c2dfc7b0c54bc01.png',
+    // imgUrl: 'https://static.cmereye.com/imgs/2023/05/0c2dfc7b0c54bc01.png',
+    imgUrl: 'https://static.cmereye.com/imgs/2023/12/1c8586701fba6af8.png',
     link: '/dental-service/children-dentistry'
   },
 ]

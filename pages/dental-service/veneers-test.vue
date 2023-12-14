@@ -478,68 +478,68 @@ const advantageData = {
 
 
 <style lang="scss" scoped>
-.notice{
-  width: 100%;
-  max-width: 1450px;
-  margin: 96px auto 0;
-  &-in{
-    width: 90%;
-    margin: 70px auto 0;
-    .box{
-      .box-in{
-        height: 112px;
-        margin-top: 15px;
-        display: flex;
-        background: var(--indexColor2);
-        font-style: normal;
-        font-weight: 600;
-        font-size: 20px;
-        line-height: 160%;
-        color: #666666;
-        padding: 0 80px;
-        box-sizing: border-box;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        &:first-child{
-          background: var(--indexColor1);
-          color: #fff;
-          margin-top: 0;
-          height: 69px;
-          font-weight: 700;
-          font-size: 28px;
-        }
-        &:nth-of-type(2){
-          margin-top: 0;
-        }
-      }
-    }
-    .box-left{
-      border-radius:  60px 0 0 60px;
-      overflow: hidden;
-    }
-    .box-right{
-      margin-left: 3px;
-      border-radius:  0 60px 60px 0;
-      overflow: hidden;
-      .box-in{
-        &:nth-of-type(3){
-          height: 239px;
-        }
-        &:first-child{
-          background: var(--indexColor);
-        }
-      }
-    }
-  }
-  &-line{
-    width: 83px;
-    margin: 22px auto;
-  }
-}
+// .notice{
+//   width: 100%;
+//   max-width: 1450px;
+//   margin: 96px auto 0;
+//   &-in{
+//     width: 90%;
+//     margin: 70px auto 0;
+//     .box{
+//       .box-in{
+//         height: 112px;
+//         margin-top: 15px;
+//         display: flex;
+//         background: var(--indexColor2);
+//         font-style: normal;
+//         font-weight: 600;
+//         font-size: 20px;
+//         line-height: 160%;
+//         color: #666666;
+//         padding: 0 80px;
+//         box-sizing: border-box;
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         text-align: center;
+//         &:first-child{
+//           background: var(--indexColor1);
+//           color: #fff;
+//           margin-top: 0;
+//           height: 69px;
+//           font-weight: 700;
+//           font-size: 28px;
+//         }
+//         &:nth-of-type(2){
+//           margin-top: 0;
+//         }
+//       }
+//     }
+//     .box-left{
+//       border-radius:  60px 0 0 60px;
+//       overflow: hidden;
+//     }
+//     .box-right{
+//       margin-left: 3px;
+//       border-radius:  0 60px 60px 0;
+//       overflow: hidden;
+//       .box-in{
+//         &:nth-of-type(3){
+//           height: 239px;
+//         }
+//         &:first-child{
+//           background: var(--indexColor);
+//         }
+//       }
+//     }
+//   }
+//   &-line{
+//     width: 83px;
+//     margin: 22px auto;
+//   }
+// }
 .bp{
-  margin-top: 176px;
+  margin-top: 108px;
   &-swiper{
     margin-top: 42px;
     .swiper-slide-in{
@@ -622,7 +622,7 @@ const advantageData = {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 0 39.5px 95.69px;
+      padding: 0 39.5px 85px;
       box-sizing: border-box;
       align-items: center;
       &-title{
@@ -668,8 +668,8 @@ const advantageData = {
     rgba(255, 241, 240, 0.7) 81.99%,
     rgba(255, 241, 240, 0) 100%
   );
-  padding: 61px 0 140px;
-  margin-top: 100px;
+  padding: 61px 0 99px;
+  margin-top: 70px;
   &-in {
     width: 100%;
     max-width: 1444px;
@@ -1047,36 +1047,36 @@ const advantageData = {
 //md
 
 @media only screen and (max-width: 760px) {
-  .notice{
-    &-in{
-      width: 100%;
-      margin: 34px 0 0;
-      .box{
-        margin-left: 30px;
-        .box-in{
-          font-weight: 500;
-          font-size: 15px;
-          height: 65px;
-          margin-top: 9px;
-          padding: 0 46px;
-          &:first-child{
-            height: 40px;
-            font-weight: 600;
-            font-size: 20px;
-          }
-        }
-      }
-      .box-right{
-        margin-right: 30px;
-        margin-left: 0;
-        .box-in{
-          &:nth-of-type(3){
-            height: 139px;
-          }
-        }
-      }
-    }
-  }
+  // .notice{
+  //   &-in{
+  //     width: 100%;
+  //     margin: 34px 0 0;
+  //     .box{
+  //       margin-left: 30px;
+  //       .box-in{
+  //         font-weight: 500;
+  //         font-size: 15px;
+  //         height: 65px;
+  //         margin-top: 9px;
+  //         padding: 0 46px;
+  //         &:first-child{
+  //           height: 40px;
+  //           font-weight: 600;
+  //           font-size: 20px;
+  //         }
+  //       }
+  //     }
+  //     .box-right{
+  //       margin-right: 30px;
+  //       margin-left: 0;
+  //       .box-in{
+  //         &:nth-of-type(3){
+  //           height: 139px;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
   .bp{
     margin-top: 94px;
     &-text{
