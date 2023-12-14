@@ -123,18 +123,34 @@ const noticeData = {
 const problemData = {
   title: 'pages.dental-service.veneers.problem.title',
   lists: [
+    // {
+    //   Q: 'pages.dental-service.veneers.problem.lists[0].Q',
+    //   A: 'pages.dental-service.veneers.problem.lists[0].A'
+    // },
+    // {
+    //   Q: 'pages.dental-service.veneers.problem.lists[1].Q',
+    //   A: 'pages.dental-service.veneers.problem.lists[1].A'
+    // },
+    // {
+    //   Q: 'pages.dental-service.veneers.problem.lists[2].Q',
+    //   A: 'pages.dental-service.veneers.problem.lists[2].A'
+    // },
     {
-      Q: 'pages.dental-service.veneers.problem.lists[0].Q',
-      A: 'pages.dental-service.veneers.problem.lists[0].A'
+      Q: '做瓷貼片一定要磨牙嗎？',
+      A: '進行瓷貼片療程前，需進行輕微磨牙處理，以確保其穩定性和美觀度。'
     },
     {
-      Q: 'pages.dental-service.veneers.problem.lists[1].Q',
-      A: 'pages.dental-service.veneers.problem.lists[1].A'
+      Q: '做瓷貼片會造成牙齒敏感嗎？',
+      A: '術後牙齒可能會變得敏感，屬正常現象，一般會在數天內自行適應。'
     },
     {
-      Q: 'pages.dental-service.veneers.problem.lists[2].Q',
-      A: 'pages.dental-service.veneers.problem.lists[2].A'
+      Q: '瓷貼片實際效果跟期望有落差嗎？',
+      A: '透過數位模擬技術，提供清晰的術後預覽，並製作實體模擬貼片供客人試戴。'
     },
+    {
+      Q: '全瓷貼片容易脫落嗎？',
+      A: '裝上瓷貼片後，需注意保持良好的口腔清潔習慣，避免進食過硬食物，並定期覆診檢查，確保瓷貼片的穩固性和壽命，以減低其脫落風險。'
+    }
   ]
 }
 
