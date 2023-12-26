@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
+import { toWhatsApp } from '~/assets/js/common'
 const appState = useAppState()
 appState.setDentistryService('rootCanal-test')
 useHead({
@@ -227,21 +228,6 @@ const handleProcessBtn = (_type: string) => {
   swiperRef[_type]()
 }
 
-const toWhatsApp = () => {
-  location.href = 'https://api.whatsapp.com/send/?phone=85269338128'
-}
-const showYaAnim = ref(false)
-const detailBtn:any = ref<HTMLElement>()
-const getScrollTop = () => {
-  let _offsetTop = detailBtn.value.offsetTop || 0
-  if(window.scrollY>=_offsetTop-600){
-    showYaAnim.value = true
-  }
-}
-onMounted(()=>{
-  getScrollTop()
-  window.addEventListener('scroll',getScrollTop)
-})
 </script>
 
 <template>
@@ -298,12 +284,7 @@ onMounted(()=>{
           </div>
         </div>
         <div class="care-btn">
-          <div ref="detailBtn" class="btn">
-            <span @click="toWhatsApp">與我們了解更多</span>
-            <span :class="{ showYaAnim: showYaAnim }" @click="toWhatsApp"
-              >與我們了解更多</span
-            >
-          </div>
+          <PageAnimBtn :str="'與我們了解更多'" />
         </div>
       </div>
       <div class="infoCard">
@@ -363,7 +344,8 @@ onMounted(()=>{
                 <div><img src="@/assets/images/icon_13.png" alt="" /></div>
               </div>
               <div class="lastBox-b">
-                <span @click="toWhatsApp">立即預約牙齒檢查</span>
+                <!-- <span @click="toWhatsApp">立即預約牙齒檢查</span> -->
+                <PageAnimBtn :str="'立即預約牙齒檢查'" />
               </div>
             </div>
           </div>
@@ -552,42 +534,8 @@ onMounted(()=>{
       }
     }
   }
-  &-btn {
-    .btn {
-      margin-top: 106px;
-      position: relative;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      span {
-        box-shadow: 0px 1.74695px 3.4939px 0px rgba(252, 22, 130, 0.38);
-        font-size: 35px;
-        font-weight: 900;
-        color: #fff;
-        border-radius: 40px;
-        padding: 5px 90px;
-        background: var(--indexColor1);
-        cursor: pointer;
-        top: 0;
-        &:nth-of-type(2) {
-          color: var(--indexColor1);
-          background: #fff;
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-          z-index: 2;
-          animation: btnAnim 1s linear;
-          animation-fill-mode: forwards;
-          width: max-content;
-          display: none;
-        }
-        &.showYaAnim {
-          display: flex;
-          animation: btnAnim 1s linear;
-          animation-fill-mode: forwards;
-        }
-      }
-    }
+  &-btn{
+    margin-top: 106px;
   }
 }
 .infoCard {
@@ -748,40 +696,40 @@ onMounted(()=>{
         }
         .lastBox-b {
           margin-top: 15px;
-          span {
-            cursor: pointer;
-            background: var(--indexColor1);
-            color: #fff;
-            font-size: 35px;
-            font-weight: 700;
-            padding: 5px 50px;
-            border-radius: 30px;
-            display: block;
-            box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
-            position: relative;
-            z-index: 1;
-            &::after,&::before{
-              content: '';
-              width: 100%;
-              height: 100%;
-              position: absolute;
-              left: 50%;
-              top: 50%;
-              transform: translate(-50%,-50%);
-              opacity: 0;
-              border-radius: 50px;
-              background: var(--indexColor1);
-              z-index: -1;
-            }
-            &:hover{
-              &::after{
-                animation: btnAnim2 3s infinite;
-              }
-              &::before{
-                animation: btnAnim3 3s infinite;
-              }
-            }
-          }
+          // span {
+          //   cursor: pointer;
+          //   background: var(--indexColor1);
+          //   color: #fff;
+          //   font-size: 35px;
+          //   font-weight: 700;
+          //   padding: 5px 50px;
+          //   border-radius: 30px;
+          //   display: block;
+          //   box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
+          //   position: relative;
+          //   z-index: 1;
+          //   &::after,&::before{
+          //     content: '';
+          //     width: 100%;
+          //     height: 100%;
+          //     position: absolute;
+          //     left: 50%;
+          //     top: 50%;
+          //     transform: translate(-50%,-50%);
+          //     opacity: 0;
+          //     border-radius: 50px;
+          //     background: var(--indexColor1);
+          //     z-index: -1;
+          //   }
+          //   &:hover{
+          //     &::after{
+          //       animation: btnAnim2 3s infinite;
+          //     }
+          //     &::before{
+          //       animation: btnAnim3 3s infinite;
+          //     }
+          //   }
+          // }
         }
       }
     }
@@ -1051,15 +999,8 @@ onMounted(()=>{
         }
       }
     }
-    &-btn {
-      .btn {
-        margin-top: 30px;
-        span {
-          font-size: 20px;
-          padding: 5px 70px;
-          box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
-        }
-      }
+    &-btn{
+      margin-top: 30px;
     }
   }
   .infoCard {
@@ -1173,11 +1114,11 @@ onMounted(()=>{
           }
           .lastBox-b {
             margin-top: 20px;
-            span {
-              font-size: 20px;
-              padding: 5px 50px;
-              border-radius: 25px;
-            }
+            // span {
+            //   font-size: 20px;
+            //   padding: 5px 50px;
+            //   border-radius: 25px;
+            // }
           }
         }
       }

@@ -5,7 +5,7 @@ let latestNewsCurrent = ref(1)
 
 //走马灯事件
 const onSlideChange = (swiper:any) => {
-  latestNewsCurrent.value = swiper.realIndex + 1
+  latestNewsCurrent.value = (swiper.realIndex ? Number(swiper.realIndex) : 0) + 1
 }
 let newsLists = ref([{
   title: '',

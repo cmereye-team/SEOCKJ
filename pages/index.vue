@@ -357,9 +357,6 @@ svg:hover path{
           line-height: 4vw;
         }
       }
-      &-r{
-        
-      }
     }
   }
 }

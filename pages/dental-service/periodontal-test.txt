@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
+import { toWhatsApp } from '~/assets/js/common'
 const { t } = useLang()
 const appState = useAppState()
 appState.setDentistryService('periodontal')
@@ -340,9 +341,6 @@ const reason2Data = {
   ]
 }
 
-const toWhatsApp = () => {
-  location.href = 'https://api.whatsapp.com/send/?phone=85269338128'
-}
 </script>
 
 

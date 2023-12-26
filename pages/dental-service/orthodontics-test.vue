@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
+import { toWhatsApp,whatsAppNum } from '~/assets/js/common'
 const appState = useAppState()
 appState.setDentistryService('orthodontics')
 useHead({
@@ -326,10 +327,6 @@ const careData = {
   ],
 }
 
-const toWhatsApp = () => {
-  location.href = 'https://api.whatsapp.com/send/?phone=85269338128'
-}
-
 </script>
 
 
@@ -376,7 +373,8 @@ const toWhatsApp = () => {
         <img src="@/assets/images/icon_13.png" alt="" />
       </div>
       <div class="principle-btn">
-        <a href="https://api.whatsapp.com/send/?phone=85269338128">預約免費口腔檢查</a>
+        <!-- <a :href="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`">預約免費口腔檢查</a> -->
+        <PageAnimBtn :str="'預約免費口腔檢查'" />
       </div>
     </div>
     <!-- <ServiceStep :stepData="stepData" /> -->
@@ -452,7 +450,8 @@ const toWhatsApp = () => {
                 <img src="https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/20231113_剝智慧齒後一勞永逸？-04-1.vy2qx2j4vkg.png" alt="">
               </div>
               <div class="lastBox-b">
-                <span @click="toWhatsApp">預約免費口腔檢查</span>
+                <!-- <span @click="toWhatsApp">預約免費口腔檢查</span> -->
+                <PageAnimBtn :str="'預約免費口腔檢查'" />
               </div>
             </div>
           </div>
@@ -835,40 +834,40 @@ const toWhatsApp = () => {
         }
         .lastBox-b {
           margin-top: 15px;
-          span {
-            cursor: pointer;
-            background: var(--indexColor1);
-            color: #fff;
-            font-size: 35px;
-            font-weight: 700;
-            padding: 5px 50px;
-            border-radius: 30px;
-            display: block;
-            box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
-            position: relative;
-            z-index: 1;
-            &::after,&::before{
-              content: '';
-              width: 100%;
-              height: 100%;
-              position: absolute;
-              left: 50%;
-              top: 50%;
-              transform: translate(-50%,-50%);
-              opacity: 0;
-              border-radius: 50px;
-              background: var(--indexColor1);
-              z-index: -1;
-            }
-            &:hover{
-              &::after{
-                animation: btnAnim2 3s infinite;
-              }
-              &::before{
-                animation: btnAnim3 3s infinite;
-              }
-            }
-          }
+          // span {
+          //   cursor: pointer;
+          //   background: var(--indexColor1);
+          //   color: #fff;
+          //   font-size: 35px;
+          //   font-weight: 700;
+          //   padding: 5px 50px;
+          //   border-radius: 30px;
+          //   display: block;
+          //   box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
+          //   position: relative;
+          //   z-index: 1;
+          //   &::after,&::before{
+          //     content: '';
+          //     width: 100%;
+          //     height: 100%;
+          //     position: absolute;
+          //     left: 50%;
+          //     top: 50%;
+          //     transform: translate(-50%,-50%);
+          //     opacity: 0;
+          //     border-radius: 50px;
+          //     background: var(--indexColor1);
+          //     z-index: -1;
+          //   }
+          //   &:hover{
+          //     &::after{
+          //       animation: btnAnim2 3s infinite;
+          //     }
+          //     &::before{
+          //       animation: btnAnim3 3s infinite;
+          //     }
+          //   }
+          // }
         }
       }
     }
@@ -951,19 +950,19 @@ const toWhatsApp = () => {
     display: flex;
     justify-content: center;
     margin-top: 29px;
-    a{
-      border-radius: 233.38px;
-      background: #FC1682;
-      box-shadow: 0px 3.704px 7.409px 0px rgba(252, 22, 130, 0.38);
-      color: #fff;
-      text-align: center;
-      font-size: 35px;
-      font-style: normal;
-      font-weight: 900;
-      line-height: 160%; 
-      display: inline-block;
-      padding: 0 50px;
-    }
+    // a{
+    //   border-radius: 233.38px;
+    //   background: #FC1682;
+    //   box-shadow: 0px 3.704px 7.409px 0px rgba(252, 22, 130, 0.38);
+    //   color: #fff;
+    //   text-align: center;
+    //   font-size: 35px;
+    //   font-style: normal;
+    //   font-weight: 900;
+    //   line-height: 160%; 
+    //   display: inline-block;
+    //   padding: 0 50px;
+    // }
   }
 }
 .differ{
@@ -1182,11 +1181,11 @@ const toWhatsApp = () => {
           }
           .lastBox-b {
             margin-top: 20px;
-            span {
-              font-size: 20px;
-              padding: 5px 50px;
-              border-radius: 25px;
-            }
+            // span {
+            //   font-size: 20px;
+            //   padding: 5px 50px;
+            //   border-radius: 25px;
+            // }
           }
         }
       }
@@ -1232,10 +1231,10 @@ const toWhatsApp = () => {
     }
     &-btn{
       margin-top: 44px;
-      a{
-        font-size: 20px;
-        padding: 5px 45px;
-      }
+      // a{
+      //   font-size: 20px;
+      //   padding: 5px 45px;
+      // }
     }
   }
   .differ{

@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
+import { toWhatsApp } from '~/assets/js/common'
 const appState = useAppState()
 appState.setDentistryService('scaling-and-polishing-test')
 useHead({
@@ -192,17 +193,6 @@ const chargeData = {
     },
   ],
 }
-const toWhatsApp = () => {
-  location.href = 'https://api.whatsapp.com/send/?phone=85269338128'
-}
-const showYaAnim = ref(false)
-// const detailBtn:any = ref<HTMLElement>()
-// const getScrollTop = () => {
-//   let _offsetTop = detailBtn.value.offsetTop || 0
-//   if(window.scrollY>=_offsetTop-600){
-//     showYaAnim.value = true
-//   }
-// }
 const careData = {
   title: '洗牙後注意事項',
   lists: [
@@ -476,12 +466,7 @@ const careData = {
           <span>現在就來預約我們的洗牙服務吧！</span>
         </div>
         <div class="charge-btn">
-          <div ref="detailBtn" class="btn">
-            <span @click="toWhatsApp">預約檢查及諮詢</span>
-            <span :class="{ showYaAnim: showYaAnim }" @click="toWhatsApp"
-              >預約檢查及諮詢</span
-            >
-          </div>
+          <PageAnimBtn :str="'預約檢查及諮詢'" />
         </div>
       </div>
       <div class="care">
@@ -627,7 +612,6 @@ const careData = {
 }
 .charge {
   margin-top: 206px;
-  position: relative;
   &-title {
     &-in {
       font-size: 50px;
@@ -725,87 +709,88 @@ const careData = {
     margin: 54px auto 34px;
   }
   &-btn {
-    .btn {
-      margin-top: 35px;
-      position: relative;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      span {
-        box-shadow: 0px 1.74695px 3.4939px 0px rgba(252, 22, 130, 0.38);
-        font-size: 35px;
-        font-weight: 900;
-        color: #fff;
-        border-radius: 40px;
-        padding: 5px 90px;
-        background: var(--indexColor1);
-        cursor: pointer;
-        top: 0;
-        &:nth-of-type(2) {
-          color: var(--indexColor1);
-          background: #fff;
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-          z-index: 2;
-          animation: btnAnim 1s linear;
-          animation-fill-mode: forwards;
-          width: max-content;
-          display: none;
-        }
-        &.showYaAnim {
-          display: flex;
-          animation: btnAnim 1s linear;
-          animation-fill-mode: forwards;
-        }
-      }
-    }
+    margin-top: 35px;
+    // .btn {
+    //   margin-top: 35px;
+    //   position: relative;
+    //   width: 100%;
+    //   display: flex;
+    //   justify-content: center;
+    //   span {
+    //     box-shadow: 0px 1.74695px 3.4939px 0px rgba(252, 22, 130, 0.38);
+    //     font-size: 35px;
+    //     font-weight: 900;
+    //     color: #fff;
+    //     border-radius: 40px;
+    //     padding: 5px 90px;
+    //     background: var(--indexColor1);
+    //     cursor: pointer;
+    //     top: 0;
+    //     &:nth-of-type(2) {
+    //       color: var(--indexColor1);
+    //       background: #fff;
+    //       position: absolute;
+    //       left: 50%;
+    //       transform: translateX(-50%);
+    //       z-index: 2;
+    //       animation: btnAnim 1s linear;
+    //       animation-fill-mode: forwards;
+    //       width: max-content;
+    //       display: none;
+    //     }
+    //     &.showYaAnim {
+    //       display: flex;
+    //       animation: btnAnim 1s linear;
+    //       animation-fill-mode: forwards;
+    //     }
+    //   }
+    // }
   }
-  &-rightBox {
-    width: 280px;
-    height: 280px;
-    background: url(https://static.cmereye.com/imgs/2023/10/e452432fea1606e0.png);
-    background-size: 100% 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    right: 0;
-    top: 57.4%;
-    transform: translate(0, -50%);
-    & > div {
-      color: #fff;
-      font-weight: 900;
-    }
-    .a {
-      font-size: 32.67px;
-      line-height: 1;
-    }
-    .b {
-      font-size: 37.219px;
-      line-height: 1.2;
-      span {
-        font-size: 51.534px;
-      }
-    }
-    .c {
-      font-size: 20.104px;
-      font-weight: 600;
-      position: relative;
-      line-height: 1.4;
-      &::before {
-        content: '';
-        width: 100%;
-        height: 1px;
-        background: #fff;
-        position: absolute;
-        top: 55%;
-        left: 50%;
-        transform: translate(-50%, -50%) rotate(5deg);
-      }
-    }
-  }
+  // &-rightBox {
+  //   width: 280px;
+  //   height: 280px;
+  //   background: url(https://static.cmereye.com/imgs/2023/10/e452432fea1606e0.png);
+  //   background-size: 100% 100%;
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   align-items: center;
+  //   position: absolute;
+  //   right: 0;
+  //   top: 57.4%;
+  //   transform: translate(0, -50%);
+  //   & > div {
+  //     color: #fff;
+  //     font-weight: 900;
+  //   }
+  //   .a {
+  //     font-size: 32.67px;
+  //     line-height: 1;
+  //   }
+  //   .b {
+  //     font-size: 37.219px;
+  //     line-height: 1.2;
+  //     span {
+  //       font-size: 51.534px;
+  //     }
+  //   }
+  //   .c {
+  //     font-size: 20.104px;
+  //     font-weight: 600;
+  //     position: relative;
+  //     line-height: 1.4;
+  //     &::before {
+  //       content: '';
+  //       width: 100%;
+  //       height: 1px;
+  //       background: #fff;
+  //       position: absolute;
+  //       top: 55%;
+  //       left: 50%;
+  //       transform: translate(-50%, -50%) rotate(5deg);
+  //     }
+  //   }
+  // }
 }
 .care {
   margin-top: 206px;
@@ -892,22 +877,22 @@ const careData = {
         margin: 0 150px;
       }
     }
-    &-rightBox {
-      width: 200px;
-      height: 200px;
-      .a {
-        font-size: 22px;
-      }
-      .b {
-        font-size: 28px;
-        span {
-          font-size: 30px;
-        }
-      }
-      .c {
-        font-size: 16px;
-      }
-    }
+    // &-rightBox {
+    //   width: 200px;
+    //   height: 200px;
+    //   .a {
+    //     font-size: 22px;
+    //   }
+    //   .b {
+    //     font-size: 28px;
+    //     span {
+    //       font-size: 30px;
+    //     }
+    //   }
+    //   .c {
+    //     font-size: 16px;
+    //   }
+    // }
   }
 }
 @media screen and (max-width: 768px) {
@@ -1076,31 +1061,32 @@ const careData = {
       }
     }
     &-btn {
-      .btn {
-        margin-top: 0;
-        span {
-          font-size: 20px;
-          padding: 5px 70px;
-          box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
-        }
-      }
+      margin-top: 0;
+      // .btn {
+      //   margin-top: 0;
+      //   span {
+      //     font-size: 20px;
+      //     padding: 5px 70px;
+      //     box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
+      //   }
+      // }
     }
-    &-rightBox {
-      width: 84px;
-      height: 84px;
-      .a {
-        font-size: 9.803px;
-      }
-      .b {
-        font-size: 11.168px;
-        span {
-          font-size: 15.464px;
-        }
-      }
-      .c {
-        font-size: 6.033px;
-      }
-    }
+    // &-rightBox {
+    //   width: 84px;
+    //   height: 84px;
+    //   .a {
+    //     font-size: 9.803px;
+    //   }
+    //   .b {
+    //     font-size: 11.168px;
+    //     span {
+    //       font-size: 15.464px;
+    //     }
+    //   }
+    //   .c {
+    //     font-size: 6.033px;
+    //   }
+    // }
   }
   .care {
     margin-top: 80px;

@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
+import { toWhatsApp } from '~/assets/js/common'
 import { Autoplay } from 'swiper';
 const appState = useAppState()
 appState.setDentistryService('implant')
@@ -430,10 +431,6 @@ const plagueData = {
       context: '說話漏風'
     }
   ]
-}
-
-const toWhatsApp = () =>{
-  location.href="https://api.whatsapp.com/send/?phone=85269338128"
 }
 
 let noticeCurrent = ref(1)

@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
 import { Autoplay } from 'swiper';
+import { toWhatsApp } from '~/assets/js/common'
 const appState = useAppState()
 appState.setDentistryService('implant')
 useHead({
@@ -432,10 +433,6 @@ const plagueData = {
   ]
 }
 
-const toWhatsApp = () =>{
-  location.href="https://api.whatsapp.com/send/?phone=85269338128"
-}
-
 let noticeCurrent = ref(1)
 
 const onSlideChange = (swiper:any) => {
@@ -445,19 +442,11 @@ const onSlideChange = (swiper:any) => {
 let windowWidth = ref(1920)
 
 let showYaAnim = ref(false)
-// const detailBtn:any = ref<HTMLElement>()
-// const getScrollTop = () => {
-//   let _offsetTop = detailBtn.value.offsetTop || 0
-//   if(window.scrollY>=_offsetTop-600){
-//     showYaAnim.value = true
-//   }
-// }
+
 
 onMounted(()=>{
   getWindowWidth()
   window.addEventListener('resize',getWindowWidth)
-  // getScrollTop()
-  // window.addEventListener('scroll',getScrollTop)
 })
 
 const getWindowWidth = () => {

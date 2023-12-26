@@ -2,6 +2,7 @@
 
 // import gsap from 'gsap'
 import { useAppState } from '~/stores/appState'
+import { toWhatsApp } from '~/assets/js/common'
 const route = useRoute()
 const appState = useAppState()
 defineProps({
@@ -195,7 +196,7 @@ const classNamefilter = (_menu: any, _idx: number) => {
 }
 
 const imgBgHeight = ref({
-  clientHeight: 0,
+  offsetHeight: 0,
 })
 
 const isFiexdHeader = ref(false)
@@ -222,20 +223,18 @@ const getWindowWidth = () => {
 }
 const isShowLanguageBool = ref(false)
 const getScrollHeight = () => {
-  if (imgBgHeight.value.clientHeight < window.scrollY) {
-    isFiexdHeader.value = true
-  } else {
-    isFiexdHeader.value = false
+  if(imgBgHeight.value && imgBgHeight.value.offsetHeight){
+    if (imgBgHeight.value.offsetHeight < window.scrollY) {
+      isFiexdHeader.value = true
+    } else {
+      isFiexdHeader.value = false
+    }
+    if (window.scrollY === 0) {
+      isShowLanguageBool.value = true
+    } else {
+      isShowLanguageBool.value = false
+    }
   }
-  if (window.scrollY === 0) {
-    isShowLanguageBool.value = true
-  } else {
-    isShowLanguageBool.value = false
-  }
-}
-
-const toWhatsApp = () => {
-  location.href = 'https://api.whatsapp.com/send/?phone=85269338128'
 }
 
 const handleMbMenu = () => {

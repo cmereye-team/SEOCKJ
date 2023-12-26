@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
+import { whatsAppNum } from '~/assets/js/common'
 const appState = useAppState()
 const navbarLists = []
 let navLiBoxBool = ref(false)
@@ -39,7 +40,7 @@ let mbQDCodeBool = ref(false)
       </div>
       <!-- <img src="@/assets/images/navIcon_1.png" alt="" /> -->
     </div>
-      <nuxt-link class="navbar-content-in" id="navPcWhatsapp" :to="'https://api.whatsapp.com/send/?phone=85269338128'" target="_blank">
+      <nuxt-link class="navbar-content-in" id="navPcWhatsapp" :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" target="_blank">
       </nuxt-link>
     <div class="navbar-content-in" id="navPcWeChat">
       <div class="navbarBox">
@@ -67,7 +68,7 @@ let mbQDCodeBool = ref(false)
     </div>
     <div class="navbar-content-mb">
       <nuxt-link  id="navMbTel" :to="'tel: +852 3892 5049'" class="mbcc-boxInAA mbcc-boxInAA-1"></nuxt-link>
-      <nuxt-link id="navMbWhatsapp" :to="'https://api.whatsapp.com/send/?phone=85269338128'" target="_blank" class="mbcc-boxInAA mbcc-boxInAA-2"></nuxt-link>
+      <nuxt-link id="navMbWhatsapp" :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" target="_blank" class="mbcc-boxInAA mbcc-boxInAA-2"></nuxt-link>
       <div id="navMbContactFormBtn" class="mbcc-boxInAA mbcc-boxInAA-3" @click="handleNavFormNav">
         <img src="https://static.cmereye.com/imgs/2023/09/a8f9c3f82bbda125.png" alt="馬上預約">
         <span>馬上預約</span>
@@ -78,7 +79,7 @@ let mbQDCodeBool = ref(false)
     <div class="navbar-content-mb02" v-if="false">
       <div id="navMbWeChat" @click="mbQDCodeBool = true">WeChat</div>
       <div>
-        <nuxt-link id="navMbWhatsapp" :to="'https://api.whatsapp.com/send/?phone=85269338128'" target="_blank">Whatsapp</nuxt-link>
+        <nuxt-link id="navMbWhatsapp" :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" target="_blank">Whatsapp</nuxt-link>
       </div>
     </div>
     <div class="navbar-content-mb" v-if="false">

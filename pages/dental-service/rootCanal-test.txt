@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
+import { toWhatsApp } from '~/assets/js/common'
 const appState = useAppState()
 appState.setDentistryService('rootCanal-test')
 useHead({
@@ -227,9 +228,6 @@ const handleProcessBtn = (_type: string) => {
   swiperRef[_type]()
 }
 
-const toWhatsApp = () => {
-  location.href = 'https://api.whatsapp.com/send/?phone=85269338128'
-}
 const showYaAnim = ref(false)
 const detailBtn:any = ref<HTMLElement>()
 const getScrollTop = () => {

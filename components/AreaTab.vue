@@ -61,9 +61,14 @@ const handleAreaTab = (_idx: number) => {
   .areaTab{
       margin-top: 34px;
       margin-left: 30px;
+      margin-right: 30px;
       &>div{
         font-size: 1rem;
-        padding: 4px 8.5px;
+        // padding: 4px 8.5px;
+        padding: 4px 0;
+        flex: 1;
+        text-align: center;
+
       }
     }
   }

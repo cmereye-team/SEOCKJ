@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
+import { toWhatsApp } from '~/assets/js/common'
 const appState = useAppState()
 appState.setDentistryService('veneers')
 useHead({
@@ -242,9 +243,6 @@ const stepData = {
     }
   ],
 }
-const toWhatsApp = () => {
-  location.href = 'https://api.whatsapp.com/send/?phone=85269338128'
-}
 
 const differData = {
   title: '全瓷貼片與樹脂貼片的分別',
@@ -375,7 +373,8 @@ const advantageData = {
               <div><img src="@/assets/images/icon_13.png" alt="" /></div>
             </div>
             <div class="lastBox-b">
-              <span @click="toWhatsApp">獲取免費諮詢</span>
+              <!-- <span @click="toWhatsApp">獲取免費諮詢</span> -->
+              <PageAnimBtn :str="'獲取免費諮詢'" />
             </div>
           </div>
         </div>
@@ -407,11 +406,8 @@ const advantageData = {
         </div>
       </div>
       <div class="differ-btn">
-          <div ref="detailBtn" class="btn">
-            <span @click="toWhatsApp">獲取免費諮詢</span>
-            <span @click="toWhatsApp">獲取免費諮詢</span>
-          </div>
-        </div>
+        <PageAnimBtn :str="'獲取免費諮詢'" />
+      </div>
     </div>
     <!-- 步骤 -->
     <!-- <ServiceStep :stepData="stepData" /> -->

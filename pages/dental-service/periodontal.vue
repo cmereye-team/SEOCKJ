@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
+import { toWhatsApp } from '~/assets/js/common'
 const { t } = useLang()
 const appState = useAppState()
 appState.setDentistryService('periodontal')
@@ -339,10 +340,6 @@ const reason2Data = {
     }
   ]
 }
-
-const toWhatsApp = () => {
-  location.href = 'https://api.whatsapp.com/send/?phone=85269338128'
-}
 </script>
 
 
@@ -435,12 +432,10 @@ const toWhatsApp = () => {
         </div>
       </div>
       <div class="care-btn">
-        <div ref="detailBtn" class="btn">
+        <!-- <div ref="detailBtn" class="btn">
           <span @click="toWhatsApp">與我們了解更多</span>
-          <!-- <span :class="{ showYaAnim: showYaAnim }" @click="toWhatsApp"
-            >與我們了解更多</span
-          > -->
-        </div>
+        </div> -->
+        <PageAnimBtn :str="'與我們了解更多'" />
       </div>
     </div>
     <div class="note">
@@ -471,12 +466,10 @@ const toWhatsApp = () => {
     <!-- <ServiceNote :noteData="noteData" /> -->
     <div class="care2">
       <div class="care2-btn">
-        <div ref="detailBtn" class="btn">
+        <PageAnimBtn :str="'立即線上諮詢'" />
+        <!-- <div ref="detailBtn" class="btn">
           <span @click="toWhatsApp">立即線上諮詢</span>
-          <!-- <span :class="{ showYaAnim: showYaAnim }" @click="toWhatsApp"
-            >立即線上諮詢</span
-          > -->
-        </div>
+        </div> -->
       </div>
       <div class="dentistryServices-title care2-title">
         <div class="dentistryServices-title-in bb care2-title-in">
@@ -743,41 +736,7 @@ const toWhatsApp = () => {
     }
   }
   &-btn {
-    .btn {
-      margin-top: 55px;
-      position: relative;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      span {
-        box-shadow: 0px 1.74695px 3.4939px 0px rgba(252, 22, 130, 0.38);
-        font-size: 35px;
-        font-weight: 900;
-        color: #fff;
-        border-radius: 40px;
-        padding: 5px 90px;
-        background: var(--indexColor1);
-        cursor: pointer;
-        top: 0;
-        &:nth-of-type(2) {
-          color: var(--indexColor1);
-          background: #fff;
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-          z-index: 2;
-          animation: btnAnim 1s linear;
-          animation-fill-mode: forwards;
-          width: max-content;
-          display: none;
-        }
-        &.showYaAnim {
-          display: flex;
-          animation: btnAnim 1s linear;
-          animation-fill-mode: forwards;
-        }
-      }
-    }
+    margin-top: 55px;
   }
 }
 .care2 {
@@ -829,42 +788,6 @@ const toWhatsApp = () => {
       }
       &:nth-of-type(n + 5) {
         margin-top: 15px;
-      }
-    }
-  }
-  &-btn {
-    .btn {
-      position: relative;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      span {
-        box-shadow: 0px 1.74695px 3.4939px 0px rgba(252, 22, 130, 0.38);
-        font-size: 35px;
-        font-weight: 900;
-        color: #fff;
-        border-radius: 40px;
-        padding: 5px 90px;
-        background: var(--indexColor1);
-        cursor: pointer;
-        top: 0;
-        &:nth-of-type(2) {
-          color: var(--indexColor1);
-          background: #fff;
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-          z-index: 2;
-          animation: btnAnim 1s linear;
-          animation-fill-mode: forwards;
-          width: max-content;
-          display: none;
-        }
-        &.showYaAnim {
-          display: flex;
-          animation: btnAnim 1s linear;
-          animation-fill-mode: forwards;
-        }
       }
     }
   }
@@ -1039,14 +962,7 @@ const toWhatsApp = () => {
       }
     }
     &-btn {
-      .btn {
-        margin-top: 35px;
-        span {
-          font-size: 20px;
-          padding: 5px 70px;
-          box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
-        }
-      }
+      margin-top: 35px;
     }
   }
   .care2 {
@@ -1084,14 +1000,7 @@ const toWhatsApp = () => {
       }
     }
     &-btn {
-      .btn {
-        margin-top: 35px;
-        span {
-          font-size: 20px;
-          padding: 5px 70px;
-          box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
-        }
-      }
+      margin-top: 35px;
     }
   }
 }
