@@ -32,7 +32,7 @@ let mbQDCodeBool = ref(false)
 
 <template>
   <div class="navbar-content" :style="{'z-index': appState.isShowForm ? 100 : 50}">
-    <div class="navbar-content-in" id="navPcTel">
+    <div class="navbar-content-in" id="navPcTel" title="致電">
       <div class="navbarBox">
         <div class="navbarBox-in">
           <div class="tel">3892 5049</div>
@@ -40,23 +40,23 @@ let mbQDCodeBool = ref(false)
       </div>
       <!-- <img src="@/assets/images/navIcon_1.png" alt="" /> -->
     </div>
-      <nuxt-link class="navbar-content-in" id="navPcWhatsapp" :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" target="_blank">
-      </nuxt-link>
-    <div class="navbar-content-in" id="navPcWeChat">
+    <nuxt-link class="navbar-content-in" id="navPcWhatsapp" :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" title="WhatsApp" target="_blank">
+    </nuxt-link>
+    <div class="navbar-content-in" id="navPcWeChat" title="WeChat">
       <div class="navbarBox">
         <div class="navbarBox-in">
           <div class="weChat"><img src="https://static.cmereye.com/imgs/2023/09/a43a869a1fc07eea.jpg" alt="二维码"></div>
         </div>
       </div>
     </div>
-      <nuxt-link class="navbar-content-in" id="navPcFaceBook" to="https://www.facebook.com/ckjdental.hk/" target="_blank">
-      </nuxt-link>
-      <div class="navbar-content-in" id="navPcContactForm" @click="toContactUs">
+    <nuxt-link class="navbar-content-in" id="navPcFaceBook" to="https://www.facebook.com/ckjdental.hk/" title="FaceBook" target="_blank">
+    </nuxt-link>
+    <div class="navbar-content-in" id="navPcContactForm" title="預約" @click="toContactUs">
     </div>
     <div class="navbar-content-in" @click="toPageTop">
       <img src="@/assets/images/navIcon_4.png" alt="toTop" />
     </div>
-    <div class="navbar-content-mb" v-if="false">
+    <!-- <div class="navbar-content-mb" v-if="false">
       <div id="navMbTel">
         <img src="@/assets/images/icon_8.png" alt="立即預約">3892 5049
       </div>
@@ -65,7 +65,7 @@ let mbQDCodeBool = ref(false)
         <div class="navLiBox" :style="{bottom: (navLiBoxBool ? '100%' : '-350%')}">
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="navbar-content-mb">
       <nuxt-link  id="navMbTel" :to="'tel: +852 3892 5049'" class="mbcc-boxInAA mbcc-boxInAA-1"></nuxt-link>
       <nuxt-link id="navMbWhatsapp" :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" target="_blank" class="mbcc-boxInAA mbcc-boxInAA-2"></nuxt-link>
@@ -76,7 +76,7 @@ let mbQDCodeBool = ref(false)
       <div id="navMbWeChat" class="mbcc-boxInAA mbcc-boxInAA-4" @click="mbQDCodeBool = true"></div>
       <nuxt-link id="navMbFacebook" to="https://www.facebook.com/ckjdental.hk/"  target="_blank" class="mbcc-boxInAA mbcc-boxInAA-5"></nuxt-link>
     </div>
-    <div class="navbar-content-mb02" v-if="false">
+    <!-- <div class="navbar-content-mb02" v-if="false">
       <div id="navMbWeChat" @click="mbQDCodeBool = true">WeChat</div>
       <div>
         <nuxt-link id="navMbWhatsapp" :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" target="_blank">Whatsapp</nuxt-link>
@@ -89,7 +89,7 @@ let mbQDCodeBool = ref(false)
     <div class="navbar-content-mb" v-if="false">
       <div><nuxt-link id="navMbFacebook" to="https://www.facebook.com/ckjdental.hk/" target="_blank">Facebook預約</nuxt-link></div>
       <div>填寫表格</div>
-    </div>
+    </div> -->
     <div class="navForm" :style="{bottom: (appState.isShowForm ? '0' : '-150%')}">
       <ContactForm />
       <div class="navForm-icon" @click="navFormClose">
@@ -194,7 +194,7 @@ let mbQDCodeBool = ref(false)
   #navPcTel{
     background-image:url(@/assets/images/navIcon_1.png);
     background-repeat: no-repeat;
-    background-position: 50%;
+    background-position: 43% 57%;
   }
   #navPcWeChat{
     background-image:url(@/assets/images/navIcon_3.png);
@@ -244,6 +244,43 @@ let mbQDCodeBool = ref(false)
       justify-content: center;
       width: 100%;
       height: 100%;
+    }
+  }
+}
+@media (min-width: 768px) and (max-width: 1440px) {
+  .navbar-content{
+    width: 50px;
+    &-in{
+      width: 50px;
+      height: 50px;
+      .navbarBox{
+        right: 50px;
+        &::after{
+          top: 15px;
+        }
+        &-in{
+          padding: 10px;
+        }
+      }
+      img{
+        width: 30px;
+      }
+    }
+    #navPcTel{
+      background-size: 60% auto;
+    }
+    #navPcWeChat{
+      background-size: 60% auto;
+    }
+    #navPcWhatsapp{
+      background-size: 60% auto;
+    }
+    #navPcFaceBook{
+      
+      background-size: 100%;
+    }
+    #navPcContactForm{
+      background-size: 60% auto;
     }
   }
 }

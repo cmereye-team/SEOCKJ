@@ -40,7 +40,7 @@ onMounted(()=>{
 
 <template>
   <div class="animbtn">
-    <a :href="link" :class="_key" class="animbtn-in">
+    <a :href="link" :class="_key" class="animbtn-in" :alt="str">
       <span>{{str}}</span>
       <span :class="{ showYaAnim: showYaAnim }">{{str}}</span>
     </a>

@@ -327,20 +327,20 @@ svg:hover path{
         width: 100%;
       }
       a{
-          position: relative;
+        position: relative;
+      }
+      .icon{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        width: 20%;
+        height: auto;
+        transition: all .3s;
+        &:hover{
+          width: 23%;
         }
-        .icon{
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%,-50%);
-          width: 20%;
-          height: auto;
-          transition: all .3s;
-          &:hover{
-            width: 23%;
-          }
-        }
+      }
     }
   }
 }
@@ -452,6 +452,9 @@ svg:hover path{
       &-r{
         width: 100%;
         padding-left: 0;
+        a{
+          display: block;
+        }
       }
     }
   }
