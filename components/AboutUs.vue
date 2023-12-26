@@ -129,8 +129,10 @@ const handleLineCur = (_value:number) =>{
         padding-left: 50px;
         div{
           font-size: 1.5rem;
-          margin-bottom: 50px;
-          margin-top: 70px;
+          // margin-bottom: 50px;
+          // margin-top: 70px;
+          margin-bottom: calc((35 / 456) * 100%);
+          margin-top: calc((50 / 456) * 100%);
         }
         span{
           font-size: 1rem;
@@ -154,7 +156,7 @@ const handleLineCur = (_value:number) =>{
         padding-left: 30px;
         div{
           margin-bottom: 10px;
-          margin-top: 30px;
+          margin-top: 0px;
         }
       }
     }
