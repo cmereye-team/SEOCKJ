@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import NuxtImage from 'nuxt'
 let aboutUsCurrent = ref(1)
 
 const onSlideAboutUsSwiperChange = (swiper:any) => {
@@ -82,7 +83,7 @@ const handleLineCur = (_value:number) =>{
       width: 55%;
       img{
         width: 100%;
-        height: 100%;
+        // height: 100%;
       }
     }
     &-r{

@@ -107,6 +107,14 @@ let mbQDCodeBool = ref(false)
   </div>
 </template>
 <style lang="scss" scoped>
+@keyframes animLeftIn {
+  from{
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 .navbar-content {
   width: 66px;
   position: fixed;
@@ -131,6 +139,8 @@ let mbQDCodeBool = ref(false)
       right: 66px;
       padding-right: 10px;
       display: none;
+      opacity: 0;
+      transform: translateX(-20px);
       &::after{
         content: '';
         position: absolute;
@@ -173,7 +183,11 @@ let mbQDCodeBool = ref(false)
     &:hover{
       background: var(--indexColor1);
       .navbarBox{
+        // opacity: 1;
+        // transform: translateX(0);
         display: flex;
+        // transition: all .3s ease-in-out;
+        animation: animLeftIn 1s forwards;
       }
     }
   }

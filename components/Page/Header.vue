@@ -583,6 +583,14 @@ const handleMbMenu = () => {
     clip-path: polygon(110% 0, 120% 0, 110% 100%, 100% 100%);
   }
 }
+@keyframes animBottomIn {
+  from{
+  }
+  to{
+    opacity: 1;
+    transform: translate(-50%,0);
+  }
+}
 .LanguageSwitcher {
   width: 100%;
   background: rgba(255, 255, 255, 0.5);
@@ -925,12 +933,14 @@ const handleMbMenu = () => {
         }
         &:hover .menuChild {
           display: flex;
+          animation: animBottomIn .5s forwards;
         }
         .menuChild {
           position: absolute;
           top: 100%;
           left: 50%;
-          transform: translateX(-50%);
+          transform: translate(-50%, 20px);
+          opacity: 0;
           min-width: 130%;
           z-index: 2;
           display: none;
