@@ -1138,7 +1138,7 @@ const handleMbMenu = () => {
       }
     }
     &-text-implant {
-      bottom: 80px;
+      bottom: 60px;
       div{
         width: calc(80%);
         margin: 0 auto;
@@ -1146,7 +1146,7 @@ const handleMbMenu = () => {
       }
     }
     &-btn-implant{
-      bottom: 25vw;
+      bottom: auto;
       span{
         font-size: 2vw;
         padding: 5px 4vw;
@@ -1157,6 +1157,17 @@ const handleMbMenu = () => {
     }
     &-bgImgBB{
       width: 100%;
+    }
+    .waterBg {
+      &.implant,
+      &.rootCanal-test,
+      &.periodontal-test,
+      &.orthodontics-test,
+      &.invisalign-test,
+      &.veneers-test,
+      &.scaling-and-polishing-test {
+        bottom: 60px;
+      }
     }
   }
   .waterBg::after,
@@ -1220,7 +1231,7 @@ const handleMbMenu = () => {
       width: 100%;
     }
     &-btn-implant{
-      bottom: 16vw;
+      bottom: 18vw;
       span{
         font-size: 2vw;
         padding: 5px 4vw;
