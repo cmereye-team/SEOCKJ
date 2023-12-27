@@ -30,7 +30,7 @@ const headerConfig = {
 
 const orthodonticsIntroduceData = {
   title: '什麼是矯齒（箍牙）？',
-  content: '透過矯正器將牙齒逐步調整到理想的位置，從而修正咬合與齒列情況，改善發音問題，提升牙齒外觀的整齊及美觀度。牙齒移動後牙縫變小、咬合位置得到改善，也有助於清潔口腔，減少牙齒疾病風險。',
+  content: '通過矯正器將牙齒逐步調整到理想的位置，從而修正咬合與齒列情況，改善發音問題，提升牙齒外觀的整齊及美觀度。牙齒移動後牙縫變小、咬合位置得到改善，也有助於清潔口腔，減少牙齒疾病風險。',
   mbImg: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/image-5-(1).5widhc9i93o0.jpg',
   pcImg: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/image-1235.5nuu1cxast00.jpg',
   tabNavName: 'pages.dental-service.orthodontics.introduce.tabNavName',
@@ -134,12 +134,12 @@ const differData = {
     },
     {
       name: '原理',
-      firstText: '將矯正器固定在牙面上，利用鋼絲和牙釘的力量，逐步為牙齒調整至理想位置。',
-      secondText: '利用電腦模擬牙齒的移動路徑，並根據牙齒的移動速度，定期更換度身訂造的牙箍。'
+      firstText: '將矯正器固定在牙面上，利用鋼絲和牙箍的力量，逐步為牙齒調整至理想位置。',
+      secondText: '利用電腦模擬牙齒的移動路徑，定期更換度身訂造的牙箍。'
     },
     {
       name: '物料',
-      firstText: '金屬/ 陶瓷/ 樹脂',
+      firstText: '金屬/ 陶瓷/ 自鎖/ 舌側',
       secondText: '醫學塑膠'
     },
     {
@@ -150,7 +150,7 @@ const differData = {
     {
       name: '美觀',
       isArrayType: true,
-      firstText: '固定式外箍較顯眼\n固定式內箍對外觀影響不大',
+      firstText: '固定式外箍較顯眼\n固定式內箍對外觀沒有影響',
       secondText: '採用獨特透明設計，難以察覺'
     },
     {
@@ -160,13 +160,13 @@ const differData = {
     },
     {
       name: '成效',
-      firstText: '適合齒列重度不整人士',
-      secondText: '適合齒列輕度至中度不整人士'
+      firstText: '適合大部份齒列畸形人士',
+      secondText: '適合齒列輕度至中度不整及有美觀需求人士'
     },
     {
       name: '療程時長',
-      firstText: '比隱形牙箍療程快',
-      secondText: '一至兩年（因人而異）'
+      firstText: '每人嚴重情度不同，因人而異，但一般比隱形牙箍療程快',
+      secondText: '每人嚴重情度不同，因人而異'
     },
     {
       name: '其他',
@@ -224,14 +224,14 @@ const bpData ={
   lists: [
     {
       title: '咬合過深',
-      imgUrl: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Component-38-(1).1glrwc1wuw00.jpg'
+      imgUrl: 'https://static.cmereye.com/imgs/2023/12/fcc14b39b1425784.jpg'
     },
     {
       title: '倒 及',
       imgUrl: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Group-1556.6xop3m9cz3k0.jpg'
     },
     {
-      title: '錯咬/反咬合',
+      title: '錯咬/個別反咬合',
       imgUrl: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Component-39-(1).5dt9vtsy9w00.jpg'
     },
     {
@@ -314,7 +314,7 @@ const careData = {
     },
     {
       img: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Group-1464.1n0vbh7m2fr4.jpg',
-      text: '盡量避免\n劇烈運動',
+      text: '盡量避免外傷',
     },
     {
       img: 'https://static.cmereye.com/imgs/2023/12/d1b77fe7ddd90ec3.jpg',
@@ -357,19 +357,19 @@ const careData = {
       <div class="principle-topCon">固定式牙箍，專門用於調整和矯正牙齒，分為外箍和內箍兩種形式。</div>
       <div class="principle-in">
         <div class="principle-in-box">
-          <img src="https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Vect125or.1m2sun5nj7i8.jpg" alt="">
+          <img src="https://static.cmereye.com/imgs/2023/12/0454bdfcf890e755.jpg" alt="外箍式">
           <div>外箍式</div>
           <div>將矯正器直接固定在牙面上，利用鐵線的彈性，讓牙齒逐步移動至理想位置。</div>
         </div>
         <div class="principle-in-box">
-          <img src="https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/V124ector.3ho1kvx67mi0.jpg" alt="">
+          <img src="https://static.cmereye.com/imgs/2023/12/f9bc442ec3785727.jpg" alt="內箍式">
           <div>內箍式</div>
           <div>設計理念與外箍相似，區別在於牙箍被安裝在牙齒的內側，對於外觀的影響較小。</div>
         </div>
       </div>
       <div class="principle-bottomCon">
         <img src="@/assets/images/icon_13.png" alt="" />
-        <div>在牙箍的材料選擇上，金屬、陶瓷或樹脂的半透明牙箍，各有特色，可根據個人喜好或實際需求選擇。</div>
+        <div>在牙箍的材料選擇上，金屬、陶瓷、自鎖或舌側的牙箍，各有特色，可根據個人喜好或實際需求選擇。</div>
         <img src="@/assets/images/icon_13.png" alt="" />
       </div>
       <div class="principle-btn">
@@ -1254,7 +1254,7 @@ const careData = {
           min-height: auto;
           &:nth-of-type(1){
             border-radius: 0;
-            margin-left: 1px;
+            // margin-left: 1px;
             padding: 20px 10px;
             font-size: 16px;
             width: auto;
@@ -1263,6 +1263,7 @@ const careData = {
           }
           &:nth-of-type(2){
             padding: 20px 14px;
+            margin-left: 1px;
             width: calc( (127 / 315) * 100%);
           }
           &:nth-of-type(3){
