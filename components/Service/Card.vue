@@ -188,10 +188,11 @@ const servicesCardPageData = {
               max-width: 80%;
               max-height: 80%;
             }
-            &-name{
-              height: 60px;
-              line-height: 60px;
-            }
+          }
+          &-name{
+            height: 50px;
+            line-height: 50px;
+            font-size: 16px;
           }
         }
       }
