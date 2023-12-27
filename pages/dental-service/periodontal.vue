@@ -302,7 +302,7 @@ const problemData = {
 }
 
 const reasonData = {
-  title: '為何要定期洗牙？',
+  title: '牙周病的成因及過程',
   reasonLists: [
     {
       img: 'https://static.cmereye.com/imgs/2023/11/c4238b3a85294efc.jpg',
