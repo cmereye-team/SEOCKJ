@@ -165,8 +165,8 @@ const differData = {
     },
     {
       name: '療程時長',
-      firstText: '每人嚴重情度不同，因人而異，但一般比隱形牙箍療程快',
-      secondText: '每人嚴重情度不同，因人而異'
+      firstText: '每人嚴重程度，因人而異，但一般比隱形牙箍療程快',
+      secondText: '每人嚴重程度不同，因人而異'
     },
     {
       name: '其他',

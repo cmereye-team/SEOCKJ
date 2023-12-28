@@ -33,7 +33,6 @@ const activeNames = ref(0)
               <div>Q</div>
               <div>{{ $t(problemItem.Q) }}</div>
               <div>
-                <!-- <img src="@/assets/images/icon_9.png" alt=""> -->
                 <img src="@/assets/images/icon_91.png" alt="" />
               </div>
             </div>
