@@ -18,7 +18,8 @@ export default [
   {
     name: 'service.invisalign',
     imgUrl: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/z0x4bI.tif.48men0yif480.png',
-    link: '/dental-service/invisalign'
+    // link: '/dental-service/invisalign'
+    link: '/dental-service/invisiblebraces'
   },
   {
     name: 'service.veneers',

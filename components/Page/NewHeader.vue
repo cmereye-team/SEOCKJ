@@ -58,7 +58,8 @@ const menuLists = [
       },
       {
         name: 'service.invisalign',
-        link: '/dental-service/invisalign',
+        // link: '/dental-service/invisalign',
+        link: '/dental-service/invisiblebraces'
       },
       {
         name: 'service.veneers',
