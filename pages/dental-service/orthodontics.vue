@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
+import { toWhatsApp,whatsAppNum } from '~/assets/js/common'
 const appState = useAppState()
 appState.setDentistryService('orthodontics')
 useHead({
@@ -19,21 +20,21 @@ useHead({
 })
 
 const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2023/06/853005c3e17e4c2a.png',
-  bg: 'https://static.cmereye.com/imgs/2023/06/6d1016f37061df54.png',
-  mbImg: 'https://static.cmereye.com/imgs/2023/06/0c4c600f0e07547d.jpg',
-  pageName: 'orthodontics',
+  img: 'https://static.cmereye.com/imgs/2023/12/dc586730cadbf9be.jpg',
+  bg: '',
+  mbImg: 'https://static.cmereye.com/imgs/2023/12/068deaea29e10406.jpg',
+  pageName: 'orthodontics-test',
   pcText: ['追求美學極致，展現最燦爛笑容','愛康健為愛美的您打造完美面部輪廓'],
   mbText: ['追求美學極致','展現最燦爛笑容']
 }
 
 const orthodonticsIntroduceData = {
-  title: 'pages.dental-service.orthodontics.introduce.title',
-  content: 'pages.dental-service.orthodontics.introduce.content',
-  mbImg: 'https://static.cmereye.com/imgs/2023/04/78f038c56a4dc38b.jpg',
-  pcImg: 'https://static.cmereye.com/imgs/2023/05/9993e95bc1c6a9c9.jpg',
+  title: '什麼是矯齒（箍牙）？',
+  content: '通過矯正器將牙齒逐步調整到理想的位置，從而修正咬合與齒列情況，改善發音問題，提升牙齒外觀的整齊及美觀度。牙齒移動後牙縫變小、咬合位置得到改善，也有助於清潔口腔，減少牙齒疾病風險。',
+  mbImg: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/image-5-(1).5widhc9i93o0.jpg',
+  pcImg: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/image-1235.5nuu1cxast00.jpg',
   tabNavName: 'pages.dental-service.orthodontics.introduce.tabNavName',
-  pageName: 'orthodontics'
+  pageName: 'orthodontics-test'
 }
 
 const reasonData = {
@@ -53,78 +54,123 @@ const reasonData = {
   ]
 }
 
+// const stepData = {
+//   title: '矯齒(箍牙)過程',
+//   stepLists: [
+//     [
+//       {
+//         title: 'Step 1',
+//         text: '醫生會先進行檢查及評估，確認矯齒的需要'
+//       },
+//       {
+//         title: 'Step 2',
+//         text: '拍攝牙齒外觀照片，包括全口腔及側面X光照片，以印製牙模'
+//       },
+//       {
+//         title: 'Step 3',
+//         text: '醫生講解情況及治療方案'
+//       }, 
+//     ],
+//     [
+//       {
+//         title: 'Step 4',
+//         text: '配戴牙箍及定期覆診'
+//       },
+//       {
+//         title: 'Step 5',
+//         text: '矯齒完成後，需定期覆診，晚上佩戴固定器，防止牙齒移位'
+//       }
+//     ]
+//   ],
+//   isShowBottom: true,
+//   bottomText: '*不建議牙齒還沒完成發育、智慧齒還沒長出的人士接受牙齒矯正治療'
+// }
 const stepData = {
-  title: '矯齒(箍牙)過程',
-  stepLists: [
-    [
-      {
-        title: 'Step 1',
-        text: '醫生會先進行檢查及評估，確認矯齒的需要'
-      },
-      {
-        title: 'Step 2',
-        text: '拍攝牙齒外觀照片，包括全口腔及側面X光照片，以印製牙模'
-      },
-      {
-        title: 'Step 3',
-        text: '醫生講解情況及治療方案'
-      }, 
-    ],
-    [
-      {
-        title: 'Step 4',
-        text: '配戴牙箍及定期覆診'
-      },
-      {
-        title: 'Step 5',
-        text: '矯齒完成後，需定期覆診，晚上佩戴固定器，防止牙齒移位'
-      }
-    ]
+  title: '矯齒5步曲',
+  lists: [
+    {
+      title: '第1步',
+      img: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Rectan427.3rp0grf76uu0.jpg',
+      name: '初步檢查',
+      context: '會為客人進行初步的口腔檢查，並拍攝全口腔的電腦斷層掃描檢查(CT Scan)及側面的X光照片',
+    },
+    {
+      title: '第2步',
+      img: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Rect456an427.d4qq7c4j1x4.jpg',
+      name: '策劃療程',
+      context: '會根據客人的具體情況，制定出最適合的矯正方案',
+    },
+    {
+      title: '第3步',
+      img: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Rectangle45583427.35qu7qd8sei0.jpg',
+      name: '口腔治療',
+      context: '矯齒前，會先治療客人的口腔疾病，確保牙齒處於健康狀態',
+    },
+    {
+      title: '第4步',
+      img: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Rectangle84845727.2der2vedis9w.jpg',
+      name: '裝配矯正器',
+      context: '每種矯正器的裝配方式有所不同，客人需要根據專科主任的建議來進行裝配和保養，以達到理想效果',
+    },
+    {
+      title: '第5步',
+      img: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Rectangle93245235427.3w0l3j7va260.jpg',
+      name: '定期覆診',
+      context: '完成矯齒療程後，記得定期覆診和持續配戴固定器',
+    }
   ],
-  isShowBottom: true,
-  bottomText: '*不建議牙齒還沒完成發育、智慧齒還沒長出的人士接受牙齒矯正治療'
 }
 
 const differData = {
-  title: '貴不等於最好\t要選擇自己最合適的！',
-  text: '價格高不代表就是最好的選擇，選擇適合自己的矯正方式才是最重要的。不同的矯正方式有著各自的優缺點，需要根據自己的口腔情況、個人需求和預算來選擇最適合的方案。所以，在決定矯正牙齒之前，一定要找到專業的牙醫進行詳細的診斷和建議，選擇最適合自己的矯正方式。',
-  firstTextTh: '固定式外箍/內箍',
-  secondTextTh: '透明配戴式牙箍',
+  title: '固定式牙箍與隱形牙箍的分別',
+  text: ['價格並非選擇的唯一考慮因素，\n選擇最適合自己的矯正方式才是關鍵。','建議向我們的專科主任諮詢，\n並根據自己的口腔情況和需求進行選擇。'],
+  firstTextTh: '固定式牙箍',
+  secondTextTh: '隱形牙箍',
   listDatas: [
     {
+      name: '',
+      firstText: '固定式牙箍',
+      secondText: '隱形牙箍'
+    },
+    {
       name: '原理',
-      firstText: '將矯正器黏貼在牙齒表面，以鋼絲連上牙釘，施加外力移動牙齒',
-      secondText: '運用電腦模擬牙齒移動位置，按牙齒移動速度，定期更換度身訂造牙箍，慢慢移動牙齒'
+      firstText: '將矯正器固定在牙面上，利用鋼絲和牙箍的力量，逐步為牙齒調整至理想位置。',
+      secondText: '利用電腦模擬牙齒的移動路徑，定期更換度身訂造的牙箍。'
     },
     {
       name: '物料',
-      firstText: '金屬/ 搪瓷/ 樹脂',
+      firstText: '金屬/ 陶瓷/ 自鎖/ 舌側',
       secondText: '醫學塑膠'
     },
     {
       name: '拆卸',
-      firstText: '不能自行拆卸',
-      secondText: '能隨時戴上及脫下'
+      firstText: '無法自行拆卸',
+      secondText: '隨時戴脫'
     },
     {
       name: '美觀',
       isArrayType: true,
-      firstText: ['• 牙箍固定於牙齒外側會外露(固定式外箍)','• 牙箍固定於牙齒內側較難察覺(固定式內箍)'],
-      secondText: '透明牙箍，近乎隱形，極難察覺'
+      firstText: '固定式外箍較顯眼\n固定式內箍對外觀沒有影響',
+      secondText: '採用獨特透明設計，難以察覺'
     },
     {
       name: '清潔',
       firstText: '需以工具輔助清潔矯正器與鋼絲死角',
-      secondText: '拆卸後獨立清洗'
+      secondText: '拆卸後可清洗'
     },
     {
       name: '成效',
-      firstText: '比較適合齒列嚴重不正的人士',
-      secondText: '適合輕度或中度齒列不正的人士'
+      firstText: '適合大部份齒列畸形人士',
+      secondText: '適合齒列輕度至中度不整及有美觀需求人士'
+    },
+    {
+      name: '療程時長',
+      firstText: '每人嚴重程度，因人而異，但一般比隱形牙箍療程快',
+      secondText: '每人嚴重程度不同，因人而異'
     },
     {
       name: '其他',
-      firstText: '牙箍可能會引起不適',
+      firstText: '矯齒初期會有不適感',
       secondText: '隱形牙套表面平滑'
     }
   ]
@@ -173,37 +219,37 @@ const problemData = {
 }
 
 const bpData ={
-  title: '您是否有牙齒不齊問題困擾？',
+  title: '你有以下齒列不整的困擾嗎？',
   text: '在當今競爭激烈的社會中，個人形象已成為一種重要的競爭力。不論是在現實社會還是網絡中，個人形象都能給人留下深刻的印象，對於找工作、交朋友、學習、升職等方面都有著不可忽視的影響。牙齒不僅直接影響面容和微笑，更能夠反映一個人的健康和生活態度。所以，關注自己的形象不但是邁向成功的第一步，更是建立自信微笑的重要一步！',
   lists: [
     {
       title: '咬合過深',
-      imgUrl: 'https://static.cmereye.com/imgs/2023/06/9e889b19a082e947.jpg'
+      imgUrl: 'https://static.cmereye.com/imgs/2023/12/fcc14b39b1425784.jpg'
     },
     {
       title: '倒 及',
-      imgUrl: 'https://static.cmereye.com/imgs/2023/06/048d9aa589afe550.jpg'
+      imgUrl: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Group-1556.6xop3m9cz3k0.jpg'
     },
     {
-      title: '錯咬/反咬合',
-      imgUrl: 'https://static.cmereye.com/imgs/2023/06/b00ece7e972d0c6a.jpg'
+      title: '錯咬/個別反咬合',
+      imgUrl: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Component-39-(1).5dt9vtsy9w00.jpg'
     },
     {
       title: '牙縫過大',
-      imgUrl: 'https://static.cmereye.com/imgs/2023/06/03d8d7e690946901.jpg'
+      imgUrl: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Component-40-(1).2l66y7enxs80.jpg'
     },
     {
       title: '開 咬',
-      imgUrl: 'https://static.cmereye.com/imgs/2023/06/a47574b0e83d0c42.jpg'
+      imgUrl: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Component-41-(1).3fzvrknw66c0.jpg'
     },
     {
       title: '齒列擠擁',
-      imgUrl: 'https://static.cmereye.com/imgs/2023/06/65c91ee1b7b46f5d.jpg'
+      imgUrl: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Component-42-(1).7f6rnufo4vk0.jpg'
     },
-    {
-      title: '前排齒列擠擁',
-      imgUrl: 'https://static.cmereye.com/imgs/2023/06/e53653134a5709f1.jpg'
-    }
+    // {
+    //   title: '前排齒列擠擁',
+    //   imgUrl: 'https://static.cmereye.com/imgs/2023/06/e53653134a5709f1.jpg'
+    // }
   ]
 }
 
@@ -219,27 +265,27 @@ const onAestheticsSlideChange = (swiper: any) => {
 }
 
 const aestheticsData = {
-  title: '美學牙齒矯正',
+  title: '矯齒方式種類',
   lists: [
     {
       imgUrl: 'https://static.cmereye.com/imgs/2023/06/056cf3b645f697c6.jpg',
       title: '隱形牙箍矯正',
-      text: '全透明全隱形，不影響美觀，並在矯正牙齒的同時矯正頜面形態，矯治過程自然舒適，收獲自信笑容！'
+      text: '隱形設計，低調且難被察覺，美觀度高，同時矯正牙齒與頜面形態，讓矯正過程自然舒適。'
     },
     {
       imgUrl: 'https://static.cmereye.com/imgs/2023/06/eb84d445e77694da.jpg',
       title: '陶瓷半隱形矯正',
-      text: '使用陶瓷透明托槽和鋼絲，顏色與牙齒相似，美觀度高，不易發現。'
+      text: '使用陶瓷透明托槽和鋼絲，色澤與牙齒相近，較難察覺。'
     },
     {
       imgUrl: 'https://static.cmereye.com/imgs/2023/06/1fc83a75a1e52762.jpg',
       title: '金屬托槽矯正',
-      text: '是矯正牙齒中價格最實惠的一種，適用性廣泛，適合各種牙齒矯正情況，是一種經濟實惠且有效的矯正方法。'
+      text: '最具經濟效益的矯正方式，適用範圍廣泛。'
     },
     {
-      imgUrl: 'https://static.cmereye.com/imgs/2023/06/bef07fba3d050f64.jpg',
+      imgUrl: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/image-1.7bb54853j3s.jpg',
       title: '舌側隱形矯正',
-      text: '在於不影響外觀，且能夠有效地矯正各種牙齒問題，包括咬合問題和牙齒排列不整齊等。'
+      text: '對外觀無影響，同時能夠有效修正各種牙齒問題，包括咬合問題和齒列不整等，價錢相對較高。'
     }
   ]
 }
@@ -255,6 +301,32 @@ const getWindowWidth = () => {
   windowWidth.value = window.innerWidth
 }
 
+const careData = {
+  title: ['矯齒注意事項'],
+  lists: [
+    {
+      img: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Group-1047.2lum1bomw7y0.jpg',
+      text: '注意口腔衛生',
+    },
+    {
+      img: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Group-1048.5rfiys1h84k0.jpg',
+      text: '忌吃硬黏及\n易染色食物',
+    },
+    {
+      img: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Group-1464.1n0vbh7m2fr4.jpg',
+      text: '盡量避免外傷',
+    },
+    {
+      img: 'https://static.cmereye.com/imgs/2023/12/d1b77fe7ddd90ec3.jpg',
+      text: '持續配戴固定器',
+    },
+    {
+      img: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Group-1052.2t3ji3md60q0.jpg',
+      text: '定期覆診檢查',
+    }
+  ],
+}
+
 </script>
 
 
@@ -264,31 +336,11 @@ const getWindowWidth = () => {
   <div class="orthodonticsPage">
     <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
     <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
-    <ServiceReason :reasonData="reasonData" />
+    <!-- <ServiceReason :reasonData="reasonData" /> -->
     <div class="bp">
       <div class="dentistryServices-title">
         <div class="dentistryServices-title-in bb">
           <span>{{bpData.title}}</span>
-        </div>
-      </div>
-      <div class="bp-text">
-        {{bpData.text}}
-      </div>
-      <div class="bp-swiper mbBox">
-        <swiper
-          :slidesPerView="1"
-          class="swiper-wrapper"
-          @slideChange="onSlideChange"
-        >
-          <swiper-slide class="swiper-slide" v-for="slideItem in 4" :key="slideItem">
-            <div class="swiper-slide-in" v-for="(bpItem,bpIndex) in bpData.lists.slice(2*(slideItem-1),2*slideItem)" :key="bpIndex">
-              <div class="swiper-slide-in-title">{{bpItem.title}}</div>
-              <img :src="bpItem.imgUrl" alt="" />
-            </div>
-          </swiper-slide>
-        </swiper>
-        <div class="bp-swiper-line mbBox">
-          <PageSwiperPointLine :latestNewsNum="4" :latestNewsCurrent="bpCurrent"></PageSwiperPointLine>
         </div>
       </div>
       <div class="bp-lists">
@@ -298,8 +350,52 @@ const getWindowWidth = () => {
         </div>
       </div>
     </div>
-    <ServiceStep :stepData="stepData" />
-    <ServiceDiffer :differData="differData" />
+    <div class="principle">
+      <div class="principle-title dentistryServices-title">
+        <div class="dentistryServices-title-in bb">固定式牙箍原理</div>
+      </div>
+      <div class="principle-topCon">固定式牙箍，專門用於調整和矯正牙齒，分為外箍和內箍兩種形式。</div>
+      <div class="principle-in">
+        <div class="principle-in-box">
+          <img src="https://static.cmereye.com/imgs/2023/12/0454bdfcf890e755.jpg" alt="外箍式">
+          <div>外箍式</div>
+          <div>將矯正器直接固定在牙面上，利用鐵線的彈性，讓牙齒逐步移動至理想位置。</div>
+        </div>
+        <div class="principle-in-box">
+          <img src="https://static.cmereye.com/imgs/2023/12/f9bc442ec3785727.jpg" alt="內箍式">
+          <div>內箍式</div>
+          <div>設計理念與外箍相似，區別在於牙箍被安裝在牙齒的內側，對於外觀的影響較小。</div>
+        </div>
+      </div>
+      <div class="principle-bottomCon">
+        <img src="@/assets/images/icon_13.png" alt="" />
+        <div>在牙箍的材料選擇上，金屬、陶瓷、自鎖或舌側的牙箍，各有特色，可根據個人喜好或實際需求選擇。</div>
+        <img src="@/assets/images/icon_13.png" alt="" />
+      </div>
+      <div class="principle-btn">
+        <!-- <a :href="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`">預約免費口腔檢查</a> -->
+        <PageAnimBtn :str="'預約免費口腔檢查'" />
+      </div>
+    </div>
+    <!-- <ServiceStep :stepData="stepData" /> -->
+    <!-- <ServiceDiffer :differData="differData" /> -->
+    <div class="differ">
+      <div class="differ-title dentistryServices-title">
+        <div class="dentistryServices-title-in bb">{{differData.title}}</div>
+      </div>
+      <div class="differ-context">
+          <div v-for="(textItem,textIndex) in differData.text" :key="textIndex">
+            {{textItem}}
+          </div>
+      </div>
+      <div class="differ-lists">
+        <div class="differ-lists-in" v-for="(listDatasItem,listDatasIndex) in differData.listDatas" :key="listDatasIndex">
+          <div>{{listDatasItem.name}}</div>
+          <div>{{listDatasItem.firstText}}</div>
+          <div>{{listDatasItem.secondText}}</div>
+        </div>
+      </div>
+    </div>
     <div class="aesthetics">
       <div class="dentistryServices-title">
         <div class="dentistryServices-title-in bb">
@@ -307,21 +403,81 @@ const getWindowWidth = () => {
         </div>
       </div>
       <div class="aesthetics-in">
-        <swiper
-          :slidesPerView="windowWidth>768 ? 4:1"
-          class="swiper-wrapper aesthetics-swiper"
-          @slideChange="onAestheticsSlideChange"
+        <div
+          class="aesthetics-swiper"
         >
-          <swiper-slide class="swiper-slide" v-for="(aestheticsItem,aestheticsIndex) in aestheticsData.lists" :key="aestheticsIndex">
+          <div class="swiper-slide" v-for="(aestheticsItem,aestheticsIndex) in aestheticsData.lists" :key="aestheticsIndex">
             <div class="swiper-slide-in">
               <img :src="aestheticsItem.imgUrl" alt="" />
               <div class="swiper-slide-in-title">{{aestheticsItem.title}}</div>
               <div class="swiper-slide-in-text">{{aestheticsItem.text}}</div>
             </div>
-          </swiper-slide>
-        </swiper>
-        <div class="bp-swiper-line mbBox">
-          <PageSwiperPointLine :latestNewsNum="4" :latestNewsCurrent="aestheticsCurrent"></PageSwiperPointLine>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="step">
+        <div class="step-in">
+          <div class="dentistryServices-title step-title">
+            <div class="dentistryServices-title-in bb step-title-in">
+              {{ stepData.title }}
+            </div>
+          </div>
+          <div class="step-lists">
+            <div
+              v-for="(stepItem, stepIndex) in stepData.lists"
+              :key="stepIndex"
+              class="step-lists-in"
+            >
+              <div class="step-lists-in-l">
+                <div class="title">
+                  <img src="@/assets/images/icon_13.png" alt="" />
+                  {{ stepItem.title }}
+                </div>
+                <div class="image"><img :src="stepItem.img" alt="" /></div>
+                <div class="name">{{ stepItem.name }}</div>
+                <div class="context">{{ stepItem.context }}</div>
+              </div>
+              <div class="step-lists-in-r">
+                <img src="@/assets/images/icon_12.png" alt="" />
+              </div>
+            </div>
+            <div class="step-lists-in">
+              <div class="lastBox-t">
+                <!-- <div><img src="@/assets/images/icon_13.png" alt="" /></div>
+                <div>療程最快<span>即日完成 !</span></div>
+                <div><img src="@/assets/images/icon_13.png" alt="" /></div> -->
+                <img src="https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/20231113_剝智慧齒後一勞永逸？-04-1.vy2qx2j4vkg.png" alt="">
+              </div>
+              <div class="lastBox-b">
+                <!-- <span @click="toWhatsApp">預約免費口腔檢查</span> -->
+                <PageAnimBtn :str="'預約免費口腔檢查'" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="care">
+      <div class="dentistryServices-title care-title">
+        <div class="dentistryServices-title-in bb care-title-in">
+          <span>{{ careData.title[0] }}</span>
+          <span>{{ careData.title[1] }}</span>
+        </div>
+      </div>
+      <div class="care-lists">
+        <div
+          v-for="(careItem, careIndex) in careData.lists"
+          :key="careIndex"
+          class="care-lists-item"
+        >
+          <div>
+            <div class="image">
+              <div class="image-in">
+                <img :src="careItem.img" :alt="careItem.text" />
+              </div>
+            </div>
+            <div class="text">{{ careItem.text }}</div>
+          </div>
         </div>
       </div>
     </div>
@@ -392,9 +548,9 @@ const getWindowWidth = () => {
       &:nth-of-type(3){
         .swiper-slide-in{
           padding: 0 39.5px 53.1px;
-          &:last-child{
-            padding: 0 39.5px;
-          }
+          // &:last-child{
+          //   padding: 0 39.5px;
+          // }
         }
       }
     }
@@ -456,9 +612,9 @@ const getWindowWidth = () => {
         margin-top: 30px;
         width: 100%;
       }
-      &:last-child{
-        padding: 0 39.5px;
-      }
+      // &:last-child{
+      //   padding: 0 39.5px;
+      // }
     }
   }
 }
@@ -467,16 +623,18 @@ const getWindowWidth = () => {
   &-in{
     margin-top: 40px;
     padding: 88px 0;
-    background: linear-gradient(180deg, var(--indexColor3) 0%, rgba(255, 241, 240, 0) 100%);
+    background: linear-gradient(-99deg, rgba(252, 22, 130, 0.40) -0.55%, rgba(252, 22, 130, 0.28) -0.54%, rgba(255, 168, 198, 0.00) 99.3%);
   }
   &-swiper{
     padding-bottom: 10px;
     width: 100%;
     max-width: 1512px;
     margin: 0 auto;
+    display: flex;
     .swiper-slide{
       height: 100%;
       padding: 0 30px;
+      width: calc(100% / 4);
       &-in{
         display: flex;
         flex-direction: column;
@@ -485,7 +643,8 @@ const getWindowWidth = () => {
         border-radius: 15px;
         overflow: hidden;
         background: #fff;
-        min-height: 539px;
+        height: auto;
+        min-height: 485px;
         img{
           width: 100%;
           box-sizing: border-box;
@@ -508,6 +667,367 @@ const getWindowWidth = () => {
           line-height: 160%;
           color: #666666;
           text-align: justify;
+        }
+      }
+    }
+  }
+}
+.care {
+  margin-top: 206px;
+  &-title {
+    &-in {
+      font-size: 50px;
+    }
+  }
+  &-lists {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 819px;
+    margin: 54px auto 0;
+    &-item {
+      width: calc(100% / 3);
+      & > div {
+        .image {
+          width: 100%;
+          position: relative;
+          padding: 0 calc((89px / 273px) * 100% / 2);
+          &-in {
+            width: 100%;
+            height: 0;
+            padding-bottom: 100%;
+            // background: #fff1f0;
+            margin-bottom: 13px;
+            border-radius: 10px;
+            position: relative;
+            img {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              // max-width: 90%;
+              // max-height: 90%;
+              width: 100%;
+            }
+          }
+        }
+        .text {
+          text-align: center;
+          font-size: 24px;
+          font-weight: 600;
+          white-space: nowrap;
+        }
+      }
+      &:nth-of-type(n + 4) {
+        margin-top: 51px;
+      }
+      &:nth-of-type(2n + 2) {
+        & > div {
+          .image {
+            &-in {
+              // background: #fee6f1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.step {
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 241, 240, 0) 0%,
+    rgba(255, 241, 240, 0.7) 12.5%,
+    rgba(255, 241, 240, 0.7) 81.99%,
+    rgba(255, 241, 240, 0) 100%
+  );
+  padding: 61px 0 140px;
+  // margin-top: 77px;
+  &-in {
+    width: 100%;
+    max-width: 1444px;
+    margin: 0 auto;
+  }
+  &-title {
+    &-in {
+      font-size: 50px;
+    }
+  }
+  &-lists {
+    margin-top: 98px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    &-in {
+      display: flex;
+      align-items: center;
+      margin-bottom: 92px;
+      &:nth-of-type(4),
+      &:nth-of-type(5) {
+        margin-bottom: 0;
+      }
+      &:nth-of-type(3),
+      &:nth-of-type(5) {
+        .step-lists-in-r {
+          display: none;
+        }
+      }
+      &-l {
+        width: 100%;
+        max-width: 400px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        .title {
+          display: flex;
+          align-items: center;
+          font-size: 35px;
+          font-weight: 700;
+          margin-bottom: 15px;
+          color: #666666;
+          img {
+            height: auto;
+            margin-right: 15px;
+          }
+        }
+        .image {
+          width: 100%;
+          img {
+            width: 100%;
+            border-radius: 30px;
+          }
+        }
+        .name {
+          color: #fff;
+          font-size: 20px;
+          font-weight: 700;
+          background: var(--indexColor1);
+          margin-top: 24px;
+          margin-bottom: 15px;
+          padding: 8px 15px;
+          clip-path: polygon(0 0, 80% 0, 85% 100%, 0 100%);
+        }
+        .context {
+          font-size: 20px;
+          font-weight: 700;
+          color: #666666;
+          padding: 0 15px;
+        }
+      }
+      &-r {
+        margin-left: 50px;
+        img {
+          width: 15px;
+          height: auto;
+        }
+      }
+      &:nth-of-type(6) {
+        // flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .lastBox-t {
+          display: flex;
+          align-items: flex-end;
+        }
+        .lastBox-b {
+          margin-top: 15px;
+          // span {
+          //   cursor: pointer;
+          //   background: var(--indexColor1);
+          //   color: #fff;
+          //   font-size: 35px;
+          //   font-weight: 700;
+          //   padding: 5px 50px;
+          //   border-radius: 30px;
+          //   display: block;
+          //   box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
+          //   position: relative;
+          //   z-index: 1;
+          //   &::after,&::before{
+          //     content: '';
+          //     width: 100%;
+          //     height: 100%;
+          //     position: absolute;
+          //     left: 50%;
+          //     top: 50%;
+          //     transform: translate(-50%,-50%);
+          //     opacity: 0;
+          //     border-radius: 50px;
+          //     background: var(--indexColor1);
+          //     z-index: -1;
+          //   }
+          //   &:hover{
+          //     &::after{
+          //       animation: btnAnim2 3s infinite;
+          //     }
+          //     &::before{
+          //       animation: btnAnim3 3s infinite;
+          //     }
+          //   }
+          // }
+        }
+      }
+    }
+  }
+}
+.principle{
+  &-topCon{
+    color:#4D4D4D;
+    text-align: center;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 160%;
+    margin-top: 30px;
+  }
+  &-in{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    &-box{
+      width: 100%;
+      max-width: 462px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &:nth-of-type(2){
+        margin-left: calc((89 / 1920) * 100%);
+      }
+      div{
+        &:nth-of-type(1){
+          padding: 0 60px;
+          margin: -18% auto 0;
+          color: #FFF;
+          text-align: center;
+          font-size: 35px;
+          font-style: normal;
+          font-weight: 900;
+          line-height: 160%;
+          background: #FC1682;
+          border-radius: 30px;
+          display: inline-block;
+          filter: drop-shadow(0px 3.704px 7.409px rgba(252, 22, 130, 0.38));
+        }
+        &:nth-of-type(2){
+          margin-top: 63px;
+          color: #4D4D4D;
+          text-align: justify;
+          font-size: 28px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 160%;
+          padding: 0 40px;
+        }
+      }
+    }
+  }
+  &-bottomCon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 85px;
+    img{
+      width: 36px;
+      height: 40px;
+    }
+    div{
+      color: #FC1682;
+      text-align: center;
+      font-size: 35px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 160%;
+      width: 100%;
+      max-width: 892px;
+      margin-right: 26px;
+      margin-left: 44px;
+    }
+  }
+  &-btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 29px;
+    // a{
+    //   border-radius: 233.38px;
+    //   background: #FC1682;
+    //   box-shadow: 0px 3.704px 7.409px 0px rgba(252, 22, 130, 0.38);
+    //   color: #fff;
+    //   text-align: center;
+    //   font-size: 35px;
+    //   font-style: normal;
+    //   font-weight: 900;
+    //   line-height: 160%; 
+    //   display: inline-block;
+    //   padding: 0 50px;
+    // }
+  }
+}
+.differ{
+  margin-top: 136px;
+  &-context{
+    margin-top: 40px;
+    text-align: center;
+    color: #4D4D4D;
+    text-align: center;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 160%;
+  }
+  &-lists{
+    width: 100%;
+    max-width: 1251px;
+    margin: 40px auto 0;
+    &-in{
+      display: flex;
+      &:not(:last-child){
+        margin-bottom: 15px;
+      }
+      &:nth-of-type(odd){
+        &>div{
+          background: #FDD3E3;
+        }
+      }
+      &:nth-of-type(1){
+        &>div{
+          background: none;
+          padding: 0;
+          justify-content: center;
+          align-items: center;
+          min-height: 45px;
+          font-size: 28px;
+          font-weight: 700;
+        }
+      }
+      &>div{
+        color: #4D4D4D;
+        font-size: 20px;
+        min-height: 112px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 160%;
+        background: #FEE6F1;
+        display: flex;
+        align-items: center;
+        white-space: pre-wrap;
+        &:nth-of-type(1){
+          width: calc( (102 / 1251) * 100%);
+          border-radius: 60px 0 0 60px;
+          justify-content: center;
+        }
+        &:nth-of-type(2){
+          width: calc( (572 / 1251) * 100%);
+          margin-left: 2.5px;
+          padding: 0 calc( (74 / 1251) * 100%);
+        }
+        &:nth-of-type(3){
+          width: calc( (572 / 1251) * 100%);
+          margin-left: 2.5px;
+          padding: 0 calc( (74 / 1251) * 100%);
+          border-radius: 0 60px 60px 0;
         }
       }
     }
@@ -538,16 +1058,248 @@ const getWindowWidth = () => {
       margin: 47px auto 0;
       text-align: justify;
     }
-    &-lists{
-      display: none;
-    }
   }
   .aesthetics{
     margin-top: 90px;
     &-in{
       margin-top: 28px;
-      padding: 0;
-      background: none;
+      padding: 44px 0;
+    }
+    &-swiper{
+      flex-direction: column;
+      padding-bottom: 0;
+      .swiper-slide{
+        width: 100%;
+        &:not(:first-child){
+          margin-top: 44px;
+        }
+      }
+    }
+  }
+  .care {
+    margin-top: 40px;
+    padding-bottom: 0px;
+    &-title {
+      &-in {
+        font-size: 26px;
+      }
+    }
+    &-lists {
+      width: auto;
+      margin: 34px 15px 0;
+      &-item {
+        width: calc(100% / 3);
+        & > div {
+          .image {
+            padding: 0 5px;
+          }
+          .text {
+            white-space: pre-wrap;
+            font-size: 14px;
+          }
+        }
+        &:nth-of-type(1) {
+          & > div {
+            .text {
+              padding: 0 30px;
+            }
+          }
+        }
+        &:nth-of-type(3) {
+          & > div {
+            .text {
+              padding: 0 15px;
+            }
+          }
+        }
+        &:nth-of-type(n + 4) {
+          margin-top: 30px;
+        }
+      }
+    }
+  }
+  .step {
+    background: linear-gradient(
+      0deg,
+      rgba(255, 241, 240, 0) 0%,
+      rgba(255, 241, 240, 0.7) 12.5%,
+      rgba(255, 241, 240, 0.7) 81.99%,
+      rgba(255, 241, 240, 0) 100%
+    );
+    margin-top: 80px;
+    padding: 46px 0;
+    &-title {
+      &-in {
+        font-size: 26px;
+      }
+    }
+    &-lists {
+      width: auto;
+      margin: 57px 40px 0;
+      &-in {
+        flex-direction: column;
+        margin-bottom: 30px;
+        &:nth-of-type(n + 4) {
+          margin-bottom: 30px;
+        }
+        &:nth-of-type(3){
+          .step-lists-in-r {
+            display: block;
+          }
+        }
+        &-l {
+          .title {
+            padding: 0 6px;
+            font-size: 26px;
+          }
+          .image {
+            padding: 0 6px;
+          }
+          .name {
+            margin-top: -25px;
+            font-size: 16px;
+            clip-path: polygon(0 0, 80% 0, 85% 100%, 0 100%);
+          }
+          .context {
+            font-size: 16px;
+          }
+        }
+        &-r {
+          margin-top: 30px;
+          margin-left: 0;
+          img {
+            transform: rotate(90deg);
+          }
+        }
+        &:nth-of-type(6) {
+          margin-top: 15px;
+          width: 100%;
+          .lastBox-t {
+            img{
+              width: 125px;
+            }
+          }
+          .lastBox-b {
+            margin-top: 20px;
+            // span {
+            //   font-size: 20px;
+            //   padding: 5px 50px;
+            //   border-radius: 25px;
+            // }
+          }
+        }
+      }
+    }
+  }
+  .principle{
+    padding: 0 30px;
+    &-topCon{
+      font-size: 16px;
+      font-weight: 500;
+    }
+    &-in{
+      flex-direction: column;
+      &-box{
+        &:nth-of-type(2){
+          margin-left: 0;
+          margin-top: 44px;
+        }
+        div{
+          &:nth-of-type(1){
+            font-size: 20px;
+            padding: 3px 50px;
+          }
+          &:nth-of-type(2){
+            font-size: 20px;
+            margin-top: 43px;
+            padding: 0 30px;
+          }
+        }
+      }
+    }
+    &-bottomCon{
+      margin-top: 60px;
+      img{
+        width: 20px;
+        height: 22px;
+      }
+      div{
+        font-size: 16px;
+        margin-right: 18px;
+        margin-left: 17px;
+      }
+    }
+    &-btn{
+      margin-top: 44px;
+      // a{
+      //   font-size: 20px;
+      //   padding: 5px 45px;
+      // }
+    }
+  }
+  .differ{
+    &-context{
+      font-size: 16px;
+      white-space: pre-wrap;
+    }
+    &-lists{
+      padding: 0 30px;
+      &-in{
+        &:not(:last-child){
+          margin-bottom: 4px;
+        }
+        &>div{
+          font-size: 12px;
+          box-sizing: border-box;
+          min-height: auto;
+          &:nth-of-type(1){
+            border-radius: 0;
+            // margin-left: 1px;
+            padding: 20px 10px;
+            font-size: 16px;
+            width: auto;
+            flex: 1;
+            text-align: center;
+          }
+          &:nth-of-type(2){
+            padding: 20px 14px;
+            margin-left: 1px;
+            width: calc( (127 / 315) * 100%);
+          }
+          &:nth-of-type(3){
+            border-radius: 0;
+            margin-left: 1px;
+            padding: 20px 14px;
+            width: calc( (127 / 315) * 100%);
+          }
+        }
+        &:nth-of-type(1){
+          &>div{
+            font-size: 16px;
+            padding: 0;
+          }
+        }
+        &:nth-of-type(2){
+          &>div{
+            &:nth-of-type(1){
+              border-radius: 20px 0 0 0;
+            }
+            &:nth-of-type(3){
+              border-radius: 0 20px 0 0;
+            }
+          }
+        }
+        &:last-child{
+          &>div{
+            &:nth-of-type(1){
+              border-radius: 0 0 0 20px;
+            }
+            &:nth-of-type(3){
+              border-radius: 0 0 20px 0;
+            }
+          }
+        }
+      }
     }
   }
 }
