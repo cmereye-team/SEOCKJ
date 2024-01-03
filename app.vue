@@ -18,7 +18,12 @@ useHead({
       content: '爱康健',
     },
   ],
-  link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+  link: [
+    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+  ],
+  script:[
+    { type: 'text/javascript', src: '/common.js' }
+  ]
 })
 onMounted(()=>{
   // 监听网络是否关闭
@@ -53,6 +58,7 @@ onMounted(()=>{
       <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>
+      <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2035768320098958&ev=PageView&noscript=1" /></noscript>
     </Body>
   </Html>
 </template>
