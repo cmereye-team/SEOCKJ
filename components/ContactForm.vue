@@ -50,6 +50,7 @@ const rules = reactive<FormRules>({
 
 const submitForm = async (formEl: FormInstance | undefined) => {
   if (!formEl) return
+  if(formLoading.value) return 
   formLoading.value = true
   await formEl.validate((valid: any, fields:any) => {
     if (valid) {
@@ -181,7 +182,7 @@ onMounted(() => {
             </el-select>
           </el-form-item>
           <el-form-item>
-            <button :id="windowWidth>768?'contactUsForm':'navMbContactForm'" type="button" class="formBtn" @click.stop="submitForm(ruleFormRef)">{{$t('contactUs.contact_form.formItem.submit_the_form')}}</button>
+            <button :id="windowWidth>768?'contactUsForm':'navMbContactForm'" type="button" class="formBtn" v-loading="formLoading" @click.stop="submitForm(ruleFormRef)">{{$t('contactUs.contact_form.formItem.submit_the_form')}}</button>
           </el-form-item>
         </el-form>
       </div>
