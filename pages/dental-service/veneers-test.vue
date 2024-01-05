@@ -1038,6 +1038,7 @@ const advantageData = {
     &-lists {
       width: auto;
       margin: 57px 40px 0;
+      padding: 0;
       &-in {
         flex-direction: column;
         margin-bottom: 30px;
