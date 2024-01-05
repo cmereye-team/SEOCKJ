@@ -378,7 +378,7 @@ const getWindowWidth = () => {
   }
 }
 
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 768px) {
   .foibles{
     &-context{
       font-size: 16px;

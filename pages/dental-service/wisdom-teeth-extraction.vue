@@ -394,7 +394,7 @@ const problemData = {
     }
   }
 }
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 768px) {
   .note{
     padding: 96px 30px 0;
     box-sizing: border-box;

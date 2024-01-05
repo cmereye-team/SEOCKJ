@@ -473,7 +473,7 @@ const handleProcessBtn = (_type: string) => {
 }
 
 //md
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 768px) {
   .introduce {
     &-in {
       height: auto;

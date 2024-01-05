@@ -363,7 +363,7 @@ const getWindowWidth = () => {
   }
 }
 
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 768px) {
   .notice {
     margin: 90px auto 0;
     &-in {

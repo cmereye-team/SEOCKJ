@@ -326,7 +326,7 @@ const problemData = {
     margin: 22px auto;
   }
 }
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 768px) {
   .material {
     &-context {
       padding: 0 30px;

@@ -25,7 +25,7 @@
 <style lang="scss" scoped>
 .index-brandConcept {
   width: 100%;
-  min-height: 760px;
+  min-height: 768px;
   margin-top: 143px;
   box-sizing: border-box;
   position: relative;

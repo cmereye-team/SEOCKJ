@@ -27,10 +27,22 @@ const scrollWatch = () => {
   }
   if(window.scrollY>=_offsetTop-600 && window.scrollY<=_offsetTop){
     showYaAnim.value = true
+    // if(!showYaAnim.value){
+    //   showYaAnim.value = true
+    //   setTimeout(()=>{
+    //     showYaAnim.value = false
+    //   },5000)
+    // }
   }else{
     showYaAnim.value = false
   }
 }
+// watch(
+//   showYaAnim,
+//   (n,o)=>{
+//     console.log(o,'---->',n)
+//   }
+// )
 onMounted(()=>{
   _key.value = `${prop.refName}${_randomNum}`
   scrollWatch()

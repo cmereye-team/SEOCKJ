@@ -444,7 +444,7 @@ const problemData = {
   }
 }
 
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 768px) {
   .contrast{
     margin-top: 90px;
     &-bg{

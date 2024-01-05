@@ -925,7 +925,7 @@ const handleProcessBtn = (_type: string) => {
     }
   }
 }
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 768px) {
   .reason {
     margin-top: 54px;
     &-title {
