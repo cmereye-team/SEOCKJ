@@ -41,8 +41,12 @@ onMounted(()=>{
 <template>
   <div class="animbtn">
     <a :href="link" :class="_key" class="animbtn-in" :alt="str">
-      <span>{{str}}</span>
-      <span :class="{ showYaAnim: showYaAnim }">{{str}}</span>
+      <span>
+        <slot name="animbtnAfter">{{str}}</slot>
+      </span>
+      <span :class="{ showYaAnim: showYaAnim }">
+        <slot name="animbtnFront">{{str}}</slot>
+      </span>
     </a>
   </div>
 </template>
@@ -69,7 +73,7 @@ onMounted(()=>{
       // width: 100%;
       display: flex;
       justify-content: center;
-      span {
+      &>span {
         box-shadow: 0px 1.74695px 3.4939px 0px rgba(252, 22, 130, 0.38);
         font-size: 35px;
         font-weight: 900;
@@ -80,6 +84,9 @@ onMounted(()=>{
         cursor: pointer;
         top: 0;
         width: max-content;
+        .bigBan{
+          font-size: 44px;
+        }
         &:nth-of-type(2) {
           color: var(--indexColor1);
           background: #fff;
@@ -87,13 +94,15 @@ onMounted(()=>{
           left: 50%;
           transform: translateX(-50%);
           z-index: 2;
-          animation: btnAnim 1s linear;
-          animation-fill-mode: forwards;
+          // animation: btnAnim 1s linear;
+          // animation-fill-mode: forwards;
           width: max-content;
           display: none;
+          // opacity: 0;
         }
         &.showYaAnim {
           display: block;
+          // opacity: 1;
           animation: btnAnim 1s linear;
           animation-fill-mode: forwards;
         }
@@ -104,10 +113,13 @@ onMounted(()=>{
 @media screen and (max-width: 768px) {
   .animbtn{
     &-in {
-      span {
+      &>span {
         font-size: 20px;
         padding: 5px 70px;
         box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
+        .bigBan{
+          font-size: 28px;
+        }
       }
     }
   }

@@ -20,9 +20,9 @@ useHead({
 })
 
 const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2023/12/14c37ecd95aeb6f7.webp',
+  img: 'https://static.cmereye.com/imgs/2024/01/bdeaee52c82c4ca3.jpg',
   bg: '',
-  mbImg: 'https://static.cmereye.com/imgs/2023/12/0fb5fc6132c5e487.webp',
+  mbImg: 'https://static.cmereye.com/imgs/2024/01/17ef8e3b4e1c55f0.jpg',
   pageName: 'veneers-test',
   pcText: ['自訂零死角潔白微笑線','展現自信微笑'],
   mbText: ['自訂零死角潔白微笑線','展現自信微笑']
@@ -215,11 +215,11 @@ const bpData ={
   ]
 }
 const stepData = {
-  title: '全瓷貼片4步曲',
+  title: '全瓷貼片5步曲',
   lists: [
     {
       title: '第1步',
-      img: 'https://static.cmereye.com/imgs/2023/12/9e887bb9f6594934.webp',
+      img: 'https://static.cmereye.com/imgs/2024/01/08cebccce32ce042.jpg',
       name: '術前諮詢',
       context: '初步了解口腔狀況，蒐集牙齒資訊，採討客人期望的牙齒型態，並針對微笑曲線進行客製化設計。',
     },
@@ -231,15 +231,21 @@ const stepData = {
     },
     {
       title: '第3步',
-      img: 'https://static.cmereye.com/imgs/2023/12/d544b7219939438c.webp',
-      name: '裝配貼片',
-      context: '貼片製作完成後，在客人牙齒上試裝，並確認貼片與牙齒的適合度，例如形狀及顏色是否符合預期，最後將瓷貼片固定在牙面上。',
+      img: 'https://static.cmereye.com/imgs/2024/01/210e0b77a225135b.jpg',
+      name: '裝貼臨時貼片',
+      context: '磨牙完成後，會為客人安裝臨時的樹脂材質貼面，不會影響日常生活及美觀。',
     },
     {
       title: '第4步',
-      img: 'https://static.cmereye.com/imgs/2023/12/bcc90e254b9b9f5c.webp',
+      img: 'https://static.cmereye.com/imgs/2023/12/d544b7219939438c.webp',
+      name: '全瓷貼片安裝',
+      context: '貼片製作完成後，在客人牙齒上試裝，並確認貼片與牙齒的適合度，例如形狀及顏色是否符合預期，最後將瓷貼片固定在牙面上。',
+    },
+    {
+      title: '第5步',
+      img: 'https://static.cmereye.com/imgs/2024/01/da889742ca0a6680.jpg',
       name: '定期追蹤',
-      context: '每種矯正器的裝配方式有所不同，客人需要根據專科主任的建議來進行裝配和保養，以達到理想效果',
+      context: '安裝瓷貼片後，需按照專科主任的建議，定期覆診以確保貼片維持良好狀態，壽命可長達15年或以上。',
     }
   ],
 }
@@ -264,19 +270,19 @@ const differData = {
     },
     {
       name: '療程時長',
-      firstText: '最快即日完成',
-      secondText: '即日內完成'
+      firstText: '一星期完成',
+      secondText: '數天或當天完成'
     },
     {
       name: '壽命',
       firstText: '長達15至20年或以上',
-      secondText: '只能維持半年至1年'
+      secondText: '只能維持半年至1年，甚至更短'
     },
     {
       name: '優點',
       isArrayType: true,
-      firstText: "• 修磨量少，保存最多牙質\n• 術後適應快\n• 低敏感度",
-      secondText: "• 價格相對較便宜\n• 製作過程簡單快捷"
+      firstText: "• 不易影響咬合\n• 牙齒美白效果極佳\n• 耐用相容性高\n• 陶瓷材質不易變色損壞",
+      secondText: "• 價格相對較實惠\n• 安裝過程簡單"
     }
   ]
 }
@@ -368,13 +374,25 @@ const advantageData = {
           </div>
           <div class="step-lists-in">
             <div class="lastBox-t">
-              <div><img src="@/assets/images/icon_13.png" alt="" /></div>
-              <div>別讓牙齒問題，阻礙<span>笑容綻放!!</span></div>
-              <div><img src="@/assets/images/icon_13.png" alt="" /></div>
+              <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="93" height="37" viewBox="0 0 93 37" fill="none">
+                  <path d="M61.2884 3.61569C61.0125 3.2167 57.6082 -2.72905 49.2665 1.5291C49.2665 1.5291 47.5695 2.19409 46.5 2.19409C45.4305 2.19409 43.7335 1.5291 43.7335 1.5291C35.3962 -2.72905 31.9883 3.21522 31.7116 3.61569C27.3835 9.86291 32.1353 26.4818 36.328 32.7046C43.965 44.0405 43.4306 29.4114 46.5 28.9068C49.5694 29.4114 49.035 44.0405 56.672 32.7046C60.8647 26.4818 65.6165 9.86512 61.2884 3.61569Z" fill="#FC1682"/>
+                  <path d="M0.881739 10.0521C1.02388 9.82569 2.77758 6.45108 7.07483 8.86787C7.07483 8.86787 7.94906 9.2453 8.5 9.2453C9.05094 9.2453 9.92517 8.86787 9.92517 8.86787C14.2202 6.45108 15.9757 9.82485 16.1183 10.0521C18.3479 13.5979 15.9 23.0302 13.7401 26.5621C9.8059 32.9959 10.0812 24.693 8.5 24.4065C6.91881 24.693 7.1941 32.9959 3.25989 26.5621C1.10001 23.0302 -1.3479 13.5991 0.881739 10.0521Z" fill="#FC1682"/>
+                  <path d="M76.8817 10.0521C77.0239 9.82569 78.7776 6.45108 83.0748 8.86787C83.0748 8.86787 83.9491 9.2453 84.5 9.2453C85.0509 9.2453 85.9252 8.86787 85.9252 8.86787C90.2202 6.45108 91.9757 9.82485 92.1183 10.0521C94.3479 13.5979 91.9 23.0302 89.7401 26.5621C85.8059 32.9959 86.0812 24.693 84.5 24.4065C82.9188 24.693 83.1941 32.9959 79.2599 26.5621C77.1 23.0302 74.6521 13.5991 76.8817 10.0521Z" fill="#FC1682"/>
+                </svg>
+              </div>
+              <div>笑容蛻變<span>美麗綻放!!</span></div>
             </div>
             <div class="lastBox-b">
               <!-- <span @click="toWhatsApp">獲取免費諮詢</span> -->
-              <PageAnimBtn :str="'獲取免費諮詢'" />
+              <PageAnimBtn :str="'獲取免費檢查諮詢'">
+                <template #animbtnAfter>
+                  獲取<span class="bigBan">免費</span>檢查諮詢
+                </template>
+                <template #animbtnFront>
+                  獲取<span class="bigBan">免費</span>檢查諮詢
+                </template>
+              </PageAnimBtn>
             </div>
           </div>
         </div>
@@ -385,7 +403,7 @@ const advantageData = {
         <div class="advantage-title-in dentistryServices-title-in bb">{{advantageData.title}}</div>
       </div>
       <div class="advantage-in">
-        <div class="advantage-in-l"><img src="https://static.cmereye.com/imgs/2023/12/9827ef860bdc595c.webp" :alt="advantageData.title"></div>
+        <div class="advantage-in-l"><img src="https://static.cmereye.com/imgs/2024/01/53516f846e4b5815.jpg" :alt="advantageData.title"></div>
         <div class="advantage-in-r">
           <div v-for="(advantageItem,advantageIndex) in advantageData.lists" :key="advantageIndex">
             <div class="name">{{advantageItem.name}}</div>
@@ -409,34 +427,6 @@ const advantageData = {
         <PageAnimBtn :str="'獲取免費諮詢'" />
       </div>
     </div>
-    <!-- 步骤 -->
-    <!-- <ServiceStep :stepData="stepData" /> -->
-    <!-- <div class="notice">
-      <div class="dentistryServices-title">
-        <div class="dentistryServices-title-in bb">{{noticeData.title}}</div>
-      </div>
-      <div class="notice-in">
-        <swiper :slidesPerView="windowWidth>768 ? '2': '1'" class="swiper-wrapper" @slideChange="onSlideChange" @swiper="setVeneerSwiperRef">
-            <swiper-slide class="swiper-slide">
-              <div class="box box-left">
-                <div class="box-in" v-for="(meritItem,meritIndex) in noticeData.meritLists" :key="meritIndex" >
-                  <div>{{meritItem}}</div>
-                </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide class="swiper-slide">
-              <div class="box box-right">
-                <div class="box-in" v-for="(shortcomingItem,shortcomingIndex) in noticeData.shortcomingLists" :key="shortcomingIndex" >
-                  <div>{{shortcomingItem}}</div>
-                </div>
-              </div>
-            </swiper-slide>
-        </swiper>
-      </div>
-      <div class="notice-line mbBox">
-        <PageSwiperPointLine :latestNewsNum="2" :latestNewsCurrent="noticeCurrent"  @changeLineCur="handleLineCur"></PageSwiperPointLine>
-      </div>
-    </div> -->
     <div class="care">
       <div class="dentistryServices-title care-title">
         <div class="dentistryServices-title-in bb care-title-in">
@@ -474,66 +464,6 @@ const advantageData = {
 
 
 <style lang="scss" scoped>
-// .notice{
-//   width: 100%;
-//   max-width: 1450px;
-//   margin: 96px auto 0;
-//   &-in{
-//     width: 90%;
-//     margin: 70px auto 0;
-//     .box{
-//       .box-in{
-//         height: 112px;
-//         margin-top: 15px;
-//         display: flex;
-//         background: var(--indexColor2);
-//         font-style: normal;
-//         font-weight: 600;
-//         font-size: 20px;
-//         line-height: 160%;
-//         color: #666666;
-//         padding: 0 80px;
-//         box-sizing: border-box;
-//         display: flex;
-//         align-items: center;
-//         justify-content: center;
-//         text-align: center;
-//         &:first-child{
-//           background: var(--indexColor1);
-//           color: #fff;
-//           margin-top: 0;
-//           height: 69px;
-//           font-weight: 700;
-//           font-size: 28px;
-//         }
-//         &:nth-of-type(2){
-//           margin-top: 0;
-//         }
-//       }
-//     }
-//     .box-left{
-//       border-radius:  60px 0 0 60px;
-//       overflow: hidden;
-//     }
-//     .box-right{
-//       margin-left: 3px;
-//       border-radius:  0 60px 60px 0;
-//       overflow: hidden;
-//       .box-in{
-//         &:nth-of-type(3){
-//           height: 239px;
-//         }
-//         &:first-child{
-//           background: var(--indexColor);
-//         }
-//       }
-//     }
-//   }
-//   &-line{
-//     width: 83px;
-//     margin: 22px auto;
-//   }
-// }
 .bp{
   margin-top: 108px;
   &-swiper{
@@ -668,7 +598,7 @@ const advantageData = {
   margin-top: 70px;
   &-in {
     width: 100%;
-    max-width: 1444px;
+    max-width: calc(1444px + 122px);
     margin: 0 auto;
   }
   &-title {
@@ -678,6 +608,7 @@ const advantageData = {
   }
   &-lists {
     margin-top: 98px;
+    padding: 0 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -685,14 +616,19 @@ const advantageData = {
       display: flex;
       align-items: center;
       margin-bottom: 92px;
+      padding: 0 calc((61 / ( 1444 + 122 )) * 100%);
+      width: calc(100% / 3);
       &:nth-of-type(4),
       &:nth-of-type(5) {
         margin-bottom: 0;
       }
-      &:nth-of-type(3),
-      &:nth-of-type(4){
-        .step-lists-in-r {
-          display: none;
+      &:nth-of-type(5) {
+        .step-lists-in-l{
+          .image {
+            &::after{
+              display: none;
+            }
+          }
         }
       }
       &-l {
@@ -719,6 +655,18 @@ const advantageData = {
             width: 100%;
             border-radius: 30px;
           }
+          position: relative;
+            &::after{
+              content: '';
+              position: absolute;
+              right: -17%;
+              top: 50%;
+              transform: translateY(-50%);
+              background: url(@/assets/images/icon_12.png);
+              background-size: 100% 100%;
+              width: 16px;
+              height: 30px;
+            }
         }
         .name {
           color: #fff;
@@ -738,73 +686,45 @@ const advantageData = {
         }
       }
       &-r {
-        margin-left: 50px;
+        display: none;
         img {
           width: 15px;
           height: auto;
         }
       }
-      &:nth-of-type(5) {
+      &:nth-of-type(6) {
         flex: 1;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding: 0;
         .lastBox-t {
-          display: flex;
-          align-items: flex-end;
+          // display: flex;
+          // align-items: flex-end;
           & > div {
             color: var(--indexColor1);
-            font-size: 35px;
+            font-size: 55px;
             font-weight: 700;
+            text-align: center;
             span {
               font-size: 85px;
+              line-height: 120%;
+              display: block;
             }
             &:nth-of-type(1) {
-              padding-bottom: 25px;
-              margin-right: 30px;
-            }
-            &:nth-of-type(3) {
-              padding-bottom: 25px;
-              margin-left: 30px;
+              display: flex;
+              justify-content: center;
+              width: 100%;
+              margin-bottom: 15px;
             }
           }
         }
         .lastBox-b {
-          margin-top: 15px;
-          span {
-            cursor: pointer;
-            background: var(--indexColor1);
-            color: #fff;
-            font-size: 35px;
-            font-weight: 700;
-            padding: 5px 50px;
-            border-radius: 30px;
-            display: block;
-            box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
-            position: relative;
-            z-index: 1;
-            &::after,&::before{
-              content: '';
-              width: 100%;
-              height: 100%;
-              position: absolute;
-              left: 50%;
-              top: 50%;
-              transform: translate(-50%,-50%);
-              opacity: 0;
-              border-radius: 50px;
-              background: var(--indexColor1);
-              z-index: -1;
-            }
-            &:hover{
-              &::after{
-                animation: btnAnim2 3s infinite;
-              }
-              &::before{
-                animation: btnAnim3 3s infinite;
-              }
-            }
+          margin-top: 20px;
+          .bigBan{
+            font-size: 44px;
+            line-height: 1.2;
           }
         }
       }
@@ -1027,7 +947,33 @@ const advantageData = {
     opacity: 0;
   }
 }
-@media (min-width: 768px) and (max-width: 1452px) {}
+@media (min-width: 768px) and (max-width: 1300px) {
+  .step {
+    &-lists {
+      &-in{
+        &:nth-of-type(6) {
+          .lastBox-t {
+            &>div{
+              font-size: 35px;
+              span{
+                font-size: 60px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: 768px) and (max-width: 1200px) {
+  .step {
+    &-lists {
+      &-in{
+        width: calc(100% / 2);
+      }
+    }
+  }
+}
 @media (min-width: 768px) and (max-width: 1100px) {
   .bp{
     &-text{
@@ -1039,40 +985,25 @@ const advantageData = {
       }
     }
   }
+  .step {
+    &-lists {
+      &-in{
+        // padding: 0 calc((61 / ( 1444 + 122 )) * 100%);
+        &-l {
+          .image{
+            &::after{
+              right: -10%;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 //md
 
 @media only screen and (max-width: 760px) {
-  // .notice{
-  //   &-in{
-  //     width: 100%;
-  //     margin: 34px 0 0;
-  //     .box{
-  //       margin-left: 30px;
-  //       .box-in{
-  //         font-weight: 500;
-  //         font-size: 15px;
-  //         height: 65px;
-  //         margin-top: 9px;
-  //         padding: 0 46px;
-  //         &:first-child{
-  //           height: 40px;
-  //           font-weight: 600;
-  //           font-size: 20px;
-  //         }
-  //       }
-  //     }
-  //     .box-right{
-  //       margin-right: 30px;
-  //       margin-left: 0;
-  //       .box-in{
-  //         &:nth-of-type(3){
-  //           height: 139px;
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
+  
   .bp{
     margin-top: 94px;
     &-text{
@@ -1110,12 +1041,14 @@ const advantageData = {
       &-in {
         flex-direction: column;
         margin-bottom: 30px;
+        width: 100%;
+        padding: 0;
         &:nth-of-type(n + 4) {
           margin-bottom: 30px;
         }
-        &:nth-of-type(3) {
+        &:nth-of-type(5) {
           .step-lists-in-r {
-            display: block;
+            display: none;
           }
         }
         &-l {
@@ -1125,6 +1058,9 @@ const advantageData = {
           }
           .image {
             padding: 0 6px;
+            &::after{
+              display: none;
+            }
           }
           .name {
             margin-top: -25px;
@@ -1136,40 +1072,56 @@ const advantageData = {
           }
         }
         &-r {
+          display: block;
           margin-top: 30px;
           margin-left: 0;
           img {
             transform: rotate(90deg);
           }
         }
-        &:nth-of-type(5) {
+        &:nth-of-type(6) {
           margin-top: 15px;
           .lastBox-t {
             & > div {
-              font-size: 15px;
+              font-size: 16px;
               span {
                 font-size: 24px;
+                display: inline-block;
+                &::before{
+                  content: '，';
+                  font-size: 16px;
+                  font-family: 'Noto Serif HK', Serif;
+                }
               }
               img {
                 width: 20px;
                 height: 22px;
               }
               &:nth-of-type(1) {
-                padding-bottom: 5px;
-                margin-right: 7px;
+                display: none;
               }
-              &:nth-of-type(3) {
-                padding-bottom: 5px;
-                margin-left: 7px;
+              &:nth-of-type(2) {
+                // display: none;
+                &::before,&::after{
+                  content: '';
+                  display: inline-block;
+                  width: 20px;
+                  height: 22px;
+                  margin: 0 9px;
+                  background: url(@/assets/images/icon_13.png);
+                  background-size: 100% 100%;
+                }
               }
+              // &:nth-of-type(3) {
+              //   padding-bottom: 5px;
+              //   margin-left: 7px;
+              // }
             }
           }
           .lastBox-b {
-            margin-top: 20px;
-            span {
-              font-size: 20px;
-              padding: 5px 50px;
-              border-radius: 25px;
+            margin-top: 30px;
+            .bigBan{
+              font-size: 28px;
             }
           }
         }
@@ -1305,6 +1257,10 @@ const advantageData = {
              padding-left: 10px;
            }
          }
+       }
+       &-l{
+         display: flex;
+         justify-content: center;
        }
      }
   }
