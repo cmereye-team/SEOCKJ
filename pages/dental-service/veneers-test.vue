@@ -281,8 +281,10 @@ const differData = {
     {
       name: '優點',
       isArrayType: true,
-      firstText: "• 不易影響咬合\n• 牙齒美白效果極佳\n• 耐用相容性高\n• 陶瓷材質不易變色損壞",
-      secondText: "• 價格相對較實惠\n• 安裝過程簡單"
+      // firstText: "• 不易影響咬合\n• 牙齒美白效果極佳\n• 耐用相容性高\n• 陶瓷材質不易變色損壞",
+      // secondText: "• 價格相對較實惠\n• 安裝過程簡單"
+      firstText: ['不易影響咬合','牙齒美白效果極佳','耐用相容性高','陶瓷材質不易變色損壞'],
+      secondText: ['價格相對較實惠','安裝過程簡單']
     }
   ]
 }
@@ -419,8 +421,14 @@ const advantageData = {
       <div class="differ-lists">
         <div class="differ-lists-in" v-for="(listDatasItem,listDatasIndex) in differData.listDatas" :key="listDatasIndex">
           <div>{{listDatasItem.name}}</div>
-          <div>{{listDatasItem.firstText}}</div>
-          <div>{{listDatasItem.secondText}}</div>
+          <div v-if="!listDatasItem.isArrayType">{{listDatasItem.firstText}}</div>
+          <div v-else class="isArrayType">
+            <span v-for="(textItem,textIndex) in listDatasItem.firstText" :key="textIndex">{{textItem}}</span>
+          </div>
+          <div v-if="!listDatasItem.isArrayType">{{listDatasItem.secondText}}</div>
+          <div v-else class="isArrayType">
+            <span v-for="(textItem,textIndex) in listDatasItem.secondText" :key="textIndex">{{textItem}}</span>
+          </div>
         </div>
       </div>
       <div class="differ-btn">
@@ -769,6 +777,7 @@ const advantageData = {
         display: flex;
         align-items: center;
         white-space: pre-wrap;
+        text-align: justify;
         &:nth-of-type(1){
           width: calc( (122 / 1251) * 100%);
           border-radius: 60px 0 0 60px;
@@ -778,12 +787,47 @@ const advantageData = {
           width: calc( (572 / 1251) * 100%);
           margin-left: 2.5px;
           padding: 0 calc( (74 / 1251) * 100%);
+          &.isArrayType{
+            align-content: center;
+            flex-wrap: wrap;
+            span{
+              display: flex;
+              width: 50%;
+              white-space: nowrap;
+              &:nth-of-type(1){
+                order: 1;
+              }
+              &:nth-of-type(2){
+                order: 3;
+              }
+              &:nth-of-type(3){
+                order: 2;
+              }
+              &:nth-of-type(4){
+                order: 4;
+              }
+              &::before {  
+                content: "•";
+              }
+            }
+          }
         }
         &:nth-of-type(3){
           width: calc( (572 / 1251) * 100%);
           margin-left: 2.5px;
           padding: 0 calc( (74 / 1251) * 100%);
           border-radius: 0 60px 60px 0;
+          &.isArrayType{
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            span{
+              display: flex;
+              &::before {  
+                content: "•";
+              }
+            }
+          }
         }
       }
     }
@@ -1142,6 +1186,7 @@ const advantageData = {
           font-size: 12px;
           box-sizing: border-box;
           min-height: auto;
+          justify-content: center;
           &:nth-of-type(1){
             border-radius: 0;
             margin-left: 1px;
@@ -1154,12 +1199,51 @@ const advantageData = {
           &:nth-of-type(2){
             padding: 20px 14px;
             width: calc( (127 / 315) * 100%);
+            margin-left: 1px;
+            &.isArrayType{
+              flex-direction: column;
+              align-items: flex-start;
+              padding: 10px;
+              span{
+                display: flex;
+                width: 100%;
+                white-space: initial;
+                &:nth-of-type(1){
+                  order: 1;
+                }
+                &:nth-of-type(2){
+                  order: 2;
+                }
+                &:nth-of-type(3){
+                  order: 3;
+                }
+                &:nth-of-type(4){
+                  order: 4;
+                }
+                &::before {  
+                  content: "•";  
+                  height: 100%;
+                }
+              }
+            }
           }
           &:nth-of-type(3){
             border-radius: 0;
             margin-left: 1px;
             padding: 20px 14px;
             width: calc( (127 / 315) * 100%);
+            &.isArrayType{
+              flex-direction: column;
+              align-items: flex-start;
+              padding: 10px;
+              span{
+                display: flex;
+                &::before {  
+                  content: "•";  
+                  height: 100%;
+                }
+              }
+            }
           }
         }
         &:nth-of-type(1){
