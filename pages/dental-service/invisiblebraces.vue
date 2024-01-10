@@ -20,7 +20,7 @@ useHead({
 })
 
 const headerConfig = {
-  img: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/image73454.lkb1tw3dids.jpg',
+  img: 'https://static.cmereye.com/imgs/2024/01/e93fadd3911c7193.webp',
   bg: '',
   mbImg: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/mobile-ve3124.3h6wsv17p2c0.jpg',
   pageName: 'invisalign-test',

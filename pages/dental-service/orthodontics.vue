@@ -20,9 +20,9 @@ useHead({
 })
 
 const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2023/12/dc586730cadbf9be.jpg',
+  img: 'https://static.cmereye.com/imgs/2024/01/5eb35275c01b0537.webp',
   bg: '',
-  mbImg: 'https://static.cmereye.com/imgs/2023/12/068deaea29e10406.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2024/01/29f29cc72a451c67.webp',
   pageName: 'orthodontics-test',
   pcText: ['追求美學極致，展現最燦爛笑容','愛康健為愛美的您打造完美面部輪廓'],
   mbText: ['追求美學極致','展現最燦爛笑容']
