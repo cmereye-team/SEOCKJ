@@ -274,7 +274,7 @@ const differData = {
       secondText: '數天或當天完成'
     },
     {
-      name: '壽命',
+      name: '耐用度',
       firstText: '長達15至20年或以上',
       secondText: '只能維持半年至1年，甚至更短'
     },
