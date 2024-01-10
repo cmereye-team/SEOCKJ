@@ -819,6 +819,10 @@ const handleMbMenu = () => {
         animation-fill-mode: forwards;
       }
     }
+    &:hover{
+      transition: all .3s;
+      opacity: .8;
+    }
   }
   .waterBg-implant {
     display: none;

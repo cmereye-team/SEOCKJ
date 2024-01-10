@@ -85,6 +85,7 @@ onMounted(()=>{
       // width: 100%;
       display: flex;
       justify-content: center;
+      transition: all .3s;
       &>span {
         box-shadow: 0px 1.74695px 3.4939px 0px rgba(252, 22, 130, 0.38);
         font-size: 35px;
@@ -118,6 +119,9 @@ onMounted(()=>{
           animation: btnAnim 1s linear;
           animation-fill-mode: forwards;
         }
+      }
+      &:hover{
+        opacity: .7;
       }
     }
   }
