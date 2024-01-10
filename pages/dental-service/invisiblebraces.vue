@@ -22,7 +22,7 @@ useHead({
 const headerConfig = {
   img: 'https://static.cmereye.com/imgs/2024/01/e93fadd3911c7193.webp',
   bg: '',
-  mbImg: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/mobile-ve3124.3h6wsv17p2c0.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2024/01/06c4cebcc3b6bdb9.jpg',
   pageName: 'invisalign-test',
   pcText: ['自由．舒適．美觀','保持自然笑容 牙齒更加美麗動人'],
   mbText: ['保持自然笑容','牙齒更加美麗動人']

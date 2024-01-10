@@ -821,7 +821,13 @@ const handleMbMenu = () => {
     }
     &:hover{
       transition: all .3s;
-      opacity: .8;
+      // opacity: .8;
+      span{
+        &:nth-of-type(1){
+          transition: all .3s;
+          background: #FF85AF;
+        }
+      }
     }
   }
   .waterBg-implant {
