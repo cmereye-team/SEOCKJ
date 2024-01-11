@@ -4,7 +4,7 @@ import { toWhatsApp } from '~/assets/js/common'
 const appState = useAppState()
 appState.setDentistryService('invisalign')
 useHead({
-  title: "Invisalign隱適美｜牙科服務",
+  title: "隱形矯正｜牙科服務",
   meta: [
    {
       hid: 'description',

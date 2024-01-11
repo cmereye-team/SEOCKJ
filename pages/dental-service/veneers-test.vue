@@ -4,7 +4,7 @@ import { toWhatsApp } from '~/assets/js/common'
 const appState = useAppState()
 appState.setDentistryService('veneers')
 useHead({
-  title: "瓷貼片｜牙科服務",
+  title: "全瓷貼片｜牙科服務",
   meta: [
    {
       hid: 'description',
@@ -20,9 +20,9 @@ useHead({
 })
 
 const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2024/01/bdeaee52c82c4ca3.jpg',
+  img: 'https://static.cmereye.com/imgs/2024/01/98c70e1389eb0cc0.jpg',
   bg: '',
-  mbImg: 'https://static.cmereye.com/imgs/2024/01/17ef8e3b4e1c55f0.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2024/01/97ad68875bef5a90.jpg',
   pageName: 'veneers-test',
   pcText: ['自訂零死角潔白微笑線','展現自信微笑'],
   mbText: ['自訂零死角潔白微笑線','展現自信微笑']
