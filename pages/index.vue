@@ -6,7 +6,8 @@ import doctorLists_cs from '~/assets/js/doctor'
 const appState = useAppState()
 const { t } = useLang()
 useHead({
-  title: "CKJ愛康健齒科連鎖 | 香港官方網站",
+  title: "CKJ愛康健齒科連鎖 | 香港官方網站 | 深圳二級口腔醫院",
+  titleTemplate: '',
   meta: [
     {
       hid: 'description',

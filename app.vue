@@ -9,7 +9,7 @@ const app = useAppConfig() as AppConfigInput
 
 useHead({
   title: app.name,
-  titleTemplate: '%s | 深圳二級口腔醫院',
+  titleTemplate: "%s | 深圳愛康健口腔醫院",
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     {

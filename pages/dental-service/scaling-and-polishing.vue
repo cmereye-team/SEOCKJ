@@ -23,9 +23,9 @@ useHead({
 
 const headerConfig = {
   // img: 'https://static.cmereye.com/imgs/2023/10/d30760066b45d1e4.jpg',
-  img: 'https://static.cmereye.com/imgs/2023/10/7e2218a11c53f77f.jpg',
+  img: 'https://static.cmereye.com/imgs/2024/01/fefcab11b4cb2776.jpg',
   bg: '',
-  mbImg: 'https://static.cmereye.com/imgs/2023/10/595a77c6d3c34be1.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2024/01/6072d561e1484521.jpg',
   pageName: 'scaling-and-polishing-test',
   pcText: [
     '定期洗牙，全方位清潔口腔盲點',
@@ -126,7 +126,7 @@ const differenceData = {
   tables: [
     {
       a: '',
-      b: '普通洗牙',
+      b: '超聲波洗牙',
       c: '含鹽洗牙',
       d: '無鹽洗牙',
     },
@@ -178,8 +178,8 @@ const chargeData = {
     },
     {
       a: '超聲波洗牙',
-      b: '¥180',
-      c: '',
+      b: '¥88',
+      c: '原價 ¥300',
     },
     {
       a: '菌斑導向專業洗牙（含鹽）',
@@ -648,6 +648,21 @@ const careData = {
           font-size: 28px;
           font-weight: 700;
           color: var(--indexColor);
+          &:nth-of-type(2) {
+            color: #4c4c4c;
+            font-size: 16px;
+            position: relative;
+            &::before {
+              content: '';
+              width: 100%;
+              height: 1px;
+              background: #4c4c4c;
+              position: absolute;
+              top: 55%;
+              left: 50%;
+              transform: translate(-50%, -50%) rotate(5deg);
+            }
+          }
         }
         &:nth-of-type(1) {
           flex: 2;
@@ -967,7 +982,7 @@ const careData = {
           margin-bottom: 0;
           .item-in {
             font-size: 16px;
-            padding: 0 20px;
+            padding: 0 17px;
             line-height: 1.2;
             text-align: center;
             &:nth-of-type(3) {
@@ -1019,6 +1034,10 @@ const careData = {
           font-size: 15px;
           span {
             font-size: 20px;
+            &:nth-of-type(2) {
+              font-size: 9px;
+              font-weight: 500;
+            }
           }
           &:nth-of-type(1) {
             flex: 1;
