@@ -6,7 +6,7 @@ import doctorLists_cs from '~/assets/js/doctor'
 const appState = useAppState()
 const { t } = useLang()
 useHead({
-  title: "牙科齒科服務 | 口腔專科醫院",
+  title: "CKJ愛康健齒科連鎖 | 香港官方網站",
   meta: [
     {
       hid: 'description',
@@ -318,6 +318,10 @@ svg:hover path{
         max-width: 400px;
         margin-top: 47px;
         box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
+        transition: all .3s;
+        &:hover{
+          background: #FF85AF;
+        }
       }
     }
     &-r{

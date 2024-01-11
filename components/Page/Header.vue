@@ -811,6 +811,7 @@ const handleMbMenu = () => {
       box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
       cursor: pointer;
       z-index: 1;
+      transition: all .3s;
       &:nth-of-type(2) {
         color: var(--indexColor1);
         background: #fff;
@@ -820,11 +821,8 @@ const handleMbMenu = () => {
       }
     }
     &:hover{
-      transition: all .3s;
-      // opacity: .8;
       span{
         &:nth-of-type(1){
-          transition: all .3s;
           background: #FF85AF;
         }
       }
