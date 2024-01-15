@@ -1,0 +1,771 @@
+<script lang="ts" setup>
+import { useAppState } from '~/stores/appState'
+import { Scrollbar } from 'swiper';
+const appState = useAppState()
+appState.setBrand('course')
+
+
+useHead({
+  title: '品牌歷程 | 口腔專科醫院',
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content: '愛康健作為深圳愛康健口腔醫院是一家專業口腔醫院，秉承著「專科·專業」的服務理念，科學、合理地整合醫療資源。我們的醫師團隊均畢業於國內知名口腔學院，包括種植醫師、美學修復醫師、牙周病醫師等專業人員。他們帶領著醫護人員共同構成我們的服務團隊，為患者提供專業、優質的口腔醫療服務。',
+    },
+    {
+      hid: 'Keywords',
+      name: 'Keywords',
+      content: '愛康健 深圳愛康健 深圳專業牙科中心 愛康健醫院 愛康健口腔醫院 深圳愛康健口腔醫院愛康健 CKJ愛康健齒科集團 深圳口腔專科醫院 愛康健齒科集團 深圳牙科醫院牙科服務內地牙科 深圳口腔專科 基本牙科 美容牙科 高階牙科 愛康健',
+    },
+  ],
+})
+
+const headerConfig = {
+  img: 'https://static.cmereye.com/imgs/2023/06/a9937a33f4c1e5aa.png',
+  bg: 'https://static.cmereye.com/imgs/2023/06/d85c660d38bd5f93.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2023/06/8756debfc7f1a54b.jpg',
+  pageName: 'brand',
+  pcText: ['健齒為本 嚴謹治療','專科 · 專業 · 實力保證'],
+  mbText: ['健齒為本 嚴謹治療','專科 · 專業 · 實力保證']
+}
+
+const introduceData = {
+  title: 'pages.brand.course.introduce.title',
+  content:
+    'pages.brand.course.introduce.content',
+  mbImg: 'https://static.cmereye.com/imgs/2023/05/2dad0e643e10a596.jpg',
+  pcImg: 'https://static.cmereye.com/imgs/2023/05/558375ea7ebd62ca.jpg',
+  tabNavName: 'pages.brand.course.introduce.tabNavName',
+}
+
+const courseData = {
+  title: 'pages.brand.course.history.title',
+  lists: [
+    {
+      timeNode: '1995',
+      events: [
+        {
+          month: '',
+          context: 'pages.brand.course.history.time_1995.context',
+        },
+      ],
+    },
+    {
+      timeNode: '2000',
+      events: [
+        {
+          month: '',
+          context: 'pages.brand.course.history.time_2000.context',
+        },
+      ],
+    },
+    {
+      timeNode: '2006',
+      events: [
+        {
+          month: '',
+          context: 'pages.brand.course.history.time_2006.context',
+        },
+      ],
+    },
+    {
+      timeNode: '2008',
+      events: [
+        {
+          month: '5月',
+          context:
+            'pages.brand.course.history.time_2008.context_5',
+        },
+        {
+          month: '7月',
+          context: 'pages.brand.course.history.time_2008.context_7',
+        },
+        {
+          month: '10月',
+          context: 'pages.brand.course.history.time_2008.context_10',
+        },
+        {
+          month: '11月',
+          context:
+            'pages.brand.course.history.time_2008.context_11',
+        },
+      ],
+    },
+    {
+      timeNode: '2009',
+      events: [
+        {
+          month: '4月',
+          context: 'pages.brand.course.history.time_2009.context_4',
+        },
+        {
+          month: '6月',
+          context: 'pages.brand.course.history.time_2009.context_6',
+        },
+        {
+          month: '7月',
+          context: 'pages.brand.course.history.time_2009.context_7',
+        },
+      ],
+    },
+    {
+      timeNode: '2010',
+      events: [
+        {
+          month: '4月',
+          context: 'pages.brand.course.history.time_2010.context_4',
+        },
+      ],
+    },
+    {
+      timeNode: '2011',
+      events: [
+        {
+          month: '',
+          context:
+            'pages.brand.course.history.time_2011.context',
+        },
+      ],
+    },
+    {
+      timeNode: '2012',
+      events: [
+        {
+          month: '',
+          context:
+            'pages.brand.course.history.time_2012.context',
+        },
+      ],
+    },
+    {
+      timeNode: '2014',
+      events: [
+        {
+          month: '',
+          context:
+            'pages.brand.course.history.time_2014.context',
+        },
+      ],
+    },
+    {
+      timeNode: '2015',
+      events: [
+        {
+          month: '',
+          context: 'pages.brand.course.history.time_2015.context',
+        },
+      ],
+    },
+    {
+      timeNode: '2016',
+      events: [
+        {
+          month: '1月',
+          context:
+            'pages.brand.course.history.time_2016.context_1',
+        },
+        {
+          month: '12月',
+          context:
+            'pages.brand.course.history.time_2016.context_12',
+        },
+      ],
+    },
+    {
+      timeNode: '2017',
+      events: [
+        {
+          month: '5月',
+          context:
+            'pages.brand.course.history.time_2017.context_5',
+        },
+        {
+          month: '8月',
+          context:
+            'pages.brand.course.history.time_2017.context_8',
+        },
+      ],
+    },
+    {
+      timeNode: '2018',
+      events: [
+        {
+          month: '',
+          context:
+            'pages.brand.course.history.time_2018.context',
+        },
+      ],
+    },
+    {
+      timeNode: '2019',
+      events: [
+        {
+          month: '',
+          context:
+            'pages.brand.course.history.time_2019.context',
+        },
+      ],
+    },
+    {
+      timeNode: '2020',
+      events: [
+        {
+          month: '11月',
+          context:
+            'pages.brand.course.history.time_2020.context_11',
+        },
+        {
+          month: '12月',
+          context:
+            'pages.brand.course.history.time_2020.context_12',
+        },
+      ],
+    },
+    {
+      timeNode: '2021',
+      events: [
+        {
+          month: '6月',
+          context: 'pages.brand.course.history.time_2021.context_6',
+        },
+        {
+          month: '9月',
+          context:
+            'pages.brand.course.history.time_2021.context_9'
+        },
+        {
+          month: '12月',
+          context: 'pages.brand.course.history.time_2021.context_12',
+        },
+      ],
+    },
+  ],
+}
+
+const currtNum = ref(0)
+
+onMounted(()=>{
+  nextTick(()=>{
+    let courseIn = document.getElementById("courseIn")
+    if(courseIn){
+      var isDragging = false;
+      var a = 0
+      var b = 0
+      courseIn.addEventListener('mousedown', function(event) {
+        b = event.clientX
+        isDragging = true;  
+      });
+      courseIn.addEventListener('mousemove', function(event) { 
+        if (isDragging) {   
+          a = event.clientX
+          if(courseIn){
+            courseIn.scrollLeft = courseIn.scrollLeft - ( a - b )
+            b = a
+          }
+        }  
+      })
+      courseIn.addEventListener('mouseup', function(event) {
+        isDragging = false;  
+      });
+      courseIn.addEventListener('mouseleave', function(event) {
+        isDragging = false;  
+      });
+    } 
+  })
+})
+</script>
+
+
+<template>
+  <div>
+    <PageHeader :headerConfig="headerConfig" />
+    <div class="pageIn whitebgColor">
+      <div class="index_title pageCon">{{$t('pages.brand.title')}}</div>
+      <div class="introduce bigPageCon">
+        <div
+          class="introduce-in"
+          :style="{
+        background: `url(${introduceData.pcImg}) no-repeat`,
+        backgroundPosition: 'right top',
+        backgroundSize: 'auto 100%'
+        }"
+        >
+          <div class="tabNav noTitle pageCon">
+            <nuxt-link :to="'/'">
+              <span>{{$t('pages.index.title')}}</span>
+            </nuxt-link>
+            <nuxt-link :to="''">
+              <span>{{$t('pages.brand.title')}}</span>
+            </nuxt-link>
+            <span>{{$t(introduceData.tabNavName)}}</span>
+          </div>
+          <div class="introduce-in-t mbBox">
+            <img :src="introduceData.mbImg" />
+          </div>
+          <div class="introduce-in-l pageCon">
+            <div class="title">{{$t(introduceData.title)}}</div>
+            <div class="content">{{$t(introduceData.content)}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="course">
+        <div class="course-bg">
+          <div class="course-title dentistryServices-title pageCon">
+            <div class="course-title-in dentistryServices-title-in bb">
+              {{$t(courseData.title)}}
+            </div>
+          </div>
+          <div class="course-in" id="courseIn" ref="courseIn">
+            <div class="historyNode-pc" :style="{width: `${courseData.lists.length / 2 * 220 + 150}px`}">
+              <div class="historyNode historyNode-t">
+                <div class="center-box">
+                <div class="historyNode-in" v-for="(courseItem,courseIndex) in courseData.lists" :key="courseIndex">
+                  <div class="box" v-if="courseIndex % 2 === 0">
+                    <div class="year">{{courseItem.timeNode}}</div>
+                    <div class="eventsItem" v-for="(eventsItem,eventsIndex) in courseItem.events" :key="eventsIndex">
+                      <div class="month">{{eventsItem.month}}</div>
+                      <div class="context">{{$t(eventsItem.context)}}</div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+              <div class="historyNode-line"></div>
+              <div class="historyNode historyNode-b">
+                <div class="center-box">
+                <div class="historyNode-in" v-for="(courseItem,courseIndex) in courseData.lists" :key="courseIndex">
+                  <div class="box" v-if="courseIndex % 2 !== 0">
+                    <div class="year">{{courseItem.timeNode}}</div>
+                    <div class="eventsItem" v-for="(eventsItem,eventsIndex) in courseItem.events" :key="eventsIndex">
+                      <div class="month">{{eventsItem.month}}</div>
+                      <div class="context">{{$t(eventsItem.context)}}</div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+            <div class="historyNode-mb">
+              <div class="historyNode-in" v-for="(courseItem,courseIndex) in courseData.lists" :key="courseIndex">
+                <div :class="['historyNode-box',{'act-historyNode-box': currtNum === courseIndex}]" >
+                  <div class="year" @click="currtNum = courseIndex">{{courseItem.timeNode}}</div>
+                  <div :class="['eventsItem',{'act-eventsItem': currtNum === courseIndex}]" v-for="(eventsItem,eventsIndex) in courseItem.events" :key="eventsIndex">
+                    <div class="month">{{eventsItem.month}}</div>
+                    <div class="context">{{$t(eventsItem.context)}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ContactUs />
+    </div>
+    <PageFooter />
+    <PageNavbar />
+  </div>
+</template>
+
+
+
+<style lang="scss" scoped>
+// 介绍
+.introduce {
+  &-in {
+    margin-top: 45px;
+    height: 32.709vw;
+    max-height: 628px;
+    &-l {
+      color: #666666;
+      padding-bottom: 90px;
+      .title {
+        font-weight: 700;
+        font-size: 50px;
+        margin-top: 96px;
+      }
+      .content {
+        font-weight: 600;
+        font-size: 26px;
+        max-width: 630px;
+        width: 630px;
+        margin-top: 56px;
+      }
+    }
+  }
+}
+.tabNav {
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 160%;
+  color: #cbcbcb;
+  margin-top: 83px;
+  a {
+    &:not(:last-child)::after {
+      content: '';
+      width: 20px;
+      height: 2px;
+      margin: 0 10px;
+      background: #cbcbcb;
+      display: inline-block;
+      vertical-align: middle;
+      margin-top: -4px;
+    }
+  }
+  & > span {
+    cursor: pointer;
+    color: var(--indexColor1);
+  }
+}
+.course{
+  margin-top: 108px;
+  &-in{
+    width: 100%;
+    overflow: hidden;
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+      background: none;
+      height: 12px;
+    }
+    &::-webkit-scrollbar-thumb{
+      background: var(--indexColor1);
+    }
+    &::-webkit-scrollbar-track{
+      background: var(--indexColor2);
+      border-radius: 6px;
+    }
+    &::-webkit-scrollbar-button {  
+      width: 30px;
+      display: block;
+      opacity: 0;
+    }
+    cursor: pointer;
+    .historyNode-pc{
+      min-width: 100%;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      .year{
+        color: var(--indexColor1);
+        text-align: center;
+        font-size: 50px;
+        font-weight: 700;
+        line-height: 160%;
+      }
+      .month{
+        color: var(--indexColor1);
+        text-align: justify;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 160%;
+      }
+      .context{
+        color: var(--textColor);
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 160%;
+      }
+      .historyNode{
+        display: flex;
+        .center-box{
+          display: flex;
+          max-width: 1920px;
+          width: 100%;
+          margin: 0 auto;
+        }
+        &-in{
+          display: flex;
+          .box{
+            width: 220px;
+            min-width: 220px;
+            max-width: 220px;
+            padding: 0 29px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            &::before{
+              content: '';
+              width: 16px;
+              height: 16px;
+              border-radius: 50%;
+              background: var(--indexColor1);
+              position: absolute;
+              left: 50%;
+              transform: translate(-50%,-50%);
+            }
+            &::after{
+              content: '';
+              width: 2px;
+              height: 56px;
+              background: var(--indexColor1);
+              position: absolute;
+              left: 50%;
+              transform: translateX(-50%);
+            }
+          }
+        }
+      }
+      .historyNode-t{
+        background: linear-gradient(15deg, rgba(252, 22, 130, 0.40) -68.47%, rgba(252, 22, 130, 0.28) -68.46%, rgba(255, 168, 198, 0.00) 63.88%);
+        padding: 0 130px 0 20px;
+        .historyNode-in{
+          .box{
+            justify-content: flex-end;
+            &::before{
+              bottom: 0;
+              transform: translate(-50%,50%);
+            }
+          }
+        }
+        .year{
+          order: 2;
+          margin-bottom: 56px;
+        }
+        .eventsItem{
+          order: 1;
+          margin-top: 50px;
+        }
+      }
+      .historyNode-line{
+        width: 100%;
+        height: 2px;
+        background: var(--indexColor1);
+      }
+      .historyNode-b{
+        padding: 0 20px 0 130px;
+        .year{
+          margin-top: 56px;
+        }
+        .eventsItem{
+          margin-bottom: 50px;
+        }
+      }
+    }
+    .historyNode-mb{
+      display: none;
+    }
+  }
+}
+@keyframes lineAnima {
+  0%{
+    width: 0;
+  }
+  100%{
+    width: 100%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1452px) {
+  .introduce {
+    &-in {
+      margin-top: 3.5vw;
+      &-l {
+        padding-bottom: 7vw;
+        .title {
+          font-size: 2.2vw;
+          margin-top: 6vw;
+        }
+        .content {
+          font-size: 1.5vw;
+          margin-top: 3vw;
+          width: 42vw;
+        }
+      }
+    }
+  }
+  .tabNav {
+    font-size: 1.5vw;
+    margin-top: 6vw;
+  }
+  .course{
+    margin-top: 120px;
+  }
+}
+
+//md
+@media only screen and (max-width: 768px) {
+  @keyframes modulAnim{
+    0%{
+      background: var(--indexColor1);
+    }
+    75%{
+      background: var(--indexColor3);
+    }
+  }
+  @keyframes modulFontAnim{
+    0%{
+      color: var(--indexColor1);
+    }
+    75%{
+      color: var(--indexColor3);
+    }
+  }
+  @keyframes modulIconAnim{
+    0%{
+      opacity: 1;
+    }
+    75%{
+      opacity: .5;
+    }
+  }
+  .introduce {
+    &-in {
+      height: auto;
+      max-height: 300%;
+      background: none !important;
+      margin-top: 0;
+      &-t {
+        width: 100%;
+        img {
+          width: 100%;
+        }
+      }
+      &-l {
+        padding-bottom: 0;
+        .title {
+          padding: 0 30px;
+          font-weight: 700;
+          font-size: 26px;
+          margin-top: 0;
+        }
+        .content {
+          font-size: 1rem;
+          width: 95%;
+          padding: 0 30px;
+          margin-top: 30px;
+        }
+      }
+    }
+  }
+  .tabNav {
+    padding: 30px;
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+  .course{
+    margin-top: 90px;
+    &-bg{
+      padding: 44px 0;
+      // background: linear-gradient(360deg, rgba(255, 241, 240, 0) 0%, rgba(255, 241, 240, 0.7) 12.5%, rgba(255, 241, 240, 0.7) 81.99%, rgba(255, 241, 240, 0) 100%);
+    }
+    &-in{
+      width: 100%;
+      padding: 42px 53px 0;
+      .historyNode-pc{
+        display: none;
+      }
+      .historyNode-mb{
+        display: block;
+        .year{
+          color: var(--indexColor1);
+          // text-align: center;
+          font-size: 30px;
+          font-weight: 700;
+          line-height: 160%;
+          background: #fff;
+          display: inline-block;
+          position: relative;
+          z-index: 1;
+          padding: 0 10px;
+          animation: modulFontAnim 3s infinite;
+        }
+        .month{
+          color: var(--indexColor1);
+          text-align: justify;
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 160%;
+        }
+        .context{
+          color: var(--textColor);
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 160%;
+        }
+        .eventsItem{
+          opacity: 0;
+          transition: all 1s;
+          transition-delay: 1s;
+          height: 0;
+          overflow: hidden;
+          margin-bottom: 0;
+          -webkit-clip-path: polygon(0 0,100% 0,100% 0,0 0);
+          clip-path: polygon(0 0,100% 0,100% 0,0 0);
+          &.act-eventsItem{
+            height: initial;
+            opacity: 1;
+            &:not(:last-child){
+              margin-bottom: 25px;
+            }
+            -webkit-clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
+            clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
+          }
+        }
+        .historyNode-in{
+          padding-bottom: 47px;
+          padding-left: 33px;
+          position: relative;
+          .historyNode-box{
+            &::before{
+              content: '';
+              width: 30%;
+              height: 2px;
+              background: var(--indexColor1);
+              position: absolute;
+              top: 25.5px;
+              left: 0;
+              transition: all 1s;
+              // animation: modulAnim 3s infinite;
+            }
+            &::after{
+              content: '';
+              background: url(@/assets/images/icon_15.svg);
+              width: 15px;
+              height: 15px;
+              background-size: 100% 100%;
+              position: absolute;
+              top: 19px;
+              left: 45%;
+              transition: all 1s;
+              animation: modulIconAnim 3s infinite;
+            }
+            &.act-historyNode-box{
+              &::before{
+                width: calc(100% - 20px);
+              }
+              &::after{
+                left: calc(100% - 16px);
+                transform: rotate(90deg);
+              }
+            }
+            
+          }
+          &::before{
+            content: '';
+            width: 2px;
+            height: 100%;
+            background: var(--indexColor1);
+            position: absolute;
+            top: 30px;
+            left: 0;
+          }
+          &::after{
+            content: '';
+            width: 16px;
+            height: 16px;
+            background: var(--indexColor1);
+            border-radius: 50%;
+            position: absolute;
+            top: 18px;
+            left: -7.5px;
+          }
+          &:last-child::before{
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+</style>
