@@ -6,7 +6,8 @@ import doctorLists_cs from '~/assets/js/doctor'
 const appState = useAppState()
 const { t } = useLang()
 useHead({
-  title: "牙科齒科服務 | 口腔專科醫院",
+  title: "CKJ愛康健齒科連鎖 | 香港官方網站 | 深圳二級口腔醫院",
+  titleTemplate: '',
   meta: [
     {
       hid: 'description',
@@ -96,7 +97,7 @@ const headerConfigData = {
       <!-- 最新消息 -->
       <LatestNews />
       <!-- 品牌理念 -->
-      <brandConcept />
+      <brandConcept-test />
       <!-- 牙科服務 -->
       <serviceCard :isIndexShow="true" />
       <!-- 视频地址 -->
@@ -113,7 +114,10 @@ const headerConfigData = {
             </a>
           </div>
           <div class="index-videoBox-c-r">
-            <a href="https://www.hk01.com/%E5%81%A5%E5%BA%B7Easy/959987/%E6%B7%B1%E5%9C%B3%E9%A3%9F%E8%B2%B7%E7%8E%A9-%E9%BB%9E%E5%B0%91%E5%BE%97%E7%9D%87%E7%89%99-%E5%8F%A3%E5%B2%B8%E4%BD%8D%E7%BD%AE-%E6%80%A7%E5%83%B9%E6%AF%94%E9%AB%98-%E5%92%AA%E5%92%AA%E5%A7%90%E6%8E%A8%E8%96%A6%E5%8F%A3%E8%85%94%E9%86%AB%E9%99%A2" target="black"><img src="https://static.cmereye.com/imgs/2023/11/aa60e9513e718824.jpg" alt="專題報導" title="專題報導"></a>
+            <a href="https://www.hk01.com/%E5%81%A5%E5%BA%B7Easy/959987/%E6%B7%B1%E5%9C%B3%E9%A3%9F%E8%B2%B7%E7%8E%A9-%E9%BB%9E%E5%B0%91%E5%BE%97%E7%9D%87%E7%89%99-%E5%8F%A3%E5%B2%B8%E4%BD%8D%E7%BD%AE-%E6%80%A7%E5%83%B9%E6%AF%94%E9%AB%98-%E5%92%AA%E5%92%AA%E5%A7%90%E6%8E%A8%E8%96%A6%E5%8F%A3%E8%85%94%E9%86%AB%E9%99%A2" target="black">
+              <img src="https://static.cmereye.com/imgs/2023/12/0ef603cd96873713.webp" alt="專題報導" title="專題報導">
+              <img src="https://static.cmereye.com/imgs/2023/12/e974c03be612528f.png" class="icon" alt="">
+            </a>
           </div>
         </div>
       </div>
@@ -281,7 +285,6 @@ svg:hover path{
   &-c{
     display: flex;
     align-items: center;
-    width: 100%;
     margin-top: 50px;
     &-l{
       flex: 1;
@@ -316,6 +319,10 @@ svg:hover path{
         max-width: 400px;
         margin-top: 47px;
         box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
+        transition: all .3s;
+        &:hover{
+          background: #FF85AF;
+        }
       }
     }
     &-r{
@@ -324,10 +331,39 @@ svg:hover path{
       img{
         width: 100%;
       }
+      a{
+        position: relative;
+      }
+      .icon{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        width: 20%;
+        height: auto;
+        transition: all .3s;
+        &:hover{
+          width: 23%;
+        }
+      }
     }
   }
 }
 @media (min-width: 768px) and (max-width: 1452px) {
+  .index-videoBox{
+    &-c{
+      &-l{
+        a{
+          width: 50%;
+          min-width: 50px;
+          font-size: 2vw;
+          margin-top: 2vw;
+          height: 4vw;
+          line-height: 4vw;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -421,6 +457,9 @@ svg:hover path{
       &-r{
         width: 100%;
         padding-left: 0;
+        a{
+          display: block;
+        }
       }
     }
   }

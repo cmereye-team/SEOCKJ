@@ -68,7 +68,7 @@ onMounted(()=>{
         goAnchor(`#d${route.query.did}`)
       }else{
         goAnchor('#dp')
-        let _index = doctorLists[appState.areaTabCurNum].findIndex((item:any)=>item.id === route.query.did)
+        let _index = doctorLists.value[appState.areaTabCurNum].findIndex((item:any)=>item.id === route.query.did)
         doctorPageSwiperRef.slideTo(_index, 0);
       }
     },500)
