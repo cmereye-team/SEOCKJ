@@ -79,7 +79,7 @@ const introduceData = {
           </div>
         </div>
       </div>
-      <div class="ckj-action-message">
+      <div class="ckj-action-message bigPageCon">
         <div class="ckj-action-message-content">
           <a href="https://youtu.be/tcpGNgVGG4g" class="video">
             <img src="https://static.cmereye.com/imgs/2024/01/3188d1c493bd4575.jpg" alt="">
