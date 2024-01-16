@@ -150,7 +150,7 @@ const problemData = {
     },
     {
       Q: '全瓷貼片容易脫落嗎？',
-      A: '裝上瓷貼片後，需注意保持良好的口腔清潔習慣，避免進食過硬食物，並定期覆診檢查，確保瓷貼片的穩固性和壽命，以減低其脫落風險。'
+      A: '裝上瓷貼片後，需注意保持良好的口腔清潔習慣，避免進食過硬食物，並定期覆診檢查，確保瓷貼片的穩固性和壽命，以減低其脫落風險。一般情況下貼片壽命可長達15年或以上。我們則提供三至五年的保修期，具體期限取決於客人所選擇的瓷貼片品牌。'
     }
   ]
 }
@@ -243,7 +243,7 @@ const stepData = {
     },
     {
       title: '第5步',
-      img: 'https://static.cmereye.com/imgs/2024/01/da889742ca0a6680.jpg',
+      img: 'https://static.cmereye.com/imgs/2024/01/c6cbb247f245fa19.jpg',
       name: '定期追蹤',
       context: '安裝瓷貼片後，需按照專科主任的建議，定期覆診以確保貼片維持良好狀態，壽命可長達15年或以上。',
     }
@@ -323,6 +323,28 @@ const advantageData = {
     },
   ]
 }
+
+const caseLists = [
+  {
+    img: 'https://static.cmereye.com/imgs/2024/01/af72e6f70d4049a0.jpg',
+    name: 'Teresa',
+    jos: '空姐',
+    context: '好多同事都做咗瓷貼片，笑得好靚好有自信，睇落好有氣質。所以我都跟住一齊做，效果非常滿意，好多人讚我似明星。'
+  },
+  {
+    img: 'https://static.cmereye.com/imgs/2024/01/5e714af6773bc97e.jpg',
+    name: 'Doris',
+    jos: '準新娘',
+    context: '自細都介意自己門牙牙齒縫過大，為咗迎接婚禮決定做瓷貼片。影婚紗相時可以盡情笑，整個人煥然一新，感覺迎接新生活的開始。'
+  },
+  {
+    img: 'https://static.cmereye.com/imgs/2024/01/752d9de409ed7644.jpg',
+    name: 'Anson',
+    jos: '模特兒兼演員',
+    context: '經常要出show面對粉絲觀眾，想整體上鏡形象效果更好。做瓷貼片可以微調原本牙齒嘅不足，棚牙更白更整齊。'
+  },
+]
+
 </script>
 
 
@@ -455,6 +477,38 @@ const advantageData = {
               </div>
             </div>
             <div class="text">{{ careItem.text }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="care-context">在愛康健完成瓷貼片療程後，我們提供三至五年的保修期，具體期限取決於客人所選擇的瓷貼片品牌。</div>
+    </div>
+    <div class="case">
+      <div class="case-title">
+        <div class="case-title-in">個案分享</div>
+      </div>
+      <div class="case-context">
+        <span>
+          締造自信燦爛笑顏
+        </span>
+        <span>
+          我只揀愛康健！
+        </span>
+      </div>
+      <div class="case-content">
+        <div class="case-content-in">
+          <div v-for="(caseItem,caseIndex) in caseLists" :key="caseIndex">
+            <div class="case-content-in-l">
+              <div>
+                <img :src="caseItem.img" alt="">
+              </div>
+              <div>
+                <span>{{caseItem.jos}}</span>
+                <span>{{caseItem.name}}</span>
+              </div>
+            </div>
+            <div class="case-content-in-r">
+              {{caseItem.context}}
+            </div>
           </div>
         </div>
       </div>
@@ -932,6 +986,115 @@ const advantageData = {
       }
     }
   }
+  &-context{
+    width: 100%;
+    max-width: 990px;
+    padding: 20px 30px;
+    margin: 0 auto;
+    color: var(--indexColor1);
+    text-align: center;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 160%;
+  }
+}
+.case{
+  width: 100%;
+  margin-top: 97px;
+  &-title{
+    display: flex;
+    justify-content: center;
+    &-in{
+      font-style: normal;
+      position: relative;
+      font-weight: 600;
+      font-size: 30px;
+      line-height: 150%;
+      text-indent: 65px;
+      color: #666666;
+      background: url(@/assets/images/indexTitle_bg_2.png) no-repeat;
+      background-size: auto 100%;
+      padding-bottom: 5px;
+      padding-right: 7px;
+    }
+  }
+  &-context{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 21px;
+    span{
+      color: #FC1682;
+      text-align: center;
+      font-size: 35px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 160%; 
+    }
+  }
+  &-content{
+    display: flex;
+    justify-content: center;
+    margin-top: 46px;
+    padding: 58px 0 62px;
+    background: linear-gradient(279deg, rgba(252, 22, 130, 0.40) -0.55%, rgba(252, 22, 130, 0.28) -0.54%, rgba(255, 168, 198, 0.00) 99.3%);
+    &-in{
+      width: 100%;
+      max-width: 1560px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      
+      &>div{
+        display: flex;
+        width: calc(100% / 3);
+        flex-direction: column;
+        background: #fff;
+        padding: 14px 29px 25px;
+        box-sizing: border-box;
+        &:not(:first-child){
+          margin-left: 16px;
+        }
+      }
+      
+      &-l{
+        display: flex;
+        img{
+          border-radius: 50%;
+          margin-top: -36%;
+          border: 8px solid #fff;
+        }
+        span{
+          display: block;
+          margin-left: 18px;
+          &:nth-of-type(1){
+            color: #4D4D4D;
+            font-size: 28px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 160%;
+          }
+          &:nth-of-type(2){
+            color: #FC1682;
+            font-size: 21px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 160%;
+          }
+        }
+      }
+      &-r{
+        margin-top: 15px;
+        color: #4D4D4D;
+        text-align: justify;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 160%;
+      }
+    }
+  }
 }
 .advantage{
   margin-top: 98px;
@@ -1312,10 +1475,14 @@ const advantageData = {
           }
           .text {
             white-space: pre-wrap;
-            font-size: 14px;
+            font-size: 15px;
           }
         }
       }
+    }
+    &-context{
+      font-size: 20px;
+      text-align: left;
     }
   }
   .advantage{
@@ -1348,6 +1515,61 @@ const advantageData = {
          justify-content: center;
        }
      }
+  }
+  .case{
+    margin-top: 20px;
+    // background: linear-gradient(279deg, rgba(252, 22, 130, 0.40) -0.55%, rgba(252, 22, 130, 0.28) -0.54%, rgba(255, 168, 198, 0.00) 99.3%);
+    padding: 44px 30px 0;
+    &-title{
+      &-in{
+        font-size: 20px;
+        text-indent: 45px;
+      }
+    }
+    &-context{
+      margin-top: 14px;
+      span{
+        font-size: 26px;
+      }
+    }
+    &-content{
+      background: none;
+      margin-top: 0;
+      padding: 0;
+      &-in{
+        flex-direction: column;
+        &>div{
+          width: 100%;
+          padding: 16px 12px;
+          &:not(:first-child){
+            margin-left: 0px;
+            margin-top: 10px;
+          }
+        }
+        &-l{
+          align-items: center;
+          img{
+            width: 125px;
+            height: 125px;
+            margin-top: 0;
+            border: none;
+          }
+          span{
+            margin-left: 15px;
+            &:nth-of-type(1){
+              font-size: 20px;
+            }
+            &:nth-of-type(2){
+              font-size: 18px;
+            }
+          }
+        }
+        &-r{
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+    }
   }
 }
 </style>
