@@ -97,7 +97,7 @@ const headerConfigData = {
       <!-- 最新消息 -->
       <LatestNews />
       <!-- 品牌理念 -->
-      <brandConcept />
+      <brandConcept-test />
       <!-- 牙科服務 -->
       <serviceCard :isIndexShow="true" />
       <!-- 视频地址 -->

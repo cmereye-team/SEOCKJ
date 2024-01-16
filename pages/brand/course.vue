@@ -277,6 +277,28 @@ const courseData = {
           </div>
         </div>
       </div>
+      <div class="course-action">
+        <div class="course-action-in">
+          <div class="course-action-in-l">
+            <img src="https://static.cmereye.com/imgs/2024/01/84dc48aa55e716a2.jpg" alt="">
+          </div>
+          <div class="course-action-in-r">
+            <div class="t">
+              <div class=t-t>
+                <div class="title">香港工聯會參觀交流</div>
+                <div class="time">2023年12月15日</div>
+              </div>
+              <div class="context">接待香港工聯會代表團，交流牙科醫療服務發展及趨勢</div>
+            </div>
+            <div class="b">
+              <div class="btn">
+                <a href="/brand/action-message">查看全文</a>
+              </div>
+              <div class="text">團體交流</div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="course">
         <div class="course-bg">
           <div class="course-title pageCon">
@@ -518,7 +540,87 @@ const courseData = {
     }
   }
 }
-
+.course-action{
+  width: 100%;
+  padding: 0 30px;
+  margin: 129px auto 0;
+  max-width: 1470px;
+  &-in{
+    display: flex;
+    width: 100%;
+    &-l{
+      width: calc((520 / 1410) * 100%);
+      margin-right: calc((40 / 1410) * 100%);
+    }
+    &-r{
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .t{
+        .t-t{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .title{
+            color: var(--indexColor1);
+            font-size: 28px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 160%; 
+          }
+          .time{
+            color: var(--textColor);
+            text-align: right;
+            font-family: Noto Serif HK;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 160%;
+          }
+        }
+        .context{
+          color: var(--textColor);
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 160%; /* 32px */
+          margin-top: 14px;
+        }
+      }
+      .b{
+        .btn{
+          background: var(--indexColor1);
+          box-shadow: 0px 3.704px 7.409px 0px rgba(252, 22, 130, 0.38);
+          width: 157px;
+          height: 46px;
+          line-height: 46px;
+          color: #fff;
+          transition: all .3s;
+          border-radius: 30px;
+          text-align: center;
+          &:hover{
+            background: var(--indexColor3);
+          }
+          a{
+            width: 100%;
+            height: 100%;
+            display: block;
+          }
+        }
+        .text{
+          color: var(--textColor);
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 160%; /* 32px */
+          text-decoration-line: underline;
+          margin-top: 22px;
+        }
+      }
+    }
+  }
+}
 @media (min-width: 768px) and (max-width: 1452px) {
   .introduce {
     &-in {
@@ -598,15 +700,12 @@ const courseData = {
       padding: 24px;
       .courseBox{
         &-l{
-          // width: 23px;
           .round{
             width: 16px;
             height: 16px;
           }
           .line{
-            // width: 2px;
             height: 2px;
-            // margin-left: 7px;
             margin-top: -9px;
           }
         }
@@ -623,6 +722,54 @@ const courseData = {
           &-listItem{
             font-weight: 600;
             font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+  .course-action{
+    margin: 65px auto 0;
+    padding: 0;
+    &-in{
+      flex-direction: column;
+      &-l{
+        width: 100%;
+
+      }
+      &-r{
+        padding: 0 30px;
+        .t{
+          .t-t{
+            justify-content: flex-start;
+            flex-direction: column;
+            align-items: flex-start;
+            .title{
+              margin-top: 17px;
+              font-size: 18px;
+            }
+            .time{
+              font-size: 16px;
+              text-align: left;
+            }
+          }
+          .context{
+            font-size: 16px;
+          }
+        }
+        .b{
+          display: flex;
+          flex-direction: column;
+          .btn{
+            order: 2;
+            margin: 13px auto 0;
+            width: 137px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 18px;
+          }
+          .text{
+            order: 1;
+            font-size: 16px;
           }
         }
       }
