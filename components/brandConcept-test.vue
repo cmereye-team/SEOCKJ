@@ -29,7 +29,7 @@ const onSlideChange = (swiper:any) => {
     :loop="true"
     :modules="[Autoplay]"
     :autoplay="{
-      delay: 1500,
+      delay: 2000,
     }"
     @swiper="setNewsSwiperRef"
     @slideChange="onSlideChange"
