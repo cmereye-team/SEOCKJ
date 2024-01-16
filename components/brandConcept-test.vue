@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { Autoplay } from 'swiper';
 const news = ref([
 ])
 let currtNew = ref(1)
@@ -15,51 +16,44 @@ const setNewsSwiperRef = (swiper:any) => {
 const onSlideChange = (swiper:any) => {
   currtNew.value = (swiper.realIndex ? Number(swiper.realIndex) : 0) + 1
 }
+
 </script>
 
 <template>
-<div class="bigPageCon">
+<div class="index-brandConcept">
+  <div class="pageCon">
+    <div class="index_title brandConceptTitle">{{$t('pages.brand.title')}}</div>
+  </div>
   <swiper
     class="swiperBox"
     :loop="true"
+    :modules="[Autoplay]"
     :autoplay="{
-      delay: 2500,
+      delay: 1500,
     }"
     @swiper="setNewsSwiperRef"
     @slideChange="onSlideChange"
   >
-    <swiper-slide class="index-brandConcept bigPageCon">
-      <div class="brandConcept-left pageCon">
-        <div class="">
-          <div class="index_title brandConceptTitle">{{$t('pages.brand.title')}}</div>
-        </div>
-        <div class="brandConcept-title">
-          <span>{{$t('components.brandConcept.title.span_1')}}</span>
-          <span>{{$t('components.brandConcept.title.span_2')}}</span>
-        </div>
-        <div class="brandConceptBg">
-          <img class="mbBox" src="https://static.cmereye.com/imgs/2023/04/d4c1df365750c9c6.jpg" alt="">
-        </div>
-        <div class="content brandConceptContent">
-          {{$t('components.brandConcept.content')}}
+    <swiper-slide class="swiper-slide">
+      <div class="index-brandConcept-in bigPageCon">
+        <img class="bgImg" :data-cfsrc="'https://static.cmereye.com/imgs/2024/01/a1e1279e8b9a76ff.jpg'" :srcset="`https://static.cmereye.com/imgs/2023/04/d4c1df365750c9c6.jpg 768w, https://static.cmereye.com/imgs/2024/01/a1e1279e8b9a76ff.jpg`" :src="'https://static.cmereye.com/imgs/2024/01/a1e1279e8b9a76ff.jpg'" >
+        <div class="index-brandConcept-in-box pageCon">
+          <div class="brandConcept-title">
+            <span>{{$t('components.brandConcept.title.span_1')}}</span>
+            <span>{{$t('components.brandConcept.title.span_2')}}</span>
+          </div>
+          <div class="content brandConceptContent">
+            {{$t('components.brandConcept.content')}}
+          </div>
         </div>
       </div>
-      <div class="brandConcept-right" :style="{
-        'background': `url(https://static.cmereye.com/imgs/2023/05/c8173ec71c34ec89.jpg) no-repeat left center`,
-        'background-size': 'cover'
-      }">
-      </div>
-    </swiper-slide >
-    <swiper-slide class="index-brandConcept bigPageCon">
-      <div class="brandConcept-left pageCon">
-        <div class="">
-          <div class="index_title brandConceptTitle">{{$t('pages.brand.title')}}</div>
-        </div>
+    </swiper-slide>
+    <swiper-slide class="swiper-slide">
+      <div class="index-brandConcept-in bigPageCon">
+      <img class="bgImg" :data-cfsrc="'https://static.cmereye.com/imgs/2024/01/83f687493170cb87.jpg'" :srcset="`https://static.cmereye.com/imgs/2024/01/e4c3cb0ba5a58c54.jpg 768w, https://static.cmereye.com/imgs/2024/01/83f687493170cb87.jpg`" :src="'https://static.cmereye.com/imgs/2024/01/83f687493170cb87.jpg'" >
+      <div class="index-brandConcept-in-box pageCon">
         <div class="brandConcept-title act">
           <span>接待香港工聯會代表團</span>
-        </div>
-        <div class="brandConceptBg">
-          <img class="mbBox" src="https://static.cmereye.com/imgs/2024/01/e4c3cb0ba5a58c54.jpg" alt="">
         </div>
         <div class="content brandConceptContent act">
           香港工聯會代表團參觀了我們的羅湖口岸愛康健口腔醫院、富康口腔門診部和康輝口腔門診部，詳細了解我們的醫療設施、技術和服務。他們與我們的醫療團隊進行了深入的交流和討論，探討口腔醫療的發展趨勢和技術創新。
@@ -68,12 +62,8 @@ const onSlideChange = (swiper:any) => {
           <a href="/brand/action-message">查看全文</a>
         </div>
       </div>
-      <div class="brandConcept-right" :style="{
-        'background': `url(https://static.cmereye.com/imgs/2024/01/04d5f50c079f5d33.jpg) no-repeat left center`,
-        'background-size': 'cover'
-      }">
       </div>
-    </swiper-slide >
+    </swiper-slide>
   </swiper>
   <div class="index-latestNews-line brandConcept-line">
     <PageSwiperPointLine :latestNewsNum="2" :latestNewsCurrent="currtNew" @changeLineCur="handleLineCur"></PageSwiperPointLine>
@@ -86,18 +76,40 @@ const onSlideChange = (swiper:any) => {
 <style lang="scss" scoped>
 .index-brandConcept {
   width: 100%;
-  min-height: 768px;
   margin-top: 143px;
   box-sizing: border-box;
   position: relative;
-  .brandConcept-left {
-    padding-top: 5%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    z-index: 1;
+  .swiperBox{
+    width: 100%;
+  }
+  .swiper-slide{
+    width: 100%;
+  }
+  .brandConceptTitle{
+    position: absolute;
+    top: 100px;
+    z-index: 2;
+  }
+  &-in{
+    height: calc(760 / 1920 * 100vw);
+    max-height: 760px;
     position: relative;
+    .bgImg{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+    .index-brandConcept-in-box{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      position: relative;
+      z-index: 1;
+    }
     .brandConcept-title {
       font-style: normal;
       font-weight: 700;
@@ -107,13 +119,6 @@ const onSlideChange = (swiper:any) => {
       margin-top: 100px;
       span {
         display: block;
-      }
-    }
-    .brandConceptBg{
-      width: 100%;
-      display: none;
-      img{
-        width: 100%;
       }
     }
     .content {
@@ -143,33 +148,39 @@ const onSlideChange = (swiper:any) => {
       a{
         width: 100%;
         height: 100%;
+        display: block;
       }
       &:hover{
         background: var(--indexColor3);
       }
     }
   }
-  .brandConcept-right {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 70%;
-    height: 100%;
-    // background: url(https://static.cmereye.com/imgs/2023/05/c8173ec71c34ec89.jpg) no-repeat left center;
-    // background-size: cover;
-    z-index: 0;
-  }
 }
 .brandConcept-line{
   width: 124px;
   margin: 38px auto 0;
 }
-@media (min-width: 768px) and (max-width: 1452px) {
+@media (min-width: 768px) and (max-width: 1910px) {
   .index-brandConcept {
-    margin-top: 110px;
-    .brandConcept-left {
-      .content {
-        width: 40%;
+    .brandConceptTitle{
+      top: calc(100 / 1920 * 100vw);
+      transform: scale(.9);
+    }
+    &-in{
+      .brandConcept-title {
+        font-size: 1.4vw;
+        margin-top: calc(80 / 1920 * 100vw);
+      }
+      .content{
+        font-size: 1.05vw;
+        margin-top: calc(70 / 1920 * 100vw);
+      }
+      .btn{
+        font-size: 1.25vw;
+        width: calc(157 / 1920 * 100vw);
+        height: calc(46 / 1920 * 100vw);
+        line-height: calc(46 / 1920 * 100vw);
+        margin-top: calc(30 / 1920 * 100vw);
       }
     }
   }
@@ -181,8 +192,17 @@ const onSlideChange = (swiper:any) => {
     display: flex;
     flex-direction: column;
     margin-top: 90px;
-    .brandConcept-left{
-      padding-top: 0;
+    .brandConceptTitle{
+      position: relative;
+      top: 0;
+    }
+    &-in{
+      height: auto;
+      margin-top: 34px;
+      .bgImg{
+        position: initial;
+        height: auto;
+      }
       .brandConcept-title {
         display: none;
         &.act{
@@ -194,12 +214,6 @@ const onSlideChange = (swiper:any) => {
           padding: 0 30px;
           margin-bottom: 10px;
         }
-      }
-      .brandConceptBg{
-        width: 100%;
-        margin-top: 34px;
-        display: block;
-        order: 1;
       }
       .content{
         width: 100%;
@@ -220,9 +234,6 @@ const onSlideChange = (swiper:any) => {
         font-size: 18px;
         order: 4;
       }
-    }
-    .brandConcept-right{
-      display: none;
     }
   }
   .brandConcept-line{
