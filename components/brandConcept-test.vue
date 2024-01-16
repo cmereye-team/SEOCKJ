@@ -18,7 +18,7 @@ const onSlideChange = (swiper:any) => {
 </script>
 
 <template>
-<div>
+<div class="bigPageCon">
   <swiper
     class="swiperBox"
     :loop="true"
