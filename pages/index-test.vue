@@ -92,7 +92,7 @@ const headerConfigData = {
 
 <template>
   <div>
-    <PageHeader :headerConfig="headerConfigData" /> 
+    <PageHeader :headerConfig="headerConfigData" />
     <div class="indexPage">
       <!-- 最新消息 -->
       <LatestNews />
@@ -178,6 +178,7 @@ const headerConfigData = {
       <!-- 聯絡我們 -->
       <ContactUs />
     </div>
+    <PageAdbox />
     <PageFooter />
     <PageNavbar />
   </div>
