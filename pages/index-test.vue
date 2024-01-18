@@ -98,6 +98,21 @@ const headerConfigData = {
       <LatestNews />
       <!-- 品牌理念 -->
       <brandConcept-test />
+      <div class="treatment-data">
+        <div class="treatment-data-title">
+          <span>早期深圳二級口腔醫院</span>
+          <span>香港品牌 實力信心</span>
+        </div>
+        <div class="treatment-data-in pageCon">
+          <div class="dataBox" v-for="item in 4" :key="item">
+            <div class="num">300,000<span>+</span></div>
+            <div class="name">已修復牙冠</div>
+          </div>
+        </div>
+        <div class="treatment-data-bText">
+          *以上數據由2019年開始統計至今
+        </div>
+      </div>
       <!-- 牙科服務 -->
       <serviceCard :isIndexShow="true" />
       <!-- 视频地址 -->
@@ -348,6 +363,55 @@ svg:hover path{
         }
       }
     }
+  }
+}
+.treatment-data{
+  margin-top: 70px;
+  &-title{
+    span{
+      color: var(--indexColor1);
+      text-align: center;
+      font-size: 35px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 160%;
+      display: block;
+    }
+  }
+  &-in{
+    margin-top: 48px;
+    display: flex;
+    .dataBox{
+      flex: 1;
+      .num{
+        color: var(--indexColor1);
+        text-align: center;
+        font-size: 60px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 160%;
+        span{
+          font-size: 60px;
+        }
+      }
+      .name{
+        color: var(--textColor);
+        text-align: center;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 160%; 
+      }
+    }
+  }
+  &-bText{
+    color: var(--textColor);
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160%;
+    margin-top: 30px;
   }
 }
 @media (min-width: 768px) and (max-width: 1452px) {

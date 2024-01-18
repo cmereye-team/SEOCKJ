@@ -471,7 +471,7 @@ const handleMbMenu = () => {
             >
               <nuxt-link
                 :class="menuItem.child.length ? 'triangleIcon' : ''"
-                :to="menuItem.link"
+                :to="menuItem.link === '/dental-service' ? 'javaScript:void(0)': menuItem.link"
               >
                 {{ $t(menuItem.name) }}
               </nuxt-link>
@@ -489,7 +489,7 @@ const handleMbMenu = () => {
                     'menuChild-item',
                     classNamefilter(menuChildItem, menuChildIndex),
                   ]"
-                  @click="handleMenuChild(menuItem, menuChildIndex)"
+                  @click.stop="handleMenuChild(menuItem, menuChildIndex)"
                 >
                   <nuxt-link :to="menuChildItem.link">
                     {{ $t(menuChildItem.name) }}
