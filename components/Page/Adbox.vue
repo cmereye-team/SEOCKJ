@@ -16,8 +16,8 @@ onMounted(()=>{
 </script>
 
 <template>
-  <div :class="['adccbox',{show:_bool}]">
-    <div :class="['adccbox-in',{'show-in':_bool}]">
+  <div :class="['adccbox',{show:_bool}]" @click="_bool=false">
+    <div :class="['adccbox-in',{'show-in':_bool}]" @click.stop="">
       <div class="close">
         <img src="@/assets/images/icon_7.png" alt="" @click="_bool = false">
       </div>
