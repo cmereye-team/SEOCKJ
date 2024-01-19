@@ -88,6 +88,55 @@ const headerConfigData = {
   mbText: ['重拾自信笑容', '愛牙愛己，由你做起'],
 }
 
+const treatmentData = [
+  {
+    name: '接診人數',
+    num: "259,376",
+    bg: 'https://static.cmereye.com/static/ckj/imgs/svg/icon_16_1.svg',
+    left: '30%',
+    top: '-31%'
+  },
+  {
+    name: '已修復牙冠',
+    num: "25,295",
+    bg: 'https://static.cmereye.com/static/ckj/imgs/svg/icon_16_3.svg',
+    left: '15%',
+    top: '50%'
+  },
+  {
+    name: '種植牙數',
+    num: "27,008",
+    bg: 'https://static.cmereye.com/static/ckj/imgs/svg/icon_16_2.svg',
+    left: '15%',
+    top: '-10%'
+  },
+  {
+    name: '全瓷貼面數',
+    num: "3,336",
+    bg: 'https://static.cmereye.com/static/ckj/imgs/svg/icon_16_4.svg',
+    left: '53%',
+    top: '-3%'
+  }
+]
+let showTreatment = ref(false)
+const scrollWatch = () => {
+  let _dome:any = document.getElementsByClassName('treatment-data')
+  let _offsetTop = 0
+  if(_dome && _dome.length){
+    _offsetTop = _dome[0].offsetTop
+  }
+  if(_offsetTop >= window.pageYOffset && _offsetTop + 200 <= window.pageYOffset + window.innerHeight){
+    showTreatment.value = true
+  }
+  // else{
+  //   showTreatment.value = false
+  // }
+}
+onMounted(()=>{
+  scrollWatch()
+  window.addEventListener('scroll',scrollWatch)
+})
+
 </script>
 
 <template>
@@ -104,9 +153,20 @@ const headerConfigData = {
           <span>香港品牌 實力信心</span>
         </div>
         <div class="treatment-data-in pageCon">
-          <div class="dataBox" v-for="item in 4" :key="item">
-            <div class="num">300,000<span>+</span></div>
-            <div class="name">已修復牙冠</div>
+          <div class="dataBox" v-for="(treatmentItem,treatmentIndex) in treatmentData" :key="treatmentIndex">
+            <div class="num">
+              <img :src="treatmentItem.bg" :style="{left: treatmentItem.left,top: treatmentItem.top}" alt="">
+              <div class="numIn" v-for="(numItem,numIndex) in treatmentItem.num" :key="numIndex">
+                <span v-if="numItem === ','">{{numItem}}</span>
+                <div v-else class="numInAnim" :class="[{showNumInAnim: showTreatment}]" :style="{'animation-delay': `${(treatmentItem.num.length - numIndex) * 0.2}s`}">
+                  <span v-for="numInItem in Number(numItem) ? Number(numItem) : 10" :key="numInItem">
+                    {{numInItem === 10 ? 0 : numInItem}}
+                  </span>
+                </div>
+              </div>
+              <span class="numBold">+</span>
+            </div>
+            <div class="name">{{treatmentItem.name}}</div>
           </div>
         </div>
         <div class="treatment-data-bText">
@@ -390,8 +450,36 @@ svg:hover path{
         font-style: normal;
         font-weight: 500;
         line-height: 160%;
-        span{
-          font-size: 60px;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        img{
+          position: absolute;
+        }
+        .numBold{
+          font-family: initial;
+          font-weight: bold;
+          margin-top: 5px;
+        }
+        .numIn{
+          height: 96px;
+          overflow: hidden;
+          position: relative;
+          span{
+            line-height: 96px;
+            display: block;
+          }
+          .numInAnim{
+            opacity: 0;
+            transition: all .3s;
+            display: flex;
+            flex-direction: column-reverse;
+            transform: translateY(-100%);
+            &.showNumInAnim{
+              opacity: 1;
+              animation: numAnim 1s ease-in-out forwards;
+            }
+          }
         }
       }
       .name{
@@ -401,6 +489,7 @@ svg:hover path{
         font-style: normal;
         font-weight: 700;
         line-height: 160%; 
+        margin-top: -10px;
       }
     }
   }
@@ -412,6 +501,12 @@ svg:hover path{
     font-weight: 500;
     line-height: 160%;
     margin-top: 30px;
+  }
+}
+@keyframes numAnim {
+  100%{
+    // transform: translateY(calc((100% - 96px) * -1));
+    transform: none;
   }
 }
 @media (min-width: 768px) and (max-width: 1452px) {
@@ -526,6 +621,26 @@ svg:hover path{
           display: block;
         }
       }
+    }
+  }
+  .treatment-data{
+    &-title{
+      span{
+        font-size: 20px;
+      }
+    }
+    &-in{
+      margin-top: 100px;
+      flex-direction: column;
+      .dataBox{
+        &:not(:last-child){
+          margin-bottom: 62px;
+        }
+      }
+    }
+    &-bText{
+      font-size: 16px;
+      margin-top: 60px;
     }
   }
 }
