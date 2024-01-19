@@ -504,6 +504,9 @@ svg:hover path{
     margin-top: 30px;
   }
 }
+.index-dentalServices{
+  padding: 89px 0 0;
+}
 @keyframes numAnim {
   100%{
     // transform: translateY(calc((100% - 96px) * -1));

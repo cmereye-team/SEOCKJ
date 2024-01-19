@@ -34,8 +34,8 @@ const introduceData = {
   title: 'pages.brand.course.introduce.title',
   content:
     'pages.brand.course.introduce.content',
-  mbImg: 'https://static.cmereye.com/imgs/2023/05/2dad0e643e10a596.jpg',
-  pcImg: 'https://static.cmereye.com/imgs/2023/05/558375ea7ebd62ca.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2024/01/64f1f4312e2a0f2c.jpg',
+  pcImg: 'https://static.cmereye.com/imgs/2024/01/f4ba25aef63c2a5b.jpg',
   tabNavName: 'pages.brand.course.introduce.tabNavName',
 }
 
