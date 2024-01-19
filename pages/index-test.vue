@@ -106,7 +106,7 @@ const treatmentData = [
   {
     name: '種植牙數',
     num: "27,008",
-    bg: 'https://static.cmereye.com/static/ckj/imgs/svg/icon_16_2.svg',
+    bg: 'https://static.cmereye.com/imgs/2024/01/5bc753351f96d0d0.png',
     left: '15%',
     top: '-10%'
   },
@@ -441,6 +441,7 @@ svg:hover path{
   &-in{
     margin-top: 48px;
     display: flex;
+    flex-wrap: wrap;
     .dataBox{
       flex: 1;
       .num{
