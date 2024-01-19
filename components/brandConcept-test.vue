@@ -36,7 +36,7 @@ const onSlideChange = (swiper:any) => {
   >
     <swiper-slide class="swiper-slide">
       <div class="index-brandConcept-in bigPageCon">
-        <img class="bgImg" :data-cfsrc="'https://static.cmereye.com/imgs/2024/01/a1e1279e8b9a76ff.jpg'" :srcset="`https://static.cmereye.com/imgs/2023/04/d4c1df365750c9c6.jpg 768w, https://static.cmereye.com/imgs/2024/01/a1e1279e8b9a76ff.jpg`" :src="'https://static.cmereye.com/imgs/2024/01/a1e1279e8b9a76ff.jpg'" >
+        <img class="bgImg" :data-cfsrc="'https://static.cmereye.com/imgs/2024/01/f4ba25aef63c2a5b.jpg'" :srcset="`https://static.cmereye.com/imgs/2024/01/64f1f4312e2a0f2c.jpg 768w, https://static.cmereye.com/imgs/2024/01/f4ba25aef63c2a5b.jpg`" :src="'https://static.cmereye.com/imgs/2024/01/f4ba25aef63c2a5b.jpg'" >
         <div class="index-brandConcept-in-box pageCon">
           <div class="brandConcept-title">
             <span>{{$t('components.brandConcept.title.span_1')}}</span>
