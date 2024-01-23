@@ -8,14 +8,22 @@
   --textColor: #4d4d4d;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@300;400;500;600;700;900&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@300;400;500;600;700;900&display=swap');
 
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
 
 @import 'variables';
 
+@font-face {
+  font-family: 'FakePearl-Regular';
+  src: url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Regular.woff2) format("woff2")
+  , url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Regular.woff) format("woff");
+}
+
+
 body,div,span,h1,h2,h3,h4,h5,h6,p,li{
-  font-family: 'Noto Serif HK', Serif;
+  // font-family: 'Noto Serif HK', Serif;
+  font-family: 'FakePearl-Regular', Serif;
 }
 
 

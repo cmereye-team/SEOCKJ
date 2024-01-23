@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
-import { Scrollbar } from 'swiper';
+import { ref } from 'vue';
+import { Controller } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/vue';
 const appState = useAppState()
 appState.setBrand('course')
 
@@ -34,8 +36,8 @@ const introduceData = {
   title: 'pages.brand.course.introduce.title',
   content:
     'pages.brand.course.introduce.content',
-  mbImg: 'https://static.cmereye.com/imgs/2023/05/2dad0e643e10a596.jpg',
-  pcImg: 'https://static.cmereye.com/imgs/2023/05/558375ea7ebd62ca.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2024/01/64f1f4312e2a0f2c.jpg',
+  pcImg: 'https://static.cmereye.com/imgs/2024/01/f4ba25aef63c2a5b.jpg',
   tabNavName: 'pages.brand.course.introduce.tabNavName',
 }
 
@@ -43,7 +45,7 @@ const courseData = {
   title: 'pages.brand.course.history.title',
   lists: [
     {
-      timeNode: '1995年',
+      timeNode: '1995',
       events: [
         {
           month: '',
@@ -52,7 +54,7 @@ const courseData = {
       ],
     },
     {
-      timeNode: '2000年',
+      timeNode: '2000',
       events: [
         {
           month: '',
@@ -61,7 +63,7 @@ const courseData = {
       ],
     },
     {
-      timeNode: '2006年',
+      timeNode: '2006',
       events: [
         {
           month: '',
@@ -70,7 +72,7 @@ const courseData = {
       ],
     },
     {
-      timeNode: '2008年',
+      timeNode: '2008',
       events: [
         {
           month: '5月',
@@ -93,7 +95,7 @@ const courseData = {
       ],
     },
     {
-      timeNode: '2009年',
+      timeNode: '2009',
       events: [
         {
           month: '4月',
@@ -110,7 +112,7 @@ const courseData = {
       ],
     },
     {
-      timeNode: '2010年',
+      timeNode: '2010',
       events: [
         {
           month: '4月',
@@ -119,7 +121,7 @@ const courseData = {
       ],
     },
     {
-      timeNode: '2011年',
+      timeNode: '2011',
       events: [
         {
           month: '',
@@ -129,7 +131,7 @@ const courseData = {
       ],
     },
     {
-      timeNode: '2012年',
+      timeNode: '2012',
       events: [
         {
           month: '',
@@ -139,7 +141,7 @@ const courseData = {
       ],
     },
     {
-      timeNode: '2014年',
+      timeNode: '2014',
       events: [
         {
           month: '',
@@ -149,7 +151,7 @@ const courseData = {
       ],
     },
     {
-      timeNode: '2015年',
+      timeNode: '2015',
       events: [
         {
           month: '',
@@ -158,7 +160,7 @@ const courseData = {
       ],
     },
     {
-      timeNode: '2016年',
+      timeNode: '2016',
       events: [
         {
           month: '1月',
@@ -173,7 +175,7 @@ const courseData = {
       ],
     },
     {
-      timeNode: '2017年',
+      timeNode: '2017',
       events: [
         {
           month: '5月',
@@ -188,7 +190,7 @@ const courseData = {
       ],
     },
     {
-      timeNode: '2018年',
+      timeNode: '2018',
       events: [
         {
           month: '',
@@ -198,7 +200,7 @@ const courseData = {
       ],
     },
     {
-      timeNode: '2019年',
+      timeNode: '2019',
       events: [
         {
           month: '',
@@ -208,7 +210,7 @@ const courseData = {
       ],
     },
     {
-      timeNode: '2020年',
+      timeNode: '2020',
       events: [
         {
           month: '11月',
@@ -223,7 +225,7 @@ const courseData = {
       ],
     },
     {
-      timeNode: '2021年',
+      timeNode: '2021',
       events: [
         {
           month: '6月',
@@ -242,6 +244,23 @@ const courseData = {
     },
   ],
 }
+
+const firstSwiper:any = ref(null);
+const secondSwiper = ref(null);
+const handleFirstSwiper = (swiper) =>{
+  // console.log(swiper.clickedIndex)
+  let _index = swiper.clickedIndex
+  // currtIdx.value = _index
+  firstSwiper.value.slideToLoop(_index);
+  // firstSwiper.value.slideTo(_index,0)
+}
+
+const setFirstSwiper = (swiper) => {
+  firstSwiper.value = swiper;
+};
+const setSecondSwiper = (swiper) => {
+  secondSwiper.value = swiper;
+};
 </script>
 
 
@@ -300,39 +319,56 @@ const courseData = {
         </div>
       </div>
       <div class="course">
-        <div class="course-bg">
-          <div class="course-title pageCon">
-            <div class="course-title-in">
-              {{$t(courseData.title)}}
-            </div>
+        <div class="course-title dentistryServices-title">
+          <div class="course-title-in dentistryServices-title-in bb">
+            {{$t(courseData.title)}}
           </div>
-          <div class="course-in">
-            <swiper
-              slidesPerView="2"
-              :scrollbar="{
-                hide: true,
-              }"
-              :modules="[Scrollbar]"
-              class="swiper"
-            >
-              <swiper-slide class="swiper-slide" v-for="(courseItem,courseIndex) in courseData.lists" :key="courseIndex">
-                <div class="courseBox" >
-                  <div class="courseBox-l">
-                    <div class="round"></div>
-                    <div class="line"></div>
-                  </div>
-                  <div class="courseBox-in">
-                    <div class="timeNode">{{courseItem.timeNode}}</div>
-                    <div class="courseBox-in-lists">
-                      <div class="courseBox-in-listItem" v-for="(courseTimeNodeItem,courseTimeNodeIndex) in courseItem.events" :key="courseTimeNodeIndex">
-                        <div class="month">{{courseTimeNodeItem.month}}</div>
-                        <div class="context">{{$t(courseTimeNodeItem.context)}}</div>
+        </div>
+        <div class="course-in">
+          <div class="historyNode-pc">
+            <div class="historyNode-pc-t">
+              <swiper
+                :slidesPerView="'auto'"
+                class="courseSwiperT"
+                :modules="[Controller]"
+                :width="110"
+                @swiper="setFirstSwiper"
+                @click="handleFirstSwiper"
+                :controller="{ control: secondSwiper  }"
+              >
+                <swiper-slide :class="['swiper-slide']" v-for="(courseItem,courseIndex) in courseData.lists" :key="courseIndex">
+                  <div class="timeNode">{{courseItem.timeNode}}</div>
+                </swiper-slide>
+              </swiper>
+            </div>
+            <div class="historyNode-pc-line">
+              <div class="historyNode-pc-line-in"></div>
+            </div>
+            <div class="historyNode-pc-b">
+              <swiper
+                class="courseSwiperB"
+                :modules="[Controller]"
+                @swiper="setSecondSwiper"
+                :controller="{ control: firstSwiper }"
+              >
+                <swiper-slide :class="['swiper-slide']" v-for="(courseItem,courseIndex) in courseData.lists" :key="courseIndex">
+                  <div class="courseBox">
+                    <div class="courseBox-line">
+                      <div class="round"></div>
+                      <div class="line"></div>
+                    </div>
+                    <div class="courseBox-in">
+                      <div class="courseBox-in-lists">
+                        <div class="courseBox-in-listItem" v-for="(courseTimeNodeItem,courseTimeNodeIndex) in courseItem.events" :key="courseTimeNodeIndex">
+                          <div class="month">{{courseTimeNodeItem.month}}</div>
+                          <div class="context">{{$t(courseTimeNodeItem.context)}}</div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </swiper-slide>
-            </swiper>
+                </swiper-slide>
+              </swiper>
+            </div>
           </div>
         </div>
       </div>
@@ -395,148 +431,136 @@ const courseData = {
 }
 .course{
   margin-top: 157px;
-  &-bg{
-    padding: 70px 0 106px;
-    background: linear-gradient(270deg, rgba(255, 241, 240, 0) 2.6%, rgba(255, 241, 240, 0.7) 23.89%, rgba(255, 241, 240, 0.7) 75.33%, rgba(255, 241, 240, 0) 97.4%);
-  }
-  &-title{
-    font-style: normal;
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 160%;
-    color: #666666;
-    &-in{
-      border-bottom: 4px solid var(--indexColor1);
-      display: inline-block;
-    }
-  }
   &-in{
     width: 100%;
-    max-width: 1452px;
-    margin: 35px auto 0;
-    background: #FFFFFF;
-    box-shadow: 0px 4px 8px var(--indexColor3);
-    padding: 54px 65px 44px;
-    box-sizing: border-box;
-    // display: flex;
-    // overflow-x: scroll;
-    // scroll-snap-align: start;
-    :deep(.swiper-scrollbar){
-      opacity: 1 !important;
-      width: calc(100% - 60px);
-      margin: 0 30px;
-      background: var(--indexColor2);
+    // max-width: max-content;
+    margin: 75px auto 0;
+    .courseSwiperT{
+      width: 100%;
+      // width: 670px;
+      width: 732px;
+      // max-width: 732px;
+      overflow: visible;
+      :deep(.swiper-wrapper){
+        // width: 124.38px;
+        // width: calc(124.38px * 16);
+      }
+      .swiper-slide{
+        // width: auto;
+        max-width: max-content;
+        padding: 0 24px;
+        transition: all .5s;
+        display: flex;
+        align-items: flex-end;
+        // height: auto;
+        height: 96px;
+        .timeNode{
+          color: var(--textColor);
+          text-align: center;
+          font-size: 34px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 160%;
+          transition: all .5s;
+          opacity: .6;
+        }
+        &.swiper-slide-active{
+          padding: 0 62px 0 40px;
+          // margin-left: 20px;
+          .timeNode{
+            font-size: 60px;
+            opacity: 1;
+            color: var(--indexColor1);
+          }
+        }
+        &.swiper-slide-next{
+          // padding-left: 62px;
+        }
+        &.swiper-slide-prev{
+          // padding-right: 62px;
+        }
+      }
     }
-    :deep(.swiper-scrollbar-drag){
-      background: var(--indexColor1);
-    }
-    .swiper-slide{
-      &:first-child{
+    .courseSwiperB{
+      width: 100%;
+      max-width: calc(284px + 82px);
+      margin: 0 auto 0 calc((100% - 732px) / 2);
+      overflow: visible;
+      .swiper-slide{
+        max-width: max-content;
+        padding: 31px 41px;
+        position: relative;
+        height: auto;
         .courseBox{
-          &-l{
-            .line{
-              width: 50%;
-              margin-left: 50%;
+          width: 284px;
+          // width: 366px;
+          // padding: 31px 41px;
+          &-line{
+            .round{
+              width: 16px;
+              height: 16px;
+              border-radius: 50%;
+              background: var(--indexColor1);
+              position: absolute;
+              top: -9px;
+              left: 41px;
+            }
+          }
+          &-in{
+            opacity: .6;
+            transition: all .5s;
+            &-listItem{
+              .month{
+                color: var(--indexColor1);
+                text-align: justify;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 160%; /* 32px */
+                letter-spacing: 2px;
+              }
+              .context{
+                color: var(--textColor);
+                text-align: justify;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 160%; /* 32px */
+                letter-spacing: 2px;
+              }
+            }
+          }
+        }
+        &.swiper-slide-active{
+          .courseBox{
+            &-in{
+              opacity: 1;
             }
           }
         }
       }
-      &:last-child{
-        .courseBox-l{
-          .line{
-            width: 50%;
-          }
-        }
-      }
     }
-    .courseBox{
-      display: flex;
-      flex-direction: column;
-      // min-width: 40%;
-      &-l{
-        width: 100%;
-        // width: 44px;
-        .round{
-          width: 24px;
-          height: 24px;
-          border-radius: 50%;
-          margin-left: 50%;
-          transform: translateX(-50%);
-          background: var(--indexColor1);
-        }
-        .line{
-          height: 3px;
-          width: 100%;
-          margin-top: -13px;
-          background: var(--indexColor1);
-          // height: 100%;
-          // width: 3px;
-          // margin-left: 10px;
-        }
-      }
+    .historyNode-pc-t{
+      width: 100%;
+      max-width: max-content;
+      margin: 0 auto 33px;
+    }
+    .historyNode-pc-b{
+      background: linear-gradient(rgba(252, 22, 130, 0.40) -68.47%, rgba(252, 22, 130, 0.28) -68.46%, rgba(255, 168, 198, 0.00) 63.88%);
+    }
+    .historyNode-pc-line{
+      width: 100%;
+      height: 2px;
+      background: #FDD3E3;
+      position: relative;
       &-in{
-        cursor: pointer;
-        padding: 60px 30px;
-        // padding-top: 50px;
-        flex: 1;
-        // padding-bottom: 60px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: auto;
-        .timeNode{
-          font-style: normal;
-          font-weight: 700;
-          font-size: 28px;
-          line-height: 160%;
-          color: var(--indexColor1);
-          margin-top: -10px;
-        }
-        &-lists{
-          margin-top: 10px;
-        }
-        &-listItem{
-          font-style: normal;
-          font-weight: 600;
-          font-size: 20px;
-          line-height: 160%;
-          .month{
-            color: var(--indexColor1);
-            text-align: center;
-          }
-          .context{
-            text-align: center;
-            color: #666666;
-            white-space: pre-wrap;
-          }
-        }
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 2px;
+        width: calc((100% - 732px + 90px) / 2);
+        background: var(--indexColor1);
       }
-      // &:first-child{
-      //   .courseBox-l{
-      //     .line{
-      //       width: 50%;
-      //       margin-left: 50%;
-      //     }
-      //   }
-      // }
-      // &:last-child{
-      //   .courseBox-l{
-      //     .line{
-      //       width: 50%;
-            
-      //     }
-      //   }
-      // }
-      // &:last-child{
-      //   .courseBox-l{
-      //     .line{
-      //       display: none;
-      //     }
-      //   }
-      //   .courseBox-in{
-      //     padding-bottom: 0;
-      //   }
-      // }
     }
   }
 }
@@ -605,6 +629,7 @@ const courseData = {
           a{
             width: 100%;
             height: 100%;
+            display: block;
           }
         }
         .text{
@@ -685,42 +710,19 @@ const courseData = {
   }
   .course{
     margin-top: 90px;
-    &-bg{
-      padding: 44px 0;
-      background: linear-gradient(360deg, rgba(255, 241, 240, 0) 0%, rgba(255, 241, 240, 0.7) 12.5%, rgba(255, 241, 240, 0.7) 81.99%, rgba(255, 241, 240, 0) 100%);
-    }
-    &-title{
-      font-size: 26px;
-      display: flex;
-      justify-content: center;
-    }
     &-in{
-      width: calc(100% - 60px);
-      padding: 24px;
-      .courseBox{
-        &-l{
-          .round{
-            width: 16px;
-            height: 16px;
-          }
-          .line{
-            height: 2px;
-            margin-top: -9px;
-          }
-        }
-        &-in{
-          padding-bottom: 30px;
+      margin-top: 75px;
+      .courseSwiperT{
+        .swiper-slide{
+          width: auto;
+          width: max-content;
           .timeNode{
-            font-weight: 500;
-            font-size: 16px;
-            margin-top: -5px;
-          }
-          &-lists{
-            margin-top: 2px;
-          }
-          &-listItem{
-            font-weight: 600;
-            font-size: 14px;
+            color: rgba(76, 76, 76, 0.60);
+            text-align: center;
+            font-size: 34px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 160%;
           }
         }
       }
