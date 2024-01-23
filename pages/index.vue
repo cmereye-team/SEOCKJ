@@ -178,6 +178,7 @@ const headerConfigData = {
       <!-- 聯絡我們 -->
       <ContactUs />
     </div>
+    <PageAdbox />
     <PageFooter />
     <PageNavbar />
   </div>

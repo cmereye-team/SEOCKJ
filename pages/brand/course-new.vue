@@ -244,6 +244,7 @@ const courseData = {
     },
   ],
 }
+let newCourseLists = courseData.lists.reverse()
 
 const firstSwiper:any = ref(null);
 const secondSwiper = ref(null);
@@ -336,7 +337,7 @@ const setSecondSwiper = (swiper) => {
                 @click="handleFirstSwiper"
                 :controller="{ control: secondSwiper  }"
               >
-                <swiper-slide :class="['swiper-slide']" v-for="(courseItem,courseIndex) in courseData.lists" :key="courseIndex">
+                <swiper-slide :class="['swiper-slide']" v-for="(courseItem,courseIndex) in newCourseLists" :key="courseIndex">
                   <div class="timeNode">{{courseItem.timeNode}}</div>
                 </swiper-slide>
               </swiper>
@@ -351,7 +352,7 @@ const setSecondSwiper = (swiper) => {
                 @swiper="setSecondSwiper"
                 :controller="{ control: firstSwiper }"
               >
-                <swiper-slide :class="['swiper-slide']" v-for="(courseItem,courseIndex) in courseData.lists" :key="courseIndex">
+                <swiper-slide :class="['swiper-slide']" v-for="(courseItem,courseIndex) in newCourseLists" :key="courseIndex">
                   <div class="courseBox">
                     <div class="courseBox-line">
                       <div class="round"></div>

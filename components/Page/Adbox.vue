@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { defineProps } from "vue";
+import { whatsAppNum } from '~/assets/js/common'
 defineProps({
   str:{
     type: String,
@@ -19,13 +20,13 @@ onMounted(()=>{
   <div :class="['adccbox',{show:_bool}]" @click="_bool=false">
     <div :class="['adccbox-in',{'show-in':_bool}]" @click.stop="">
       <div class="close">
-        <img src="@/assets/images/icon_7.png" alt="" @click="_bool = false">
+        <img src="@/assets/images/icon_16.png" alt="" @click="_bool = false">
       </div>
-      <!-- <div class="content"></div>
-      <div class="form">
-        <input type="text">
-        <button></button>
-      </div> -->
+      <div class="content">
+        <a :href="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`">
+          <img :data-cfsrc="'https://static.cmereye.com/imgs/2024/01/e272eab6fd020a3c.jpg'" :srcset="`https://static.cmereye.com/imgs/2024/01/75d9f6d2c17e5b31.jpg 768w, https://static.cmereye.com/imgs/2024/01/e272eab6fd020a3c.jpg`" src="https://static.cmereye.com/imgs/2024/01/e272eab6fd020a3c.jpg" alt="新春限定優惠">
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -71,16 +72,16 @@ onMounted(()=>{
     transform: translate(-50%,-50%);
     width: calc(100% - 60px);
     height: auto;
-    min-height: 400px;
+    // min-height: 400px;
     max-width: 768px;
-    border-radius: 30px;
-    background: #fff;
+    // border-radius: 30px;
+    // background: #fff;
     z-index: 1000;
     opacity: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
+    // overflow: hidden;
     &.show-in{
       animation: topIn 1s .5s ease-out forwards;
     }
@@ -88,20 +89,15 @@ onMounted(()=>{
       position: absolute;
       right: 20px;
       top: 20px;
+      cursor: pointer;
       img{
-        width: 30px;
-        height: 30px;
+        width: 50px;
+        height: 50px;
         transition: all .3s;
         &:hover{
           transform: rotate(90deg);
         }
       }
-    }
-    .content{
-
-    }
-    .form{
-
     }
   }
 }
@@ -110,6 +106,14 @@ onMounted(()=>{
   .adccbox{
     &-in{
       border-radius: 20px;
+      .close{
+        right: 10px;
+        top: 10px;
+        img{
+          width: 30px;
+          height: 30px;
+        }
+      }
     }
   }
 }
