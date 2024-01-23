@@ -444,7 +444,7 @@ const setSecondSwiper = (swiper) => {
       overflow: visible;
       :deep(.swiper-wrapper){
         // width: 124.38px;
-        // width: calc(124.38px * 16);
+        // width: calc(131.41px * 15 + 249.19px);
       }
       .swiper-slide{
         // width: auto;
