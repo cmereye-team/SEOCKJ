@@ -298,7 +298,7 @@ const handleMbMenu = () => {
       </div>
       <div
         v-if="
-          ['implant', 'rootCanal-test', 'scaling-and-polishing-test','periodontal-test','orthodontics-test','invisalign-test','veneers-test','action-message'].includes(
+          ['implant', 'rootCanal-test', 'scaling-and-polishing-test','periodontal-test','orthodontics-test','invisalign-test','veneers-test','action-message','course-new'].includes(
             headerConfig.pageName
           )
         "
@@ -370,7 +370,7 @@ const handleMbMenu = () => {
       </div>
       <div
         v-if="
-          ['implant', 'rootCanal-test', 'scaling-and-polishing-test','index-test','periodontal-test','orthodontics-test','invisalign-test','veneers-test','action-message'].includes(
+          ['implant', 'rootCanal-test', 'scaling-and-polishing-test','index-test','periodontal-test','orthodontics-test','invisalign-test','veneers-test','action-message','course-new'].includes(
             headerConfig.pageName
           )
         "
@@ -443,6 +443,14 @@ const handleMbMenu = () => {
       </div>
       <div
         v-if="headerConfig.pageName === 'action-message'"
+        class="header-content-text-implant"
+        :class="headerConfig.pageName"
+      >
+        <div>全程式預約一體化診療服務，</div>
+        <div>讓每一位顧客享受 <span>健康微笑之旅。</span></div>
+      </div>
+      <div
+        v-if="headerConfig.pageName === 'course-new'"
         class="header-content-text-implant"
         :class="headerConfig.pageName"
       >
@@ -633,6 +641,7 @@ const handleMbMenu = () => {
     &.invisalign-test,
     &.veneers-test,
     &.action-message,
+    &.course-new,
     &.scaling-and-polishing-test {
       display: none;
     }
@@ -782,7 +791,7 @@ const handleMbMenu = () => {
         left: 0;
         top: 25%;
       }
-      &.index-test,&.action-message{
+      &.index-test,&.action-message,&.course-new{
         display: none;
       }
     }
@@ -857,7 +866,7 @@ const handleMbMenu = () => {
         color: var(--indexColor1);
       }
     }
-    &.index-test,&.action-message{
+    &.index-test,&.action-message,&.course-new{
       display: none;
     }
     &.periodontal-test{
@@ -872,7 +881,7 @@ const handleMbMenu = () => {
   }
   &-bgImgBB {
     opacity: 0;
-    &.index-test,&.action-message{
+    &.index-test,&.action-message,&.course-new{
       max-width: 1920px;
     }
     &.implant,
@@ -1352,7 +1361,7 @@ const handleMbMenu = () => {
           }
         }
       }
-      &.index-test,&.action-message{
+      &.index-test,&.action-message,&.course-new{
         margin-top: 70px;
       }
     }
@@ -1378,6 +1387,9 @@ const handleMbMenu = () => {
       &.implant{
         padding-bottom: 80px;
       }
+      &.course-new{
+        padding-bottom: 70px;
+      }
     }
     &-btn-implant {
       display: none;
@@ -1392,7 +1404,7 @@ const handleMbMenu = () => {
       & > div {
         font-size: 20px;
       }
-      &.index-test,&.action-message{
+      &.index-test,&.action-message,&.course-new{
         display: block;
       }
       &.periodontal-test,&.orthodontics-test,&.invisalign-test,&.veneers-test{

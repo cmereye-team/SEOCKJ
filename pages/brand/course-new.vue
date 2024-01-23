@@ -24,10 +24,10 @@ useHead({
 })
 
 const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2023/06/a9937a33f4c1e5aa.png',
-  bg: 'https://static.cmereye.com/imgs/2023/06/d85c660d38bd5f93.jpg',
-  mbImg: 'https://static.cmereye.com/imgs/2023/06/8756debfc7f1a54b.jpg',
-  pageName: 'brand',
+  img: 'https://static.cmereye.com/imgs/2024/01/1bc7c8742b23ae97.jpg',
+  bg: '',
+  mbImg: 'https://static.cmereye.com/imgs/2024/01/a59e0a87dfb394f1.jpg',
+  pageName: 'course-new',
   pcText: ['健齒為本 嚴謹治療','專科 · 專業 · 實力保證'],
   mbText: ['健齒為本 嚴謹治療','專科 · 專業 · 實力保證']
 }
@@ -244,16 +244,17 @@ const courseData = {
     },
   ],
 }
-let newCourseLists = courseData.lists.reverse()
+
+let _lists = JSON.parse(JSON.stringify(courseData.lists))
+let newCourseLists = _lists.reverse()
+
+const currtNum = ref(0)
 
 const firstSwiper:any = ref(null);
 const secondSwiper = ref(null);
 const handleFirstSwiper = (swiper) =>{
-  // console.log(swiper.clickedIndex)
   let _index = swiper.clickedIndex
-  // currtIdx.value = _index
   firstSwiper.value.slideToLoop(_index);
-  // firstSwiper.value.slideTo(_index,0)
 }
 
 const setFirstSwiper = (swiper) => {
@@ -286,7 +287,7 @@ const setSecondSwiper = (swiper) => {
             <nuxt-link :to="''">
               <span>{{$t('pages.brand.title')}}</span>
             </nuxt-link>
-            <span>{{$t(introduceData.tabNavName)}}</span>
+            <span>品牌介紹</span>
           </div>
           <div class="introduce-in-t mbBox">
             <img :src="introduceData.mbImg" />
@@ -332,10 +333,10 @@ const setSecondSwiper = (swiper) => {
                 :slidesPerView="'auto'"
                 class="courseSwiperT"
                 :modules="[Controller]"
-                :width="110"
+                :width="131.41"
                 @swiper="setFirstSwiper"
                 @click="handleFirstSwiper"
-                :controller="{ control: secondSwiper  }"
+                :controller="{ control: secondSwiper }"
               >
                 <swiper-slide :class="['swiper-slide']" v-for="(courseItem,courseIndex) in newCourseLists" :key="courseIndex">
                   <div class="timeNode">{{courseItem.timeNode}}</div>
@@ -369,6 +370,17 @@ const setSecondSwiper = (swiper) => {
                   </div>
                 </swiper-slide>
               </swiper>
+            </div>
+          </div>
+          <div class="historyNode-mb">
+            <div class="historyNode-in" v-for="(courseItem,courseIndex) in courseData.lists" :key="courseIndex">
+              <div :class="['historyNode-box',{'act-historyNode-box': currtNum === courseIndex}]" >
+                <div class="year" @click="currtNum = courseIndex">{{courseItem.timeNode}}</div>
+                <div :class="['eventsItem',{'act-eventsItem': currtNum === courseIndex}]" v-for="(eventsItem,eventsIndex) in courseItem.events" :key="eventsIndex">
+                  <div class="month">{{eventsItem.month}}</div>
+                  <div class="context">{{$t(eventsItem.context)}}</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -434,26 +446,17 @@ const setSecondSwiper = (swiper) => {
   margin-top: 157px;
   &-in{
     width: 100%;
-    // max-width: max-content;
     margin: 75px auto 0;
     .courseSwiperT{
       width: 100%;
-      // width: 670px;
       width: 732px;
-      // max-width: 732px;
       overflow: visible;
-      :deep(.swiper-wrapper){
-        // width: 124.38px;
-        // width: calc(131.41px * 15 + 249.19px);
-      }
       .swiper-slide{
-        // width: auto;
-        max-width: max-content;
+        width: auto;
         padding: 0 24px;
         transition: all .5s;
         display: flex;
         align-items: flex-end;
-        // height: auto;
         height: 96px;
         .timeNode{
           color: var(--textColor);
@@ -468,17 +471,12 @@ const setSecondSwiper = (swiper) => {
         &.swiper-slide-active{
           padding: 0 62px 0 40px;
           // margin-left: 20px;
+          // margin: 0 62px 0 40px;
           .timeNode{
             font-size: 60px;
             opacity: 1;
             color: var(--indexColor1);
           }
-        }
-        &.swiper-slide-next{
-          // padding-left: 62px;
-        }
-        &.swiper-slide-prev{
-          // padding-right: 62px;
         }
       }
     }
@@ -494,8 +492,6 @@ const setSecondSwiper = (swiper) => {
         height: auto;
         .courseBox{
           width: 284px;
-          // width: 366px;
-          // padding: 31px 41px;
           &-line{
             .round{
               width: 16px;
@@ -562,6 +558,9 @@ const setSecondSwiper = (swiper) => {
         width: calc((100% - 732px + 90px) / 2);
         background: var(--indexColor1);
       }
+    }
+    .historyNode-mb{
+      display: none;
     }
   }
 }
@@ -712,18 +711,118 @@ const setSecondSwiper = (swiper) => {
   .course{
     margin-top: 90px;
     &-in{
-      margin-top: 75px;
-      .courseSwiperT{
-        .swiper-slide{
-          width: auto;
-          width: max-content;
-          .timeNode{
-            color: rgba(76, 76, 76, 0.60);
-            text-align: center;
-            font-size: 34px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: 160%;
+      margin-top: 0;
+      padding: 42px 53px 0;
+      .historyNode-pc{
+        display: none;
+      }
+      .historyNode-mb{
+        display: block;
+        .year{
+          color: var(--indexColor1);
+          // text-align: center;
+          font-size: 30px;
+          font-weight: 700;
+          line-height: 160%;
+          background: #fff;
+          display: inline-block;
+          position: relative;
+          z-index: 1;
+          padding: 0 10px;
+          animation: modulFontAnim 3s infinite;
+        }
+        .month{
+          color: var(--indexColor1);
+          text-align: justify;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 160%;
+        }
+        .context{
+          color: var(--textColor);
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 160%;
+        }
+        .eventsItem{
+          opacity: 0;
+          transition: all 1s;
+          transition-delay: 1s;
+          height: 0;
+          overflow: hidden;
+          margin-bottom: 0;
+          -webkit-clip-path: polygon(0 0,100% 0,100% 0,0 0);
+          clip-path: polygon(0 0,100% 0,100% 0,0 0);
+          &.act-eventsItem{
+            height: initial;
+            opacity: 1;
+            &:not(:last-child){
+              margin-bottom: 25px;
+            }
+            -webkit-clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
+            clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
+          }
+        }
+        .historyNode-in{
+          padding-bottom: 47px;
+          padding-left: 33px;
+          position: relative;
+          .historyNode-box{
+            &::before{
+              content: '';
+              width: 90px;
+              height: 2px;
+              background: var(--indexColor1);
+              position: absolute;
+              top: 25.5px;
+              left: 0;
+              transition: all 1s;
+              // animation: modulAnim 3s infinite;
+            }
+            &::after{
+              content: '';
+              background: url(@/assets/images/icon_15.svg);
+              width: 15px;
+              height: 15px;
+              background-size: 100% 100%;
+              position: absolute;
+              top: 19px;
+              left: 130px;
+              transition: all 1s;
+              animation: modulIconAnim 3s infinite;
+            }
+            &.act-historyNode-box{
+              &::before{
+                width: calc(100% - 20px);
+              }
+              &::after{
+                left: calc(100% - 16px);
+                transform: rotate(90deg);
+              }
+            }
+            
+          }
+          &::before{
+            content: '';
+            width: 2px;
+            height: 100%;
+            background: var(--indexColor1);
+            position: absolute;
+            top: 30px;
+            left: 0;
+          }
+          &::after{
+            content: '';
+            width: 16px;
+            height: 16px;
+            background: var(--indexColor1);
+            border-radius: 50%;
+            position: absolute;
+            top: 18px;
+            left: -7.5px;
+          }
+          &:last-child::before{
+            display: none;
           }
         }
       }
@@ -736,7 +835,9 @@ const setSecondSwiper = (swiper) => {
       flex-direction: column;
       &-l{
         width: 100%;
-
+        img{
+          width: 100%;
+        }
       }
       &-r{
         padding: 0 30px;
