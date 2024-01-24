@@ -880,6 +880,7 @@ const setSecondSwiper = (swiper) => {
           .text{
             order: 1;
             font-size: 16px;
+            width: max-content;
           }
         }
       }
