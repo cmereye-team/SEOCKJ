@@ -40,10 +40,10 @@ const menuLists = [
         name: 'components.header.menuLists.menu_brand.course',
         link: '/brand/course',
       },
-      {
-        name: 'components.header.menuLists.menu_brand.course',
-        link: '/brand/course-new',
-      },
+      // {
+      //   name: 'components.header.menuLists.menu_brand.course',
+      //   link: '/brand/course-new',
+      // },
       {
         name: 'components.header.menuLists.menu_brand.honor',
         link: '/brand/honor',

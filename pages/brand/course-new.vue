@@ -263,6 +263,10 @@ const setFirstSwiper = (swiper) => {
 const setSecondSwiper = (swiper) => {
   secondSwiper.value = swiper;
 };
+const changeSwiper = (swiper) =>{
+  console.log(swiper)
+}
+console.log(firstSwiper.value)
 
 </script>
 
@@ -334,7 +338,9 @@ const setSecondSwiper = (swiper) => {
                 class="courseSwiperT"
                 :modules="[Controller]"
                 :width="145"
+                :translate="145"
                 @swiper="setFirstSwiper"
+                @slideChange="changeSwiper"
                 @click="handleFirstSwiper"
                 :controller="{ control: secondSwiper }"
               >
@@ -453,26 +459,16 @@ const setSecondSwiper = (swiper) => {
     width: 100%;
     margin: 75px auto 0;
     .courseSwiperT{
-      // width: 100%;
-      // width: 732px;
-      width: 652px;
+      width: 732px;
       overflow: visible;
-      // padding: 0 40px;
-      :deep(.swiper-wrapper){
-        // padding: 0 15px;
-        // width: calc(145px * 16 + 122px);
-        // transform: translatex(102px) !important; 
-      }
       .swiper-slide{
         width: auto;
-        // padding: 0 15px;
         transition: all .5s;
         display: flex;
         align-items: flex-end;
         height: 96px;
         width: 145px;
         box-sizing: content-box;
-        
         .timeNode{
           color: var(--textColor);
           text-align: center;
@@ -485,26 +481,12 @@ const setSecondSwiper = (swiper) => {
           width: 100%;
         }
         &.swiper-slide-active{
-          // padding: 0 62px 0 40px;
-          // transform: none;
-          // margin-left: 20px;
-          // margin-left: 40px;
-          // margin-right: 62px;
+          padding: 0 62px 0 40px;
           .timeNode{
-            
             font-size: 60px;
             opacity: 1;
             color: var(--indexColor1);
           }
-        }
-        &.swiper-slide-prev{
-          // margin-right: 16px;
-          // margin-right: 40px;
-          // padding-right: 62px;
-        }
-        &.swiper-slide-next{
-          // margin-left: 38px;
-          // margin-left: 62px;
         }
       }
     }
