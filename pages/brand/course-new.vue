@@ -248,7 +248,7 @@ const courseData = {
 let _lists = JSON.parse(JSON.stringify(courseData.lists))
 let newCourseLists = _lists.reverse()
 
-const currtNum = ref(0)
+let currtNum = ref(0)
 
 const firstSwiper:any = ref(null);
 const secondSwiper = ref(null);
@@ -263,6 +263,10 @@ const setFirstSwiper = (swiper) => {
 const setSecondSwiper = (swiper) => {
   secondSwiper.value = swiper;
 };
+
+const changeSwiper = (swiper) =>{
+  currtNum.value = swiper.activeIndex
+}
 
 </script>
 
@@ -337,6 +341,7 @@ const setSecondSwiper = (swiper) => {
                 :translate="145"
                 @swiper="setFirstSwiper"
                 @click="handleFirstSwiper"
+                @slideChange="changeSwiper"
                 :controller="{ control: secondSwiper }"
               >
                 <swiper-slide :class="['swiper-slide']" v-for="(courseItem,courseIndex) in newCourseLists" :key="courseIndex">
@@ -357,8 +362,7 @@ const setSecondSwiper = (swiper) => {
                 <swiper-slide :class="['swiper-slide']" v-for="(courseItem,courseIndex) in newCourseLists" :key="courseIndex">
                   <div class="courseBox">
                     <div class="courseBox-line">
-                      <div class="round"></div>
-                      <div class="line"></div>
+                      <div class="round" :class="{currtNumRound: currtNum >= courseIndex}"></div>
                     </div>
                     <div class="courseBox-in">
                       <div class="courseBox-in-lists">
@@ -498,10 +502,14 @@ const setSecondSwiper = (swiper) => {
               width: 16px;
               height: 16px;
               border-radius: 50%;
-              background: var(--indexColor1);
+              background: #FDD3E3;
               position: absolute;
               top: -9px;
               left: 41px;
+              transition: all .3s;
+              &.currtNumRound{
+                background: var(--indexColor1);
+              }
             }
           }
           &-in{
@@ -533,7 +541,13 @@ const setSecondSwiper = (swiper) => {
           .courseBox{
             &-in{
               opacity: 1;
+              
             }
+            // &-line{
+            //   .round{
+            //     background: var(--indexColor1);
+            //   }
+            // }
           }
         }
       }
