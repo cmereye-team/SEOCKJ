@@ -263,10 +263,6 @@ const setFirstSwiper = (swiper) => {
 const setSecondSwiper = (swiper) => {
   secondSwiper.value = swiper;
 };
-const changeSwiper = (swiper) =>{
-  console.log(swiper)
-}
-console.log(firstSwiper.value)
 
 </script>
 
@@ -297,7 +293,7 @@ console.log(firstSwiper.value)
             <img :src="introduceData.mbImg" />
           </div>
           <div class="introduce-in-l pageCon">
-            <div class="title">{{$t(introduceData.title)}}</div>
+            <div class="title">品牌介紹</div>
             <div class="content">{{$t(introduceData.content)}}</div>
           </div>
         </div>
@@ -334,13 +330,12 @@ console.log(firstSwiper.value)
           <div class="historyNode-pc">
             <div class="historyNode-pc-t">
               <swiper
-                :slidesPerView="'auto'"
+                :slidesPerView="1"
                 class="courseSwiperT"
                 :modules="[Controller]"
                 :width="145"
                 :translate="145"
                 @swiper="setFirstSwiper"
-                @slideChange="changeSwiper"
                 @click="handleFirstSwiper"
                 :controller="{ control: secondSwiper }"
               >
@@ -414,6 +409,7 @@ console.log(firstSwiper.value)
         font-weight: 700;
         font-size: 50px;
         margin-top: 96px;
+        color: var(--indexColor1);
       }
       .content {
         font-weight: 600;
@@ -448,16 +444,11 @@ console.log(firstSwiper.value)
     color: var(--indexColor1);
   }
 }
-@keyframes initToWidth {
-  to{
-    width: auto;
-  }
-}
 .course{
   margin-top: 157px;
   &-in{
     width: 100%;
-    margin: 75px auto 0;
+    margin: 36px auto 0;
     .courseSwiperT{
       width: 732px;
       overflow: visible;
@@ -626,13 +617,16 @@ console.log(firstSwiper.value)
         .btn{
           background: var(--indexColor1);
           box-shadow: 0px 3.704px 7.409px 0px rgba(252, 22, 130, 0.38);
-          width: 157px;
-          height: 46px;
-          line-height: 46px;
+          // width: 157px;
+          width: calc(400 / 892 * 100%);
+          max-width: 400px;
+          height: 60px;
+          line-height: 60px;
           color: #fff;
           transition: all .3s;
           border-radius: 30px;
           text-align: center;
+          font-size: 35px;
           &:hover{
             background: var(--indexColor3);
           }
@@ -647,9 +641,12 @@ console.log(firstSwiper.value)
           font-size: 20px;
           font-style: normal;
           font-weight: 500;
-          line-height: 160%; /* 32px */
-          text-decoration-line: underline;
+          line-height: 120%; /* 32px */
+          // text-decoration-line: underline;
           margin-top: 22px;
+          // padding-bottom: 3px;
+          display: inline-block;
+          border-bottom: 1px solid var(--textColor);
         }
       }
     }

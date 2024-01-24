@@ -40,10 +40,6 @@ const menuLists = [
         name: 'components.header.menuLists.menu_brand.course',
         link: '/brand/course',
       },
-      // {
-      //   name: 'components.header.menuLists.menu_brand.course',
-      //   link: '/brand/course-new',
-      // },
       {
         name: 'components.header.menuLists.menu_brand.honor',
         link: '/brand/honor',
@@ -926,7 +922,7 @@ const handleMbMenu = () => {
       .menuItem {
         padding: 0 0 20px;
         cursor: pointer;
-        font-size: 18px;
+        font-size: 22px;
         font-weight: 600;
         position: relative;
         & > a {

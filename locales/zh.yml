@@ -10,7 +10,7 @@ components:
         name: 主页
       menu_brand:
         name: 品牌理念
-        course: 品牌历程
+        course: 品牌介紹
         honor: 品牌荣誉
       menu_dental_service:
         name: 牙科服务
