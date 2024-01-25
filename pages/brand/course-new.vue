@@ -357,6 +357,7 @@ const changeSwiper = (swiper) =>{
                 class="courseSwiperB"
                 :modules="[Controller]"
                 @swiper="setSecondSwiper"
+                @click="handleFirstSwiper"
                 :controller="{ control: firstSwiper }"
               >
                 <swiper-slide :class="['swiper-slide']" v-for="(courseItem,courseIndex) in newCourseLists" :key="courseIndex">
@@ -541,13 +542,7 @@ const changeSwiper = (swiper) =>{
           .courseBox{
             &-in{
               opacity: 1;
-              
             }
-            // &-line{
-            //   .round{
-            //     background: var(--indexColor1);
-            //   }
-            // }
           }
         }
       }
@@ -750,7 +745,7 @@ const changeSwiper = (swiper) =>{
           position: relative;
           z-index: 1;
           padding: 0 10px;
-          animation: modulFontAnim 3s infinite;
+          animation: modulFontAnim 2s infinite;
         }
         .month{
           color: var(--indexColor1);
@@ -767,8 +762,8 @@ const changeSwiper = (swiper) =>{
         }
         .eventsItem{
           opacity: 0;
-          transition: all 1s;
-          transition-delay: 1s;
+          transition: all .5s;
+          transition-delay: .5s;
           height: 0;
           overflow: hidden;
           margin-bottom: 0;
@@ -797,7 +792,7 @@ const changeSwiper = (swiper) =>{
               position: absolute;
               top: 25.5px;
               left: 0;
-              transition: all 1s;
+              transition: all .5s;
               // animation: modulAnim 3s infinite;
             }
             &::after{
@@ -809,8 +804,7 @@ const changeSwiper = (swiper) =>{
               position: absolute;
               top: 19px;
               left: 130px;
-              transition: all 1s;
-              animation: modulIconAnim 3s infinite;
+              transition: all .5s;
             }
             &.act-historyNode-box{
               &::before{
