@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
-import { toWhatsApp } from '~/assets/js/common'
 import { Autoplay } from 'swiper';
+import { toWhatsApp } from '~/assets/js/common'
 const appState = useAppState()
 appState.setDentistryService('implant')
 useHead({
@@ -442,19 +442,25 @@ const onSlideChange = (swiper:any) => {
 let windowWidth = ref(1920)
 
 let showYaAnim = ref(false)
-// const detailBtn:any = ref<HTMLElement>()
-// const getScrollTop = () => {
-//   let _offsetTop = detailBtn.value.offsetTop || 0
-//   if(window.scrollY>=_offsetTop-600){
-//     showYaAnim.value = true
-//   }
-// }
+
+let yaImgCurrtNum = ref(6) 
+const yaImgFu = (_idx,_type) => {
+  if(_type){
+    // console.log(_idx,'按住了')
+    yaImgCurrtNum.value = _idx
+  }else{
+    // console.log(_idx,'不按了')
+    yaImgCurrtNum.value = 6
+  }
+}
 
 onMounted(()=>{
   getWindowWidth()
   window.addEventListener('resize',getWindowWidth)
-  // getScrollTop()
-  // window.addEventListener('scroll',getScrollTop)
+  window.addEventListener('contextmenu', function(e) {  
+    e.preventDefault();  
+  });
+
 })
 
 const getWindowWidth = () => {
@@ -696,7 +702,14 @@ const implantCaseData = [
         <div class="implantCase-title dentistryServices-title">
           <div class="dentistryServices-title-in bb implantCase-title-in">植牙案例</div>
         </div>
-        <div class="implantCase-content">
+        <div class="implantCase-in">
+          <div class="implantCase-in-in">
+            <div v-for="(implantCaseItem,implantCaseIndex) in implantCaseData" :style="{background:`url(${implantCaseItem.dataLists[0].imgs[0]})`,'background-size': '100% 100%'}" :key="implantCaseIndex" @touchstart="yaImgFu(implantCaseIndex,true)" @touchend="yaImgFu(implantCaseIndex,false)">
+              <img :style="{opacity:(yaImgCurrtNum===implantCaseIndex ? 0 : 1)}" :src="implantCaseItem.dataLists[1].imgs[0]" alt="">
+            </div>
+          </div>
+        </div>
+        <!-- <div class="implantCase-content">
           <swiper
             class="implantCaseBoxSwiper"
             :loop="true"
@@ -766,7 +779,7 @@ const implantCaseData = [
           <div class="implantCase-content-line">
             <PageSwiperPointLine :latestNewsNum="implantCaseData.length" :latestNewsCurrent="implantCaseCurrent" @changeLineCur="handleLineCur"></PageSwiperPointLine>
           </div>
-        </div>
+        </div> -->
       </div>
       <ServiceCase />
       <ServiceProblem :problemData="problemData" />
@@ -1445,6 +1458,39 @@ const implantCaseData = [
           margin: 60px auto 0;
         }
       }
+      &-in{
+        width: 100%;
+        background: linear-gradient(269deg, rgba(255, 241, 240, 0.00) 0.53%, rgba(255, 241, 240, 0.70) 12.92%, rgba(255, 241, 240, 0.70) 81.78%, rgba(255, 241, 240, 0.00) 99.62%);
+        margin-top: 45px;
+        padding: 50px 0;
+        &-in{
+          width: 100%;
+          max-width: 1510px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          &>div{
+            width: calc(50% - 40px);
+            margin: 20px;
+            background-size: 100% 100%;
+            border-radius: 35px;
+            overflow: hidden;
+            img{
+              width: 100%;
+              border-radius: 35px;
+              transition: all .3s;
+            }
+            &:hover{
+              cursor: pointer;
+              img{
+                opacity: 0 !important;
+              }
+            }
+          }
+        }
+        
+      }
     }
   }
   @keyframes btnAnim {
@@ -1891,6 +1937,19 @@ const implantCaseData = [
           &-line{
             width: 216px;
             margin: 30px auto 0;
+          }
+        }
+        &-in{
+          margin-top: 20px;
+          padding: 20px 0;
+          &-in{
+            &>div{
+              width: 100%;
+              border-radius: 20px;
+              &:hover{
+                pointer-events: none;
+              }
+            }
           }
         }
       }
