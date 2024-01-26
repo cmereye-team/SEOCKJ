@@ -12,7 +12,7 @@ let _bool = ref(false)
 onMounted(()=>{
   setTimeout(() => {
     _bool.value = true
-  }, 2000);
+  }, 500);
 })
 </script>
 
@@ -83,7 +83,7 @@ onMounted(()=>{
     justify-content: space-between;
     // overflow: hidden;
     &.show-in{
-      animation: topIn 1s .5s ease-out forwards;
+      animation: topIn 1s .3s ease-out forwards;
     }
     .close{
       position: absolute;
