@@ -22,7 +22,19 @@ useHead({
     { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
   ],
   script:[
-    { type: 'text/javascript', src: '/common.js' }
+    { type: 'text/javascript', src: '/common.js' },
+    {
+      type: 'application/ld+json',  
+      innerHTML: `  
+        {  
+          "@context": "https://schema.org",  
+          "@type": "WebSite",  
+          "name": "深圳愛康健口腔醫院",  
+          "alternateName": ["CKJ愛康健","深圳二級口腔醫院"],  
+          "url": "https://ckjhk.com/"  
+        }  
+      `  
+    }
   ]
 })
 onMounted(()=>{
