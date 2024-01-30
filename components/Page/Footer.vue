@@ -13,7 +13,7 @@ const navLists = [
   },
   {
     name: 'components.footer.nav_dental_service',
-    link: `/dental-service`,
+    link: `/dental-service/implant`,
   },
   {
     name: 'components.footer.nav_medical_team',
@@ -37,13 +37,13 @@ const navLists = [
     <div class="footer-content bigPageCon">
       <div class="footer-content-nav">
         <div v-for="(navItem, navIndex) in navLists" :key="navIndex">
-          <nuxt-link :to="navItem.link">
+          <nuxt-link :to="navItem.link" :title="$t(navItem.name)">
             {{ $t(navItem.name) }}
           </nuxt-link>
         </div>
       </div>
       <div class="footer-content-logo_one">
-        <nuxt-link :to="'/'">
+        <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
           <img src="@/assets/images/logo_2.png" alt="logo" />
         </nuxt-link>
       </div>

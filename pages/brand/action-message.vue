@@ -49,7 +49,7 @@ const introduceData = {
       <div class="index_title pageCon">{{$t('pages.brand.title')}}</div>
       <div class="introduce bigPageCon">
         <div class="tabNav noTitle pageCon">
-          <nuxt-link :to="'/'">
+          <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
             <span>{{$t('pages.index.title')}}</span>
           </nuxt-link>
           <nuxt-link :to="''">

@@ -60,9 +60,9 @@ pages:
     title: 品牌理念
     course: 
       introduce: 
-        title: 品牌歷程
+        title: 品牌介紹
         content: 我們致力於為客人提供全面、專業、貼心的口腔醫療服務，為客人的口腔健康保駕護航。我們注重醫療設備的更新和升級，引進了最先進的設備和技術，為客人提供更加安全、舒適、高效的醫療體驗。我們還注重醫療研究和教育，提升各醫生的專業水平和技術能力。
-        tabNavName: 品牌歷程
+        tabNavName: 品牌介紹
       history: 
         title: 發展歷程
         time_1995:

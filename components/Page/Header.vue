@@ -467,7 +467,7 @@ const handleMbMenu = () => {
       >
         <div ref="headerMenu" class="pageCon header-content-in">
           <div class="logo">
-            <nuxt-link :to="'/'"
+            <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院"
               ><img src="@/assets/images/logo_11.png" alt=""
             /></nuxt-link>
           </div>
@@ -480,6 +480,7 @@ const handleMbMenu = () => {
               <nuxt-link
                 :class="menuItem.child.length ? 'triangleIcon' : ''"
                 :to="menuItem.link === '/dental-service' ? 'javaScript:void(0)': menuItem.link"
+                :title="$t(menuItem.name)"
               >
                 {{ $t(menuItem.name) }}
               </nuxt-link>
@@ -526,7 +527,7 @@ const handleMbMenu = () => {
             :key="index"
             :class="['menuLists-item', item.child.length ? 'childIcon' : '']"
           >
-            <nuxt-link :to="!item.child.length ? item.link : ''">
+            <nuxt-link :to="!item.child.length ? item.link : ''" :title="$t(item.name)">
               <div @click="handleMenu(index)">
                 {{ $t(item.name) }}
               </div>

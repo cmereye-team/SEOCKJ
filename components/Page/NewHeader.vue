@@ -247,7 +247,7 @@ const handleMbMenu = () => {
       >
         <div ref="headerMenu" class="ckj-header-menu-in">
           <div class="logo">
-            <nuxt-link :to="'/'"
+            <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院"
               ><img src="@/assets/images/logo_11.png" alt=""
             /></nuxt-link>
           </div>
@@ -306,7 +306,7 @@ const handleMbMenu = () => {
             :key="index"
             :class="['menuLists-item', item.child.length ? 'childIcon' : '']"
           >
-            <nuxt-link :to="!item.child.length ? item.link : ''">
+            <nuxt-link :to="!item.child.length ? item.link : ''" :title="$t(item.name)">
               <div @click="handleMenu(index)">
                 {{ $t(item.name) }}
               </div>

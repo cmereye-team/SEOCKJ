@@ -66,13 +66,13 @@ const handleProcessBtn = (_type: string) => {
           }"
         >
         <div class="tabNav noTitle pageCon">
-          <nuxt-link :to="'/'">
+          <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
             <span>{{$t('pages.index.title')}}</span>
           </nuxt-link>
           <nuxt-link :to="''">
             <span>{{$t('pages.brand.title')}}</span>
           </nuxt-link>
-          <span>{{$t(introduceData.tabNavName)}}</span>
+          <span :title="$t(introduceData.tabNavName)">{{$t(introduceData.tabNavName)}}</span>
         </div>
         <div class="introduce-in-t mbBox">
           <img :src="introduceData.mbImg" />
