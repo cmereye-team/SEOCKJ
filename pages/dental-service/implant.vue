@@ -487,13 +487,14 @@ const implantCaseData = [
       {
         title: '療程前',
         imgs: [
-          'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Rectangle-662.4ftyh9pdkhe0.jpg'
+          'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Rectangle-654.6nh16b1gl8o0.jpg'
         ]
       },
       {
         title: '療程後',
         imgs: [
-          'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Rectangle-663.5ss61sod3qk0.jpg'
+          'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Rectangle-655.3e6w9ehoi4g0.jpg',
+          'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Rectangle-429.60d0faxtxq00.jpg'
         ]
       }
     ]
@@ -537,14 +538,13 @@ const implantCaseData = [
       {
         title: '療程前',
         imgs: [
-          'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Rectangle-654.6nh16b1gl8o0.jpg'
+          'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Rectangle-662.4ftyh9pdkhe0.jpg'
         ]
       },
       {
         title: '療程後',
         imgs: [
-          'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Rectangle-655.3e6w9ehoi4g0.jpg',
-          'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Rectangle-429.60d0faxtxq00.jpg'
+          'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Rectangle-663.5ss61sod3qk0.jpg'
         ]
       }
     ]
