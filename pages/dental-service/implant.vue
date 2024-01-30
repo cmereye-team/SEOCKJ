@@ -450,17 +450,6 @@ onMounted(()=>{
   window.addEventListener('contextmenu', function(e) {  
     e.preventDefault();  
   });
-  var touchStartAt, endTime;  
-  document.addEventListener('touchstart', function(e) {  
-      touchStartAt = e.timeStamp;  
-  }, false);  
-
-  document.addEventListener('touchend', function(e) {  
-      var endTime = e.timeStamp;  
-      if (endTime - touchStartAt > 500) {  // 500ms为长按时间  
-          e.preventDefault();  // 阻止长按的默认行为  
-      }  
-  }, false);
 })
 
 const getWindowWidth = () => {
