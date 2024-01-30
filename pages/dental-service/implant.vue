@@ -447,6 +447,9 @@ let showYaAnim = ref(false)
 onMounted(()=>{
   getWindowWidth()
   window.addEventListener('resize',getWindowWidth)
+  window.addEventListener('contextmenu', function(e) {  
+    e.preventDefault();  
+  });
 })
 
 const getWindowWidth = () => {
@@ -547,6 +550,16 @@ const implantCaseData = [
     ]
   }
 ]
+let yaImgCurrtNum = ref(6) 
+const yaImgFu = (_idx,_type) => {
+  if(_type){
+    console.log(_idx,'按住了')
+    yaImgCurrtNum.value = _idx
+  }else{
+    console.log(_idx,'不按了')
+    yaImgCurrtNum.value = 6
+  }
+}
 </script>
 
 <template>
@@ -569,22 +582,6 @@ const implantCaseData = [
         </div>
       </div>
       <ServiceReason :reasonData="reasonData" />
-      <!-- <div class="features">
-        <div class="dentistryServices-title">
-          <div class="dentistryServices-title-in bb">{{$t(featuresData.title)}}</div>
-        </div>
-        <div class="features-in">
-          <div class="features-in-l">
-            <img src="https://static.cmereye.com/imgs/2023/05/b5a6fc53ad15b758.png" alt="">
-          </div>
-          <div class="features-in-r">
-            <div class="features-in-r-item" v-for="(featuresItem,index) in featuresData.featuresLists" :key="index">
-              <div class="w-20px">· </div>
-              <div>{{$t(featuresItem)}}</div>
-            </div>
-          </div>
-        </div>
-      </div> -->
       <div class="notice">
         <div class="dentistryServices-title notice-title">
           <div class="dentistryServices-title-in bb notice-title-in">{{$t(noticeData.title)}}</div>
@@ -593,22 +590,6 @@ const implantCaseData = [
           <span v-for="(topTextItem,topTextIndex) in noticeData.topText" :key="topTextIndex">{{$t(topTextItem)}}</span>
         </div>
         <div class="notice-in">
-          <!-- <swiper :slidesPerView="windowWidth>768 ? '2': '1'" class="swiper-wrapper" @slideChange="onSlideChange">
-              <swiper-slide class="swiper-slide">
-                <div class="box box-left">
-                  <div class="box-in" v-for="(meritItem,meritIndex) in noticeData.meritLists" :key="meritIndex" >
-                    <div>{{$t(meritItem)}}</div>
-                  </div>
-                </div>
-              </swiper-slide>
-              <swiper-slide class="swiper-slide">
-                <div class="box box-right">
-                  <div class="box-in" v-for="(shortcomingItem,shortcomingIndex) in noticeData.shortcomingLists" :key="shortcomingIndex" >
-                    <div>{{$t(shortcomingItem)}}</div>
-                  </div>
-                </div>
-              </swiper-slide>
-          </swiper> -->
           <div class="lists">
             <div class="lists-in" v-for="(noticeItem,noticeIndex) in noticeData.dataLists" :key="noticeIndex">
               <div class="name">{{noticeItem.name}}</div>
@@ -620,11 +601,7 @@ const implantCaseData = [
         <div class="notice-bottomText pcBox">
           <span v-for="(bottomTextItem,bottomTextIndex) in noticeData.bottomText" :key="bottomTextIndex">{{$t(bottomTextItem)}}</span>
         </div>
-        <!-- <div class="notice-line mbBox">
-          <PageSwiperPointLine :latestNewsNum="2" :latestNewsCurrent="noticeCurrent"></PageSwiperPointLine>
-        </div> -->
       </div>
-      <!-- <ServiceStep :stepData="stepData" /> -->
       <div class="step">
         <div class="step-in">
           <div class="dentistryServices-title step-title">
@@ -692,7 +669,6 @@ const implantCaseData = [
           <swiper
             class="implantCaseBoxSwiper"
             :loop="true"
-            :modules="[Autoplay]"
             :autoplay="{
               delay: 3000,
             }"
@@ -701,15 +677,10 @@ const implantCaseData = [
           >
             <swiper-slide v-for="(implantCaseItem,implantCaseIndex) in implantCaseData" :key="implantCaseIndex">
               <div class="implantCase-content-in">
-                <div class="implantCaseBox" v-for="(dataItem,dataIndex) in implantCaseItem.dataLists" :key="dataIndex">
-                  <div class="implantCaseBox-t">
-                    <img src="@/assets/images/icon_13.png" alt="">
-                    <span>{{dataItem.title}}</span>
-                  </div>
-                  <div class="implantCaseBox-b">
-                    <div v-for="(imgItem,imgIdx) in dataItem.imgs" :key="imgIdx">
-                      <img :src="imgItem" :class="{isw: (implantCaseIndex===3&&dataIndex===1)&&imgIdx===1}" alt="">
-                    </div>
+                <div class="implantCaseBox-t">
+                  <div :style="{background:`url(${implantCaseItem.dataLists[0].imgs[0]})`,'background-size': '100% 100%'}" :key="implantCaseIndex">
+                    <img class="ya" :style="{opacity:(yaImgCurrtNum===implantCaseIndex ? 0 : 1)}" :src="implantCaseItem.dataLists[1].imgs[0]" alt="">
+                    <img class="rightMbIcon" src="https://static.cmereye.com/imgs/2023/12/d21353be5f8e49e2.png" alt="" @touchstart="yaImgFu(implantCaseIndex,true)" @touchend="yaImgFu(implantCaseIndex,false)">
                   </div>
                 </div>
               </div>
@@ -843,33 +814,6 @@ const implantCaseData = [
             width: 260px;
             height: 260px;
             border-radius: 50%;
-          }
-        }
-      }
-    }
-    .features{
-      margin-top: 90px;
-      &-in{
-        margin-top: 34px;
-        padding: 54px 0;
-        background: linear-gradient(135deg, rgba(255, 241, 240, 0.25) 0%, rgba(255, 221, 218, 0.25) 100%);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        &-l{
-          margin-right: 10px;
-        }
-        &-r{
-          &-item{
-            display: flex;
-            font-style: normal;
-            font-weight: 600;
-            font-size: 28px;
-            line-height: 160%;
-            color: #666666;
-            &>div:first-child{
-              width: 20px;
-            }
           }
         }
       }
@@ -1121,52 +1065,6 @@ const implantCaseData = [
       &-in{
         width: 90%;
         margin: 54px auto 0;
-        .box{
-          .box-in{
-            height: 207px;
-            margin-top: 15px;
-            display: flex;
-            background: var(--indexColor2);
-            font-style: normal;
-            font-weight: 600;
-            font-size: 20px;
-            line-height: 160%;
-            color: #666666;
-            padding: 0 80px;
-            box-sizing: border-box;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            &:first-child{
-              background: var(--indexColor1);
-              color: #fff;
-              margin-top: 0;
-              height: 69px;
-              font-weight: 700;
-              font-size: 28px;
-            }
-            &:nth-of-type(2){
-              margin-top: 0;
-            }
-          }
-        }
-        .box-left{
-          border-radius:  60px 0 0 60px;
-          overflow: hidden;
-        }
-        .box-right{
-          margin-left: 3px;
-          border-radius:  0 60px 60px 0;
-          overflow: hidden;
-          .box-in{
-            &:first-child{
-              background: var(--indexColor3);
-            }
-            &:last-child{
-              color: var(--indexColor1);
-            }
-          }
-        }
         .lists{
           border-radius: 60px;
           overflow: hidden;
@@ -1367,23 +1265,25 @@ const implantCaseData = [
       margin-top: 112px;
       &-content{
         margin-top: 40px;
-        padding: 58px 0 51px;
+        padding: 127px 0;
         background: linear-gradient(269deg, rgba(255, 241, 240, 0.00) 0.53%, rgba(255, 241, 240, 0.70) 12.92%, rgba(255, 241, 240, 0.70) 81.78%, rgba(255, 241, 240, 0.00) 99.62%);
         width: 100%;
         position: relative;
+        cursor: url(@/assets/images/icon_17.svg)54 54, auto;
         .implantCaseBoxSwiper{
           width: 100%;
-          // max-width: 1200px;
           margin: 0 auto;
           .implantCaseBox{
             display: flex;
             justify-content: center;
             flex-direction: column;
-            // align-items: center;
             width: max-content;
             margin: 0 auto;
+            
             &-t{
               width: 100%;
+              max-width: 663px;
+              margin: 0 auto;
               color: #4D4D4D;
               font-size: 35px;
               font-style: normal;
@@ -1391,12 +1291,23 @@ const implantCaseData = [
               line-height: 160%;
               display: flex;
               align-items: center;
-              margin-left: -39px;
-              img{
-                width: 24px;
-                height: 26px;
-                margin-right: 15px;
+              justify-content: center;
+              position: relative;
+              border-radius: 30px;
+              overflow: hidden;
+              transition: all .3s;
+              cursor: url(@/assets/images/icon_18.svg)54 54, auto;
+              div{
+                width: 100%;
               }
+              img{
+                width: 100%;
+                transition: all .3s;
+              }
+              .rightMbIcon{
+                display: none;
+              }
+              
             }
             &:not(:first-child){
               .implantCaseBox-t{
@@ -1418,17 +1329,15 @@ const implantCaseData = [
         }
         .leftBtn{
           position: absolute;
-          left: calc((100% - 562px - 350px) / 2);
-          top: 50%;
-          transform: translateY(-50%);
+          left: calc((100% - 562px - 495px) / 2);
+          top: 36%;
           cursor: pointer;
           z-index: 2;
         }
         .rightBtn{
           position: absolute;
-          right: calc((100% - 562px - 350px) / 2);
-          top: 50%;
-          transform: translateY(-50%);
+          right: calc((100% - 562px - 495px) / 2);
+          top: 36%;
           cursor: pointer;
           z-index: 2;
         }
@@ -1450,7 +1359,27 @@ const implantCaseData = [
       clip-path: polygon(110% 0, 120% 0,110% 100%,100% 100%);
     }
   }
-
+  @media (any-hover: hover) {
+    .dentistryServices{
+      .implantCase{
+        &-content{
+          .implantCaseBoxSwiper{
+            .implantCaseBox{
+              &-t{
+                div{
+                  .ya{
+                    &:hover{
+                      opacity: 0 !important;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
   @media (min-width: 768px) and (max-width: 1452px) {
     .dentistryServices{
       padding: 110px 0;
@@ -1473,6 +1402,21 @@ const implantCaseData = [
       }
     }
   }
+  @media (min-width: 768px) and (max-width: 1100px) {
+    .dentistryServices{
+      .implantCase{
+        &-content{
+          .leftBtn{
+            left: 0;
+          }
+          .rightBtn{
+            right: 0;
+          }
+        }
+      }
+
+    }
+  }
   @media (min-width: 768px) and (max-width: 890px) {
     .dentistryServices{
       .note{
@@ -1487,6 +1431,20 @@ const implantCaseData = [
     }
   }
   @media screen and (max-width: 768px) {
+    @keyframes identifier {
+      0% {
+          background: url(https://static.cmereye.com/imgs/2024/01/f0b1f0556840d29a.png)
+      }
+      50% {
+          background: url(https://static.cmereye.com/imgs/2024/01/e28fe1414dd13387.png)
+      }
+      95% {
+          background: url(https://static.cmereye.com/imgs/2024/01/45004062c3535c1d.png)
+      }
+      to {
+          background: url(https://static.cmereye.com/imgs/2024/01/f0b1f0556840d29a.png)
+      }
+    }
     .dentistryServices{
       padding: 90px 0;
       .plague{
@@ -1712,25 +1670,6 @@ const implantCaseData = [
         &-in{
           width: 100%;
           margin: 35px 0 0;
-          .box{
-            margin-left: 30px;
-            .box-in{
-              font-weight: 500;
-              font-size: 15px;
-              height: 168px;
-              margin-top: 9px;
-              padding: 0 46px;
-              &:first-child{
-                height: 40px;
-                font-weight: 600;
-                font-size: 20px;
-              }
-            }
-          }
-          .box-right{
-            margin-right: 30px;
-            margin-left: 0;
-          }
           .lists{
             border-radius: 20px;
             &-in{
@@ -1811,19 +1750,6 @@ const implantCaseData = [
           }
         }
       }
-      .features{
-        &-in{
-          padding: 24px 30px;
-          box-sizing: border-box;
-          flex-direction: column;
-          &-r{
-            &-item{
-              font-weight: 500;
-              font-size: 16px;
-            }
-          }
-        }
-      }
       .implantCase{
         margin-top: 90px;
         &-content{
@@ -1836,37 +1762,27 @@ const implantCaseData = [
               width: 100%;
               box-sizing: border-box;
               &-t{
-                margin-left: 0;
                 font-size: 26px;
-                img{
-                  width: 17px;
-                  height: 18px;
-                }
-              }
-              &:not(:first-child){
-                .implantCaseBox-t{
-                  margin-top: 33px;
-                }
-              }
-              &-b{
+                padding: 0 44px;
+                width: 100%;
                 div{
-                  margin-top: 12px;
-                  img{
-                    border-radius: 30px;
-                    margin: 0 auto;
-                    &.isw{
-                      width: calc((100 / 270) * 100%);
-                    }
-                  }
-                  &:not(:first-child){
-                    margin-top: 18px;
-                  }
+                  position: relative;
                 }
+                .rightMbIcon{
+                  display: block;
+                  position: absolute;
+                  width: 27px;
+                  height: auto;
+                  right: 10px;
+                  bottom: 10px;
+                }
+                
               }
             }
             
           }
           .leftBtn{
+            top: 22%;
             left: 13px;
             svg{
               width: 52px;
@@ -1874,6 +1790,7 @@ const implantCaseData = [
             }
           }
           .rightBtn{
+            top: 22%;
             right: 13px;
             svg{
               width: 52px;
@@ -1883,6 +1800,21 @@ const implantCaseData = [
           &-line{
             width: 216px;
             margin: 30px auto 0;
+          }
+          &-in{
+            padding-bottom: 40px;
+            position: relative;
+            &:after {
+              content: "";
+              display: inline-block;
+              width: 17px;
+              height: 28px;
+              position: absolute;
+              bottom: 0px;
+              right: 60px;
+              -webkit-animation: identifier .9s infinite;
+              animation: identifier .9s infinite
+            }
           }
         }
       }
