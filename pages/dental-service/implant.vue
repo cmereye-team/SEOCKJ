@@ -450,6 +450,17 @@ onMounted(()=>{
   window.addEventListener('contextmenu', function(e) {  
     e.preventDefault();  
   });
+  var touchStartAt, endTime;  
+  document.addEventListener('touchstart', function(e) {  
+      touchStartAt = e.timeStamp;  
+  }, false);  
+
+  document.addEventListener('touchend', function(e) {  
+      var endTime = e.timeStamp;  
+      if (endTime - touchStartAt > 500) {  // 500ms为长按时间  
+          e.preventDefault();  // 阻止长按的默认行为  
+      }  
+  }, false);
 })
 
 const getWindowWidth = () => {
@@ -745,6 +756,7 @@ const yaImgFu = (_idx,_type) => {
   .dentistryServices{
     background: #fff;
     padding: 143px 0;
+    
     .plague{
       width: 100%;
       background: linear-gradient(135deg, rgba(255, 241, 240, 0.25) 0%, rgba(255, 221, 218, 0.25) 100%);
@@ -1767,6 +1779,7 @@ const yaImgFu = (_idx,_type) => {
                 width: 100%;
                 div{
                   position: relative;
+                  -webkit-touch-callout:none;
                 }
                 .rightMbIcon{
                   display: block;
