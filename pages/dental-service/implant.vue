@@ -670,7 +670,7 @@ const yaImgFu = (_idx,_type) => {
             class="implantCaseBoxSwiper"
             :loop="true"
             :autoplay="{
-              delay: 3000,
+              delay: 4000,
             }"
             @swiper="setImplantCaseSwiperRef"
             @slideChange="onSlideImplantCaseChange"
