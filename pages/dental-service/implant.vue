@@ -1780,8 +1780,9 @@ const yaImgFu = (_idx,_type) => {
               box-sizing: border-box;
               &-t{
                 font-size: 26px;
-                padding: 0 44px;
-                width: 100%;
+                margin: 0 44px;
+                width: auto;
+                border-radius: 15px;
                 div{
                   position: relative;
                   -webkit-touch-callout:none;
