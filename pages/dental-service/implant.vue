@@ -677,6 +677,7 @@ const yaImgFu = (_idx,_type) => {
           >
             <swiper-slide v-for="(implantCaseItem,implantCaseIndex) in implantCaseData" :key="implantCaseIndex">
               <div class="implantCase-content-in">
+                <div :class="['implantCaseText',{act: yaImgCurrtNum===implantCaseIndex}]">{{yaImgCurrtNum===implantCaseIndex ? 'before' : 'after'}}</div>
                 <div class="implantCaseBox-t">
                   <div :style="{background:`url(${implantCaseItem.dataLists[0].imgs[0]})`,'background-size': '100% 100%'}" :key="implantCaseIndex">
                     <img class="ya" :style="{opacity:(yaImgCurrtNum===implantCaseIndex ? 0 : 1)}" :src="implantCaseItem.dataLists[1].imgs[0]" alt="">
@@ -1274,6 +1275,9 @@ const yaImgFu = (_idx,_type) => {
         .implantCaseBoxSwiper{
           width: 100%;
           margin: 0 auto;
+          .implantCaseText{
+            display: none;
+          }
           .implantCaseBox{
             display: flex;
             justify-content: center;
@@ -1758,6 +1762,18 @@ const yaImgFu = (_idx,_type) => {
           background: linear-gradient(0deg, rgba(255, 241, 240, 0.00) 0%, rgba(255, 241, 240, 0.70) 12.5%, rgba(255, 241, 240, 0.70) 81.99%, rgba(255, 241, 240, 0.00) 100%);
           padding: 16px 0 27px;
           .implantCaseBoxSwiper{
+            .implantCaseText{
+              display: block;
+              // text-align: center;
+              font-size: 25px;
+              font-weight: 600;
+              margin-bottom: 5px;
+              color: var(--indexColor1);
+              padding: 0 44px;
+              &.act{
+                color: #79828d;
+              }
+            }
             .implantCaseBox{
               padding: 0 44px;
               width: 100%;
@@ -1784,7 +1800,7 @@ const yaImgFu = (_idx,_type) => {
             
           }
           .leftBtn{
-            top: 22%;
+            top: 35%;
             left: 13px;
             svg{
               width: 52px;
@@ -1792,7 +1808,7 @@ const yaImgFu = (_idx,_type) => {
             }
           }
           .rightBtn{
-            top: 22%;
+            top: 35%;
             right: 13px;
             svg{
               width: 52px;
