@@ -681,8 +681,14 @@ const yaImgFu = (_idx,_type) => {
                 <div class="implantCaseBox-t">
                   <div :style="{background:`url(${implantCaseItem.dataLists[0].imgs[0]})`,'background-size': '100% 100%'}" :key="implantCaseIndex">
                     <img class="ya" :style="{opacity:(yaImgCurrtNum===implantCaseIndex ? 0 : 1)}" :src="implantCaseItem.dataLists[1].imgs[0]" alt="">
-                    <img class="rightMbIcon" src="https://static.cmereye.com/imgs/2023/12/d21353be5f8e49e2.png" alt="" @touchstart="yaImgFu(implantCaseIndex,true)" @touchend="yaImgFu(implantCaseIndex,false)">
+                    <img class="rightMbIcon" src="https://static.cmereye.com/imgs/2024/02/6f085bb1a3aef878.png" alt="" @touchstart="yaImgFu(implantCaseIndex,true)" @touchend="yaImgFu(implantCaseIndex,false)">
                   </div>
+                  <!-- <div>
+                    <img :src="implantCaseItem.dataLists[1].imgs[0]">
+                  </div> -->
+                </div>
+                <div class="implantCaseBox-b">
+                  <img :class="{firstBox: implantCaseIndex===0}" :src="implantCaseItem.dataLists[1].imgs[1]">
                 </div>
               </div>
             </swiper-slide>
@@ -1287,7 +1293,7 @@ const yaImgFu = (_idx,_type) => {
             
             &-t{
               width: 100%;
-              max-width: 663px;
+              max-width: 562px;
               margin: 0 auto;
               color: #4D4D4D;
               font-size: 35px;
@@ -1320,29 +1326,34 @@ const yaImgFu = (_idx,_type) => {
               }
             }
             &-b{
-              div{
-                img{
+              margin-top: 60px;
+              img{
                   border-radius: 30px;
                   margin: 0 auto;
                 }
-                &:not(:first-child){
-                  margin-top: 33px;
-                }
-              }
+              // div{
+              //   img{
+              //     border-radius: 30px;
+              //     margin: 0 auto;
+              //   }
+              //   &:not(:first-child){
+              //     margin-top: 33px;
+              //   }
+              // }
             }
           }
         }
         .leftBtn{
           position: absolute;
           left: calc((100% - 562px - 495px) / 2);
-          top: 36%;
+          top: 25%;
           cursor: pointer;
           z-index: 2;
         }
         .rightBtn{
           position: absolute;
           right: calc((100% - 562px - 495px) / 2);
-          top: 36%;
+          top: 25%;
           cursor: pointer;
           z-index: 2;
         }
@@ -1438,16 +1449,20 @@ const yaImgFu = (_idx,_type) => {
   @media screen and (max-width: 768px) {
     @keyframes identifier {
       0% {
-          background: url(https://static.cmereye.com/imgs/2024/01/f0b1f0556840d29a.png)
+          background: url(https://static.cmereye.com/imgs/2024/02/ea9a267c45465e86.png);
+          background-size: 100% 100%;
       }
       50% {
-          background: url(https://static.cmereye.com/imgs/2024/01/e28fe1414dd13387.png)
+          background: url(https://static.cmereye.com/imgs/2024/02/265b194eda50c574.png);
+          background-size: 100% 100%;
       }
       95% {
-          background: url(https://static.cmereye.com/imgs/2024/01/45004062c3535c1d.png)
+          background: url(https://static.cmereye.com/imgs/2024/02/b56183c6f0ad64b9.png);
+          background-size: 100% 100%;
       }
       to {
-          background: url(https://static.cmereye.com/imgs/2024/01/f0b1f0556840d29a.png)
+          background: url(https://static.cmereye.com/imgs/2024/02/ea9a267c45465e86.png);
+          background-size: 100% 100%;
       }
     }
     .dentistryServices{
@@ -1793,15 +1808,26 @@ const yaImgFu = (_idx,_type) => {
                   width: 27px;
                   height: auto;
                   right: 10px;
-                  bottom: 10px;
+                  top: 10px;
                 }
                 
+              }
+              &-b{
+              margin-top: 30px;
+              padding: 0 44px;
+              img{
+                  border-radius: 20px;
+                  margin: 0 auto;
+                  &.firstBox{
+                    width: 50%;
+                  }
+                }
               }
             }
             
           }
           .leftBtn{
-            top: 35%;
+            top: 20%;
             left: 13px;
             svg{
               width: 52px;
@@ -1809,7 +1835,7 @@ const yaImgFu = (_idx,_type) => {
             }
           }
           .rightBtn{
-            top: 35%;
+            top: 20%;
             right: 13px;
             svg{
               width: 52px;
@@ -1829,7 +1855,7 @@ const yaImgFu = (_idx,_type) => {
               width: 17px;
               height: 28px;
               position: absolute;
-              bottom: 0px;
+              top: 0px;
               right: 60px;
               -webkit-animation: identifier .9s infinite;
               animation: identifier .9s infinite
