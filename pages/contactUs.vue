@@ -19,12 +19,12 @@ useHead({
 })
 
 const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2023/06/e232dee8530b4f14.png',
-  bg: 'https://static.cmereye.com/imgs/2023/06/8532edada17034ad.jpg',
-  mbImg: 'https://static.cmereye.com/imgs/2023/06/d47974ab8f285e6c.jpg',
-  pageName: 'brand',
-  pcText: ['重拾自信笑容','愛牙愛己，由你做起'],
-  mbText: ['重拾自信笑容','愛牙愛己，由你做起']
+  img: 'https://static.cmereye.com/imgs/2024/02/fd92d954c1955f75.jpg',
+  bg: '',
+  mbImg: 'https://static.cmereye.com/imgs/2024/02/2f6494de27de8323.jpg',
+  pageName: 'coverage',
+  pcText: [],
+  mbText: []
 }
 
 const handleAreaTab = (_idx: number) => {
@@ -157,6 +157,7 @@ onMounted(() => {
     &-title{
       display: flex;
       justify-content: center;
+      z-index: 1;
     }
     &-in{
       margin-top: 46px;
@@ -205,8 +206,15 @@ onMounted(() => {
     .contactUs{
       padding-bottom: 90px;
     }
+    .index-contactUs{
+      padding-top: 0;
+      :deep(.index-contactUs-t){
+        position: relative;
+        z-index: 1 !important;
+      }
+    }
     .environment{
-      margin-top: 50px;
+      margin-top: 0px;
       &-in{
         margin-top: 28px;
         .environmentSwiperBox{

@@ -34,7 +34,7 @@ const headerConfig = {
 }
 
 const introduceData = {
-  title: '什麽是杜牙根(根管治療)?',
+  title: '什麼是杜牙根(根管治療)?',
   content:
     '杜牙根(根管治療)是治療嚴重蛀牙或牙根受細菌感染的療程，當蛀牙菌的感染深入牙髓，以致牙齒內的神經發炎，便需要以杜牙根療程徹底清除感染的部分。',
   mbImg: 'https://static.cmereye.com/imgs/2023/05/4981f5bda13e2428.jpg',
@@ -65,7 +65,7 @@ const reasonData = {
 }
 
 const careData = {
-  title: ['什麽情況下', '會考慮做根管治療？'],
+  title: ['什麼情況下', '會考慮做根管治療？'],
   lists: [
     {
       img: 'https://static.cmereye.com/imgs/2023/10/a508f80b579ed63e.png',

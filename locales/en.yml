@@ -14,6 +14,10 @@ components:
         honor: 品牌榮譽
       menu_dental_service:
         name: 牙科服務
+      menu_news:
+        name: 睇牙新資訊
+        coverage: 媒體報導
+        information: 最新資訊
       menu_medical_team:
         name: 醫生團隊
       menu_caseSharing:

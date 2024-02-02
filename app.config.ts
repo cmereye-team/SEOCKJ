@@ -1,7 +1,7 @@
 export default defineAppConfig({
-  name: 'Nuxt 3 Awesome Starter',
+  name: '愛康健口腔醫院',
   author: {
-    name: 'viandwi24',
-    link: 'https://github.com/viandwi24',
+    name: '愛康健口腔醫院',
+    link: 'https://www.ckjhk.com',
   },
 })

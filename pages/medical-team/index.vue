@@ -61,6 +61,15 @@ const goAnchor = (_hash: any)=>{
   
 }
 
+const headerConfig = {
+  img: 'https://static.cmereye.com/imgs/2024/02/1a291fb37036bf95.jpg',
+  bg: '',
+  mbImg: 'https://static.cmereye.com/imgs/2024/02/5289ce266f8e363e.jpg',
+  pageName: 'coverage',
+  pcText: [],
+  mbText: []
+}
+
 onMounted(()=>{
   if(route.query.did){
     setTimeout(()=>{
@@ -78,7 +87,7 @@ onMounted(()=>{
 
 <template>
   <div>
-    <PageHeader />
+    <PageHeader :headerConfig="headerConfig" />
     <div class="doctorPage">
       <div class="doctorPage-in pageCon">
         <div class="index_title">{{$t('pages.medical_team.title')}}</div>
@@ -188,6 +197,9 @@ onMounted(()=>{
   .doctorPage{
     background: #fff;
     padding-bottom: 143px;
+    .index_title{
+      z-index: 1;
+    }
     &-in{
       padding-top: 143px;
       &-text{
@@ -383,7 +395,7 @@ onMounted(()=>{
     .doctorPage{
       padding-bottom: 90px;
       &-in{
-        padding-top: 90px;
+        padding-top: 0px;
         &-text{
           margin-top: 34px;
           font-size: 1.25rem;

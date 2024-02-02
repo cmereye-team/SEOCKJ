@@ -113,6 +113,20 @@ const menuLists = [
       },
     ],
   },
+  // {
+  //   name: 'components.header.menuLists.menu_news.name',
+  //   link: `/news`,
+  //   child: [
+  //     {
+  //       name: 'components.header.menuLists.menu_news.coverage',
+  //       link: '/news/coverage',
+  //     },
+  //     {
+  //       name: 'components.header.menuLists.menu_news.information',
+  //       link: '/news/information',
+  //     },
+  //   ]
+  // },
   {
     name: 'components.header.menuLists.menu_medical_team.name',
     link: `/medical-team`,
@@ -298,7 +312,7 @@ const handleMbMenu = () => {
       </div>
       <div
         v-if="
-          ['implant', 'rootCanal-test', 'scaling-and-polishing-test','periodontal-test','orthodontics-test','invisalign-test','veneers-test','action-message','course-new'].includes(
+          ['implant', 'rootCanal-test', 'scaling-and-polishing-test','periodontal-test','orthodontics-test','invisalign-test','veneers-test','action-message','course-new','coverage'].includes(
             headerConfig.pageName
           )
         "
@@ -370,7 +384,7 @@ const handleMbMenu = () => {
       </div>
       <div
         v-if="
-          ['implant', 'rootCanal-test', 'scaling-and-polishing-test','index-test','periodontal-test','orthodontics-test','invisalign-test','veneers-test','action-message','course-new'].includes(
+          ['implant', 'rootCanal-test', 'scaling-and-polishing-test','index-test','periodontal-test','orthodontics-test','invisalign-test','veneers-test','action-message','course-new','coverage'].includes(
             headerConfig.pageName
           )
         "
@@ -479,7 +493,7 @@ const handleMbMenu = () => {
             >
               <nuxt-link
                 :class="menuItem.child.length ? 'triangleIcon' : ''"
-                :to="menuItem.link === '/dental-service' ? 'javaScript:void(0)': menuItem.link"
+                :to="['/news','/dental-service'].includes(menuItem.link) ? 'javaScript:void(0)': menuItem.link"
                 :title="$t(menuItem.name)"
               >
                 {{ $t(menuItem.name) }}
@@ -642,6 +656,7 @@ const handleMbMenu = () => {
     &.invisalign-test,
     &.veneers-test,
     &.action-message,
+    &.coverage,
     &.course-new,
     &.scaling-and-polishing-test {
       display: none;
@@ -792,7 +807,7 @@ const handleMbMenu = () => {
         left: 0;
         top: 25%;
       }
-      &.index-test,&.action-message,&.course-new{
+      &.index-test,&.action-message,&.course-new,&.coverage{
         display: none;
       }
     }
@@ -867,7 +882,7 @@ const handleMbMenu = () => {
         color: var(--indexColor1);
       }
     }
-    &.index-test,&.action-message,&.course-new{
+    &.index-test,&.action-message,&.course-new,&.coverage{
       display: none;
     }
     &.periodontal-test{
@@ -882,7 +897,7 @@ const handleMbMenu = () => {
   }
   &-bgImgBB {
     opacity: 0;
-    &.index-test,&.action-message,&.course-new{
+    &.index-test,&.action-message,&.course-new,&.coverage{
       max-width: 1920px;
     }
     &.implant,
@@ -948,6 +963,17 @@ const handleMbMenu = () => {
         & > .router-link-exact-active {
           color: var(--indexColor1);
           text-decoration-line: underline;
+          // position: relative;
+          // &::after{
+          //   content: '';
+          //   width: 100%;
+          //   height: 3px;
+          //   border-radius: 2px;
+          //   background: var(--indexColor1);
+          //   position: absolute;
+          //   bottom: 20px;
+          //   left: 0;
+          // }
           &.triangleIcon:after {
             border-color: var(--indexColor1) transparent transparent transparent;
           }
@@ -958,6 +984,16 @@ const handleMbMenu = () => {
           .triangleIcon:after {
             border-color: var(--indexColor1) transparent transparent transparent;
           }
+          // &::after{
+          //   content: '';
+          //   width: 100%;
+          //   height: 3px;
+          //   border-radius: 2px;
+          //   background: var(--indexColor1);
+          //   position: absolute;
+          //   bottom: 20px;
+          //   left: 0;
+          // }
         }
         &:hover .menuChild {
           display: flex;
@@ -1362,7 +1398,7 @@ const handleMbMenu = () => {
           }
         }
       }
-      &.index-test,&.action-message,&.course-new{
+      &.index-test,&.action-message,&.course-new,&.coverage{
         margin-top: 70px;
       }
     }
@@ -1390,6 +1426,9 @@ const handleMbMenu = () => {
       }
       &.course-new{
         padding-bottom: 70px;
+      }
+      &.coverage{
+        padding-bottom: 140px;
       }
     }
     &-btn-implant {
