@@ -165,6 +165,7 @@ onMounted(()=>{
       margin-left: calc(40 / 1448* 100%);
       img{
         width: 100%;
+        background: #f3f3f3;
       }
     }
     &-context{

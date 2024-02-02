@@ -1,5 +1,8 @@
 <script lang="ts" setup>
+import { log } from "console"
+
 const route = useRoute()
+const router = useRouter()
 let _nid = route.params.id
 useHead({
   title: '媒體報導',
@@ -100,13 +103,77 @@ const getDetail = async () => {
         news_tag: _data.ext_news_tag || '',
         content: _data.content || ''
       }
+      changeassociationData(JSON.parse(_data.ext_news_association))
     }
   }catch{
     errorpage.value = true
+    pageLoading.value = false
   }
   // console.log(coverageLists.value)
+  
   pageLoading.value = false
 }
+const toassociation = (_id) => {
+  router.push(`/news/article/${_id}`)
+}
+
+  // [
+  //   {
+  //     type: 'prev',
+  //     id: '31',
+  //   },
+  //   {
+  //     type: 'next',
+  //     id: '32',
+  //   },
+  //   {
+  //     type: 'association',
+  //     lists: [
+  //       {
+  //         id: '31',
+  //         title: 'hahahahaha'
+  //       },
+  //       {
+  //         id: '32',
+  //         title: 'hahahahah'
+  //       }
+  //     ]
+  //   }
+  // ]
+const changeassociationData = (_data) =>{
+  if(Array.isArray(_data)){
+    _data.forEach(item=>{
+      if(item.type === 'prev'){
+        if(item.id){
+          associationData.value.isshowprev = true
+          associationData.value.prev_id = item.id
+        }
+      }else if(item.type === 'next'){
+        if(item.id){
+          associationData.value.isshownext = true
+          associationData.value.next_id = item.id
+        }
+      }else if(item.type === 'association'){
+        associationData.value.lists = [
+          ...item.lists
+        ]
+      }
+    })
+  }
+}
+
+let associationData = ref({
+  isshowprev: false,
+  isshownext: false,
+  prev_id: '',
+  next_id: '',
+  lists: [
+    {
+      id: '',
+      title: ''
+    }
+  ]
+})
 onMounted(()=>{
   setTimeout(()=>{
     getDetail()
@@ -151,20 +218,21 @@ onMounted(()=>{
             </div>
             <div class="news">
               <h4>閱讀更多媒體報導︰</h4>
-              <a href="#">深圳Costco周邊食買玩一條龍｜紅山6979商場｜¥88高性價比洗牙！</a>
+              <nuxtLink :to="`/news/article/${associationItem.id}`" v-for="(associationItem,associationIndex) in associationData.lists" :key="associationIndex">{{associationItem.title}}</nuxtLink>
             </div>
             <div class="tags">
               <span>{{coverageDeatail.news_tag}}</span>
             </div>
             <div class="btn">
-              <a href="#">上一篇</a>
+              <el-button :style="{background: (!associationData.isshowprev ? '#FF85AF': '#FC1682')}" :disabled="!associationData.isshowprev" @click="toassociation(associationData.prev_id)">上一篇</el-button>
               <nuxt-link to="/news/coverage">返回所有文章目錄</nuxt-link>
-              <a href="#">下一篇</a>
+              <el-button :style="{background: (!associationData.isshownext ? '#FF85AF': '#FC1682')}" :disabled="!associationData.isshownext" @click="toassociation(associationData.next_id)">下一篇</el-button>
+              <!-- <a href="#" v-disabled="true">下一篇</a> -->
             </div>
           </div>
         </div>
       </div>
-      <div class="articlePage-in" v-else>服務異常</div>
+      <div class="articlePage-in" v-else>服務異常或内容已删除！</div>
       <ContactUs />
     </div>
     <PageFooter />
@@ -197,21 +265,43 @@ onMounted(()=>{
     color: var(--indexColor1);
   }
 }
+.articlePage{
+  &-in{
+    // text-align: center;
+    // min-height: 300px;
+  }
+}
 .content{
   width: calc(100% - 60px);
   max-width: 960px;
   margin: 63px auto 0;
   height: auto;
+  :deep(span){
+    text-wrap: wrap !important;
+  }
+  :deep(img){
+    margin: 8px 0;
+  }
   :deep(.content-h1){
-    span{
-      color: var(--indexColor1);
-      font-size: 50px;
-    }
+    margin-top: 30px;
+    color: var(--indexColor1);
+    font-size: 50px;
+  }
+  :deep(.content-time){
+    margin: 50px 0;
+    color: #666;
+    font-size: 28px;
   }
   :deep(.content-h2){
+    color: var(--indexColor1);
+    font-size: 30px;
+  }
+  :deep(.content-text){
+    color: var(--textColor);
+    font-size: 20px;
+    font-family: 'Noto Serif HK', Serif;
     span{
-      color: var(--indexColor1);
-      font-size: 20px;
+      font-family: 'Noto Serif HK', Serif;
     }
   }
 }
@@ -322,7 +412,7 @@ onMounted(()=>{
       display: flex;
       justify-content: space-between;
       margin-top: calc(55 / 960 * 100%);
-      a{
+      button,a{
         color: #fff;
         text-align: center;
         font-size: 35px;
@@ -330,11 +420,13 @@ onMounted(()=>{
         font-weight: 400;
         line-height: 160%; /* 56px */
         letter-spacing: 7px;
-        background: var(--Theme-Color, #FC1682);
+        background: var(--indexColor1);
         border-radius: 50px;
         box-shadow: 3px 3px 12.4px 0px rgba(252, 22, 130, 0.50);
         padding: calc(7 / 960 * 100%) calc(40 / 960 * 100%);
         transition: all .3s;
+        height: auto;
+        border: none;
         &:hover{
           background: #FF85AF;
         }
@@ -354,6 +446,30 @@ onMounted(()=>{
     padding: 23px 30px 0;
     font-size: 1rem;
     margin-top: 0px;
+  }
+  .content{
+    width: 100%;
+    margin-top: 30px;
+    :deep(.content-h1){
+      padding: 0 30px;
+      margin-top: 30px;
+      font-size: 20px;
+    }
+    :deep(.content-time){
+      padding: 0 30px;
+      margin: 10px 0 30px;
+      font-size: 16px;
+    }
+    :deep(.content-h2){
+      padding: 0 30px;
+      font-size: 20px;
+    }
+    :deep(.content-text){
+      padding: 0 30px;
+      font-size: 16px;
+      display: inline-block;
+      text-align: justify;
+    }
   }
   .content-bbtn{
     a{
@@ -387,21 +503,32 @@ onMounted(()=>{
       }
       .btn{
         flex-wrap: wrap;
-        a{
+        button,a{
           font-size: 28px;
           padding: 8px 29px;
           letter-spacing: 2px;
-          &:nth-of-type(1){
-            order: 2;
-          }
-          &:nth-of-type(2){
-            width: 100%;
-            order: 1;
-            margin-bottom: 20px;
-          }
-          &:nth-of-type(3){
-            order: 3;
-          }
+          // &:nth-of-type(1){
+          //   order: 2;
+          // }
+          // &:nth-of-type(2){
+          //   width: 100%;
+          //   order: 1;
+          //   margin-bottom: 20px;
+          // }
+          // &:nth-of-type(3){
+          //   order: 3;
+          // }
+        }
+        button:nth-of-type(1){
+          order: 2;
+        }
+        button:nth-of-type(2){
+          order: 3;
+        }
+        a{
+          width: 100%;
+          order: 1;
+          margin-bottom: 20px;
         }
       }
     }

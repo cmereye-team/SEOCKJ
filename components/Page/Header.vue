@@ -113,20 +113,20 @@ const menuLists = [
       },
     ],
   },
-  // {
-  //   name: 'components.header.menuLists.menu_news.name',
-  //   link: `/news`,
-  //   child: [
-  //     {
-  //       name: 'components.header.menuLists.menu_news.coverage',
-  //       link: '/news/coverage',
-  //     },
-  //     {
-  //       name: 'components.header.menuLists.menu_news.information',
-  //       link: '/news/information',
-  //     },
-  //   ]
-  // },
+  {
+    name: 'components.header.menuLists.menu_news.name',
+    link: `/news`,
+    child: [
+      {
+        name: 'components.header.menuLists.menu_news.coverage',
+        link: '/news/coverage',
+      },
+      // {
+      //   name: 'components.header.menuLists.menu_news.information',
+      //   link: '/news/information',
+      // },
+    ]
+  },
   {
     name: 'components.header.menuLists.menu_medical_team.name',
     link: `/medical-team`,
