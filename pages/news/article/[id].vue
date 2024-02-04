@@ -170,23 +170,19 @@ let associationData = ref({
   lists: <any>[]
 })
 
-// if(process.server){
-//   console.log('server')
-//   getDetail()
-// }else{
-//   console.log('client')
-//   onMounted(()=>{
-//     setTimeout(()=>{
-//       getDetail()
-//     })
+// onMounted(()=>{
+//   setTimeout(()=>{
+//     getDetail()
 //   })
-// }
+// })
 
-onMounted(()=>{
-  setTimeout(()=>{
-    getDetail()
-  })
-})
+if(process.server){
+  // console.log('server');
+  getDetail()
+}else{
+  // console.log('client');
+  getDetail()
+}
 </script>
 
 <template>

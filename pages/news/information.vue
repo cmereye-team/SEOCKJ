@@ -68,12 +68,18 @@ const getNewsLists = async () => {
 }
 
 
-onMounted(()=>{
-  setTimeout(()=>{
-    getNewsLists()
-  })
-})
-
+// onMounted(()=>{
+//   setTimeout(()=>{
+//     getNewsLists()
+//   })
+// })
+if(process.server){
+  // console.log('server');
+  getNewsLists()
+}else{
+  // console.log('client');
+  getNewsLists()
+}
 </script>
 
 <template>
