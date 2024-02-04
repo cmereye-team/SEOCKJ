@@ -169,6 +169,19 @@ let associationData = ref({
   next_id: '',
   lists: <any>[]
 })
+
+// if(process.server){
+//   console.log('server')
+//   getDetail()
+// }else{
+//   console.log('client')
+//   onMounted(()=>{
+//     setTimeout(()=>{
+//       getDetail()
+//     })
+//   })
+// }
+
 onMounted(()=>{
   setTimeout(()=>{
     getDetail()
