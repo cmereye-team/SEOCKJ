@@ -553,10 +553,10 @@ const implantCaseData = [
 let yaImgCurrtNum = ref(6) 
 const yaImgFu = (_idx,_type) => {
   if(_type){
-    console.log(_idx,'按住了')
+    // console.log(_idx,'按住了')
     yaImgCurrtNum.value = _idx
   }else{
-    console.log(_idx,'不按了')
+    // console.log(_idx,'不按了')
     yaImgCurrtNum.value = 6
   }
 }

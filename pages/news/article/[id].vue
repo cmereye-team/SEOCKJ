@@ -4,8 +4,12 @@ import { log } from "console"
 const route = useRoute()
 const router = useRouter()
 let _nid = route.params.id
+let pageType:any = ref('1')
+if(route.query.SDLDNZYP){
+  pageType.value = route.query.SDLDNZYP
+}
 useHead({
-  title: '媒體報導',
+  title: pageType.value === '1'?'媒體報導': '最新資訊',
   meta: [
     {
       hid: 'description',
@@ -28,6 +32,7 @@ const headerConfig = {
   pcText: [],
   mbText: []
 }
+
 
 let errorpage = ref(false)
 let pageLoading = ref(false)
@@ -53,10 +58,8 @@ function copySpecifiedText(text) {
             showClose: true,
             message: '已複製到剪切板',
             type: 'success',
-          })
-            // console.log('Text copied to clipboard');  
-        }, function(err) {  
-            // console.error('Could not copy text: ', err);  
+          }) 
+        }, function(err) {
             ElMessage({
               showClose: true,
               message: '操作異常，請刷新頁面試試',
@@ -68,7 +71,6 @@ function copySpecifiedText(text) {
     }  
 }
 const copyText = () =>{
-  // console.log(window.location.href)
   copySpecifiedText(window.location.href)
 }
 const formatDate = (dateString) =>{  
@@ -103,14 +105,12 @@ const getDetail = async () => {
         news_tag: _data.ext_news_tag || '',
         content: _data.content || ''
       }
-      changeassociationData(JSON.parse(_data.ext_news_association))
+      changeassociationData(JSON.parse(_data.ext_news_association || "[]"))
     }
   }catch{
     errorpage.value = true
     pageLoading.value = false
   }
-  // console.log(coverageLists.value)
-  
   pageLoading.value = false
 }
 const toassociation = (_id) => {
@@ -140,7 +140,7 @@ const toassociation = (_id) => {
   //     ]
   //   }
   // ]
-const changeassociationData = (_data) =>{
+const changeassociationData = (_data:any) =>{
   if(Array.isArray(_data)){
     _data.forEach(item=>{
       if(item.type === 'prev'){
@@ -167,12 +167,7 @@ let associationData = ref({
   isshownext: false,
   prev_id: '',
   next_id: '',
-  lists: [
-    {
-      id: '',
-      title: ''
-    }
-  ]
+  lists: <any>[]
 })
 onMounted(()=>{
   setTimeout(()=>{
@@ -185,7 +180,7 @@ onMounted(()=>{
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor articlePage">
-      <div class="index_title pageCon articlePage-title">媒體報導</div>
+      <div class="index_title pageCon articlePage-title">{{pageType.value === '1'?'媒體報導': '最新資訊'}}</div>
       <div class="tabNav noTitle pageCon">
         <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
           <span>主頁</span>
@@ -193,21 +188,21 @@ onMounted(()=>{
         <nuxt-link :to="''">
           <span>睇牙新資訊</span>
         </nuxt-link>
-        <span :title="'媒體報導'">媒體報導</span>
+        <span :title="pageType.value === '1'?'媒體報導': '最新資訊'">{{pageType.value === '1'?'媒體報導': '最新資訊'}}</span>
       </div>
       <div class="articlePage-in" v-if="!errorpage" v-loading="pageLoading">
         <!-- {{_nid}} -->
         <div class="content" v-html="coverageDeatail.content">
           
         </div>
-        <div class="content-bbtn">
+        <div class="content-bbtn" v-if="pageType === '1'">
           <nuxt-link to="/dental-service/scaling-and-polishing">了解更多洗牙資訊</nuxt-link>
         </div>
         <div class="content-bdetail">
           <div class="content-bdetail-in">
             <div class="context">
-              <div>新聞來源︰{{coverageDeatail.tags}}</div>
-              <div>作者︰{{coverageDeatail.author}}</div>
+              <div v-if="pageType === '1'">新聞來源︰{{coverageDeatail.tags}}</div>
+              <div v-if="pageType === '1'">作者︰{{coverageDeatail.author}}</div>
               <div>資料來源︰<a :href="coverageDeatail.source">原文鏈接</a></div>
               <div>瀏覽次數︰{{coverageDeatail.visits}}</div>
               <div>更新時間︰{{coverageDeatail.time}}</div>
@@ -216,16 +211,16 @@ onMounted(()=>{
                 <a :href="`https://www.facebook.com/sharer/sharer.php?u=https://www.ckjhk.com/news/article/${_nid}`" target="_block" class="facebook" title="分享facebook"></a>
               </div>
             </div>
-            <div class="news">
+            <div class="news" v-if="pageType === '1'">
               <h4>閱讀更多媒體報導︰</h4>
               <nuxtLink :to="`/news/article/${associationItem.id}`" v-for="(associationItem,associationIndex) in associationData.lists" :key="associationIndex">{{associationItem.title}}</nuxtLink>
             </div>
-            <div class="tags">
+            <div class="tags" v-if="pageType === '1'">
               <span>{{coverageDeatail.news_tag}}</span>
             </div>
             <div class="btn">
               <el-button :style="{background: (!associationData.isshowprev ? '#FF85AF': '#FC1682')}" :disabled="!associationData.isshowprev" @click="toassociation(associationData.prev_id)">上一篇</el-button>
-              <nuxt-link to="/news/coverage">返回所有文章目錄</nuxt-link>
+              <nuxt-link :to="pageType === '1' ? '/news/coverage': '/news/information'">返回所有文章目錄</nuxt-link>
               <el-button :style="{background: (!associationData.isshownext ? '#FF85AF': '#FC1682')}" :disabled="!associationData.isshownext" @click="toassociation(associationData.next_id)">下一篇</el-button>
               <!-- <a href="#" v-disabled="true">下一篇</a> -->
             </div>
@@ -274,13 +269,16 @@ onMounted(()=>{
 .content{
   width: calc(100% - 60px);
   max-width: 960px;
-  margin: 63px auto 0;
+  margin: 63px auto calc(37 / 1920 * 100%);
   height: auto;
   :deep(span){
     text-wrap: wrap !important;
   }
   :deep(img){
     margin: 8px 0;
+  }
+  :deep(.content-img){
+    width: 100%;
   }
   :deep(.content-h1){
     margin-top: 30px;
@@ -303,6 +301,29 @@ onMounted(()=>{
     span{
       font-family: 'Noto Serif HK', Serif;
     }
+  } 
+  :deep(.indexColor){
+    color: var(--indexColor1);
+  }
+  :deep(.textColor){
+    color: var(--textColor);
+  }
+  :deep(.md-flex-col){
+    flex-direction: row;
+  }
+  :deep(.md-p-30){
+    padding: 0;
+  }
+  :deep(.justify-between){
+    justify-content: space-between;
+  }
+  :deep(.underline){
+    text-decoration: underline;
+  }
+  :deep(.content-time-2){
+    color: var(--textColor);
+    font-size: 20px;
+    margin-top: 35px;
   }
 }
 .content-bbtn{
@@ -320,7 +341,7 @@ onMounted(()=>{
     border-radius: 50px;
     box-shadow: 3px 3px 12.4px 0px rgba(252, 22, 130, 0.50);
     padding: calc(7 / 1920 * 100%) calc(40 / 1920 * 100%);
-    margin: calc(37 / 1920 * 100%) auto calc(56 / 1920 * 100%);
+    margin: 0 auto calc(56 / 1920 * 100%);
     transition: all .3s;
     &:hover{
       background: #FF85AF;
@@ -434,7 +455,15 @@ onMounted(()=>{
     }
   }
 }
-@media (min-width: 768px) and (max-width: 1452px) {}
+@media (min-width: 768px) and (max-width: 850px) {
+  .content-bdetail{
+    .btn{
+      button,a{
+        font-size: 24px;
+      }
+    }
+  }
+}
 @media screen and (max-width: 768px) {
   .articlePage{
     padding: 0 0 90px;
@@ -450,6 +479,7 @@ onMounted(()=>{
   .content{
     width: 100%;
     margin-top: 30px;
+    margin-bottom: 50px;
     :deep(.content-h1){
       padding: 0 30px;
       margin-top: 30px;
@@ -470,6 +500,17 @@ onMounted(()=>{
       display: inline-block;
       text-align: justify;
     }
+    :deep(.md-flex-col){
+      flex-direction: column;
+    }
+    :deep(.md-p-30){
+      padding: 0 30px;
+    }
+    :deep(.content-time-2){
+      margin: 0 30px 23px;
+      font-size: 16px;
+    }
+
   }
   .content-bbtn{
     a{
@@ -507,17 +548,7 @@ onMounted(()=>{
           font-size: 28px;
           padding: 8px 29px;
           letter-spacing: 2px;
-          // &:nth-of-type(1){
-          //   order: 2;
-          // }
-          // &:nth-of-type(2){
-          //   width: 100%;
-          //   order: 1;
-          //   margin-bottom: 20px;
-          // }
-          // &:nth-of-type(3){
-          //   order: 3;
-          // }
+          width: calc(50% - 15px);
         }
         button:nth-of-type(1){
           order: 2;

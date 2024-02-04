@@ -26,16 +26,53 @@ const headerConfig = {
 }
 
 let errorpage = ref(false)
-let coverageLists = ref([
+let informationLists = ref([
   {
-    logo: '',
-    link: '',
     id: '',
     img: '',
     desc: '',
-    name: ''
+    name: '',
+    time: ''
   }
 ])
+const formatDate = (dateString) =>{  
+    var date = new Date(dateString);  
+    var year = date.getFullYear();  
+    var month = ("0" + (date.getMonth() + 1)).slice(-2); // getMonth() is zero-based  
+    var day = ("0" + date.getDate()).slice(-2);  
+    return year + "年" + month + "月" + day + "日";  
+}  
+
+const getNewsLists = async () => {
+  try{
+    const _res:any = await useFetch('https://admin.ckjhk.com/api.php/list/15',{
+      method: 'post',
+    });
+    let res = JSON.parse(_res.data.value) || null
+    if(res){
+      console.log(res)
+      informationLists.value = res.data.map(item=>{
+        return{
+          id: item.id || '',
+          img: (item.ico.indexOf('/static/upload/image') !== -1 ? `https://admin.ckjhk.com${item.ico}`:item.ico) || '',
+          desc: item.ext_news_desc || '',
+          name: item.title || '',
+          time: formatDate(item.ext_news_time) || ''
+        }
+      })
+    }
+  }catch{
+    errorpage.value = true
+  }
+  // console.log(coverageLists.value)
+}
+
+
+onMounted(()=>{
+  setTimeout(()=>{
+    getNewsLists()
+  })
+})
 
 </script>
 
@@ -55,33 +92,23 @@ let coverageLists = ref([
       </div>
       <div class="pageCon">
         <div class="lists" v-if="!errorpage">
-          <div class="lists-in" v-for="(item,index) in 3" :key="index">
+          <div class="lists-in" v-for="(item,index) in informationLists" :key="index">
             <div class="lists-in-img">
-              <img src="https://static.cmereye.com/imgs/2024/02/8ab0663340a2dfc8.png" alt="">
+              <img :src="item.img" alt="">
             </div>
             <div class="lists-in-context">
               <div class="lists-in-context-top">
                 <div class="title">
-                  一分鐘畸形牙齒測驗 😬
+                  {{item.name}}
                 </div>
                 <div class="time">
-                  <span>2023年11月11日</span>
+                  <span>{{item.time}}</span>
                 </div>
               </div>
-              <div class="desc">
-                畸形牙齒由遺傳因素、發育異常、口腔疾病或外部因素所引起。畸形牙齒唔單止影響美觀，仲容易令你面對一系列口腔問題
-
-                畸形牙齒引發以下問題：
-                牙齒清潔困難，增加蛀牙同牙周病風險；
-                牙齒容易磨損，牙齒對冷熱感覺敏感；
-                顎關節容易痛，長期慢性疼痛影響心理健康；
-                咀嚼困難，食物無法咬爛；
-                面形輪廓唔夠靚。
-                一齊做個測驗，睇下有無需要見見牙科醫生
-                ......
+              <div class="desc" v-html="item.desc">
               </div>
               <div class="btn">
-                <a href="#">查看全文</a>
+                <a :href="`/news/article/${item.id}?SDLDNZYP=2`">查看全文</a>
               </div>
             </div>
           </div>

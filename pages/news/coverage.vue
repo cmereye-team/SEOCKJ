@@ -217,7 +217,8 @@ onMounted(()=>{
         color: var(--textColor);
         span{
           display: -webkit-box;  
-          -webkit-line-clamp: 7;  
+          -webkit-line-clamp: 7; 
+          line-clamp: 7; 
           -webkit-box-orient: vertical;  
           overflow: hidden;  
           text-overflow: ellipsis; 
@@ -246,7 +247,30 @@ onMounted(()=>{
     }
   }
 }
-@media (min-width: 768px) and (max-width: 1452px) {}
+@media (min-width: 768px) and (max-width: 1200px) {
+  .lists{
+    &-in{
+      &-context{
+        min-width: 330px;
+      }
+      .title{
+        font-size: 24px;
+      }
+      .desc{
+        font-size: 20px;
+        span{
+          -webkit-line-clamp: 5;
+          line-clamp: 5;
+        }
+      }
+      .btn{
+        a{
+          font-size: 30px;
+        }
+      }
+    }
+  }
+}
 @media screen and (max-width: 768px) {
   .coveragePage{
     padding: 0 0 90px;
