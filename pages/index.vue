@@ -95,7 +95,7 @@ const headerConfigData = {
     <PageHeader :headerConfig="headerConfigData" /> 
     <div class="indexPage">
       <!-- 最新消息 -->
-      <LatestNews />
+      <!-- <LatestNews /> -->
       <!-- 品牌理念 -->
       <brandConcept-test />
       <!-- 牙科服務 -->

@@ -42,13 +42,13 @@ const getNewsLists = async () => {
 // setTimeout(()=>{
 //   getNewsLists()
 // },0)
-if(process.server){
-  // console.log('server');
-  getNewsLists()
-}else{
-  // console.log('client');
-  getNewsLists()
-}
+// if(process.server){
+//   // console.log('server');
+//   getNewsLists()
+// }else{
+//   // console.log('client');
+//   getNewsLists()
+// }
 
 const filterBanner = () =>{
   if(windowWidth.value>768){
