@@ -6,6 +6,7 @@
   --indexColor2: #FEE6F1;
   --indexColor3: #FEA9D1;
   --textColor: #4d4d4d;
+  --indexFontFamily: 'FakePearl-Regular','幼圆', Serif;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@300;400;500;600;700;900&display=swap');
@@ -24,7 +25,8 @@
 
 body,div,span,h1,h2,h3,h4,h5,h6,p,li{
   // font-family: 'Noto Serif HK', Serif;
-  font-family: 'FakePearl-Regular','幼圆', Serif;
+  // font-family: 'FakePearl-Regular','幼圆', Serif;
+  font-family: var(--indexFontFamily);
 }
 
 

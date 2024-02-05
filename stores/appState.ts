@@ -5,7 +5,8 @@ export interface appState {
   dentistryService: string,
   brand: string,
   areaTabs: any,
-  isShowForm: boolean
+  isShowForm: boolean,
+  langs: String
 }
 
 export const useAppState = defineStore('appData', {
@@ -20,7 +21,8 @@ export const useAppState = defineStore('appData', {
       'components.areaTabs.baoan',
       'components.areaTabs.longhua'
     ],
-    isShowForm: false
+    isShowForm: false,
+    langs: 't'
   }),
   actions: {
     setCurNum(curNum: number){
@@ -36,6 +38,9 @@ export const useAppState = defineStore('appData', {
     },
     setIsShowForm(isShowForm: boolean){
       this.isShowForm = isShowForm
+    },
+    setLangs(_langs: string){
+      this.langs = _langs
     },
     reset() {
       // this.count = 0

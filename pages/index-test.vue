@@ -141,7 +141,7 @@ onMounted(()=>{
 
 <template>
   <div>
-    <PageHeader :headerConfig="headerConfigData" />
+    <PageNewHeader :headerConfig="headerConfigData" />
     <div class="indexPage">
       <!-- 最新消息 -->
       <LatestNews />

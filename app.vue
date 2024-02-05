@@ -2,6 +2,7 @@
 import { AppConfigInput } from '@nuxt/schema'
 import { AppSetup } from './utils/app'
 import { ITheme } from './utils/theme'
+import { zh_init } from '~/assets/js/uselang'
 AppSetup()
 const theme = useState<ITheme>('theme.current')
 const locale = useState<string>('locale.setting')
@@ -47,6 +48,7 @@ useHead({
   ]
 })
 onMounted(()=>{
+  zh_init()
   // 监听网络是否关闭
   // window.addEventListener('offline',(e)=>{
   //   console.log(e)

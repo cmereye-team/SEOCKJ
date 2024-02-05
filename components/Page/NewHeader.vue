@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { zh_tran,zh_getLang,getCookie } from '~/assets/js/uselang'
+// import gsap from 'gsap'
 import { useAppState } from '~/stores/appState'
 import { toWhatsApp } from '~/assets/js/common'
 const route = useRoute()
@@ -8,24 +10,35 @@ defineProps({
     type: Object,
     default() {
       return {
+        img: 'https://static.cmereye.com/imgs/2023/05/71929ca4c90a8d1e.png',
+        bg: 'https://static.cmereye.com/imgs/2023/05/d8084e8da90409aa.jpg',
+        mbImg: 'https://static.cmereye.com/imgs/2023/04/b0d950232420bf46.jpg',
         pageName: 'index',
-        bgType: '1',
-        pcImg: 'https://static.cmereye.com/imgs/2023/12/453ccc8bc0e49778.png',
-        mbImg: 'https://static.cmereye.com/imgs/2023/11/50a66a8efbcfcc12.jpg',
-        bgImg: '',
-        pcText: [],
-        mbText: []
+        pcText: ['重拾自信笑容', '愛牙愛己，由你做起'],
+        mbText: ['重拾自信笑容', '愛牙愛己，由你做起'],
       }
     },
   },
 })
 
+const glangs = (_type) =>{
+  zh_tran(_type)
+  if(getCookie('zh_choose')) {
+		var zh_choose:any = getCookie('zh_choose');
+    appState.setLangs(zh_choose);
+	}
+}
 const menuLists = [
   {
     name: 'components.header.menuLists.menu_index.name',
     link: '/',
     child: [],
   },
+  // {
+  //   name: '最新消息',
+  //   link: '/newsPage',
+  //   child: [],
+  // },
   {
     name: 'components.header.menuLists.menu_brand.name',
     link: `/brand/${appState.brand}`,
@@ -44,6 +57,10 @@ const menuLists = [
     name: 'components.header.menuLists.menu_dental_service.name',
     link: `/dental-service`,
     child: [
+      // {
+      //   name: '',
+      //   link: ''
+      // }
       {
         name: 'service.implant',
         link: '/dental-service/implant',
@@ -104,6 +121,20 @@ const menuLists = [
     ],
   },
   {
+    name: 'components.header.menuLists.menu_news.name',
+    link: `/news`,
+    child: [
+      {
+        name: 'components.header.menuLists.menu_news.coverage',
+        link: '/news/coverage',
+      },
+      // {
+      //   name: 'components.header.menuLists.menu_news.information',
+      //   link: '/news/information',
+      // },
+    ]
+  },
+  {
     name: 'components.header.menuLists.menu_medical_team.name',
     link: `/medical-team`,
     child: [
@@ -129,6 +160,11 @@ const menuLists = [
       },
     ],
   },
+  // {
+  //   name: 'components.header.menuLists.menu_caseSharing.name',
+  //   link: '/aboutUs',
+  //   child: [],
+  // },
   {
     name: 'components.header.menuLists.menu_contactUs.name',
     link: '/contactUs',
@@ -151,6 +187,7 @@ const menuActNum = ref(0)
 const handleMenu = (_idx: number) => {
   if (menuActNum.value === _idx) menuActNum.value = 0
   else menuActNum.value = _idx
+  // console.log(menuActNum)
 }
 
 const handleMenuChild = (_menu: any, _idx: number) => {
@@ -176,6 +213,7 @@ const classNamefilter = (_menu: any, _idx: number) => {
       className = 'menuChildCurrent'
     }
   }
+
   return className
 }
 
@@ -185,6 +223,16 @@ const imgBgHeight = ref({
 
 const isFiexdHeader = ref(false)
 onMounted(() => {
+  // gsap.from('.header-content-bgImg-in', {
+  //   opacity: 0,
+  //   y: 100,
+  //   duration: 2,
+  // })
+  // gsap.from('.header-content-bgImg-imgInfo', {
+  //   opacity: 0,
+  //   y: 100,
+  //   duration: 2,
+  // })
   getScrollHeight()
   getWindowWidth()
   window.addEventListener('scroll', getScrollHeight)
@@ -211,7 +259,6 @@ const getScrollHeight = () => {
   }
 }
 
-
 const handleMbMenu = () => {
   if (!window.navigator.onLine) {
     ElMessage({
@@ -221,31 +268,234 @@ const handleMbMenu = () => {
     })
   }
 }
+
+
+// watch(zh_getLang,(n,o)=>{
+//   console.log(n,o)
+// })
 </script>
 
 <template>
-  <div class="ckj-header">
-    <div class="ckj-header-banner">
-      <div class="ckj-header-banner-in">
-        <img ref="imgBgHeight" :src="headerConfig.pcImg" alt="">
-        <!-- <img ref="imgBgHeight" :data-cfsrc="headerConfig.pcImg" :srcset="`${headerConfig.mbImg} 768w, ${headerConfig.pcImg}`" :src="headerConfig.pcImg" alt="ckj_banner" > -->
+  <header>
+    <div class="header-content">
+      <!-- <div class="LanguageSwitcher" :style="{opacity:isShowLanguageBool?'1':'0'}">
+        <div class="LanguageSwitcher-in pageCon">
+          <LanguageSwitcher />
+        </div>
+      </div> -->
+      <div class="header-content-bgImg" :class="headerConfig.pageName">
+        <img class="imgBgBox pcBox" :src="headerConfig.bg" alt="" />
+        <div class="header-content-bgImg-imgInfo bigPageCon">
+          <img
+            :class="['pcBox', headerConfig.pageName]"
+            :src="headerConfig.img"
+            alt="banner"
+          />
+        </div>
+        <img
+          :class="[
+            'mbBox',
+            'header-content-bgImg-mbImg',
+            headerConfig.pageName,
+          ]"
+          :src="headerConfig.mbImg"
+          alt="banner"
+        />
+        <div class="header-content-bgImg-textInfo pageCon">
+          <div :class="['header-content-bgImg-in', headerConfig.pageName]">
+            <div :class="['bannerTitle', headerConfig.pageName]">
+              <span>{{
+                windowWidth > 768
+                  ? headerConfig.pcText[0]
+                  : headerConfig.mbText[0]
+              }}</span>
+              <span>{{
+                windowWidth > 768
+                  ? headerConfig.pcText[1]
+                  : headerConfig.mbText[1]
+              }}</span>
+            </div>
+            <div class="text">
+              {{ headerData.bannerText }}
+              <span>{{ headerData.bannerTextSpan }}</span>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="ckj-header-wave">
-
-    </div>
-    <div class="ckj-header-context">
-
-    </div>
-    <div class="ckj-header-menu">
+      <div
+        v-if="
+          ['implant', 'rootCanal-test', 'scaling-and-polishing-test','periodontal-test','orthodontics-test','invisalign-test','veneers-test','action-message','course-new','coverage'].includes(
+            headerConfig.pageName
+          )
+        "
+        class="header-content-bgImg-implant"
+        :class="headerConfig.pageName"
+      >
+        <img :data-cfsrc="headerConfig.img" :srcset="`${headerConfig.mbImg} 768w, ${headerConfig.img}`" :src="headerConfig.img" alt="banner"   />
+      </div>
+      <!-- <div
+        v-if="
+          ['implant', 'rootCanal-test', 'scaling-and-polishing-test'].includes(
+            headerConfig.pageName
+          )
+        "
+        class="header-content-bgImg-implant-mb"
+      >
+        <img :src="headerConfig.mbImg" alt="banner" />
+      </div> -->
+      <div
+        ref="imgBgHeight"
+        class="header-content-bgImgBB pageCon pcBox"
+        :class="headerConfig.pageName"
+      >
+        <img :data-cfsrc="headerConfig.img" :srcset="`${headerConfig.mbImg} 768w, ${headerConfig.img}`" :src="headerConfig.img"  alt="banner" />
+      </div>
+      <div
+        v-if="
+          ['implant', 'rootCanal-test', 'scaling-and-polishing-test'].includes(
+            headerConfig.pageName
+          )
+        "
+        class="header-content-btn-implant"
+      >
+        <span @click="toWhatsApp">預約檢查及諮詢</span>
+        <span @click="toWhatsApp">預約檢查及諮詢</span>
+      </div>
+      <div
+        v-if="
+          ['periodontal-test'].includes(
+            headerConfig.pageName
+          )
+        "
+        class="header-content-btn-implant"
+      >
+        <span @click="toWhatsApp">獲取免費諮詢</span>
+        <span @click="toWhatsApp">獲取免費諮詢</span>
+      </div>
+      <div
+        v-if="
+          ['orthodontics-test'].includes(
+            headerConfig.pageName
+          )
+        "
+        class="header-content-btn-implant"
+      >
+        <span @click="toWhatsApp">獲取免費諮詢</span>
+        <span @click="toWhatsApp">獲取免費諮詢</span>
+      </div>
+      <div
+        v-if="
+          ['invisalign-test','veneers-test'].includes(
+            headerConfig.pageName
+          )
+        "
+        class="header-content-btn-implant"
+      >
+        <span @click="toWhatsApp">獲取免費諮詢</span>
+        <span @click="toWhatsApp">獲取免費諮詢</span>
+      </div>
+      <div
+        v-if="
+          ['implant', 'rootCanal-test', 'scaling-and-polishing-test','index-test','periodontal-test','orthodontics-test','invisalign-test','veneers-test','action-message','course-new','coverage'].includes(
+            headerConfig.pageName
+          )
+        "
+        class="waterBg-implant"
+      ></div>
+      <div
+        v-if="headerConfig.pageName === 'implant'"
+        class="header-content-text-implant"
+      >
+        <div>28年專科•專業•專注</div>
+        <div><span>港人首選</span>一站式連鎖牙科品牌</div>
+      </div>
+      <div
+        v-if="headerConfig.pageName === 'rootCanal-test'"
+        class="header-content-text-implant"
+      >
+        <!-- <div>保留原生牙齒</div>
+        <div>徹底<span>解放美食自由</span></div> -->
+        <div>28年專科•專業•專注</div>
+        <div><span>港人首選</span>一站式連鎖牙科品牌</div>
+      </div>
+      <div
+        v-if="headerConfig.pageName === 'scaling-and-polishing-test'"
+        class="header-content-text-implant"
+      >
+        <!-- <div>口腔健康，從洗牙開始！</div> -->
+        <div>28年專科•專業•專注</div>
+        <div><span>港人首選</span>一站式連鎖牙科品牌</div>
+      </div>
+      <div
+        v-if="headerConfig.pageName === 'index-test'"
+        class="header-content-text-implant"
+        :class="headerConfig.pageName"
+      >
+        <!-- <div>口腔健康，從洗牙開始！</div> -->
+        <div>全程式預約一體化診療服務</div>
+        <div>讓每一位顧客享受<span>健康微笑之旅。</span></div>
+      </div>
+      <div
+        v-if="headerConfig.pageName === 'periodontal-test'"
+        class="header-content-text-implant"
+        :class="headerConfig.pageName"
+      >
+        <div>健康牙齒，從<span>牙周病治療</span>開始</div>
+        <div>保持口氣清新、牙周健康</div>
+      </div>
+      <div
+        v-if="headerConfig.pageName === 'orthodontics-test'"
+        class="header-content-text-implant"
+        :class="headerConfig.pageName"
+      >
+        <div>全程式預約一體化診療服務，</div>
+        <div>讓每一位顧客享受 <span>健康微笑之旅。</span></div>
+      </div>
+      <div
+        v-if="headerConfig.pageName === 'invisalign-test'"
+        class="header-content-text-implant"
+        :class="headerConfig.pageName"
+      >
+        <div>全程式預約一體化診療服務，</div>
+        <div>讓每一位顧客享受 <span>健康微笑之旅。</span></div>
+      </div>
+      <div
+        v-if="headerConfig.pageName === 'veneers-test'"
+        class="header-content-text-implant"
+        :class="headerConfig.pageName"
+      >
+        <div>全程式預約一體化診療服務，</div>
+        <div>讓每一位顧客享受 <span>健康微笑之旅。</span></div>
+      </div>
+      <div
+        v-if="headerConfig.pageName === 'action-message'"
+        class="header-content-text-implant"
+        :class="headerConfig.pageName"
+      >
+        <div>全程式預約一體化診療服務，</div>
+        <div>讓每一位顧客享受 <span>健康微笑之旅。</span></div>
+      </div>
+      <div
+        v-if="headerConfig.pageName === 'course-new'"
+        class="header-content-text-implant"
+        :class="headerConfig.pageName"
+      >
+        <div>全程式預約一體化診療服務，</div>
+        <div>讓每一位顧客享受 <span>健康微笑之旅。</span></div>
+      </div>
+      <!-- <div style="z-index: 9999; position: relative;">
+        <span @click="zh_tran('t')">繁体</span>
+        <span @click="zh_tran('s')">简体</span>
+      </div> -->
       <!-- pc菜单 -->
       <div
         :class="[
           isFiexdHeader ? 'headerBox02' : 'headerBox01',
-          'pcMenuBox'
+          'pcMenuBox',
+          headerConfig.pageName,
         ]"
       >
-        <div ref="headerMenu" class="ckj-header-menu-in">
+        <div ref="headerMenu" class="pageCon header-content-in">
           <div class="logo">
             <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院"
               ><img src="@/assets/images/logo_11.png" alt=""
@@ -259,7 +509,8 @@ const handleMbMenu = () => {
             >
               <nuxt-link
                 :class="menuItem.child.length ? 'triangleIcon' : ''"
-                :to="menuItem.link"
+                :to="['/news','/dental-service'].includes(menuItem.link) ? 'javaScript:void(0)': menuItem.link"
+                :title="$t(menuItem.name)"
               >
                 {{ $t(menuItem.name) }}
               </nuxt-link>
@@ -277,7 +528,7 @@ const handleMbMenu = () => {
                     'menuChild-item',
                     classNamefilter(menuChildItem, menuChildIndex),
                   ]"
-                  @click="handleMenuChild(menuItem, menuChildIndex)"
+                  @click.stop="handleMenuChild(menuItem, menuChildIndex)"
                 >
                   <nuxt-link :to="menuChildItem.link">
                     {{ $t(menuChildItem.name) }}
@@ -290,6 +541,10 @@ const handleMbMenu = () => {
               >
                 <serviceCard :is-menu="true" />
               </div>
+            </div>
+            <div class="langItem">
+              <span class="zh_click" :style="{color: (appState.langs === 't'?'#000':'#666')}" @click="glangs('t')">繁體</span>
+              <span class="zh_click" :style="{color: (appState.langs === 's'?'#000':'#666')}" @click="glangs('s')">简体</span>
             </div>
           </div>
           <div class="icon" @click="menuBoxBool = !menuBoxBool">
@@ -329,6 +584,10 @@ const handleMbMenu = () => {
             </div>
           </div>
         </div>
+        <div class="langItem">
+          <span class="zh_click" :style="{color: (appState.langs === 't'?'#FC1682':'#FF85AF')}" @click="glangs('t')">繁體</span>
+          <span class="zh_click" :style="{color: (appState.langs === 's'?'#FC1682':'#FF85AF')}" @click="glangs('s')">简体</span>
+        </div>
         <!-- 立即預約 -->
         <nuxt-link to="tel: +852 3892 5049">
           <div class="menuBox-btn">
@@ -362,263 +621,1128 @@ const handleMbMenu = () => {
           </div>
         </div>
       </div>
+      <!-- 水波纹盒子 -->
+      <div class="waterBg" :class="headerConfig.pageName"></div>
     </div>
-  </div>
+  </header>
 </template>
 
-
 <style lang="scss" scoped>
-@keyframes wave1 {
+@keyframes btnAnim {
   0% {
-    background-position: 0px top;
+    clip-path: polygon(-10% 0, 0 0, -10% 100%, -20% 100%);
+  }
+  50% {
+    clip-path: polygon(50% 0, 60% 0, 50% 100%, 40% 100%);
   }
   100% {
-    background-position: 1080px top;
+    clip-path: polygon(110% 0, 120% 0, 110% 100%, 100% 100%);
   }
 }
-@-webkit-keyframes wave1 {
-  0% {
-    background-position: 0px top;
+@keyframes animBottomIn {
+  from{
   }
-  100% {
-    background-position: 1080px top;
-  }
-}
-@keyframes wave2 {
-  0% {
-    background-position: 0px top;
-  }
-  100% {
-    background-position: 1080px top;
+  to{
+    opacity: 1;
+    transform: translate(-50%,0);
   }
 }
-@-webkit-keyframes wave2 {
-  0% {
-    background-position: 0 top;
-  }
-  100% {
-    background-position: 1080px top;
+.LanguageSwitcher {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  height: 30px;
+  position: fixed;
+  z-index: 38;
+  transition: all 1s;
+  &-in {
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
   }
 }
-.ckj-header{
-  background: #fff;
-  &-banner{
+.header-content {
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  &-bgImg {
     width: 100%;
-    background: url(https://static.cmereye.com/imgs/2023/12/2032d0462c8192f9.png);
-    &-in{
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+    &.implant,
+    &.rootCanal-test,
+    &.periodontal-test,
+    &.orthodontics-test,
+    &.invisalign-test,
+    &.veneers-test,
+    &.action-message,
+    &.coverage,
+    &.course-new,
+    &.scaling-and-polishing-test {
+      display: none;
+    }
+    &-imgInfo {
+      & > img {
+        &.brand {
+          float: right;
+        }
+        &.implant {
+          float: right;
+          margin-right: calc((100% - 1452px) / 2);
+        }
+        &.rootCanal,
+        &.orthodontics {
+          float: right;
+          margin-right: calc((100% - 1600px) / 2);
+        }
+        &.toothtray,
+        &.general-oral-examination {
+          float: right;
+          margin-right: calc((100% - 1700px) / 2);
+        }
+        &.invisalign,
+        &.veneers,
+        &.wisdom-teeth-extraction,
+        &.periodontal,
+        &.teeth-whitening,
+        &.scaling-and-polishing,
+        &.children-dentistry,
+        &.all-ceramic-crowns {
+          float: right;
+          margin-right: calc((100% - 1920px) / 2);
+        }
+        &.fillings {
+          float: right;
+          margin-right: calc((100% - 1200px) / 2);
+        }
+      }
+    }
+    &-mbImg {
+      &.veneers,
+      &.periodontal {
+        -moz-transform: matrix(-1, 0, 0, 1, 0, 0);
+        -o-transform: matrix(-1, 0, 0, 1, 0, 0);
+        -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
+        transform: matrix(-1, 0, 0, 1, 0, 0);
+      }
+    }
+    &-textInfo {
+      position: absolute;
       width: 100%;
+      height: 100%;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+    }
+    .imgBgBox {
+      width: 100%;
+      min-height: 100%;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -2;
+    }
+    .imgBgBox-1 {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -3;
+      filter: blur(10px);
+    }
+    & > img {
+      width: 100%;
+    }
+    &-in {
+      position: absolute;
+      left: 55%;
+      top: 30%;
+      .bannerTitle {
+        font-weight: 700;
+        font-size: 42px;
+        line-height: 160%;
+        color: #666666;
+        span {
+          display: block;
+          &:last-child {
+            margin-left: 200px;
+          }
+        }
+        &.rootCanal,
+        &.wisdom-teeth-extraction {
+          span {
+            &:last-child {
+              margin-left: 120px;
+            }
+          }
+        }
+        &.toothtray,
+        &.scaling-and-polishing,
+        &.invisalign {
+          span {
+            &:last-child {
+              margin-left: 130px;
+            }
+          }
+        }
+      }
+      .text {
+        margin-top: 32px;
+        max-width: 550px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 160%;
+        color: #666666;
+        width: 73%;
+        span {
+          font-size: 25px;
+          color: var(--indexColor);
+        }
+      }
+      &.brand {
+        left: 0;
+      }
+      &.implant,
+      &.orthodontics,
+      &.rootCanal,
+      &.invisalign,
+      &.veneers,
+      &.all-ceramic-crowns {
+        left: 0;
+        top: 25%;
+      }
+      &.wisdom-teeth-extraction,
+      &.periodontal,
+      &.toothtray,
+      &.teeth-whitening,
+      &.scaling-and-polishing {
+        left: 0;
+        top: 25%;
+      }
+      &.fillings,
+      &.general-oral-examination,
+      &.children-dentistry {
+        left: 0;
+        top: 25%;
+      }
+      &.index-test,&.action-message,&.course-new,&.coverage{
+        display: none;
+      }
+    }
+  }
+  &-bgImg-implant {
+    position: fixed;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+  // &-bgImg-implant-mb {
+  //   display: none;
+  // }
+  &-btn-implant {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 240px;
+    left: 0;
+    z-index: 40;
+    width: 100%;
+    span {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      background: var(--indexColor1);
+      font-size: 35px;
+      font-weight: 900;
+      border-radius: 40px;
+      padding: 5px 80px;
+      box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
+      cursor: pointer;
+      z-index: 1;
+      transition: all .3s;
+      &:nth-of-type(2) {
+        color: var(--indexColor1);
+        background: #fff;
+        z-index: 2;
+        animation: btnAnim 1s linear;
+        animation-fill-mode: forwards;
+      }
+    }
+    &:hover{
+      span{
+        &:nth-of-type(1){
+          background: #FF85AF;
+        }
+      }
+    }
+  }
+  .waterBg-implant {
+    display: none;
+  }
+  &-text-implant {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 40;
+    width: 100%;
+    max-width: 1450px;
+    text-align: right;
+    & > div {
+      font-size: 28px;
+      font-weight: 700;
+      color: #666666;
+      span {
+        color: var(--indexColor1);
+      }
+    }
+    &.index-test,&.action-message,&.course-new,&.coverage{
+      display: none;
+    }
+    &.periodontal-test{
+      display: none;
+    }
+    &.orthodontics-test{
+      display: none;
+    }
+    &.invisalign-test,&.veneers-test{
+      display: none;
+    }
+  }
+  &-bgImgBB {
+    opacity: 0;
+    &.index-test{
       max-width: 1920px;
-      margin: 0 auto;
-      img{
+      min-height: calc(650 / 1920 * 100%);
+    }
+    &.action-message,&.course-new,&.coverage,
+    &.implant,
+    &.rootCanal-test,
+    &.periodontal-test,
+    &.orthodontics-test,
+    &.invisalign-test,
+    &.veneers-test,
+    &.scaling-and-polishing-test {
+      max-width: 100%;
+      min-height: calc(726 / 1920 * 100vw);
+      img {
         width: 100%;
       }
     }
   }
-  &-wave{
+  &-in {
+    width: 100%;
+    max-width: 1512px;
+    display: flex;
+    background: #fff;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 20px 10px 0 30px;
+    align-items: flex-end;
+    z-index: 40;
     position: relative;
-    &::after {
-      content: '';
-      background-image: url(@/assets/images/wave.png);
-      background-repeat: repeat-x;
-      background-position: center top;
-      height: 46px;
-      width: 100%;
-      position: absolute;
-      z-index: 35;
-      left: 0px;
-      bottom: 0px;
-      animation-name: wave1;
-      animation-duration: 20s;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-      -webkit-animation-name: wave1;
-      -webkit-animation-duration: 20s;
-      -webkit-animation-timing-function: linear;
-      -webkit-animation-iteration-count: infinite;
-      filter: drop-shadow(0px -8px 4px rgba(77, 77, 77, 0.15));
+    transition: all 0.5s;
+    .logo {
+      width: 290px;
+      margin-bottom: 20px;
     }
-    &::before {
-      content: '';
-      background-image: url(@/assets/images/wave2.png);
-      background-repeat: repeat-x;
-      background-position: center top;
-      height: 46px;
-      width: 100%;
-      position: absolute;
-      z-index: 35;
-      left: 0px;
-      bottom: 0px;
-      animation-name: wave2;
-      animation-duration: 15s;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-      -webkit-animation-name: wave2;
-      -webkit-animation-duration: 15s;
-      -webkit-animation-timing-function: linear;
-      -webkit-animation-iteration-count: infinite;
-    }
-  }
-  &-menu{
-    margin-top: -4px;
-    &-in {
-      width: 100%;
-      max-width: 1512px;
+    .menu {
+      flex: 1;
+      color: #666666;
       display: flex;
-      background: #fff;
-      box-sizing: border-box;
-      margin: 0 auto;
-      padding: 20px 10px 0 30px;
+      justify-content: flex-end;
       align-items: flex-end;
-      z-index: 40;
-      position: relative;
-      transition: all 0.5s;
-      .logo {
-        width: 290px;
-        margin-bottom: 20px;
-      }
-      .menu {
-        flex: 1;
-        color: #666666;
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;
-        .menuItem {
-          padding: 0 0 20px;
-          cursor: pointer;
-          font-size: 18px;
-          font-weight: 600;
-          position: relative;
-          & > a {
-            padding: 0 20px 20px;
+      .menuItem {
+        padding: 0 0 20px;
+        cursor: pointer;
+        font-size: 22px;
+        font-weight: 600;
+        position: relative;
+        & > a {
+          padding: 0 20px 20px;
+        }
+        .triangleIcon:after {
+          content: '';
+          width: 0px;
+          height: 0px;
+          border: 10px solid;
+          border-color: #666666 transparent transparent transparent;
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        .triangleIcon:hover {
+          &:after {
+            border-color: var(--indexColor1) transparent transparent transparent;
           }
+        }
+        & > .router-link-exact-active {
+          color: var(--indexColor1);
+          text-decoration-line: underline;
+          // position: relative;
+          // &::after{
+          //   content: '';
+          //   width: 100%;
+          //   height: 3px;
+          //   border-radius: 2px;
+          //   background: var(--indexColor1);
+          //   position: absolute;
+          //   bottom: 20px;
+          //   left: 0;
+          // }
+          &.triangleIcon:after {
+            border-color: var(--indexColor1) transparent transparent transparent;
+          }
+        }
+        &:hover {
+          color: var(--indexColor1);
+          text-decoration-line: underline;
           .triangleIcon:after {
+            border-color: var(--indexColor1) transparent transparent transparent;
+          }
+          // &::after{
+          //   content: '';
+          //   width: 100%;
+          //   height: 3px;
+          //   border-radius: 2px;
+          //   background: var(--indexColor1);
+          //   position: absolute;
+          //   bottom: 20px;
+          //   left: 0;
+          // }
+        }
+        &:hover .menuChild {
+          display: flex;
+          animation: animBottomIn .5s forwards;
+        }
+        .menuChild {
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translate(-50%, 20px);
+          opacity: 0;
+          min-width: 130%;
+          z-index: 2;
+          display: none;
+          flex-direction: column;
+          transition: all 0.3s;
+          padding: 0 20px 5px;
+          box-sizing: border-box;
+          background: #ffffff;
+          filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.15));
+          border-radius: 6px;
+          &-item {
+            width: 100%;
+            text-align: center;
+            padding: 10px 0 5px;
+            font-weight: 500;
+            font-size: 18px;
+            color: #666666;
+            transition: all 0.3s;
+            &:not(:last-child) {
+              border-bottom: 1px solid var(--indexColor2);
+            }
+            &:hover {
+              color: var(--indexColor1);
+            }
+            &.menuChildCurrent {
+              color: var(--indexColor1);
+            }
+          }
+          &::before {
             content: '';
             width: 0px;
             height: 0px;
             border: 10px solid;
-            border-color: #666666 transparent transparent transparent;
+            border-color: transparent transparent #fff transparent;
             position: absolute;
-            bottom: 0;
+            top: -20px;
             left: 50%;
             transform: translateX(-50%);
           }
-          .triangleIcon:hover {
-            &:after {
-              border-color: var(--indexColor1) transparent transparent transparent;
-            }
+        }
+        .serviceCard {
+          width: 428px;
+          padding: 12px 6px;
+        }
+      }
+      .langItem{
+        padding: 0 0 22px 10px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 500;
+        position: relative;
+        span{
+          padding: 0 10px;
+          color: #666666;
+          // &.act_lang{
+          //   color: #000;
+          // }
+          &:not(:last-child){
+            border-right: 1px solid #FF85AF;
           }
-          & > .router-link-exact-active {
+          &:hover{
             color: var(--indexColor1);
-            text-decoration-line: underline;
-            &.triangleIcon:after {
-              border-color: var(--indexColor1) transparent transparent transparent;
+          }
+        }
+      }
+    }
+    .icon {
+      display: none;
+    }
+  }
+  .waterBg {
+    position: relative;
+    z-index: 35;
+    &.implant,
+    &.rootCanal-test,
+    &.periodontal-test,
+    &.orthodontics-test,
+    &.invisalign-test,
+    &.veneers-test,
+    &.scaling-and-polishing-test {
+      bottom: 100px;
+    }
+  }
+  .pcMenuBox {
+    &.implant,
+    &.rootCanal-test,
+    &.periodontal-test,
+    &.orthodontics-test,
+    &.invisalign-test,
+    &.veneers-test,
+    &.scaling-and-polishing-test {
+      margin-top: 100px;
+      transition: all 0.3s;
+    }
+  }
+  .headerBox01 {
+    position: relative;
+    background: #fff;
+    width: 100%;
+  }
+  .headerBox02 {
+    position: fixed;
+    background: #fff;
+    top: 0;
+    width: 100vw;
+    z-index: 100;
+    box-shadow: 0px 4px 8px var(--indexColor3);
+    margin-top: 0 !important;
+    .header-content-in {
+      align-items: center;
+    }
+  }
+}
+.waterBg::after {
+  content: '';
+  background-image: url(@/assets/images/back_wave01.png);
+  background-repeat: repeat-x;
+  background-position: center 20px;
+  height: 162px;
+  width: 100%;
+  position: absolute;
+  z-index: 35;
+  left: 0px;
+  bottom: 0px;
+  animation-name: wave1;
+  animation-duration: 20s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: wave1;
+  -webkit-animation-duration: 20s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  filter: drop-shadow(0px -8px 4px rgba(77, 77, 77, 0.15));
+}
+@keyframes wave1 {
+  0% {
+    background-position: 0px 20px;
+  }
+  100% {
+    background-position: 1080px 20px;
+  }
+}
+@-webkit-keyframes wave1 {
+  0% {
+    background-position: 0px 20px;
+  }
+  100% {
+    background-position: 1080px 20px;
+  }
+}
+.waterBg::before {
+  content: '';
+  background-image: url(@/assets/images/back_wave03.png);
+  background-repeat: repeat-x;
+  background-position: center bottom;
+  height: 162px;
+  width: 100%;
+  position: absolute;
+  z-index: 35;
+  left: 0px;
+  bottom: 0px;
+  animation-name: wave2;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: wave2;
+  -webkit-animation-duration: 10s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}
+@keyframes wave2 {
+  0% {
+    background-position: 0px bottom;
+  }
+  100% {
+    background-position: 1080px bottom;
+  }
+}
+@-webkit-keyframes wave2 {
+  0% {
+    background-position: 0 bottom;
+  }
+  100% {
+    background-position: 1080px bottom;
+  }
+}
+.menuBox {
+  display: none;
+}
+
+@media (min-width: 768px) and (max-width: 1000px) {
+  .header-content {
+    &-bgImg {
+      &-in {
+        left: 50%;
+        .bannerTitle {
+          font-size: 2rem;
+          line-height: 130%;
+          span {
+            display: block;
+            &:last-child {
+              margin-left: 10%;
             }
           }
-          &:hover {
-            color: var(--indexColor1);
-            text-decoration-line: underline;
-            .triangleIcon:after {
-              border-color: var(--indexColor1) transparent transparent transparent;
+        }
+        .text {
+          margin-top: 1%;
+          font-size: 1.2rem;
+          line-height: 130%;
+          span {
+            font-size: 1.2rem;
+            color: var(--indexColor);
+          }
+        }
+      }
+    }
+    &-text-implant {
+      bottom: 60px;
+      div{
+        width: calc(80%);
+        margin: 0 auto;
+        font-size: 2vw;
+      }
+    }
+    &-btn-implant{
+      bottom: auto;
+      span{
+        font-size: 2vw;
+        padding: 5px 4vw;
+      }
+    }
+    &-in{
+      width: calc(80% + 60px);
+    }
+    &-bgImgBB{
+      width: 100%;
+    }
+    .waterBg {
+      &.implant,
+      &.rootCanal-test,
+      &.periodontal-test,
+      &.orthodontics-test,
+      &.invisalign-test,
+      &.veneers-test,
+      &.scaling-and-polishing-test {
+        bottom: 60px;
+      }
+    }
+  }
+  .waterBg::after,
+  .waterBg::before {
+    height: 140px;
+  }
+}
+@media (min-width: 1001px) and (max-width: 1452px) {
+  .header-content {
+    &-in{
+      width: calc(80% + 60px);
+      padding: 10px 10px 0 30px;
+      .logo{
+        width: 200px;
+        margin-bottom: 15px;
+      }
+    }
+    .waterBg {
+      &.implant,
+      &.rootCanal-test,
+      &.periodontal-test,
+      &.orthodontics-test,
+      &.invisalign-test,
+      &.veneers-test,
+      &.scaling-and-polishing-test {
+        bottom: 65px;
+      }
+    }
+    &-text-implant {
+      bottom: 80px;
+      div{
+        width: calc(80%);
+        margin: 0 auto;
+      }
+    }
+    &-bgImg {
+      &-in {
+        top: 30%;
+        .bannerTitle {
+          font-size: 2.5rem;
+          line-height: 130%;
+          span {
+            display: block;
+            &:last-child {
+              margin-left: 15%;
             }
           }
-          &:hover .menuChild {
-            display: flex;
+        }
+        .text {
+          margin-top: 2%;
+          font-size: 1.4rem;
+          line-height: 130%;
+          span {
+            font-size: 1.4rem;
+            color: var(--indexColor);
+          }
+        }
+      }
+    }
+    &-bgImgBB{
+      width: 100%;
+    }
+    &-btn-implant{
+      bottom: 18vw;
+      span{
+        font-size: 2vw;
+        padding: 5px 4vw;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  .header-content {
+    &-in {
+      padding: 10px 15px 0 30px;
+      .logo {
+        width: 22%;
+        margin-bottom: 15px;
+      }
+      .menu {
+        .menuItem {
+          font-size: 100%;
+          padding: 0 0 10px;
+          & > a {
+            padding: 0 1.3vw 10px;
+            box-sizing: border-box;
+          }
+          .triangleIcon:after {
+            border: 5px solid;
+            border-color: #666666 transparent transparent transparent;
           }
           .menuChild {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            min-width: 130%;
-            z-index: 2;
-            display: none;
-            flex-direction: column;
-            transition: all 0.3s;
-            padding: 0 20px 5px;
-            box-sizing: border-box;
-            background: #ffffff;
-            filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.15));
-            border-radius: 6px;
+            padding: 0 10px;
             &-item {
-              width: 100%;
-              text-align: center;
-              padding: 10px 0 5px;
-              font-weight: 500;
-              font-size: 18px;
-              color: #666666;
-              transition: all 0.3s;
-              &:not(:last-child) {
-                border-bottom: 1px solid var(--indexColor2);
-              }
-              &:hover {
-                color: var(--indexColor1);
-              }
-              &.menuChildCurrent {
-                color: var(--indexColor1);
-              }
+              font-size: 1rem;
             }
             &::before {
-              content: '';
-              width: 0px;
-              height: 0px;
-              border: 10px solid;
+              border: 5px solid;
               border-color: transparent transparent #fff transparent;
               position: absolute;
-              top: -20px;
+              top: -10px;
               left: 50%;
               transform: translateX(-50%);
             }
           }
           .serviceCard {
-            width: 428px;
             padding: 12px 6px;
           }
         }
+        .langItem{
+          font-size: 100%;
+          padding: 0 0 10px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header-content {
+    &-bgImg {
+      position: relative;
+      &-textInfo {
+        position: static;
+        width: 100%;
+        background: #fff;
+        transform: none;
+      }
+      &-in {
+        position: static;
+        .bannerTitle {
+          position: absolute;
+          line-height: 140%;
+          color: #000;
+          font-weight: 400;
+          font-size: 1.25rem;
+          left: auto;
+          top: auto;
+          right: 30px;
+          bottom: 0;
+          span {
+            padding: 10px 2px;
+            background: #fff;
+            text-align: center;
+            writing-mode: tb-rl;
+            text-align: center;
+            letter-spacing: 7px;
+            vertical-align: middle;
+            &:first-child {
+              margin-left: 50px;
+            }
+            &:last-child {
+              margin-left: 0;
+              margin-top: -120px;
+            }
+          }
+        }
+        .text {
+          left: 55%;
+          font-weight: 500;
+          font-size: 1.25rem;
+          width: 60vw;
+          padding-left: 30px;
+          margin-top: 0;
+          span {
+            font-size: 1.25rem;
+          }
+        }
+      }
+      &.index-test,&.action-message,&.course-new,&.coverage{
+        margin-top: 70px;
+      }
+    }
+    &-bgImg-implant {
+      // display: none;
+      position: relative;
+      top: 80px;
+      &.rootCanal-test{
+        padding-bottom: 60px;
+      }
+      &.rootCanal{
+        padding-bottom: 60px;
+      }
+      &.scaling-and-polishing{
+        padding-bottom: 80px;
+      }
+      &.scaling-and-polishing-test{
+        padding-bottom: 80px;
+      }
+      &.periodontal-test,&.orthodontics-test,&.invisalign-test,&.veneers-test{
+        padding-bottom: 80px;
+      }
+      &.implant{
+        padding-bottom: 80px;
+      }
+      &.course-new{
+        padding-bottom: 70px;
+      }
+      &.coverage{
+        padding-bottom: 140px;
+      }
+    }
+    &-btn-implant {
+      display: none;
+    }
+    &-text-implant {
+      position: relative;
+      margin-top: 25px;
+      width: calc(100% - 60px);
+      bottom: auto;
+      text-align: left;
+      z-index: 1;
+      & > div {
+        font-size: 20px;
+      }
+      &.index-test,&.action-message,&.course-new{
+        display: block;
+      }
+      &.periodontal-test,&.orthodontics-test,&.invisalign-test,&.veneers-test{
+        display: block;
+      }
+    }
+    .waterBg-implant {
+      display: block;
+      &::before {
+        content: '';
+        background-image: url(@/assets/images/back_wave03.png);
+        background-repeat: repeat-x;
+        background-position: center bottom;
+        height: 162px;
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+        left: 0px;
+        bottom: -30px;
+        animation-name: wave2;
+        animation-duration: 10s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        -webkit-animation-name: wave2;
+        -webkit-animation-duration: 10s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-iteration-count: infinite;
+      }
+      &::after {
+        content: '';
+        background-image: url(@/assets/images/back_wave01.png);
+        background-repeat: repeat-x;
+        background-position: center 20px;
+        height: 162px;
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+        left: 0px;
+        bottom: -30px;
+        animation-name: wave1;
+        animation-duration: 20s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        -webkit-animation-name: wave1;
+        -webkit-animation-duration: 20s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-iteration-count: infinite;
+        filter: drop-shadow(0px -8px 4px rgba(77, 77, 77, 0.15));
+      }
+    }
+    // &-bgImg-implant-mb {
+    //   display: block;
+    //   padding-top: 80px;
+    //   img {
+    //     width: 100%;
+    //   }
+    // }
+    &-in {
+      position: fixed;
+      top: 0;
+      justify-content: space-between;
+      margin: 0;
+      padding: 20px 0 0 30px;
+      .logo {
+        width: 150px;
+        margin-bottom: 0;
+      }
+      .menu {
+        display: none;
       }
       .icon {
-        display: none;
+        display: block;
+        width: 24px;
+        margin-right: 30px;
+      }
+    }
+    &-span {
+      width: 70px;
+      font-weight: 400;
+      font-size: 20px;
+      right: 30px;
+      bottom: 60px;
+    }
+    .waterBg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      &.implant,
+      &.rootCanal-test,
+      &.periodontal-test,
+      &.orthodontics-test,
+      &.invisalign-test,
+      &.veneers-test,
+      &.scaling-and-polishing-test {
+        bottom: auto;
       }
     }
     .pcMenuBox {
-      // &.implant,
-      // &.rootCanal-test,
-      // &.periodontal-test,
-      // &.orthodontics-test,
-      // &.invisalign-test,
-      // &.veneers-test,
-      // &.scaling-and-polishing-test {
-      //   margin-top: 100px;
-      //   transition: all 0.3s;
-      // }
-    }
-    .headerBox01 {
-      position: relative;
-      background: #fff;
-      width: 100%;
-      padding-top: 50px;
-    }
-    .headerBox02 {
-      position: fixed;
-      background: #fff;
-      top: 0;
-      width: 100vw;
-      z-index: 100;
-      box-shadow: 0px 4px 8px var(--indexColor3);
-      margin-top: 0 !important;
-      .ckj-header-menu-in {
-        align-items: center;
+      &.implant,
+      &.rootCanal-test,
+      &.periodontal-test,
+      &.orthodontics-test,
+      &.invisalign-test,
+      &.veneers-test,
+      &.scaling-and-polishing-test {
+        margin-top: 0px;
+        transition: all 0.3s;
       }
     }
-    
-    
-    .menuBox {
-      display: none;
+    .headerBox02 {
+      position: relative;
+      z-index: 40;
     }
   }
-  
+  .waterBg::after {
+    transform: rotate(180deg);
+    top: -30px;
+  }
+  .waterBg::before {
+    transform: rotate(180deg);
+    top: -40px;
+  }
+  .menuBox {
+    position: fixed;
+    top: -100vh;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    z-index: 30;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 160%;
+    color: var(--indexColor1);
+    transition: all 0.3s;
+    overflow: hidden;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    .menuLists {
+      margin-top: 120px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &-item {
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+        font-size: 18px;
+        position: relative;
+        &:not(:last-child)::before {
+          content: '';
+          width: calc(100% - 60px);
+          height: 2px;
+          background: var(--indexColor2);
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          position: absolute;
+        }
+        &.childIcon:after {
+          content: '';
+          width: 0;
+          height: 0;
+          display: inline-block;
+          position: absolute;
+          right: 34%;
+          top: 29px;
+          border-top: 10px solid;
+          border-left: 6px solid;
+          border-right: 6px solid;
+          border-bottom: 10px solid;
+          border-color: var(--indexColor1) transparent transparent transparent;
+          vertical-align: middle;
+        }
+      }
+      &-childLists {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        font-weight: 500;
+        margin-top: 20px;
+        color: var(--indexColor);
+        &-item {
+          width: 100%;
+          height: 100%;
+          a {
+            width: 100%;
+            height: 100%;
+            padding: 10px 0;
+            display: block;
+            &.router-link-exact-active {
+              background: var(--indexColor2);
+            }
+          }
+        }
+      }
+    }
+    .langItem{
+        padding: 30px 0;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 500;
+        position: relative;
+        span{
+          padding: 0 10px;
+          color: #666666;
+          &:not(:last-child){
+            border-right: 1px solid #FF85AF;
+          }
+          &:hover{
+            color: var(--indexColor1);
+          }
+        }
+      }
+    &-btn {
+      margin-top: 51px;
+      font-size: 1.25rem;
+    }
+    &-phone {
+      font-weight: 400;
+      font-size: 1.25rem;
+      line-height: 23px;
+      margin-top: 20px;
+      img {
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: -5px;
+      }
+    }
+    &-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 50px auto 180px;
+      &-in:not(:last-child) {
+        margin-right: 25px;
+      }
+    }
+  }
 }
-@media (min-width: 768px) and (max-width: 1452px) {
-
-}
-@media screen and (max-width: 768px) {}
 </style>
