@@ -897,9 +897,11 @@ const handleMbMenu = () => {
   }
   &-bgImgBB {
     opacity: 0;
-    &.index-test,&.action-message,&.course-new,&.coverage{
+    &.index-test{
       max-width: 1920px;
+      min-height: calc(650 / 1920 * 100%);
     }
+    &.action-message,&.course-new,&.coverage,
     &.implant,
     &.rootCanal-test,
     &.periodontal-test,
@@ -908,6 +910,7 @@ const handleMbMenu = () => {
     &.veneers-test,
     &.scaling-and-polishing-test {
       max-width: 100%;
+      min-height: calc(726 / 1920 * 100vw);
       img {
         width: 100%;
       }
