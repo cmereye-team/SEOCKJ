@@ -193,6 +193,7 @@ svg:hover path{
   width: 100%;
   background: #fff;
   padding-bottom: 140px;
+  overflow: hidden;
 }
 //醫生團隊
 .index-doctorTeam{
