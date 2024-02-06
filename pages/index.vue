@@ -70,6 +70,52 @@ const handleLineCur = (_value:number) =>{
   doctorTeamSwiperRef.slideToLoop(_value-1)
 }
 
+const treatmentData = [
+  {
+    name: '接診人數',
+    num: "259,376",
+    bg: 'https://static.cmereye.com/static/ckj/imgs/svg/icon_16_1.svg',
+    left: '30%',
+    top: '-31%'
+  },
+  {
+    name: '已修復牙冠',
+    num: "25,295",
+    bg: 'https://static.cmereye.com/static/ckj/imgs/svg/icon_16_3.svg',
+    left: '15%',
+    top: '50%'
+  },
+  {
+    name: '種植牙數',
+    num: "27,008",
+    bg: 'https://static.cmereye.com/imgs/2024/01/5bc753351f96d0d0.png',
+    left: '15%',
+    top: '-10%'
+  },
+  {
+    name: '全瓷貼面數',
+    num: "3,336",
+    bg: 'https://static.cmereye.com/static/ckj/imgs/svg/icon_16_4.svg',
+    left: '53%',
+    top: '-3%'
+  }
+]
+let showTreatment = ref(false)
+const scrollWatch = () => {
+  let _dome:any = document.getElementsByClassName('treatment-data')
+  let _offsetTop = 0
+  if(_dome && _dome.length){
+    _offsetTop = _dome[0].offsetTop
+  }
+  if(_offsetTop >= window.pageYOffset && _offsetTop + 200 <= window.pageYOffset + window.innerHeight){
+    showTreatment.value = true
+  }
+}
+onMounted(()=>{
+  scrollWatch()
+  window.addEventListener('scroll',scrollWatch)
+})
+
 watch(
   areaTabCurNum, (newValue, oldValue) => {
     doctorTeamSwiperRef.slideTo(0, 0);
@@ -98,6 +144,32 @@ const headerConfigData = {
       <!-- <LatestNews /> -->
       <!-- 品牌理念 -->
       <brandConcept-test />
+      <div class="treatment-data">
+        <div class="treatment-data-title">
+          <span>早期深圳二級口腔醫院</span>
+          <span>香港品牌 實力信心</span>
+        </div>
+        <div class="treatment-data-in pageCon">
+          <div class="dataBox" v-for="(treatmentItem,treatmentIndex) in treatmentData" :key="treatmentIndex">
+            <div class="num">
+              <img :src="treatmentItem.bg" :style="{left: treatmentItem.left,top: treatmentItem.top}" alt="">
+              <div class="numIn" v-for="(numItem,numIndex) in treatmentItem.num" :key="numIndex">
+                <span v-if="numItem === ','">{{numItem}}</span>
+                <div v-else class="numInAnim" :class="[{showNumInAnim: showTreatment}]" :style="{'animation-delay': `${(treatmentItem.num.length - numIndex) * 0.2}s`}">
+                  <span v-for="numInItem in Number(numItem) ? Number(numItem) : 10" :key="numInItem">
+                    {{numInItem === 10 ? 0 : numInItem}}
+                  </span>
+                </div>
+              </div>
+              <span class="numBold">+</span>
+            </div>
+            <div class="name">{{treatmentItem.name}}</div>
+          </div>
+        </div>
+        <div class="treatment-data-bText">
+          *以上數據由2019年開始統計至今
+        </div>
+      </div>
       <!-- 牙科服務 -->
       <serviceCard :isIndexShow="true" />
       <!-- 醫生團隊 -->
@@ -185,6 +257,12 @@ const headerConfigData = {
 </template>
 
 <style lang="scss" scoped>
+@keyframes numAnim {
+  100%{
+    // transform: translateY(calc((100% - 96px) * -1));
+    transform: none;
+  }
+}
 svg:hover path{
   cursor: pointer;
   fill:rgba(255, 120, 117, 0.65)
@@ -194,6 +272,85 @@ svg:hover path{
   background: #fff;
   padding-bottom: 140px;
   overflow: hidden;
+}
+.treatment-data{
+  margin-top: 70px;
+  &-title{
+    span{
+      color: var(--indexColor1);
+      text-align: center;
+      font-size: 35px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 160%;
+      display: block;
+    }
+  }
+  &-in{
+    margin-top: 48px;
+    display: flex;
+    flex-wrap: wrap;
+    .dataBox{
+      flex: 1;
+      .num{
+        color: var(--indexColor1);
+        text-align: center;
+        font-size: 60px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 160%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        img{
+          position: absolute;
+        }
+        .numBold{
+          font-family: initial;
+          font-weight: bold;
+          margin-top: 5px;
+        }
+        .numIn{
+          height: 96px;
+          overflow: hidden;
+          position: relative;
+          span{
+            line-height: 96px;
+            display: block;
+          }
+          .numInAnim{
+            opacity: 0;
+            transition: all .3s;
+            display: flex;
+            flex-direction: column-reverse;
+            transform: translateY(-100%);
+            &.showNumInAnim{
+              opacity: 1;
+              animation: numAnim 1s ease-in-out forwards;
+            }
+          }
+        }
+      }
+      .name{
+        color: var(--textColor);
+        text-align: center;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 160%; 
+        margin-top: -10px;
+      }
+    }
+  }
+  &-bText{
+    color: var(--textColor);
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160%;
+    margin-top: 30px;
+  }
 }
 //醫生團隊
 .index-doctorTeam{
@@ -369,6 +526,26 @@ svg:hover path{
 }
 
 @media screen and (max-width: 768px) {
+  .treatment-data{
+    &-title{
+      span{
+        font-size: 20px;
+      }
+    }
+    &-in{
+      margin-top: 100px;
+      flex-direction: column;
+      .dataBox{
+        &:not(:last-child){
+          margin-bottom: 62px;
+        }
+      }
+    }
+    &-bText{
+      font-size: 16px;
+      margin-top: 60px;
+    }
+  }
   .indexPage {
     width: 100%;
     background: #fff;

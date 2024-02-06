@@ -118,24 +118,24 @@ const treatmentData = [
     top: '-3%'
   }
 ]
-let showTreatment = ref(false)
-const scrollWatch = () => {
-  let _dome:any = document.getElementsByClassName('treatment-data')
-  let _offsetTop = 0
-  if(_dome && _dome.length){
-    _offsetTop = _dome[0].offsetTop
-  }
-  if(_offsetTop >= window.pageYOffset && _offsetTop + 200 <= window.pageYOffset + window.innerHeight){
-    showTreatment.value = true
-  }
-  // else{
-  //   showTreatment.value = false
-  // }
-}
-onMounted(()=>{
-  scrollWatch()
-  window.addEventListener('scroll',scrollWatch)
-})
+// let showTreatment = ref(false)
+// const scrollWatch = () => {
+//   let _dome:any = document.getElementsByClassName('treatment-data')
+//   let _offsetTop = 0
+//   if(_dome && _dome.length){
+//     _offsetTop = _dome[0].offsetTop
+//   }
+//   if(_offsetTop >= window.pageYOffset && _offsetTop + 200 <= window.pageYOffset + window.innerHeight){
+//     showTreatment.value = true
+//   }
+//   // else{
+//   //   showTreatment.value = false
+//   // }
+// }
+// onMounted(()=>{
+//   scrollWatch()
+//   window.addEventListener('scroll',scrollWatch)
+// })
 
 </script>
 
@@ -147,7 +147,7 @@ onMounted(()=>{
       <LatestNews />
       <!-- 品牌理念 -->
       <brandConcept-test />
-      <div class="treatment-data">
+      <!-- <div class="treatment-data">
         <div class="treatment-data-title">
           <span>早期深圳二級口腔醫院</span>
           <span>香港品牌 實力信心</span>
@@ -172,7 +172,7 @@ onMounted(()=>{
         <div class="treatment-data-bText">
           *以上數據由2019年開始統計至今
         </div>
-      </div>
+      </div> -->
       <!-- 牙科服務 -->
       <serviceCard :isIndexShow="true" />
       <!-- 视频地址 -->
