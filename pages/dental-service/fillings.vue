@@ -19,12 +19,12 @@ useHead({
 })
 
 const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2023/06/84d8cb1804ceccde.png',
-  bg: 'https://static.cmereye.com/imgs/2023/06/2baa49a13d587aa6.jpg',
-  mbImg: 'https://static.cmereye.com/imgs/2023/06/dc5a79b64bbddc8c.jpg',
-  pageName: 'fillings',
-  pcText: ['高質量的修復效果','緊急救援您珍貴的牙齒'],
-  mbText: ['高質量的修復效果','緊急救援您珍貴的牙齒']
+  img: 'https://static.cmereye.com/imgs/2024/02/59dd6590cee09034.jpg',
+  bg: '',
+  mbImg: 'https://static.cmereye.com/imgs/2024/02/f56764d79a8e7ca6.jpg',
+  pageName: 'course-new',
+  pcText: [],
+  mbText: []
 }
 
 const orthodonticsIntroduceData = {
