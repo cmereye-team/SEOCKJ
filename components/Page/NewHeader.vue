@@ -544,7 +544,7 @@ const handleMbMenu = () => {
             </div>
             <div class="langItem">
               <span class="zh_click" :style="{color: (appState.langs === 't'?'#000':'#666')}" @click="glangs('t')">繁體</span>
-              <span class="zh_click" :style="{color: (appState.langs === 's'?'#000':'#666'),'font-weight': (appState.langs === 's'?'500':'600')}" @click="glangs('s')">简体</span>
+              <span class="zh_click" :style="{color: (appState.langs === 's'?'#000':'#666')}" @click="glangs('s')">简体</span>
             </div>
           </div>
           <div class="icon" @click="menuBoxBool = !menuBoxBool">
