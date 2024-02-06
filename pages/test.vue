@@ -85,10 +85,10 @@ const addressItem = {
 
 
 <style lang="scss" scoped>
-@font-face {
-  font-family: "GenSenRounded";
-  src: url("https://static.cmereye.com/static/font/GenSenRounded-L.woff");
-}
+// @font-face {
+//   font-family: "GenSenRounded";
+//   src: url("https://static.cmereye.com/static/font/GenSenRounded-L.woff");
+// }
 .testBoxs{
   display: flex;
   min-height: 600px;
@@ -138,13 +138,13 @@ const addressItem = {
     }
     &:nth-of-type(1){
       h3,span{
-        font-family: 幼圆;
+        font-family: youyuan;
       }
     }
     &:nth-of-type(2){
-      h3,span{
-        font-family: "GenSenRounded";
-      }
+      // h3,span{
+      //   font-family: "GenSenRounded";
+      // }
     }
   }
 }

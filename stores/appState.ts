@@ -6,7 +6,8 @@ export interface appState {
   brand: string,
   areaTabs: any,
   isShowForm: boolean,
-  langs: String
+  langs: String,
+  areaTabs_url: Array<String>,
 }
 
 export const useAppState = defineStore('appData', {
@@ -22,7 +23,14 @@ export const useAppState = defineStore('appData', {
       'components.areaTabs.longhua'
     ],
     isShowForm: false,
-    langs: 't'
+    langs: 't',
+    areaTabs_url: [
+      'lo_wu',
+      'fu_tian',
+      'nan_shan',
+      'po_on',
+      'long_hua'
+    ]
   }),
   actions: {
     setCurNum(curNum: number){

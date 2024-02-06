@@ -1,11 +1,23 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
-const emits = defineEmits(['changeTabCur'])
+const props = defineProps({
+  isAdPage: {
+    type: Boolean,
+    default: false,
+  },
+})
 
+const emits = defineEmits(['changeTabCur'])
+// const router = useRouter()
 const appState = useAppState()
 const handleAreaTab = (_idx: number) => {
   appState.setCurNum(_idx)
   emits('changeTabCur',_idx)
+  if(props.isAdPage){
+    history.pushState({}, '', `/medical-team/${appState.areaTabs_url[_idx]}`);
+  }
+  // history.pushState({}, '', `/medical-team/${appState.areaTabs_url[_idx]}`);
+  // router.push(`/medical-team/${appState.areaTabs_url[_idx]}`)
 }
 
 

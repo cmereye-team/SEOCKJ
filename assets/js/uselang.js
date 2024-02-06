@@ -115,7 +115,7 @@ function zh_tran(go) {
 		if(go == 't'){
 			var _text = "'FakePearl-Regular','幼圆', Serif"
 		}else if(go == 's'){
-			var _text = "微软雅黑"
+			var _text = "youyuan"
 		}
 		document.documentElement.style.setProperty("--indexFontFamily", _text);
 		zh_tranBody();

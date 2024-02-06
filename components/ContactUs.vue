@@ -4,6 +4,12 @@ import { phoneNum } from '~/assets/js/common'
 const appState = useAppState()
 const mapConShow = ref(true)
 const route = useRoute()
+defineProps({
+  isAdPage: {
+    type: Boolean,
+    default: false,
+  },
+})
 
 onMounted(()=>{
   getWindowResize()
@@ -233,7 +239,7 @@ const handleAddress = (_idx: string) => {
       <div class="index-contactUs-t pageCon">
         <div class="index_title">{{$t('contactUs.title')}}</div>
         <div>
-          <AreaTab />
+          <AreaTab :isAdPage="isAdPage" />
         </div>
       </div>
       <div class="address">
