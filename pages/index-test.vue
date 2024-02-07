@@ -6,7 +6,7 @@ import doctorLists_cs from '~/assets/js/doctor'
 const appState = useAppState()
 const { t } = useLang()
 useHead({
-  title: "CKJ愛康健齒科連鎖 | 香港官方網站 | 深圳二級口腔醫院",
+  title: "CKJ愛康健齒科連鎖 | 香港官方網站 | 專注為港服務28年",
   titleTemplate: '',
   meta: [
     {
@@ -70,24 +70,6 @@ const handleLineCur = (_value:number) =>{
   doctorTeamSwiperRef.slideToLoop(_value-1)
 }
 
-watch(
-  areaTabCurNum, (newValue, oldValue) => {
-    doctorTeamSwiperRef.slideTo(0, 0);
-  },
-  {
-    deep: true,
-  }
-);
-
-const headerConfigData = {
-  img: 'https://static.cmereye.com/imgs/2023/11/e9f317c46f2242ed.jpg',
-  bg: 'https://static.cmereye.com/imgs/2023/11/be45851e1f050a5b.png',
-  mbImg: 'https://static.cmereye.com/imgs/2023/11/50a66a8efbcfcc12.jpg',
-  pageName: 'index-test',
-  pcText: ['重拾自信笑容', '愛牙愛己，由你做起'],
-  mbText: ['重拾自信笑容', '愛牙愛己，由你做起'],
-}
-
 const treatmentData = [
   {
     name: '接診人數',
@@ -118,36 +100,51 @@ const treatmentData = [
     top: '-3%'
   }
 ]
-// let showTreatment = ref(false)
-// const scrollWatch = () => {
-//   let _dome:any = document.getElementsByClassName('treatment-data')
-//   let _offsetTop = 0
-//   if(_dome && _dome.length){
-//     _offsetTop = _dome[0].offsetTop
-//   }
-//   if(_offsetTop >= window.pageYOffset && _offsetTop + 200 <= window.pageYOffset + window.innerHeight){
-//     showTreatment.value = true
-//   }
-//   // else{
-//   //   showTreatment.value = false
-//   // }
-// }
-// onMounted(()=>{
-//   scrollWatch()
-//   window.addEventListener('scroll',scrollWatch)
-// })
+let showTreatment = ref(false)
+const scrollWatch = () => {
+  let _dome:any = document.getElementsByClassName('treatment-data')
+  let _offsetTop = 0
+  if(_dome && _dome.length){
+    _offsetTop = _dome[0].offsetTop
+  }
+  if(_offsetTop >= window.pageYOffset && _offsetTop + 200 <= window.pageYOffset + window.innerHeight){
+    showTreatment.value = true
+  }
+}
+onMounted(()=>{
+  scrollWatch()
+  window.addEventListener('scroll',scrollWatch)
+})
+
+watch(
+  areaTabCurNum, (newValue, oldValue) => {
+    doctorTeamSwiperRef.slideTo(0, 0);
+  },
+  {
+    deep: true,
+  }
+);
+
+const headerConfigData = {
+  img: 'https://static.cmereye.com/imgs/2023/11/e9f317c46f2242ed.jpg',
+  bg: 'https://static.cmereye.com/imgs/2023/11/be45851e1f050a5b.png',
+  mbImg: 'https://static.cmereye.com/imgs/2023/11/50a66a8efbcfcc12.jpg',
+  pageName: 'index-test',
+  pcText: ['重拾自信笑容', '愛牙愛己，由你做起'],
+  mbText: ['重拾自信笑容', '愛牙愛己，由你做起'],
+}
 
 </script>
 
 <template>
   <div>
-    <PageNewHeader :headerConfig="headerConfigData" />
+    <PageHeader :headerConfig="headerConfigData" /> 
     <div class="indexPage">
       <!-- 最新消息 -->
-      <LatestNews />
+      <!-- <LatestNews /> -->
       <!-- 品牌理念 -->
       <brandConcept-test />
-      <!-- <div class="treatment-data">
+      <div class="treatment-data">
         <div class="treatment-data-title">
           <span>早期深圳二級口腔醫院</span>
           <span>香港品牌 實力信心</span>
@@ -172,32 +169,9 @@ const treatmentData = [
         <div class="treatment-data-bText">
           *以上數據由2019年開始統計至今
         </div>
-      </div> -->
+      </div>
       <!-- 牙科服務 -->
       <serviceCard :isIndexShow="true" />
-      <!-- 视频地址 -->
-      <div class="index-videoBox">
-        <div class="index-videoBox-t pageCon">
-          <div class="index_title index_title_2">專題報導</div>
-        </div>
-        <div class="index-videoBox-c pageCon">
-          <div class="index-videoBox-c-l">
-            <div>HK01</div>
-            <div>深圳食買玩，點少得睇牙!口岸位置、性價比高 咪咪姐推薦口腔醫院</div>
-            <a href="https://www.hk01.com/%E5%81%A5%E5%BA%B7Easy/959987/%E6%B7%B1%E5%9C%B3%E9%A3%9F%E8%B2%B7%E7%8E%A9-%E9%BB%9E%E5%B0%91%E5%BE%97%E7%9D%87%E7%89%99-%E5%8F%A3%E5%B2%B8%E4%BD%8D%E7%BD%AE-%E6%80%A7%E5%83%B9%E6%AF%94%E9%AB%98-%E5%92%AA%E5%92%AA%E5%A7%90%E6%8E%A8%E8%96%A6%E5%8F%A3%E8%85%94%E9%86%AB%E9%99%A2" target="black">
-              查看原文
-            </a>
-          </div>
-          <div class="index-videoBox-c-r">
-            <a href="https://www.hk01.com/%E5%81%A5%E5%BA%B7Easy/959987/%E6%B7%B1%E5%9C%B3%E9%A3%9F%E8%B2%B7%E7%8E%A9-%E9%BB%9E%E5%B0%91%E5%BE%97%E7%9D%87%E7%89%99-%E5%8F%A3%E5%B2%B8%E4%BD%8D%E7%BD%AE-%E6%80%A7%E5%83%B9%E6%AF%94%E9%AB%98-%E5%92%AA%E5%92%AA%E5%A7%90%E6%8E%A8%E8%96%A6%E5%8F%A3%E8%85%94%E9%86%AB%E9%99%A2" target="black">
-              <img src="https://static.cmereye.com/imgs/2023/12/0ef603cd96873713.webp" alt="專題報導" title="專題報導">
-              <img src="https://static.cmereye.com/imgs/2023/12/e974c03be612528f.png" class="icon" alt="">
-            </a>
-          </div>
-        </div>
-      </div>
-      <!-- 關於我們 -->
-      <AboutUs />
       <!-- 醫生團隊 -->
       <div class="index-doctorTeam">
         <div class="index-doctorTeam-t pageCon">
@@ -231,6 +205,29 @@ const treatmentData = [
           </div>
         </div>
       </div>
+      <!-- 视频地址 -->
+      <div class="index-videoBox">
+        <div class="index-videoBox-t pageCon">
+          <div class="index_title index_title_2">專題報導</div>
+        </div>
+        <div class="index-videoBox-c pageCon">
+          <div class="index-videoBox-c-l">
+            <div>HK01</div>
+            <div>深圳食買玩，點少得睇牙!口岸位置、性價比高 咪咪姐推薦口腔醫院</div>
+            <a href="https://www.hk01.com/%E5%81%A5%E5%BA%B7Easy/959987/%E6%B7%B1%E5%9C%B3%E9%A3%9F%E8%B2%B7%E7%8E%A9-%E9%BB%9E%E5%B0%91%E5%BE%97%E7%9D%87%E7%89%99-%E5%8F%A3%E5%B2%B8%E4%BD%8D%E7%BD%AE-%E6%80%A7%E5%83%B9%E6%AF%94%E9%AB%98-%E5%92%AA%E5%92%AA%E5%A7%90%E6%8E%A8%E8%96%A6%E5%8F%A3%E8%85%94%E9%86%AB%E9%99%A2" target="black">
+              查看原文
+            </a>
+          </div>
+          <div class="index-videoBox-c-r">
+            <a href="https://www.hk01.com/%E5%81%A5%E5%BA%B7Easy/959987/%E6%B7%B1%E5%9C%B3%E9%A3%9F%E8%B2%B7%E7%8E%A9-%E9%BB%9E%E5%B0%91%E5%BE%97%E7%9D%87%E7%89%99-%E5%8F%A3%E5%B2%B8%E4%BD%8D%E7%BD%AE-%E6%80%A7%E5%83%B9%E6%AF%94%E9%AB%98-%E5%92%AA%E5%92%AA%E5%A7%90%E6%8E%A8%E8%96%A6%E5%8F%A3%E8%85%94%E9%86%AB%E9%99%A2" target="black">
+              <img src="https://static.cmereye.com/imgs/2023/12/0ef603cd96873713.webp" alt="專題報導" title="專題報導">
+              <img src="https://static.cmereye.com/imgs/2023/12/e974c03be612528f.png" class="icon" alt="">
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- 關於我們 -->
+      <AboutUs />
       <!-- 個案分享 -->
       <div class="index-caseSharing">
         <div class="index-caseSharing-title">
@@ -253,13 +250,19 @@ const treatmentData = [
       <!-- 聯絡我們 -->
       <ContactUs />
     </div>
-    <!-- <PageAdbox /> -->
+    <PageAdbox />
     <PageFooter />
     <PageNavbar />
   </div>
 </template>
 
 <style lang="scss" scoped>
+@keyframes numAnim {
+  100%{
+    // transform: translateY(calc((100% - 96px) * -1));
+    transform: none;
+  }
+}
 svg:hover path{
   cursor: pointer;
   fill:rgba(255, 120, 117, 0.65)
@@ -268,6 +271,86 @@ svg:hover path{
   width: 100%;
   background: #fff;
   padding-bottom: 140px;
+  overflow: hidden;
+}
+.treatment-data{
+  margin-top: 70px;
+  &-title{
+    span{
+      color: var(--indexColor1);
+      text-align: center;
+      font-size: 35px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 160%;
+      display: block;
+    }
+  }
+  &-in{
+    margin-top: 48px;
+    display: flex;
+    flex-wrap: wrap;
+    .dataBox{
+      flex: 1;
+      .num{
+        color: var(--indexColor1);
+        text-align: center;
+        font-size: 60px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 160%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        img{
+          position: absolute;
+        }
+        .numBold{
+          font-family: initial;
+          font-weight: bold;
+          margin-top: 5px;
+        }
+        .numIn{
+          height: 96px;
+          overflow: hidden;
+          position: relative;
+          span{
+            line-height: 96px;
+            display: block;
+          }
+          .numInAnim{
+            opacity: 0;
+            transition: all .3s;
+            display: flex;
+            flex-direction: column-reverse;
+            transform: translateY(-100%);
+            &.showNumInAnim{
+              opacity: 1;
+              animation: numAnim 1s ease-in-out forwards;
+            }
+          }
+        }
+      }
+      .name{
+        color: var(--textColor);
+        text-align: center;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 160%; 
+        margin-top: -10px;
+      }
+    }
+  }
+  &-bText{
+    color: var(--textColor);
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160%;
+    margin-top: 30px;
+  }
 }
 //醫生團隊
 .index-doctorTeam{
@@ -425,94 +508,6 @@ svg:hover path{
     }
   }
 }
-.treatment-data{
-  margin-top: 70px;
-  &-title{
-    span{
-      color: var(--indexColor1);
-      text-align: center;
-      font-size: 35px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 160%;
-      display: block;
-    }
-  }
-  &-in{
-    margin-top: 48px;
-    display: flex;
-    flex-wrap: wrap;
-    .dataBox{
-      flex: 1;
-      .num{
-        color: var(--indexColor1);
-        text-align: center;
-        font-size: 60px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 160%;
-        display: flex;
-        justify-content: center;
-        position: relative;
-        img{
-          position: absolute;
-        }
-        .numBold{
-          font-family: initial;
-          font-weight: bold;
-          margin-top: 5px;
-        }
-        .numIn{
-          height: 96px;
-          overflow: hidden;
-          position: relative;
-          span{
-            line-height: 96px;
-            display: block;
-          }
-          .numInAnim{
-            opacity: 0;
-            transition: all .3s;
-            display: flex;
-            flex-direction: column-reverse;
-            transform: translateY(-100%);
-            &.showNumInAnim{
-              opacity: 1;
-              animation: numAnim 1s ease-in-out forwards;
-            }
-          }
-        }
-      }
-      .name{
-        color: var(--textColor);
-        text-align: center;
-        font-size: 28px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 160%; 
-        margin-top: -10px;
-      }
-    }
-  }
-  &-bText{
-    color: var(--textColor);
-    text-align: center;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 160%;
-    margin-top: 30px;
-  }
-}
-.index-dentalServices{
-  padding: 89px 0 0;
-}
-@keyframes numAnim {
-  100%{
-    // transform: translateY(calc((100% - 96px) * -1));
-    transform: none;
-  }
-}
 @media (min-width: 768px) and (max-width: 1452px) {
   .index-videoBox{
     &-c{
@@ -531,6 +526,26 @@ svg:hover path{
 }
 
 @media screen and (max-width: 768px) {
+  .treatment-data{
+    &-title{
+      span{
+        font-size: 20px;
+      }
+    }
+    &-in{
+      margin-top: 100px;
+      flex-direction: column;
+      .dataBox{
+        &:not(:last-child){
+          margin-bottom: 62px;
+        }
+      }
+    }
+    &-bText{
+      font-size: 16px;
+      margin-top: 60px;
+    }
+  }
   .indexPage {
     width: 100%;
     background: #fff;
@@ -625,26 +640,6 @@ svg:hover path{
           display: block;
         }
       }
-    }
-  }
-  .treatment-data{
-    &-title{
-      span{
-        font-size: 20px;
-      }
-    }
-    &-in{
-      margin-top: 100px;
-      flex-direction: column;
-      .dataBox{
-        &:not(:last-child){
-          margin-bottom: 62px;
-        }
-      }
-    }
-    &-bText{
-      font-size: 16px;
-      margin-top: 60px;
     }
   }
 }
