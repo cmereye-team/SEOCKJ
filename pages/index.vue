@@ -126,9 +126,9 @@ watch(
 );
 
 const headerConfigData = {
-  img: 'https://static.cmereye.com/imgs/2024/02/11bd2005afb351a1.jpg',
+  img: 'https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg',
   bg: 'https://static.cmereye.com/imgs/2023/11/be45851e1f050a5b.png',
-  mbImg: 'https://static.cmereye.com/imgs/2023/11/50a66a8efbcfcc12.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2024/02/b70a799908b26ea1.jpg',
   pageName: 'course-new',
   pcText: ['重拾自信笑容', '愛牙愛己，由你做起'],
   mbText: ['重拾自信笑容', '愛牙愛己，由你做起'],
