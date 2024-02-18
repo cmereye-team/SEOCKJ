@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { zh_tran,zh_getLang,getCookie } from '~/assets/js/uselang'
+import { Autoplay,Pagination } from 'swiper'
 // import gsap from 'gsap'
 import { useAppState } from '~/stores/appState'
 import { toWhatsApp } from '~/assets/js/common'
@@ -21,13 +21,6 @@ defineProps({
   },
 })
 
-const glangs = (_type) =>{
-  zh_tran(_type)
-  if(getCookie('zh_choose')) {
-		var zh_choose:any = getCookie('zh_choose');
-    appState.setLangs(zh_choose);
-	}
-}
 const menuLists = [
   {
     name: 'components.header.menuLists.menu_index.name',
@@ -268,11 +261,6 @@ const handleMbMenu = () => {
     })
   }
 }
-
-
-// watch(zh_getLang,(n,o)=>{
-//   console.log(n,o)
-// })
 </script>
 
 <template>
@@ -331,7 +319,17 @@ const handleMbMenu = () => {
         class="header-content-bgImg-implant"
         :class="headerConfig.pageName"
       >
-        <img :data-cfsrc="headerConfig.img" :srcset="`${headerConfig.mbImg} 768w, ${headerConfig.img}`" :src="headerConfig.img" alt="banner"   />
+        <!-- <img :data-cfsrc="headerConfig.img" :srcset="`${headerConfig.mbImg} 768w, ${headerConfig.img}`" :src="headerConfig.img" alt="banner"   /> -->
+        <swiper :modules="[Autoplay]"
+            :loop="true" :autoplay="{ delay: 3000 }"
+            :speed="3000">
+          <SwiperSlide>
+              <img data-cfsrc="https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg" :srcset="`https://static.cmereye.com/imgs/2024/02/216458f63817b47e.jpg 768w, https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg`"  src="https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg" alt="">
+          </SwiperSlide>
+          <SwiperSlide>
+              <img data-cfsrc="https://static.cmereye.com/imgs/2023/11/e9f317c46f2242ed.jpg" :srcset="`https://static.cmereye.com/imgs/2023/11/50a66a8efbcfcc12.jpg 768w, https://static.cmereye.com/imgs/2023/11/e9f317c46f2242ed.jpg`"  src="https://static.cmereye.com/imgs/2023/11/e9f317c46f2242ed.jpg" alt="">
+          </SwiperSlide>
+        </swiper>
       </div>
       <!-- <div
         v-if="
@@ -349,6 +347,16 @@ const handleMbMenu = () => {
         :class="headerConfig.pageName"
       >
         <img :data-cfsrc="headerConfig.img" :srcset="`${headerConfig.mbImg} 768w, ${headerConfig.img}`" :src="headerConfig.img"  alt="banner" />
+        <!-- <swiper :modules="[Autoplay]"
+            :loop="true" :autoplay="{ delay: 3000 }"
+            :speed="3000">
+          <SwiperSlide>
+              <img data-cfsrc="https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg" :srcset="`https://static.cmereye.com/imgs/2024/02/b70a799908b26ea1.jpg 768w, https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg`"  src="https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg" alt="">
+          </SwiperSlide>
+          <SwiperSlide>
+              <img data-cfsrc="https://static.cmereye.com/imgs/2024/02/11bd2005afb351a1.jpgg" :srcset="`https://static.cmereye.com/imgs/2023/11/50a66a8efbcfcc12.jpg 768w, https://static.cmereye.com/imgs/2024/02/11bd2005afb351a1.jpg`"  src="https://static.cmereye.com/imgs/2024/02/11bd2005afb351a1.jpg" alt="">
+          </SwiperSlide>
+        </swiper> -->
       </div>
       <div
         v-if="
@@ -483,10 +491,6 @@ const handleMbMenu = () => {
         <div>全程式預約一體化診療服務，</div>
         <div>讓每一位顧客享受 <span>健康微笑之旅。</span></div>
       </div>
-      <!-- <div style="z-index: 9999; position: relative;">
-        <span @click="zh_tran('t')">繁体</span>
-        <span @click="zh_tran('s')">简体</span>
-      </div> -->
       <!-- pc菜单 -->
       <div
         :class="[
@@ -542,10 +546,6 @@ const handleMbMenu = () => {
                 <serviceCard :is-menu="true" />
               </div>
             </div>
-            <div class="langItem">
-              <span class="zh_click" :style="{color: (appState.langs === 't'?'#000':'#666')}" @click="glangs('t')">繁體</span>
-              <span class="zh_click" :style="{color: (appState.langs === 's'?'#000':'#666')}" @click="glangs('s')">简体</span>
-            </div>
           </div>
           <div class="icon" @click="menuBoxBool = !menuBoxBool">
             <img v-if="!menuBoxBool" src="@/assets/images/icon_61.png" />
@@ -583,10 +583,6 @@ const handleMbMenu = () => {
               </div>
             </div>
           </div>
-        </div>
-        <div class="langItem">
-          <span class="zh_click" :style="{color: (appState.langs === 't'?'#FC1682':'#FF85AF')}" @click="glangs('t')">繁體</span>
-          <span class="zh_click" :style="{color: (appState.langs === 's'?'#FC1682':'#FF85AF')}" @click="glangs('s')">简体</span>
         </div>
         <!-- 立即預約 -->
         <nuxt-link to="tel: +852 3892 5049">
@@ -1077,26 +1073,6 @@ const handleMbMenu = () => {
           padding: 12px 6px;
         }
       }
-      .langItem{
-        padding: 0 0 22px 10px;
-        cursor: pointer;
-        font-size: 18px;
-        font-weight: 500;
-        position: relative;
-        span{
-          padding: 0 10px;
-          color: #666666;
-          // &.act_lang{
-          //   color: #000;
-          // }
-          &:not(:last-child){
-            border-right: 1px solid #FF85AF;
-          }
-          &:hover{
-            color: var(--indexColor1);
-          }
-        }
-      }
     }
     .icon {
       display: none;
@@ -1388,10 +1364,6 @@ const handleMbMenu = () => {
           .serviceCard {
             padding: 12px 6px;
           }
-        }
-        .langItem{
-          font-size: 100%;
-          padding: 0 0 10px;
         }
       }
     }
@@ -1702,23 +1674,6 @@ const handleMbMenu = () => {
         }
       }
     }
-    .langItem{
-        padding: 30px 0;
-        cursor: pointer;
-        font-size: 18px;
-        font-weight: 500;
-        position: relative;
-        span{
-          padding: 0 10px;
-          color: #666666;
-          &:not(:last-child){
-            border-right: 1px solid #FF85AF;
-          }
-          &:hover{
-            color: var(--indexColor1);
-          }
-        }
-      }
     &-btn {
       margin-top: 51px;
       font-size: 1.25rem;
