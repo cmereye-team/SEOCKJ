@@ -113,11 +113,11 @@ const menuLists = [
       },
     ],
   },
-  // {
-  //   name: '長者醫療券',
-  //   link: `/health-care-voucher`,
-  //   child: []
-  // },
+  {
+    name: '長者醫療券',
+    link: `/health-care-voucher`,
+    child: []
+  },
   {
     name: 'components.header.menuLists.menu_news.name',
     link: `/news`,
