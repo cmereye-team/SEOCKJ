@@ -278,8 +278,8 @@ const pageDetail:any = {
         },
         {
           type: 'a',
-          text: 'https://www.info.gov.hk/gia/general/202305/10/P2023051000264.htm',
-          link: 'https://www.info.gov.hk/gia/general/202305/10/P2023051000264.htm'
+          text: 'https://www.info.gov.hk/gia/general/202305/10/P2023051000264.html',
+          link: 'https://www.info.gov.hk/gia/general/202305/10/P2023051000264.html'
         }
       ],
       className: 'lastpa pa nob'
@@ -417,6 +417,7 @@ const pageDetail:any = {
     &.lastpa{
       p{
         font-size: 14px;
+        letter-spacing: 1.5px;
       }
     }
     &.btn{
