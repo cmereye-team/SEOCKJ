@@ -282,7 +282,7 @@ const pageDetail:any = {
           link: 'https://www.info.gov.hk/gia/general/202305/10/P2023051000264.htm'
         }
       ],
-      className: 'pa nob'
+      className: 'lastpa pa nob'
     },
   ],
   tags: [
@@ -413,6 +413,11 @@ const pageDetail:any = {
     }
     &.imgone{
       margin: 5px 0;
+    }
+    &.lastpa{
+      p{
+        font-size: 14px;
+      }
     }
     &.btn{
       display: flex;
@@ -550,6 +555,11 @@ const pageDetail:any = {
         span{
           display: block;
           letter-spacing: 1.5px;
+        }
+      }
+      &.lastpa{
+        p{
+          font-size: 12px;
         }
       }
       &.btn{
