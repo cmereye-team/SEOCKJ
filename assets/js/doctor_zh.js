@@ -18,7 +18,7 @@ export default [
       id: '150',
       imgUrl: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor150pc.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor150.png',
-      name: '刘鑫',
+      name: '劉鑫',
       org: '罗湖区 深圳爱康健口腔医院，口腔种植科',
       posts: '主治医师',
       job:'主治医师',

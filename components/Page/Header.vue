@@ -312,7 +312,7 @@ const handleMbMenu = () => {
       </div>
       <div
         v-if="
-          ['implant', 'rootCanal-test', 'scaling-and-polishing-test','periodontal-test','orthodontics-test','invisalign-test','veneers-test','action-message','course-new','coverage'].includes(
+          ['implant', 'rootCanal-test', 'scaling-and-polishing-test','periodontal-test','orthodontics-test','invisalign-test','veneers-test','action-message','course-new','health-care-voucher','coverage'].includes(
             headerConfig.pageName
           )
         "
@@ -384,7 +384,7 @@ const handleMbMenu = () => {
       </div>
       <div
         v-if="
-          ['implant', 'rootCanal-test', 'scaling-and-polishing-test','index-test','periodontal-test','orthodontics-test','invisalign-test','veneers-test','action-message','course-new','coverage'].includes(
+          ['implant', 'rootCanal-test', 'scaling-and-polishing-test','index-test','periodontal-test','orthodontics-test','invisalign-test','veneers-test','action-message','course-new','health-care-voucher','coverage'].includes(
             headerConfig.pageName
           )
         "
@@ -411,6 +411,14 @@ const handleMbMenu = () => {
         class="header-content-text-implant"
       >
         <!-- <div>口腔健康，從洗牙開始！</div> -->
+        <div>28年專科•專業•專注</div>
+        <div><span>港人首選</span>一站式連鎖牙科品牌</div>
+      </div>
+      <div
+        v-if="headerConfig.pageName === 'health-care-voucher'"
+        class="header-content-text-implant"
+        :class="headerConfig.pageName"
+      >
         <div>28年專科•專業•專注</div>
         <div><span>港人首選</span>一站式連鎖牙科品牌</div>
       </div>
@@ -658,6 +666,7 @@ const handleMbMenu = () => {
     &.action-message,
     &.coverage,
     &.course-new,
+    &.health-care-voucher,
     &.scaling-and-polishing-test {
       display: none;
     }
@@ -807,7 +816,7 @@ const handleMbMenu = () => {
         left: 0;
         top: 25%;
       }
-      &.index-test,&.action-message,&.course-new,&.coverage{
+      &.index-test,&.action-message,&.course-new,&.health-care-voucher,&.coverage{
         display: none;
       }
     }
@@ -901,8 +910,9 @@ const handleMbMenu = () => {
       max-width: 1920px;
       min-height: calc(650 / 1920 * 100%);
     }
-    &.action-message,&.course-new,&.coverage,
+    &.action-message,&.course-new,&.health-care-voucher,&.coverage,
     &.implant,
+    &.health-care-voucher,
     &.rootCanal-test,
     &.periodontal-test,
     &.orthodontics-test,
@@ -1067,6 +1077,7 @@ const handleMbMenu = () => {
     &.orthodontics-test,
     &.invisalign-test,
     &.veneers-test,
+    &.health-care-voucher,
     &.scaling-and-polishing-test {
       bottom: 100px;
     }
@@ -1078,6 +1089,7 @@ const handleMbMenu = () => {
     &.orthodontics-test,
     &.invisalign-test,
     &.veneers-test,
+    &.health-care-voucher,
     &.scaling-and-polishing-test {
       margin-top: 100px;
       transition: all 0.3s;
@@ -1232,6 +1244,7 @@ const handleMbMenu = () => {
       &.orthodontics-test,
       &.invisalign-test,
       &.veneers-test,
+      &.health-care-voucher,
       &.scaling-and-polishing-test {
         bottom: 60px;
       }
@@ -1259,6 +1272,7 @@ const handleMbMenu = () => {
       &.orthodontics-test,
       &.invisalign-test,
       &.veneers-test,
+      &.health-care-voucher,
       &.scaling-and-polishing-test {
         bottom: 65px;
       }
@@ -1401,7 +1415,7 @@ const handleMbMenu = () => {
           }
         }
       }
-      &.index-test,&.action-message,&.course-new,&.coverage{
+      &.index-test,&.action-message,&.course-new,&.health-care-voucher,&.coverage{
         margin-top: 70px;
       }
     }
@@ -1430,6 +1444,9 @@ const handleMbMenu = () => {
       &.course-new{
         padding-bottom: 70px;
       }
+      &.health-care-voucher{
+        padding-bottom: 160px;
+      }
       &.coverage{
         padding-bottom: 140px;
       }
@@ -1452,6 +1469,9 @@ const handleMbMenu = () => {
       }
       &.periodontal-test,&.orthodontics-test,&.invisalign-test,&.veneers-test{
         display: block;
+      }
+      &.health-care-voucher{
+        display: none;
       }
     }
     .waterBg-implant {
@@ -1542,6 +1562,7 @@ const handleMbMenu = () => {
       &.orthodontics-test,
       &.invisalign-test,
       &.veneers-test,
+      &.health-care-voucher,
       &.scaling-and-polishing-test {
         bottom: auto;
       }
@@ -1553,6 +1574,7 @@ const handleMbMenu = () => {
       &.orthodontics-test,
       &.invisalign-test,
       &.veneers-test,
+      &.health-care-voucher,
       &.scaling-and-polishing-test {
         margin-top: 0px;
         transition: all 0.3s;

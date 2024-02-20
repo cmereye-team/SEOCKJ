@@ -69,7 +69,7 @@ onMounted(()=>{
   //       locale.value = 'zh'
   //   }
   // }
-  // locale.value = 'hk'
+  locale.value = 'hk'
 })
 </script>
 
