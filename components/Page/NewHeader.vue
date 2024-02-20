@@ -113,6 +113,11 @@ const menuLists = [
       },
     ],
   },
+  // {
+  //   name: '長者醫療券',
+  //   link: `/health-care-voucher`,
+  //   child: []
+  // },
   {
     name: 'components.header.menuLists.menu_news.name',
     link: `/news`,
@@ -1438,6 +1443,7 @@ const handleMbMenu = () => {
       // display: none;
       position: relative;
       top: 80px;
+      z-index: 1;
       &.rootCanal-test{
         padding-bottom: 60px;
       }

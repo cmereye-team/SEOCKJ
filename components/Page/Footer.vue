@@ -15,6 +15,14 @@ const navLists = [
     name: 'components.footer.nav_dental_service',
     link: `/dental-service/implant`,
   },
+  // {
+  //   name: '長者醫療券',
+  //   link: `/health-care-voucher`,
+  // },
+  {
+    name: '睇牙新資訊',
+    link: `/news/coverage`,
+  },
   {
     name: 'components.footer.nav_medical_team',
     link: `/medical-team`,
