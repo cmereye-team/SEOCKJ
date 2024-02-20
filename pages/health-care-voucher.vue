@@ -1,11 +1,7 @@
 <script lang="ts" setup>
 import { phoneNum } from '~/assets/js/common'
-import { defineProps } from "vue";
-defineProps({
-  str:{
-    type: String,
-    default: ''
-  }
+useHead({
+  title: "長者醫療券",
 })
 const headerConfig = {
   img: 'https://static.cmereye.com/imgs/2024/02/4c1e46eab9adb6de.webp',
