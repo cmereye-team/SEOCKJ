@@ -322,7 +322,7 @@ const pageDetail:any = {
           <section v-else></section>
         </div>
         <div class="btn">
-          <a href="https://bit.ly/愛康健長者醫療券預約">whatsApp查詢長者醫療券</a>
+          <a href="https://bit.ly/愛康健長者醫療券預約">WhatsApp查詢長者醫療券</a>
         </div>
         <div class="tags">
           <span v-for="(tagItem,tagIndex) in pageDetail.tags" :key="tagIndex">
