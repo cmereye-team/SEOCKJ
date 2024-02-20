@@ -6,7 +6,7 @@ import doctorLists_cs from '~/assets/js/doctor'
 const appState = useAppState()
 const { t } = useLang()
 useHead({
-  title: "CKJ愛康健齒科連鎖 | 香港官方網站 | 專注為港服務28年",
+  title: "CKJ愛康健齒科連鎖 | 香港官方網站 | 長者醫療券大灣區試點計劃",
   titleTemplate: '',
   meta: [
     {
