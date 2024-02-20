@@ -368,7 +368,7 @@ const pageDetail:any = {
 
 <style lang="scss" scoped>
 .health-care-voucher{
-  padding-top: 0;
+  padding-top: 100px;
 }
 .tabNav {
   font-weight: 400;
@@ -518,6 +518,7 @@ const pageDetail:any = {
   .health-care-voucher{
     position: relative;
     z-index: 1;
+    padding-top: 0px;
   }
   .tabNav {
     padding: 23px 30px 0;
