@@ -1333,7 +1333,7 @@ const handleMbMenu = () => {
     &-in {
       padding: 10px 15px 0 30px;
       .logo {
-        width: 22%;
+        width: 20%;
         margin-bottom: 15px;
       }
       .menu {

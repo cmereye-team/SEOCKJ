@@ -5,7 +5,8 @@ useHead({
   // script: [
   //   {
   //     type: 'text/javascript',
-  //     src: 'https://cdn.staticfile.net/translate.js/3.0.3/translate.js'
+  //     src: 'https://cdn.staticfile.net/translate.js/3.0.3/translate.js',
+  //     body: true
   //   },
   //   {
   //     type: 'text/javascript',
@@ -24,7 +25,7 @@ useHead({
   //       政府政策=government policy
   //       \`);
   //       translate.selectLanguageTag.languages = 'english,chinese_simplified,chinese_traditional';
-  //       translate.execute();//进行翻译 
+  //       translate.execute(); 
   //     `,
   //     body: true
   //   }

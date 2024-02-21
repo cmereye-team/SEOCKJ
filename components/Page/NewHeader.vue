@@ -267,7 +267,12 @@ const handleMbMenu = () => {
   }
 }
 let bannerlink = ref('')
+let bannerCurrent = ref(1)
+let bannerSwiperRef ={
+  slideToLoop: (a)=>{}
+}
 const changebanner = ( swiper )=>{
+  bannerCurrent.value = (swiper.realIndex ? Number(swiper.realIndex) : 0) + 1
   if(swiper.realIndex){
     if(Number(swiper.realIndex)===1){
       bannerlink.value = 'https://bit.ly/愛康健裕亨新店開業優惠'
@@ -277,6 +282,12 @@ const changebanner = ( swiper )=>{
   }else if(swiper.realIndex === 0){
     bannerlink.value = '/health-care-voucher'
   }
+}
+const setBannerSwiperRef = (swiper:any) => {
+  bannerSwiperRef = swiper;
+}
+const handleBannerLineCur = (_value:number) =>{
+  bannerSwiperRef.slideToLoop(_value-1)
 }
 </script>
 
@@ -344,10 +355,11 @@ const changebanner = ( swiper )=>{
             :loop="true"
             :autoplay="{ delay: 3000 }"
             :speed="3000"
+            @swiper="setBannerSwiperRef"
             @slideChange="changebanner">
           <SwiperSlide>
             <nuxt-link to="/health-care-voucher">
-              <img data-cfsrc="https://static.cmereye.com/imgs/2024/02/4c1e46eab9adb6de.webp" :srcset="`https://static.cmereye.com/imgs/2024/02/9798849854855a0c.webp 768w, https://static.cmereye.com/imgs/2024/02/4c1e46eab9adb6de.webp`"  src="https://static.cmereye.com/imgs/2024/02/4c1e46eab9adb6de.webp" alt="">
+              <img data-cfsrc="https://static.cmereye.com/imgs/2024/02/3443d2e2314e6e50.webp" :srcset="`https://static.cmereye.com/imgs/2024/02/afdfd3c22104497f.webp 768w, https://static.cmereye.com/imgs/2024/02/3443d2e2314e6e50.webp`"  src="https://static.cmereye.com/imgs/2024/02/3443d2e2314e6e50.webp" alt="">
             </nuxt-link>
           </SwiperSlide>
           <SwiperSlide>
@@ -393,6 +405,14 @@ const changebanner = ( swiper )=>{
       >
         <span @click="toWhatsApp">預約檢查及諮詢</span>
         <span @click="toWhatsApp">預約檢查及諮詢</span>
+      </div>
+      <div
+        v-if="['course-new'].includes(headerConfig.pageName)"
+        class="header-content-btn-implant bannerLine"
+      >
+      <div class="bannerLine-in">
+        <PageSwiperPointLine :latestNewsNum="3" :latestNewsCurrent="bannerCurrent" @changeLineCur="handleBannerLineCur"></PageSwiperPointLine>
+      </div>
       </div>
       <div
         v-if="
@@ -915,6 +935,13 @@ const changebanner = ( swiper )=>{
         }
       }
     }
+    &.bannerLine{
+      bottom: 100px;
+      z-index: 41;
+      .bannerLine-in{
+        width: 200px;
+      }
+    }
   }
   .waterBg-implant {
     display: none;
@@ -1000,7 +1027,9 @@ const changebanner = ( swiper )=>{
         font-weight: 600;
         position: relative;
         & > a {
-          padding: 0 20px 20px;
+          padding: 0 20px;
+          display: inline-block;
+          text-align: center;
         }
         .triangleIcon:after {
           content: '';
@@ -1262,11 +1291,11 @@ const changebanner = ( swiper )=>{
       }
     }
     &-text-implant {
-      bottom: 60px;
+      // bottom: 60px;
       div{
         width: calc(80%);
         margin: 0 auto;
-        font-size: 2vw;
+        // font-size: 2vw;
       }
     }
     &-btn-implant{
@@ -1297,7 +1326,7 @@ const changebanner = ( swiper )=>{
   }
   .waterBg::after,
   .waterBg::before {
-    height: 140px;
+    height: 160px;
   }
 }
 @media (min-width: 1001px) and (max-width: 1452px) {
@@ -1366,12 +1395,12 @@ const changebanner = ( swiper )=>{
   }
 }
 
-@media (min-width: 768px) and (max-width: 1200px) {
+@media (min-width: 768px) and (max-width: 1450px) {
   .header-content {
     &-in {
       padding: 10px 15px 0 30px;
       .logo {
-        width: 22%;
+        width: 20%;
         margin-bottom: 15px;
       }
       .menu {
@@ -1379,7 +1408,7 @@ const changebanner = ( swiper )=>{
           font-size: 100%;
           padding: 0 0 10px;
           & > a {
-            padding: 0 1.3vw 10px;
+            padding: 0 1.3vw;
             box-sizing: border-box;
           }
           .triangleIcon:after {
@@ -1404,6 +1433,11 @@ const changebanner = ( swiper )=>{
             padding: 12px 6px;
           }
         }
+      }
+    }
+    &-text-implant {
+      div{
+        font-size: 100%;
       }
     }
   }
@@ -1498,7 +1532,14 @@ const changebanner = ( swiper )=>{
       }
     }
     &-btn-implant {
-      display: none;
+      // display: none;
+      &.bannerLine{
+        bottom: 100px;
+        z-index: 41;
+        .bannerLine-in{
+          width: 100px;
+        }
+      }
     }
     &-text-implant {
       position: relative;
