@@ -162,8 +162,12 @@ const servicesCardPageData = {
           &-name{
             font-weight: 600;
             font-size: 15px;
-            height: 32px;
-            line-height: 32px;
+            // height: 32px;
+            // line-height: 32px;
+            line-height: 160%;
+            padding: 8px 0;
+            height: auto;
+            white-space: pre-wrap;
             width: 110%;
           }
         }

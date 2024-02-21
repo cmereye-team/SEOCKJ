@@ -960,7 +960,9 @@ const handleMbMenu = () => {
         font-weight: 600;
         position: relative;
         & > a {
-          padding: 0 20px 20px;
+          padding: 0 20px;
+          display: inline-block;
+          text-align: center;
         }
         .triangleIcon:after {
           content: '';
@@ -1222,11 +1224,11 @@ const handleMbMenu = () => {
       }
     }
     &-text-implant {
-      bottom: 60px;
+      // bottom: 60px;
       div{
         width: calc(80%);
         margin: 0 auto;
-        font-size: 2vw;
+        // font-size: 2vw;
       }
     }
     &-btn-implant{
@@ -1257,7 +1259,7 @@ const handleMbMenu = () => {
   }
   .waterBg::after,
   .waterBg::before {
-    height: 140px;
+    height: 160px;
   }
 }
 @media (min-width: 1001px) and (max-width: 1452px) {
@@ -1326,7 +1328,7 @@ const handleMbMenu = () => {
   }
 }
 
-@media (min-width: 768px) and (max-width: 1200px) {
+@media (min-width: 768px) and (max-width: 1450px) {
   .header-content {
     &-in {
       padding: 10px 15px 0 30px;
@@ -1339,7 +1341,7 @@ const handleMbMenu = () => {
           font-size: 100%;
           padding: 0 0 10px;
           & > a {
-            padding: 0 1.3vw 10px;
+            padding: 0 1.3vw;
             box-sizing: border-box;
           }
           .triangleIcon:after {
@@ -1364,6 +1366,11 @@ const handleMbMenu = () => {
             padding: 12px 6px;
           }
         }
+      }
+    }
+    &-text-implant {
+      div{
+        font-size: 100%;
       }
     }
   }

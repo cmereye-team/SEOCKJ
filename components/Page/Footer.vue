@@ -105,6 +105,7 @@ const navLists = [
       font-size: 22px;
       text-shadow: 0px 0px 4px rgba(255, 120, 117, 0.45);
       cursor: pointer;
+      text-align: center;
     }
   }
   &-logo_one {

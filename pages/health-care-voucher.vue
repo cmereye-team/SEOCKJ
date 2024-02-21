@@ -2,6 +2,33 @@
 import { phoneNum } from '~/assets/js/common'
 useHead({
   title: "長者醫療券",
+  // script: [
+  //   {
+  //     type: 'text/javascript',
+  //     src: 'https://cdn.staticfile.net/translate.js/3.0.3/translate.js'
+  //   },
+  //   {
+  //     type: 'text/javascript',
+  //     innerHTML: `
+  //       translate.language.setLocal('chinese_traditional'); 
+  //       translate.language.setDefaultTo('chinese_traditional');
+  //       translate.service.use('client.edge');
+  //       translate.nomenclature.append('chinese_traditional','english',\`
+  //       此篩選過程涵蓋多個關鍵考量，=This screening process covers multiple key considerations, 
+  //       以確保所選擇的機構能夠提供高品質的醫療服務。=to ensure that the selected institution can provide high-quality medical services.
+  //       為醫療券使用者提供更多選擇=Provide more choices for medical voucher users
+  //       愛康健口腔醫院可為醫療券使用者提供以下牙科醫療服務，=Aikangjian Dental Hospital can provide the following dental medical services for medical voucher users,
+  //       包括=include
+  //       醫療券=Medical vouchers
+  //       長者=Elderly
+  //       政府政策=government policy
+  //       \`);
+  //       translate.selectLanguageTag.languages = 'english,chinese_simplified,chinese_traditional';
+  //       translate.execute();//进行翻译 
+  //     `,
+  //     body: true
+  //   }
+  // ]
 })
 const headerConfig = {
   img: 'https://static.cmereye.com/imgs/2024/02/4c1e46eab9adb6de.webp',
@@ -15,6 +42,7 @@ interface plist {
   type: String,
   text: String
 }
+
 
 const pageDetail:any = {
   title: '',
@@ -297,7 +325,10 @@ const pageDetail:any = {
   <div>
     <PageHeader :headerConfig="headerConfig" /> 
     <div class="health-care-voucher pageIn whitebgColor">
-      <div class="index_title pageCon health-care-voucher-title">長者醫療券</div>
+      <div class="pageCon health-care-voucher-top">
+        <div class="index_title health-care-voucher-title">長者醫療券</div>
+        <div id="translate"></div>
+      </div>
       <div class="tabNav noTitle pageCon">
         <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
           <span>主頁</span>
@@ -367,6 +398,13 @@ const pageDetail:any = {
 
 
 <style lang="scss" scoped>
+.health-care-voucher-top{
+  display: flex;
+  justify-content: space-between;
+  #translate{
+    // color: var(--indexColor1);
+  }
+}
 .health-care-voucher{
   padding-top: 100px;
 }
@@ -516,6 +554,12 @@ const pageDetail:any = {
 }
 @media (min-width: 768px) and (max-width: 1452px) {}
 @media screen and (max-width: 768px) {
+  .health-care-voucher-top{
+    #translate{
+      // color: var(--indexColor1);
+      margin-right: 30px;
+    }
+  }
   .health-care-voucher{
     position: relative;
     z-index: 1;

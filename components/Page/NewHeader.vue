@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-
+import { Autoplay } from 'swiper';
 // import gsap from 'gsap'
 import { useAppState } from '~/stores/appState'
 import { toWhatsApp } from '~/assets/js/common'
@@ -266,6 +266,18 @@ const handleMbMenu = () => {
     })
   }
 }
+let bannerlink = ref('')
+const changebanner = ( swiper )=>{
+  if(swiper.realIndex){
+    if(Number(swiper.realIndex)===1){
+      bannerlink.value = 'https://bit.ly/愛康健裕亨新店開業優惠'
+    }else{
+      bannerlink.value = ''
+    }
+  }else if(swiper.realIndex === 0){
+    bannerlink.value = '/health-care-voucher'
+  }
+}
 </script>
 
 <template>
@@ -325,19 +337,29 @@ const handleMbMenu = () => {
         :class="headerConfig.pageName"
       >
         <!-- <img :data-cfsrc="headerConfig.img" :srcset="`${headerConfig.mbImg} 768w, ${headerConfig.img}`" :src="headerConfig.img" alt="banner"   /> -->
-        <a href="https://bit.ly/愛康健裕亨新店開業優惠">
+        <!-- <a href="https://bit.ly/愛康健裕亨新店開業優惠">
           <img :data-cfsrc="headerConfig.img" :srcset="`${headerConfig.mbImg} 768w, ${headerConfig.img}`" :src="headerConfig.img" alt="banner"   />
-        </a>
-        <!-- <swiper :modules="[Autoplay]"
-            :loop="true" :autoplay="{ delay: 3000 }"
-            :speed="3000">
+        </a> -->
+        <swiper :modules="[Autoplay]"
+            :loop="true"
+            :autoplay="{ delay: 3000 }"
+            :speed="3000"
+            @slideChange="changebanner">
           <SwiperSlide>
+            <nuxt-link to="/health-care-voucher">
+              <img data-cfsrc="https://static.cmereye.com/imgs/2024/02/4c1e46eab9adb6de.webp" :srcset="`https://static.cmereye.com/imgs/2024/02/9798849854855a0c.webp 768w, https://static.cmereye.com/imgs/2024/02/4c1e46eab9adb6de.webp`"  src="https://static.cmereye.com/imgs/2024/02/4c1e46eab9adb6de.webp" alt="">
+            </nuxt-link>
+          </SwiperSlide>
+          <SwiperSlide>
+            <nuxt-link to="https://bit.ly/愛康健裕亨新店開業優惠">
               <img data-cfsrc="https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg" :srcset="`https://static.cmereye.com/imgs/2024/02/216458f63817b47e.jpg 768w, https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg`"  src="https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg" alt="">
+            </nuxt-link>
           </SwiperSlide>
           <SwiperSlide>
-              <img data-cfsrc="https://static.cmereye.com/imgs/2023/11/e9f317c46f2242ed.jpg" :srcset="`https://static.cmereye.com/imgs/2023/11/50a66a8efbcfcc12.jpg 768w, https://static.cmereye.com/imgs/2023/11/e9f317c46f2242ed.jpg`"  src="https://static.cmereye.com/imgs/2023/11/e9f317c46f2242ed.jpg" alt="">
+            <!-- https://static.cmereye.com/imgs/2024/02/8f33d6acfe425e15.webp -->
+              <img data-cfsrc="https://static.cmereye.com/imgs/2024/02/8f33d6acfe425e15.webp" :srcset="`https://static.cmereye.com/imgs/2024/02/201d752971811685.webp 768w, https://static.cmereye.com/imgs/2024/02/8f33d6acfe425e15.webp`"  src="https://static.cmereye.com/imgs/2024/02/8f33d6acfe425e15.webp" alt="">
           </SwiperSlide>
-        </swiper> -->
+        </swiper>
       </div>
       <!-- <div
         v-if="
@@ -354,9 +376,12 @@ const handleMbMenu = () => {
         class="header-content-bgImgBB pageCon pcBox"
         :class="headerConfig.pageName"
       >
-        <a href="https://bit.ly/愛康健裕亨新店開業優惠">
+        <!-- <a href="https://bit.ly/愛康健裕亨新店開業優惠">
           <img :data-cfsrc="headerConfig.img" :srcset="`${headerConfig.mbImg} 768w, ${headerConfig.img}`" :src="headerConfig.img"  alt="banner" />
-        </a>
+        </a> -->
+        <nuxt-link :to="bannerlink">
+          <img data-cfsrc="https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg" :srcset="`https://static.cmereye.com/imgs/2024/02/216458f63817b47e.jpg 768w, https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg`"  src="https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg" alt="">
+        </nuxt-link>
       </div>
       <div
         v-if="
