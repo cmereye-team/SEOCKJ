@@ -98,7 +98,6 @@ const setSecondSwiper = (swiper) => {
           <Swiper
             class="index-aboutUs-swiper-in"
             :modules="[Autoplay]"
-            :loop="true"
             :autoplay="{ delay: 0 }"
             :slidesPerView="2"
             :speed="6000"

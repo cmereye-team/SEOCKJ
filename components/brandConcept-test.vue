@@ -76,7 +76,7 @@ const onSlideChange = (swiper:any) => {
 <style lang="scss" scoped>
 .index-brandConcept {
   width: 100%;
-  margin-top: 143px;
+  margin-top: 90px;
   box-sizing: border-box;
   position: relative;
   .swiperBox{
@@ -191,7 +191,7 @@ const onSlideChange = (swiper:any) => {
     min-height: auto;
     display: flex;
     flex-direction: column;
-    margin-top: 90px;
+    margin-top: 0;
     .brandConceptTitle{
       position: relative;
       top: 0;

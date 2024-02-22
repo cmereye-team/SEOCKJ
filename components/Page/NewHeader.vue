@@ -114,7 +114,7 @@ const menuLists = [
     ],
   },
   {
-    name: '長者醫療券',
+    name: 'components.header.menuLists.health-care-voucher.name',
     link: `/health-care-voucher`,
     child: []
   },
@@ -1528,7 +1528,7 @@ const handleBannerLineCur = (_value:number) =>{
         padding-bottom: 80px;
       }
       &.course-new{
-        padding-bottom: 70px;
+        padding-bottom: 25px;
       }
       &.health-care-voucher{
         padding-bottom: 160px;
@@ -1538,9 +1538,9 @@ const handleBannerLineCur = (_value:number) =>{
       }
     }
     &-btn-implant {
-      // display: none;
       &.bannerLine{
-        bottom: 100px;
+        position: relative;
+        bottom: -80px;
         z-index: 2;
         .bannerLine-in{
           width: 100px;
@@ -1557,8 +1557,12 @@ const handleBannerLineCur = (_value:number) =>{
       & > div {
         font-size: 20px;
       }
-      &.index-test,&.action-message,&.course-new{
+      &.index-test,&.action-message{
         display: block;
+      }
+      &.course-new{
+        display: block;
+        margin-top: 150px;
       }
       &.periodontal-test,&.orthodontics-test,&.invisalign-test,&.veneers-test{
         display: block;
@@ -1569,6 +1573,7 @@ const handleBannerLineCur = (_value:number) =>{
     }
     .waterBg-implant {
       display: block;
+      margin-top: -30px;
       &::before {
         content: '';
         background-image: url(@/assets/images/back_wave03.png);
@@ -1579,7 +1584,7 @@ const handleBannerLineCur = (_value:number) =>{
         position: absolute;
         z-index: 1;
         left: 0px;
-        bottom: -30px;
+        bottom: 20px;
         animation-name: wave2;
         animation-duration: 10s;
         animation-timing-function: linear;
@@ -1599,7 +1604,7 @@ const handleBannerLineCur = (_value:number) =>{
         position: absolute;
         z-index: 1;
         left: 0px;
-        bottom: -30px;
+        bottom: 20px;
         animation-name: wave1;
         animation-duration: 20s;
         animation-timing-function: linear;

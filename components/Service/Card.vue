@@ -34,7 +34,7 @@ const servicesCardPageData = {
 
 
 <template>
-  <div :class="{'index-dentalServices':true,'isMenu': isMenu}">
+  <div :class="[{'index-dentalServices':true,'isMenu': isMenu},{'index-dentalServices-indexshow': isIndexShow}]">
     <div :class="['index-dentalServices-in', 'pageCon', {'isIndexShow': !isIndexShow,'isMenu': isMenu}]">
       <div class="titile">
         <!-- 牙科服務 -->
@@ -82,6 +82,9 @@ const servicesCardPageData = {
 }
 .index-dentalServices{
   padding: 189px 0 0;
+  &-indexshow{
+    padding: 100px 0 0;
+  }
   &-in{
     display: flex;
     justify-content: center;
@@ -228,6 +231,9 @@ const servicesCardPageData = {
   }
   .index-dentalServices{
     padding: 100px 0 0;
+    &-indexshow{
+      padding: 50px 0 0;
+    }
     &-in{
       align-items: flex-start;
       &.isIndexShow{

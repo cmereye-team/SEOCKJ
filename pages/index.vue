@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useAppState } from '~/stores/appState'
 import doctorLists_cs from '~/assets/js/doctor'
+import { toWhatsApp } from '~/assets/js/common'
 const appState = useAppState()
 const { t } = useLang()
 useHead({
@@ -134,6 +135,93 @@ const headerConfigData = {
   mbText: ['重拾自信笑容', '愛牙愛己，由你做起'],
 }
 
+let dentalProfessionCur = ref('101')
+const dentalProfessionList = [
+  {
+    id: '101',
+    name: '種植科',
+  },
+  {
+    id: '102',
+    name: '修復科',
+  },
+  {
+    id: '103',
+    name: '矯正科',
+  },
+  {
+    id: '104',
+    name: '牙髓病科',
+  },
+  {
+    id: '105',
+    name: '牙周病科',
+  },
+  {
+    id: '106',
+    name: '兒童牙科',
+  },
+  {
+    id: '107',
+    name: '口腔頜面外科',
+  },
+]
+
+let doctorCur = ref('')
+
+const changleDoctorLists = () =>{
+  return doctorLists_cs[appState.areaTabCurNum].filter((temp)=>{return temp.dentalProfessionId.includes(dentalProfessionCur.value)}) || []
+}
+const changeDoctorDetail = () => {
+  let obj = {
+    id: '',
+    dentalProfessionId: [],
+    imgUrl: '',
+    mbImg: '',
+    name: '',
+    org: '',
+    posts: '',
+    job:'',
+    skilled: '',
+    context: '',
+    educated: ''
+  }
+  if(changleDoctorLists().length>0){
+    let _obj = changleDoctorLists().find(item=>item.id === doctorCur.value);
+    // console.log('doctorCur',doctorCur.value,_obj)
+    if(_obj){
+      obj = JSON.parse(JSON.stringify(_obj))
+    }
+  }
+  // console.log(obj)
+  return obj
+}
+// console.log()
+// changeDoctorDetail()
+let doctorDetail = ref({
+  id: '101',
+  dentalProfessionId: ['102','104','105'],
+  imgUrl: 'https://static.cmereye.com/imgs/2023/05/6a7b889f6f185f2a.png',
+  mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor101.png',
+  name: '鞏賢平',
+  org: '羅湖區 深圳愛康健口腔醫院，口腔牙周病科，口腔修復科，牙體牙髓科',
+  newOrg: '羅湖區 深圳愛康健口腔醫院',
+  tags: ['口腔牙周病科','口腔修復科','牙體牙髓科'],
+  text: '醫院院長、主治醫師',
+  posts: '主治醫師',
+  job:'愛康健口腔醫院院長',
+  skilled: '種植修復，微創美學修復，全口咬合重建等；熟練應用口腔顯微鏡並在顯微放大設備下進行種植手術、牙周美學手術及各類修復操作。熟練處理牙周病及牙體缺失、四環素、氟斑牙的全口美學修復工作，對於顯微治療有深入研究，具有豐富的口腔全科診療經驗。',
+  context: '主治醫師， 深圳愛康健口腔醫院院長， 集團口腔修復專業學科帶頭人， 華西口腔醫學院醫學碩士， 深圳電視臺第一現場《名醫直播問診》節目特邀專家。 從事口腔修復臨床、教學和科研工作近20年，多次赴香港、美國等地進行學習和學術交流，並受邀出席全國口腔修復學術研討會，在微創美學修復領域有著豐富的診療經驗，迄今已完成5000余例口腔微創美學修復。為人親和、細致認真、嫻熟的醫學素養是鞏醫生給人的印象，在簡短的交流中對顧客需求了如指掌，在結合專業技能使得顧客稱贊不已，充分發揮優秀醫務工作者的本質。',
+  educated: '口腔醫學碩士',
+})
+const handletab2 =(id:any)=>{
+  dentalProfessionCur.value = id;
+  doctorCur.value = changleDoctorLists().length>0 ? changleDoctorLists()[0].id : ''
+  // doctorDetail.value = changeDoctorDetail()
+}
+
+
+
 </script>
 
 <template>
@@ -142,36 +230,11 @@ const headerConfigData = {
     <div class="indexPage">
       <!-- 最新消息 -->
       <!-- <LatestNews /> -->
-      <!-- 品牌理念 -->
-      <brandConcept-test />
-      <div class="treatment-data">
-        <div class="treatment-data-title">
-          <span>早期深圳二級口腔醫院</span>
-          <span>香港品牌 實力信心</span>
-        </div>
-        <div class="treatment-data-in pageCon">
-          <div class="dataBox" v-for="(treatmentItem,treatmentIndex) in treatmentData" :key="treatmentIndex">
-            <div class="num">
-              <img :src="treatmentItem.bg" :style="{left: treatmentItem.left,top: treatmentItem.top}" alt="">
-              <div class="numIn" v-for="(numItem,numIndex) in treatmentItem.num" :key="numIndex">
-                <span v-if="numItem === ','">{{numItem}}</span>
-                <div v-else class="numInAnim" :class="[{showNumInAnim: showTreatment}]" :style="{'animation-delay': `${(treatmentItem.num.length - numIndex) * 0.2}s`}">
-                  <span v-for="numInItem in Number(numItem) ? Number(numItem) : 10" :key="numInItem">
-                    {{numInItem === 10 ? 0 : numInItem}}
-                  </span>
-                </div>
-              </div>
-              <span class="numBold">+</span>
-            </div>
-            <div class="name">{{treatmentItem.name}}</div>
-          </div>
-        </div>
-        <div class="treatment-data-bText">
-          *以上數據由2019年開始統計至今
-        </div>
-      </div>
       <!-- 牙科服務 -->
       <serviceCard :isIndexShow="true" />
+      
+      
+      
       <!-- 醫生團隊 -->
       <div class="index-doctorTeam">
         <div class="index-doctorTeam-t pageCon">
@@ -205,7 +268,77 @@ const headerConfigData = {
           </div>
         </div>
       </div>
+      <!-- <div class="index-doctorTeam">
+        <div class="index-doctorTeam-t pageCon">
+          <div class="index_title index_title_2">醫生團隊</div>
+        </div>
+        <div class="index-doctorTeam-tab1 index-doctorTeam-con">
+            <AreaTab />
+        </div>
+        <div class="index-doctorTeam-tab2 index-doctorTeam-con">
+          <div class="index-doctorTeam-tab2-in">
+            <div :class="{'index-doctorTeam-tab2-in-active': dentalProfessionCur === dentalProfessionItem.id}" v-for="(dentalProfessionItem,dentalProfessionIndex) in dentalProfessionList" :key="dentalProfessionIndex" @click="handletab2(dentalProfessionItem.id)">
+              {{dentalProfessionItem.name}}
+            </div>
+          </div>
+        </div>
+        <div class="index-doctorTeam-lists index-doctorTeam-con">
+          <div class="pcLists">
+            <div class="pcLists-in" v-for="doctorItem in changleDoctorLists()" :key="doctorItem.id">
+              <div class="pcLists-in-img">
+                <img :src="doctorItem.mbImg || ''" :alt="doctorItem.name" :title="doctorItem.name">
+              </div>
+            </div>
+          </div>
+          <div class="mbLists">
+            <Swiper
+              class="mbLists-in"
+              :slidesPerView="3"
+            >
+              <SwiperSlide class="mbLists-in-slide" v-for="(item,index) in 6" :key="index">
+                <div class="mbLists-in-img"></div>
+              </SwiperSlide>
+            </Swiper>
+          </div>
+        </div>
+        <div class="index-doctorTeam-detail index-doctorTeam-con" v-if="doctorCur === ''">
+          <div class="index-doctorTeam-detail-l">
+            <div class="index-doctorTeam-detail-l-in">
+              <img src="https://static.cmereye.com/imgs/2024/02/d9ed594b3c173297.webp" alt="">
+              <img :src="doctorDetail.mbImg" :alt="doctorDetail.name" :title="doctorDetail.name">
+            </div>
+          </div>
+          <div class="index-doctorTeam-detail-r">
+            <div class="detail-1">
+              <span>{{doctorDetail.name}}</span>
+              <span>{{doctorDetail.text}}</span>
+            </div>
+            <div class="detail-2">
+              <span>{{doctorDetail.newOrg}}</span>
+            </div>
+            <div class="detail-3">
+              <span>{{doctorDetail.educated}}</span>
+            </div>
+            <div class="detail-4">
+              <span>擅長項目：</span>
+              <span>
+                {{doctorDetail.skilled}}
+              </span>
+            </div>
+            <div class="detail-5">
+              <span v-for="(tagItem,tagIndex) in doctorDetail.tags" :key="tagIndex">
+                {{tagItem}}
+              </span>
+            </div>
+            <div class="detail-6"><span @click="toWhatsApp">線上咨詢</span></div>
+          </div>
+        </div>
+      </div> -->
       <!-- 视频地址 -->
+      <!-- 關於我們 -->
+      <AboutUs />
+      <!-- 品牌理念 -->
+      <brandConcept-test />
       <div class="index-videoBox">
         <div class="index-videoBox-t pageCon">
           <div class="index_title index_title_2">專題報導</div>
@@ -226,8 +359,7 @@ const headerConfigData = {
           </div>
         </div>
       </div>
-      <!-- 關於我們 -->
-      <AboutUs />
+      
       <!-- 個案分享 -->
       <div class="index-caseSharing">
         <div class="index-caseSharing-title">
@@ -245,6 +377,32 @@ const headerConfigData = {
           <!-- <div class="in-bottom">
             <span>了解更多</span>
           </div> -->
+        </div>
+      </div>
+      <div class="treatment-data">
+        <div class="treatment-data-title">
+          <span>早期深圳二級口腔醫院</span>
+          <span>香港品牌 實力信心</span>
+        </div>
+        <div class="treatment-data-in pageCon">
+          <div class="dataBox" v-for="(treatmentItem,treatmentIndex) in treatmentData" :key="treatmentIndex">
+            <div class="num">
+              <img :src="treatmentItem.bg" :style="{left: treatmentItem.left,top: treatmentItem.top}" alt="">
+              <div class="numIn" v-for="(numItem,numIndex) in treatmentItem.num" :key="numIndex">
+                <span v-if="numItem === ','">{{numItem}}</span>
+                <div v-else class="numInAnim" :class="[{showNumInAnim: showTreatment}]" :style="{'animation-delay': `${(treatmentItem.num.length - numIndex) * 0.2}s`}">
+                  <span v-for="numInItem in Number(numItem) ? Number(numItem) : 10" :key="numInItem">
+                    {{numInItem === 10 ? 0 : numInItem}}
+                  </span>
+                </div>
+              </div>
+              <span class="numBold">+</span>
+            </div>
+            <div class="name">{{treatmentItem.name}}</div>
+          </div>
+        </div>
+        <div class="treatment-data-bText">
+          *以上數據由2019年開始統計至今
         </div>
       </div>
       <!-- 聯絡我們 -->
@@ -274,7 +432,7 @@ svg:hover path{
   overflow: hidden;
 }
 .treatment-data{
-  margin-top: 70px;
+  margin-top: 140px;
   &-title{
     span{
       color: var(--indexColor1);
@@ -354,7 +512,7 @@ svg:hover path{
 }
 //醫生團隊
 .index-doctorTeam{
-  margin: 140px 0;
+  margin: 140px auto;
   &-t{
     display: flex;
     justify-content: space-between;
@@ -393,11 +551,224 @@ svg:hover path{
     display: flex;
     justify-content: center;
   }
+  &-con{
+    width: 100%;
+    max-width: 1365px;
+    margin: 30px auto 0;
+  }
+  &-tab1{
+    :deep(.areaTab){
+      div{
+        flex: 1;
+        text-align: center;
+        font-size: 35px;
+      }
+    }
+  }
+  &-tab2{
+    &-in{
+      width: 100%;
+      display: flex;
+      &>div{
+        flex: 1;
+        color: #00AEFF;
+        transition: all .3s;
+        border-top: 2px solid #00AEFF;
+        border-bottom: 2px solid #00AEFF;
+        border-left: 2px solid #00AEFF;
+        padding: 5px 0;
+        font-size: 35px;
+        text-align: center;
+        letter-spacing: 3px;
+        cursor: pointer;
+        &:nth-of-type(4){
+          flex: 1.3;
+        }
+        &:nth-of-type(5){
+          flex: 1.3;
+        }
+        &:nth-of-type(6){
+          flex: 1.3;
+        }
+        &:nth-of-type(7){
+          flex: 1.7;
+        }
+        &:first-child{
+          border-radius: 5px 0 0 5px;
+        }
+        &:last-child{
+          border-radius: 0 5px 5px 0;
+          border-right: 2px solid #00AEFF;
+        }
+        &:hover,&.index-doctorTeam-tab2-in-active{
+          color: #fff;
+          background: #00AEFF;
+        }
+      }
+    }
+  }
+  &-lists{
+    width: 100%;
+    .pcLists{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      &-in{
+        cursor: pointer;
+        &:not(:last-child){
+          margin-right: 30px;
+        }
+        &-img{
+          width: 150px;
+          height: 150px;
+          border-radius: 10px;
+          overflow: hidden;
+          background: rgba(254, 169, 209,.5);
+          transition: all .3s;
+        }
+        &:hover{
+          .pcLists-in-img{
+            background: #FFA8C6;
+          }
+        }
+      }
+    }
+    .mbLists{
+      width: 100%;
+      max-width: 675px;
+      margin: 0 auto;
+      display: none;
+      &-in{
+        width: 100%;
+        overflow: visible;
+        &-img{
+          width: 150px;
+          height: 150px;
+          border-radius: 10px;
+          overflow: hidden;
+          background: rgba(254, 169, 209,.7);
+        }
+      }
+    }
+  }
+  &-detail{
+    padding: 20px;
+    display: flex;
+    margin-top: 50px;
+    &-l{
+      width: calc(434 / 1365 * 100%);
+      max-width: 434px;
+      position: relative;
+      &-in{
+        // width: calc(434 / 1365 * 100%);
+        // max-width: 434px;
+        width: 100%;
+        
+        &::after{
+          content: '';
+          position: absolute;
+          top: -20px;
+          left: -20px;
+          width: 100%;
+          height: 100%;
+          border-radius: 30px;
+          background: rgba(254, 169, 209,.7);
+          z-index: 0;
+        }
+      }
+      img{
+        position: relative;
+        border-radius: 30px;
+        z-index: 1;
+        &:nth-of-type(1){
+          border: 3px solid var(--indexColor1);
+        }
+        &:nth-of-type(2){
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: calc(100% - 3px);
+          height: calc(100% - 3px);
+          display: block;
+        }
+      }
+      
+    }
+    &-r{
+      .detail-1{
+        color: var(--indexColor1);
+        padding-left: 20px;
+        span{
+          font-size: 20px;
+          &:nth-of-type(1){
+            font-size: 35px;
+          }
+        }
+      }
+      .detail-2{
+        color: #fff;
+        span{
+          // width: ;
+          font-size: 28px;
+          padding: 5px 70px 5px 15px;
+          display: inline-block;
+          background: var(--indexColor1);
+          clip-path: polygon(0 0, 93% 0, 100% 100%, 0 100%);
+        }
+      }
+      .detail-3{
+        color: var(--textColor);
+        padding-left: 20px;
+        font-size: 20px;
+        margin-bottom: 30px;
+        margin-top: 5px;
+      }
+      .detail-4{
+        color: var(--textColor);
+        padding-left: 20px;
+        font-size: 20px;
+        margin-bottom: 20px;
+        span{
+          display: block;
+        }
+      }
+      .detail-5{
+        color: var(--textColor);
+        padding-left: 20px;
+        font-size: 20px;
+        span{
+          border-bottom: 1px solid var(--textColor);
+          &:not(:last-child){
+            margin-right: 10px;
+          }
+        }
+      }
+      .detail-6{
+        margin-top: 30px;
+        margin-left: 20px;
+        span{
+          cursor: pointer;
+          color: #fff;
+          background: var(--indexColor1);
+          font-size: 35px;
+          border-radius: 50px;
+          padding: 10px 30px;
+          box-shadow: 0 5px 10px var(--indexColor1);
+          transition: all .3s;
+          &:hover{
+            opacity: .7;
+          }
+        }
+      }
+    }
+  }
 }
 //個案分享
 .index-caseSharing{
   padding: 35px 0;
   background: linear-gradient(180deg,rgba(255, 241, 240, 0) 0%,var(--indexColor2) 100%);
+  margin-top: 140px;
   &-title{
     display: flex;
     justify-content: center;
@@ -527,6 +898,7 @@ svg:hover path{
 
 @media screen and (max-width: 768px) {
   .treatment-data{
+    margin-top: 70px;
     &-title{
       span{
         font-size: 20px;
@@ -574,6 +946,7 @@ svg:hover path{
   .index-caseSharing{
     padding: 0;
     background:none;
+    margin-top: 90px;
     &-in{
       margin: 35px auto 0;
       .in-cen{
@@ -609,7 +982,7 @@ svg:hover path{
     }
   }
   .index-videoBox{
-    margin-top: 48px;
+    margin-top: 90px;
     &-c{
       flex-direction: column-reverse;
       text-align: center;

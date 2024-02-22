@@ -4,6 +4,7 @@ export default [
     //深圳爱康健口腔医院
     {
       id: '101',
+      dentalProfessionId: ['102','104','105'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/6a7b889f6f185f2a.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor101.png',
       name: '鞏賢平',
@@ -12,10 +13,11 @@ export default [
       job:'愛康健口腔醫院院長',
       skilled: '種植修復，微創美學修復，全口咬合重建等；熟練應用口腔顯微鏡並在顯微放大設備下進行種植手術、牙周美學手術及各類修復操作。熟練處理牙周病及牙體缺失、四環素、氟斑牙的全口美學修復工作，對於顯微治療有深入研究，具有豐富的口腔全科診療經驗。',
       context: '主治醫師， 深圳愛康健口腔醫院院長， 集團口腔修復專業學科帶頭人， 華西口腔醫學院醫學碩士， 深圳電視臺第一現場《名醫直播問診》節目特邀專家。 從事口腔修復臨床、教學和科研工作近20年，多次赴香港、美國等地進行學習和學術交流，並受邀出席全國口腔修復學術研討會，在微創美學修復領域有著豐富的診療經驗，迄今已完成5000余例口腔微創美學修復。為人親和、細致認真、嫻熟的醫學素養是鞏醫生給人的印象，在簡短的交流中對顧客需求了如指掌，在結合專業技能使得顧客稱贊不已，充分發揮優秀醫務工作者的本質。',
-      educated: '口腔醫學碩士'
+      educated: '口腔醫學碩士',
     },
     {
       id: '150',
+      dentalProfessionId: ['101'],
       imgUrl: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor150pc.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor150.png',
       name: '劉鑫',
@@ -28,6 +30,7 @@ export default [
     },
     {
       id: '102',
+      dentalProfessionId: ['101','107'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/d9f1c5bebf5ff081.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor102.png',
       name: '李川',
@@ -40,6 +43,7 @@ export default [
     },
     {
       id: '103',
+      dentalProfessionId: ['102','104','105'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/81d8c2ccb62f31a9.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor103.png',
       name: '楊福強',
@@ -52,6 +56,7 @@ export default [
     },
     {
       id: '104',
+      dentalProfessionId: ['101','107'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/461a7a6f0f90fd9d.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor104.png',
       name: '盧勇輝',
@@ -64,6 +69,7 @@ export default [
     },
     {
       id: '105',
+      dentalProfessionId: ['101'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/d259e4a0df06c23e.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Nanshan/doctor315.png',
       name: '代堂華',
@@ -76,6 +82,7 @@ export default [
     },
     {
       id: '106',
+      dentalProfessionId: ['103'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/23ee1b943d47241e.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Futian/doctor203.png',
       name: '陸卉',
@@ -88,6 +95,7 @@ export default [
     },
     {
       id: '107',
+      dentalProfessionId: ['103'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/6fe02422ecae81a5.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor107.png',
       name: '杜藝平',
@@ -100,6 +108,7 @@ export default [
     },
     {
       id: '108',
+      dentalProfessionId: ['103'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/34c030521f10d54e.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Nanshan/doctor310.png',
       name: '白海軍',
@@ -112,6 +121,7 @@ export default [
     },
     {
       id: '109',
+      dentalProfessionId: ['102','104'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/fbb778e5a0bab563.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor109.png',
       name: '李洪偉',
@@ -136,6 +146,7 @@ export default [
     // },
     {
       id: '111',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/4a60911a17a318a3.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor111.png',
       name: '李昂',
@@ -148,6 +159,7 @@ export default [
     },
     {
       id: '112',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/02d96f63cef851a3.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor112.png',
       name: '趙瑩',
@@ -172,6 +184,7 @@ export default [
     // },
     {
       id: '114',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/1396c71f4b8c7c72.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor114.png',
       name: '楊偉飛',
@@ -184,6 +197,7 @@ export default [
     },
     {
       id: '115',
+      dentalProfessionId: ['102','104'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/54f0871f48c17dd9.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor115.png',
       name: '韋柱山',
@@ -196,6 +210,7 @@ export default [
     },
     {
       id: '116',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/79e3ef6e0323aea0.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Futian/doctor207.png',
       name: '江冬曉',
@@ -208,6 +223,7 @@ export default [
     },
     {
       id: '117',
+      dentalProfessionId: ['106'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/5f623594b86acf8e.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Longhua/doctor504.png',
       name: '李紅枝',
@@ -220,6 +236,7 @@ export default [
     },
     {
       id: '119',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/2c9d3870859fa8ab.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor119.png',
       name: '牟宇',
@@ -232,6 +249,7 @@ export default [
     },
     {
       id: '120',
+      dentalProfessionId: ['105'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/001263c1e4ed1caa.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor120.png',
       name: '劉國強',
@@ -244,6 +262,7 @@ export default [
     },
     {
       id: '121',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/3d6c563f1a3798c2.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor121.png',
       name: '鄭健',
@@ -256,6 +275,7 @@ export default [
     },
     {
       id: '122',
+      dentalProfessionId: ['101'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/9896c30577331767.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor122.png',
       name: '楊 夢',
@@ -268,6 +288,7 @@ export default [
     },
     {
       id: '123',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/971ebf67e4e2bb4e.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor123.png',
       name: '向倩黎',
@@ -280,6 +301,7 @@ export default [
     },
     {
       id: '124',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/fa9aea971ab1a94a.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor124.png',
       name: '左勝楠',
@@ -292,6 +314,7 @@ export default [
     },
     {
       id: '125',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/f0efd5d63faa237b.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor125.png',
       name: '許歡',
@@ -305,6 +328,7 @@ export default [
     //富康口腔门诊部
     {
       id: '126',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/08b01aca08bc6f22.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor126.png',
       name: '郭俊偉',
@@ -317,6 +341,7 @@ export default [
     },
     {
       id: '127',
+      dentalProfessionId: ['101'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/b6bc65f1fba62157.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Futian/doctor213.png',
       name: '吳佳偉',
@@ -329,6 +354,7 @@ export default [
     },
     {
       id: '128',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/6d709848cc32365f.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor128.png',
       name: '王偉',
@@ -365,6 +391,7 @@ export default [
     // },
     {
       id: '132',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/a25551bf971f518d.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor132.png',
       name: '孫麗',
@@ -377,6 +404,7 @@ export default [
     },
     {
       id: '133',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/267e10f10d860f65.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor133.png',
       name: '徐傑',
@@ -389,6 +417,7 @@ export default [
     },
     {
       id: '134',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/75e9c3b498b3f889.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Baoan/doctor406.png',
       name: '吳廣學',
@@ -401,6 +430,7 @@ export default [
     },
     {
       id: '135',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/a8aa89827051db81.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor135.png',
       name: '許玉玲',
@@ -413,6 +443,7 @@ export default [
     },
     {
       id: '150',
+      dentalProfessionId: ['101'],
       imgUrl: 'https://static.cmereye.com/static/ckj/imgs/doctor/Futian/doctor218pc.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Futian/doctor218.png',
       name: '莊賢安',
@@ -426,6 +457,7 @@ export default [
     //康辉口腔门诊部
     {
       id: '136',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/7e69c97d2a2e9571.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor136.png',
       name: '熊誌華',
@@ -438,6 +470,7 @@ export default [
     },
     {
       id: '137',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/edcf6e1a7015d331.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor137.png',
       name: '沈虹',
@@ -450,6 +483,7 @@ export default [
     },
     {
       id: '138',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/1cf68126d946b7bc.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor138.png',
       name: '程輝',
@@ -462,6 +496,7 @@ export default [
     },
     {
       id: '139',
+      dentalProfessionId: ['105'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/9e64ca61ad962a93.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Longhua/doctor502.png',
       name: '曾紅艷',
@@ -474,6 +509,7 @@ export default [
     },
     {
       id: '140',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/a6e66496c44b89da.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor140.png',
       name: '陳蓉蓉',
@@ -486,6 +522,7 @@ export default [
     },
     {
       id: '141',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/348cc7c6af13f3ac.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor141.png',
       name: '李慧林',
@@ -498,6 +535,7 @@ export default [
     },
     {
       id: '142',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/2a03439476a84259.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor142.png',
       name: '毛大軍',
@@ -510,6 +548,7 @@ export default [
     },
     {
       id: '143',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/921fe7262fdd4da7.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor143.png',
       name: '楊苑琦',
@@ -522,6 +561,7 @@ export default [
     },
     {
       id: '144',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/9ae89061a03985bb.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor144.png',
       name: '張秀珍',
@@ -534,6 +574,7 @@ export default [
     },
     {
       id: '145',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/0c1f5f5ab7cac1b9.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor145.png',
       name: '周康智',
@@ -547,6 +588,7 @@ export default [
     //恒洁口腔门诊部
     {
       id: '146',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/5d599f141dc6d07e.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor146.png',
       name: '林露露',
@@ -559,6 +601,7 @@ export default [
     },
     {
       id: '147',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/a67e0a0764dddd6b.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor147.png',
       name: '姚敏生',
@@ -571,6 +614,7 @@ export default [
     },
     {
       id: '148',
+      dentalProfessionId: ['106'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/bb4d2346bd68da59.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor148.png',
       name: '林珍晶',
@@ -584,6 +628,7 @@ export default [
     //新增
     {
       id: '149',
+      dentalProfessionId: ['104'],
       imgUrl: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor149pc.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor149.png',
       name: '張名妃',
@@ -601,6 +646,7 @@ export default [
     //李川口腔诊所
     {
       id: '201',
+      dentalProfessionId: ['101'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/a9e0e56f7ca5a01a.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Futian/doctor201.png',
       name: '周小明',
@@ -613,6 +659,7 @@ export default [
     },
     {
       id: '202',
+      dentalProfessionId: ['103'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/92e72ccc57362d90.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Futian/doctor202.png',
       name: '李高華',
@@ -625,6 +672,7 @@ export default [
     },
     {
       id: '203',
+      dentalProfessionId: ['103'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/23ee1b943d47241e.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Futian/doctor203.png',
       name: '陸卉',
@@ -637,6 +685,7 @@ export default [
     },
     {
       id: '204',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/9f6aea3e2df6e150.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Futian/doctor204.png',
       name: '謝榮英',
@@ -649,6 +698,7 @@ export default [
     },
     {
       id: '205',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/d7b6550096aa3b07.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Futian/doctor205.png',
       name: '塗潤',
@@ -661,6 +711,7 @@ export default [
     },
     {
       id: '206',
+      dentalProfessionId: ['105'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/9e64ca61ad962a93.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Longhua/doctor502.png',
       name: '曾紅艷',
@@ -673,6 +724,7 @@ export default [
     },
     {
       id: '207',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/79e3ef6e0323aea0.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Futian/doctor207.png',
       name: '江冬曉',
@@ -685,6 +737,7 @@ export default [
     },
     {
       id: '208',
+      dentalProfessionId: ['102'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/e4f71fee0ae5f206.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Futian/doctor208.png',
       name: '王佳琪',
@@ -697,6 +750,7 @@ export default [
     },
     {
       id: '209',
+      dentalProfessionId: ['106'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/683cbbcb44c60068.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Futian/doctor209.png',
       name: '郭文倩',
@@ -709,6 +763,7 @@ export default [
     },
     {
       id: '210',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/6e04d76aab5b7cae.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Futian/doctor210.png',
       name: '吳嘉龍',
@@ -721,6 +776,7 @@ export default [
     },
     {
       id: '211',
+      dentalProfessionId: ['102'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/0d255cdd6ac1a8d7.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Futian/doctor211.png',
       name: '裴成',
@@ -733,6 +789,7 @@ export default [
     },
     {
       id: '218',
+      dentalProfessionId: ['101'],
       imgUrl: 'https://static.cmereye.com/static/ckj/imgs/doctor/Futian/doctor218pc.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Futian/doctor218.png',
       name: '莊賢安',
@@ -746,6 +803,7 @@ export default [
     //王琦口腔诊所
     {
       id: '212',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/6ae4f2813bf8759c.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Futian/doctor212.png',
       name: '劉章智',
@@ -758,6 +816,7 @@ export default [
     },
     {
       id: '213',
+      dentalProfessionId: ['101'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/b6bc65f1fba62157.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Futian/doctor213.png',
       name: '吳佳偉',
@@ -770,6 +829,7 @@ export default [
     },
     {
       id: '214',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/8c816af1901a3b13.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Futian/doctor214.png',
       name: '楊曉冰',
@@ -782,6 +842,7 @@ export default [
     },
     {
       id: '215',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/e97e408f6d4ff66b.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Futian/doctor215.png',
       name: '蔡玲毅',
@@ -794,6 +855,7 @@ export default [
     },
     {
       id: '217',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/e0629a00a65fa63b.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Futian/doctor217.png',
       name: '張術艷',
@@ -811,6 +873,7 @@ export default [
     //恒雅口腔门诊部
     {
       id: '301',
+      dentalProfessionId: ['102'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/f249c141eba7a214.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Nanshan/doctor301.png',
       name: '馮曉瑛',
@@ -823,6 +886,7 @@ export default [
     },
     {
       id: '302',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/b69da033f5e1c601.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Nanshan/doctor302.png',
       name: '王冉',
@@ -835,6 +899,7 @@ export default [
     },
     {
       id: '303',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/23f84261c651c33a.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Nanshan/doctor303.png',
       name: '王小翠',
@@ -847,6 +912,7 @@ export default [
     },
     {
       id: '304',
+      dentalProfessionId: ['101'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/4ea3fe3b1b6490dd.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Nanshan/doctor304.png',
       name: '李紅德',
@@ -859,6 +925,7 @@ export default [
     },
     {
       id: '305',
+      dentalProfessionId: ['103'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/ccf5447794f73e29.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Nanshan/doctor305.png',
       name: '羅軍',
@@ -871,6 +938,7 @@ export default [
     },
     {
       id: '307',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/59bc330429799baa.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Nanshan/doctor307.png',
       name: '李文俊',
@@ -883,6 +951,7 @@ export default [
     },
     {
       id: '322',
+      dentalProfessionId: ['105'],
       imgUrl: 'https://static.cmereye.com/static/ckj/imgs/doctor/Nanshan/doctor322pc.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Nanshan/doctor322.png',
       name: '趙董博',
@@ -896,6 +965,7 @@ export default [
     //恒美口腔门诊部
     {
       id: '308',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/910cedada8c7b4aa.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Nanshan/doctor308.png',
       name: '李格',
@@ -908,6 +978,7 @@ export default [
     },
     {
       id: '309',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/6bb247ae6601435b.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Nanshan/doctor309.png',
       name: '曹小蘭',
@@ -920,6 +991,7 @@ export default [
     },
     {
       id: '310',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/34c030521f10d54e.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Nanshan/doctor310.png',
       name: '白海軍',
@@ -932,6 +1004,7 @@ export default [
     },
     {
       id: '311',
+      dentalProfessionId: ['103'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/30e2912e5967e442.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Nanshan/doctor311.png',
       name: '陳烷柔',
@@ -944,6 +1017,7 @@ export default [
     },
     {
       id: '312',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/b8085131ba0bd5f7.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Nanshan/doctor312.png',
       name: '李宇信',
@@ -956,6 +1030,7 @@ export default [
     },
     {
       id: '313',
+      dentalProfessionId: ['102'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/7ebd82d3238ed674.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Nanshan/doctor313.png',
       name: '連薇薇',
@@ -969,6 +1044,7 @@ export default [
     //沈虹口腔诊所
     {
       id: '314',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/35e588f1570b3155.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Nanshan/doctor314.png',
       name: '胡少軍',
@@ -981,6 +1057,7 @@ export default [
     },
     {
       id: '315',
+      dentalProfessionId: ['101'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/d259e4a0df06c23e.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Nanshan/doctor315.png',
       name: '代堂華',
@@ -993,6 +1070,7 @@ export default [
     },
     {
       id: '316',
+      dentalProfessionId: ['103'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/052ee0eed370fed3.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Nanshan/doctor316.png',
       name: '張瑾',
@@ -1005,6 +1083,7 @@ export default [
     },
     {
       id: '317',
+      dentalProfessionId: ['106'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/3809e65199dc09ab.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Nanshan/doctor317.png',
       name: '張牡丹',
@@ -1017,6 +1096,7 @@ export default [
     },
     {
       id: '318',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/2b043e6a95a97f1c.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Longhua/doctor503.png',
       name: '錢若谷',
@@ -1029,6 +1109,7 @@ export default [
     },
     {
       id: '319',
+      dentalProfessionId: ['102'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/f8ea0ce84da3cc3e.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Nanshan/doctor319.png',
       name: '舒成林',
@@ -1041,6 +1122,7 @@ export default [
     },
     {
       id: '320',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/7f813bd0777626c6.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Nanshan/doctor320.png',
       name: '李媛媛',
@@ -1053,6 +1135,7 @@ export default [
     },
     {
       id: '321',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/static/ckj/imgs/doctor/Nanshan/doctor321pc.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Nanshan/doctor321.png',
       name: '劉宇航',
@@ -1068,6 +1151,7 @@ export default [
   [
     {
       id: '401',
+      dentalProfessionId: ['104'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/4edc3ed2e71f391c.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Baoan/doctor401.png',
       name: '方宇',
@@ -1080,6 +1164,7 @@ export default [
     },
     {
       id: '402',
+      dentalProfessionId: ['105'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/9e64ca61ad962a93.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Baoan/doctor402.png',
       name: '曾紅艷',
@@ -1092,6 +1177,7 @@ export default [
     },
     {
       id: '403',
+      dentalProfessionId: ['101'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/b7da743bf8f1e9d9.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Baoan/doctor403.png',
       name: '林勉郁',
@@ -1104,6 +1190,7 @@ export default [
     },
     {
       id: '404',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/28cd75134a62d7b8.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Baoan/doctor404.png',
       name: '董唯吉',
@@ -1116,6 +1203,7 @@ export default [
     },
     {
       id: '405',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/dacd93ea06f7e8fa.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Baoan/doctor405.png',
       name: '張燕',
@@ -1128,6 +1216,7 @@ export default [
     },
     {
       id: '406',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/75e9c3b498b3f889.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Baoan/doctor406.png',
       name: '吳廣學',
@@ -1140,6 +1229,7 @@ export default [
     },
     {
       id: '407',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/4ce86d81805a5d72.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Baoan/doctor407.png',
       name: '朱艷秀',
@@ -1167,6 +1257,7 @@ export default [
   [
     {
       id: '501',
+      dentalProfessionId: ['102'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/b79603e6e8075ac9.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Longhua/doctor501.png',
       name: '韋秋紅',
@@ -1179,6 +1270,7 @@ export default [
     },
     {
       id: '502',
+      dentalProfessionId: ['105'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/9e64ca61ad962a93.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Longhua/doctor502.png',
       name: '曾紅艷',
@@ -1191,6 +1283,7 @@ export default [
     },
     {
       id: '503',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/2b043e6a95a97f1c.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Longhua/doctor503.png',
       name: '錢若谷',
@@ -1203,6 +1296,7 @@ export default [
     },
     {
       id: '504',
+      dentalProfessionId: ['106'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/5f623594b86acf8e.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Longhua/doctor504.png',
       name: '李紅枝',
@@ -1215,6 +1309,7 @@ export default [
     },
     {
       id: '505',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/ee543a731de9e34d.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Longhua/doctor505.png',
       name: '李美京',
@@ -1227,6 +1322,7 @@ export default [
     },
     {
       id: '506',
+      dentalProfessionId: ['102'],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/70b7540d6be0bd58.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Longhua/doctor506.png',
       name: '李佳麗',
@@ -1238,7 +1334,8 @@ export default [
       educated: '口腔醫學學士'
     },
     {
-      id: '506',
+      id: '507',
+      dentalProfessionId: [],
       imgUrl: 'https://static.cmereye.com/imgs/2023/05/e75d552dea92652c.png',
       mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Longhua/doctor507.png',
       name: '杜名玉',

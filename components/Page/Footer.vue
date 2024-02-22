@@ -16,11 +16,11 @@ const navLists = [
     link: `/dental-service/implant`,
   },
   {
-    name: '長者醫療券',
+    name: 'components.header.menuLists.health-care-voucher.name',
     link: `/health-care-voucher`,
   },
   {
-    name: '睇牙新資訊',
+    name: 'components.header.menuLists.menu_news.name',
     link: `/news/coverage`,
   },
   {

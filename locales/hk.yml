@@ -14,6 +14,8 @@ components:
         honor: 品牌榮譽
       menu_dental_service:
         name: 牙科服務
+      health-care-voucher:
+        name: 長者醫療券
       menu_news:
         name: 睇牙新資訊
         coverage: 媒體報導

@@ -114,7 +114,7 @@ const menuLists = [
     ],
   },
   {
-    name: '長者醫療券',
+    name: 'components.header.menuLists.health-care-voucher.name',
     link: `/health-care-voucher`,
     child: []
   },

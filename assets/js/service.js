@@ -23,17 +23,17 @@ export default [
   },
   {
     name: 'service.veneers',
-    imgUrl: 'https://static.cmereye.com/imgs/2023/05/4fe83a037a03391d.png',
+    imgUrl: 'https://static.cmereye.com/imgs/2024/02/00806cdcd04b63e9.png',
     link: '/dental-service/veneers'
   },
   {
     name: 'service.all_ceramic_crowns',
-    imgUrl: 'https://static.cmereye.com/imgs/2023/05/81b463bfe0377935.png',
+    imgUrl: 'https://static.cmereye.com/imgs/2024/02/80eb6295bc71eeb3.png',
     link: '/dental-service/all-ceramic-crowns'
   },
   {
     name: 'service.wisdom_teeth_extraction',
-    imgUrl: 'https://static.cmereye.com/imgs/2023/05/84a4d8dea1e93276.png',
+    imgUrl: 'https://static.cmereye.com/imgs/2024/02/5a5c41f570b977d8.png',
     link: '/dental-service/wisdom-teeth-extraction'
   },
   {
