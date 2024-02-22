@@ -1541,7 +1541,7 @@ const handleBannerLineCur = (_value:number) =>{
       // display: none;
       &.bannerLine{
         bottom: 100px;
-        z-index: 41;
+        z-index: 2;
         .bannerLine-in{
           width: 100px;
         }
