@@ -936,7 +936,7 @@ const handleBannerLineCur = (_value:number) =>{
       }
     }
     &.bannerLine{
-      bottom: 100px;
+      bottom: 130px;
       z-index: 41;
       .bannerLine-in{
         width: 200px;
@@ -1155,6 +1155,9 @@ const handleBannerLineCur = (_value:number) =>{
     &.scaling-and-polishing-test {
       bottom: 100px;
     }
+    &.course-new{
+      bottom: 60px;
+    }
   }
   .pcMenuBox {
     &.implant,
@@ -1167,6 +1170,9 @@ const handleBannerLineCur = (_value:number) =>{
     &.scaling-and-polishing-test {
       margin-top: 100px;
       transition: all 0.3s;
+    }
+    &.course-new{
+      margin-top: 60px;
     }
   }
   .headerBox01 {

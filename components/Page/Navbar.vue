@@ -1,6 +1,13 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
 import { whatsAppNum } from '~/assets/js/common'
+
+defineProps({
+  langType: {
+    default: '',
+    type: String
+  }
+})
 const appState = useAppState()
 const navbarLists = []
 let navLiBoxBool = ref(false)
@@ -71,7 +78,7 @@ let mbQDCodeBool = ref(false)
       <nuxt-link id="navMbWhatsapp" :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" target="_blank" class="mbcc-boxInAA mbcc-boxInAA-2"></nuxt-link>
       <div id="navMbContactFormBtn" class="mbcc-boxInAA mbcc-boxInAA-3" @click="handleNavFormNav">
         <img src="https://static.cmereye.com/imgs/2023/09/a8f9c3f82bbda125.png" alt="馬上預約">
-        <span>馬上預約</span>
+        <span :class="{english:langType === 'english'}">馬上預約</span>
       </div>
       <div id="navMbWeChat" class="mbcc-boxInAA mbcc-boxInAA-4" @click="mbQDCodeBool = true"></div>
       <nuxt-link id="navMbFacebook" to="https://www.facebook.com/ckjdental.hk/"  target="_blank" class="mbcc-boxInAA mbcc-boxInAA-5"></nuxt-link>
@@ -367,6 +374,9 @@ let mbQDCodeBool = ref(false)
             font-weight: 600;
             line-height: 1.6;
             letter-spacing: 3.094px;
+            &.english{
+              line-height: 1;
+            }
           }
         }
         &-4{

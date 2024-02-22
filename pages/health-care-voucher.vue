@@ -1,44 +1,20 @@
 <script lang="ts" setup>
 import { phoneNum } from '~/assets/js/common'
+// const cdnUseLang = require('~/assets/js/cdnUseLang')
+import { translate } from '~/assets/js/cdnUseLang'
 useHead({
   title: "長者醫療券",
-  // script: [
-  //   {
-  //     type: 'text/javascript',
-  //     src: 'https://cdn.staticfile.net/translate.js/3.0.3/translate.js',
-  //     body: true
-  //   },
-  //   {
-  //     type: 'text/javascript',
-  //     innerHTML: `
-  //       translate.language.setLocal('chinese_traditional'); 
-  //       translate.language.setDefaultTo('chinese_traditional');
-  //       translate.service.use('client.edge');
-  //       translate.nomenclature.append('chinese_traditional','english',\`
-  //       此篩選過程涵蓋多個關鍵考量，=This screening process covers multiple key considerations, 
-  //       以確保所選擇的機構能夠提供高品質的醫療服務。=to ensure that the selected institution can provide high-quality medical services.
-  //       為醫療券使用者提供更多選擇=Provide more choices for medical voucher users
-  //       愛康健口腔醫院可為醫療券使用者提供以下牙科醫療服務，=Aikangjian Dental Hospital can provide the following dental medical services for medical voucher users,
-  //       包括=include
-  //       醫療券=Medical vouchers
-  //       長者=Elderly
-  //       政府政策=government policy
-  //       \`);
-  //       translate.selectLanguageTag.languages = 'english,chinese_simplified,chinese_traditional';
-  //       translate.execute(); 
-  //     `,
-  //     body: true
-  //   }
-  // ]
 })
-const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2024/02/4c1e46eab9adb6de.webp',
+
+let langCur = ref('chinese_traditional')
+const headerConfig = ref({
+  img: `https://static.cmereye.com/imgs/2024/02/4c1e46eab9adb6de_${langCur.value}.webp`,
   bg: '',
-  mbImg: 'https://static.cmereye.com/imgs/2024/02/9798849854855a0c.webp',
+  mbImg: `https://static.cmereye.com/imgs/2024/02/9798849854855a0c_${langCur.value}.webp`,
   pageName: 'health-care-voucher',
   pcText: [],
   mbText: []
-}
+})
 interface plist {
   type: String,
   text: String
@@ -320,6 +296,39 @@ const pageDetail:any = {
     '#政府政策'
   ]
 }
+
+
+onMounted(()=>{
+  translate.language.setLocal('chinese_traditional'); 
+  translate.service.use('client.edge');
+  translate.nomenclature.append('chinese_traditional','english',`
+  此篩選過程涵蓋多個關鍵考量，=This screening process covers multiple key considerations, 
+  以確保所選擇的機構能夠提供高品質的醫療服務。=to ensure that the selected institution can provide high-quality medical services.
+  為醫療券使用者提供更多選擇=Provide more choices for medical voucher users
+  愛康健口腔醫院可為醫療券使用者提供以下牙科醫療服務，=Aikangjian Dental Hospital can provide the following dental medical services for medical voucher users,
+  包括=include
+  醫療券=Medical vouchers
+  長者=Elderly
+  政府政策=government policy
+  `);
+  translate.listener.renderTaskFinish = function(task){
+    var _text = "'FakePearl-Regular','幼圆', Serif"
+    if(translate.to === 'chinese_simplified'){
+			_text = "微软雅黑"
+		}
+    langCur.value = translate.to || 'chinese_traditional'
+    document.documentElement.style.setProperty("--indexFontFamily", _text);
+    console.log(langCur.value)
+    console.log(headerConfig.value)
+  }
+  translate.selectLanguageTag.languages = 'english,chinese_simplified,chinese_traditional';
+  translate.selectLanguageTag.show = false;
+  // translate.images.add({
+  //   "https://static.cmereye.com/imgs/2024/02/4c1e46eab9adb6de.webp":"https://static.cmereye.com/imgs/2024/02/4c1e46eab9adb6de_english.webp",
+  //   "https://static.cmereye.com/imgs/2024/02/9798849854855a0c.webp":"https://static.cmereye.com/imgs/2024/02/9798849854855a0c_english.webp",
+  // });
+  translate.execute();
+})
 </script>
 
 <template>
@@ -328,7 +337,12 @@ const pageDetail:any = {
     <div class="health-care-voucher pageIn whitebgColor">
       <div class="pageCon health-care-voucher-top">
         <div class="index_title health-care-voucher-title">長者醫療券</div>
-        <div id="translate"></div>
+        <div class="lang">
+          <span @click="translate.changeLanguage('english');" class="ignore">Eng</span>
+          <span @click="translate.changeLanguage('chinese_simplified');" class="ignore">简中</span>
+          <span @click="translate.changeLanguage('chinese_traditional');" class="ignore">繁中</span>
+        </div>
+        <!-- <div id="translate"></div> -->
       </div>
       <div class="tabNav noTitle pageCon">
         <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
@@ -348,7 +362,7 @@ const pageDetail:any = {
         </div>
         <div v-for="(item,index) in pageDetail.content" :key="index" :class="item.className || ''">
           <section v-if="item.type === 'p'">
-            <p>
+            <p :class="{english:langCur === 'english'}">
               <section v-for="(pitem,pindex) in item.list" :key="pindex">
                 <section v-if="pitem.type.includes('a')">
                   <a :href="pitem.link" :class="pitem.type">{{pitem.text}}</a>
@@ -393,7 +407,7 @@ const pageDetail:any = {
       <ContactUs />
     </div>
     <PageFooter />
-    <PageNavbar />
+    <PageNavbar :langType="langCur" />
   </div>
 </template>
 
@@ -402,8 +416,24 @@ const pageDetail:any = {
 .health-care-voucher-top{
   display: flex;
   justify-content: space-between;
-  #translate{
-    // color: var(--indexColor1);
+  align-items: flex-end;
+  .lang{
+    display: flex;
+    span{
+      cursor: pointer;
+      color: var(--textColor);
+      &:hover{
+        color: var(--indexColor1);
+      }
+      &:not(:last-child){
+        &::after{
+          content: '|';
+          display: inline-block;
+          color: var(--textColor);
+          margin: 0 10px;
+        }
+      }
+    }
   }
 }
 .health-care-voucher{
@@ -462,7 +492,8 @@ const pageDetail:any = {
     &.btn{
       display: flex;
       justify-content: center;
-      margin-top: 80px;
+      margin: 80px auto 0;
+      max-width: calc(100% - 30px);
       a{
         font-size: 35px;
         line-height: 160%;
@@ -473,6 +504,7 @@ const pageDetail:any = {
         transition: all .3s;
         position: relative;
         box-shadow: 0 5px 10px rgba(252, 22, 130, .5);
+        text-align: center;
         &:hover{
           background: #FF85AF;
         }
@@ -532,6 +564,9 @@ const pageDetail:any = {
     color: var(--textColor);
     text-align: justify;
     letter-spacing: 2px;
+    &.english{
+      text-align: initial;
+    }
     section{
       display: initial;
     }
@@ -556,9 +591,14 @@ const pageDetail:any = {
 @media (min-width: 768px) and (max-width: 1452px) {}
 @media screen and (max-width: 768px) {
   .health-care-voucher-top{
-    #translate{
-      // color: var(--indexColor1);
-      margin-right: 30px;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    .lang{
+      width: calc(100% - 30px);
+      // margin-right: 30px;
+      margin-left: 30px;
+      // margin-top: 20px;
+      margin-bottom: 20px;
     }
   }
   .health-care-voucher{
@@ -626,6 +666,7 @@ const pageDetail:any = {
       &.tags{
         display: flex;
         justify-content: center;
+        flex-wrap: wrap;
         margin-top: 40px;
         margin-bottom: 0;
         span{

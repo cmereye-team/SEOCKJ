@@ -1256,6 +1256,11 @@ const handleMbMenu = () => {
         bottom: 60px;
       }
     }
+    .pcMenuBox {
+      &.health-care-voucher{
+        margin-top: 60px;
+      }
+    }
   }
   .waterBg::after,
   .waterBg::before {
@@ -1283,9 +1288,15 @@ const handleMbMenu = () => {
       &.scaling-and-polishing-test {
         bottom: 65px;
       }
+      // &.health-care-voucher{
+      //   bottom: 70px;
+      // }
     }
     &-text-implant {
       bottom: 80px;
+      &.health-care-voucher{
+        bottom: 100px;
+      }
       div{
         width: calc(80%);
         margin: 0 auto;
