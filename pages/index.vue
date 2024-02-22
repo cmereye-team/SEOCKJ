@@ -250,7 +250,7 @@ const headerConfigData = {
       <!-- 聯絡我們 -->
       <ContactUs />
     </div>
-    <PageAdbox />
+    <!-- <PageAdbox /> -->
     <PageFooter />
     <PageNavbar />
   </div>

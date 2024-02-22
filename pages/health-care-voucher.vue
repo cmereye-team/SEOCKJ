@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { phoneNum } from '~/assets/js/common'
 // const cdnUseLang = require('~/assets/js/cdnUseLang')
-import { translate } from '~/assets/js/cdnUseLang'
+// import { translate } from '~/assets/js/cdnUseLang'
 useHead({
   title: "長者醫療券",
 })
@@ -299,35 +299,29 @@ const pageDetail:any = {
 
 
 onMounted(()=>{
-  translate.language.setLocal('chinese_traditional'); 
-  translate.service.use('client.edge');
-  translate.nomenclature.append('chinese_traditional','english',`
-  此篩選過程涵蓋多個關鍵考量，=This screening process covers multiple key considerations, 
-  以確保所選擇的機構能夠提供高品質的醫療服務。=to ensure that the selected institution can provide high-quality medical services.
-  為醫療券使用者提供更多選擇=Provide more choices for medical voucher users
-  愛康健口腔醫院可為醫療券使用者提供以下牙科醫療服務，=Aikangjian Dental Hospital can provide the following dental medical services for medical voucher users,
-  包括=include
-  醫療券=Medical vouchers
-  長者=Elderly
-  政府政策=government policy
-  `);
-  translate.listener.renderTaskFinish = function(task){
-    var _text = "'FakePearl-Regular','幼圆', Serif"
-    if(translate.to === 'chinese_simplified'){
-			_text = "微软雅黑"
-		}
-    langCur.value = translate.to || 'chinese_traditional'
-    document.documentElement.style.setProperty("--indexFontFamily", _text);
-    console.log(langCur.value)
-    console.log(headerConfig.value)
-  }
-  translate.selectLanguageTag.languages = 'english,chinese_simplified,chinese_traditional';
-  translate.selectLanguageTag.show = false;
-  // translate.images.add({
-  //   "https://static.cmereye.com/imgs/2024/02/4c1e46eab9adb6de.webp":"https://static.cmereye.com/imgs/2024/02/4c1e46eab9adb6de_english.webp",
-  //   "https://static.cmereye.com/imgs/2024/02/9798849854855a0c.webp":"https://static.cmereye.com/imgs/2024/02/9798849854855a0c_english.webp",
-  // });
-  translate.execute();
+  // translate.language.setLocal('chinese_traditional'); 
+  // translate.service.use('client.edge');
+  // translate.nomenclature.append('chinese_traditional','english',`
+  // 此篩選過程涵蓋多個關鍵考量，=This screening process covers multiple key considerations, 
+  // 以確保所選擇的機構能夠提供高品質的醫療服務。=to ensure that the selected institution can provide high-quality medical services.
+  // 為醫療券使用者提供更多選擇=Provide more choices for medical voucher users
+  // 愛康健口腔醫院可為醫療券使用者提供以下牙科醫療服務，=Aikangjian Dental Hospital can provide the following dental medical services for medical voucher users,
+  // 包括=include
+  // 醫療券=Medical vouchers
+  // 長者=Elderly
+  // 政府政策=government policy
+  // `);
+  // translate.listener.renderTaskFinish = function(task){
+  //   var _text = "'FakePearl-Regular','幼圆', Serif"
+  //   if(translate.to === 'chinese_simplified'){
+	// 		_text = "微软雅黑"
+	// 	}
+  //   langCur.value = translate.to || 'chinese_traditional'
+  //   document.documentElement.style.setProperty("--indexFontFamily", _text);
+  // }
+  // translate.selectLanguageTag.languages = 'english,chinese_simplified,chinese_traditional';
+  // translate.selectLanguageTag.show = false;
+  // translate.execute();
 })
 </script>
 
@@ -337,11 +331,11 @@ onMounted(()=>{
     <div class="health-care-voucher pageIn whitebgColor">
       <div class="pageCon health-care-voucher-top">
         <div class="index_title health-care-voucher-title">長者醫療券</div>
-        <div class="lang">
+        <!-- <div class="lang">
           <span @click="translate.changeLanguage('english');" class="ignore">Eng</span>
           <span @click="translate.changeLanguage('chinese_simplified');" class="ignore">简中</span>
           <span @click="translate.changeLanguage('chinese_traditional');" class="ignore">繁中</span>
-        </div>
+        </div> -->
         <!-- <div id="translate"></div> -->
       </div>
       <div class="tabNav noTitle pageCon">
