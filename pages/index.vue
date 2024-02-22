@@ -220,7 +220,64 @@ const handletab2 =(id:any)=>{
   // doctorDetail.value = changeDoctorDetail()
 }
 
-
+let orgTabCur = ref(0)
+const orgTabLists = [
+  '監管單位',
+  '戰略合作',
+  '媒體支持',
+  '服務客戶'
+]
+const orgLists = [
+  [
+    'https://static.cmereye.com/static/ckjnewsite/org/org-2001.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-2002.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-2003.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-2004.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-2005.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-2006.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-2007.png'
+  ],
+  [
+    'https://static.cmereye.com/static/ckjnewsite/org/org-1001.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-1002.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-1003.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-1004.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-1005.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-1006.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-1007.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-1008.png'
+  ],
+  [
+    'https://static.cmereye.com/static/ckjnewsite/org/org-3001.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-3002.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-3003.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-3004.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-3005.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-3006.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-3007.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-3008.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-3009.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-3010.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-3011.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-3012.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-3013.png'
+  ],
+  [
+    'https://static.cmereye.com/static/ckjnewsite/org/org-4001.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-4002.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-4003.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-4004.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-4005.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-4006.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-4007.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-4008.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-4009.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-4010.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-4011.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-4012.png',
+    'https://static.cmereye.com/static/ckjnewsite/org/org-4013.png'
+  ]
+]
 
 </script>
 
@@ -339,6 +396,23 @@ const handletab2 =(id:any)=>{
       <AboutUs />
       <!-- 品牌理念 -->
       <brandConcept-test />
+
+      <div class="index-org">
+        <div class="index-org-t pageCon">
+          <div class="index_title index_title_2">相關機構</div>
+        </div>
+        <div class="index-org-tag pageCon">
+          <div class="index-org-tag-in" :class="{'active': orgTabCur === orgTabIndex}" v-for="(orgTabItem,orgTabIndex) in orgTabLists" :key="orgTabIndex" @click="orgTabCur = orgTabIndex">
+            {{orgTabItem}}
+          </div>
+        </div>
+        <div class="index-org-content pageCon">
+          <div :class="`index-org-content-${orgTabCur}`" v-for="(orgItem,orgIndex) in orgLists[orgTabCur]" :key="orgIndex">
+            <img :src="orgItem" alt="">
+          </div>
+        </div>
+      </div>
+
       <div class="index-videoBox">
         <div class="index-videoBox-t pageCon">
           <div class="index_title index_title_2">專題報導</div>
@@ -810,6 +884,54 @@ svg:hover path{
     }
   }
 }
+.index-org{
+  margin-top: 170px;
+  &-tag{
+    width: 100%;
+    max-width: 804px;
+    display: flex;
+    margin-top: 50px;
+    &-in{
+      flex: 1;
+      color: var(--indexColor1);
+      padding: 5px;
+      font-size: 35px;
+      text-align: center;
+      border-top: 2px solid var(--indexColor1);
+      border-bottom: 2px solid var(--indexColor1);
+      border-left: 2px solid var(--indexColor1);
+      transition: all .3s;
+      cursor: pointer;
+      &:first-child{
+        border-radius: 5px 0 0 5px;
+      }
+      &:last-child{
+        border-radius: 0 5px 5px 0;
+        border-right: 2px solid var(--indexColor1);
+      }
+      &:hover,&.active{
+        color: #fff;
+        background: var(--indexColor1);
+      }
+    }
+  }
+  &-content{
+    max-width: 1200px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    &>div{
+      width: calc((100% - 300px) / 5);
+      margin: 0 30px 40px;
+      display: flex;
+      align-items: flex-end;
+    }
+    &-0{
+      align-items: flex-start !important;
+    }
+  }
+}
 .index-videoBox{
   margin-top: 132px;
   &-c{
@@ -978,6 +1100,24 @@ svg:hover path{
             text-shadow: 0px 0px 8px rgba(255, 120, 117, 0.65);
           }
         }
+      }
+    }
+  }
+  .index-org{
+    margin-top: 90px;
+    &-tag{
+      max-width: calc(100% - 60px);
+      margin-top: 30px;
+      &-in{
+        font-size: 16px;
+      }
+    }
+    &-content{
+      max-width: calc(100% - 20px);
+      justify-content: flex-start;
+      &>div{
+        margin: 0 10px 30px;
+        width: calc((100% - 60px) / 3);
       }
     }
   }
