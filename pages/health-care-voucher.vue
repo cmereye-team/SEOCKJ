@@ -299,6 +299,7 @@ const pageDetail:any = {
 
 
 onMounted(()=>{
+  // mac不兼容
   // translate.language.setLocal('chinese_traditional'); 
   // translate.service.use('client.edge');
   // translate.nomenclature.append('chinese_traditional','english',`

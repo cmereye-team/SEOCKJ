@@ -1656,6 +1656,7 @@ const handleBannerLineCur = (_value:number) =>{
       &.invisalign-test,
       &.veneers-test,
       &.health-care-voucher,
+      &.course-new,
       &.scaling-and-polishing-test {
         bottom: auto;
       }
