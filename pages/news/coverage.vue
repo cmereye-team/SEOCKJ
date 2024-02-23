@@ -186,6 +186,8 @@ if(process.server){
         margin-bottom: 23px;
         img{
           max-height: 78px;
+          height: max-content;
+          max-width: 132px;
         }
         &>div{
           span{

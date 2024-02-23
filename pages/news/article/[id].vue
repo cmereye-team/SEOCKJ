@@ -205,7 +205,7 @@ if(process.server){
           
         </div>
         <div class="content-bbtn" v-if="pageType === '1'">
-          <nuxt-link to="/dental-service/scaling-and-polishing">了解更多洗牙資訊</nuxt-link>
+          <nuxt-link to="/dental-service/scaling-and-polishing" v-if="coverageDeatail.news_tag === '洗牙'">了解更多洗牙資訊</nuxt-link>
         </div>
         <div class="content-bdetail">
           <div class="content-bdetail-in">
