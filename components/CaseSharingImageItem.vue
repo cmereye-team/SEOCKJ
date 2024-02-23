@@ -66,6 +66,7 @@ defineProps({
         color: #666666;
         display: block;
         margin-top: 14px;
+        font-family: 'Noto Serif HK', Serif;
       }
       .skill{
         margin-top: 2px;
@@ -74,6 +75,7 @@ defineProps({
         line-height: 160%;
         color: var(--indexColor1);
         display: block;
+        font-family: 'Noto Serif HK', Serif;
       }
       .text{
         margin-top: 2px;
@@ -83,6 +85,7 @@ defineProps({
         color: #69B1FF;
         display: block;
         text-align: right;
+        font-family: 'Noto Serif HK', Serif;
       }
     }
   }
@@ -95,6 +98,7 @@ defineProps({
     line-height: 160%;
     color: #666666;
     margin-top: 10px;
+    font-family: 'Noto Serif HK', Serif;
   }
 } 
 

@@ -1,43 +1,6 @@
 <script lang="ts" setup>
 import { Autoplay,Controller } from 'swiper'
 import NuxtImage from 'nuxt'
-let aboutUsCurrent = ref(1)
-
-const onSlideAboutUsSwiperChange = (swiper:any) => {
-  aboutUsCurrent.value = swiper.realIndex + 1
-}
-
-// const aboutUsLists = [
-//   {
-//     title: 'components.aboutUs.item_1.title',
-//     text: 'components.aboutUs.item_1.text',
-//     context: 'components.aboutUs.item_1.context',
-//     mbImg: 'https://static.cmereye.com/imgs/2023/04/312ab3f184b7daf5.jpg',
-//     pcImg: 'https://static.cmereye.com/imgs/2023/05/77e7c4e4a2376aa8.jpg'
-//   },
-//   {
-//     title: 'components.aboutUs.item_2.title',
-//     text: '',
-//     context: 'components.aboutUs.item_2.context',
-//     mbImg: 'https://static.cmereye.com/imgs/2023/05/57398ce56ec905ad.jpg',
-//     pcImg: 'https://static.cmereye.com/imgs/2023/05/d847d149cd3aef7d.jpg'
-//   }
-// ]
-
-let aboutUsSwiperRef ={
-  slideToLoop: (a)=>{},
-  slidePrev: ()=>{},
-  slideNext: ()=>{}
-}
-const setAboutUsSwiperRef = (swiper:any) => {
-  aboutUsSwiperRef = swiper;
-}
-const handleLineCur = (_value:number) =>{
-  // console.log(_value)
-  aboutUsSwiperRef.slideToLoop(_value-1)
-}
-
-
 
 const imgsLists = [
   'https://static.cmereye.com/static/ckj/imgs/environment/de/1001001.jpg',
@@ -87,6 +50,11 @@ const setFirstSwiper = (swiper) => {
 const setSecondSwiper = (swiper) => {
   secondSwiper.value = swiper;
 };
+
+let mouseType:any = ref('leave')
+const changemouse = (type: String) =>{
+  mouseType.value = type
+}
 </script>
 
 <template>
@@ -100,12 +68,14 @@ const setSecondSwiper = (swiper) => {
             :modules="[Autoplay]"
             :autoplay="{ delay: 0 }"
             :slidesPerView="2"
-            :speed="6000"
+            :speed="mouseType === 'leave' ? 6000 : 1000"
           >
             <SwiperSlide class="index-aboutUs-swiper-in-slide" v-for="(item,index) in imgsLists" :key="index">
               <el-image :src="item" @click="handleshowdeBox(index)"></el-image>
             </SwiperSlide>
           </Swiper>
+          <div class="index-aboutUs-swiper-in-mouseLeft" @mouseleave.stop="changemouse('leave')" @mouseover.stop="changemouse('over')"></div>
+          <div class="index-aboutUs-swiper-in-mouseRight" @mouseleave.stop="changemouse('leave')" @mouseover.stop="changemouse('over')"></div>
         </div>
         <div class="index-aboutUs-mbswiper">
           <swiper class="index-aboutUs-mbswiper-t" :modules="[Controller]" :controller="{ control: secondSwiper }" @swiper="setFirstSwiper">
@@ -129,7 +99,7 @@ const setSecondSwiper = (swiper) => {
             <span>嚴格執行符合世界牙科聯盟(FDI)的診療標準，消毒隔離系統達到8個「一」無菌診療模式：一人一診室，一醫一助，一機一用，一次一消毒，消毒更全面。</span>
           </div>
         </div>
-        <div class="deBox" v-show="showdeBox">
+        <div class="deBox" v-show="showdeBox" @click.stop="showdeBox = false">
           <div class="deBox-close" @click="showdeBox = false">
             <svg xmlns="http://www.w3.org/2000/svg" width="107" height="107" viewBox="0 0 107 107" fill="none">
               <g filter="url(#filter0_d_2664_13034)">
@@ -154,10 +124,10 @@ const setSecondSwiper = (swiper) => {
           <div class="deBox-in">
             <swiper class="deBox-in-swiper" @swiper="setdeBoxSwiperRef">
               <SwiperSlide class="deBox-in-swiper-slide" v-for="(item,deBoxindex) in imgsLists" :key="deBoxindex">
-                <el-image :src="item"></el-image>
+                <el-image :src="item" @click.stop="()=>{}"></el-image>
               </SwiperSlide>
             </swiper>
-            <div class="leftBtn" @click="handleProcessBtn('slidePrev')">
+            <div class="leftBtn" @click.stop="handleProcessBtn('slidePrev')">
               <svg xmlns="http://www.w3.org/2000/svg" width="107" height="107" viewBox="0 0 107 107" fill="none">
                 <g filter="url(#filter0_d_2664_13039)">
                   <circle cx="51.5" cy="51.5" r="49.5" fill="white"/>
@@ -177,7 +147,7 @@ const setSecondSwiper = (swiper) => {
                 </defs>
               </svg>
             </div>
-            <div class="rightBtn" @click="handleProcessBtn('slideNext')">
+            <div class="rightBtn" @click.stop="handleProcessBtn('slideNext')">
               <svg xmlns="http://www.w3.org/2000/svg" width="107" height="107" viewBox="0 0 107 107" fill="none">
                 <g filter="url(#filter0_d_2664_13030)">
                   <circle cx="51.5" cy="51.5" r="49.5" fill="white"/>
@@ -199,32 +169,6 @@ const setSecondSwiper = (swiper) => {
             </div>
           </div>
         </div>
-        <!-- <Swiper
-          class="swiperBox pageCon"
-          :loop="true"
-          :autoplay="{
-            disableOnInteraction: true,
-          }"
-          @swiper="setAboutUsSwiperRef"
-          @slideChange="onSlideAboutUsSwiperChange"
-        >
-          <SwiperSlide v-for="(item,index) in aboutUsLists" :key="index" >
-            <div class="index-aboutUs-in ">
-              <div class="index-aboutUs-in-l">
-                <img class="pcBox" :src="item.pcImg" alt="">
-                <img class="mbBox" :src="item.mbImg" alt="">
-              </div>
-              <div class="index-aboutUs-in-r">
-                <div>{{$t(item.title)}}</div>
-                <span>{{$t(item.text)}}</span>
-                <span>{{$t(item.context)}}</span>
-              </div>
-            </div>
-          </SwiperSlide>  
-          <div class="aboutUs-lineBox">
-            <PageSwiperPointLine :latestNewsNum="aboutUsLists.length" :latestNewsCurrent="aboutUsCurrent" @changeLineCur="handleLineCur"></PageSwiperPointLine>
-          </div>
-        </Swiper> -->
     </div>
 </template>
 <style lang="scss" scoped>
@@ -235,54 +179,16 @@ const setSecondSwiper = (swiper) => {
 .index-aboutUs{
   margin-top: 140px;
   padding-bottom: 90px;
-  // &-in{
-  //   display: flex;
-  //   margin-top: 45px;
-  //   &-l{
-  //     width: 55%;
-  //     img{
-  //       width: 100%;
-  //     }
-  //   }
-  //   &-r{
-  //     flex: 1;
-  //     display: flex;
-  //     flex-direction: column;
-  //     box-sizing: border-box;
-  //     padding-left: 100px;
-  //     div{
-  //       font-weight: 700;
-  //       font-size: 28px;
-  //       line-height: 160%;
-  //       color: var(--indexColor1);
-  //       margin-bottom: 70px;
-  //       margin-top: 100px;
-  //     }
-  //     span{
-  //       font-weight: 500;
-  //       font-size: 20px;
-  //       line-height: 160%;
-  //       color: #666666;
-  //     }
-  //   }
-  // }
-  // .swiperBox{
-  //   position: relative;
-  //   cursor: pointer;
-  //   .aboutUs-lineBox{
-  //     position: absolute;
-  //     left: calc(55% + 100px);
-  //     bottom: 100px;
-  //     width: 10%;
-  //     z-index: 100;
-  //   }
-  // }
   &-swiper{
-    width: calc(1334 / 1920 * 100%);
-    max-width: 1334px;
+    // width: calc(1334 / 1920 * 100%);
+    // max-width: 1334px;
+    width: 100%;
     margin: 67px auto 0;
+    position: relative;
     &-in{
       width: 100%;
+      width: calc(1334 / 1920 * 100%);
+      max-width: 1334px;
       overflow: visible;
       &-slide{
         .el-image{
@@ -299,6 +205,22 @@ const setSecondSwiper = (swiper) => {
           width: 100%;
         }
       }
+    }
+    &-in-mouseLeft{
+      width: calc((100% - (1334 / 1920 * 100%)) / 2);
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    &-in-mouseRight{
+      width: calc((100% - (1334 / 1920 * 100%)) / 2);
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;
     }
   }
   &-mbswiper{
@@ -362,10 +284,6 @@ const setSecondSwiper = (swiper) => {
       right: 40px;
       cursor: pointer;
       z-index: 2;
-      // transition: all .3s;
-      // &:hover{
-      //   transform: rotate(90deg);
-      // }
     }
     &-in{
       position: absolute;
@@ -410,48 +328,13 @@ const setSecondSwiper = (swiper) => {
 }
 @media (min-width: 768px) and (max-width: 1452px) {
   .index-aboutUs{
-    &-in{
-      &-r{
-        padding-left: 50px;
-        div{
-          font-size: 1.5rem;
-          // margin-bottom: 50px;
-          // margin-top: 70px;
-          margin-bottom: calc((35 / 456) * 100%);
-          margin-top: calc((50 / 456) * 100%);
-        }
-        span{
-          font-size: 1rem;
-        }
-      }
-    }
-    .swiperBox{
-      .aboutUs-lineBox{
-        left: calc(55% + 50px);
-        // width: 20%;
-        bottom: 10%;
-      }
-    }
+    
   }
 }
 @media (min-width: 768px) and (max-width: 1000px) {
   .index-aboutUs{
     margin-top: 110px;
-    &-in{
-      &-r{
-        padding-left: 30px;
-        div{
-          margin-bottom: 10px;
-          margin-top: 0px;
-        }
-      }
-    }
-    .swiperBox{
-      .aboutUs-lineBox{
-        left: calc(55% + 30px);
-        bottom: 5%;
-      }
-    }
+    
   }
 }
 @media screen and (max-width: 768px) {
@@ -459,39 +342,7 @@ const setSecondSwiper = (swiper) => {
   .index-aboutUs{
     margin-top: 90px;
     padding-bottom: 90px;
-    &-in{
-      flex-direction: column;
-      margin-bottom: 50px;
-      &-l{
-        width: 100%;
-      }
-      &-r{
-        padding: 10px 30px;
-        align-items: center;
-        div{
-          margin-bottom: 0;
-          font-weight: 600;
-          font-size: 1.125rem;
-          margin-top: 0px;
-        }
-        span{
-          text-align: center;
-          font-size: 1rem;
-        }
-      }
-    }
-    .swiperBox{
-      position: relative;
-      .aboutUs-lineBox{
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        // width: 200px;
-        width: 100px;
-        bottom: 30px;
-        z-index: 100;
-      }
-    }
+    
     &-swiper{
       display: none;
     }
