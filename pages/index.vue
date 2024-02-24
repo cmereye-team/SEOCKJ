@@ -1137,6 +1137,10 @@ svg:hover path{
             color: #00AEFF;
             background: #fff;
           }
+          &.index-doctorTeam-tab2-in-active{
+            color: #fff;
+            background: #00AEFF;
+          }
         }
         &.tablang-1,&.tablang-2,&.tablang-3,&.tablang-4{
           &>div{
