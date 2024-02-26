@@ -584,7 +584,7 @@ const handleBannerLineCur = (_value:number) =>{
               >
                 {{ $t(menuItem.name) }}
               </nuxt-link>
-              <div class="menuChild" >
+              <div v-if="menuItem.child.length" class="menuChild" >
                 <div
                   v-for="(menuChildItem, menuChildIndex) in menuItem.child"
                   :key="menuChildIndex"

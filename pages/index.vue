@@ -7,13 +7,13 @@ import { toWhatsApp } from '~/assets/js/common'
 const appState = useAppState()
 const { t } = useLang()
 useHead({
-  title: "CKJ愛康健齒科連鎖 | 香港官方網站 | 長者醫療券大灣區試點計劃",
+  title: "CKJ愛康健齒科連鎖 | 香港官方網站 | 長者醫療券大灣區試點",
   titleTemplate: '',
   meta: [
     {
       hid: 'description',
       name: 'description',
-      content: '愛康健提供基本牙科、美容牙科及高階牙科服務，從一般口腔檢查、洗牙、補牙，剝智慧牙、植牙、箍牙、牙齒美白、全口修復及各種牙科治療等，專注你的口腔健康。',
+      content: '愛康健齒科是深圳大型專業牙科連鎖機構，香港政府納入長者醫療券大灣區試點。愛康健口腔醫院設有超過20種牙科治療項目，專注為港服務超過28年。',
     },
     {
       hid: 'Keywords',

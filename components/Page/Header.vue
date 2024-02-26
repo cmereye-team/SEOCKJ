@@ -525,6 +525,7 @@ const handleMbMenu = () => {
                 {{ $t(menuItem.name) }}
               </nuxt-link>
               <div
+                v-if="menuItem.child.length"
                 class="menuChild"
               >
                 <div
