@@ -42,6 +42,13 @@ const introduceData = {
   tabNavName: 'pages.dental-service.implant.introduce.tabNavName',
 }
 
+const introduceJY = {
+  title: 'pages.dental-service.implant.introduce.title',
+  content: 'pages.dental-service.implant.introduce.content',
+  mbImg: 'https://static.cmereye.com/imgs/2023/05/2bc3a5d449c9b42e.jpg',
+  pcImg: 'https://static.cmereye.com/imgs/2024/02/212030a5fca0b0de.png',
+}
+
 const featuresData = {
   title: 'pages.dental-service.implant.features.title',
   featuresLists: [
@@ -142,20 +149,20 @@ const stepData = {
     {
       title: '第4步',
       img: 'https://static.cmereye.com/imgs/2023/09/915fb53ec41c5511.jpg',
-      name: '安裝臨時假牙', //'當牙骨與植體癒合，牙醫會安放癒合帽',
-      context: '確保植體與牙骨處於良好狀況後，根據客人實際情況，安裝臨時假牙。' //'等待2至3個月後，當牙骨與植體癒合，牙醫會安放癒合帽'
+      name: '安裝臨時假牙', 
+      context: '確保植體與牙骨處於良好狀況後，根據客人實際情況，安裝臨時假牙。' 
     },
     {
       title: '第5步',
       img: 'https://static.cmereye.com/imgs/2023/09/7096607a2bb3d79e.jpg',
-      name: '套上牙冠及微調', //'牙齦癒合後進行掃描式印模，製作義齒',
-      context: '確認植體在顎骨已穩固，套上客人心儀的牙色牙冠，作最後全體牙齒微調。' //'牙齦癒合後，再進行下一階段的療程進行掃描式印模，再由牙科技師製作義齒'
+      name: '套上牙冠及微調',
+      context: '確認植體在顎骨已穩固，套上客人心儀的牙色牙冠，作最後全體牙齒微調。'
     },
     {
       title: '第6步',
       img: 'https://static.cmereye.com/imgs/2023/09/9e044f535b6a7b46.jpg',
-      name: '定期覆診', //'將義齒固定在植體上及最後微調',
-      context: '根據客人情況，定期覆診跟進情況。', //'將義齒固定在植體上，補上缺去的牙齒'
+      name: '定期覆診',
+      context: '根據客人情況，定期覆診跟進情況。',
     }
   ]
 }
@@ -164,27 +171,6 @@ const reasonData = {
   title: 'pages.dental-service.implant.reason.title',
   text: '種植牙五大優點',
   imgUrl: 'https://static.cmereye.com/imgs/2023/05/bab7e2cd0e553a7f.jpg',
-  // reasonLists:[
-  //   {
-  //     context: 'pages.dental-service.implant.reason.lists[0].context',
-  //   },
-  //   {
-  //     hideIcon: true,
-  //     context: 'pages.dental-service.implant.reason.lists[1].context',
-  //   },
-  //   {
-  //     context: 'pages.dental-service.implant.reason.lists[2].context',
-  //   },
-  //   {
-  //     context: 'pages.dental-service.implant.reason.lists[3].context',
-  //   },
-  //   {
-  //     context: 'pages.dental-service.implant.reason.lists[4].context',
-  //   },
-  //   {
-  //     context: 'pages.dental-service.implant.reason.lists[5].context',
-  //   }
-  // ]
   pageName: 'implant',
   reasonLists:[
     {
@@ -216,14 +202,6 @@ const noticeData = {
     'pages.dental-service.implant.notice.topText[0].context',
     'pages.dental-service.implant.notice.topText[1].context'
   ],
-  // meritLists: [
-  //   'pages.dental-service.implant.notice.meritLists[0].context',
-  //   'pages.dental-service.implant.notice.meritLists[1].context',
-  // ],
-  // shortcomingLists: [
-  //   'pages.dental-service.implant.notice.shortcomingLists[0].context',
-  //   'pages.dental-service.implant.notice.shortcomingLists[1].context',
-  // ],
   dataLists: [
     {
       name: "",
@@ -271,78 +249,6 @@ const detailData = {
     'pages.dental-service.implant.detail.tableCol[2].text',
     'pages.dental-service.implant.detail.tableCol[3].text'
   ],
-  // detailTable: [
-  //   {
-  //     service: [
-  //       'pages.dental-service.implant.detail.tableData[0].service[0].context',
-  //       'pages.dental-service.implant.detail.tableData[0].service[1].context',
-  //     ],
-  //     type: [
-  //       'pages.dental-service.implant.detail.tableData[0].type[0].context',
-  //       'pages.dental-service.implant.detail.tableData[0].type[1].context',
-  //       [
-  //         'pages.dental-service.implant.detail.tableData[0].type[2].context[0].text',
-  //         'pages.dental-service.implant.detail.tableData[0].type[2].context[1].text',
-  //         'pages.dental-service.implant.detail.tableData[0].type[2].context[2].text'
-  //       ]
-  //     ],
-  //     price: '¥13800',
-  //     discountedPrice: '¥8800'
-  //   },
-  //   {
-  //     service: [
-  //       'pages.dental-service.implant.detail.tableData[1].service[0].context',
-  //       'pages.dental-service.implant.detail.tableData[1].service[1].context',
-  //     ],
-  //     type: [
-  //       'pages.dental-service.implant.detail.tableData[1].type[0].context',
-  //       'pages.dental-service.implant.detail.tableData[1].type[1].context',
-  //       [
-  //         'pages.dental-service.implant.detail.tableData[1].type[2].context[0].text',
-  //         'pages.dental-service.implant.detail.tableData[1].type[2].context[1].text'
-  //       ]
-  //     ],
-  //     price: '¥15800',
-  //     discountedPrice: '¥12800'
-  //   },
-  //   {
-  //     service: [
-  //       'pages.dental-service.implant.detail.tableData[2].service[0].context',
-  //       'pages.dental-service.implant.detail.tableData[2].service[1].context',
-  //     ],
-  //     type: [
-  //       'pages.dental-service.implant.detail.tableData[2].type[0].context',
-  //       'pages.dental-service.implant.detail.tableData[2].type[1].context',
-  //       [
-  //         'pages.dental-service.implant.detail.tableData[2].type[2].context[0].text',
-  //         'pages.dental-service.implant.detail.tableData[2].type[2].context[1].text',
-  //         'pages.dental-service.implant.detail.tableData[2].type[2].context[2].text'
-  //       ]
-  //     ],
-  //     price: '¥18800',
-  //     discountedPrice: '¥14800'
-  //   },
-  //   {
-  //     service: [
-  //       'pages.dental-service.implant.detail.tableData[3].service[0].context',
-  //       'pages.dental-service.implant.detail.tableData[3].service[1].context',
-  //       'pages.dental-service.implant.detail.tableData[3].service[2].context'
-  //     ],
-  //     type: [
-  //       'pages.dental-service.implant.detail.tableData[3].type[0].context',
-  //       'pages.dental-service.implant.detail.tableData[3].type[1].context',
-  //       [
-  //         'pages.dental-service.implant.detail.tableData[3].type[2].context[0].text',
-  //         'pages.dental-service.implant.detail.tableData[3].type[2].context[1].text',
-  //         'pages.dental-service.implant.detail.tableData[3].type[2].context[2].text',
-  //         'pages.dental-service.implant.detail.tableData[3].type[2].context[3].text',
-  //         'pages.dental-service.implant.detail.tableData[3].type[2].context[4].text'
-  //       ]
-  //     ],
-  //     price: '¥26000',
-  //     discountedPrice: '¥18800'
-  //   }
-  // ],
   detailTable: [
     {
       service: "服務", 
@@ -560,6 +466,107 @@ const yaImgFu = (_idx,_type) => {
     yaImgCurrtNum.value = 6
   }
 }
+
+let Plant_brand_series_cur = ref(0)
+
+const Plant_brand_series_data = [
+  {
+    id: '1101',
+    name: ['美國','皓聖'],
+    img: 'https://static.cmereye.com/imgs/2024/02/451f4fbf1a45ce90.png',
+    logo: 'https://static.cmereye.com/imgs/2024/02/9badffc6183d36ba.png',
+    lists: ['暢銷全球100多個國家','經濟實惠之選','即剝即種']
+  },
+  {
+    id: '1102',
+    name: ['韓國','奧齒泰'],
+    img: 'https://static.cmereye.com/imgs/2024/02/21015f2908f11759.png',
+    logo: 'https://static.cmereye.com/imgs/2024/02/3f53e24f1f9ce65a.png',
+    lists: ['適合亞洲人種植','性價比高']
+  },
+  {
+    id: '1103',
+    name: ['瑞士','拓美親水'],
+    img: 'https://static.cmereye.com/imgs/2024/02/b317ade36efb87d3.png',
+    logo: 'https://static.cmereye.com/imgs/2024/02/1ed372ab9936505f.png',
+    lists: ['癒合週期短','可於前牙使用','高效抗菌']
+  },
+  {
+    id: '1104',
+    name: ['德國','植體'],
+    img: 'https://static.cmereye.com/imgs/2024/02/0c7521c0041ce4b1.png',
+    logo: 'https://static.cmereye.com/imgs/2024/02/0db21351ca26a0a7.png',
+    lists: ['德國老品牌精密傑作','完美保存牙骨及組織','全球終身保養']
+  },
+  {
+    id: '1105',
+    name: ['瑞士','士卓曼'],
+    img: 'https://static.cmereye.com/imgs/2024/02/fac98f00c8e3f380.png',
+    logo: 'https://static.cmereye.com/imgs/2024/02/c35e7ba905606dd0.png',
+    lists: ['全球終身保養','全球認可最大植體品牌','癒合時間最短，最快３週完成','煙酒及糖尿病人士適用']
+  }
+]
+
+const doctorData = {
+  title: '植體品牌系列',
+  lists: [
+  {
+    id: '101',
+    name: '李川',
+    job: '院長',
+    addressType: '101',
+    addressname: '羅湖區',
+    text: '即刻植牙、微創植牙、牙齒美容修復、前牙全瓷美學修復等。',
+    img: 'https://static.cmereye.com/imgs/2024/02/a24233463dca40da.png'
+  },
+  {
+    id: '102',
+    name: '盧勇輝',
+    job: '院長',
+    addressType: '101',
+    addressname: '羅湖區',
+    text: '牙周病系統治療，各類牙周微創手術，牙齒美容修復，牙周炎治療、牙體美學修復、牙齒缺損美學樹脂修復、牙齒美白、舒適微創拔牙等。',
+    img: 'https://static.cmereye.com/imgs/2024/02/5965b5326d696a98.png'
+  },
+  {
+    id: '103',
+    name: '鞏賢平',
+    job: '院長',
+    addressType: '101',
+    addressname: '羅湖區',
+    text: '植牙修復，微創美觀修復，全口咬合重建等；熟練應用口腔顯微鏡並在顯微放大設備下進行植牙手術、牙周美觀手術及各類修復操作。',
+    img: 'https://static.cmereye.com/imgs/2024/02/d515b22a846b996e.png'
+  },
+  {
+    id: '104',
+    name: '劉鑫',
+    job: '院長',
+    addressType: '102',
+    addressname: '福田區',
+    text: '各種疑難植牙、穿顴穿翼、全口無牙顎、上顎竇增高、複雜的軟硬組織移植、即時植牙即刻修復、前牙美觀、數位化和植牙導航等諸多領域。',
+    img: 'https://static.cmereye.com/imgs/2024/02/0762d56bee690392.png'
+  },
+  {
+    id: '105',
+    name: '周小明',
+    job: '院長',
+    addressType: '102',
+    addressname: '福田區',
+    text: '各類口腔疾病診斷與治療、熟練進行微創植牙、即剝即種即刻修復等尖端技術。',
+    img: 'https://static.cmereye.com/imgs/2024/02/169059476e4803ff.png'
+  },
+  {
+    id: '106',
+    name: '馮曉瑛',
+    job: '院長',
+    addressType: '103',
+    addressname: '南山區',
+    text: '複雜病例整體診療方案的設計、數位植牙修復技術等，對齒槽骨嚴重吸收的病例，全口活動義齒修復方面有深厚的技術功底及累積。',
+    img: 'https://static.cmereye.com/imgs/2024/02/211667de3a4ffa59.png'
+  }
+]
+}
+
 </script>
 
 <template>
@@ -567,7 +574,15 @@ const yaImgFu = (_idx,_type) => {
     <PageHeader :headerConfig="headerConfig"/>
     <div class="dentistryServices">
       <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
-      <ServiceIntroduce :introduceData="introduceData" />
+      <div class="tabNav pageCon">
+        <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院"
+          ><span>{{ $t('pages.index.title') }}</span></nuxt-link
+        >
+        <nuxt-link :to="'/dental-service'" :title="$t('pages.dental-service.title')" :alt="('pages.dental-service.title')"
+          ><span>{{ $t('pages.dental-service.title') }}</span></nuxt-link
+        >
+        <span :title="$t(introduceData.tabNavName)">{{ $t(introduceData.tabNavName) }}</span>
+      </div>
       <div class="plague">
         <div class="plague-in">
           <div class="dentistryServices-title plague-title">
@@ -581,7 +596,20 @@ const yaImgFu = (_idx,_type) => {
           </div>
         </div>
       </div>
-      <ServiceReason :reasonData="reasonData" />
+      <ServiceIntroduceJY :introduceData="introduceJY" />
+      <div class="Dental_implant_technology">
+        <div class="dentistryServices-title">
+          <div class="dentistryServices-title-in bb">
+            種植牙技術
+          </div>
+        </div>
+        <div class="Dental_implant_technology-context">
+          為了提供精准化的種植牙服務，運用先進電腦圖形影像技術，對客戶進行定制化分析。根據口腔內CT掃描和光學掃描的數據，在電腦上重建下顎骨立體模型，旨在確保每次種植的精準性和成功率。
+        </div>
+        <div class="Dental_implant_technology-img">
+          <img src="https://static.cmereye.com/imgs/2024/02/889bd45e5e2ee385.png" alt="">
+        </div>
+      </div>
       <div class="notice">
         <div class="dentistryServices-title notice-title">
           <div class="dentistryServices-title-in bb notice-title-in">{{$t(noticeData.title)}}</div>
@@ -602,6 +630,7 @@ const yaImgFu = (_idx,_type) => {
           <span v-for="(bottomTextItem,bottomTextIndex) in noticeData.bottomText" :key="bottomTextIndex">{{$t(bottomTextItem)}}</span>
         </div>
       </div>
+      <ServiceReason :reasonData="reasonData" />
       <div class="step">
         <div class="step-in">
           <div class="dentistryServices-title step-title">
@@ -625,42 +654,41 @@ const yaImgFu = (_idx,_type) => {
           </div>
         </div>
       </div>
-      <div class="note">
-        <div class="dentistryServices-title note-title">
-          <div class="dentistryServices-title-in bb note-title-in">{{$t('pages.dental-service.implant.note.title')}}</div>
+      <div class="Plant_brand_series">
+        <div class="dentistryServices-title">
+          <div class="dentistryServices-title-in bb">
+            植體品牌系列
+          </div>
         </div>
-        <div class="noteCard pageCon">
-          <div class="noteCard-in" v-for="(note,noteIndex) in noteLists" :key="noteIndex">
-            <div class="noteCard-in-image">
-              <img :src="note.img" alt="">
+        <div class="Plant_brand_series-tab">
+          <span :class="{active: Plant_brand_series_cur === tabIndex}" v-for="(tabItem,tabIndex) in Plant_brand_series_data" :key="tabIndex" @click="Plant_brand_series_cur = tabIndex">
+            <span v-for="(tabspanitem,tabspanindex) in tabItem.name" :key='tabspanindex'>
+              {{tabspanitem}}
+            </span>
+          </span>
+        </div>
+        <div class="Plant_brand_series-content">
+          <div class="Plant_brand_series-content-l">
+            <img :src="Plant_brand_series_data[Plant_brand_series_cur].img" alt="">
+          </div>
+          <div class="Plant_brand_series-content-r">
+            <div><img :src="Plant_brand_series_data[Plant_brand_series_cur].logo" alt=""></div>
+            <div>
+              <span v-for="(tabspanitem,tabspanindex) in Plant_brand_series_data[Plant_brand_series_cur].name" :key='tabspanindex'>
+                {{tabspanitem}}
+              </span>
             </div>
-            <div class="noteCard-in-name">{{$t(note.name)}}</div>
+            <div>
+              <span v-for="(item,index) in Plant_brand_series_data[Plant_brand_series_cur].lists" :key="index">
+                {{item}}
+              </span>
+            </div>
           </div>
         </div>
       </div>
-      <!-- <div class="detail">
-        <div class="dentistryServices-title detail-title">
-          <div class="dentistryServices-title-in bb detail-title-in">{{$t(detailData.title)}}</div>
-        </div>
-        <div class="detail-table">
-          <div class="detail-table-in" v-for="(tableItem,tableItemIndex) in detailData.detailTable" :key="tableItemIndex">
-            <div class="service">{{tableItem.service}}</div>
-            <div class="price">
-              <span>{{tableItem.discountedPrice}}</span>
-              <span>{{tableItem.price}}</span>
-            </div>
-          </div>
-        </div>
-        <div class="detail-bottom">
-          <div class="text">
-            成功預約送專業洗牙 及 X光口腔檢查 1次
-          </div>
-          <div class="btn" ref="detailBtn">
-            <span @click="toWhatsApp">預約檢查及諮詢</span>
-            <span :class="{showYaAnim:showYaAnim}" @click="toWhatsApp">預約檢查及諮詢</span>
-          </div>
-        </div>
-      </div> -->
+      <div class="doctorTeam">
+        <ServiceSpecializedTeam :doctorData="doctorData" />
+      </div>
       <div class="implantCase">
         <div class="implantCase-title dentistryServices-title">
           <div class="dentistryServices-title-in bb implantCase-title-in">植牙案例</div>
@@ -738,8 +766,21 @@ const yaImgFu = (_idx,_type) => {
           </div>
         </div>
       </div>
+      <div class="note">
+        <div class="dentistryServices-title note-title">
+          <div class="dentistryServices-title-in bb note-title-in">{{$t('pages.dental-service.implant.note.title')}}</div>
+        </div>
+        <div class="noteCard pageCon">
+          <div class="noteCard-in" v-for="(note,noteIndex) in noteLists" :key="noteIndex">
+            <div class="noteCard-in-image">
+              <img :src="note.img" alt="">
+            </div>
+            <div class="noteCard-in-name">{{$t(note.name)}}</div>
+          </div>
+        </div>
+      </div>
       <ServiceCase />
-      <ServiceProblem :problemData="problemData" />
+      <!-- <ServiceProblem :problemData="problemData" /> -->
       <serviceCard />
       <ContactUs />
     </div>
@@ -752,12 +793,34 @@ const yaImgFu = (_idx,_type) => {
   .dentistryServices{
     background: #fff;
     padding: 143px 0;
-    
+    .tabNav {
+      font-weight: 400;
+      font-size: 1.25rem;
+      line-height: 160%;
+      color: #cbcbcb;
+      margin-top: 20px;
+      a {
+        &:not(:last-child)::after {
+          content: '';
+          width: 20px;
+          height: 2px;
+          margin: 0 10px;
+          background: #cbcbcb;
+          display: inline-block;
+          vertical-align: middle;
+          margin-top: -4px;
+        }
+      }
+      & > span {
+        cursor: pointer;
+        color: var(--indexColor1);
+      }
+    }
     .plague{
       width: 100%;
       background: linear-gradient(135deg, rgba(255, 241, 240, 0.25) 0%, rgba(255, 221, 218, 0.25) 100%);
       padding: 98px 0;
-      margin-top: 206px;
+      margin-top: 30px;
       &-in{
         width: 100%;
         max-width: 803px;
@@ -826,220 +889,20 @@ const yaImgFu = (_idx,_type) => {
         }
       }
     }
-    .detail{
-      margin-top: 206px;
-      padding-bottom: 100px;
-      &-title{
-        &-in{
-          font-size: 50px;
-        }
-      }
-      &-table{
+    .Dental_implant_technology{
+      margin-top: 80px;
+      &-context{
         width: 100%;
-        max-width: 1091px;
-        margin: 54px auto 0;
-        border-radius: 60px;
-        overflow: hidden;
-        // overflow: hidden;
-        // overflow-x: auto;
-        &-in{
-          // width: 100%;
-          // min-width: 714px;
-          // border-radius: 60px;
-          // overflow: hidden;
-          &-col{
-            display: flex;
-            height: 69px;
-            &>div{
-              background: var(--indexColor1);
-              flex: 1;
-              font-style: normal;
-              font-weight: 700;
-              font-size: 28px;
-              line-height: 160%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              color: #FFFFFF;
-              &:nth-of-type(1){
-                flex: 1.5;
-              }
-              &:nth-of-type(2){
-                flex: 2;
-              }
-              &:not(:last-child){
-                margin-right: 3px;
-              }
-            }
-          }
-          &-data{
-            display: flex;
-            height: 172px;
-            &>div{
-              flex: 1;
-              background: var(--indexColor2);
-              font-style: normal;
-              font-weight: 600;
-              font-size: 20px;
-              line-height: 160%;
-              color: #666666;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              flex-direction: column;
-              span{
-                width: 100%;
-                max-width: 80%;
-                display: flex;
-                &>div{
-                  flex: 1;
-                  p{
-                    display: inline-block;
-                    &:not(:first-child){
-                      margin-right: 10px;
-                    }
-                  }
-                }
-                &>p{
-                  &:nth-of-type(1){
-                    width: 20px;
-                  }
-                }
-              }
-              &:nth-of-type(1){
-                flex: 1.5;
-              }
-              &:nth-of-type(2){
-                flex: 2;
-              }
-              &:nth-of-type(3),&:nth-of-type(4){
-                font-weight: 700;
-                font-size: 28px;
-              }
-              &:not(:last-child){
-                margin-right: 3px;
-              }
-            }
-            &:not(:nth-of-type(2)){
-              margin-top: 8px;
-            }
-          }
-          display: flex;
-          &>div{
-            background: var(--indexColor2);
-            margin-bottom: 8px;
-            padding: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            color: #666666;
-            &:nth-of-type(1){
-              width: 67%;
-            }
-            &:nth-of-type(2){
-              flex: 1;
-            }
-            &:not(:last-child){
-              margin-right: 8px;
-            }
-            flex-direction: column;
-            span{
-              &:nth-of-type(1){
-                color: var(--indexColor1);
-                font-weight: 700;
-                font-size: 28px;
-              }
-              &:nth-of-type(2){
-                font-size: 16px;
-                font-weight: 700;
-                position: relative;
-                &::before{
-                  content: '';
-                  width: 100%;
-                  height: 1px;
-                  position: absolute;
-                  left: 50%;
-                  top: 50%;
-                  transform: translate(-50%,-50%) rotate(4deg);
-                  background: #4d4d4d;
-                }
-              }
-            }
-          }
-          &:nth-of-type(1){
-            &>div{
-              padding: 13px 0;
-              font-size: 28px;
-              font-weight: 600;
-              color: #fff;
-              background: var(--indexColor);
-              margin-bottom: 0;
-              span{
-                font-size: 28px;
-                color: #fff;
-              }
-            }
-          }
-          &:last-child{
-            &>div{
-              margin-bottom: 0;
-            }
-          }
-        }
-      }
-      &-remark{
-        width: 100%;
-        max-width: 1245px;
-        margin: 20px auto 0;
+        max-width: 1016px;
+        margin: 20px auto 50px;
         font-size: 20px;
-        font-weight: 600;
+        line-height: 160%;
+        text-align: center;
       }
-      &-bottom{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        .text{
-          margin-top: 35px;
-          font-size: 35px;
-          font-weight: 700;
-          color: var(--indexColor1);
-        }
-        .btn{
-          margin-top: 35px;
-          position: relative;
-          width: 100%;
-          display: flex;
-          justify-content: center;
-          span{
-            box-shadow: 0px 1.74695px 3.4939px 0px rgba(252, 22, 130, 0.38);
-            font-size: 35px;
-            font-weight: 900;
-            color: #fff;
-            border-radius: 40px;
-            padding: 5px 90px;
-            background: var(--indexColor1);
-            cursor: pointer;
-            top: 0;
-            &:nth-of-type(2){
-              color: var(--indexColor1);
-              background: #fff;
-              position: absolute;
-              left: 50%;
-              transform: translateX(-50%);
-              z-index: 2;
-              animation: btnAnim 1s linear;
-              animation-fill-mode: forwards;
-              width: max-content;
-              display: none;
-            }
-            &.showYaAnim{
-              display: flex;
-              animation: btnAnim 1s linear;
-              animation-fill-mode: forwards;
-            }
-          }
-        }
+      &-img{
+        width: 100%;
+        max-width: 1038px;
+        margin: 0 auto;
       }
     }
     .notice{
@@ -1216,6 +1079,85 @@ const yaImgFu = (_idx,_type) => {
           }
         }
       }
+    }
+    .Plant_brand_series{
+      margin-top: 80px;
+      &-tab{
+        width: 100%;
+        max-width: 864px;
+        margin: 30px auto;
+        display: flex;
+        &>span{
+          flex: 1;
+          color: var(--indexColor1);
+          font-size: 22px;
+          border-top: 2px solid var(--indexColor1);
+          border-bottom: 2px solid var(--indexColor1);
+          border-left: 2px solid var(--indexColor1);
+          padding: 7px 0;
+          text-align: center;
+          cursor: pointer;
+          transition: all .3s;
+          &:first-child{
+            border-radius: 5px 0 0 5px;
+          }
+          &:last-child{
+            border-radius: 0 5px 5px 0;
+            border-right: 2px solid var(--indexColor1);
+          }
+          &:hover,&.active{
+            background: var(--indexColor1);
+            color: #fff;
+          }
+        }
+      }
+      &-content{
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto;
+        display: flex;
+        &-l{
+          width: calc(300 / 700 * 100%);
+          margin-right: calc(30 / 695 * 100%);
+          img{
+            width: 100%;
+          }
+        }
+        &-r{
+          flex: 1;
+          &>div{
+            &>img{
+              max-width: 100%;
+            }
+            &:nth-of-type(2){
+              width: 70%;
+              color: #fff;
+              background: var(--indexColor1);
+              font-size: 30px;
+              line-height: 160%;
+              padding-left: 17px;
+              clip-path: polygon(0 0, 90% 0, 100% 100%, 0 100%);
+              margin: 10px 0;
+            }
+            &:nth-of-type(3){
+              display: flex;
+              flex-direction: column;
+              span{
+                font-size: 26px;
+                line-height: 1.6;
+                &::before{
+                  content: '·';
+                  display: inline-block;
+                  margin-right: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .doctorTeam{
+      margin-top: 80px;
     }
     .note{
       margin-top: 206px;
@@ -1416,6 +1358,10 @@ const yaImgFu = (_idx,_type) => {
           }
         }
       }
+      .tabNav {
+        font-size: 1.5vw;
+        margin-top: 20px;
+      }
     }
   }
   @media (min-width: 768px) and (max-width: 1100px) {
@@ -1467,8 +1413,22 @@ const yaImgFu = (_idx,_type) => {
     }
     .dentistryServices{
       padding: 90px 0;
+      .tabNav {
+        padding: 30px;
+        font-size: 1rem;
+        margin-top: 0;
+      }
+      .Dental_implant_technology{
+        &-context{
+          font-size: 16px;
+          line-height: 200%;
+          padding: 0 30px;
+          text-align: justify;
+          margin: 20px auto 30px;
+        }
+      }
       .plague{
-        margin-top: 95px;
+        margin-top: 0;
         padding: 31px 0 44px;
         &-title{
           &-in{
@@ -1546,119 +1506,6 @@ const yaImgFu = (_idx,_type) => {
               line-height: 30px;
               margin-bottom: 25px;
               font-size: 14px;
-            }
-          }
-        }
-      }
-      .detail{
-        margin-top: 75px;
-        padding-bottom: 0;
-        &-title{
-          &-in{
-            font-size: 26px;
-          }
-        }
-        &-table{
-          margin: 29px 30px 0;
-          width: auto;
-          border-radius: 20px;
-          position: relative;
-          &::-webkit-scrollbar {
-            background: none;
-            height: 3px;
-            width: 3px;
-            position: relative;
-          }
-          &::-webkit-scrollbar-thumb{
-            background: var(--indexColor1);
-            border: none;
-          }
-          &::-webkit-scrollbar-track{
-            background: var(--indexColor2);
-          }
-          &::-webkit-scrollbar-button{
-            display: block;
-            opacity: 0;
-          }
-          &-in{
-            // margin: 0 30px;
-            &-col{
-              height: 40px;
-              &>div{
-                flex: 1.2;
-                font-weight: 600;
-                font-size: 20px;
-                &>div{
-                  &:last-child{
-                    font-weight: 700;
-                    font-size: 16px;
-                  }
-                }
-              }
-            }
-            &-data{
-              height: 117px;
-              &>div{
-                flex: 1.2;
-                font-weight: 500;
-                font-size: 15px;
-                &:nth-of-type(3),&:nth-of-type(4){
-                  font-weight: 600;
-                  font-size: 20px;
-                }
-              }
-              &:not(:nth-of-type(2)){
-                margin-top: 4px;
-              }
-              &:last-child{
-                height: 149px;
-              }
-            }
-            &>div{
-              padding: 22px;
-              margin-bottom: 2px;
-              font-size: 15px;
-              &:nth-of-type(1){
-                width: 54%;
-              }
-              &:not(:last-child){
-                margin-right: 2px;
-              }
-              span{
-                &:nth-of-type(1){
-                  font-size: 20px;
-                }
-                &:nth-of-type(2){
-                  font-size: 12px;
-                }
-              }
-            }
-            &:nth-of-type(1){
-              &>div{
-                padding: 10px 0;
-                font-size: 20px;
-                span{
-                  font-size: 20px;
-                }
-              }
-            }
-          }
-        }
-        &-remark{
-          padding: 0 30px;
-          font-size: 16px;
-          text-align: center;
-        }
-        &-bottom{
-          .text{
-            font-size: 16px;
-            margin-top: 17px;
-          }
-          .btn{
-            margin-top: 17px;
-            span{
-              font-size: 16px;
-              padding: 5px 50px;
             }
           }
         }
@@ -1769,6 +1616,74 @@ const yaImgFu = (_idx,_type) => {
             }
           }
         }
+      }
+      .Plant_brand_series{
+        margin-top: 30px;
+        &-tab{
+          padding: 0 30px;
+          &>span{
+            font-size: 15px;
+            line-height: 160%;
+            &>span{
+              display: block;
+            }
+            &:nth-of-type(1){
+              flex: 1;
+            }
+            &:nth-of-type(2){
+              flex: 1.2;
+            }
+            &:nth-of-type(3){
+              flex: 1.4;
+            }
+            &:nth-of-type(4){
+              flex: 1;
+            }
+            &:nth-of-type(5){
+              flex: 1.2;
+            }
+            &:hover{
+              background: none;
+              color: var(--indexColor1);
+            }
+            &.active{
+              background: var(--indexColor1);
+              color: #fff;
+            }
+          }
+        }
+        &-content{
+          padding: 0 30px;
+          &-r{
+            &>div{
+              &>img{
+                max-width: 80%;
+              }
+              &:nth-of-type(2){
+                width: 90%;
+                font-size: 15px;
+                padding: 2px 0 2px 15px;
+                margin: 5px 0;
+                clip-path: polygon(0 0, 87% 0, 100% 100%, 0 100%);
+              }
+              &:nth-of-type(3){
+                span{
+                  font-size: 12px;
+                  &::before{
+                    margin-right: 6px;
+                    font-size: 20px;
+                    line-height: 100%;
+                    vertical-align: middle;
+                    margin-top: -2px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .doctorTeam{
+        margin-top: 60px;
       }
       .implantCase{
         margin-top: 90px;

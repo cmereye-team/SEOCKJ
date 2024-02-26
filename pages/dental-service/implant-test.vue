@@ -526,7 +526,7 @@ const doctorData = {
     addressType: '101',
     addressname: '羅湖區',
     text: '牙周病系統治療，各類牙周微創手術，牙齒美容修復，牙周炎治療、牙體美學修復、牙齒缺損美學樹脂修復、牙齒美白、舒適微創拔牙等。',
-    img: 'https://static.cmereye.com/imgs/2024/02/a24233463dca40da.png'
+    img: 'https://static.cmereye.com/imgs/2024/02/5965b5326d696a98.png'
   },
   {
     id: '103',
@@ -535,7 +535,7 @@ const doctorData = {
     addressType: '101',
     addressname: '羅湖區',
     text: '植牙修復，微創美觀修復，全口咬合重建等；熟練應用口腔顯微鏡並在顯微放大設備下進行植牙手術、牙周美觀手術及各類修復操作。',
-    img: 'https://static.cmereye.com/imgs/2024/02/a24233463dca40da.png'
+    img: 'https://static.cmereye.com/imgs/2024/02/d515b22a846b996e.png'
   },
   {
     id: '104',
@@ -544,7 +544,7 @@ const doctorData = {
     addressType: '102',
     addressname: '福田區',
     text: '各種疑難植牙、穿顴穿翼、全口無牙顎、上顎竇增高、複雜的軟硬組織移植、即時植牙即刻修復、前牙美觀、數位化和植牙導航等諸多領域。',
-    img: 'https://static.cmereye.com/imgs/2024/02/a24233463dca40da.png'
+    img: 'https://static.cmereye.com/imgs/2024/02/0762d56bee690392.png'
   },
   {
     id: '105',
@@ -553,7 +553,7 @@ const doctorData = {
     addressType: '102',
     addressname: '福田區',
     text: '各類口腔疾病診斷與治療、熟練進行微創植牙、即剝即種即刻修復等尖端技術。',
-    img: 'https://static.cmereye.com/imgs/2024/02/a24233463dca40da.png'
+    img: 'https://static.cmereye.com/imgs/2024/02/169059476e4803ff.png'
   },
   {
     id: '106',
@@ -562,7 +562,7 @@ const doctorData = {
     addressType: '103',
     addressname: '南山區',
     text: '複雜病例整體診療方案的設計、數位植牙修復技術等，對齒槽骨嚴重吸收的病例，全口活動義齒修復方面有深厚的技術功底及累積。',
-    img: 'https://static.cmereye.com/imgs/2024/02/a24233463dca40da.png'
+    img: 'https://static.cmereye.com/imgs/2024/02/211667de3a4ffa59.png'
   }
 ]
 }
