@@ -788,7 +788,7 @@ svg:hover path{
           transform: translateX(-50%);
           // width: calc(100% - 3px);
           // max-width: 80%;
-          max-height: calc(100% - 3px);
+          max-height: calc(92% - 3px);
           display: block;
         }
       }
