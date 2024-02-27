@@ -246,7 +246,6 @@ if(process.server){
       </div>
       <div class="articlePage-err" v-else>
         <span>服務異常或内容已删除！</span>
-        <!-- <nuxt-link :to="router.push(-1)">返回上一页</nuxt-link> -->
       </div>
       <!-- <div @click="handlegetData">獲取數據</div> -->
       <ContactUs />
