@@ -508,7 +508,7 @@ const Plant_brand_series_data = [
 ]
 
 const doctorData = {
-  title: '植體品牌系列',
+  title: '種植專科團隊',
   lists: [
   {
     id: '101',
