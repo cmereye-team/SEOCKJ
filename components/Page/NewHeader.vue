@@ -1134,7 +1134,7 @@ const handleBannerLineCur = (_value:number) =>{
             border: 10px solid;
             border-color: transparent transparent #fff transparent;
             position: absolute;
-            top: -20px;
+            top: -18px;
             left: 50%;
             transform: translateX(-50%);
           }

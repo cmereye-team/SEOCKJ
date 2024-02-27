@@ -364,8 +364,8 @@ const handleMbMenu = () => {
         "
         class="header-content-btn-implant"
       >
-        <span @click="toWhatsApp">預約檢查及諮詢</span>
-        <span @click="toWhatsApp">預約檢查及諮詢</span>
+        <span @click="toWhatsApp">免費網上預約</span>
+        <span @click="toWhatsApp">免費網上預約</span>
       </div>
       <div
         v-if="
@@ -397,8 +397,8 @@ const handleMbMenu = () => {
         "
         class="header-content-btn-implant"
       >
-        <span @click="toWhatsApp">獲取免費諮詢</span>
-        <span @click="toWhatsApp">獲取免費諮詢</span>
+        <span @click="toWhatsApp">免費網上預約</span>
+        <span @click="toWhatsApp">免費網上預約</span>
       </div>
       <div
         v-if="
@@ -1070,7 +1070,7 @@ const handleMbMenu = () => {
             border: 10px solid;
             border-color: transparent transparent #fff transparent;
             position: absolute;
-            top: -20px;
+            top: -18px;
             left: 50%;
             transform: translateX(-50%);
           }

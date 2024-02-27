@@ -216,6 +216,7 @@ const handleDoctor = () => {
                 }
               }
               &-btn{
+                margin-bottom: 15px;
                 span{
                   font-size: 16px;
                   padding: 5px 30px;

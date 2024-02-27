@@ -57,7 +57,7 @@ const reasonData = {
       context: '受損至象牙質',
     },
     {
-      img: 'https://static.cmereye.com/imgs/2023/10/681ccc8143796f14.jpg',
+      img: 'https://static.cmereye.com/imgs/2024/02/110eb2fe9f155701.jpg',
       title: '蛀牙後期',
       context: '細菌深入牙髓\n內部組織發炎',
     },
@@ -150,7 +150,7 @@ const stepData = {
     {
       title: '第7步',
       img: 'https://static.cmereye.com/imgs/2023/11/d542e53ca685f034.jpg',
-      name: '定期覆診',
+      name: '修復',
       context: '用牙套保護已杜牙根的牙齒，減低其損壞機會',
     },
   ],
@@ -226,6 +226,66 @@ const setSwiperRef = (swiper: any) => {
 }
 const handleProcessBtn = (_type: string) => {
   swiperRef[_type]()
+}
+
+const doctorData = {
+  title: '根管治療醫療團隊',
+  lists: [
+  {
+    id: '101',
+    name: '楊福強',
+    job: '總監醫生',
+    addressType: '101',
+    addressname: '羅湖區',
+    text: '口腔美觀設計、瓷牙修復、牙體牙髓病的診治、牙體缺損的修復以及瓷冠、義齒的修復等方面的診治，在水激光無痛治牙方面有著豐富的臨床經驗。 操作手法靈巧精確， 解決疑難病例無數。',
+    img: 'https://static.cmereye.com/imgs/2024/02/e7f0a15e92483e5f.png'
+  },
+  {
+    id: '102',
+    name: '鞏賢平',
+    job: '院長',
+    addressType: '101',
+    addressname: '羅湖區',
+    text: '牙齒美容修復、烤瓷及全瓷修復、 各類復雜義齒修復、種植修復 等。',
+    img: 'https://static.cmereye.com/imgs/2024/02/48ce5ddebca789de.png'
+  },
+  {
+    id: '103',
+    name: '韋柱山',
+    job: '主任醫生',
+    addressType: '101',
+    addressname: '羅湖區',
+    text: '前牙美學修復、根管治療、口腔修復、美容修復等。',
+    img: 'https://static.cmereye.com/imgs/2024/02/03f45d5c4bf3922d.png'
+  },
+  {
+    id: '104',
+    name: '劉鑫',
+    job: '院長',
+    addressType: '102',
+    addressname: '福田區',
+    text: '各種疑難植牙、穿顴穿翼、全口無牙顎、上顎竇增高、複雜的軟硬組織移植、即時植牙即刻修復、前牙美觀、數位化和植牙導航等諸多領域。',
+    img: 'https://static.cmereye.com/imgs/2024/02/0762d56bee690392.png'
+  },
+  {
+    id: '105',
+    name: '劉章智',
+    job: '院長',
+    addressType: '102',
+    addressname: '福田區',
+    text: '將無痛治療技術與美學設計理念相結合，運用於根管治療、固定及活動義齒的診療當中。對各類疑難牙體牙髓病積累了大量成功治療案例和豐富的經驗。',
+    img: 'https://static.cmereye.com/imgs/2024/02/6683a60841dc732e.png'
+  },
+  {
+    id: '106',
+    name: '馮曉瑛',
+    job: '院長',
+    addressType: '103',
+    addressname: '南山區',
+    text: '複雜病例整體診療方案的設計、根管治療、數字化種植修復技術。',
+    img: 'https://static.cmereye.com/imgs/2024/02/211667de3a4ffa59.png'
+  }
+]
 }
 
 </script>
@@ -311,6 +371,22 @@ const handleProcessBtn = (_type: string) => {
           </div>
         </div>
       </div>
+      <div class="Root_canal_treatment_equipment">
+        <div class="dentistryServices-title">
+          <div class="dentistryServices-title-in bb">
+            根管治療設備
+          </div>
+        </div>
+        <div class="Root_canal_treatment_equipment-in">
+          <div class="Root_canal_treatment_equipment-in-l">
+            <img src="https://static.cmereye.com/imgs/2024/02/33f5319ca2369e70.webp" alt="">
+          </div>
+          <div class="Root_canal_treatment_equipment-in-r">
+            <img src="https://static.cmereye.com/imgs/2024/02/760462b941be8e2c.webp" alt="">
+            <span>我們使用德國蔡司顯微鏡根管治療儀，一款結合顯微鏡與醫學技術的設備，大幅提升牙醫治療根管的精準度。讓醫生能夠清楚觀察牙齒結構和根管形態，無論進行常規治療或顯微外科手術，都能更好地保留客人健康牙齒組織。</span>
+          </div>
+        </div>
+      </div>
       <div class="step">
         <div class="step-in">
           <div class="dentistryServices-title step-title">
@@ -351,6 +427,9 @@ const handleProcessBtn = (_type: string) => {
           </div>
         </div>
       </div>
+      <div class="doctorTeam">
+        <ServiceSpecializedTeam :doctorData="doctorData" />
+      </div>
       <div class="note">
         <div class="dentistryServices-title note-title">
           <div class="dentistryServices-title-in bb note-title-in">
@@ -375,42 +454,7 @@ const handleProcessBtn = (_type: string) => {
           </div>
         </div>
       </div>
-      <!-- <div class="honor">
-        <div class="honor-bg">
-          <div class="dentistryServices-title honor-title">
-            <div class="dentistryServices-title-in bb honor-title-in">愛康健齒科品牌連鎖</div>
-          </div>
-          <div class="honor-text">
-            <span>致力於口腔健康28年</span>
-            <span>，</span>
-            <span>多次榮獲殊榮，信心保證</span>
-          </div>
-          <div class="honor-in pageCon">
-            <div class="leftBtn" @click="handleProcessBtn('slidePrev')"></div>
-            <swiper
-              slides-per-view="auto"
-              :loop="true"
-              class="honorSwiper"
-              @swiper="setSwiperRef"
-            >
-              <swiper-slide class="swiper-slide">
-                <img
-                  src="https://static.cmereye.com/imgs/2023/06/154e36113fa5e579.png"
-                  alt=""
-                />
-              </swiper-slide>
-              <swiper-slide class="swiper-slide">
-                <img
-                  src="https://static.cmereye.com/imgs/2023/06/ac0aa9264119857f.png"
-                  alt=""
-                />
-              </swiper-slide>
-            </swiper>
-            <div class="rightBtn" @click="handleProcessBtn('slideNext')"></div>
-          </div>
-        </div>
-      </div> -->
-      <ServiceProblem :problem-data="problemData" />
+      <!-- <ServiceProblem :problem-data="problemData" /> -->
       <serviceCard />
       <ContactUs />
     </div>
@@ -588,7 +632,7 @@ const handleProcessBtn = (_type: string) => {
     rgba(255, 241, 240, 0) 100%
   );
   padding: 61px 0 140px;
-  margin-top: 77px;
+  margin-top: 140px;
   &-in {
     width: 100%;
     max-width: 1444px;
@@ -679,11 +723,11 @@ const handleProcessBtn = (_type: string) => {
           align-items: flex-end;
           & > div {
             color: var(--indexColor1);
-            font-size: 35px;
+            font-size: 75px;
             font-weight: 700;
-            span {
-              font-size: 85px;
-            }
+            // span {
+            //   font-size: 85px;
+            // }
             &:nth-of-type(1) {
               padding-bottom: 25px;
               margin-right: 30px;
@@ -696,40 +740,6 @@ const handleProcessBtn = (_type: string) => {
         }
         .lastBox-b {
           margin-top: 15px;
-          // span {
-          //   cursor: pointer;
-          //   background: var(--indexColor1);
-          //   color: #fff;
-          //   font-size: 35px;
-          //   font-weight: 700;
-          //   padding: 5px 50px;
-          //   border-radius: 30px;
-          //   display: block;
-          //   box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
-          //   position: relative;
-          //   z-index: 1;
-          //   &::after,&::before{
-          //     content: '';
-          //     width: 100%;
-          //     height: 100%;
-          //     position: absolute;
-          //     left: 50%;
-          //     top: 50%;
-          //     transform: translate(-50%,-50%);
-          //     opacity: 0;
-          //     border-radius: 50px;
-          //     background: var(--indexColor1);
-          //     z-index: -1;
-          //   }
-          //   &:hover{
-          //     &::after{
-          //       animation: btnAnim2 3s infinite;
-          //     }
-          //     &::before{
-          //       animation: btnAnim3 3s infinite;
-          //     }
-          //   }
-          // }
         }
       }
     }
@@ -775,85 +785,39 @@ const handleProcessBtn = (_type: string) => {
     }
   }
 }
-.honor {
-  margin-top: 157px;
-  &-bg {
-    padding: 70px 0 106px;
-    background: linear-gradient(
-      270deg,
-      rgba(255, 241, 240, 0) 2.6%,
-      rgba(255, 241, 240, 0.7) 23.89%,
-      rgba(255, 241, 240, 0.7) 75.33%,
-      rgba(255, 241, 240, 0) 97.4%
-    );
-  }
-  &-title {
-    &-in{
-      font-size: 50px;
-    }
-  }
-  &-text {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 50px;
-    line-height: 160%;
-    text-align: center;
-    color: var(--indexColor1);
-    margin-top: 35px;
-  }
-  &-in {
-    margin-top: 39.2px;
+.Root_canal_treatment_equipment{
+  width: 100%;
+  max-width: calc(1284px + 60px);
+  margin: 140px auto 0;
+  &-in{
     display: flex;
-    .leftBtn {
-      width: 70px;
-      background: var(--indexColor2);
-      cursor: pointer;
-      position: relative;
-      &::after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-75%, -50%);
-        border-top: 20px solid;
-        border-right: 30px solid;
-        border-bottom: 20px solid;
-        border-left: 30px solid;
-        border-color: transparent #fff transparent transparent;
-        filter: drop-shadow(0px 0px 7.21491px rgba(255, 120, 117, 0.25));
+    margin-top: 53px;
+    &-l{
+      width: calc(595 / 1284 * 100%);
+      margin-right: calc(53 / 1284 * 100%);
+      img{
+        width: 100%;
       }
     }
-    .rightBtn {
-      width: 70px;
-      background: var(--indexColor);
-      cursor: pointer;
-      position: relative;
-      &::after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-25%, -50%);
-        border-top: 20px solid;
-        border-right: 30px solid;
-        border-bottom: 20px solid;
-        border-left: 30px solid;
-        border-color: transparent transparent transparent #fff;
-        filter: drop-shadow(0px 0px 7.21491px rgba(255, 120, 117, 0.25));
+    &-r{
+      flex: 1;
+      img{
+        width: 100%;
       }
-    }
-    .honorSwiper {
-      width: calc(100% - 140px);
-      overflow: hidden;
-      margin: 0;
-      .swiper-slide {
-        background: #fff;
-        img {
-          width: 100%;
-        }
+      span{
+        width: 100%;
+        text-align: justify;
+        font-size: 28px;
+        line-height: 160%;
+        color: var(--textColor);
+        margin-top: 40px;
+        display: block;
       }
     }
   }
+}
+.doctorTeam{
+  margin-top: 140px;
 }
 @keyframes btnAnim {
   0%{
@@ -1044,7 +1008,7 @@ const handleProcessBtn = (_type: string) => {
       rgba(255, 241, 240, 0.7) 81.99%,
       rgba(255, 241, 240, 0) 100%
     );
-    margin-top: 80px;
+    margin-top: 40px;
     padding: 46px 0;
     &-title {
       &-in {
@@ -1094,10 +1058,10 @@ const handleProcessBtn = (_type: string) => {
           margin-top: 15px;
           .lastBox-t {
             & > div {
-              font-size: 15px;
-              span {
-                font-size: 34px;
-              }
+              font-size: 28px;
+              // span {
+              //   font-size: 34px;
+              // }
               img {
                 width: 14px;
                 height: 16px;
@@ -1114,11 +1078,6 @@ const handleProcessBtn = (_type: string) => {
           }
           .lastBox-b {
             margin-top: 20px;
-            // span {
-            //   font-size: 20px;
-            //   padding: 5px 50px;
-            //   border-radius: 25px;
-            // }
           }
         }
       }
@@ -1157,60 +1116,28 @@ const handleProcessBtn = (_type: string) => {
       }
     }
   }
-  .honor {
-    margin-top: 21px;
-    &-bg {
-      padding: 46px 30px;
-      background: linear-gradient(
-        360deg,
-        rgba(255, 241, 240, 0) 0%,
-        rgba(255, 241, 240, 0.3) 12.5%,
-        rgba(255, 241, 240, 0.3) 81.99%,
-        rgba(255, 241, 240, 0) 100%
-      );
-    }
-    &-title {
-      &-in{
-        font-size: 26px;
+  .Root_canal_treatment_equipment{
+    margin-top: 60px;
+    &-in{
+      margin-top: 30px;
+      padding: 0 20px;
+      flex-direction: column;
+      &-l{
+        width: 100%;
       }
-    }
-    &-text {
-      font-weight: 600;
-      font-size: 20px;
-      margin-top: 8px;
-      span {
-        display: block;
-        &:nth-of-type(2) {
-          display: none;
+      &-r{
+        margin-top: 20px;
+        span{
+          font-size: 16px;
+          line-height: 200%;
+          margin-top: 20px;
+          padding: 0 10px;
         }
       }
     }
-    &-in {
-      margin-top: 22px;
-      .leftBtn {
-        width: 15.5px;
-        &::after {
-          border-top: 5px solid;
-          border-right: 7px solid;
-          border-bottom: 5px solid;
-          border-left: 7px solid;
-          border-color: transparent #fff transparent transparent;
-        }
-      }
-      .rightBtn {
-        width: 15.5px;
-        &::after {
-          border-top: 5px solid;
-          border-right: 7px solid;
-          border-bottom: 5px solid;
-          border-left: 7px solid;
-          border-color: transparent transparent transparent #fff;
-        }
-      }
-      .honorSwiper {
-        width: calc(100% - 31px);
-      }
-    }
+  }
+  .doctorTeam{
+    margin-top: 30px;
   }
 }
 </style>
