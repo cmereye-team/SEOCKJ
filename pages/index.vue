@@ -385,7 +385,7 @@ onMounted(()=>{
           <div class="index-doctorTeam-detail-l">
             <div class="index-doctorTeam-detail-l-in">
               <img :srcset="'https://static.cmereye.com/imgs/2024/02/3305056d2ab78db8.webp 768w, https://static.cmereye.com/imgs/2024/02/d9ed594b3c173297.webp'" src="https://static.cmereye.com/imgs/2024/02/d9ed594b3c173297.webp" alt="">
-              <img :src="doctorDetail.mbImg" :alt="doctorDetail.name" :title="doctorDetail.name">
+              <img :src="doctorDetail.imgUrl" :alt="doctorDetail.name" :title="doctorDetail.name">
             </div>
           </div>
           <div class="index-doctorTeam-detail-r">
@@ -783,9 +783,11 @@ svg:hover path{
         }
         &:nth-of-type(2){
           position: absolute;
-          top: 0;
-          left: 0;
-          width: calc(100% - 3px);
+          bottom: 3px;
+          left: 50%;
+          transform: translateX(-50%);
+          // width: calc(100% - 3px);
+          // max-width: 80%;
           max-height: calc(100% - 3px);
           display: block;
         }

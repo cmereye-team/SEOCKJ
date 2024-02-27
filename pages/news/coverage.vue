@@ -72,6 +72,9 @@ const getNewsLists = async () => {
   // console.log(coverageLists.value)
 }
 
+const getData = () => {
+  getNewsLists()
+}
 
 // onMounted(()=>{
 //   setTimeout(()=>{
@@ -129,6 +132,7 @@ if(process.server){
         </div>
         <div class="lists" v-else>服務異常</div>
       </div>
+      <!-- <div @click="getData">获取数据</div> -->
       <ContactUs />
     </div>
     <PageFooter />
@@ -215,6 +219,7 @@ if(process.server){
         -webkit-box-orient: vertical;  
         overflow: hidden;  
         text-overflow: ellipsis; 
+        text-align: justify;
       }
       .desc{
         flex: 1;
@@ -224,6 +229,7 @@ if(process.server){
         line-height: 160%; /* 32px */
         letter-spacing: 2px;
         color: var(--textColor);
+        text-align: justify;
         span{
           display: -webkit-box;  
           -webkit-line-clamp: 7; 

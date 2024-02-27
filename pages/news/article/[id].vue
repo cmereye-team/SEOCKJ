@@ -87,6 +87,10 @@ const getDetail = async () => {
       method: 'post',
     });
     let res = JSON.parse(_res.data.value) || null
+    if(_res.data.value === null){
+      errorpage.value = true
+      return
+    }
     if(res){
       // console.log(res)
       let _data = res.data
@@ -175,6 +179,10 @@ let associationData = ref({
 //     getDetail()
 //   })
 // })
+const handlegetData = () =>{
+  getDetail()
+}
+
 
 if(process.server){
   // console.log('server');
@@ -189,7 +197,7 @@ if(process.server){
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor articlePage">
-      <div class="index_title pageCon articlePage-title">{{pageType.value === '1'?'媒體報導': '最新資訊'}}</div>
+      <div class="index_title pageCon articlePage-title">{{pageType.value === '2'?'最新資訊': '媒體報導'}}</div>
       <div class="tabNav noTitle pageCon">
         <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
           <span>主頁</span>
@@ -197,7 +205,7 @@ if(process.server){
         <nuxt-link :to="''">
           <span>睇牙新資訊</span>
         </nuxt-link>
-        <span :title="pageType.value === '1'?'媒體報導': '最新資訊'">{{pageType.value === '1'?'媒體報導': '最新資訊'}}</span>
+        <span :title="pageType.value === '2'?'最新資訊': '媒體報導'">{{pageType.value === '2'?'最新資訊': '媒體報導'}}</span>
       </div>
       <div class="articlePage-in" v-if="!errorpage" v-loading="pageLoading">
         <!-- {{_nid}} -->
@@ -236,7 +244,11 @@ if(process.server){
           </div>
         </div>
       </div>
-      <div class="articlePage-in" v-else>服務異常或内容已删除！</div>
+      <div class="articlePage-err" v-else>
+        <span>服務異常或内容已删除！</span>
+        <!-- <nuxt-link :to="router.push(-1)">返回上一页</nuxt-link> -->
+      </div>
+      <!-- <div @click="handlegetData">獲取數據</div> -->
       <ContactUs />
     </div>
     <PageFooter />
@@ -270,9 +282,9 @@ if(process.server){
   }
 }
 .articlePage{
-  &-in{
-    // text-align: center;
-    // min-height: 300px;
+  &-err{
+    padding: 100px 0;
+    text-align: center;
   }
 }
 .content{
