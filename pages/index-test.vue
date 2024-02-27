@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import gsap from 'gsap';
+import { Autoplay } from 'swiper';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useAppState } from '~/stores/appState'
 import doctorLists_cs from '~/assets/js/doctor'
@@ -430,9 +431,16 @@ onMounted(()=>{
           </div>
         </div>
         <div class="index-org-content pageCon">
-          <div :class="`index-org-content-${orgTabCur}`" v-for="(orgItem,orgIndex) in orgLists[orgTabCur]" :key="orgIndex">
-            <img :src="orgItem" alt="">
-          </div>
+          <Swiper
+            :modules="[Autoplay]"
+          >
+            <Swiper-slie v-for="(orgListItem,orgListIndex) in orgLists" :key="orgListIndex">
+              <div :class="`index-org-content-${orgTabCur}`" v-for="(orgItem,orgIndex) in orgListItem" :key="orgIndex">
+                <img :src="orgItem" alt="">
+              </div>
+            </Swiper-slie>
+          </Swiper>
+          
         </div>
       </div>
 

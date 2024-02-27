@@ -87,7 +87,7 @@ const setLatestNewsSwiperRef = (swiper:any) => {
       <div class="index-latestNews-t">
         <div class="index_title">最新優惠</div>
       </div>
-      <swiper
+      <Swiper
         class="swiperBox"
         :loop="true"
         :modules="[Autoplay]"
