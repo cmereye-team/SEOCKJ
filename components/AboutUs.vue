@@ -350,6 +350,7 @@ const changemouse = (type: String) =>{
       display: block;
       width: 100%;
       margin-top: 40px;
+      overflow: hidden;
       &-t{
         width: 100%;
       }

@@ -557,7 +557,7 @@ svg:hover path{
   width: 100%;
   background: #fff;
   padding-bottom: 140px;
-  overflow: hidden;
+  // overflow: hidden;
 }
 .treatment-data{
   margin-top: 140px;
@@ -765,7 +765,6 @@ svg:hover path{
     }
     .mbLists{
       width: calc(100% - 40px);
-      max-width: 675px;
       margin: 0 auto;
       display: none;
       &-in{
@@ -1120,6 +1119,7 @@ svg:hover path{
   //醫生團隊
   .index-doctorTeam{
     margin: 90px 0;
+    width: 100%;
     &-t{
       flex-direction: column;
       align-items: flex-start;
@@ -1193,6 +1193,7 @@ svg:hover path{
     }
     &-lists{
       margin-top: 20px;
+      overflow: hidden;
       .pcLists{
         display: none;
       }

@@ -41,7 +41,7 @@ const navLists = [
 </script>
 
 <template>
-  <footer class="bgColor">
+  <div class="bgColor">
     <div class="footer-content bigPageCon">
       <div class="footer-content-nav">
         <div v-for="(navItem, navIndex) in navLists" :key="navIndex">
@@ -82,7 +82,7 @@ const navLists = [
       </div>
       <div class="footer-content-copyright">©2023 CKJ愛康健齒科版權所有</div>
     </div>
-  </footer>
+  </div>
 </template>
 
 <style lang="scss" scoped>

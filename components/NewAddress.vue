@@ -545,7 +545,7 @@ onMounted(()=>{
         }
         &-lx{
           position: relative;
-          z-index: 1;
+          // z-index: 99;
           &>span{
             color: var(--indexColor1);
             background: #fff;
@@ -688,6 +688,7 @@ onMounted(()=>{
         &-img{
           display: none;
           width: 100%;
+          overflow: hidden;
           &.mbimg{
             display: block;
           }
