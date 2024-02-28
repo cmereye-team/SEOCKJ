@@ -298,6 +298,20 @@ const orgLists = [
     'https://static.cmereye.com/static/ckjnewsite/org/org-4013.png'
   ]
 ]
+const handleorgtabfun = (orgTabIndex) =>{
+  orgTabCur.value = orgTabIndex
+  indexOrgSwiperRef.slideToLoop(orgTabIndex)
+}
+let indexOrgSwiperRef ={
+  slideToLoop: (a)=>{}
+}
+const setIndexOrgSwiperRef = (swiper:any)=>{
+  indexOrgSwiperRef = swiper;
+}
+const onIndexOrgSlideChange = (swiper) =>{
+  orgTabCur.value = (swiper.realIndex ? Number(swiper.realIndex) : 0)
+}
+
 
 onMounted(()=>{
   handletab2('101')
@@ -426,21 +440,27 @@ onMounted(()=>{
           <div class="index_title index_title_2">相關機構</div>
         </div>
         <div class="index-org-tag pageCon">
-          <div class="index-org-tag-in" :class="{'active': orgTabCur === orgTabIndex}" v-for="(orgTabItem,orgTabIndex) in orgTabLists" :key="orgTabIndex" @click="orgTabCur = orgTabIndex">
+          <div class="index-org-tag-in" :class="{'active': orgTabCur === orgTabIndex}" v-for="(orgTabItem,orgTabIndex) in orgTabLists" :key="orgTabIndex" @click="handleorgtabfun(orgTabIndex)">
             {{orgTabItem}}
           </div>
         </div>
         <div class="index-org-content pageCon">
           <Swiper
+            class="index-org-content-swiper"
+            :loop="true"
             :modules="[Autoplay]"
+            :autoplay="{
+              delay: 3000,
+            }"
+            @swiper="setIndexOrgSwiperRef"
+            @slideChange="onIndexOrgSlideChange"
           >
-            <Swiper-slie v-for="(orgListItem,orgListIndex) in orgLists" :key="orgListIndex">
-              <div :class="`index-org-content-${orgTabCur}`" v-for="(orgItem,orgIndex) in orgListItem" :key="orgIndex">
+            <Swiper-slide class="index-org-content-swiper-slie" v-for="(orgListItem,orgListIndex) in orgLists" :key="orgListIndex">
+              <div class="index-org-content-in" :class="`index-org-content-${orgTabCur}`" v-for="(orgItem,orgIndex) in orgListItem" :key="orgIndex">
                 <img :src="orgItem" alt="">
               </div>
-            </Swiper-slie>
+            </Swiper-slide>
           </Swiper>
-          
         </div>
       </div>
 
@@ -960,14 +980,23 @@ svg:hover path{
   &-content{
     max-width: 1200px;
     margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    &>div{
+    // display: flex;
+    // justify-content: center;
+    // flex-wrap: wrap;
+    &-swiper{
+      width: 100%;
+      &-slie{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+    &-in{
       width: calc((100% - 300px) / 5);
       margin: 0 30px 40px;
       display: flex;
       align-items: flex-end;
+      justify-content: center;
     }
     &-0{
       align-items: flex-start !important;

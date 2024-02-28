@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import gsap from 'gsap';
+import { Autoplay } from 'swiper';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useAppState } from '~/stores/appState'
 import doctorLists_cs from '~/assets/js/doctor'
@@ -297,6 +298,19 @@ const orgLists = [
     'https://static.cmereye.com/static/ckjnewsite/org/org-4013.png'
   ]
 ]
+const handleorgtabfun = (orgTabIndex) =>{
+  orgTabCur.value = orgTabIndex
+  indexOrgSwiperRef.slideToLoop(orgTabIndex)
+}
+let indexOrgSwiperRef ={
+  slideToLoop: (a)=>{}
+}
+const setIndexOrgSwiperRef = (swiper:any)=>{
+  indexOrgSwiperRef = swiper;
+}
+const onIndexOrgSlideChange = (swiper) =>{
+  orgTabCur.value = (swiper.realIndex ? Number(swiper.realIndex) : 0)
+}
 
 onMounted(()=>{
   handletab2('101')
@@ -425,14 +439,27 @@ onMounted(()=>{
           <div class="index_title index_title_2">相關機構</div>
         </div>
         <div class="index-org-tag pageCon">
-          <div class="index-org-tag-in" :class="{'active': orgTabCur === orgTabIndex}" v-for="(orgTabItem,orgTabIndex) in orgTabLists" :key="orgTabIndex" @click="orgTabCur = orgTabIndex">
+          <div class="index-org-tag-in" :class="{'active': orgTabCur === orgTabIndex}" v-for="(orgTabItem,orgTabIndex) in orgTabLists" :key="orgTabIndex" @click="handleorgtabfun(orgTabIndex)">
             {{orgTabItem}}
           </div>
         </div>
         <div class="index-org-content pageCon">
-          <div :class="`index-org-content-${orgTabCur}`" v-for="(orgItem,orgIndex) in orgLists[orgTabCur]" :key="orgIndex">
-            <img :src="orgItem" alt="">
-          </div>
+          <Swiper
+            class="index-org-content-swiper"
+            :loop="true"
+            :modules="[Autoplay]"
+            :autoplay="{
+              delay: 3000,
+            }"
+            @swiper="setIndexOrgSwiperRef"
+            @slideChange="onIndexOrgSlideChange"
+          >
+            <Swiper-slide class="index-org-content-swiper-slie" v-for="(orgListItem,orgListIndex) in orgLists" :key="orgListIndex">
+              <div class="index-org-content-in" :class="`index-org-content-${orgTabCur}`" v-for="(orgItem,orgIndex) in orgListItem" :key="orgIndex">
+                <img :src="orgItem" alt="">
+              </div>
+            </Swiper-slide>
+          </Swiper>
         </div>
       </div>
 
@@ -444,9 +471,6 @@ onMounted(()=>{
           <div class="index-videoBox-c-l">
             <div>HK01</div>
             <div>深圳食買玩，點少得睇牙!口岸位置、性價比高 咪咪姐推薦口腔醫院</div>
-            <!-- <a href="https://www.hk01.com/%E5%81%A5%E5%BA%B7Easy/959987/%E6%B7%B1%E5%9C%B3%E9%A3%9F%E8%B2%B7%E7%8E%A9-%E9%BB%9E%E5%B0%91%E5%BE%97%E7%9D%87%E7%89%99-%E5%8F%A3%E5%B2%B8%E4%BD%8D%E7%BD%AE-%E6%80%A7%E5%83%B9%E6%AF%94%E9%AB%98-%E5%92%AA%E5%92%AA%E5%A7%90%E6%8E%A8%E8%96%A6%E5%8F%A3%E8%85%94%E9%86%AB%E9%99%A2" target="black">
-              查看原文
-            </a> -->
             <nuxt-link to="/news/article/31">
               查看原文
             </nuxt-link>
@@ -959,14 +983,20 @@ svg:hover path{
   &-content{
     max-width: 1200px;
     margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    &>div{
+    &-swiper{
+      width: 100%;
+      &-slie{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+    &-in{
       width: calc((100% - 300px) / 5);
       margin: 0 30px 40px;
       display: flex;
       align-items: flex-end;
+      justify-content: center;
     }
     &-0{
       align-items: flex-start !important;
