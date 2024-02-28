@@ -319,7 +319,7 @@ onMounted(()=>{
           </div>
           <div class="address-r-content">
             <div>
-              <span>醫院地址</span>
+              <span>地址</span>
               <span>
                 {{$t(String(addressDatail.address))}}
               </span>
