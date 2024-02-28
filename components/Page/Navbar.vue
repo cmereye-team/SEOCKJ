@@ -56,8 +56,8 @@ let mbQDCodeBool = ref(false)
         </div>
       </div>
     </div>
-    <nuxt-link class="navbar-content-in" id="navPcFaceBook" to="https://www.facebook.com/ckjdental.hk/" title="FaceBook" target="_blank">
-    </nuxt-link>
+    <!-- <nuxt-link class="navbar-content-in" id="navPcFaceBook" to="https://www.facebook.com/ckjdental.hk/" title="FaceBook" target="_blank">
+    </nuxt-link> -->
     <div class="navbar-content-in" id="navPcContactForm" title="預約" @click="toContactUs">
     </div>
     <div class="navbar-content-in" @click="toPageTop">
