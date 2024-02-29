@@ -1331,6 +1331,11 @@ svg:hover path{
     &-content{
       max-width: calc(100% - 20px);
       justify-content: flex-start;
+      &-swiper{
+        &-slie{
+          justify-content: initial;
+        }
+      }
       &-in{
         margin: 0 10px 30px;
         width: calc((100% - 60px) / 3);
