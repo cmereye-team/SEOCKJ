@@ -578,7 +578,7 @@ const handleBannerLineCur = (_value:number) =>{
               class="menuItem"
             >
               <nuxt-link
-                :class="menuItem.child.length ? 'triangleIcon' : ''"
+                :class="[menuItem.child.length ? 'triangleIcon' : '',{ 'health-care-voucher': menuItem.link === '/health-care-voucher'}]"
                 :to="['/news','/dental-service'].includes(menuItem.link) ? 'javaScript:void(0)': menuItem.link"
                 :title="$t(menuItem.name)"
               >
@@ -1092,6 +1092,12 @@ const handleBannerLineCur = (_value:number) =>{
         &:hover .menuChild {
           display: flex;
           animation: animBottomIn .5s forwards;
+        }
+        .health-care-voucher{
+          color: #00A752;
+          .router-link-exact-active{
+            color: #00A752;
+          }
         }
         .menuChild {
           position: absolute;

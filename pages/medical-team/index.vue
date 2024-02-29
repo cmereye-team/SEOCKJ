@@ -178,16 +178,13 @@ const changeAreaTabCur = (_idx:any) => {
 
 onMounted(()=>{
   if(route.query.did){
-    setTimeout(()=>{
+    let _obj = doctorLists.value[appState.areaTabCurNum].find((item:any)=>item.id === route.query.did)
+    if(_obj){
+      handletab2(_obj.dentalProfessionId[0])
+    }
+    nextTick(()=>{
       goAnchor(`#d${route.query.did}`)
-      // if(window.innerWidth > 768){
-      //   goAnchor(`#d${route.query.did}`)
-      // }else{
-      //   goAnchor('#dp')
-      //   let _index = doctorLists.value[appState.areaTabCurNum].findIndex((item:any)=>item.id === route.query.did)
-      //   doctorPageSwiperRef.slideTo(_index, 0);
-      // }
-    },500)
+    })
   }
 })
 </script>

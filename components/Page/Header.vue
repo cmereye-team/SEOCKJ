@@ -518,7 +518,7 @@ const handleMbMenu = () => {
               class="menuItem"
             >
               <nuxt-link
-                :class="menuItem.child.length ? 'triangleIcon' : ''"
+                :class="[menuItem.child.length ? 'triangleIcon' : '',{ 'health-care-voucher': menuItem.link === '/health-care-voucher'}]"
                 :to="['/news','/dental-service'].includes(menuItem.link) ? 'javaScript:void(0)': menuItem.link"
                 :title="$t(menuItem.name)"
               >
@@ -974,6 +974,7 @@ const handleMbMenu = () => {
           display: inline-block;
           text-align: center;
         }
+        
         .triangleIcon:after {
           content: '';
           width: 0px;
@@ -993,17 +994,6 @@ const handleMbMenu = () => {
         & > .router-link-exact-active {
           color: var(--indexColor1);
           text-decoration-line: underline;
-          // position: relative;
-          // &::after{
-          //   content: '';
-          //   width: 100%;
-          //   height: 3px;
-          //   border-radius: 2px;
-          //   background: var(--indexColor1);
-          //   position: absolute;
-          //   bottom: 20px;
-          //   left: 0;
-          // }
           &.triangleIcon:after {
             border-color: var(--indexColor1) transparent transparent transparent;
           }
@@ -1014,16 +1004,12 @@ const handleMbMenu = () => {
           .triangleIcon:after {
             border-color: var(--indexColor1) transparent transparent transparent;
           }
-          // &::after{
-          //   content: '';
-          //   width: 100%;
-          //   height: 3px;
-          //   border-radius: 2px;
-          //   background: var(--indexColor1);
-          //   position: absolute;
-          //   bottom: 20px;
-          //   left: 0;
-          // }
+        }
+        .health-care-voucher{
+          color: #00A752;
+          .router-link-exact-active{
+            color: #00A752;
+          }
         }
         &:hover .menuChild {
           display: flex;
