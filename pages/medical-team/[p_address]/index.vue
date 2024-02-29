@@ -3,6 +3,7 @@ import { useAppState } from '~/stores/appState'
 import doctorLists_hk from '~/assets/js/doctor'
 import doctorLists_zh from '~/assets/js/doctor_zh'
 import { Scrollbar } from 'swiper';
+import { toWhatsApp } from '~/assets/js/common'
 const locale = useState<string>('locale.setting')
 const appState = useAppState()
 useHead({
@@ -25,14 +26,14 @@ let doctorObjs = {
   doctorLists_zh
 }
 let doctorLists = ref(doctorObjs[`doctorLists_${locale.value}`])
-watch(
-  locale,(newValue,oldValue)=>{
-    doctorLists.value = doctorObjs[`doctorLists_${locale.value}`]
-  },
-  {
-    deep:true
-  }
-)
+// watch(
+//   locale,(newValue,oldValue)=>{
+//     doctorLists.value = doctorObjs[`doctorLists_${locale.value}`]
+//   },
+//   {
+//     deep:true
+//   }
+// )
 
 
 const route = useRoute()
@@ -58,7 +59,6 @@ const goAnchor = (_hash: any)=>{
       }
   }, 10);
   }
-  
 }
 
 const headerConfig = {
@@ -70,6 +70,112 @@ const headerConfig = {
   mbText: []
 }
 
+// ---------------新
+
+let dentalProfessionCur = ref('101')
+const dentalProfessionList = [
+  {
+    id: '101',
+    name: '種植科',
+  },
+  {
+    id: '102',
+    name: '修復科',
+  },
+  {
+    id: '103',
+    name: '矯正科',
+  },
+  {
+    id: '104',
+    name: '牙髓病科',
+  },
+  {
+    id: '105',
+    name: '牙周病科',
+  },
+  {
+    id: '106',
+    name: '兒童牙科',
+  },
+  {
+    id: '107',
+    name: '口腔頜面外科',
+  },
+]
+
+let doctorCur = ref('')
+
+const changleDoctorLists:any = () =>{
+  return doctorLists_hk[appState.areaTabCurNum].filter((temp:any)=>{return temp.dentalProfessionId.includes(dentalProfessionCur.value)}) || []
+}
+const changeDoctorDetail = () => {
+  let obj = {
+    id: '',
+    dentalProfessionId: [],
+    imgUrl: '',
+    mbImg: '',
+    name: '',
+    org: '',
+    posts: '',
+    job:'',
+    skilled: '',
+    context: '',
+    educated: ''
+  }
+  if(changleDoctorLists().length>0){
+    let _obj = changleDoctorLists().find(item=>item.id === doctorCur.value);
+    if(_obj){
+      obj = JSON.parse(JSON.stringify(_obj))
+    }
+  }
+  return obj
+}
+// let doctorDetail:any = ref({
+//   id: '101',
+//   dentalProfessionId: ['102','104','105'],
+//   imgUrl: 'https://static.cmereye.com/imgs/2023/05/6a7b889f6f185f2a.png',
+//   mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor101.png',
+//   name: '鞏賢平',
+//   org: '羅湖區 深圳愛康健口腔醫院，口腔牙周病科，口腔修復科，牙體牙髓科',
+//   newOrg: '羅湖區 深圳愛康健口腔醫院',
+//   tags: ['口腔牙周病科','口腔修復科','牙體牙髓科'],
+//   newJobs: '愛康健口腔醫院院長\n口腔專業主治醫師生\n華西口腔醫學院碩士研究生',
+//   text: '醫院院長、主治醫師',
+//   posts: '主治醫師',
+//   job:'愛康健口腔醫院院長',
+//   skilled: '種植修復，微創美學修復，全口咬合重建等；熟練應用口腔顯微鏡並在顯微放大設備下進行種植手術、牙周美學手術及各類修復操作。熟練處理牙周病及牙體缺失、四環素、氟斑牙的全口美學修復工作，對於顯微治療有深入研究，具有豐富的口腔全科診療經驗。',
+//   newSkilled: '牙齒美容修復、烤瓷及全瓷修復、 各類復雜義齒修復、種植修復 等。',
+//   context: '主治醫師， 深圳愛康健口腔醫院院長， 集團口腔修復專業學科帶頭人， 華西口腔醫學院醫學碩士， 深圳電視臺第一現場《名醫直播問診》節目特邀專家。 從事口腔修復臨床、教學和科研工作近20年，多次赴香港、美國等地進行學習和學術交流，並受邀出席全國口腔修復學術研討會，在微創美學修復領域有著豐富的診療經驗，迄今已完成5000余例口腔微創美學修復。為人親和、細致認真、嫻熟的醫學素養是鞏醫生給人的印象，在簡短的交流中對顧客需求了如指掌，在結合專業技能使得顧客稱贊不已，充分發揮優秀醫務工作者的本質。',
+//   educated: '口腔醫學碩士',
+// })
+const handletab2 =(id:string)=>{
+  dentalProfessionCur.value = id;
+  doctorCur.value = changleDoctorLists().length>0 ? changleDoctorLists()[0].id : ''
+  // doctorDetail.value = changeDoctorDetail()
+}
+const handleDoctorItem = (id:any) =>{
+  doctorCur.value = id
+  // doctorDetail.value = changeDoctorDetail()
+}
+const changeDentalProfessionList = () =>{
+  let _lists:any = []
+  if(doctorLists_hk[appState.areaTabCurNum].length>0){
+    for(var i = 0; i<doctorLists_hk[appState.areaTabCurNum].length;i++ ){
+      _lists = [ ..._lists, ...doctorLists_hk[appState.areaTabCurNum][i].dentalProfessionId]
+      _lists = [...new Set(_lists)];
+    }
+  }
+  return dentalProfessionList.filter(item => _lists.includes(item.id)) || []
+}
+const changeAreaTabCur = (_idx:any) => {
+  if(_idx === 4){
+    handletab2('102')
+  }else{
+    handletab2('101')
+  }
+}
+
 onMounted(()=>{
   if(route.params.p_address){
     let _idx = appState.areaTabs_url.indexOf(String(route.params.p_address))
@@ -77,13 +183,14 @@ onMounted(()=>{
   }
   if(route.query.did){
     setTimeout(()=>{
-      if(window.innerWidth > 768){
-        goAnchor(`#d${route.query.did}`)
-      }else{
-        goAnchor('#dp')
-        let _index = doctorLists.value[appState.areaTabCurNum].findIndex((item:any)=>item.id === route.query.did)
-        doctorPageSwiperRef.slideTo(_index, 0);
-      }
+      goAnchor(`#d${route.query.did}`)
+      // if(window.innerWidth > 768){
+      //   goAnchor(`#d${route.query.did}`)
+      // }else{
+      //   goAnchor('#dp')
+      //   let _index = doctorLists.value[appState.areaTabCurNum].findIndex((item:any)=>item.id === route.query.did)
+      //   doctorPageSwiperRef.slideTo(_index, 0);
+      // }
     },500)
   }
 })
@@ -95,102 +202,64 @@ onMounted(()=>{
     <div class="doctorPage">
       <div class="doctorPage-in pageCon">
         <div class="index_title">{{$t('pages.medical_team.title')}}</div>
-        <div class="doctorPage-in-text">{{$t('pages.medical_team.text')}}</div>
-        <div class="doctorPage-in-content"><span>{{$t('pages.medical_team.content.span_1')}}</span><span>{{$t('pages.medical_team.content.span_2')}}</span></div>
         <div class="doctorPage-in-tabNav">
           <div class="doctorPage-in-tabNav-l">
             <span>{{$t('pages.index.title')}}</span>
             <span>{{$t('pages.medical_team.title')}}</span>
             <span>{{$t(appState.areaTabs[appState.areaTabCurNum])}}</span>
           </div>
+        </div>
+        <div class="doctorPage-in-content"><span>{{$t('pages.medical_team.content.span_1')}}</span><span>{{$t('pages.medical_team.content.span_2')}}</span></div>
+        <div class="index-doctorTeam">
+          <div class="index-doctorTeam-tab1 index-doctorTeam-con">
+              <AreaTab @changeTabCur="changeAreaTabCur" />
+          </div>
+          <div class="index-doctorTeam-tab2 index-doctorTeam-con">
+            <div class="index-doctorTeam-tab2-in" :class="`tablang-${changeDentalProfessionList().length}`">
+              <div :class="[{'index-doctorTeam-tab2-in-active': dentalProfessionCur === dentalProfessionItem.id},`textlang-${dentalProfessionItem.name.length}`]" v-for="(dentalProfessionItem,dentalProfessionIndex) in changeDentalProfessionList()" :key="dentalProfessionIndex" @click="handletab2(dentalProfessionItem.id)">
+                {{dentalProfessionItem.name}}
+              </div>
+            </div>
+          </div>
           <div>
-            <AreaTab :isAdPage="true" />
-          </div>
-        </div>
-        <div class="doctorPage-in-lists pcBox">
-          <div class="doctorItem" v-for="(item,index) in doctorLists[appState.areaTabCurNum]" :key="index" :id="`d${item.id}`">
-            <div class="doctorItem-l">
-              <img :src="item.imgUrl" :alt="item.name">
+          <section v-for="doctorItem in changleDoctorLists()" :key="doctorItem.id">
+            <div class="index-doctorTeam-detail index-doctorTeam-con" :id="`d${doctorItem.id}`">
+              <div class="index-doctorTeam-detail-l">
+                <div class="index-doctorTeam-detail-l-in">
+                  <img :srcset="'https://static.cmereye.com/imgs/2024/02/3305056d2ab78db8.webp 768w, https://static.cmereye.com/imgs/2024/02/d9ed594b3c173297.webp'" src="https://static.cmereye.com/imgs/2024/02/d9ed594b3c173297.webp" alt="">
+                  <img :srcset="`${doctorItem.mbImg} 768w, ${doctorItem.imgUrl}`" :src="doctorItem.imgUrl" :alt="doctorItem.name" :title="doctorItem.name">
+                </div>
+              </div>
+              <div class="index-doctorTeam-detail-r">
+                <div class="detail-1">
+                  <span>{{doctorItem.name}}</span>
+                  <span>{{doctorItem.text}}</span>
+                </div>
+                <div class="detail-2" v-if="doctorItem.newOrg">
+                  <span>{{doctorItem.newOrg}}</span>
+                </div>
+                <div class="detail-3">
+                  <span v-for="(jobItem,jobIndex) in doctorItem.newJobs" :key="jobIndex">{{jobItem}}</span>
+                </div>
+                <div class="detail-4">
+                  <span>擅長項目：</span>
+                  <span>
+                    {{doctorItem.newSkilled}}
+                  </span>
+                </div>
+                <div class="detail-5">
+                  <span v-for="(tagItem,tagIndex) in doctorItem.tags" :key="tagIndex">
+                    {{tagItem}}
+                  </span>
+                </div>
+                <div class="detail-6"><span @click="toWhatsApp">線上咨詢</span></div>
+              </div>
             </div>
-            <div class="doctorItem-r">
-              <div class="title">{{item.job || ''}}</div>
-              <div class="name">
-                <span>{{item.name || ''}}</span> 
-                <span>{{item.posts || ''}}{{(item.posts && item.educated) ? '，': '' }}{{item.educated || ''}}</span>
-              </div>
-              <div class="org">
-                {{$t('pages.medical_team.org')}}：{{item.org || ''}}
-              </div>
-              <!-- 擅長： -->
-              <!-- <div class="expertise">
-                擅長：{{item.skilled.length > 100? `${item.skilled.slice(0,110)}...`:item.skilled}}
-              </div> -->
-              <div class="expertise">
-                {{$t('pages.medical_team.expertise')}}：{{item.skilled || ''}}
-              </div>
-              <div class="btn">
-                <!-- 了解更多<img src="@/assets/images/icon_04.png" /> -->
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="mbDoctorList mbBox mbBox" id="dp">
-          <div class="mbDoctorList-t">
-            <AreaTab :isAdPage="true" />
-          </div>
-          <div class="mbDoctorList-c">
-            <div class="doctorPage-in-lists">
-              <Swiper
-                class="swiperBox"
-                :loop="true"
-                :scrollbar="{
-                  hide: true,
-                }"
-                :modules="[Scrollbar]"
-                @swiper="setdoctorPageSwiperRef"
-                @slideChange="doctorPageSwiperChange"
-              >
-                <SwiperSlide v-for="(item,index) in doctorLists[appState.areaTabCurNum]" :key="index" :id="item.id">
-                  <div class="doctorItem">
-                    <div class="doctorItem-l">
-                      <img :src="item.imgUrl" alt="">
-                    </div>
-                    <div class="doctorItem-r">
-                      <div class="doctorItem-r-t">
-                        <div class="title">{{item.job || ''}}</div>
-                        <!-- <div class="btn">
-                          了解更多<img src="@/assets/images/icon_04.png" />
-                        </div> -->
-                      </div>
-                      <div class="name">
-                        <span>{{item.name || ''}}</span> 
-                        <span>{{item.posts || ''}}{{(item.posts && item.educated) ? '，': '' }}{{item.educated || ''}}</span>
-                      </div>
-                      <div class="org">
-                        {{$t('pages.medical_team.org')}}：{{item.org || ''}}
-                      </div>
-                      <!-- <div class="expertise">
-                        擅長：{{item.skilled.length > 100? `${item.skilled.slice(0,110)}...`:item.skilled}}
-                      </div> -->
-                      <div class="expertise">
-                        {{$t('pages.medical_team.expertise')}}：{{item.skilled || ''}}
-                      </div>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              </Swiper>
-            </div>
-          </div>
-          <div class="mbDoctorList-b">
-            <!-- 主頁 -->
-            <span>{{$t('pages.index.title')}}</span>
-            <!-- 醫生團隊 -->
-            <span>{{$t('pages.medical_team.title')}}</span>
-            <span>{{$t(appState.areaTabs[appState.areaTabCurNum])}}</span>
+          </section>
           </div>
         </div>
       </div>
-      <ContactUs :isAdPage="true" />
+      <ContactUs />
     </div>
     <PageFooter />
     <PageNavbar />
@@ -215,7 +284,7 @@ onMounted(()=>{
       }
       &-content{
         font-weight: 700;
-        font-size: 3.125rem;
+        font-size: 30px;
         line-height: 160%;
         margin-top: 19px;
         color: #666666;
@@ -247,97 +316,241 @@ onMounted(()=>{
           }
         }
       }
-      &-lists{
-        margin-top: 68px;
-        .doctorItem{
-          width: 100%;
-          height: 429px;
-          margin-top: 68px;
-          display: flex;
-          &-l{
-            width: 429px;
-            height: 100%;
-            border-radius: 10px;
-            position: relative;
-            img{
-              position: absolute;
-              bottom: 0;
-              height: 110%;
-              left: 50%;
-              transform: translateX(-50%);
+      .index-doctorTeam{
+        margin: 60px auto;
+        // &-t{
+        //   display: flex;
+        //   justify-content: space-between;
+        //   align-items: flex-end;
+        // }
+        &-tab1{
+          :deep(.areaTab){
+            div{
+              flex: 1;
+              text-align: center;
+              font-size: 35px;
             }
           }
-          &-r{
-            flex: 1;
-            padding-left: 40px;
-            color: #666666;
+        }
+        &-tab2{
+          margin-top: 30px;
+          &-in{
+            width: 100%;
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            .title{
-              font-weight: 900;
-              font-size: 24px;
-              line-height: 200%;
+            &>div{
+              flex: 1;
+              color: #00AEFF;
+              transition: all .3s;
+              border-top: 2px solid #00AEFF;
+              border-bottom: 2px solid #00AEFF;
+              border-left: 2px solid #00AEFF;
+              padding: 5px 0;
+              font-size: 35px;
+              text-align: center;
+              letter-spacing: 3px;
+              cursor: pointer;
+              &:nth-of-type(4){
+                flex: 1.3;
+              }
+              &:nth-of-type(5){
+                flex: 1.3;
+              }
+              &:nth-of-type(6){
+                flex: 1.3;
+              }
+              &:nth-of-type(7){
+                flex: 1.7;
+              }
+              &:first-child{
+                border-radius: 5px 0 0 5px;
+              }
+              &:last-child{
+                border-radius: 0 5px 5px 0;
+                border-right: 2px solid #00AEFF;
+              }
+              &:hover,&.index-doctorTeam-tab2-in-active{
+                color: #fff;
+                background: #00AEFF;
+              }
             }
-            .org{
-              font-weight: 600;
-              font-size: 20px;
-            }
-            .expertise{
-              font-weight: 600;
-              font-size: 18px;
-            }
-            .name{
-              font-weight: 900;
-              font-size: 20px;
-              line-height: 160%;
-              color: #666666;
-              span{
-                margin-right: 20px;
-                &:last-child{
-                  font-weight: 700;
-                  padding-left: 20px;
-                  border-left: 2px solid #666666;
+          }
+        }
+        &-lists{
+          width: 100%;
+          .pcLists{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            &-in{
+              cursor: pointer;
+              margin-bottom: 30px;
+              &:not(:last-child){
+                margin-right: 30px;
+              }
+              &-img{
+                width: 150px;
+                height: 150px;
+                border-radius: 10px;
+                overflow: hidden;
+                background: rgba(254, 169, 209,.5);
+                transition: all .3s;
+              }
+              &:hover,&.acitve{
+                .pcLists-in-img{
+                  background: #FFA8C6;
                 }
               }
             }
-            .btn{
-              font-weight: 500;
-              font-size: 23px;
-              margin-top: 66px;
-              color: var(--indexColor1);
-              cursor: pointer;
-              img{
-                width: 21px;
-                display: inline-block;
-                margin-left: 10px;
-                vertical-align: middle;
-                margin-top: -2px;
+          }
+          .mbLists{
+            width: calc(100% - 40px);
+            margin: 0 auto;
+            display: none;
+            &-in{
+              width: 100%;
+              overflow: visible;
+              &-img{
+                // width: calc(100% - 20px);
+                margin: 0 10px;
+                height: auto;
+                border-radius: 10px;
+                overflow: hidden;
+                background: rgba(254, 169, 209,.7);
               }
             }
           }
-          &:nth-of-type(odd){
-            .doctorItem-l{
-              background: var(--indexColor3);
+        }
+        &-detail{
+          padding: 20px;
+          display: flex;
+          margin-top: 50px;
+          &-l{
+            width: calc(434 / 1365 * 100%);
+            max-width: 434px;
+            position: relative;
+            height: max-content;
+            &-in{
+              width: 100%;
+              &::after{
+                content: '';
+                position: absolute;
+                top: -20px;
+                left: -20px;
+                width: 100%;
+                height: 100%;
+                border-radius: 30px;
+                background: rgba(254, 169, 209,.7);
+                z-index: 0;
+              }
+            }
+            img{
+              position: relative;
+              border-radius: 30px;
+              z-index: 1;
+              &:nth-of-type(1){
+                border: 3px solid var(--indexColor1);
+              }
+              &:nth-of-type(2){
+                position: absolute;
+                bottom: 3px;
+                left: 50%;
+                transform: translateX(-50%);
+                // width: calc(100% - 3px);
+                // max-width: 80%;
+                max-height: calc(92% - 3px);
+                display: block;
+              }
+            }
+
+          }
+          &-r{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+            padding-bottom: 5px;
+            .detail-1{
+              color: var(--indexColor1);
+              padding-left: 20px;
+              span{
+                font-size: 20px;
+                &:nth-of-type(1){
+                  font-size: 35px;
+                  margin-right: 5px;
+                }
+              }
+            }
+            .detail-2{
+              color: #fff;
+              span{
+                font-size: 28px;
+                padding: 5px 70px 5px 15px;
+                display: inline-block;
+                background: var(--indexColor1);
+                clip-path: polygon(0 0, 93% 0, 100% 100%, 0 100%);
+              }
+            }
+            .detail-3{
+              color: var(--textColor);
+              padding-left: 20px;
+              font-size: 20px;
+              margin-bottom: 30px;
+              margin-top: 10px;
+              span{
+                // white-space: pre-wrap;
+                &:not(:last-child){
+                  &::after{
+                    content: '、';
+                  }
+                }
+              }
+            }
+            .detail-4{
+              flex: 1;
+              color: var(--textColor);
+              padding-left: 20px;
+              font-size: 20px;
+              margin-bottom: 20px;
+              span{
+                display: block;
+                display: -webkit-box;  
+                -webkit-line-clamp: 3; 
+                line-clamp: 3; 
+                -webkit-box-orient: vertical;  
+                overflow: hidden;  
+                text-overflow: ellipsis; 
+              }
+            }
+            .detail-5{
+              color: var(--textColor);
+              padding-left: 20px;
+              font-size: 20px;
+              span{
+                border-bottom: 1px solid var(--textColor);
+                &:not(:last-child){
+                  margin-right: 10px;
+                }
+              }
+            }
+            .detail-6{
+              margin-top: 30px;
+              margin-left: 20px;
+              span{
+                cursor: pointer;
+                color: #fff;
+                background: var(--indexColor1);
+                font-size: 35px;
+                border-radius: 50px;
+                padding: 10px 30px;
+                box-shadow: 0 5px 10px var(--indexColor1);
+                transition: all .3s;
+                &:hover{
+                  opacity: .7;
+                }
+              }
             }
           }
-          &:nth-of-type(even){
-            .doctorItem-l{
-              background: #BAE0FF;
-            }
-          }
-          &:first-child{
-            margin-top: 30px;
-          }
-        }
-        &::-webkit-scrollbar {
-          background: none;
-        }
-        &::-webkit-scrollbar-thumb{
-          background: var(--indexColor1);
-        }
-        &::-webkit-scrollbar-track{
-          background: var(--indexColor2);
         }
       }
     }
@@ -345,53 +558,6 @@ onMounted(()=>{
   @media (min-width: 768px) and (max-width: 1452px) {
     .doctorPage{
       &-in{
-        &-lists{
-          .doctorItem{
-            height: 28vw;
-            &-l{
-              width: 28vw;
-              img{
-                max-width: 85%;
-                max-height: calc(100% + 30px);
-              }
-            }
-            &-r{
-              padding-left: 3vw;
-              .title{
-                font-weight: 900;
-                font-size: 1.5vw;
-                line-height: 200%;
-              }
-              .org{
-                font-weight: 600;
-                font-size: 1.5vw;
-              }
-              .expertise{
-                font-weight: 600;
-                font-size: 1.5vw;
-              }
-              .name{
-                font-weight: 900;
-                font-size: 1.5vw;
-                line-height: 160%;
-                span{
-                  margin-right: 1.4vw;
-                  &:last-child{
-                    padding-left: 1.4vw;
-                  }
-                }
-              }
-              .btn{
-                font-size: 1.6vw;
-                margin-top: 4.8vw;
-                img{
-                  width: 1.4vw;
-                  margin-left: .75vw;
-                }
-              }
-            }
-          }
-        }
       }
     }
   }
@@ -418,133 +584,162 @@ onMounted(()=>{
           }
         }
         &-tabNav{
-          display: none;
+          // display: none;
+          margin-top: 20px;
+          padding: 0 30px;
+          &-l{
+            font-size: 16px;
+          }
         }
-        .mbDoctorList{
-          &-c{
+        .index-doctorTeam{
+          margin: 50px 0;
+          width: 100%;
+          &-t{
+            flex-direction: column;
+            align-items: flex-start;
             box-sizing: border-box;
-            .doctorPage-in-lists{
-              width: 100%;
-              margin-top: 33px;
+          }
+          &-tab1{
+            :deep(.areaTab){
+              div{
+                font-size: 16px;
+              }
+            }
+          }
+          &-tab2{
+            padding: 0 30px;
+            margin-top: 20px;
+            &-in{
               display: flex;
-              .swiper{
-                padding-bottom: 30px;
-              }
-              :deep(.swiper-scrollbar){
-                opacity: 1 !important;
-                width: calc(100% - 60px);
-                margin: 0 30px;
-                background: var(--indexColor2);
-              }
-              :deep(.swiper-scrollbar-drag){
-                background: var(--indexColor1);
-              }
-              &::-webkit-scrollbar{
-                height: 5px;
-              }
-              &::-webkit-scrollbar-thumb{
-                background: var(--indexColor1);
+              flex-wrap: wrap;
+              border: 1px solid #00AEFF;
+              border-radius: 5px;
+              &>div{
+                font-size: 16px;
                 border: none;
-                height: 5px;
-              }
-              &::-webkit-scrollbar-track{
-                background: var(--indexColor2);
-                height: 5px;
-              }
-              .doctorItem{
-                display: block;
-                flex-shrink: 0;
-                float: left;
-                height: auto;
-                padding: 0 30px;
-                scroll-snap-align: start;
-                &-l{
-                  width: 100%;
-                  padding-top: 100%;
-                  height: 0;
-                  img{
-                    max-width: 85%;
-                    max-height: calc(100% + 30px);
-                  }
+                &:not(:nth-of-type(n+4)){
+                  border-right: 1px solid #00AEFF;
                 }
-                &-r{
-                  padding-left: 0;
-                  margin-top: 19px;
-                  &-t{
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    .title{
-                      font-size: 1.25rem;
-                      font-weight: 600;
-                      line-height: 160%;
-                      white-space: pre-wrap;
-                    }
-                    .btn{
-                      min-width: 83px;
-                      font-size: 1rem;
-                      margin-top: 0;
-                      img{
-                        width: 14px;
-                        margin-left: 5px;
-                      }
-                    }
-                  }
-                  .org{
-                    margin-top: 19px;
-                    font-weight: 500;
-                    font-size: 1rem;
-                    width: 100%;
-                  }
-                  .expertise{
-                    margin-top: 25px;
-                    font-weight: 500;
-                    font-size: 1rem;
-                  }
-                  .name{
-                    font-weight: 600;
-                    font-size: 1.2rem;
-                    margin-top: 25px;
-                    display: flex;
-                    span{
-                      display: flex;
-                      align-items: center;
-                      &:first-child{
-                        max-width: 60px;
-                        margin-right: 20px;
-                      }
-                      &:last-child{
-                        padding-left: 20px;
-                        flex: 1;
-                        border-left: 2px solid #666666;
-                        margin-right: 0;
-                      }
-                    }
+                &:not(:nth-of-type(n+5)){
+                  border-bottom: 1px solid #00AEFF;
+                }
+                &:nth-of-type(n+6){
+                  border-left: 1px solid #00AEFF;
+                }
+                &.textlang-3,&.textlang-4{
+                  min-width: calc(100% / 4);
+                }
+                &:first-child{
+                  border-radius: 0;
+                }
+                &:last-child{
+                  border-right: none;
+                  border-radius: 0;
+                }
+                &:hover{
+                  color: #00AEFF;
+                  background: #fff;
+                }
+                &.index-doctorTeam-tab2-in-active{
+                  color: #fff;
+                  background: #00AEFF;
+                }
+              }
+              &.tablang-1,&.tablang-2,&.tablang-3,&.tablang-4{
+                &>div{
+                  border-bottom: none;
+                  &:last-child{
+                    border-right: none;
                   }
                 }
               }
             }
           }
-          &-b{
-            font-weight: 400;
-            font-size: 1.25rem;
-            line-height: 160%;
-            color: #CBCBCB;
-            margin-top: 36px;
-            padding: 0 30px;
-            span{
-              &:not(:last-child)::after{
-                content: '';
-                width: 20px;
-                height: 2px;
-                margin: 0 10px;
-                background: #CBCBCB;
-                display: inline-block;
-                vertical-align: middle;
-                margin-top: -4px;
+          &-lists{
+            margin-top: 20px;
+            overflow: hidden;
+            .pcLists{
+              display: none;
+            }
+            .mbLists{
+              display: block;
+            }
+          }
+          &-detail{
+            flex-direction: column;
+            padding: 0;
+            margin-top: 30px;
+            &-l{
+              width: 100%;
+              &-in{
+                &::after{
+                  display: none;
+                }
               }
-              &:last-child{
-                color: var(--indexColor1);
+              img{
+                border-radius: 0;
+                &:nth-of-type(1){
+                  border: none;
+                }
+                &:nth-of-type(2){
+                  // width: 55%;
+                  height: 100%;
+                  max-height: 90%;
+                  left: 50%;
+                  top: auto;
+                  bottom: 0;
+                  transform: translateX(-50%);
+                }
+              }
+            }
+            &-r{
+              .detail-1{
+                margin: 5px 0;
+                padding: 0 30px;
+                span{
+                  font-size: 18px;
+                  display: inline-block;
+                  &:nth-of-type(1){
+                    font-size: 30px;
+                    letter-spacing: 2px;
+                    margin-right: 5px;
+                  }
+                }
+              }
+              .detail-2{
+                &>span{
+                  width: 100%;
+                  font-size: 20px;
+                  padding: 5px 75px 5px 30px;
+                  clip-path: polygon(0 0, 85% 0, 90% 100%, 0 100%);
+                }
+              }
+              .detail-3{
+                margin-top: 10px;
+                padding: 0 30px;
+                font-size: 16px;
+              }
+              .detail-4{
+                font-size: 16px;
+                padding: 0 30px;
+                margin-bottom: 30px;
+                span{
+                  text-align: justify;
+                }
+              }
+              .detail-5{
+                font-size: 12px;
+                padding: 0 30px;
+                display: flex;
+                justify-content: center;
+              }
+              .detail-6{
+                display: flex;
+                justify-content: center;
+                margin-left: 0;
+                span{
+                  font-size: 28px;
+                }
               }
             }
           }

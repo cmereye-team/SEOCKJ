@@ -171,7 +171,9 @@ const dentalProfessionList = [
 let doctorCur = ref('')
 
 const changleDoctorLists:any = () =>{
-  return doctorLists_cs[appState.areaTabCurNum].filter((temp:any)=>{return temp.dentalProfessionId.includes(dentalProfessionCur.value)}) || []
+  return doctorLists_cs[appState.areaTabCurNum].filter((temp:any)=>{
+    return temp.dentalProfessionId.includes(dentalProfessionCur.value) && temp.isIndexShow
+  }) || []
 }
 const changeDoctorDetail = () => {
   let obj = {
@@ -204,7 +206,7 @@ let doctorDetail:any = ref({
   org: '羅湖區 深圳愛康健口腔醫院，口腔牙周病科，口腔修復科，牙體牙髓科',
   newOrg: '羅湖區 深圳愛康健口腔醫院',
   tags: ['口腔牙周病科','口腔修復科','牙體牙髓科'],
-  newJobs: '愛康健口腔醫院院長\n口腔專業主治醫師生\n華西口腔醫學院碩士研究生',
+  newJobs: ['愛康健口腔醫院院長','口腔專業主治醫師生','華西口腔醫學院碩士研究生'],
   text: '醫院院長、主治醫師',
   posts: '主治醫師',
   job:'愛康健口腔醫院院長',
@@ -226,8 +228,10 @@ const changeDentalProfessionList = () =>{
   let _lists:any = []
   if(doctorLists_cs[appState.areaTabCurNum].length>0){
     for(var i = 0; i<doctorLists_cs[appState.areaTabCurNum].length;i++ ){
-      _lists = [ ..._lists, ...doctorLists_cs[appState.areaTabCurNum][i].dentalProfessionId]
-      _lists = [...new Set(_lists)];
+      if(doctorLists_cs[appState.areaTabCurNum][i].isIndexShow){
+        _lists = [ ..._lists, ...doctorLists_cs[appState.areaTabCurNum][i].dentalProfessionId]
+        _lists = [...new Set(_lists)];
+      }
     }
   }
   return dentalProfessionList.filter(item => _lists.includes(item.id)) || []
@@ -328,38 +332,6 @@ onMounted(()=>{
       <serviceCard :isIndexShow="true" />
 
       <!-- 醫生團隊 -->
-      <!-- <div class="index-doctorTeam">
-        <div class="index-doctorTeam-t pageCon">
-          <div class="index_title index_title_2">醫生團隊</div>
-          <AreaTab />
-        </div>
-        <div class="index-doctorTeam-c pageCon">
-            <Swiper
-              class="swiperBox"
-              :loop="true"
-              :autoplay="{
-                disableOnInteraction: true,
-              }"
-              @swiper="setDoctorTeamSwiperRef"
-              @slideChange="onSlideDoctorTeamSwiperChange"
-            >
-              <SwiperSlide v-for="(swiperPage,swiperPageIndex) in Math.ceil( doctorLists_cs[appState.areaTabCurNum].length / 12 )" :key="swiperPageIndex" >
-                <div class="doctorTeamPage">
-                  <div class="doctorItem" v-for="(doctorItem,doctorIndex) in doctorLists_cs[appState.areaTabCurNum].slice(swiperPageIndex*12,(swiperPageIndex+1)*12)" :key="doctorIndex">
-                    <nuxt-link :to="`/medical-team?did=${doctorItem.id}`">
-                      <img :src="doctorItem.mbImg || ''" :alt="doctorItem.name" :title="doctorItem.name">
-                    </nuxt-link>
-                  </div>
-                </div>
-              </SwiperSlide>
-            </Swiper>
-        </div>
-        <div class="index-doctorTeam-b pageCon">
-          <div class="index-doctorTeam-b-in">
-            <PageSwiperPointLine :latestNewsNum="Math.ceil( doctorLists_cs[appState.areaTabCurNum].length / 12 )" :latestNewsCurrent="doctorTeamCurrent" :isAutoWidth="true" @changeLineCur="handleLineCur"></PageSwiperPointLine>
-          </div>
-        </div>
-      </div> -->
       <div class="index-doctorTeam">
         <div class="index-doctorTeam-t pageCon">
           <div class="index_title index_title_2">醫生團隊</div>
@@ -376,11 +348,25 @@ onMounted(()=>{
         </div>
         <div class="index-doctorTeam-lists index-doctorTeam-con">
           <div class="pcLists">
-            <div class="pcLists-in" :class="{acitve:doctorCur===doctorItem.id}" v-for="doctorItem in changleDoctorLists()" :key="doctorItem.id" @click="handleDoctorItem(doctorItem.id)">
-              <div class="pcLists-in-img">
-                <img :src="doctorItem.mbImg || ''" :alt="doctorItem.name" :title="doctorItem.name">
+            <section v-if="changleDoctorLists().length < 7">
+              <div class="pcLists-in" :class="{acitve:doctorCur===doctorItem.id}" v-for="doctorItem in changleDoctorLists()" :key="doctorItem.id" @click="handleDoctorItem(doctorItem.id)">
+                <div class="pcLists-in-img">
+                  <img :src="doctorItem.mbImg || ''" :alt="doctorItem.name" :title="doctorItem.name">
+                </div>
               </div>
-            </div>
+            </section>
+            <section v-else>
+              <Swiper
+                class="swiperpcLists-in"
+                :slidesPerView="7"
+              >
+                <SwiperSlide class="swiperpcLists-in-slide" v-for="doctorItem in changleDoctorLists()" :key="doctorItem.id">
+                  <div class="swiperpcLists-in-img" :class="{acitve:doctorCur===doctorItem.id}" @click="handleDoctorItem(doctorItem.id)">
+                    <img :src="doctorItem.mbImg || ''" :alt="doctorItem.name" :title="doctorItem.name">
+                  </div>
+                </SwiperSlide>
+              </Swiper>
+            </section>
           </div>
           <div class="mbLists">
             <Swiper
@@ -411,7 +397,8 @@ onMounted(()=>{
               <span>{{doctorDetail.newOrg}}</span>
             </div>
             <div class="detail-3">
-              <span>{{doctorDetail.newJobs}}</span>
+              <!-- <span>{{doctorDetail.newJobs}}</span> -->
+              <span v-for="(jobItem,jobIndex) in doctorDetail.newJobs" :key="jobIndex">{{jobItem}}</span>
             </div>
             <div class="detail-4">
               <span>擅長項目：</span>
@@ -646,39 +633,6 @@ svg:hover path{
     justify-content: space-between;
     align-items: flex-end;
   }
-  &-c{
-    margin-top: 45px;
-    .doctorTeamPage{
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      padding: 10px;
-      .doctorItem{
-        cursor: pointer;
-        flex: 1;
-        min-width: 16.55%;
-        max-width: 16.6%;
-        border-right: 1px solid;
-        border-bottom: 1px solid;
-        border-color: #FFA39E;
-        transition: all .5s;
-        overflow: hidden;
-        box-shadow: 2px -2px 8px rgba(255, 163, 158, 0.25);
-        img{
-          width: calc(100% - 1px);
-          height: calc(100% - 1px);
-        }
-        &:hover{
-          background: var(--indexColor);
-        }
-      }
-    }
-  }
-  &-b{
-    padding-top: 60px;
-    display: flex;
-    justify-content: center;
-  }
   &-con{
     width: 100%;
     max-width: 1365px;
@@ -758,6 +712,29 @@ svg:hover path{
         }
         &:hover,&.acitve{
           .pcLists-in-img{
+            background: #FFA8C6;
+          }
+        }
+      }
+      &>section{
+        max-width: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .swiperpcLists-in{
+        width: 100%;
+        overflow: visible;
+        &-img{
+          margin: 0 15px;
+          height: auto;
+          border-radius: 10px;
+          overflow: hidden;
+          background: rgba(254, 169, 209,.7);
+          transition: all .3s;
+          cursor: pointer;
+          &:hover,&.acitve{
             background: #FFA8C6;
           }
         }
@@ -854,7 +831,8 @@ svg:hover path{
         margin-bottom: 30px;
         margin-top: 5px;
         span{
-          white-space: pre-wrap;
+          // white-space: pre-wrap;
+          display: block;
         }
       }
       .detail-4{
@@ -1124,16 +1102,6 @@ svg:hover path{
       flex-direction: column;
       align-items: flex-start;
       box-sizing: border-box;
-    }
-    &-c{
-      margin-top: 20px;
-      .doctorTeamPage{
-        .doctorItem{
-          // width: 33.33%;
-          min-width: 33.33%;
-          max-width: 33.34%;
-        }
-      }
     }
     &-tab1{
       :deep(.areaTab){
