@@ -31,17 +31,17 @@ const pageDetail:any = {
       list: [
         {
           type: 'defule',
-          text: '2024年2月19日政府公布，深圳愛康健齒科已經正式成為「長者醫療券大灣區試點計劃」的參與機構，這個計劃旨在資助符合條件的長者跨境到愛康健齒科口腔醫院使用長者醫療券支付治療費用。政府預計今年第三季開始實施該計劃，'
+          text: 'health-care-voucher.pageDetail.content_1.list_1.text_1'
         },
         {
           type: 'indexColor',
-          text: '約有170萬名合資格的長者將從中受益。'
+          text: 'health-care-voucher.pageDetail.content_1.list_1.text_2'
         },
       ],
     },
     {
       type: 'h2',
-      text: '長者醫療券大灣區試點計劃參與機構',
+      text: 'health-care-voucher.pageDetail.content_1.list_2.text',
       className: 'nob',
     },
     {
@@ -49,7 +49,7 @@ const pageDetail:any = {
       list: [
         {
           type: 'defule',
-          text: '政府在長者醫療券大灣區試點計劃中對參與機構進行了嚴謹的篩選，並進行了充分的市場調查。此篩選過程涵蓋多個關鍵考量，以確保所選擇的機構能夠提供高品質的醫療服務。其中考慮的因素包括地理位置、服務質量、管理和運營經驗、服務範圍和容量、收費標準和水平，以及對長者醫療券計劃的基本認知。'
+          text: 'health-care-voucher.pageDetail.content_1.list_3.text'
         }
       ],
     },
@@ -58,7 +58,7 @@ const pageDetail:any = {
       list: [
         {
           type: 'defule',
-          text: '香港衛生署對這些參與機構進行嚴格監管，扮演著審計角色，以確保其符合相關標準。即使長者的醫療券金額已扣除，他們仍然可以追究任何不當行為。此外，衛生署還將建立長者醫療券培訓和保障機制，包括監管濫收費用和病人體驗等方面。在事故發生的情況下，也設有嚴謹的投訴處理機制，並受廣東省衛健委的監管。'
+          text: 'health-care-voucher.pageDetail.content_1.list_4.text'
         }
       ]
     },
@@ -67,13 +67,13 @@ const pageDetail:any = {
       list: [
         {
           type: 'defule',
-          text: '最終，共有7家灣區醫療機構獲得批准參與計劃，其中包括位於羅湖口岸的深圳愛康健口腔醫院。'
+          text: 'health-care-voucher.pageDetail.content_1.list_5.text'
         },
       ],
     },
     {
       type: 'h2',
-      text: '為醫療券使用者提供更多選擇',
+      text: 'health-care-voucher.pageDetail.content_1.list_6.text',
       className: 'nob'
     },
     {
@@ -89,13 +89,13 @@ const pageDetail:any = {
       list: [
         {
           type: 'defule',
-          text: '根據政府統計處的數據，目前有大約89,100名年齡在65歲或以上的長者居住在大灣區內地城市*。「長者醫療券大灣區試點計劃」擴大了長者醫療券適用範圍，提供更多靈活選擇和便利性，讓長者能善用醫療券享用與香港相約的高質量牙科醫療服務，以滿足他們對牙科醫療的需求和維護口腔健康。'
+          text: 'health-care-voucher.pageDetail.content_1.list_7.text'
         }
       ]
     },
     {
       type: 'h2',
-      text: '唯一參與醫療券計劃的深圳口腔醫院',
+      text: 'health-care-voucher.pageDetail.content_1.list_8.text',
       className: 'nob'
     },
     {
@@ -110,21 +110,21 @@ const pageDetail:any = {
       list: [
         {
           type: 'defule',
-          text: '深圳愛康健口腔醫院是唯一參與長者醫療券計劃的深圳口腔醫院。愛康健自1995年成立以來，超過28年一直專注為香港市民提供專業、貼心、全面的牙科醫療服務。愛康健在深圳擁有1間口腔醫院及12間門診診所，並致力於更新和升級醫療設備，引進最先進的設備和技術，以確保為客人提供安全、舒適、高效的醫療體驗。'
+          text: 'health-care-voucher.pageDetail.content_1.list_9.text'
         }
       ]
     },
     {
       type: 'h3',
-      text: '愛康健口腔醫院可為醫療券使用者提供以下牙科醫療服務，包括：',
+      text: 'health-care-voucher.pageDetail.content_1.list_10.text',
       className: 'nob'
     },
     {
       type: 'ul',
       list: [
-        '洗牙',
-        '補牙',
-        '拔牙'
+        'health-care-voucher.pageDetail.content_1.list_11.text_1',
+        'health-care-voucher.pageDetail.content_1.list_11.text_2',
+        'health-care-voucher.pageDetail.content_1.list_11.text_3'
       ],
       className: 'nob'
     },
@@ -142,13 +142,13 @@ const pageDetail:any = {
       list: [
         {
           type: 'defule',
-          text: '愛康健醫療團隊都擁有豐富的臨床經驗和專業知識，能夠為每位長者提供與香港相約的個人化優質牙科治療服務。'
+          text: 'health-care-voucher.pageDetail.content_1.list_12.text'
         }
       ]
     },
     {
       type: 'h2',
-      text: '使用長者醫療券的最新情報',
+      text: 'health-care-voucher.pageDetail.content_1.list_13.text',
       className: 'nob',
     },
     {
@@ -156,7 +156,7 @@ const pageDetail:any = {
       list: [
         {
           type: 'defule',
-          text: '長者醫療券計劃為年滿65歲並持有效香港身份證、或豁免證明書的長者，每年獲發醫療券支付私營醫療服務費用。從2020年開始，醫療券金額為每年港幣2,000元，而醫療券累積金額上限為港幣8,000元。醫療券將每年於1月1日自動存入長者醫療券戶口。'
+          text: 'health-care-voucher.pageDetail.content_1.list_14.text'
         }
       ],
       className: 'nob'
@@ -174,7 +174,7 @@ const pageDetail:any = {
       list: [
         {
           type: 'defule',
-          text: '另外，長者醫療券容許兩名合資格及有配偶關係長者共用醫療券餘額。'
+          text: 'health-care-voucher.pageDetail.content_1.list_15.text'
         }
       ]
     },
@@ -183,23 +183,23 @@ const pageDetail:any = {
       list: [
         {
           type: 'defule',
-          text: '為鼓勵長者善用醫療券接受私營預防性護理和慢性疾病管理等服務，政府推出了「長者醫療券獎賞先導計劃」。該計劃將在'
+          text: 'health-care-voucher.pageDetail.content_1.list_16.text_1'
         },
         {
           type: 'indexColor',
-          text: '2026年12月31日之前每年額外發放港幣500元的獎賞金額'
+          text: 'health-care-voucher.pageDetail.content_1.list_16.text_2'
         },
         {
           type: 'defule',
-          text: '。獎賞條件為，'
+          text: 'health-care-voucher.pageDetail.content_1.list_16.text_3'
         },
         {
           type: 'indexColor',
-          text: '長者需要在同一年度累計使用至少港幣1,000元的醫療券在特定的基層醫療服務上，例如洗牙、拔牙、補牙等'
+          text: 'health-care-voucher.pageDetail.content_1.list_16.text_4'
         },
         {
           type: 'defule',
-          text: '。醫健通（資助）系統即會自動發放獎賞至醫療券戶口。'
+          text: 'health-care-voucher.pageDetail.content_1.list_16.text_5'
         }
       ],
     },
@@ -208,7 +208,7 @@ const pageDetail:any = {
       list: [
         {
           type: 'defule',
-          text: '有關長者醫療券大灣區試點計劃使用詳情及最新的信息，可關注及聯絡愛康健齒科查詢。'
+          text: 'health-care-voucher.pageDetail.content_1.list_17.text'
         }
       ]
     },
@@ -217,7 +217,7 @@ const pageDetail:any = {
       list: [
         {
           type: 'defule',
-          text: '愛康健官方WhatsApp：'
+          text: 'health-care-voucher.pageDetail.content_1.list_18.text'
         },
         {
           type: 'indexColor a',
@@ -232,7 +232,7 @@ const pageDetail:any = {
       list: [
         {
           type: 'defule',
-          text: '愛康健官方查詢電話：'
+          text: 'health-care-voucher.pageDetail.content_1.list_19.text'
         },
         {
           type: 'indexColor a',
@@ -247,7 +247,7 @@ const pageDetail:any = {
       list: [
         {
           type: 'defule',
-          text: '愛康健香港官方網頁：'
+          text: 'health-care-voucher.pageDetail.content_1.list_20.text'
         },
         {
           type: 'indexColor a',
@@ -262,7 +262,7 @@ const pageDetail:any = {
       list: [
         {
           type: 'defule',
-          text: '長者醫療券計劃網頁：'
+          text: 'health-care-voucher.pageDetail.content_1.list_21.text'
         },
         {
           type: 'indexColor a',
@@ -276,11 +276,11 @@ const pageDetail:any = {
       list: [
         {
           type: 'defule',
-          text: '*資料來源：'
+          text: 'health-care-voucher.pageDetail.content_1.list_22.text_1'
         },
         {
           type: 'defule',
-          text: '香港特別行政區政府新聞公報，2023，'
+          text: 'health-care-voucher.pageDetail.content_1.list_22.text_2'
         },
         {
           type: 'a',
@@ -292,11 +292,21 @@ const pageDetail:any = {
     },
   ],
   tags: [
-    '#醫療券',
-    '#長者',
-    '#政府政策'
+    'health-care-voucher.pageDetail.content_1.list_23.text_1',
+    'health-care-voucher.pageDetail.content_1.list_23.text_2',
+    'health-care-voucher.pageDetail.content_1.list_23.text_3'
   ]
 }
+
+const handleLocale = (l) =>{
+  locale.value = l
+  if(l == 'zh'){
+		var _text = "微软雅黑"
+	}else{
+		var _text = "'FakePearl-Regular','幼圆', Serif"
+	}
+	document.documentElement.style.setProperty("--indexFontFamily", _text);
+} 
 
 
 onMounted(()=>{
@@ -332,29 +342,29 @@ onMounted(()=>{
     <PageHeader :headerConfig="headerConfig" /> 
     <div class="health-care-voucher pageIn whitebgColor">
       <div class="pageCon health-care-voucher-top">
-        <div class="index_title health-care-voucher-title">長者醫療券</div>
-        <!-- <div class="lang">
-          <span @click="locale = 'en'" class="ignore">Eng</span>
-          <span @click="locale = 'zh'" class="ignore">简中</span>
-          <span @click="locale = 'hk'" class="ignore">繁中</span>
-        </div> -->
+        <div class="index_title health-care-voucher-title">{{$t('components.header.menuLists.health-care-voucher.name')}}</div>
+        <div class="lang">
+          <span @click="handleLocale('en')" class="ignore">Eng</span>
+          <span @click="handleLocale('zh')" class="ignore">简中</span>
+          <span @click="handleLocale('hk')" class="ignore">繁中</span>
+        </div>
         <!-- <div id="translate"></div> -->
       </div>
       <div class="tabNav noTitle pageCon">
         <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
-          <span>主頁</span>
+          <span>{{$t('components.footer.nav_index')}}</span>
         </nuxt-link>
-        <span>長者醫療券</span>
+        <span>{{$t('components.header.menuLists.health-care-voucher.name')}}</span>
       </div>
       <div class="content">
         <div>
           <img src="https://static.cmereye.com/imgs/2024/02/74d44b6145445bfd.webp" title="灣區長者醫療券" alt="灣區長者醫療券">
         </div>
         <div class="nob">
-          <h1>深圳愛康健正式納入灣區長者醫療券參與機構</h1>
+          <h1>{{$t('health-care-voucher.pageDetail.nob')}}</h1>
         </div>
         <div>
-          <p class="time">2024年2月19日</p>
+          <p class="time">{{$t('health-care-voucher.pageDetail.time')}}</p>
         </div>
         <div v-for="(item,index) in pageDetail.content" :key="index" :class="item.className || ''">
           <section v-if="item.type === 'p'">
@@ -365,17 +375,17 @@ onMounted(()=>{
                 </section>
                 <section v-else>
                   <span :class="pitem.type">
-                    {{pitem.text}}
+                    {{$t(pitem.text)}}
                   </span>
                 </section>
               </section>
             </p>
           </section>
           <section v-else-if="item.type === 'h2'">
-            <h2>{{item.text}}</h2>
+            <h2>{{$t(item.text)}}</h2>
           </section>
           <section v-else-if="item.type === 'h3'">
-            <h3>{{item.text}}</h3>
+            <h3>{{$t(item.text)}}</h3>
           </section>
           <section v-else-if="item.type === 'img'">
             <section class="imgItem" v-for="(imgItem,imgIndex) in item.list" :key="imgIndex">
@@ -385,18 +395,18 @@ onMounted(()=>{
           <section v-else-if="item.type === 'ul'">
             <ul>
               <li v-for="(liItem,liIndex) in item.list" :key="liIndex">
-                {{liItem}}
+                {{$t(liItem)}}
               </li>
             </ul>
           </section>
           <section v-else></section>
         </div>
         <div class="btn">
-          <a href="https://bit.ly/愛康健長者醫療券預約">WhatsApp查詢長者醫療券</a>
+          <a href="https://bit.ly/愛康健長者醫療券預約">{{$t('health-care-voucher.pageDetail.btn')}}</a>
         </div>
         <div class="tags">
           <span v-for="(tagItem,tagIndex) in pageDetail.tags" :key="tagIndex">
-            {{tagItem}}
+            {{$t(tagItem)}}
           </span>
         </div>
       </div>

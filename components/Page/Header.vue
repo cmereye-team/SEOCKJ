@@ -139,10 +139,10 @@ const menuLists = [
         name: 'components.header.menuLists.menu_news.coverage',
         link: '/news/coverage',
       },
-      // {
-      //   name: 'components.header.menuLists.menu_news.information',
-      //   link: '/news/information',
-      // },
+      {
+        name: 'components.header.menuLists.menu_news.information',
+        link: '/news/information',
+      },
     ]
   },
   {

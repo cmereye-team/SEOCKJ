@@ -7,11 +7,11 @@ components:
   header: 
     menuLists: 
       menu_index: 
-        name: 'principal sheet'
+        name: 'home'
       menu_brand: 
         name: 'Brand concept'
         course: 'Brand introduction'
-        Honor: 'Brand honor'
+        honor: 'Brand honor'
       menu_dental_service: 
         name: 'Dental service'
       health-care-voucher: 
@@ -34,6 +34,9 @@ components:
     nav_dental_service: 'Dental services'
     nav_medical_team: 'medical team'
     nav_contactUs: 'Contact us'
+    privacy_policy: 'Privacy Policy'
+    disclaimer: disclaimer
+    all_rights_reserved: 'All rights reserved by CKJ Aikangjian Dental'
   areaTabs: 
     luohu: Luohu
     futian: Futian
@@ -700,20 +703,20 @@ others:
   enabled: 启用
   disabled: 禁用
 service:
-  implant: 種植牙
-  orthodontics: 矯齒(箍牙)
-  rootCanal: 根管治療
-  invisalign: 隱形矯正
-  veneers: 全瓷貼片
-  all_ceramic_crowns: 全瓷牙冠
-  wisdom_teeth_extraction: 智慧齒脫除
-  periodontal: 牙周病治療
-  toothtray: 牙托
-  teeth_whitening: 牙齒美白
-  scaling_and_polishing: 洗牙
-  fillings: 補牙
-  general_oral_examination: 一般口腔檢查
-  children_dentistry: 兒童牙科
+  implant: implant
+  orthodontics: orthodontics
+  rootCanal: rootCanal
+  invisalign: invisiblebraces
+  veneers: veneers
+  all_ceramic_crowns: 'all ceramic crowns'
+  wisdom_teeth_extraction: 'wisdom teeth extraction'
+  periodontal: periodontal
+  toothtray: toothtray
+  teeth_whitening: 'teeth whitening'
+  scaling_and_polishing: 'scaling and polishing'
+  fillings: fillings
+  general_oral_examination: 'general oral examination'
+  children_dentistry: 'children dentistry'
 contactUs: 
   title: 聯絡我們
   hospital_address: 醫院地址
@@ -741,7 +744,7 @@ contactUs:
     address_101: 
       name: '深圳愛康健口腔醫院（羅湖）'
       tabname: '深圳愛康健口腔醫院'
-      address: '深圳市羅湖區火車站大廈C區1-8樓'
+      address: "1-8th Floor, Zone C, Railway Station Building, Luohu District, Shenzhen"
       time: |
         9:00-17:30 
         （假日照常應診）
@@ -750,7 +753,7 @@ contactUs:
     address_102:
       name: '恒潔口腔門診部（羅湖）'
       tabname: '恒潔口腔門診部'
-      address: '深圳市羅湖區桂園街道新圍社區深南東路5015號金豐城大廈B座1602、1603'
+      address: "1602 and 1603, Block B, Jinfengcheng Building, No. 5015 Shennan East Road, Xinwei Community, Guiyuan Street, Luohu District, Shenzhen"
       time: |
         9:00-17:30 
         （假日照常應診）
@@ -862,4 +865,66 @@ contactUs:
         （假日照常應診）
       busRoutes: '風和日麗北 : 312路、621路、M152路、M173路、M180路、M222路、M244路、M262路、M269路外環、M365路、M381路順時針、M401路、M577路'
       metroRoutes: '地鐵4號線「龍華站」A出口'
+health-care-voucher:
+  pageDetail:
+    nob: "All rights reserved by CKJ Aikangjian Dental. Shenzhen Aikangjian has officially been included in the participating institutions of the Bay Area Elderly Medical Voucher"
+    time: "February 19, 2024"
+    content_1: 
+      list_1: 
+        text_1: "On February 19, 2024, the government announced that Shenzhen Aikangjian Dental Hospital has officially become a participating institution in the 'Elderly Medical Vouchers Greater Bay Area Pilot Program'. This program aims to fund eligible elderly individuals to cross border to Aikangjian Dental Hospital and use Elderly Medical Vouchers to pay treatment fees. The government expects to start implementing the plan in the third quarter of this year,"
+        text_2: "Approximately 1.7 million eligible elders will benefit from it."
+      list_2:
+        text: "Participating institutions in the pilot program for elderly medical vouchers in the Greater Bay Area"
+      list_3:
+        text: "The government has conducted rigorous screening of participating institutions and conducted thorough market research in the pilot program for elderly medical vouchers in the Greater Bay Area. This screening process involves multiple key considerations to ensure that the selected institution can provide high-quality medical services. The factors considered include geographical location, service quality, management and operational experience, service scope and capacity, charging standards and levels, as well as basic understanding of the elderly medical voucher program."
+      list_4: 
+        text: "The Hong Kong Department of Health strictly regulates these participating institutions and plays an auditing role to ensure they meet relevant standards. Even if the amount of the elderly's medical voucher has been deducted, they can still pursue any improper behavior. In addition, the Department of Health will establish a training and protection mechanism for elderly medical vouchers, including monitoring overcharging and patient experience. In the event of an accident, there is also a rigorous complaint handling mechanism and supervision from the Guangdong Provincial Health Commission."
+      list_5:
+        text: "In the end, a total of 7 medical institutions in the Bay Area were approved to participate in the plan, including Shenzhen Aikangjian Dental Hospital located at the Luohu Port."
+      list_6:
+        text: "Provide more choices for medical voucher users"
+      list_7:
+        text: "According to data from the Government Statistics Department, there are currently approximately 89100 elderly people aged 65 or above residing in mainland cities in the Greater Bay Area. The Greater Bay Area Pilot Program for Elderly Medical Vouchers has expanded the scope of application for elderly medical vouchers, providing more flexible choices and convenience, allowing elderly people to make good use of medical vouchers to enjoy high-quality dental services agreed upon with Hong Kong, in order to meet their dental needs and maintain oral health."
+      list_8: 
+        text: "The only dental hospital in Shenzhen that participates in the medical voucher program"
+      list_9:
+        text: "Shenzhen Aikangjian Dental Hospital is the only dental hospital in Shenzhen that participates in the Elderly Medical Voucher Program. Since its establishment in 1995, Aikangjian has been dedicated to providing professional, caring, and comprehensive dental services to Hong Kong citizens for over 28 years. Aikangjian has 1 dental hospital and 12 outpatient clinics in Shenzhen, and is committed to updating and upgrading medical equipment, introducing the most advanced equipment and technology to ensure a safe, comfortable, and efficient medical experience for customers."
+      list_10:
+        text: "Aikangjian Dental Hospital can provide dental medical services for medical voucher users, including:"
+      list_11:
+        text_1: Toothwashing
+        text_2: 'Dental filling'
+        text_3: 'extract a tooth'
+      list_12: 
+        text: "The Aikangjian medical team has rich clinical experience and professional knowledge, and is able to provide personalized and high-quality dental treatment services for each elderly person in accordance with Hong Kong."
+      list_13:
+        text: "Latest intelligence on the use of elderly medical vouchers"
+      list_14:
+        text: "The Elderly Medical Voucher Scheme is for elderly individuals over 65 years old who hold a valid Hong Kong ID card or exemption certificate to receive medical vouchers annually to pay for private medical services. Starting from 2020, the amount of medical vouchers is HKD 2000 per year, and the cumulative limit of medical vouchers is HKD 8000. The medical voucher will be automatically deposited into the elderly medical voucher account on January 1st each year."
+      list_15:
+        text: "In addition, the elderly medical voucher allows two eligible and married elderly individuals to share the remaining balance of the medical voucher."
+      list_16:
+        text_1: "To encourage the elderly to make good use of medical vouchers for private preventive care and chronic disease management services, the government has launched the 'Elderly Medical Voucher Reward Pilot Program'. This plan will be implemented in"
+        text_2: "An additional reward of HKD 500 will be issued annually before December 31, 2026"
+        text_3: ". The reward conditions are:,"
+        text_4: "Elderly individuals need to accumulate at least HKD 1000 medical vouchers in the same year for specific primary healthcare services, such as tooth cleaning, extraction, and filling"
+        text_5: ". The Medical Health Pass (Funding) system will automatically distribute rewards to the medical voucher account."
+      list_17:
+        text: 'For details and the latest information on the use of Elderly Medical Vouchers in the Greater Bay Area Pilot Program, please follow and contact Aikang Health Dental for inquiries.'
+      list_18:
+        text: 'Official WhatsApp of iHealth:'
+      list_19:
+        text: 'Official inquiry hotline of Aikangjian:'
+      list_20: 
+        text: 'Ai Kang Jian Hong Kong Official Website:'
+      list_21:
+        text: 'Elderly Medical Voucher Program webpage:'
+      list_22: 
+        text_1: '*Data source:'
+        text_2: 'Hong Kong Special Administrative Region Government News Bulletin, 2023,'
+      list_23: 
+        text_1: '#Medical vouchers'
+        text_2: '#Elderly'
+        text_3: '#Government policies'
+    btn: 'WhatsApp'
   

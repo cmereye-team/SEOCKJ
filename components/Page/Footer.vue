@@ -76,11 +76,11 @@ const navLists = [
         </div>
       </div>
       <div class="footer-content-Disclaimer">
-        <nuxt-link to="/privacyPolicy">私隱政策</nuxt-link>
+        <nuxt-link to="/privacyPolicy">{{$t('components.footer.privacy_policy')}}</nuxt-link>
         &
-        <nuxt-link to="/disclaimer">免責條款</nuxt-link>
+        <nuxt-link to="/disclaimer">{{$t('components.footer.disclaimer')}}</nuxt-link>
       </div>
-      <div class="footer-content-copyright">©2023 CKJ愛康健齒科版權所有</div>
+      <div class="footer-content-copyright">©2024 {{$t('components.footer.all_rights_reserved')}}</div>
     </div>
   </div>
 </template>
