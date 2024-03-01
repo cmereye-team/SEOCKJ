@@ -7,39 +7,39 @@ components:
   header: 
     menuLists: 
       menu_index: 
-        name: principal sheet 
+        name: 'principal sheet'
       menu_brand: 
-        name: Brand concept 
-        course: Brand introduction 
-        Honor: Brand honor 
+        name: 'Brand concept'
+        course: 'Brand introduction'
+        Honor: 'Brand honor'
       menu_dental_service: 
-        name: Dental service 
+        name: 'Dental service'
       health-care-voucher: 
-        name: Medical voucher for the elderly 
-      menu_news: 
-        name: Look at the new information 
-        coverage: Media reports 
-        information: Latest information 
+        name: 'Medical voucher for the elderly'
+      menu_news:
+        name: 'Look at the new information'
+        coverage: 'Media reports'
+        information: 'Latest information'
       menu_medical_team: 
-        name: medical team
+        name: 'medical team'
       menu_caseSharing: 
-        name: Case sharing 
+        name: 'Case sharing'
       menu_contactUs: 
-        name: Contact us 
+        name: 'Contact us'
   footer: 
-    text1: 28 years of specialty focus 
-    text2: Hong Kong people choose a one-stop chain dental brand 
-    nav_index: Home
-    nav_brand: brand
-    nav_dental_service: Dental services 
-    nav_medical_team: medical team
-    nav_contactUs: Contact us
+    text1: '28 years of specialty focus'
+    text2: 'Hong Kong people choose a one-stop chain dental brand'
+    nav_index: 'Home'
+    nav_brand: 'brand'
+    nav_dental_service: 'Dental services'
+    nav_medical_team: 'medical team'
+    nav_contactUs: 'Contact us'
   areaTabs: 
-    luohu: 羅湖區
-    futian: 福田區
-    nanshan: 南山區
-    baoan: 寶安區
-    longhua: 龍華區
+    luohu: Luohu
+    futian: Futian
+    nanshan: Nanshan
+    baoan: Baoan
+    longhua: Longhua
   brandConcept: 
     title: 
       span_1: 愛康健齒科連鎖品牌

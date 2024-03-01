@@ -315,13 +315,7 @@ if(process.server){
     width: 100%;
   }
   &-line{
-    // max-width: 330px;
     margin: 40px auto 50px;
-    &.longline{
-      :deep(.point){
-        // width: ;
-      }
-    }
   }
 }
 .content-title{
@@ -339,7 +333,7 @@ if(process.server){
   :deep(span){
     text-wrap: wrap !important;
   }
-  :deep(img){
+  :deep(.content-img img){
     margin: 8px 0;
   }
   :deep(.content-img){
