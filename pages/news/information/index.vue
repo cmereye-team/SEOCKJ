@@ -43,14 +43,23 @@ const formatDate = (dateString) =>{
     return year + "年" + month + "月" + day + "日";  
 }  
 
+let totalPageNum = ref(0)
+let actPageNum = ref(1) 
+let loadingShow = ref(false)
+
 const getNewsLists = async () => {
+  loadingShow.value = true
   try{
-    const _res:any = await useFetch('https://admin.ckjhk.com/api.php/list/15',{
+    const _res:any = await useFetch(`https://admin.ckjhk.com/api.php/list/15/page/${actPageNum.value}/num/6`,{
       method: 'post',
     });
+    // const _res:any = await useFetch(`https://admin.ckjhk.com/api.php/list/15`,{
+    //   method: 'post',
+    // });
     let res = JSON.parse(_res.data.value) || null
     if(res){
-      console.log(res)
+      // console.log(res)
+      totalPageNum.value = Math.ceil(res.rowtotal / 6)
       informationLists.value = res.data.map(item=>{
         return{
           id: item.id || '',
@@ -61,10 +70,26 @@ const getNewsLists = async () => {
         }
       })
     }
+    loadingShow.value = false
   }catch{
     errorpage.value = true
+    loadingShow.value = false
   }
   // console.log(coverageLists.value)
+}
+
+const subNum = () => {
+  if(actPageNum.value > 1){
+    actPageNum.value --
+    getNewsLists()
+  }
+}
+
+const addNum = () => {
+  if(actPageNum.value < totalPageNum.value){
+    actPageNum.value ++
+    getNewsLists()
+  }
 }
 
 
@@ -97,7 +122,7 @@ onMounted(()=>{
         <span :title="'最新資訊'">最新資訊</span>
       </div>
       <div class="pageCon">
-        <div class="lists" v-if="!errorpage">
+        <div class="lists" v-if="!errorpage" v-loading="loadingShow">
           <div class="lists-in" v-for="(item,index) in informationLists" :key="index">
             <div class="lists-in-img">
               <img :src="item.img" alt="">
@@ -107,16 +132,22 @@ onMounted(()=>{
                 <div class="title">
                   {{item.name}}
                 </div>
-                <div class="time">
+                <!-- <div class="time">
                   <span>{{item.time}}</span>
-                </div>
+                </div> -->
               </div>
               <div class="desc" v-html="item.desc">
               </div>
+              <div style="flex: 1;"></div>
               <div class="btn">
-                <a :href="`/news/article/${item.id}?SDLDNZYP=2`">查看全文</a>
+                <a :href="`/news/information/${item.id}`">查看全文</a>
               </div>
             </div>
+          </div>
+          <div class="lists-btn">
+            <div @click="subNum" :class="{btndisabled: actPageNum === 1}"><span>上一頁</span></div>
+            <div>{{actPageNum}}/{{totalPageNum}}</div>
+            <div @click="addNum" :class="{btndisabled: actPageNum === totalPageNum}"><span>下一頁</span></div>
           </div>
         </div>
         <div class="lists" v-else>服務異常</div>
@@ -155,6 +186,7 @@ onMounted(()=>{
 }
 .lists{
   margin-top: calc(77 / 1448 * 100%);
+  min-height: 300px;
   &-in{
     display: flex;
     margin-bottom: calc(125 / 1448 * 100%);
@@ -179,33 +211,49 @@ onMounted(()=>{
           font-style: normal;
           font-weight: 400;
           line-height: 130%;
+          display: -webkit-box;  
+          -webkit-line-clamp: 2; 
+          line-clamp: 2; 
+          -webkit-box-orient: vertical;  
+          overflow: hidden;  
+          text-overflow: ellipsis; 
         }
-        .time{
-          span{
-            display: block;
-            text-align: right;
-            font-size: 20px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 160%; /* 32px */
-            letter-spacing: 2px;
-            color: var(--textColor);
-          }
-        }
+        // .time{
+        //   span{
+        //     display: block;
+        //     text-align: right;
+        //     font-size: 20px;
+        //     font-style: normal;
+        //     font-weight: 400;
+        //     line-height: 160%; /* 32px */
+        //     letter-spacing: 2px;
+        //     color: var(--textColor);
+        //   }
+        // }
       }
       .desc{
-        flex: 1;
+        // flex: 1;
         font-size: 20px;
         font-style: normal;
         font-weight: 400;
         line-height: 160%; /* 32px */
         letter-spacing: 2px;
         color: var(--textColor);
+        display: -webkit-box;  
+        -webkit-line-clamp: 11; 
+        line-clamp: 11; 
+        -webkit-box-orient: vertical;  
+        overflow: hidden;  
+        text-overflow: ellipsis; 
+        // &::after{
+        //   content: '......';
+        //   display: block;
+        // }
       }
       .btn{
         margin-top: 10px;
         display: flex;
-        justify-content: center;
+        // justify-content: center;
         a{
           font-size: 35px;
           font-style: normal;
@@ -222,6 +270,28 @@ onMounted(()=>{
           &:hover{
             background: #FF85AF;
           }
+        }
+      }
+    }
+  }
+  &-btn{
+    display: flex;
+    justify-content: center;
+    &>div{
+      font-size: 26px;
+      margin: 0 30px;
+      color: var(--textColor);
+      span{
+        color: var(--indexColor1);
+        cursor: pointer;
+        &:hover{
+          opacity: .7;
+        }
+      }
+      &.btndisabled{
+        span{
+          opacity: .7;
+          cursor: not-allowed;
         }
       }
     }
@@ -278,6 +348,11 @@ onMounted(()=>{
             padding: 8px 29px;
           }
         }
+      }
+    }
+    &-btn{
+      &>div{
+        font-size: 20px;
       }
     }
   }

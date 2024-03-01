@@ -334,8 +334,8 @@ onMounted(()=>{
       <div class="pageCon health-care-voucher-top">
         <div class="index_title health-care-voucher-title">長者醫療券</div>
         <!-- <div class="lang">
-          <span @click="locale = 'zh'" class="ignore">Eng</span>
-          <span @click="locale = 'cn'" class="ignore">简中</span>
+          <span @click="locale = 'en'" class="ignore">Eng</span>
+          <span @click="locale = 'zh'" class="ignore">简中</span>
           <span @click="locale = 'hk'" class="ignore">繁中</span>
         </div> -->
         <!-- <div id="translate"></div> -->
