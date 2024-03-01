@@ -223,7 +223,7 @@ const getWindowWidth = () => {
           <img src="https://static.cmereye.com/imgs/2023/06/e6e8971d6925c37f.jpg" alt="" />
         </div>
       </div>
-      <ContactUs />
+      <NewAddress />
     </div>
     <PageFooter />
     <PageNavbar />

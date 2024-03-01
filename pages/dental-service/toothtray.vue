@@ -213,7 +213,7 @@ const problemData = {
     </div>
     <ServiceProblem :problemData="problemData" />
     <serviceCard />
-    <ContactUs />
+    <NewAddress />
   </div>
   <PageFooter />
   <PageNavbar />

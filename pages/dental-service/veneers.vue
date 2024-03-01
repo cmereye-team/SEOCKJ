@@ -516,7 +516,7 @@ const caseLists = [
     <!-- 问题 -->
     <ServiceProblem :problemData="problemData" />
     <serviceCard />
-    <ContactUs />
+    <NewAddress />
   </div>
   <PageFooter />
   <PageNavbar />

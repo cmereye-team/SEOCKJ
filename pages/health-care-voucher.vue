@@ -399,7 +399,7 @@ onMounted(()=>{
           </span>
         </div>
       </div>
-      <ContactUs />
+      <NewAddress />
     </div>
     <PageFooter />
     <PageNavbar :langType="langCur" />

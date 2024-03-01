@@ -9,7 +9,7 @@ useHead({
     <PageHeader />
     <div class="service">
       <serviceCard :isIndexShow="true" />
-      <ContactUs />
+      <NewAddress />
     </div>
     <PageFooter />
     <PageNavbar />

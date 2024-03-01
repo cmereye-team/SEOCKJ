@@ -34,7 +34,7 @@ useHead({
       </div>
       <brandConcept />
       <AboutUs />
-      <ContactUs />
+      <NewAddress />
     </div>
     <PageFooter />
     <PageNavbar />

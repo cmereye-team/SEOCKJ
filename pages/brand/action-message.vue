@@ -98,7 +98,7 @@ const introduceData = {
           </div>
         </div>
       </div>
-      <ContactUs />
+      <NewAddress />
     </div>
     <PageFooter />
     <PageNavbar />

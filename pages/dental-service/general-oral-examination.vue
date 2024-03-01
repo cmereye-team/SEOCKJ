@@ -208,7 +208,7 @@ const getWindowWidth = () => {
       <ServiceStep :stepData="stepData" />
       <ServiceProblem :problemData="problemData" />
       <serviceCard />
-      <ContactUs />
+      <NewAddress />
     </div>
     <PageFooter />
     <PageNavbar />

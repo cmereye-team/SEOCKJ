@@ -218,7 +218,7 @@ const handleSkillTab = (_idx:number) => {
     <ServiceNote :noteData="noteData" />
     <ServiceProblem :problemData="problemData" />
     <serviceCard />
-    <ContactUs />
+    <NewAddress />
   </div>
   <PageFooter />
   <PageNavbar />

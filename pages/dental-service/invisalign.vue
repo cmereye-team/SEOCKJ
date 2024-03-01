@@ -133,7 +133,7 @@ const problemData = {
     <ServiceDiffer :differData="differData" />
     <ServiceProblem :problemData="problemData" />
     <serviceCard />
-    <ContactUs />
+    <NewAddress />
   </div>
   <PageFooter />
   <PageNavbar />

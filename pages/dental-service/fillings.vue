@@ -659,7 +659,7 @@ const differData:any = {
       </div>
       <ServiceProblem :problemData="problemData" />
       <serviceCard />
-      <ContactUs />
+      <NewAddress />
     </div>
     <PageFooter />
     <PageNavbar />

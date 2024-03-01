@@ -121,7 +121,7 @@ if(process.server){
         </div>
         <div class="lists" v-else>服務異常</div>
       </div>
-      <ContactUs />
+      <NewAddress />
     </div>
     <PageFooter />
     <PageNavbar />

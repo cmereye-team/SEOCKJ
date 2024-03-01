@@ -782,7 +782,7 @@ const doctorData = {
       <ServiceCase />
       <!-- <ServiceProblem :problemData="problemData" /> -->
       <serviceCard />
-      <ContactUs />
+      <NewAddress />
     </div>
     <PageFooter />
     <PageNavbar />

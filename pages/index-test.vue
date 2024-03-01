@@ -530,7 +530,7 @@ onMounted(()=>{
         </div>
       </div>
       <!-- 聯絡我們 -->
-      <ContactUs />
+      <NewAddress />
     </div>
     <!-- <PageAdbox /> -->
     <PageFooter />

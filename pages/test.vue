@@ -26,7 +26,7 @@ const addressItem = {
   <div>
     <PageHeader /> 
     <div class="indexPage">
-      <!-- <ContactUs /> -->
+      <!-- <NewAddress /> -->
       <div class="testBoxs">
         <div class="testBoxs-in">
           <div class="address-box">

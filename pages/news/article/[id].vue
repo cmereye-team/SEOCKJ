@@ -248,7 +248,7 @@ if(process.server){
         <span>服務異常或内容已删除！</span>
       </div>
       <!-- <div @click="handlegetData">獲取數據</div> -->
-      <ContactUs />
+      <NewAddress />
     </div>
     <PageFooter />
     <PageNavbar />

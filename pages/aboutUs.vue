@@ -36,7 +36,7 @@ useHead({
           <CaseSharingImageItem />
         </div>
       </div>
-      <ContactUs />
+      <NewAddress />
     </div>
     <PageFooter />
     <PageNavbar />

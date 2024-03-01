@@ -202,7 +202,7 @@ const getWindowWidth = () => {
       </div>
     </div>
     <serviceCard />
-    <ContactUs />
+    <NewAddress />
   </div>
   <PageFooter />
   <PageNavbar />

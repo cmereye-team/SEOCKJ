@@ -495,7 +495,7 @@ const reason2Data = {
     </div>
     <ServiceProblem :problemData="problemData" />
     <serviceCard />
-    <ContactUs />
+    <NewAddress />
   </div>
   <PageFooter />
   <PageNavbar />

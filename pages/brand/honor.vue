@@ -191,7 +191,7 @@ const handleProcessBtn = (_type: string) => {
         </div>
       </div>
     </div>
-    <ContactUs />
+    <NewAddress />
   </div>
   <PageFooter />
   <PageNavbar />

@@ -391,7 +391,7 @@ const changeSwiper = (swiper) =>{
           </div>
         </div>
       </div>
-      <ContactUs />
+      <NewAddress />
     </div>
     <PageFooter />
     <PageNavbar />

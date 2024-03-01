@@ -456,7 +456,7 @@ const doctorData = {
       </div>
       <!-- <ServiceProblem :problem-data="problemData" /> -->
       <serviceCard />
-      <ContactUs />
+      <NewAddress />
     </div>
     <PageFooter />
     <PageNavbar />

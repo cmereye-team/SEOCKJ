@@ -114,7 +114,7 @@ onMounted(() => {
     <PageHeader :headerConfig="headerConfig" />
     <div class="contactUs">
       <!-- <NewAddress /> -->
-      <ContactUs />
+      <NewAddress />
       <ContactForm />
       <div class="environment">
         <div class="environment-title">

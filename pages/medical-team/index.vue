@@ -257,7 +257,7 @@ onMounted(()=>{
           </div>
         </div>
       </div>
-      <ContactUs />
+      <NewAddress />
     </div>
     <PageFooter />
     <PageNavbar />

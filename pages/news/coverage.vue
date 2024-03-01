@@ -133,7 +133,7 @@ if(process.server){
         <div class="lists" v-else>服務異常</div>
       </div>
       <!-- <div @click="getData">获取数据</div> -->
-      <ContactUs />
+      <NewAddress />
     </div>
     <PageFooter />
     <PageNavbar />
