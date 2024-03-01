@@ -437,8 +437,8 @@ const handleMbMenu = () => {
         class="header-content-text-implant"
         :class="headerConfig.pageName"
       >
-        <div>28年專科•專業•專注</div>
-        <div><span>港人首選</span>一站式連鎖牙科品牌</div>
+        <div>{{$t('health-care-voucher.header_text1')}}</div>
+        <div><span>{{$t('health-care-voucher.header_text2')}}</span>{{$t('health-care-voucher.header_text3')}}</div>
       </div>
       <div
         v-if="headerConfig.pageName === 'index-test'"

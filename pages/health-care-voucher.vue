@@ -8,10 +8,13 @@ useHead({
 })
 
 let langCur = ref('chinese_traditional')
+// const changepcimg = () =>{
+//   return `https://static.cmereye.com/imgs/2024/02/4c1e46eab9adb6de_${locale.value}.webp`
+// }
 const headerConfig = ref({
-  img: `https://static.cmereye.com/imgs/2024/02/4c1e46eab9adb6de_${langCur.value}.webp`,
+  img: `https://static.cmereye.com/imgs/2024/02/4c1e46eab9adb6de_${locale.value}.webp`,
   bg: '',
-  mbImg: `https://static.cmereye.com/imgs/2024/02/9798849854855a0c_${langCur.value}.webp`,
+  mbImg: `https://static.cmereye.com/imgs/2024/02/9798849854855a0c_${locale.value}.webp`,
   pageName: 'health-care-voucher',
   pcText: [],
   mbText: []
@@ -300,6 +303,8 @@ const pageDetail:any = {
 
 const handleLocale = (l) =>{
   locale.value = l
+  headerConfig.value.img = `https://static.cmereye.com/imgs/2024/02/4c1e46eab9adb6de_${locale.value}.webp`
+  headerConfig.value.mbImg = `https://static.cmereye.com/imgs/2024/02/9798849854855a0c_${locale.value}.webp`
   if(l == 'zh'){
 		var _text = "微软雅黑"
 	}else{
@@ -343,11 +348,11 @@ onMounted(()=>{
     <div class="health-care-voucher pageIn whitebgColor">
       <div class="pageCon health-care-voucher-top">
         <div class="index_title health-care-voucher-title">{{$t('components.header.menuLists.health-care-voucher.name')}}</div>
-        <div class="lang">
+        <!-- <div class="lang">
           <span @click="handleLocale('en')" class="ignore">Eng</span>
           <span @click="handleLocale('zh')" class="ignore">简中</span>
           <span @click="handleLocale('hk')" class="ignore">繁中</span>
-        </div>
+        </div> -->
         <!-- <div id="translate"></div> -->
       </div>
       <div class="tabNav noTitle pageCon">

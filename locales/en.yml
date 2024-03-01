@@ -719,14 +719,14 @@ service:
   children_dentistry: 'children dentistry'
 contactUs: 
   title: 聯絡我們
-  hospital_address: 醫院地址
-  hours_of_Operation: 營業時間
-  check_the_phone: 查詢電話
-  traffic_route: 交通路線
-  bus_route: 巴士路線
-  metro_lines: 地鐵路線
+  hospital_address: address
+  hours_of_Operation: "business hours"
+  check_the_phone: phone
+  traffic_route: traffic
+  bus_route: bus
+  metro_lines: metro
   google_map: Google地圖
-  baidu_map: 百度地圖
+  baidu_map: "baidu map"
   clinic_environment: 診所環境
   contact_form: 
     title:  
@@ -742,130 +742,133 @@ contactUs:
       submit_the_form: 提交表格
   addressLists: 
     address_101: 
-      name: '深圳愛康健口腔醫院（羅湖）'
-      tabname: '深圳愛康健口腔醫院'
+      name: 'Shenzhen Aikangjian Dental Hospital'
+      tabname: 'Shenzhen Aikangjian Dental Hospital'
       address: "1-8th Floor, Zone C, Railway Station Building, Luohu District, Shenzhen"
       time: |
         9:00-17:30 
-        （假日照常應診）
-      busRoutes: '羅湖火車站：1路、7路、12路、17路、38路、82路、83路、97路、101路、102路、205路、215路、306路、387路、E13路、M112路、M152路、M401路、M508路、N14路、N16路、N18路、N2路、N4路、N7路、高峰專線73號'
-      metroRoutes: '地鐵1號線「羅湖站」C出口； 地鐵9號線「人民南站」 A1出口'
+        (Holidays as usual)
+      busRoutes: "Luohu Railway Station: Route 1, 7, 12, 17, 38, 82, 83, 97, 101, 102, 205, 215, 306, 387, E13, M112, M152, M401, M508, N14, N16, N18, N2, N4, N7, and Gaofeng Special Line No. 73"
+      metroRoutes: "Exit C of Luohu Station on Metro Line 1; Exit A1 of Renmin South Station on Metro Line 9"
     address_102:
-      name: '恒潔口腔門診部（羅湖）'
-      tabname: '恒潔口腔門診部'
+      name: 'Hengjie Oral Clinic'
+      tabname: 'Hengjie Oral Clinic'
       address: "1602 and 1603, Block B, Jinfengcheng Building, No. 5015 Shennan East Road, Xinwei Community, Guiyuan Street, Luohu District, Shenzhen"
       time: |
         9:00-17:30 
-        （假日照常應診）
-      busRoutes: '深圳書城站：29路、85路、103短線、103路、104路、113路、204路、214路、215路、E8路、M106路、M112路、M133路、M481路、M559路、N4路、大鵬假日專線4路、高快巴士863號、高快巴士97路;都市名苑：7路、8路、14路、M152路、M360路、M383路、M482路'
-      metroRoutes: '地鐵1號線「大劇院站」F出口'
+        (Holidays as usual)
+      busRoutes: "Shenzhen Bookstore Station: Route 29, 85, 103 Short Line, 103, 104, 113, 204, 214, 215, E8, M106, M112, M133, M481, M559, N4, Dapeng Holiday Line 4, High Speed Bus 863, High Speed Bus 97; Urban Famous Garden: Route 7, 8, 14, M152, M360, M383, M482"
+      metroRoutes: "Exit F of Grand Theater Station on Metro Line 1"
     address_103:
-      name: '康輝口腔門診部（羅湖）'
-      tabname: '康輝口腔門診部'
-      address: '深圳市羅湖區建設路深圳火車站皮帶走廊A12-A15.B11-B14及夾層B8--3號鋪'
-      time: '9:00-20:30 （假日照常應診）'
-      busRoutes: '羅湖火車站：1路、7路、12路、17路、38路、82路、83路、97路、101路、102路、205路、215路、306路、387路、E13路、M112路、M152路、M401路、M508路、N14路、N16路、N18路、N2路、N4路、N7路、高峰專線73號'
-      metroRoutes: '地鐵1號線「羅湖站」D出口；地鐵9號線「人民南站」A1出口；'
+      name: 'Kanghui Oral Clinic'
+      tabname: 'Kanghui Oral Clinic'
+      address: "Shop A12-A15.B11-B14 and mezzanine B8-3, Shenzhen Railway Station Belt Corridor, Jianshe Road, Luohu District, Shenzhen"
+      time: '9:00-20:30 (Holidays as usual)'
+      busRoutes: "Luohu Railway Station: Route 1, 7, 12, 17, 38, 82, 83, 97, 101, 102, 205, 215, 306, 387, E13, M112, M152, M401, M508, N14, N16, N18, N2, N4, N7, and Gaofeng Special Line No. 73"
+      metroRoutes: "Exit D of Luohu Station on Metro Line 1; Exit A1 of Renmin South Station on Metro Line 9;"
     address_104:
-      name: '富康口腔門診部（羅湖）'
-      tabname: '富康口腔門診部'
-      address: '深圳市火車站南端二樓走廊(火車站大酒店左側)'
+      name: 'Fukang Dental Clinic'
+      tabname: 'Fukang Dental Clinic'
+      address: "The corridor on the second floor of the southern end of Shenzhen Railway Station (on the left side of the Railway Station Hotel)"
       time: |
         9:00-17:30 
-        （假日照常應診）
-      busRoutes: '羅湖火車站：1路、7路、12路、17路、38路、82路、83路、97路、101路、102路、205路、215路、306路、387路、E13路、M112路、M152路、M401路、M508路、N14路、N16路、N18路、N2路、N4路、N7路、高峰專線73號'
-      metroRoutes: '地鐵1號線「羅湖站」D出口；地鐵9號線「人民南站」A1出口；'
+        (Holidays as usual)
+      busRoutes: "Luohu Railway Station: Route 1, 7, 12, 17, 38, 82, 83, 97, 101, 102, 205, 215, 306, 387, E13, M112, M152, M401, M508, N14, N16, N18, N2, N4, N7, and Gaofeng Special Line No. 73"
+      metroRoutes: "Exit D of Luohu Station on Metro Line 1; Exit A1 of Renmin South Station on Metro Line 9;"
     address_105:
-      name: '顏麗口腔診所（羅湖）'
-      tabname: '顏麗口腔診所'
-      address: '深圳市羅湖區羅湖口岸商業城1091號'
+      name: 'Yanli Dental Clinic'
+      tabname: 'Yanli Dental Clinic'
+      address: "1091 Luohu Port Commercial City, Luohu District, Shenzhen"
       time: |
         9:00-17:30 
-        （假日照常應診）
-      busRoutes: '羅湖火車站：1路、7路、12路、17路、38路、82路、83路、97路、101路、102路、205路、215路、306路、387路、E13路、M112路、M152路、M401路、M508路、N14路、N16路、N18路、N2路、N4路、N7路、高峰專線73號'
-      metroRoutes: '地鐵1號線「羅湖站」A出口'
+        (Holidays as usual)
+      busRoutes: "Luohu Railway Station: Route 1, 7, 12, 17, 38, 82, 83, 97, 101, 102, 205, 215, 306, 387, E13, M112, M152, M401, M508, N14, N16, N18, N2, N4, N7, and Gaofeng Special Line No. 73"
+      metroRoutes: "Exit A of Luohu Station on Metro Line 1"
     address_201:
-      name: '李川口腔診所（福田）'
-      tabname: '李川口腔診所'
-      address: '深圳市福田區金田路水圍村金莊商業樓2-5樓'
+      name: 'Lichuan Dental Clinic'
+      tabname: 'Lichuan Dental Clinic'
+      address: "2-5 floors of Jinzhuang Commercial Building, Shuiwei Village, Jintian Road, Futian District, Shenzhen"
       time: |
         9:00-17:30 
-        （假日照常應診）
-      busRoutes: '福民地鐵站：60路、62路、73路、202路、303路、385路、B689路、B858路、N9路、高快巴士26路'
-      metroRoutes: '地鐵4號線和7號線「福民站」D出口'
+        (Holidays as usual)
+      busRoutes: "Fumin Metro Station: Route 60, 62, 73, 202, 303, 385, B689, B858, N9, and high-speed bus route 26"
+      metroRoutes: "Exit D of Fumin Station on Metro Lines 4 and 7"
     address_202:
-      name: '王琦口腔診所（福田）'
-      tabname: '王琦口腔診所'
-      address: '深圳市福田區福田街道漁農村社區裕亨路50號海悅華城C107、C108B'
+      name: 'Wang Qi Dental Clinic'
+      tabname: 'Wang Qi Dental Clinic'
+      address: "C107 and C108B, Haiyue Huacheng, No. 50 Yuheng Road, Yucun Community, Futian Street, Futian District, Shenzhen"
       time: |
         9:00-17:30 
-        （假日照常應診）
-      busRoutes: '福田口岸：203路、B618路、B685路、B689路、B858路、B957路、M204路、M441路、M499路'
-      metroRoutes: '地鐵4號線「福田口岸站」A出口'
+        (Holidays as usual)
+      busRoutes: "Futian Port: Route 203, B618, B685, B689, B858, B957, M204, M441, M499"
+      metroRoutes: "Exit A of Futian Port Station on Metro Line 4"
     address_203:
-      name: '裕亨口腔診所（福田）（二月開業）'
-      tabname: '裕亨口腔診所'
-      address: '深圳市福田區福田街道漁農社區裕亨路38號裕亨花園裕亨大廈103'
+      name: 'Yuheng Dental Clinic'
+      tabname: 'Yuheng Dental Clinic'
+      address: "103 Yuheng Building, Yuheng Garden, No. 38 Yuheng Road, Yunong Community, Futian Street, Futian District, Shenzhen"
       time: |
         9:00-17:30 
-        （假日照常應診）
-      busRoutes: '福田口岸：203路、B618路、B685路、B689路、B858路、B957路、M204路、M441路、M499路'
-      metroRoutes: '地鐵4號線「福田口岸站」A出口'
+        (Holidays as usual)
+      busRoutes: "Futian Port: Route 203, B618, B685, B689, B858, B957, M204, M441, M499"
+      metroRoutes: "Exit A of Futian Port Station on Metro Line 4"
     address_301:
-      name: '恒雅口腔門診部（南山）'
-      tabname: '恒雅口腔門診部'
-      address: '深圳市南山區南海大道與工業八路交匯處'
+      name: 'Hengya Dental Clinic'
+      tabname: 'Hengya Dental Clinic'
+      address: "Intersection of Nanhai Avenue and Gongye 8th Road in Nanshan District, Shenzhen"
       time: |
         9:00-17:30 
-        （假日照常應診）
-      busRoutes: '蛇口沃爾瑪：70路、79路、80路、113路、122路、204路、328路、332路、B605路、M106路、M133路、M241路、M400路、M409路、M409區間車、M448路、M484路、M527線、N1路、N4路、NE30線、高快巴士123路、高快巴士874號、前海行8路'
-      metroRoutes: '地鐵9號線「南油西站」 B出口；地鐵12號線「四海站」J出口平安銀行拐角處。'
+        (Holidays as usual)
+      busRoutes: "Wal Mart Shekou: 70, 79, 80, 113, 122, 204, 328, 332, B605, M106, M133, M241, M400, M409, M409 inter district bus, M448, M484, M527, N1, N4, NE30, high-speed bus 123, high-speed bus 874, Qianhaixing 8"
+      metroRoutes: "Exit B of Nanyou West Station on Metro Line 9; At the corner of Ping An Bank at Exit J of Sihai Station on Metro Line 12."
     address_302:
-      name: '恒美口腔門診部（南山）'
-      tabname: '恒美口腔門診部'
-      address: '深圳市南山區商業文化中心區海岸城西座501'
+      name: 'Hengmei Dental Clinic'
+      tabname: 'Hengmei Dental Clinic'
+      address: "501, West Coast City, Nanshan District Commercial and Cultural Center, Shenzhen"
       time: |
         9:00-17:30 
-        （假日照常應診）
-      busRoutes: '海岸城：19路、229路、B605路、B964路、B964路、M201路、M209路、M222路、M299路、M429路、M430路、M474路、M475路、M519路、M519線大站快車、M539路、N24路、N8路、高峰專線12路、歐洲城假日專線'
-      metroRoutes: '地鐵2號線和11號線「後海站」 D1出口'
+        (Holidays as usual)
+      busRoutes: "Coastal City: Route 19, 229, B605, B964, B964, M201, M209, M222, M299, M429, M430, M474, M475, M519, M519 Grand Station Express, M539, N24, N8, Peak Line 12, European City Holiday Line"
+      metroRoutes: "Exit D1 of Houhai Station on Metro Lines 2 and 11"
     address_303:
-      name: '沈虹口腔診所（南山）'
-      tabname: '沈虹口腔診所'
-      address: '深圳市南山區南海大道海典居裙樓1樓&2樓（海雅百貨對面）'
+      name: 'Shen Hong Dental Clinic'
+      tabname: 'Shen Hong Dental Clinic'
+      address: "1st and 2nd floors of the podium building of Haidianju, Nanhai Avenue, Nanshan District, Shenzhen (opposite Haiya Department Store)"
       time: |
         9:00-17:30 
-        （假日照常應診）
-      busRoutes: '海雅百貨：19路、37路、70路、80路、113路、226路、245區間車、328路、M106路、M133路、M242路、M398路、M398區間車、M448路、M527線、M539路、N1路、N8路、NE30線、高快巴士123路、高快巴士874號'
-      metroRoutes: '地鐵9號線「南山書城站」 D出口'
+        (Holidays as usual)
+      busRoutes: "Haiya Department Store: Route 19, 37, 70, 80, 113, 226, 245, 328, M106, M133, M242, M398, M398, M448, M527, M539, N1, N8, NE30, HSB 123, HSB 874"
+      metroRoutes: "Exit D of Nanshan Bookstore Station on Metro Line 9"
     address_401:
-      name: '炫雅口腔門診部（寶安）'
-      tabname: '炫雅口腔門診部'
-      address: '寶安區新安街道建安一路80號香檳廣場一棟四樓402號'
+      name: 'Xuanya Dental Clinic'
+      tabname: 'Xuanya Dental Clinic'
+      address: "Room 402, 4th Floor, Building 1, Champagne Plaza, No. 80 Jian'an 1st Road, Xin'an Street, Bao'an District"
       time: |
         9:00-17:30 
-        （假日照常應診）
-      busRoutes: '建行寶安支行： 395路、603路、610路、704路、m235路'
-      metroRoutes: '地鐵5號線「靈芝站」A出口'
+        (Holidays as usual)
+      busRoutes: "Construction Bank Bao'an Branch: 395 Road, 603 Road, 610 Road, 704 Road, and m235 Road"
+      metroRoutes: "Exit A of Lingzhi Station on Metro Line 5"
     address_501:
-      name: '雅健口腔門診部（龍華）'
-      tabname: '雅健口腔門診部'
-      address: '深圳市龍華區民治街道大嶺社區紅山6979二期8棟25座202室'
+      name: 'Yajian Dental Clinic'
+      tabname: 'Yajian Dental Clinic'
+      address: "Room 202, Block 25, Building 8, Phase II, Hongshan 6979, Daling Community, Minzhi Street, Longhua District, Shenzhen"
       time: |
         9:00-17:30 
-        （假日照常應診）
-      busRoutes: '高級中學北校區： 43路、74路、b917路、b917路、m130路、m340路、m360路、m369路、m405路、m462路、m504路、m554路、m579路、高峰專線119路、高峰專線150路'
-      metroRoutes: '地鐵4號線「紅山站」D出口'
+        (Holidays as usual)
+      busRoutes: "North Campus of Senior High School: Route 43, 74, b917, b917, m130, m340, m360, m369, m405, m462, m504, m554, m579, Gaofeng Special Line 119, and Gaofeng Special Line 150"
+      metroRoutes: "Exit D of Hongshan Station on Metro Line 4"
     address_502:
-      name: '恒樂口腔門診部（龍華）'
-      tabname: '恒樂口腔門診部'
-      address: '深圳市龍華區梅龍路深物業新華城商業F1-03號(工業西路與龍華大道交匯處—壹方城對面)'
+      name: 'Hengle Dental Clinic'
+      tabname: 'Hengle Dental Clinic'
+      address: "F1-03, Xinhua City Commercial Building, Shenzhen Property Management, Meilong Road, Longhua District, Shenzhen (intersection of Gongye West Road and Longhua Avenue - opposite to Yifang City)"
       time: |
         9:00-17:30 
-        （假日照常應診）
-      busRoutes: '風和日麗北 : 312路、621路、M152路、M173路、M180路、M222路、M244路、M262路、M269路外環、M365路、M381路順時針、M401路、M577路'
-      metroRoutes: '地鐵4號線「龍華站」A出口'
+        (Holidays as usual)
+      busRoutes: "Sunny North: Route 312, 621, M152, M173, M180, M222, M244, M262, M269 Outer Ring Road, M365, M381 Clockwise, M401, M577"
+      metroRoutes: "Exit A of Longhua Station on Metro Line 4"
 health-care-voucher:
+  header_text1: "28 years of specialization, specialization, and focus"
+  header_text2: "Hong Kong people's preferred choice "
+  header_text3: "One stop chain dental brand"
   pageDetail:
     nob: "All rights reserved by CKJ Aikangjian Dental. Shenzhen Aikangjian has officially been included in the participating institutions of the Bay Area Elderly Medical Voucher"
     time: "February 19, 2024"

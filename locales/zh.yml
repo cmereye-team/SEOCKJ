@@ -719,7 +719,7 @@ service:
   children_dentistry: 儿童牙科
 contactUs: 
   title: 联络我们
-  hospital_address: 医院地址
+  hospital_address: 地址
   hours_of_Operation: 营业时间
   check_the_phone: 查询电话
   traffic_route: 交通路线
@@ -866,6 +866,9 @@ contactUs:
       busRoutes: '风和日丽北 : 312路、621路、M152路、M173路、M180路、M222路、M244路、M262路、M269路外环、M365路、M381路顺时针、M401路、M577路'
       metroRoutes: '地铁4号线「龙华站」A出口'
 health-care-voucher:
+  header_text1: "28年专科•专业•专注"
+  header_text2: "港人首选"
+  header_text3: "一站式连锁牙科品牌"
   pageDetail:
     nob: '深圳爱康健正式纳入湾区长者医疗券参与机构'
     time: '2024年2月19日'

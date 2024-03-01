@@ -319,36 +319,36 @@ onMounted(()=>{
           </div>
           <div class="address-r-content">
             <div>
-              <span>地址</span>
+              <span>{{$t("contactUs.hospital_address")}}</span>
               <span>
                 {{$t(String(addressDatail.address))}}
               </span>
             </div>
             <div>
-              <span>營業時間</span>
+              <span>{{$t("contactUs.hours_of_Operation")}}</span>
               <span>{{$t(String(addressDatail.time))}}</span>
             </div>
             <div>
-              <span>查詢電話</span>
+              <span>{{$t("contactUs.check_the_phone")}}</span>
               <span>{{addressDatail.phone}}</span>
             </div>
           </div>
           <div class="address-r-btn">
             <div class="address-r-btn-lx">
-              <span :class="{cur: isShowlxBox}" @click="isShowlxBox = !isShowlxBox">交通路線</span>
+              <span :class="{cur: isShowlxBox}" @click="isShowlxBox = !isShowlxBox">{{$t("contactUs.traffic_route")}}</span>
               <div class="lx-box" :class="{cur: isShowlxBox}">
                 <div class="lx-box-l">
-                  <span>巴士路線</span>
+                  <span>{{$t("contactUs.bus_route")}}</span>
                   <span>{{$t(String(addressDatail.busRoutes))}}</span>
                 </div>
                 <div class="lx-box-r">
-                  <span>地鐵路線</span>
+                  <span>{{$t("contactUs.metro_lines")}}</span>
                   <span>{{$t(String(addressDatail.metroRoutes))}}</span>
                 </div>
               </div>
             </div>
             <div class="address-r-btn-bd">
-              <span @click="toAddressLink(addressDatail.baiduMap)">百度地圖</span>
+              <span @click="toAddressLink(addressDatail.baiduMap)">{{$t("contactUs.baidu_map")}}</span>
             </div>
           </div>
         </div>
