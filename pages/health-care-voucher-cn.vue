@@ -2,7 +2,6 @@
 import { phoneNum } from '~/assets/js/common'
 // const cdnUseLang = require('~/assets/js/cdnUseLang')
 // import { translate } from '~/assets/js/cdnUseLang'
-const locale = useState<string>('locale.setting')
 useHead({
   title: "長者醫療券",
 })
@@ -333,11 +332,11 @@ onMounted(()=>{
     <div class="health-care-voucher pageIn whitebgColor">
       <div class="pageCon health-care-voucher-top">
         <div class="index_title health-care-voucher-title">長者醫療券</div>
-        <div class="lang">
-          <span @click="locale = 'zh'" class="ignore">Eng</span>
-          <span @click="locale = 'cn'" class="ignore">简中</span>
-          <span @click="locale = 'hk'" class="ignore">繁中</span>
-        </div>
+        <!-- <div class="lang">
+          <span @click="translate.changeLanguage('english');" class="ignore">Eng</span>
+          <span @click="translate.changeLanguage('chinese_simplified');" class="ignore">简中</span>
+          <span @click="translate.changeLanguage('chinese_traditional');" class="ignore">繁中</span>
+        </div> -->
         <!-- <div id="translate"></div> -->
       </div>
       <div class="tabNav noTitle pageCon">
