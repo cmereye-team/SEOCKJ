@@ -421,7 +421,8 @@ const differData:any = {
                   <div>最快即日<span>修補牙齒</span></div>
                 </div>
                 <div class="lastBox-b">
-                  <PageAnimBtn :str="'免費網上預約'" />
+                  <!-- <PageAnimBtn :str="'免費網上預約'" /> -->
+                  <PageAnimBtnTypeTwo :str="'免費網上預約'" />
                 </div>
               </div>
             </div>
@@ -542,7 +543,8 @@ const differData:any = {
           <div><span>建議在遇到蛀牙問題時，及早就醫並諮詢專業牙醫生建議，</span><span>以確定最適合您的治療方案。</span></div>
         </div>
         <div class="reason-btn">
-          <PageAnimBtn :str="'了解根管治療資訊'" />
+          <!-- <PageAnimBtn :str="'了解根管治療資訊'" /> -->
+          <PageAnimBtnTypeTwo :str="'了解根管治療資訊'" />
         </div>
       </div>
       <!-- <div class="material">
@@ -640,7 +642,8 @@ const differData:any = {
           </div>
         </div>
         <div class="care-btn">
-          <PageAnimBtn :str="'立即預約免費檢查'" />
+          <!-- <PageAnimBtn :str="'立即預約免費檢查'" /> -->
+          <PageAnimBtnTypeTwo :str="'立即預約免費檢查'" />
         </div>
       </div>
       <div class="advantage">
@@ -741,6 +744,8 @@ const differData:any = {
   }
   &-btn{
     margin-top: 40px;
+    display: flex;
+    justify-content: center;
   }
 }
 .material {
@@ -989,6 +994,8 @@ const differData:any = {
   }
   &-btn{
     margin-top: 45px;
+    display: flex;
+    justify-content: center;
   }
 }
 .fillings-content-1{
@@ -1223,6 +1230,7 @@ const differData:any = {
       &:nth-of-type(6) {
         margin-bottom: 0;
         align-items: flex-end;
+        justify-content: center;
         &>div{
           margin-bottom: 20px;
         }
@@ -1698,6 +1706,8 @@ const differData:any = {
           }
           .lastBox-b {
             margin-top: 30px;
+            display: flex;
+            justify-content: center;
             .bigBan{
               font-size: 28px;
             }

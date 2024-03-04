@@ -623,7 +623,8 @@ const doctorData = {
           <span>現在就來預約我們的洗牙服務吧！</span>
         </div>
         <div class="charge-btn">
-          <PageAnimBtn :str="'預約檢查及諮詢'" />
+          <!-- <PageAnimBtn :str="'預約檢查及諮詢'" /> -->
+          <PageAnimBtnTypeTwo :str="'預約檢查及諮詢'" />
         </div>
       </div>
       <div class="Medical_sterilization_equipment">
@@ -930,6 +931,8 @@ const doctorData = {
   }
   &-btn {
     margin-top: 35px;
+    display: flex;
+    justify-content: center;
   }
  
 }

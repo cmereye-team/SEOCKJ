@@ -59,7 +59,8 @@ const onSlideChange = (swiper:any) => {
           香港工聯會代表團參觀了我們的羅湖口岸愛康健口腔醫院、富康口腔門診部和康輝口腔門診部，詳細了解我們的醫療設施、技術和服務。他們與我們的醫療團隊進行了深入的交流和討論，探討口腔醫療的發展趨勢和技術創新。
         </div>
         <div class="btn">
-          <a href="/brand/action-message">查看全文</a>
+          <!-- <a href="/brand/action-message">查看全文</a> -->
+          <PageAnimBtnTypeTwo link="/brand/action-message" str="查看全文" />
         </div>
       </div>
       </div>
@@ -131,28 +132,28 @@ const onSlideChange = (swiper:any) => {
       margin-top: 70px;
     }
     .btn{
-      color: #fff;
-      background: var(--indexColor1);
-      text-align: center;
-      font-size: 20px;
-      font-style: normal;
-      font-weight: 900;
-      line-height: 160%;
-      width: 157px;
-      height: 46px;
-      line-height: 46px;
-      border-radius: 30px;
+    //   color: #fff;
+    //   background: var(--indexColor1);
+    //   text-align: center;
+    //   font-size: 20px;
+    //   font-style: normal;
+    //   font-weight: 900;
+    //   line-height: 160%;
+    //   width: 157px;
+    //   height: 46px;
+    //   line-height: 46px;
+    //   border-radius: 30px;
       margin-top: 30px;
-      box-shadow: 0px 3.704px 7.409px 0px rgba(252, 22, 130, 0.38);
-      transition: all .3s;
-      a{
-        width: 100%;
-        height: 100%;
-        display: block;
-      }
-      &:hover{
-        background: var(--indexColor3);
-      }
+    //   box-shadow: 0px 3.704px 7.409px 0px rgba(252, 22, 130, 0.38);
+    //   transition: all .3s;
+    //   a{
+    //     width: 100%;
+    //     height: 100%;
+    //     display: block;
+    //   }
+    //   &:hover{
+    //     background: var(--indexColor3);
+    //   }
     }
   }
 }
@@ -176,10 +177,10 @@ const onSlideChange = (swiper:any) => {
         margin-top: calc(70 / 1920 * 100vw);
       }
       .btn{
-        font-size: 1.25vw;
-        width: calc(157 / 1920 * 100vw);
-        height: calc(46 / 1920 * 100vw);
-        line-height: calc(46 / 1920 * 100vw);
+      //   font-size: 1.25vw;
+      //   width: calc(157 / 1920 * 100vw);
+      //   height: calc(46 / 1920 * 100vw);
+      //   line-height: calc(46 / 1920 * 100vw);
         margin-top: calc(30 / 1920 * 100vw);
       }
     }
@@ -227,11 +228,11 @@ const onSlideChange = (swiper:any) => {
         }
       }
       .btn{
-        height: 40px;
-        line-height: 40px;
-        width: 137px;
-        margin: 15px auto 16px;
-        font-size: 18px;
+      //   height: 40px;
+      //   line-height: 40px;
+      //   width: 137px;
+        margin: 15px auto 25px;
+      //   font-size: 18px;
         order: 4;
       }
     }

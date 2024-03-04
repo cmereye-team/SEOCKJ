@@ -67,6 +67,8 @@ const handleopenwechat = () =>{
             <span>立即預約牙齒檢查</span>
           </div>
         </div>
+
+        <PageAnimBtnTypeTwo />
       </div>
     </div>
     <PageFooter />
@@ -107,8 +109,6 @@ const handleopenwechat = () =>{
   position: relative;
   &-in{
     position: relative;
-    // -webkit-backface-visibility: hidden;
-    // -webkit-transform: translate3d(0, 0, 0);
     &>span{
       padding: 10px 50px;
       color: #fff;
@@ -129,8 +129,9 @@ const handleopenwechat = () =>{
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      width: 100%;
-      height: 100%;
+      -webkit-transform: translate(-50%, -50%);
+      width: 90%;
+      height: 90%;
       border: 10px solid #B9D9FC;
       z-index: 0;
       border-radius: 50px;
@@ -153,31 +154,31 @@ const handleopenwechat = () =>{
 @keyframes btntestAnima{
   5%{
     transform: scale(.95);
+    -webkit-transform: scale(.95);
   }
   8%{
     transform: scale(1);
+    -webkit-transform: scale(1);
   }
 }
 @keyframes btntesthoverAnima{
   5%{
     transform: scale(.95);
+    -webkit-transform: scale(.95);
   }
   8%{
     transform: scale(1);
+    -webkit-transform: scale(1);
   }
 }
 @keyframes btntestafterAnima {
-  5%{
-    transform: translate(-50%,-50%) scale(.95);
-  }
-  8%{
-    transform: translate(-50%,-50%) scale(1);
-    width: 100%;
-    height: 100%;
+  0%{
+    width: 90%;
+    height: 90%;
     border: 10px solid #B9D9FC;
   }
   19%{
-    border: 10px solid rgba(185, 217, 252, 0.7);
+    border: 10px solid rgba(185, 217, 252, 0.5);
     width: calc(100% + 40px);
     height: calc(100% + 40px);
   }
@@ -198,17 +199,13 @@ const handleopenwechat = () =>{
   }
 }
 @keyframes btntestafterhoverAnima {
-  5%{
-    transform: translate(-50%,-50%) scale(.95);
-  }
-  8%{
-    transform: translate(-50%,-50%) scale(1);
-    width: 100%;
-    height: 100%;
+  0%{
+    width: 90%;
+    height: 90%;
     border: 10px solid #FCD1B9;
   }
   19%{
-    border: 10px solid rgba(252, 209, 185, 0.7);
+    border: 10px solid rgba(252, 209, 185, 0.5);
     width: calc(100% + 40px);
     height: calc(100% + 40px);
   }

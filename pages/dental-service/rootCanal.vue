@@ -344,7 +344,8 @@ const doctorData = {
           </div>
         </div>
         <div class="care-btn">
-          <PageAnimBtn :str="'與我們了解更多'" />
+          <!-- <PageAnimBtn :str="'與我們了解更多'" /> -->
+          <PageAnimBtnTypeTwo :str="'與我們了解更多'" />
         </div>
       </div>
       <div class="infoCard">
@@ -421,7 +422,8 @@ const doctorData = {
               </div>
               <div class="lastBox-b">
                 <!-- <span @click="toWhatsApp">立即預約牙齒檢查</span> -->
-                <PageAnimBtn :str="'立即預約牙齒檢查'" />
+                <!-- <PageAnimBtn :str="'立即預約牙齒檢查'" /> -->
+                <PageAnimBtnTypeTwo str="立即預約牙齒檢查" />
               </div>
             </div>
           </div>
@@ -580,6 +582,8 @@ const doctorData = {
   }
   &-btn{
     margin-top: 106px;
+    display: flex;
+    justify-content: center;
   }
 }
 .infoCard {

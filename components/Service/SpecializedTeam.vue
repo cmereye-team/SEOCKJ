@@ -52,7 +52,8 @@ const handleDoctor = () => {
                 <span>{{doctorItem.text || ''}}</span>
               </div>
               <div class="doctorContent-btn">
-                <span @click="toWhatsApp">線上諮詢</span>
+                <!-- <span @click="toWhatsApp">線上諮詢</span> -->
+                <PageAnimBtnTypeTwo typeClass="smallmb" str="線上諮詢" />
               </div>
             </div>
           </SwiperSlide>
@@ -149,19 +150,19 @@ const handleDoctor = () => {
             }
             &-btn{
               margin-bottom: 30px;
-              span{
-                color: #fff;
-                background: var(--indexColor1);
-                border-radius: 50px;
-                font-size: 35px;
-                padding: 10px 50px;
-                box-shadow: 0 5px 10px #FF85AF;
-                cursor: pointer;
-                transition: all .3s;
-                &:hover{
-                  background: #FF85AF;
-                }
-              }
+              // span{
+              //   color: #fff;
+              //   background: var(--indexColor1);
+              //   border-radius: 50px;
+              //   font-size: 35px;
+              //   padding: 10px 50px;
+              //   box-shadow: 0 5px 10px #FF85AF;
+              //   cursor: pointer;
+              //   transition: all .3s;
+              //   &:hover{
+              //     background: #FF85AF;
+              //   }
+              // }
             }
             &:hover{
               transform: translateY(-20px);
@@ -217,10 +218,10 @@ const handleDoctor = () => {
               }
               &-btn{
                 margin-bottom: 15px;
-                span{
-                  font-size: 16px;
-                  padding: 5px 30px;
-                }
+                // span{
+                //   font-size: 16px;
+                //   padding: 5px 30px;
+                // }
               }
             }
           }
