@@ -104,8 +104,11 @@ const handleopenwechat = () =>{
 }
 .btntest{
   margin: 50px 0;
+  position: relative;
   &-in{
     position: relative;
+    // -webkit-backface-visibility: hidden;
+    // -webkit-transform: translate3d(0, 0, 0);
     &>span{
       padding: 10px 50px;
       color: #fff;
@@ -113,7 +116,7 @@ const handleopenwechat = () =>{
       position: relative;
       z-index: 1;
       border-radius: 50px;
-      display: inline-block;
+      display: block;
       animation: btntestAnima 5.6s infinite;
       box-shadow: 10px 10px 20px rgba(103, 214, 239, .75);
       cursor: pointer;
@@ -122,9 +125,10 @@ const handleopenwechat = () =>{
     &::after{
       content: '';
       position: absolute;
+      display: block;
       left: 50%;
       top: 50%;
-      transform: translate(-50%,-50%);
+      transform: translate(-50%, -50%);
       width: 100%;
       height: 100%;
       border: 10px solid #B9D9FC;

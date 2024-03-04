@@ -251,17 +251,38 @@ const handleAddresslx = () => {
 
 }
 let addressDatail:any = ref({
-  imgLists:[]
+  id: '101',
+  name: 'contactUs.addressLists.address_101.name',
+  tabname: 'contactUs.addressLists.address_101.tabname',
+  address: 'contactUs.addressLists.address_101.address',
+  time: 'contactUs.addressLists.address_101.time',
+  phone: phoneNum,
+  busRoutes: 'contactUs.addressLists.address_101.busRoutes',
+  metroRoutes: 'contactUs.addressLists.address_101.metroRoutes',
+  addressUrl: 'https://static.cmereye.com/imgs/2023/09/11e84702229e6caf.jpg',
+  googleMap: 'https://goo.gl/maps/yuWB8353yF3u4EJS6?coh=178572&entry=tt',
+  baiduMap: 'https://j.map.baidu.com/b3/j3Yu',
+  imgLists: [
+    'https://static.cmereye.com/imgs/2024/02/2ba7058400f2ed03.png',
+    'https://static.cmereye.com/imgs/2024/02/2f20ab9660e0bfa7.webp',
+    'https://static.cmereye.com/imgs/2024/02/3cc92ffa0caa8ed1.webp'
+  ]
 })
 
+const pageLoading = ref(false)
 const changedetail = () =>{
+  pageLoading.value = true
   isShowlxBox.value = false
   imgcur.value = 0
   let _obj = allAddressLists[appState.areaTabCurNum].find(item=>item.id === currentAddress.value)
   if(_obj){
     addressDatail.value = _obj
     // imgcur.value = (_obj.imgLists.length ? _obj.imgLists[0] : '')
-  } 
+  }else{
+    currentAddress.value = allAddressLists[appState.areaTabCurNum][0].id
+    addressDatail.value = allAddressLists[appState.areaTabCurNum][0]
+  }
+  pageLoading.value = false
 }
 
 let isShowlxBox = ref(false)
@@ -296,7 +317,7 @@ onMounted(()=>{
           {{$t(clinicItem.tabname)}}
         </div>
       </div>
-      <div class="address pageCon">
+      <div class="address pageCon" v-loading="pageLoading">
         <div class="address-l">
           <img :src="addressDatail.imgLists[imgcur]" :alt="$t(String(addressDatail.name))" />
         </div>
