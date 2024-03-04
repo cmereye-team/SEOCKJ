@@ -95,7 +95,8 @@ const handleopenwechat = () =>{
         <img src="https://static.cmereye.com/imgs/2023/09/a8f9c3f82bbda125.png" alt="馬上預約">
         <span :class="{english:langType === 'english'}">馬上預約</span>
       </div>
-      <div id="navMbWeChat" class="mbcc-boxInAA mbcc-boxInAA-4" @click="handlecopywechatcode"></div>
+      <!-- <div id="navMbWeChat" class="mbcc-boxInAA mbcc-boxInAA-4" @click="handlecopywechatcode"></div> -->
+      <div id="navMbWeChat" class="mbcc-boxInAA mbcc-boxInAA-4" @click="mbQDCodeBool = true"></div>
       <nuxt-link id="navMbFacebook" to="https://www.facebook.com/ckjdental.hk/"  target="_blank" class="mbcc-boxInAA mbcc-boxInAA-5"></nuxt-link>
     </div>
     <div class="navForm" :style="{bottom: (appState.isShowForm ? '0' : '-150%')}">
@@ -112,7 +113,7 @@ const handleopenwechat = () =>{
         <img src="@/assets/images/icon_7.png" alt="close">
       </div>
     </div>
-    <client-only>
+    <!-- <client-only>
       <el-dialog v-model="centerDialogVisible" title="WeChat ID已複製" width="300" center align-center>
         <span>
           點擊「打開微信」進入微信，點右上⊕，粘貼ID，添加客服開始免費咨詢！
@@ -126,7 +127,7 @@ const handleopenwechat = () =>{
           </div>
         </template>
       </el-dialog>
-    </client-only>
+    </client-only> -->
   </div>
 </template>
 <style lang="scss" scoped>
