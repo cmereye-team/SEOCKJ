@@ -41,24 +41,27 @@ const handleopenwechat = () =>{
       <!-- <NewAddress /> -->
       <div class="testBoxs">
         <!-- <a href="weixin://" class="wechatbtn">Wechat</a> -->
-        <div>微信按钮演示</div>
-        <el-button plain @click="handlecopywechatcode">
-          Wechat
-        </el-button>
-        <el-dialog v-model="centerDialogVisible" title="WeChat ID已複製" width="300" center>
-          <span>
-            點擊「打開微信」進入微信，點右上⊕，粘貼ID，添加客服開始免費咨詢！
-          </span>
-          <template #footer>
-            <div class="dialog-footer">
-              <el-button @click="centerDialogVisible = false">取消</el-button>
-              <el-button type="primary" @click="handleopenwechat">
-                打開微信
-              </el-button>
-            </div>
-          </template>
-        </el-dialog>
-        <div>按钮动画演示</div>
+        <div class="titletest">微信按钮演示</div>
+        <client-only>
+          <el-button plain @click="handlecopywechatcode">
+            Wechat
+          </el-button>
+          <el-dialog v-model="centerDialogVisible" title="WeChat ID已複製" width="300" center align-center>
+            <span>
+              點擊「打開微信」進入微信，點右上⊕，粘貼ID，添加客服開始免費咨詢！
+            </span>
+            <template #footer>
+              <div class="dialog-footer">
+                <el-button @click="centerDialogVisible = false">取消</el-button>
+                <el-button type="primary" @click="handleopenwechat">
+                  打開微信
+                </el-button>
+              </div>
+            </template>
+          </el-dialog>
+        </client-only>
+
+        <div class="titletest">按钮动画演示</div>
         <div class="btntest">
           <div class="btntest-in">
             <span>立即預約牙齒檢查</span>
@@ -68,12 +71,14 @@ const handleopenwechat = () =>{
     </div>
     <PageFooter />
     <PageNavbar />
+    
   </div>
 </template>
 
 
 <style lang="scss" scoped>
-body{
+:deep(body){
+  background:#000;
   width: 100% !important;
 }
 .testBoxs{
@@ -94,12 +99,129 @@ body{
   border-radius: 50%;
   border: 2px solid var(--indexColor1);
 }
+.titletest{
+  padding-top: 50px;
+}
 .btntest{
+  margin: 50px 0;
   &-in{
+    position: relative;
     &>span{
+      padding: 10px 50px;
       color: #fff;
       background: #00AEFF;
+      position: relative;
+      z-index: 1;
+      border-radius: 50px;
+      display: inline-block;
+      animation: btntestAnima 5.6s infinite;
+      box-shadow: 10px 10px 20px rgba(103, 214, 239, .75);
+      cursor: pointer;
+      transition: all .3s;
     }
+    &::after{
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      width: 100%;
+      height: 100%;
+      border: 10px solid #B9D9FC;
+      z-index: 0;
+      border-radius: 50px;
+      animation: btntestafterAnima 5.6s infinite;
+      transition: all .3s;
+    }
+    &:hover{
+      &>span{
+        background: #FF9900;
+        box-shadow: 10px 10px 20px rgba(239, 176, 103, .75);
+        animation: btntesthoverAnima 5.6s infinite;
+      }
+      &::after{
+        border: 10px solid #FCD1B9;
+        animation: btntestafterhoverAnima 5.6s infinite;
+      }
+    }
+  }
+}
+@keyframes btntestAnima{
+  5%{
+    transform: scale(.95);
+  }
+  8%{
+    transform: scale(1);
+  }
+}
+@keyframes btntesthoverAnima{
+  5%{
+    transform: scale(.95);
+  }
+  8%{
+    transform: scale(1);
+  }
+}
+@keyframes btntestafterAnima {
+  5%{
+    transform: translate(-50%,-50%) scale(.95);
+  }
+  8%{
+    transform: translate(-50%,-50%) scale(1);
+    width: 100%;
+    height: 100%;
+    border: 10px solid #B9D9FC;
+  }
+  19%{
+    border: 10px solid rgba(185, 217, 252, 0.7);
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+  }
+  24%{
+    border: 10 solid rgba(185, 217, 252, 0);
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+  }
+  29%{
+    border: 0 solid rgba(185, 217, 252, 0);
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+  }
+  100%{
+    border: 0 solid rgba(185, 217, 252, 0);
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+  }
+}
+@keyframes btntestafterhoverAnima {
+  5%{
+    transform: translate(-50%,-50%) scale(.95);
+  }
+  8%{
+    transform: translate(-50%,-50%) scale(1);
+    width: 100%;
+    height: 100%;
+    border: 10px solid #FCD1B9;
+  }
+  19%{
+    border: 10px solid rgba(252, 209, 185, 0.7);
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+  }
+  24%{
+    border: 10 solid rgba(252, 209, 185, 0);
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+  }
+  29%{
+    border: 0 solid rgba(252, 209, 185, 0);
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+  }
+  100%{
+    border: 0 solid rgba(252, 209, 185, 0);
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
   }
 }
 @media (min-width: 768px) and (max-width: 1452px) {}

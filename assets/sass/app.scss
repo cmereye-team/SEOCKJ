@@ -73,6 +73,7 @@ html.dark {
   // text-size-adjust: 100%;
 // }
 body{
+  width: 100% !important;
   cursor: url(@/assets/images/icon_14.svg)11 11, auto;
   &::-webkit-scrollbar{
     width: 5px;
