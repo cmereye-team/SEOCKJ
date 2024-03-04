@@ -330,8 +330,10 @@ if(process.server){
   max-width: 960px;
   margin: 0 auto calc(37 / 1920 * 100%);
   height: auto;
+  overflow: hidden;
   :deep(span){
     text-wrap: wrap !important;
+    word-break: break-all !important;
   }
   :deep(.content-img img){
     margin: 8px 0;

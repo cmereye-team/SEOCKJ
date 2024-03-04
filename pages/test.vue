@@ -7,19 +7,31 @@ defineProps({
     default: ''
   }
 })
+const centerDialogVisible = ref(false)
+const handlecopywechatcode = () =>{
+  if (navigator.clipboard) {  
+      navigator.clipboard.writeText('ckjhongkong').then(function() {  
+        // ElMessage({
+        //   showClose: true,
+        //   message: '已複製到剪切板',
+        //   type: 'success',
+        // }) 
+        centerDialogVisible.value = true
+      }, function(err) {
+          ElMessage({
+            showClose: true,
+            message: '操作異常，請刷新頁面試試',
+            type: 'warning',
+          })
+      });  
+  } else {  
+      alert('Clipboard API is not supported by your browser.');  
+  }  
+}
 
-const addressItem = {
-      id: '202',
-      name: 'contactUs.addressLists.address_202.name',
-      address: 'contactUs.addressLists.address_202.address',
-      time: 'contactUs.addressLists.address_202.time',
-      phone: phoneNum,
-      busRoutes: 'contactUs.addressLists.address_202.busRoutes',
-      metroRoutes: 'contactUs.addressLists.address_202.metroRoutes',
-      addressUrl: 'https://static.cmereye.com/imgs/2023/05/63dbe40ee13b53e9.png',
-      googleMap: 'https://goo.gl/maps/mQgJXrTxvaaLB9Y1A?coh=178572&entry=tt',
-      baiduMap: 'https://j.map.baidu.com/1f/kY0'
-    }
+const handleopenwechat = () =>{
+  window.location.href = "weixin://"
+}
 </script>
 
 <template>
@@ -28,52 +40,28 @@ const addressItem = {
     <div class="indexPage">
       <!-- <NewAddress /> -->
       <div class="testBoxs">
-        <div class="testBoxs-in">
-          <div class="address-box">
-            <h3>{{$t(addressItem.name)}}(幼圆)</h3>
-            <div class="content">
-              <span>{{$t('contactUs.hospital_address')}}：{{$t(addressItem.address)}}</span>
-              <span>{{$t('contactUs.hours_of_Operation')}}：{{$t(addressItem.time)}}</span>
-              <span>{{$t('contactUs.check_the_phone')}}：{{addressItem.phone}}</span>
+        <!-- <a href="weixin://" class="wechatbtn">Wechat</a> -->
+        <div>微信按钮演示</div>
+        <el-button plain @click="handlecopywechatcode">
+          Wechat
+        </el-button>
+        <el-dialog v-model="centerDialogVisible" title="WeChat ID已複製" width="300" center>
+          <span>
+            點擊「打開微信」進入微信，點右上⊕，粘貼ID，添加客服開始免費咨詢！
+          </span>
+          <template #footer>
+            <div class="dialog-footer">
+              <el-button @click="centerDialogVisible = false">取消</el-button>
+              <el-button type="primary" @click="handleopenwechat">
+                打開微信
+              </el-button>
             </div>
-            <div class="route">
-              <span>{{$t('contactUs.bus_route')}}</span>
-              <span>{{$t(addressItem.busRoutes)}}</span>
-              <span>{{$t('contactUs.metro_lines')}}</span>
-              <span>{{$t(addressItem.metroRoutes)}}</span>
-            </div>
-          </div>
-        </div>
-        <div class="testBoxs-in">
-          <div class="address-box">
-            <h3>{{$t(addressItem.name)}}(源泉圓體L)</h3>
-            <div class="content">
-              <span>{{$t('contactUs.hospital_address')}}：{{$t(addressItem.address)}}</span>
-              <span>{{$t('contactUs.hours_of_Operation')}}：{{$t(addressItem.time)}}</span>
-              <span>{{$t('contactUs.check_the_phone')}}：{{addressItem.phone}}</span>
-            </div>
-            <div class="route">
-              <span>{{$t('contactUs.bus_route')}}</span>
-              <span>{{$t(addressItem.busRoutes)}}</span>
-              <span>{{$t('contactUs.metro_lines')}}</span>
-              <span>{{$t(addressItem.metroRoutes)}}</span>
-            </div>
-          </div>
-        </div>
-        <div class="testBoxs-in">
-          <div class="address-box">
-            <h3>{{$t(addressItem.name)}}(Noto Serif HK)</h3>
-            <div class="content">
-              <span>{{$t('contactUs.hospital_address')}}：{{$t(addressItem.address)}}</span>
-              <span>{{$t('contactUs.hours_of_Operation')}}：{{$t(addressItem.time)}}</span>
-              <span>{{$t('contactUs.check_the_phone')}}：{{addressItem.phone}}</span>
-            </div>
-            <div class="route">
-              <span>{{$t('contactUs.bus_route')}}</span>
-              <span>{{$t(addressItem.busRoutes)}}</span>
-              <span>{{$t('contactUs.metro_lines')}}</span>
-              <span>{{$t(addressItem.metroRoutes)}}</span>
-            </div>
+          </template>
+        </el-dialog>
+        <div>按钮动画演示</div>
+        <div class="btntest">
+          <div class="btntest-in">
+            <span>立即預約牙齒檢查</span>
           </div>
         </div>
       </div>
@@ -85,66 +73,32 @@ const addressItem = {
 
 
 <style lang="scss" scoped>
-// @font-face {
-//   font-family: "GenSenRounded";
-//   src: url("https://static.cmereye.com/static/font/GenSenRounded-L.woff");
-// }
+body{
+  width: 100% !important;
+}
 .testBoxs{
   display: flex;
   min-height: 600px;
   background: #fff;
   align-items: center;
   flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+}
+.wechatbtn{
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 2px solid var(--indexColor1);
+}
+.btntest{
   &-in{
-    flex: 1;
-    width: 600px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 10% 50px;
-    .address-box{
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
-      .route-cc{
-        flex: 1;
-      }
-      .mapBtn{
-        a{
-          width: 30%;
-          min-width: 200px;
-        }
-      }
-    }
-    h3{
-      font-weight: 500;
-      font-size: 26px;
-      line-height: 160%;
-      color: var(--indexColor1);
-      position: relative;
-      display: inline-block;
-      cursor: pointer;
-      padding-bottom: 10px;
-    }
-    span{
-      font-weight: 500;
-      font-size: 20px;
-      line-height: 160%;
-      color: #666666;
-      display: block;
-    }
-    &:nth-of-type(1){
-      h3,span{
-        font-family: youyuan;
-      }
-    }
-    &:nth-of-type(2){
-      // h3,span{
-      //   font-family: "GenSenRounded";
-      // }
+    &>span{
+      color: #fff;
+      background: #00AEFF;
     }
   }
 }
