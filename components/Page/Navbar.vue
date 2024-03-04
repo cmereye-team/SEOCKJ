@@ -35,6 +35,32 @@ const toContactUs = () =>{
 
 let mbQDCodeBool = ref(false)
 
+const centerDialogVisible = ref(false)
+const handlecopywechatcode = () =>{
+  if (navigator.clipboard) {  
+      navigator.clipboard.writeText('ckjhongkong').then(function() {  
+        // ElMessage({
+        //   showClose: true,
+        //   message: '已複製到剪切板',
+        //   type: 'success',
+        // }) 
+        centerDialogVisible.value = true
+      }, function(err) {
+          ElMessage({
+            showClose: true,
+            message: '操作異常，請刷新頁面試試',
+            type: 'warning',
+          })
+      });  
+  } else {  
+      alert('Clipboard API is not supported by your browser.');  
+  }  
+}
+
+const handleopenwechat = () =>{
+  window.location.href = "weixin://"
+}
+
 </script>
 
 <template>
@@ -45,7 +71,6 @@ let mbQDCodeBool = ref(false)
           <div class="tel">3892 5049</div>
         </div>
       </div>
-      <!-- <img src="@/assets/images/navIcon_1.png" alt="" /> -->
     </div>
     <nuxt-link class="navbar-content-in" id="navPcWhatsapp" :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" title="WhatsApp" target="_blank">
     </nuxt-link>
@@ -63,16 +88,6 @@ let mbQDCodeBool = ref(false)
     <div class="navbar-content-in" @click="toPageTop">
       <img src="@/assets/images/navIcon_4.png" alt="toTop" />
     </div>
-    <!-- <div class="navbar-content-mb" v-if="false">
-      <div id="navMbTel">
-        <img src="@/assets/images/icon_8.png" alt="立即預約">3892 5049
-      </div>
-      <div>
-        <div class="navBtn" @click="navLiBoxBool = !navLiBoxBool">立即預約</div>
-        <div class="navLiBox" :style="{bottom: (navLiBoxBool ? '100%' : '-350%')}">
-        </div>
-      </div>
-    </div> -->
     <div class="navbar-content-mb">
       <nuxt-link  id="navMbTel" :to="'tel: +852 3892 5049'" class="mbcc-boxInAA mbcc-boxInAA-1"></nuxt-link>
       <nuxt-link id="navMbWhatsapp" :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" target="_blank" class="mbcc-boxInAA mbcc-boxInAA-2"></nuxt-link>
@@ -80,23 +95,9 @@ let mbQDCodeBool = ref(false)
         <img src="https://static.cmereye.com/imgs/2023/09/a8f9c3f82bbda125.png" alt="馬上預約">
         <span :class="{english:langType === 'english'}">馬上預約</span>
       </div>
-      <div id="navMbWeChat" class="mbcc-boxInAA mbcc-boxInAA-4" @click="mbQDCodeBool = true"></div>
+      <div id="navMbWeChat" class="mbcc-boxInAA mbcc-boxInAA-4" @click="handlecopywechatcode"></div>
       <nuxt-link id="navMbFacebook" to="https://www.facebook.com/ckjdental.hk/"  target="_blank" class="mbcc-boxInAA mbcc-boxInAA-5"></nuxt-link>
     </div>
-    <!-- <div class="navbar-content-mb02" v-if="false">
-      <div id="navMbWeChat" @click="mbQDCodeBool = true">WeChat</div>
-      <div>
-        <nuxt-link id="navMbWhatsapp" :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" target="_blank">Whatsapp</nuxt-link>
-      </div>
-    </div>
-    <div class="navbar-content-mb" v-if="false">
-      <div><nuxt-link id="navMbFacebook" to="https://www.facebook.com/ckjdental.hk/" target="_blank">Facebook預約</nuxt-link></div>
-      <div id="navMbContactFormBtn" @click="handleNavFormNav">填寫表格</div>
-    </div>
-    <div class="navbar-content-mb" v-if="false">
-      <div><nuxt-link id="navMbFacebook" to="https://www.facebook.com/ckjdental.hk/" target="_blank">Facebook預約</nuxt-link></div>
-      <div>填寫表格</div>
-    </div> -->
     <div class="navForm" :style="{bottom: (appState.isShowForm ? '0' : '-150%')}">
       <ContactForm />
       <div class="navForm-icon" @click="navFormClose">
@@ -111,6 +112,21 @@ let mbQDCodeBool = ref(false)
         <img src="@/assets/images/icon_7.png" alt="close">
       </div>
     </div>
+    <client-only>
+      <el-dialog v-model="centerDialogVisible" title="WeChat ID已複製" width="300" center align-center>
+        <span>
+          點擊「打開微信」進入微信，點右上⊕，粘貼ID，添加客服開始免費咨詢！
+        </span>
+        <template #footer>
+          <div class="dialog-footer">
+            <el-button @click="centerDialogVisible = false">取消</el-button>
+            <el-button type="primary" @click="handleopenwechat">
+              打開微信
+            </el-button>
+          </div>
+        </template>
+      </el-dialog>
+    </client-only>
   </div>
 </template>
 <style lang="scss" scoped>
@@ -190,10 +206,7 @@ let mbQDCodeBool = ref(false)
     &:hover{
       background: var(--indexColor1);
       .navbarBox{
-        // opacity: 1;
-        // transform: translateX(0);
         display: flex;
-        // transition: all .3s ease-in-out;
         animation: animLeftIn 1s forwards;
       }
     }
@@ -222,9 +235,6 @@ let mbQDCodeBool = ref(false)
     background-position: 50%;
   }
   &-mb{
-    display: none;
-  }
-  &-mb02{
     display: none;
   }
   .navForm{

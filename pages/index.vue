@@ -218,12 +218,42 @@ let doctorDetail:any = ref({
 const handletab2 =(id:string)=>{
   dentalProfessionCur.value = id;
   doctorCur.value = changleDoctorLists().length>0 ? changleDoctorLists()[0].id : ''
-  doctorDetail.value = changeDoctorDetail()
+  // doctorDetail.value = changeDoctorDetail()
+  doctorItemSwiper.slideToLoop(0)
 }
 const handleDoctorItem = (id:any) =>{
   doctorCur.value = id
-  doctorDetail.value = changeDoctorDetail()
+  // doctorDetail.value = changeDoctorDetail()
+  // doctorCur.value
+  let _idx = changleDoctorLists().findIndex(item=>item.id === id) || 0
+  doctorItemSwiper.slideToLoop(_idx)
 }
+
+let doctorItemSwiper = {
+  slideToLoop: (a)=>{}
+}
+const setDoctorItemSwiper = (swiper:any)=>{
+  doctorItemSwiper = swiper;
+}
+const doctorItemSlideChange = (swiper) =>{
+  doctorCur.value = changleDoctorLists()[swiper.realIndex].id
+  doctorTabSwiper_pc.slideToLoop(swiper.realIndex)
+  doctorTabSwiper_mb.slideToLoop(swiper.realIndex)
+}
+
+let doctorTabSwiper_pc = {
+  slideToLoop: (a)=>{}
+}
+let doctorTabSwiper_mb = {
+  slideToLoop: (a)=>{}
+}
+const setDoctorTabSwiperRef_pc = (swiper:any) => {
+  doctorTabSwiper_pc = swiper;
+}
+const setDoctorTabSwiperRef_mb = (swiper:any) => {
+  doctorTabSwiper_mb = swiper;
+}
+
 const changeDentalProfessionList = () =>{
   let _lists:any = []
   if(doctorLists_cs[appState.areaTabCurNum].length>0){
@@ -359,6 +389,7 @@ onMounted(()=>{
               <Swiper
                 class="swiperpcLists-in"
                 :slidesPerView="7"
+                @swiper="setDoctorTabSwiperRef_pc"
               >
                 <SwiperSlide class="swiperpcLists-in-slide" v-for="doctorItem in changleDoctorLists()" :key="doctorItem.id">
                   <div class="swiperpcLists-in-img" :class="{acitve:doctorCur===doctorItem.id}" @click="handleDoctorItem(doctorItem.id)">
@@ -372,6 +403,7 @@ onMounted(()=>{
             <Swiper
               class="mbLists-in"
               :slidesPerView="3"
+              @swiper="setDoctorTabSwiperRef_mb"
             >
               <SwiperSlide class="mbLists-in-slide" v-for="doctorItem in changleDoctorLists()" :key="doctorItem.id">
                 <div class="mbLists-in-img" :class="{acitve:doctorCur===doctorItem.id}" @click="handleDoctorItem(doctorItem.id)">
@@ -381,7 +413,7 @@ onMounted(()=>{
             </Swiper>
           </div>
         </div>
-        <div class="index-doctorTeam-detail index-doctorTeam-con" v-if="doctorCur !== ''">
+        <!-- <div class="index-doctorTeam-detail index-doctorTeam-con" v-if="doctorCur !== ''">
           <div class="index-doctorTeam-detail-l">
             <div class="index-doctorTeam-detail-l-in">
               <img :srcset="'https://static.cmereye.com/imgs/2024/02/3305056d2ab78db8.webp 768w, https://static.cmereye.com/imgs/2024/02/d9ed594b3c173297.webp'" src="https://static.cmereye.com/imgs/2024/02/d9ed594b3c173297.webp" alt="">
@@ -397,7 +429,6 @@ onMounted(()=>{
               <span>{{doctorDetail.newOrg}}</span>
             </div>
             <div class="detail-3">
-              <!-- <span>{{doctorDetail.newJobs}}</span> -->
               <span v-for="(jobItem,jobIndex) in doctorDetail.newJobs" :key="jobIndex">{{jobItem}}</span>
             </div>
             <div class="detail-4">
@@ -413,6 +444,52 @@ onMounted(()=>{
             </div>
             <div class="detail-6"><span @click="toWhatsApp">線上咨詢</span></div>
           </div>
+        </div> -->
+        <div v-if="doctorCur !== ''">
+          <Swiper
+            :loop="true"
+            :modules="[Autoplay]"
+            :autoplay="{
+              delay: 2000,
+            }" 
+            @swiper="setDoctorItemSwiper" 
+            @slideChange="doctorItemSlideChange"
+          >
+            <Swiper-slide v-for="doctorItem in changleDoctorLists()" :key="doctorItem.id">
+              <div class="index-doctorTeam-detail index-doctorTeam-con" :id="`d${doctorItem.id}`">
+                <div class="index-doctorTeam-detail-l">
+                  <div class="index-doctorTeam-detail-l-in">
+                    <img :srcset="'https://static.cmereye.com/imgs/2024/02/3305056d2ab78db8.webp 768w, https://static.cmereye.com/imgs/2024/02/d9ed594b3c173297.webp'" src="https://static.cmereye.com/imgs/2024/02/d9ed594b3c173297.webp" alt="">
+                    <img :srcset="`${doctorItem.mbImg} 768w, ${doctorItem.imgUrl}`" :src="doctorItem.imgUrl" :alt="doctorItem.name" :title="doctorItem.name">
+                  </div>
+                </div>
+                <div class="index-doctorTeam-detail-r">
+                  <div class="detail-1">
+                    <span>{{doctorItem.name}}</span>
+                    <span>{{doctorItem.text}}</span>
+                  </div>
+                  <div class="detail-2" v-if="doctorItem.newOrg">
+                    <span>{{doctorItem.newOrg}}</span>
+                  </div>
+                  <div class="detail-3">
+                    <span v-for="(jobItem,jobIndex) in doctorItem.newJobs" :key="jobIndex">{{jobItem}}</span>
+                  </div>
+                  <div class="detail-4">
+                    <span>擅長項目：</span>
+                    <span>
+                      {{doctorItem.newSkilled}}
+                    </span>
+                  </div>
+                  <div class="detail-5">
+                    <span v-for="(tagItem,tagIndex) in doctorItem.tags" :key="tagIndex">
+                      {{tagItem}}
+                    </span>
+                  </div>
+                  <div class="detail-6"><span @click="toWhatsApp">線上咨詢</span></div>
+                </div>
+              </div>
+            </Swiper-slide>
+          </Swiper>
         </div>
       </div>
       <!-- 视频地址 -->
@@ -754,6 +831,9 @@ svg:hover path{
           border-radius: 10px;
           overflow: hidden;
           background: rgba(254, 169, 209,.7);
+          &.acitve{
+            background: #FFA8C6;
+          }
         }
       }
     }
