@@ -566,7 +566,7 @@ onMounted(()=>{
         }
         &-lx{
           position: relative;
-          // z-index: 99;
+          z-index: 1;
           &>span{
             color: var(--indexColor1);
             background: #fff;
