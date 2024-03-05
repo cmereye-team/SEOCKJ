@@ -553,6 +553,7 @@ onMounted(()=>{
         padding: 0 30px;
         &>div{
           filter: drop-shadow(0 3px 5px var(--indexColor3));
+          -webkit-filter: drop-shadow(0 3px 5px var(--indexColor3));
           max-width: calc(100% / 2.5);
           span{
             display: inline-block;
@@ -566,7 +567,7 @@ onMounted(()=>{
         }
         &-lx{
           position: relative;
-          z-index: 1;
+          z-index: 20;
           &>span{
             color: var(--indexColor1);
             background: #fff;
@@ -740,35 +741,40 @@ onMounted(()=>{
         }
         &-content{
           flex-direction: column;
-          padding: 20px 0;
+          padding: 20px 30px 20px 0;
           &>div{
+            display: flex;
             span{
               padding-right: 0;
               font-size: 16px;
               line-height: 2;
-              white-space: initial;
-              display: initial;
+              // white-space: initial;
+              // display: initial;
               &:nth-of-type(1){
                 font-size: 16px;
                 line-height: 2;
-                color: var(--textColor);
-                font-weight: initial;
+                max-width: 35%;
+                // color: var(--textColor);
+                // font-weight: initial;
               }
             }
             &:nth-of-type(1),&:nth-of-type(2),&:nth-of-type(3){
               span{
                 &:nth-of-type(1){
                   &::before{
-                    display: none;
+                  //   display: none;
+                    margin-top: -5px;
+                    vertical-align: middle;
                   }
-                  &::after{
-                    content: '：';
-                    background: none;
-                  }
+                  // &::after{
+                  //   content: '：';
+                  //   background: none;
+                  // }
                 }
               }
             }
             &:not(:last-child){
+              margin-bottom: 20px;
               span{
                 &:not(:first-child){
                   border-right: none;
@@ -780,6 +786,7 @@ onMounted(()=>{
         &-btn{
           display: block;
           position: relative;
+          padding: 0 20px;
           &>div{
             max-width: 100%;
             span{
@@ -791,6 +798,7 @@ onMounted(()=>{
           }
           &-lx{
             width: 100%;
+            padding: 10px;
             &>span{
               &::after{
                 width: 10px;
@@ -818,6 +826,7 @@ onMounted(()=>{
             }
           }
           &-bd{
+            padding: 10px 0;
             position: absolute;
             right: 30px;
             top: 0;
