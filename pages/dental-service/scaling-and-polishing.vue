@@ -672,7 +672,7 @@ const doctorData = {
           </div>
         </div>
       </div>
-      <!-- <ServiceProblem :problem-data="problemData" /> -->
+      <ServiceProblem :problem-data="problemData" />
       <serviceCard />
       <NewAddress />
     </div>

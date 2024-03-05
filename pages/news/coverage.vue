@@ -106,7 +106,7 @@ if(process.server){
       </div>
       <div class="pageCon">
         <div class="lists" v-if="!errorpage">
-          <div class="lists-in" v-for="(item,index) in coverageLists" :key="index">
+          <nuxt-link :to="`/news/article/${item.id}`" class="lists-in" v-for="(item,index) in coverageLists" :key="index">
             <div class="lists-in-img">
               <img :src="item.img" :alt="item.name">
             </div>
@@ -125,10 +125,10 @@ if(process.server){
                 </span>
               </div>
               <div class="btn">
-                <a :href="`/news/article/${item.id}`">查看全文</a>
+                <nuxt-link :to="`/news/article/${item.id}`">查看全文</nuxt-link>
               </div>
             </div>
-          </div>
+          </nuxt-link>
         </div>
         <div class="lists" v-else>服務異常</div>
       </div>

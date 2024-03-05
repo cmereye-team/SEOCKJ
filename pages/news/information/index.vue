@@ -123,7 +123,7 @@ onMounted(()=>{
       </div>
       <div class="pageCon">
         <div class="lists" v-if="!errorpage" v-loading="loadingShow">
-          <div class="lists-in" v-for="(item,index) in informationLists" :key="index">
+          <nuxt-link :to="`/news/information/${item.id}`" class="lists-in" v-for="(item,index) in informationLists" :key="index">
             <div class="lists-in-img">
               <img :src="item.img" alt="">
             </div>
@@ -140,10 +140,10 @@ onMounted(()=>{
               </div>
               <div style="flex: 1;"></div>
               <div class="btn">
-                <a :href="`/news/information/${item.id}`">查看全文</a>
+                <nuxt-link :to="`/news/information/${item.id}`">查看全文</nuxt-link>
               </div>
             </div>
-          </div>
+          </nuxt-link>
           <div class="lists-btn">
             <div @click="subNum" :class="{btndisabled: actPageNum === 1}"><span>上一頁</span></div>
             <div>{{actPageNum}}/{{totalPageNum}}</div>

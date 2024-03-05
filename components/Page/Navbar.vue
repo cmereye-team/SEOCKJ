@@ -116,21 +116,6 @@ let _bool = ref(false)
         <img src="@/assets/images/icon_7.png" alt="close">
       </div>
     </div>
-    <!-- <client-only>
-      <el-dialog v-model="centerDialogVisible" title="WeChat ID已複製" width="300" center align-center>
-        <span>
-          點擊「打開微信」進入微信，點右上⊕，粘貼ID，添加客服開始免費咨詢！
-        </span>
-        <template #footer>
-          <div class="dialog-footer">
-            <el-button @click="centerDialogVisible = false">取消</el-button>
-            <el-button type="primary" @click="handleopenwechat">
-              打開微信
-            </el-button>
-          </div>
-        </template>
-      </el-dialog>
-    </client-only> -->
     <div :class="['dialogBox',{show:_bool}]" @click="_bool=false">
       <div :class="['dialogBox-in',{'show-in':_bool}]" @click.stop="">
         <div class="title">
