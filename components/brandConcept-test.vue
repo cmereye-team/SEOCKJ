@@ -139,7 +139,8 @@ const onSlideChange = (swiper:any) => {
     //   font-style: normal;
     //   font-weight: 900;
     //   line-height: 160%;
-    //   width: 157px;
+      // width: 157px;
+      // display: flex;
     //   height: 46px;
     //   line-height: 46px;
     //   border-radius: 30px;
@@ -230,7 +231,7 @@ const onSlideChange = (swiper:any) => {
       .btn{
       //   height: 40px;
       //   line-height: 40px;
-      //   width: 137px;
+        // width: 137px;
         margin: 15px auto 25px;
       //   font-size: 18px;
         order: 4;

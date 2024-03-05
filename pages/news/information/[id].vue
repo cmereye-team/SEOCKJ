@@ -358,9 +358,9 @@ if(process.server){
   :deep(.content-text){
     color: var(--textColor);
     font-size: 20px;
-    font-family: 'Noto Serif HK', Serif;
+    font-family: var(--contextFamily);
     span{
-      font-family: 'Noto Serif HK', Serif;
+      font-family: var(--contextFamily);
     }
   } 
   :deep(.indexColor){

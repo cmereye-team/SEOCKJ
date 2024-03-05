@@ -261,7 +261,7 @@ onMounted(() => {
       margin-bottom: 28px;
     }
     :deep(.el-form-item__label) {
-      font-family: 'Noto Serif HK';
+      font-family: var(--contextFamily);
       font-style: normal;
       font-weight: 500;
       font-size: 20px;
@@ -279,7 +279,7 @@ onMounted(() => {
       justify-content: space-between;
     }
     :deep(.el-radio__label) {
-      font-family: 'Noto Serif HK';
+      font-family: var(--contextFamily);
       font-style: normal;
       font-weight: 500;
       font-size: 20px;
@@ -300,7 +300,7 @@ onMounted(() => {
       border: 1px solid #fff;
     }
     :deep(.el-button) {
-      font-family: 'Noto Serif HK';
+      font-family: var(--contextFamily);
       margin: 52px auto 0;
       width: 350px;
       height: 60px;
@@ -320,7 +320,7 @@ onMounted(() => {
       }
     }
     .formBtn{
-      font-family: 'Noto Serif HK';
+      font-family: var(--contextFamily);
       margin: 52px auto 0;
       width: 350px;
       height: 60px;

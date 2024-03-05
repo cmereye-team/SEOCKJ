@@ -30,7 +30,7 @@ defineProps({
 .animbtntypetwo{
   position: relative;
   display: flex;
-  justify-content: center;
+  // justify-content: center;
   &-in{
     position: relative;
     display: inline-block;

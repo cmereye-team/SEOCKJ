@@ -1397,7 +1397,7 @@ const doctorData = {
                 &::before{
                   content: '，';
                   font-size: 16px;
-                  font-family: 'Noto Serif HK', Serif;
+                  font-family: var(--contextFamily);
                 }
               }
               img {

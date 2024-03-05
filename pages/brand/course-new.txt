@@ -606,7 +606,7 @@ const changeSwiper = (swiper) =>{
           .time{
             color: var(--textColor);
             text-align: right;
-            font-family: Noto Serif HK;
+            font-family: var(--contextFamily);
             font-size: 20px;
             font-style: normal;
             font-weight: 500;
