@@ -28,7 +28,7 @@ const pageDetail:any = {
     {
       type: 'img',
       list: [
-        'https://static.cmereye.com/imgs/2024/03/24bb21138bf1008b.webp',
+        'https://static.cmereye.com/imgs/2024/03/5cd9553f46182a46.webp',
       ],
       className: 'imgone nob'
     },
@@ -246,7 +246,9 @@ const pageDetail:any = {
           <section v-else-if="item.type === 'btn'">
             <nuxt-link to="https://bit.ly/FTU洗牙" class="contentbtn">
               <div class="contentbtn-l">
-                <span v-for="(btnText,btnTextIndex) in item.list" :key="btnTextIndex">{{btnText}}</span>
+                <div>
+                  <span v-for="(btnText,btnTextIndex) in item.list" :key="btnTextIndex">{{btnText}}</span>
+                </div>
               </div>
               <div class="contentbtn-r">
                 <img src="https://static.cmereye.com/imgs/2024/03/82eb8b5a33ce229f.png" alt="">
@@ -256,7 +258,8 @@ const pageDetail:any = {
           <section v-else></section>
         </div>
         <div class="btn">
-          <PageAnimBtn link="https://bit.ly/FTU洗牙" str="立即預約會員洗牙" />
+          <!-- <PageAnimBtn link="https://bit.ly/FTU洗牙" str="立即預約會員洗牙" /> -->
+          <PageAnimBtnTypeTwo link="https://bit.ly/FTU洗牙" str="立即預約會員洗牙" />
         </div>
       </div>
       <NewAddress />
@@ -268,6 +271,80 @@ const pageDetail:any = {
 
 
 <style lang="scss" scoped>
+@keyframes btntestAnima{
+  5%{
+    transform: scale(.95);
+    -webkit-transform: scale(.95);
+  }
+  8%{
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
+@keyframes btntesthoverAnima{
+  5%{
+    transform: scale(.95);
+    -webkit-transform: scale(.95);
+  }
+  8%{
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
+@keyframes btntestafterAnima {
+  0%{
+    width: 90%;
+    height: 90%;
+    border: 10px solid #B9D9FC;
+  }
+  19%{
+    border: 10px solid rgba(185, 217, 252, 0.5);
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+  }
+  24%{
+    // border: 10px solid rgba(185, 217, 252, 0);
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+  }
+  29%{
+    border: 0 solid rgba(185, 217, 252, 0);
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+  }
+  100%{
+    border: 0 solid rgba(185, 217, 252, 0);
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+  }
+}
+@keyframes btntestafterhoverAnima {
+  0%{
+    width: 90%;
+    height: 90%;
+    border: 10px solid #FCD1B9;
+  }
+  19%{
+    border: 10px solid rgba(252, 209, 185, 0.5);
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+  }
+  24%{
+    // border: 10px solid rgba(252, 209, 185, 0);
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+  }
+  29%{
+    border: 0 solid rgba(252, 209, 185, 0);
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+  }
+  100%{
+    border: 0 solid rgba(252, 209, 185, 0);
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+  }
+}
 .health-care-voucher-top{
   display: flex;
   justify-content: space-between;
@@ -469,26 +546,58 @@ const pageDetail:any = {
     justify-content: center;
     align-items: center;
     &-l{
-      color: #fff;
-      font-size: 30px;
-      background: var(--indexColor1);
-      border-radius: 50px;
-      padding: 10px 30px;
-      transition: all .3s;
-      box-shadow: 3px 3px 12px rgba(252, 22, 130, .5);
-      &>span{
-        letter-spacing: 2px;
-        &:not(:last-child){
-          margin-right: 20px;
+      position: relative;
+      &>div{
+        color: #fff;
+        font-size: 30px;
+        background: #00AEFF;
+        border-radius: 50px;
+        padding: 10px 30px;
+        transition: all .3s;
+        box-shadow: 10px 10px 20px rgba(103, 214, 239, .75);
+        animation: btntestAnima 5.6s infinite;
+        position: relative;
+        z-index: 1;
+        &>span{
+          letter-spacing: 2px;
+          &:not(:last-child){
+            margin-right: 20px;
+          }
         }
+      }
+      &::after{
+        content: '';
+        position: absolute;
+        display: inline-block;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        width: 90%;
+        height: 90%;
+        border: 10px solid #B9D9FC;
+        z-index: 0;
+        border-radius: 50px;
+        animation: btntestafterAnima 5.6s infinite;
+        transition: all .5s;
       }
     }
     &-r{
       margin-left: -25px;
+      position: relative;
+      z-index: 2;
     }
     &:hover{
       .contentbtn-l{
-        background: #FF85AF;
+        &>div{
+          background: #FF9900;
+          box-shadow: 10px 10px 20px rgba(239, 176, 103, .75);
+          animation: btntesthoverAnima 5.6s infinite;
+        }
+        &::after{
+          border: 10px solid #FCD1B9;
+          animation: btntestafterhoverAnima 5.6s infinite;
+        }
       }
     }
   }
@@ -635,19 +744,24 @@ const pageDetail:any = {
     }
     .contentbtn{
       &-l{
-        font-size: 28px;
-        border-radius: 26px;
-        &>span{
-          display: block;
-          &:not(:last-child){
-            margin-right: 0px;
+        &>div{
+          font-size: 28px;
+          border-radius: 26px;
+          &>span{
+            display: block;
+            &:not(:last-child){
+              margin-right: 0px;
+            }
+            &:first-child{
+              letter-spacing: 2px;
+            }
+            &:last-child{
+              letter-spacing: 4px;
+            }
           }
-          &:first-child{
-            letter-spacing: 2px;
-          }
-          &:last-child{
-            letter-spacing: 4px;
-          }
+        }
+        &::after{
+          border-radius: 40px;
         }
       }
     }

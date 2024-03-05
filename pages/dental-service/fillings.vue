@@ -19,9 +19,9 @@ useHead({
 })
 
 const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2024/02/59dd6590cee09034.jpg',
+  img: 'https://static.cmereye.com/imgs/2024/03/3215d200c5bdcff0.jpg',
   bg: '',
-  mbImg: 'https://static.cmereye.com/imgs/2024/02/f56764d79a8e7ca6.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2024/03/427985a6c82b4c49.jpg',
   pageName: 'invisalign-test',
   pcText: [],
   mbText: []

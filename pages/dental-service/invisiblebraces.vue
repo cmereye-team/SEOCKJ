@@ -20,9 +20,9 @@ useHead({
 })
 
 const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2024/01/e93fadd3911c7193.webp',
+  img: 'https://static.cmereye.com/imgs/2024/03/56c826da104ca7a0.jpg',
   bg: '',
-  mbImg: 'https://static.cmereye.com/imgs/2024/01/06c4cebcc3b6bdb9.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2024/03/d2587169a5d42cd0.jpg',
   pageName: 'invisalign-test',
   pcText: ['自由．舒適．美觀','保持自然笑容 牙齒更加美麗動人'],
   mbText: ['保持自然笑容','牙齒更加美麗動人']

@@ -20,9 +20,9 @@ useHead({
 })
 
 const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2024/02/e5b3329567c83e0a.jpg',
+  img: 'https://static.cmereye.com/imgs/2024/03/1aa48f3837b91f34.jpg',
   bg: '',
-  mbImg: 'https://static.cmereye.com/imgs/2024/02/06b76ae3ab0c0b13.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2024/03/fa2f62acde3bd172.jpg',
   pageName: 'veneers-test',
   pcText: ['自訂零死角潔白微笑線','展現自信微笑'],
   mbText: ['自訂零死角潔白微笑線','展現自信微笑']

@@ -29,6 +29,8 @@ defineProps({
 <style lang="scss" scoped>
 .animbtntypetwo{
   position: relative;
+  display: flex;
+  justify-content: center;
   &-in{
     position: relative;
     display: inline-block;

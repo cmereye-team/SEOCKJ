@@ -21,14 +21,9 @@ useHead({
 })
 
 const headerConfig = {
-  // img: 'https://static.cmereye.com/imgs/2023/06/baaf111867247a7f.png',
-  // bg: 'https://static.cmereye.com/imgs/2023/06/2c162ddf8e5bfcd7.jpg',
-  // img: 'https://static.cmereye.com/imgs/2023/09/d40dfb893cdf9658.jpg',
-  // bg: 'https://static.cmereye.com/imgs/2023/09/d40dfb893cdf9658.jpg',
-  // mbImg: 'https://static.cmereye.com/imgs/2023/09/933fef926682e416.jpg',
-  img: 'https://static.cmereye.com/imgs/2023/10/29280188e1b68fee.jpg',
+  img: 'https://static.cmereye.com/imgs/2024/03/a3810742ef7ca6cf.jpg',
   bg: '',
-  mbImg: 'https://static.cmereye.com/imgs/2023/10/23f7282053c3918c.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2024/03/b16577acd828007a.jpg',
   pageName: 'implant',
   pcText: ['享受失而復得的喜悅','重拾完整人生之旅'],
   mbText: ['享受失而復得的喜悅','重拾完整人生之旅']
