@@ -44,7 +44,7 @@ const handlecopywechatcode = () =>{
         //   message: '已複製到剪切板',
         //   type: 'success',
         // }) 
-        centerDialogVisible.value = true
+        _bool.value = true
       }, function(err) {
           ElMessage({
             showClose: true,
@@ -60,6 +60,9 @@ const handlecopywechatcode = () =>{
 const handleopenwechat = () =>{
   window.location.href = "weixin://"
 }
+
+
+let _bool = ref(false)
 
 </script>
 
@@ -95,8 +98,8 @@ const handleopenwechat = () =>{
         <img src="https://static.cmereye.com/imgs/2023/09/a8f9c3f82bbda125.png" alt="馬上預約">
         <span :class="{english:langType === 'english'}">馬上預約</span>
       </div>
-      <!-- <div id="navMbWeChat" class="mbcc-boxInAA mbcc-boxInAA-4" @click="handlecopywechatcode"></div> -->
-      <div id="navMbWeChat" class="mbcc-boxInAA mbcc-boxInAA-4" @click="mbQDCodeBool = true"></div>
+      <div id="navMbWeChat" class="mbcc-boxInAA mbcc-boxInAA-4" @click="handlecopywechatcode"></div>
+      <!-- <div id="navMbWeChat" class="mbcc-boxInAA mbcc-boxInAA-4" @click="mbQDCodeBool = true"></div> -->
       <nuxt-link id="navMbFacebook" to="https://www.facebook.com/ckjdental.hk/"  target="_blank" class="mbcc-boxInAA mbcc-boxInAA-5"></nuxt-link>
     </div>
     <div class="navForm" :style="{bottom: (appState.isShowForm ? '0' : '-150%')}">
@@ -128,6 +131,22 @@ const handleopenwechat = () =>{
         </template>
       </el-dialog>
     </client-only> -->
+    <div :class="['dialogBox',{show:_bool}]" @click="_bool=false">
+      <div :class="['dialogBox-in',{'show-in':_bool}]" @click.stop="">
+        <div class="title">
+          WeChat ID已複製
+        </div>
+        <div class="content">
+          點擊「打開微信」進入微信，點右上⊕，粘貼ID，添加客服開始免費咨詢！
+        </div>
+        <div class="btn">
+          <el-button @click="_bool = false">取消</el-button>
+          <el-button type="primary" @click="handleopenwechat">
+            打開微信
+          </el-button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <style lang="scss" scoped>
@@ -263,6 +282,71 @@ const handleopenwechat = () =>{
       width: 100%;
       height: 100%;
     }
+  }
+}
+.dialogBox{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: rgba(0,0,0,.3);
+  opacity: 0;
+  display: none;
+  &.show{
+    display: block;
+    animation: contentIn 1s forwards;
+  }
+  &-in{
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%,-50%);
+    width: calc(100% - 60px);
+    height: auto;
+    max-width: 768px;
+    z-index: 1000;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #fff;
+    padding: 10px 30px 15px;
+    border-radius: 10px;
+    &.show-in{
+      animation: topIn .7s ease-out forwards;
+    }
+    .title{
+      font-size: 20px;
+      font-weight: 600;
+      text-align: center;
+    }
+    .content{
+      font-size: 16px;
+      margin: 10px 0 20px;
+    }
+    .btn{
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+@keyframes contentIn {
+  to{
+    opacity: 1;
+  }
+}
+@keyframes topIn {
+  50%{
+    top: 52%;
+  }
+  75%{
+    top: 49%;
+  }
+  100%{
+    top: 50%;
+    opacity: 1;
   }
 }
 @media (min-width: 768px) and (max-width: 1440px) {
