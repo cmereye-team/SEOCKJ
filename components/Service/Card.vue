@@ -95,7 +95,7 @@ const servicesCardPageData = {
       &-in{
         margin: 0 auto;
         width: 100%;
-        max-width: 1000px;
+        max-width: 700px;
         font-style: normal;
         font-weight: 600;
         font-size: 20px;
@@ -127,8 +127,12 @@ const servicesCardPageData = {
           height: 0;
           padding-top: 100%;
           position: relative;
-          background: var(--indexColor2);
+          background: #FFF1F0;
+          box-shadow: 0 2px 4px rgba(0,0,0,.25);
           border-radius: 10px;
+          transition: all .3s;
+          box-sizing: border-box;
+          border: 2px solid #FFF1F0;
           img{
             position: absolute;
             left: 50%;
@@ -138,22 +142,25 @@ const servicesCardPageData = {
             max-height: 90%;
           }
           &:hover{
-            background: #FFA8C6;
+            background: #FEE6F1;
+            box-shadow: 0 5px 5px rgba(0,0,0,.45);
+            transform: translateY(-5px);
           }
         }
         &-name{
-          height: 64px;
-          line-height: 64px;
+          padding: 10px 0 40px;
           font-style: normal;
           font-weight: 700;
-          font-size: 20px;
+          font-size: 26px;
           color: #666666;
           text-align: center;
           white-space: nowrap;
         }
         &>.router-link-exact-active{
           .servicesCard-in-image{
-            background: #FFA8C6;
+            background: #FEE6F1;
+            box-shadow: 0 5px 5px rgba(0,0,0,.45);
+            transform: translateY(-5px);
           }
         }
       }
@@ -189,7 +196,6 @@ const servicesCardPageData = {
         width: 70%;
         &-in{
           padding: 0 2vw;
-          width: 20%;
            &-image{
             img{
               max-width: 80%;
@@ -197,9 +203,8 @@ const servicesCardPageData = {
             }
           }
           &-name{
-            height: 50px;
-            line-height: 50px;
-            font-size: 16px;
+            font-size: 1.6vw;
+            padding: 1vw 0 2vw;
           }
         }
       }
@@ -251,21 +256,20 @@ const servicesCardPageData = {
       }
       .servicesCard{
         padding: 0 15px;
+        margin: 30px auto 0;
         box-sizing: border-box;
         &-in{
           width: calc(100% / 3);
           padding: 0 5px;
           &-image{
             img{
-              max-width: 70%;
-              max-height: 70%;
+              max-width: 80%;
+              max-height: 80%;
             }
           }
           &-name{
-            font-size: 15px;
-            height: 50px;
-            line-height: 30px;
-            padding-bottom: 20px;
+            font-size: 18px;
+            padding: 10px 0 30px;
           }
         }
       }
