@@ -43,7 +43,7 @@ const formatDate = (dateString) =>{
     return year + "年" + month + "月" + day + "日";  
 }  
 
-let totalPageNum = ref(0)
+let totalPageNum = ref(1)
 let actPageNum = ref(1) 
 let loadingShow = ref(false)
 
@@ -70,6 +70,7 @@ const getNewsLists = async () => {
         }
       })
     }
+    sessionStorage.setItem('informationPage', String(actPageNum.value))
     loadingShow.value = false
   }catch{
     errorpage.value = true
@@ -81,6 +82,7 @@ const getNewsLists = async () => {
 const subNum = () => {
   if(actPageNum.value > 1){
     actPageNum.value --
+    window.location.href = "#information"
     getNewsLists()
   }
 }
@@ -88,30 +90,78 @@ const subNum = () => {
 const addNum = () => {
   if(actPageNum.value < totalPageNum.value){
     actPageNum.value ++
+    window.location.href = "#information"
     getNewsLists()
   }
 }
 
+const toPage = (_page) => {
+  actPageNum.value = _page
+  window.location.href = "#information"
+  getNewsLists()
+}
+
+const handlelink = (id) =>{
+  // sessionStorage.setItem('informationid', String(id))
+}
+const goAnchor = (_hash: any)=>{
+  const a = document.querySelector(_hash);
+  let top = a.offsetTop-300
+  if(a){
+    let b = 0
+    const timeTop = setInterval(() => {
+      document.body.scrollTop = document.documentElement.scrollTop = b += 50;
+      if (b >= top) {
+          clearInterval(timeTop);
+      }
+  }, 10);
+  }
+}
 
 onMounted(()=>{
+  if(sessionStorage.getItem('informationPage')){
+    actPageNum.value = Number(sessionStorage.getItem('informationPage')) || 1
+    // getNewsLists()
+  }
+  // if(sessionStorage.getItem('informationid')){
+  //   setTimeout(()=>{
+  //     goAnchor(`#i${sessionStorage.getItem('informationid')}`)
+  //   },1000)
+  // }
   setTimeout(()=>{
     getNewsLists()
   })
 })
-// if(process.server){
-//   // console.log('server');
-//   getNewsLists()
-// }else{
-//   // console.log('client');
-//   getNewsLists()
-// }
+
+if(process.server){
+  // console.log('server');
+  getNewsLists()
+}else{
+  // console.log('client');
+  getNewsLists()
+}
+
+const getPagination = (pageitem) => {
+  if(actPageNum.value>=4 && actPageNum.value<totalPageNum.value-3){
+    return actPageNum.value-3+pageitem
+  }else{
+    if(actPageNum.value<4){
+      return pageitem + 1
+    }else if(actPageNum.value>=totalPageNum.value-3){
+      return totalPageNum.value-6+pageitem
+    }else{
+      return 0
+    }
+  }
+}
+
 </script>
 
 <template>
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor informationPage">
-      <div class="index_title pageCon informationPage-title">最新資訊</div>
+      <div class="index_title pageCon informationPage-title" id="information">最新資訊</div>
       <div class="tabNav noTitle pageCon">
         <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
           <span>主頁</span>
@@ -122,32 +172,57 @@ onMounted(()=>{
         <span :title="'最新資訊'">最新資訊</span>
       </div>
       <div class="pageCon">
-        <div class="lists" v-if="!errorpage" v-loading="loadingShow">
-          <nuxt-link :to="`/news/information/${item.id}`" class="lists-in" v-for="(item,index) in informationLists" :key="index">
-            <div class="lists-in-img">
-              <img :src="item.img" alt="">
-            </div>
-            <div class="lists-in-context">
-              <div class="lists-in-context-top">
-                <div class="title">
-                  {{item.name}}
+        <div class="lists" v-if="!errorpage">
+          <div v-loading="loadingShow">
+            <nuxt-link :to="`/news/information/${item.id}`" :id="`i${item.id}`" class="lists-in" v-for="(item,index) in informationLists" :key="index" @click="handlelink(item.id)">
+              <div class="lists-in-img">
+                <img :src="item.img" alt="">
+              </div>
+              <div class="lists-in-context">
+                <div class="lists-in-context-top">
+                  <div class="title">
+                    {{item.name}}
+                  </div>
+                  <!-- <div class="time">
+                    <span>{{item.time}}</span>
+                  </div> -->
                 </div>
-                <!-- <div class="time">
-                  <span>{{item.time}}</span>
-                </div> -->
+                <div class="desc" v-html="item.desc">
+                </div>
+                <div style="flex: 1;"></div>
+                <div class="btn">
+                  <nuxt-link :to="`/news/information/${item.id}`">查看全文</nuxt-link>
+                </div>
               </div>
-              <div class="desc" v-html="item.desc">
-              </div>
-              <div style="flex: 1;"></div>
-              <div class="btn">
-                <nuxt-link :to="`/news/information/${item.id}`">查看全文</nuxt-link>
-              </div>
-            </div>
-          </nuxt-link>
+            </nuxt-link>
+          </div>
           <div class="lists-btn">
-            <div @click="subNum" :class="{btndisabled: actPageNum === 1}"><span>上一頁</span></div>
-            <div>{{actPageNum}}/{{totalPageNum}}</div>
-            <div @click="addNum" :class="{btndisabled: actPageNum === totalPageNum}"><span>下一頁</span></div>
+            <div @click="subNum" :class="{btndisabled: actPageNum === 1}">
+              <span class="subNum">
+                <img src="@/assets/images/icon_25.svg" alt="">
+              </span>
+            </div>
+            <div class="lists-btn-page">
+              <section v-if="totalPageNum<=7">
+                <span class="y" :class="{act: actPageNum === pageitem}" v-for="pageitem in totalPageNum" :key="pageitem" @click="toPage(pageitem)">
+                  {{ pageitem }}
+                </span>
+              </section>
+              <section v-else>
+                <span class="y" :class="{act: actPageNum === 1}" @click="toPage(1)">1</span>
+                <span v-if="actPageNum>4">...</span>
+                <span class="y" :class="{act: actPageNum === getPagination(pageitem)}" v-for="pageitem in 5" :key="pageitem" @click="toPage(getPagination(pageitem))">
+                    {{getPagination(pageitem)}}
+                </span>
+                <span v-if="actPageNum<=totalPageNum-4">...</span>
+                <span class="y" :class="{act: actPageNum === totalPageNum}" @click="toPage(totalPageNum)">{{totalPageNum}}</span>
+              </section>
+            </div>
+            <div @click="addNum" :class="{btndisabled: actPageNum === totalPageNum}">
+              <span class="addNum">
+                <img src="@/assets/images/icon_25.svg" alt="">
+              </span>
+            </div>
           </div>
         </div>
         <div class="lists" v-else>服務異常</div>
@@ -277,9 +352,10 @@ onMounted(()=>{
   &-btn{
     display: flex;
     justify-content: center;
+    align-items: center;
     &>div{
       font-size: 26px;
-      margin: 0 30px;
+      margin: 0 10px;
       color: var(--textColor);
       span{
         color: var(--indexColor1);
@@ -292,6 +368,43 @@ onMounted(()=>{
         span{
           opacity: .7;
           cursor: not-allowed;
+        }
+      }
+    }
+    .subNum,.addNum{
+      img{
+        width: 12px;
+        height: auto;
+      }
+    }
+    .addNum{
+      img{
+        transform: rotate(180deg);
+      }
+    }
+    &-page{
+      display: flex;
+      &>section{
+        display: flex;
+        height: 30px;
+      }
+      .y{
+        margin: 0 5px;
+        color: var(--indexColor1);
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: block;
+        border: 2px solid var(--indexColor1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        letter-spacing: -0.8px;
+        transition: all .3s;
+        &.act{
+          background: var(--indexColor1);
+          color: #fff;
         }
       }
     }
@@ -353,6 +466,17 @@ onMounted(()=>{
     &-btn{
       &>div{
         font-size: 20px;
+        margin: 0 5px;
+      }
+      &-page{
+        &>section{
+          height: 25px;
+        }
+        .y{
+          width: 25px;
+          height: 25px;
+          font-size: 16px;
+        }
       }
     }
   }

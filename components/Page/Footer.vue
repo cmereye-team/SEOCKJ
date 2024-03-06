@@ -52,7 +52,7 @@ const navLists = [
       </div>
       <div class="footer-content-logo_one">
         <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
-          <img src="@/assets/images/logo_2.png" alt="logo" />
+          <img src="@/assets/images/logo_2.svg" alt="logo" />
         </nuxt-link>
       </div>
       <div class="footer-content-text">

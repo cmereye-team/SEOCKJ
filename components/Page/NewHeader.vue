@@ -188,7 +188,7 @@ const headerData = {
   bannerTitleSpanTwo: '愛牙愛己，由你做起',
   bannerText: '全程式預約一體化診療服務，讓每一位顧客享受',
   bannerTextSpan: '健康微笑之旅。',
-  menuBoxBtn: '立即預約',
+  menuBoxBtn: '諮詢熱線',
   menuBoxPhone: '3892 5049',
 }
 
@@ -568,7 +568,7 @@ const handleBannerLineCur = (_value:number) =>{
         <div ref="headerMenu" class="pageCon header-content-in">
           <div class="logo">
             <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院"
-              ><img src="@/assets/images/logo_11.png" alt=""
+              ><img src="@/assets/images/logo_11.svg" alt=""
             /></nuxt-link>
           </div>
           <div class="menu">
@@ -651,20 +651,20 @@ const handleBannerLineCur = (_value:number) =>{
           </div>
         </nuxt-link>
         <div class="menuBox-phone">
-          <img src="@/assets/images/icon_11.png" />{{ headerData.menuBoxPhone }}
+          <img src="@/assets/images/icon_11.svg" />{{ headerData.menuBoxPhone }}
         </div>
         <div class="menuBox-icon">
-          <div class="menuBox-icon-in">
+          <!-- <div class="menuBox-icon-in">
             <nuxt-link
               to="https://www.facebook.com/ckjdental.hk/"
               target="_blank"
             >
               <img src="@/assets/images/icon_01.png" />
             </nuxt-link>
-          </div>
+          </div> -->
           <div class="menuBox-icon-in">
             <nuxt-link to="https://www.instagram.com/ckj_hk/" target="_blank">
-              <img src="@/assets/images/icon_02.png" />
+              <img src="@/assets/images/icon_02.svg" />
             </nuxt-link>
           </div>
           <div class="menuBox-icon-in">
@@ -672,7 +672,7 @@ const handleBannerLineCur = (_value:number) =>{
               to="https://www.youtube.com/channel/UC4AQD5eeOiHIGd3QYFGK4aA"
               target="_blank"
             >
-              <img src="@/assets/images/icon_03.png" />
+              <img src="@/assets/images/icon_03.svg" />
             </nuxt-link>
           </div>
         </div>
@@ -1800,7 +1800,8 @@ const handleBannerLineCur = (_value:number) =>{
       img {
         display: inline-block;
         vertical-align: middle;
-        margin-top: -5px;
+        margin-top: -3px;
+        margin-right: 5px;
       }
     }
     &-icon {

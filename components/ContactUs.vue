@@ -92,6 +92,18 @@ const allAddressLists = [
   // 福田區
   [
     {
+      id: '203',
+      name: 'contactUs.addressLists.address_203.name',
+      address: 'contactUs.addressLists.address_203.address',
+      time: 'contactUs.addressLists.address_203.time',
+      phone: phoneNum,
+      busRoutes: 'contactUs.addressLists.address_203.busRoutes',
+      metroRoutes: 'contactUs.addressLists.address_203.metroRoutes',
+      addressUrl: 'https://static.cmereye.com/imgs/2023/05/63dbe40ee13b53e9.png',
+      googleMap: 'https://goo.gl/maps/mQgJXrTxvaaLB9Y1A?coh=178572&entry=tt',
+      baiduMap: 'https://j.map.baidu.com/a8/8R4c'
+    },
+    {
       id: '201',
       name: 'contactUs.addressLists.address_201.name',
       address: 'contactUs.addressLists.address_201.address',
@@ -115,18 +127,7 @@ const allAddressLists = [
       googleMap: 'https://goo.gl/maps/mQgJXrTxvaaLB9Y1A?coh=178572&entry=tt',
       baiduMap: 'https://j.map.baidu.com/1f/kY0'
     },
-    {
-      id: '203',
-      name: 'contactUs.addressLists.address_203.name',
-      address: 'contactUs.addressLists.address_203.address',
-      time: 'contactUs.addressLists.address_203.time',
-      phone: phoneNum,
-      busRoutes: 'contactUs.addressLists.address_203.busRoutes',
-      metroRoutes: 'contactUs.addressLists.address_203.metroRoutes',
-      addressUrl: 'https://static.cmereye.com/imgs/2023/05/63dbe40ee13b53e9.png',
-      googleMap: 'https://goo.gl/maps/mQgJXrTxvaaLB9Y1A?coh=178572&entry=tt',
-      baiduMap: 'https://j.map.baidu.com/a8/8R4c'
-    },
+    
   ],
   // 南山区
   [
