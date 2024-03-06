@@ -100,7 +100,12 @@ const allAddressLists = [
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/63dbe40ee13b53e9.png',
       googleMap: 'https://goo.gl/maps/mQgJXrTxvaaLB9Y1A?coh=178572&entry=tt',
       baiduMap: 'https://j.map.baidu.com/a8/8R4c',
-      imgLists: ['https://static.cmereye.com/imgs/2024/02/c496ca0c89fcae13.png']
+      imgLists: [
+        'https://static.cmereye.com/imgs/2024/03/57dee34750b0c30f.webp',
+        'https://static.cmereye.com/imgs/2024/03/beb31d58855ac0b5.jpg',
+        'https://static.cmereye.com/imgs/2024/03/f9b66026e251ac3e.jpg',
+        'https://static.cmereye.com/imgs/2024/02/c496ca0c89fcae13.png'
+      ]
     },
     {
       id: '201',
@@ -459,8 +464,12 @@ watch(
         display: flex;
         &>div{
           cursor: pointer;
-          width: 175px;
+          // width: calc(175 / 860 * 100%);
+          max-width: 175px;
+          flex: 1;
           box-sizing: border-box;
+          display: flex;
+          border: 1px solid #fff;
           &:not(:last-child){
             margin-right: calc(30 / 860 * 100%);
           }
