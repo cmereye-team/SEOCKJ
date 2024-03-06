@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-
+import { zh_tran,zh_getLang,getCookie } from '~/assets/js/uselang'
 // import gsap from 'gsap'
 import { useAppState } from '~/stores/appState'
 import { toWhatsApp } from '~/assets/js/common'
@@ -268,6 +268,14 @@ const getScrollHeight = () => {
       isShowLanguageBool.value = false
     }
   }
+}
+
+const glangs = (_type) =>{
+  zh_tran(_type)
+  if(getCookie('zh_choose')) {
+		var zh_choose:any = getCookie('zh_choose');
+    appState.setLangs(zh_choose);
+	}
 }
 
 const handleMbMenu = () => {
@@ -549,10 +557,21 @@ const handleMbMenu = () => {
                 <serviceCard :is-menu="true" />
               </div> -->
             </div>
+            <div class="menuItem langItem">
+              <img src="@/assets/images/icon_26.svg" alt="">
+              <div class="menuChild">
+                <div :class="['menuChild-item',{'langItem-act': appState.langs === 't'}]">
+                  <span class="zh_click" @click="glangs('t')">繁體</span>
+                </div>
+                <div :class="['menuChild-item',{'langItem-act': appState.langs === 's'}]">
+                  <span class="zh_click" @click="glangs('s')">简体</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="icon" @click="menuBoxBool = !menuBoxBool">
             <img v-if="!menuBoxBool" src="@/assets/images/icon_61.png" />
-            <img v-else src="@/assets/images/icon_7.png" />
+            <img v-else src="@/assets/images/icon_7.svg" />
           </div>
         </div>
       </div>
@@ -586,6 +605,11 @@ const handleMbMenu = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div class="langItem">
+          <img src="@/assets/images/icon_27.svg" alt="语言">
+          <span class="zh_click" :style="{color: (appState.langs === 't'?'#FC1682':'#FF85AF')}" @click="glangs('t')">繁體中文</span>
+          <span class="zh_click" :style="{color: (appState.langs === 's'?'#FC1682':'#FF85AF')}" @click="glangs('s')">简体中文</span>
         </div>
         <!-- 立即預約 -->
         <nuxt-link to="tel: +852 3892 5049">
@@ -974,7 +998,27 @@ const handleMbMenu = () => {
           display: inline-block;
           text-align: center;
         }
-        
+        &.langItem{
+          padding: 0 1vw 10px;
+          &>img{
+            width: 20px;
+          }
+        }
+        &.langItem{
+          padding: 0 20px 25px;
+          .menuChild{
+            .menuChild-item{
+              &>span{
+                color: var(--textColor);
+              }
+              &.langItem-act{
+                &>span{
+                  color: var(--indexColor1);
+                }
+              }
+            }
+          }
+        }
         .triangleIcon:after {
           content: '';
           width: 0px;
@@ -1693,6 +1737,18 @@ const handleMbMenu = () => {
             }
           }
         }
+      }
+    }
+    .langItem{
+      width: calc(100% - 60px);
+      padding: 20px 0;
+      margin: 0 30px;
+      display: flex;
+      border-top: 2px solid var(--indexColor2);
+      justify-content: center;
+      align-items: center;
+      &>span{
+        margin-left: 10px;
       }
     }
     &-btn {

@@ -34,20 +34,9 @@ String.prototype.tran = function() {
 	return a;
 }
 
-// function setCookie(name, value) {
-// 	var argv = setCookie.arguments;
-// 	var argc = setCookie.arguments.length;
-// 	var expires = (argc > 2) ? argv[2] : null;
-// 	if(expires != null) {
-// 		var LargeExpDate = new Date();
-// 		LargeExpDate.setTime(LargeExpDate.getTime() + (expires * 1000 * 2 * 1));
-// 	}
-// 	document.cookie = name + "=" + escape(value) + ((expires == null) ? "" : ("; expires=" + LargeExpDate.toGMTString()));
-// }
 function setCookie(name, value, ...args) {  
   var argc = args.length;  
   var expires = (argc > 1) ? args[1] : null;  
-    
   if (expires !== null) {  
     var LargeExpDate = new Date();  
     LargeExpDate.setTime(LargeExpDate.getTime() + (expires * 1000 * 2 * 1));  
@@ -55,7 +44,6 @@ function setCookie(name, value, ...args) {
     
   document.cookie = name + "=" + escape(value) + ((expires == null) ? "" : ("; expires=" + LargeExpDate.toGMTString()));  
 }
-
 
 function getCookie(Name) {
 	var search = Name + "=";
@@ -115,7 +103,6 @@ function zh_tran(go) {
 		if(go == 't'){
 			var _text = "'FakePearl-Regular','幼圆', Serif"
 		}else if(go == 's'){
-			// var _text = "youyuan"
 			var _text = "微软雅黑"
 		}
 		document.documentElement.style.setProperty("--indexFontFamily", _text);

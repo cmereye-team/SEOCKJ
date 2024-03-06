@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { zh_tran,zh_getLang,getCookie } from '~/assets/js/uselang'
 import { Autoplay } from 'swiper';
 // import gsap from 'gsap'
 import { useAppState } from '~/stores/appState'
@@ -302,6 +303,14 @@ const setBannerSwiperRef = (swiper:any) => {
 const handleBannerLineCur = (_value:number) =>{
   bannerSwiperRef.slideToLoop(_value-1)
 }
+
+const glangs = (_type) =>{
+  zh_tran(_type)
+  if(getCookie('zh_choose')) {
+		var zh_choose:any = getCookie('zh_choose');
+    appState.setLangs(zh_choose);
+	}
+}
 </script>
 
 <template>
@@ -372,17 +381,17 @@ const handleBannerLineCur = (_value:number) =>{
             @slideChange="changebanner">
           <SwiperSlide>
             <nuxt-link to="/health-care-voucher">
-              <img data-cfsrc="https://static.cmereye.com/imgs/2024/02/3443d2e2314e6e50.webp" :srcset="`https://static.cmereye.com/imgs/2024/02/afdfd3c22104497f.webp 768w, https://static.cmereye.com/imgs/2024/02/3443d2e2314e6e50.webp`"  src="https://static.cmereye.com/imgs/2024/02/3443d2e2314e6e50.webp" alt="">
+              <img :srcset="`https://static.cmereye.com/imgs/2024/02/afdfd3c22104497f.webp 768w, https://static.cmereye.com/imgs/2024/02/3443d2e2314e6e50.webp`"  src="https://static.cmereye.com/imgs/2024/02/3443d2e2314e6e50.webp" alt="">
             </nuxt-link>
           </SwiperSlide>
           <SwiperSlide>
             <nuxt-link to="https://bit.ly/愛康健裕亨新店開業優惠">
-              <img data-cfsrc="https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg" :srcset="`https://static.cmereye.com/imgs/2024/02/216458f63817b47e.jpg 768w, https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg`"  src="https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg" alt="">
+              <img :srcset="`https://static.cmereye.com/imgs/2024/02/216458f63817b47e.jpg 768w, https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg`"  src="https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg" alt="">
             </nuxt-link>
           </SwiperSlide>
           <SwiperSlide>
             <!-- https://static.cmereye.com/imgs/2024/02/8f33d6acfe425e15.webp -->
-              <img data-cfsrc="https://static.cmereye.com/imgs/2024/02/8f33d6acfe425e15.webp" :srcset="`https://static.cmereye.com/imgs/2024/02/201d752971811685.webp 768w, https://static.cmereye.com/imgs/2024/02/8f33d6acfe425e15.webp`"  src="https://static.cmereye.com/imgs/2024/02/8f33d6acfe425e15.webp" alt="">
+              <img :srcset="`https://static.cmereye.com/imgs/2024/03/4abbdd7326af4cc3.webp 768w, https://static.cmereye.com/imgs/2024/03/9615682d1948c5f5.png`"  src="https://static.cmereye.com/imgs/2024/03/9615682d1948c5f5.png" alt="">
           </SwiperSlide>
         </swiper>
       </div>
@@ -606,10 +615,21 @@ const handleBannerLineCur = (_value:number) =>{
                 <serviceCard :is-menu="true" />
               </div> -->
             </div>
+            <div class="menuItem langItem">
+              <img src="@/assets/images/icon_26.svg" alt="">
+              <div class="menuChild">
+                <div :class="['menuChild-item',{'langItem-act': appState.langs === 't'}]">
+                  <span class="zh_click" @click="glangs('t')">繁體</span>
+                </div>
+                <div :class="['menuChild-item',{'langItem-act': appState.langs === 's'}]">
+                  <span class="zh_click" @click="glangs('s')">简体</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="icon" @click="menuBoxBool = !menuBoxBool">
             <img v-if="!menuBoxBool" src="@/assets/images/icon_61.png" />
-            <img v-else src="@/assets/images/icon_7.png" />
+            <img v-else src="@/assets/images/icon_7.svg" />
           </div>
         </div>
       </div>
@@ -643,6 +663,11 @@ const handleBannerLineCur = (_value:number) =>{
               </div>
             </div>
           </div>
+        </div>
+        <div class="langItem">
+          <img src="@/assets/images/icon_27.svg" alt="语言">
+          <span class="zh_click" :style="{color: (appState.langs === 't'?'#FC1682':'#FF85AF')}" @click="glangs('t')">繁體中文</span>
+          <span class="zh_click" :style="{color: (appState.langs === 's'?'#FC1682':'#FF85AF')}" @click="glangs('s')">简体中文</span>
         </div>
         <!-- 立即預約 -->
         <nuxt-link to="tel: +852 3892 5049">
@@ -1038,6 +1063,21 @@ const handleBannerLineCur = (_value:number) =>{
           display: inline-block;
           text-align: center;
         }
+        &.langItem{
+          padding: 0 20px 25px;
+          .menuChild{
+            .menuChild-item{
+              &>span{
+                color: var(--textColor);
+              }
+              &.langItem-act{
+                &>span{
+                  color: var(--indexColor1);
+                }
+              }
+            }
+          }
+        }
         .triangleIcon:after {
           content: '';
           width: 0px;
@@ -1427,8 +1467,14 @@ const handleBannerLineCur = (_value:number) =>{
           font-size: 100%;
           padding: 0 0 10px;
           & > a {
-            padding: 0 1.3vw;
+            padding: 0 1vw;
             box-sizing: border-box;
+          }
+          &.langItem{
+            padding: 0 1vw 10px;
+            &>img{
+              width: 20px;
+            }
           }
           .triangleIcon:after {
             border: 5px solid;
@@ -1786,6 +1832,18 @@ const handleBannerLineCur = (_value:number) =>{
             }
           }
         }
+      }
+    }
+    .langItem{
+      width: calc(100% - 60px);
+      padding: 20px 0;
+      margin: 0 30px;
+      display: flex;
+      border-top: 2px solid var(--indexColor2);
+      justify-content: center;
+      align-items: center;
+      &>span{
+        margin-left: 10px;
       }
     }
     &-btn {

@@ -188,7 +188,7 @@ onMounted(() => {
       </div>
       <div class="contactForm-message" v-if="messageShow">
         <div class="contactForm-message-close" @click="messageShow = false">
-          <img src="@/assets/images/icon_7.png" alt="">
+          <img src="@/assets/images/icon_7.svg" alt="">
         </div>
         <div class="contactForm-message-in">
           <div class="text">{{messageText}}</div>

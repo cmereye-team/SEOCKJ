@@ -552,9 +552,59 @@ onMounted(()=>{
       }
     }
   }
-  @media (min-width: 768px) and (max-width: 1452px) {
+  @media (min-width: 768px) and (max-width: 1600px) {
     .doctorPage{
       &-in{
+        .index-doctorTeam{
+          &-tab1{
+            :deep(.areaTab){
+              div{
+                font-size: 24px;
+              }
+            }
+          }
+          &-tab2{
+            &-in{
+              &>div{
+                font-size: 20px;
+              }
+            }
+          }
+          &-detail{
+            &-r{
+              .detail-1{
+                span{
+                  font-size: 1.4vw;
+                  &:nth-of-type(1){
+                    font-size: 2.4vw;
+                  }
+                } 
+              }
+              .detail-2{
+                span{
+                  font-size: 1.8vw;
+                }
+              }
+              .detail-3{
+                font-size: 1.4vw;
+                margin-bottom: 1.6vw;
+              }
+              .detail-4{
+                font-size: 1.4vw;
+                margin-bottom: 1.2vw;
+              }
+              .detail-5{
+                font-size: 1.4vw;
+              }
+              .detail-6{
+                margin-top: 1.4vw;
+                span{
+                  font-size: 2.4vw;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

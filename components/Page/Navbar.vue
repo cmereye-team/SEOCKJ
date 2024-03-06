@@ -77,13 +77,13 @@ let _bool = ref(false)
     </div>
     <nuxt-link class="navbar-content-in" id="navPcWhatsapp" :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" title="WhatsApp" target="_blank">
     </nuxt-link>
-    <div class="navbar-content-in" id="navPcWeChat" title="WeChat">
+    <!-- <div class="navbar-content-in" id="navPcWeChat" title="WeChat">
       <div class="navbarBox">
         <div class="navbarBox-in">
           <div class="weChat"><img src="https://static.cmereye.com/imgs/2023/09/a43a869a1fc07eea.jpg" alt="二维码"></div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- <nuxt-link class="navbar-content-in" id="navPcFaceBook" to="https://www.facebook.com/ckjdental.hk/" title="FaceBook" target="_blank">
     </nuxt-link> -->
     <div class="navbar-content-in" id="navPcContactForm" title="預約" @click="toContactUs">
@@ -105,7 +105,7 @@ let _bool = ref(false)
     <div class="navForm" :style="{bottom: (appState.isShowForm ? '0' : '-150%')}">
       <ContactForm />
       <div class="navForm-icon" @click="navFormClose">
-        <img src="@/assets/images/icon_7.png" alt="close">
+        <img src="@/assets/images/icon_7.svg" alt="close">
       </div>
     </div>
     <div class="navForm" :style="{bottom: (mbQDCodeBool ? '0' : '-150%')}">
@@ -113,7 +113,7 @@ let _bool = ref(false)
         <img src="https://static.cmereye.com/imgs/2023/09/a43a869a1fc07eea.jpg" alt="二维码" />
       </div>
       <div class="navForm-icon" @click="mbQDCodeBool = false">
-        <img src="@/assets/images/icon_7.png" alt="close">
+        <img src="@/assets/images/icon_7.svg" alt="close">
       </div>
     </div>
     <div :class="['dialogBox',{show:_bool}]" @click="_bool=false">

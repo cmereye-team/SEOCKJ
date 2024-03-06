@@ -37,6 +37,28 @@ const navLists = [
   },
 ]
 
+let _bool = ref(false)
+
+const centerDialogVisible = ref(false)
+const handlecopywechatcode = () =>{
+  if (navigator.clipboard) {  
+      navigator.clipboard.writeText('ckjhongkong').then(function() {  
+        _bool.value = true
+      }, function(err) {
+          ElMessage({
+            showClose: true,
+            message: '操作異常，請刷新頁面試試',
+            type: 'warning',
+          })
+      });  
+  } else {  
+      alert('Clipboard API is not supported by your browser.');  
+  }  
+}
+
+const handleopenwechat = () =>{
+  window.location.href = "weixin://"
+}
 
 </script>
 
@@ -74,6 +96,19 @@ const navLists = [
             <img src="@/assets/images/icon_3.png" alt="youtube" />
           </nuxt-link>
         </div>
+        <div class="footer-content-icon-in">
+          <div class="weChat">
+            <img src="@/assets/images/navIcon_3.png" alt="weChat" />
+            <div class="navbarBox">
+              <div class="navbarBox-in">
+                <div class="weChat"><img src="https://static.cmereye.com/imgs/2023/09/a43a869a1fc07eea.jpg" alt="二维码"></div>
+              </div>
+            </div>
+          </div>
+          <div class="weChat-mb" @click="handlecopywechatcode()">
+            <img src="@/assets/images/navIcon_3.png" alt="weChat" />
+          </div>
+        </div>
       </div>
       <div class="footer-content-Disclaimer">
         <nuxt-link to="/privacyPolicy">{{$t('components.footer.privacy_policy')}}</nuxt-link>
@@ -82,10 +117,99 @@ const navLists = [
       </div>
       <div class="footer-content-copyright">©2024 {{$t('components.footer.all_rights_reserved')}}</div>
     </div>
+    <div :class="['dialogBox',{show:_bool}]" @click="_bool=false">
+      <div :class="['dialogBox-in',{'show-in':_bool}]" @click.stop="">
+        <div class="title">
+          WeChat ID已複製
+        </div>
+        <div class="content">
+          點擊「打開微信」進入微信，點右上⊕，粘貼ID，添加客服開始免費咨詢！
+        </div>
+        <div class="btn">
+          <el-button @click="_bool = false">取消</el-button>
+          <el-button type="primary" @click="handleopenwechat">
+            打開微信
+          </el-button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+@keyframes contentIn {
+  to{
+    opacity: 1;
+  }
+}
+@keyframes topIn {
+  50%{
+    top: 52%;
+  }
+  75%{
+    top: 49%;
+  }
+  100%{
+    top: 50%;
+    opacity: 1;
+  }
+}
+.dialogBox{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: rgba(0,0,0,.3);
+  opacity: 0;
+  display: none;
+  &.show{
+    display: block;
+    animation: contentIn 1s forwards;
+  }
+  &-in{
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%,-50%);
+    width: calc(100% - 60px);
+    height: auto;
+    max-width: 768px;
+    z-index: 1000;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #fff;
+    padding: 10px 30px 15px;
+    border-radius: 10px;
+    &.show-in{
+      animation: topIn .7s ease-out forwards;
+    }
+    .title{
+      font-size: 20px;
+      font-weight: 600;
+      text-align: center;
+    }
+    .content{
+      font-size: 16px;
+      margin: 10px 0 20px;
+    }
+    .btn{
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+@keyframes animBottomIn {
+  from{
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .footer-content {
   display: flex;
   flex-direction: column;
@@ -130,8 +254,48 @@ const navLists = [
       display: flex;
       align-items: center;
       cursor: pointer;
+      
       img {
         width: 100%;
+      }
+      .weChat{
+        width: 35px;
+        position: relative;
+        img{
+          width: 100%;
+        }
+        &:hover .navbarBox{
+          display: flex;
+          animation: animBottomIn 1s forwards;
+        }
+        .navbarBox{
+          position: absolute;
+          bottom: 100%;
+          padding-right: 10px;
+          display: none;
+          opacity: 0;
+          transform: translateY(20px);
+          &-in{
+            transition: all .5s;
+            background: var(--indexColor1);
+            height: 100%;
+            padding: 20px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            color: #fff;
+            .weChat{
+              width: 200px;
+              background: var(--indexColor3);
+              img{
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+      .weChat-mb{
+        display: none;
       }
     }
   }
@@ -169,6 +333,18 @@ const navLists = [
     }
     &-icon {
       margin: 30px 0;
+      &-in{
+        .weChat{
+          display: none;
+        }
+        .weChat-mb{
+          width: 35px;
+          display: block;
+          img{
+            width: 100%;
+          }
+        }
+      }
     }
     &-Disclaimer{
       margin-top: 0;
