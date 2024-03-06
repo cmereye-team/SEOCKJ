@@ -187,6 +187,16 @@ onMounted(()=>{
     })
   }
 })
+
+watch(
+  appState,
+  (n,o)=>{
+    // console.log(n.areaTabCurNum)
+    if(n.areaTabCurNum === 4){
+      handletab2('102')
+    }
+  }
+)
 </script>
 
 <template>

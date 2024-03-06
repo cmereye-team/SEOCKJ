@@ -126,8 +126,7 @@ const allAddressLists = [
       addressUrl: 'https://static.cmereye.com/imgs/2023/05/63dbe40ee13b53e9.png',
       googleMap: 'https://goo.gl/maps/mQgJXrTxvaaLB9Y1A?coh=178572&entry=tt',
       baiduMap: 'https://j.map.baidu.com/1f/kY0'
-    },
-    
+    }
   ],
   // 南山区
   [

@@ -6,7 +6,7 @@ const mapConShow = ref(true)
 const route = useRoute()
 
 
-let currentAddress = ref('101')
+let currentAddress = ref(0)
 
 const allAddressLists = [
   // 罗湖区
@@ -89,6 +89,20 @@ const allAddressLists = [
   // 福田區
   [
     {
+      id: '203',
+      name: 'contactUs.addressLists.address_203.name',
+      tabname: 'contactUs.addressLists.address_203.tabname',
+      address: 'contactUs.addressLists.address_203.address',
+      time: 'contactUs.addressLists.address_203.time',
+      phone: phoneNum,
+      busRoutes: 'contactUs.addressLists.address_203.busRoutes',
+      metroRoutes: 'contactUs.addressLists.address_203.metroRoutes',
+      addressUrl: 'https://static.cmereye.com/imgs/2023/05/63dbe40ee13b53e9.png',
+      googleMap: 'https://goo.gl/maps/mQgJXrTxvaaLB9Y1A?coh=178572&entry=tt',
+      baiduMap: 'https://j.map.baidu.com/a8/8R4c',
+      imgLists: ['https://static.cmereye.com/imgs/2024/02/c496ca0c89fcae13.png']
+    },
+    {
       id: '201',
       name: 'contactUs.addressLists.address_201.name',
       tabname: 'contactUs.addressLists.address_201.tabname',
@@ -116,20 +130,7 @@ const allAddressLists = [
       baiduMap: 'https://j.map.baidu.com/1f/kY0',
       imgLists: ['https://static.cmereye.com/imgs/2024/02/ace7237946ce2dab.png']
     },
-    {
-      id: '203',
-      name: 'contactUs.addressLists.address_203.name',
-      tabname: 'contactUs.addressLists.address_203.tabname',
-      address: 'contactUs.addressLists.address_203.address',
-      time: 'contactUs.addressLists.address_203.time',
-      phone: phoneNum,
-      busRoutes: 'contactUs.addressLists.address_203.busRoutes',
-      metroRoutes: 'contactUs.addressLists.address_203.metroRoutes',
-      addressUrl: 'https://static.cmereye.com/imgs/2023/05/63dbe40ee13b53e9.png',
-      googleMap: 'https://goo.gl/maps/mQgJXrTxvaaLB9Y1A?coh=178572&entry=tt',
-      baiduMap: 'https://j.map.baidu.com/a8/8R4c',
-      imgLists: ['https://static.cmereye.com/imgs/2024/02/c496ca0c89fcae13.png']
-    },
+    
   ],
   // 南山区
   [
@@ -238,9 +239,9 @@ const onSlideContactUsSwiperChange = (swiper:any) => {
   // currentAddress.value = swiper.realIndex
 }
 
-const handleAddress = (_idx: string) => {
+const handleAddress = (_idx:any) => {
   currentAddress.value = _idx
-  changedetail()
+  // changedetail()
 }
 
 const toAddressLink = (url) => {
@@ -250,56 +251,68 @@ const toAddressLink = (url) => {
 const handleAddresslx = () => {
 
 }
-let addressDatail:any = ref({
-  id: '101',
-  name: 'contactUs.addressLists.address_101.name',
-  tabname: 'contactUs.addressLists.address_101.tabname',
-  address: 'contactUs.addressLists.address_101.address',
-  time: 'contactUs.addressLists.address_101.time',
-  phone: phoneNum,
-  busRoutes: 'contactUs.addressLists.address_101.busRoutes',
-  metroRoutes: 'contactUs.addressLists.address_101.metroRoutes',
-  addressUrl: 'https://static.cmereye.com/imgs/2023/09/11e84702229e6caf.jpg',
-  googleMap: 'https://goo.gl/maps/yuWB8353yF3u4EJS6?coh=178572&entry=tt',
-  baiduMap: 'https://j.map.baidu.com/b3/j3Yu',
-  imgLists: [
-    'https://static.cmereye.com/imgs/2024/02/2ba7058400f2ed03.png',
-    'https://static.cmereye.com/imgs/2024/02/2f20ab9660e0bfa7.webp',
-    'https://static.cmereye.com/imgs/2024/02/3cc92ffa0caa8ed1.webp'
-  ]
-})
+// let addressDatail():any = ref({
+//   id: '101',
+//   name: 'contactUs.addressLists.address_101.name',
+//   tabname: 'contactUs.addressLists.address_101.tabname',
+//   address: 'contactUs.addressLists.address_101.address',
+//   time: 'contactUs.addressLists.address_101.time',
+//   phone: phoneNum,
+//   busRoutes: 'contactUs.addressLists.address_101.busRoutes',
+//   metroRoutes: 'contactUs.addressLists.address_101.metroRoutes',
+//   addressUrl: 'https://static.cmereye.com/imgs/2023/09/11e84702229e6caf.jpg',
+//   googleMap: 'https://goo.gl/maps/yuWB8353yF3u4EJS6?coh=178572&entry=tt',
+//   baiduMap: 'https://j.map.baidu.com/b3/j3Yu',
+//   imgLists: [
+//     'https://static.cmereye.com/imgs/2024/02/2ba7058400f2ed03.png',
+//     'https://static.cmereye.com/imgs/2024/02/2f20ab9660e0bfa7.webp',
+//     'https://static.cmereye.com/imgs/2024/02/3cc92ffa0caa8ed1.webp'
+//   ]
+// })
 
 const pageLoading = ref(false)
 const changedetail = () =>{
   pageLoading.value = true
   isShowlxBox.value = false
   imgcur.value = 0
-  let _obj = allAddressLists[appState.areaTabCurNum].find(item=>item.id === currentAddress.value)
-  if(_obj){
-    addressDatail.value = _obj
+  // let _obj = allAddressLists[appState.areaTabCurNum].find(item=>item.id === currentAddress.value)
+  // if(_obj){
+    // getDetail().value = _obj
     // imgcur.value = (_obj.imgLists.length ? _obj.imgLists[0] : '')
-  }else{
-    currentAddress.value = allAddressLists[appState.areaTabCurNum][0].id
-    addressDatail.value = allAddressLists[appState.areaTabCurNum][0]
-  }
+  // }else{
+    // currentAddress.value = allAddressLists[appState.areaTabCurNum][0].id
+    // getDetail().value = allAddressLists[appState.areaTabCurNum][0]
+  // }
   pageLoading.value = false
+}
+
+const getDetail:any = () =>{
+  return allAddressLists[appState.areaTabCurNum][currentAddress.value]
 }
 
 let isShowlxBox = ref(false)
 
 const changeTabCur = () =>{
-  currentAddress.value = allAddressLists[appState.areaTabCurNum][0].id
+  // currentAddress.value = allAddressLists[appState.areaTabCurNum][0].id
+  currentAddress.value = 0
   isShowlxBox.value = false
-  changedetail()
+  // changedetail()
 }
 
 let imgcur:any = ref(0)
 
 onMounted(()=>{
-  changedetail()
+  // changedetail()
   // getWindowResize()
   // window.addEventListener('resize',getWindowResize)
 })
+watch(
+  appState,
+  (n,o)=>{
+    // console.log(n.areaTabCurNum)
+    currentAddress.value = 0
+  }
+)
 
 </script>
 
@@ -313,45 +326,46 @@ onMounted(()=>{
         <AreaTab @changeTabCur="changeTabCur" />
       </div>
       <div class="index-contactUs-clinicTab pageCon">
-        <div class="index-contactUs-clinicTab-in" :class="[`index-contactUs-clinicTab-in-${clinicItem.id}`,{active: currentAddress === clinicItem.id}]" v-for="clinicItem in allAddressLists[appState.areaTabCurNum]" :key="clinicItem.id" @click="handleAddress(clinicItem.id)">
+        <div class="index-contactUs-clinicTab-in" :class="[`index-contactUs-clinicTab-in-${clinicItem.id}`,{active: currentAddress === clinicIndex}]" v-for="(clinicItem,clinicIndex) in allAddressLists[appState.areaTabCurNum]" :key="clinicItem.id" @click="handleAddress(clinicIndex)">
           {{$t(clinicItem.tabname)}}
         </div>
       </div>
       <div class="address pageCon" v-loading="pageLoading">
+        <!-- {{getDetail}} -->
         <div class="address-l">
-          <img :src="addressDatail.imgLists[imgcur]" :alt="$t(String(addressDatail.name))" />
+          <img :src="getDetail().imgLists[imgcur]" :alt="$t(getDetail().name)" />
         </div>
         <div class="address-r">
           <div class="address-r-img">
-            <div :class="{cur: imgcur === imgIndex}" v-for="(imgItem,imgIndex) in addressDatail.imgLists" :key="imgIndex" @click="imgcur = imgIndex">
-              <img :src="imgItem" :alt="$t(String(addressDatail.name))">
+            <div :class="{cur: imgcur === imgIndex}" v-for="(imgItem,imgIndex) in getDetail().imgLists" :key="imgIndex" @click="imgcur = imgIndex">
+              <img :src="imgItem" :alt="$t(getDetail().name)">
             </div>
           </div>
           <div class="address-r-img mbimg">
             <Swiper class="address-r-img-swiper">
-              <Swiper-slide class="address-r-img-swiper-slide" v-for="(imgItem,imgIndex) in addressDatail.imgLists" :key="imgIndex">
-                <img :src="imgItem" :alt="$t(String(addressDatail.name))">
+              <Swiper-slide class="address-r-img-swiper-slide" v-for="(imgItem,imgIndex) in getDetail().imgLists" :key="imgIndex">
+                <img :src="imgItem" :alt="$t(getDetail().name)">
               </Swiper-slide >
             </Swiper>
           </div>
           <div class="address-r-name">
-            <span class="pcname">{{$t(String(addressDatail.name))}}</span>
-            <span class="mbname">{{$t(appState.areaTabs[appState.areaTabCurNum])}} {{$t(String(addressDatail.tabname))}}</span>
+            <span class="pcname">{{$t(getDetail().name)}}</span>
+            <span class="mbname">{{$t(appState.areaTabs[appState.areaTabCurNum])}} {{$t(getDetail().tabname)}}</span>
           </div>
           <div class="address-r-content">
             <div>
               <span>{{$t("contactUs.hospital_address")}}</span>
               <span>
-                {{$t(String(addressDatail.address))}}
+                {{$t(getDetail().address)}}
               </span>
             </div>
             <div>
               <span>{{$t("contactUs.hours_of_Operation")}}</span>
-              <span>{{$t(String(addressDatail.time))}}</span>
+              <span>{{$t(getDetail().time)}}</span>
             </div>
             <div>
               <span>{{$t("contactUs.check_the_phone")}}</span>
-              <span>{{addressDatail.phone}}</span>
+              <span>{{getDetail().phone}}</span>
             </div>
           </div>
           <div class="address-r-btn">
@@ -360,16 +374,16 @@ onMounted(()=>{
               <div class="lx-box" :class="{cur: isShowlxBox}">
                 <div class="lx-box-l">
                   <span>{{$t("contactUs.bus_route")}}</span>
-                  <span>{{$t(String(addressDatail.busRoutes))}}</span>
+                  <span>{{$t(getDetail().busRoutes)}}</span>
                 </div>
                 <div class="lx-box-r">
                   <span>{{$t("contactUs.metro_lines")}}</span>
-                  <span>{{$t(String(addressDatail.metroRoutes))}}</span>
+                  <span>{{$t(getDetail().metroRoutes)}}</span>
                 </div>
               </div>
             </div>
             <div class="address-r-btn-bd">
-              <span @click="toAddressLink(addressDatail.baiduMap)">{{$t("contactUs.baidu_map")}}</span>
+              <span @click="toAddressLink(getDetail().baiduMap)">{{$t("contactUs.baidu_map")}}</span>
             </div>
           </div>
         </div>

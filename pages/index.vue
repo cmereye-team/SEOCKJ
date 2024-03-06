@@ -236,7 +236,8 @@ const setDoctorItemSwiper = (swiper:any)=>{
   doctorItemSwiper = swiper;
 }
 const doctorItemSlideChange = (swiper) =>{
-  doctorCur.value = changleDoctorLists()[swiper.realIndex].id
+  // console.log(changleDoctorLists()[swiper.realIndex])
+  doctorCur.value = changleDoctorLists()[swiper.realIndex].id || ''
   doctorTabSwiper_pc.slideToLoop(swiper.realIndex)
   doctorTabSwiper_mb.slideToLoop(swiper.realIndex)
 }
@@ -350,6 +351,15 @@ onMounted(()=>{
   handletab2('101')
 })
 
+watch(
+  appState,
+  (n,o)=>{
+    // console.log(n.areaTabCurNum)
+    if(n.areaTabCurNum === 4){
+      handletab2('102')
+    }
+  }
+)
 </script>
 
 <template>
