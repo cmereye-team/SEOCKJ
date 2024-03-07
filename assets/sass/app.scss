@@ -166,7 +166,11 @@ body{
   display: none;
 }
 
-
+@media (min-width: 1450px) and (max-width: 1600px) {
+  .pageCon{
+    width: 90%;
+  }
+}
 @media (min-width: 768px) and (max-width: 1450px) {
   .pageIn{
     padding: 120px 0;

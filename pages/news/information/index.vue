@@ -189,7 +189,7 @@ const getPagination = (pageitem) => {
                 </div>
                 <div style="flex: 1;"></div>
                 <div class="btn">
-                  <nuxt-link :to="`/news/information/${item.id}`">查看全文</nuxt-link>
+                  <nuxt-link :to="`/news/news-information/${item.id}`">查看全文</nuxt-link>
                 </div>
               </div>
             </nuxt-link>
