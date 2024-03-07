@@ -668,6 +668,69 @@ watch(
     opacity: 1;
   }
 }
+@media (min-width: 768px) and (max-width: 1600px) {
+  .index-contactUs{
+    &-tab{
+      :deep(.areaTab){
+        div{
+          font-size: 24px;
+        }
+      }
+    }
+    &-clinicTab{
+      &-in{
+        font-size: 20px;
+      }
+    }
+    .address{
+      &-r{
+        &-name{
+          font-size: 2.4vw;
+        }
+        &-content{
+          &>div{
+            padding-left: 1vw;
+            span{
+              font-size: 1.2vw;
+              padding-right: 1vw;
+              &:nth-of-type(1){
+                font-size: 1.6vw;
+              }
+            }
+          }
+        }
+        &-btn{
+          &>div{
+            max-width: 50%;
+            span{
+              font-size: 2.2vw;
+              padding: 5px 2vw;
+            }
+          }
+          &-lx{
+            &>span{
+              margin-right: 3vw;
+              &::after{
+                width: 1.2vw;
+                height: 1.2vw;
+                background-size: 100% auto;
+              }
+            }
+            .lx-box{
+              max-width: 200%;
+              &>div{
+                span{
+                  font-size: 1.6vw;
+                }
+              }
+            }
+          }
+        }
+        
+      }
+    }
+  }
+}
 @media screen and (max-width: 768px) {
   .index-contactUs{
     padding: 90px 0 0;
