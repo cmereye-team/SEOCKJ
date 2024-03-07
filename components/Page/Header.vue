@@ -1395,6 +1395,12 @@ const handleMbMenu = () => {
             padding: 0 1.3vw;
             box-sizing: border-box;
           }
+          &.langItem{
+            padding: 0 1vw 10px;
+            &>img{
+              width: 20px;
+            }
+          }
           .triangleIcon:after {
             border: 5px solid;
             border-color: #666666 transparent transparent transparent;

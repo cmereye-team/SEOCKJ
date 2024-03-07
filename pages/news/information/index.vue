@@ -133,11 +133,9 @@ onMounted(()=>{
   })
 })
 
+
 if(process.server){
   // console.log('server');
-  getNewsLists()
-}else{
-  // console.log('client');
   getNewsLists()
 }
 
@@ -174,7 +172,7 @@ const getPagination = (pageitem) => {
       <div class="pageCon">
         <div class="lists" v-if="!errorpage">
           <div v-loading="loadingShow">
-            <nuxt-link :to="`/news/information/${item.id}`" :id="`i${item.id}`" class="lists-in" v-for="(item,index) in informationLists" :key="index" @click="handlelink(item.id)">
+            <nuxt-link :to="`/news/news-information/${item.id}`" :id="`i${item.id}`" class="lists-in" v-for="(item,index) in informationLists" :key="index" @click="handlelink(item.id)">
               <div class="lists-in-img">
                 <img :src="item.img" alt="">
               </div>
@@ -410,7 +408,30 @@ const getPagination = (pageitem) => {
     }
   }
 }
-@media (min-width: 768px) and (max-width: 1452px) {}
+@media (min-width: 768px) and (max-width: 1452px) {
+  .lists{
+    &-in{
+      &-context{
+        &-top{
+          .title{
+            font-size: 3vw;
+          }
+          
+        }
+        .desc{
+          font-size: 1.4vw; 
+          -webkit-line-clamp: 5; 
+          line-clamp: 5;
+        }
+        .btn{
+          a{
+            font-size: 2.4vw;
+          }
+        }
+      }
+    }
+  }
+}
 @media screen and (max-width: 768px) {
   .informationPage{
     padding: 0 0 90px;
