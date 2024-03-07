@@ -727,7 +727,7 @@ svg:hover path{
     align-items: flex-end;
   }
   &-con{
-    width: 80%;
+    // width: 80%;
     max-width: 1365px;
     margin: 30px auto 0;
   }
@@ -1155,7 +1155,7 @@ svg:hover path{
 @media (min-width: 1452px) and (max-width: 1600px){
   .index-doctorTeam{
     &-con{
-      width: 80%;
+      // width: 80%;
     }
     &-tab1{
       :deep(.areaTab){
