@@ -102,43 +102,46 @@ defineProps({
   }
 } 
 
-@media (min-width: 1000px) and (max-width: 1452px) {
-  // .caseSaringImageItem{
-  //   width: 49%;
-  //   padding: 20px;
-  //   height: auto;
-  //   &-t{
-  //     .text{
-  //       font-size: 1.5rem;
-  //     }
-  //     &>div{
-  //       top: 50%;
-  //       .name{
-  //         font-size: 1.6rem;
-  //       }
-  //       .skill{
-  //         font-size: 1.5rem;
-  //       }
-  //     }
-  //   }
-  //   &-b{
-
-  //   }
-  // }
+@media (min-width: 769px) and (max-width: 1200px) {
+  .caseSaringImageItem{
+    &-t{
+      &-img{
+        width: 40%;
+        img{
+          margin: -20% auto 0;
+        }
+      }
+      &-context{
+        .name{
+          font-size: 2vw;
+        }
+        .skill{
+          font-size: 1.6vw;
+        }
+        .text{
+          font-size: 1.6vw;
+        }
+      }
+    }
+    &-b{
+      font-size: 1.4vw;
+    }
+  }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 768px) {
   .caseSaringImageItem{
     width: 100%;
     padding: 18px 36px 18px 30px;
     height: auto;
     &-t{
       width: 100%;
-      height: 125px;
+      height: auto;
       align-items: flex-end;
       &-img{
         max-width: 124px;
-        margin-right: 24px;
+        width: calc(110 / 300 * 100%);
+        margin-right: calc(20 / 300 * 100%);
         img{
           width: 125px;
           margin: 0;

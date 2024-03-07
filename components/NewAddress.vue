@@ -323,19 +323,19 @@ watch(
 
 
 <template>
-  <div class="index-contactUs">
-      <div class="index-contactUs-t pageCon">
+  <div class="index-contactUs pageCon">
+      <div class="index-contactUs-t">
         <div class="index_title">{{$t('contactUs.title')}}</div>
       </div>
-      <div class="index-contactUs-tab pageCon">
+      <div class="index-contactUs-tab">
         <AreaTab @changeTabCur="changeTabCur" />
       </div>
-      <div class="index-contactUs-clinicTab pageCon">
+      <div class="index-contactUs-clinicTab">
         <div class="index-contactUs-clinicTab-in" :class="[`index-contactUs-clinicTab-in-${clinicItem.id}`,{active: currentAddress === clinicIndex}]" v-for="(clinicItem,clinicIndex) in allAddressLists[appState.areaTabCurNum]" :key="clinicItem.id" @click="handleAddress(clinicIndex)">
           {{$t(clinicItem.tabname)}}
         </div>
       </div>
-      <div class="address pageCon" v-loading="pageLoading">
+      <div class="address" v-loading="pageLoading">
         <!-- {{getDetail}} -->
         <div class="address-l">
           <img :src="getDetail().imgLists[imgcur]" :alt="$t(getDetail().name)" />
@@ -400,7 +400,7 @@ watch(
 
 .index-contactUs{
   padding: 140px 0 100px;
-  max-width: 1550px; 
+  // max-width: 1550px; 
   margin: 0 auto;
   &-t{
     display: flex;
@@ -424,7 +424,7 @@ watch(
       text-align: center;
       color: #00AEFF;
       transition: all .3s;
-      font-size: 35px;
+      font-size: 30px;
       cursor: pointer;
       border-top: 2px solid #00AEFF;
       border-bottom: 2px solid #00AEFF;
@@ -577,7 +577,7 @@ watch(
         &>div{
           filter: drop-shadow(0 3px 5px var(--indexColor3));
           -webkit-filter: drop-shadow(0 3px 5px var(--indexColor3));
-          max-width: calc(100% / 2.5);
+          max-width: calc(100% / 2);
           span{
             display: inline-block;
             padding: 5px 40px;
@@ -621,8 +621,8 @@ watch(
             left: 0;
             background: #fff;
             display: flex;
-            width: 300%;
-            max-width: 250%;
+            width: 200%;
+            max-width: 200%;
             padding: 20px 10px;
             display: none;
             opacity: 0;
@@ -703,7 +703,7 @@ watch(
           &>div{
             max-width: 50%;
             span{
-              font-size: 2.2vw;
+              font-size: 2vw;
               padding: 5px 2vw;
             }
           }
@@ -720,7 +720,7 @@ watch(
               max-width: 200%;
               &>div{
                 span{
-                  font-size: 1.6vw;
+                  font-size: 1.2vw;
                 }
               }
             }
@@ -797,6 +797,9 @@ watch(
           display: none;
           width: 100%;
           overflow: hidden;
+          &>div{
+            max-width: 100%;
+          }
           &.mbimg{
             display: block;
           }

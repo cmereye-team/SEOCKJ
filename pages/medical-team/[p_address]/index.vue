@@ -714,6 +714,7 @@ onMounted(()=>{
           }
           &-detail{
             flex-direction: column;
+            align-items: center;
             padding: 0;
             margin-top: 30px;
             &-l{
@@ -740,6 +741,7 @@ onMounted(()=>{
               }
             }
             &-r{
+              width: 100%;
               .detail-1{
                 margin: 5px 0;
                 padding: 0 30px;

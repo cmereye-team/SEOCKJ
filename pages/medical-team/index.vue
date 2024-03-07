@@ -718,6 +718,7 @@ watch(
           }
           &-detail{
             flex-direction: column;
+            align-items: center;
             padding: 0;
             margin-top: 30px;
             &-l{

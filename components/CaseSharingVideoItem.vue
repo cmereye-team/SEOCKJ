@@ -118,47 +118,42 @@ const props = defineProps({
   }
 }
 
-@media (min-width: 768px) and (max-width: 1452px) {
-  // .caseSaringVideoItem{
-  //   &-l{
-  //     width: 45%;
-  //     img{
-  //       height: 350px;
-  //     }
-  //   }
-  //   &-r{
-  //     padding: 25px;
-  //     .name{
-  //       font-size: 1.8rem;
-  //       margin-top: 10px;
-  //     }
-  //     .skill{
-  //       font-size: 1.7rem;
-  //     }
-  //     .process{
-  //       font-size: 1.7rem;
-  //       margin-top: 50px;
-  //     }
-  //     .text{
-  //       font-size: 1.4rem;
-  //     }
-  //     .bg_box{
-  //       width: 109%;
-  //     }
-  //   }
-  // }
+@media (min-width: 768px) and (max-width: 1600px) {
+  .caseSaringVideoItem{
+    &-l{
+
+    }
+    &-r{
+      .type{
+        font-size: 2vw;
+      }
+      .name{
+        font-size: 1.6vw;
+      }
+      .skill{
+        font-size: 1.4vw;
+      }
+      .process{
+        font-size: 1.4vw;
+      }
+      .text{
+        font-size: 1.4vw;
+      }
+      .bg_box{
+        width: calc(100% + 30px); 
+        height: 60%;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 768px) {
   .caseSaringVideoItem{
-    // flex-direction: column;
     flex-wrap: wrap;
     padding: 0 30px;
     position: relative;
     align-items: flex-end;
     &-l{
-      // position: absolute;
-      // margin-top: 25px;
       width: 167px;
       img{
         width: 100%;
@@ -167,7 +162,6 @@ const props = defineProps({
       }
     }
     &-r{
-      // width: calc(100% - 167px);
       margin-left: 23px;
       padding: 0;
       .type{
@@ -194,11 +188,6 @@ const props = defineProps({
         display: none;
       }
       .bg_box{
-        // width: 345px;
-        // height: 150px;
-        // right: 0;
-        // top: 90px;
-        // z-index: 0;
         display: none;
       }
     }

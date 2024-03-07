@@ -727,7 +727,7 @@ svg:hover path{
     align-items: flex-end;
   }
   &-con{
-    width: 100%;
+    width: 80%;
     max-width: 1365px;
     margin: 30px auto 0;
   }
@@ -988,7 +988,7 @@ svg:hover path{
     justify-content: center;
   }
   &-in{
-    width: 100%;
+    width: 80%;
     max-width: 1046px;
     margin: 45px auto 0;
     .in-top{
@@ -1027,7 +1027,7 @@ svg:hover path{
 .index-org{
   margin-top: 170px;
   &-tag{
-    width: 100%;
+    width: 80%;
     max-width: 804px;
     display: flex;
     margin-top: 50px;
@@ -1147,6 +1147,27 @@ svg:hover path{
         transition: all .3s;
         &:hover{
           width: 23%;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 1452px) and (max-width: 1600px){
+  .index-doctorTeam{
+    &-con{
+      width: 80%;
+    }
+    &-tab1{
+      :deep(.areaTab){
+        div{
+          font-size: 30px;
+        }
+      }
+    }
+    &-tab2{
+      &-in{
+        &>div{
+          font-size: 24px;
         }
       }
     }
@@ -1406,6 +1427,7 @@ svg:hover path{
     background:none;
     margin-top: 90px;
     &-in{
+      width: 100%;
       margin: 35px auto 0;
       .in-cen{
         margin-top: 34px;
@@ -1442,6 +1464,7 @@ svg:hover path{
   .index-org{
     margin-top: 90px;
     &-tag{
+      width: 100%;
       max-width: calc(100% - 60px);
       margin-top: 30px;
       &-in{

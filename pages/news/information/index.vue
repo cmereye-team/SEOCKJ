@@ -471,6 +471,7 @@ const getPagination = (pageitem) => {
         }
         .desc{
           font-size: 16px;
+          text-align: justify;
         }
         .btn{
           margin-top: 23px;
