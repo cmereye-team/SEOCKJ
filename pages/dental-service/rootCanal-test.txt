@@ -397,7 +397,7 @@ onMounted(()=>{
             <div class="dentistryServices-title-in bb honor-title-in">愛康健齒科品牌連鎖</div>
           </div>
           <div class="honor-text">
-            <span>致力於口腔健康28年</span>
+            <span>致力於口腔健康29年</span>
             <span>，</span>
             <span>多次榮獲殊榮，信心保證</span>
           </div>

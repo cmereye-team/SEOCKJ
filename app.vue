@@ -12,7 +12,7 @@ useHead({
   title: app.name,
   titleTemplate: "%s | 深圳愛康健口腔醫院",
   meta: [
-    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1' },
     {
       hid: 'Keywords',
       name: 'Keywords',

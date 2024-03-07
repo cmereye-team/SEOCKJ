@@ -420,7 +420,7 @@ const handleMbMenu = () => {
         v-if="headerConfig.pageName === 'implant'"
         class="header-content-text-implant"
       >
-        <div>28年專科•專業•專注</div>
+        <div>29年專科•專業•專注</div>
         <div><span>港人首選</span>一站式連鎖牙科品牌</div>
       </div>
       <div
@@ -429,7 +429,7 @@ const handleMbMenu = () => {
       >
         <!-- <div>保留原生牙齒</div>
         <div>徹底<span>解放美食自由</span></div> -->
-        <div>28年專科•專業•專注</div>
+        <div>29年專科•專業•專注</div>
         <div><span>港人首選</span>一站式連鎖牙科品牌</div>
       </div>
       <div
@@ -437,7 +437,7 @@ const handleMbMenu = () => {
         class="header-content-text-implant"
       >
         <!-- <div>口腔健康，從洗牙開始！</div> -->
-        <div>28年專科•專業•專注</div>
+        <div>29年專科•專業•專注</div>
         <div><span>港人首選</span>一站式連鎖牙科品牌</div>
       </div>
       <div
