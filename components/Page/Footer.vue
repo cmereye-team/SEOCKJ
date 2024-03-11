@@ -20,6 +20,10 @@ const navLists = [
     link: `/health-care-voucher`,
   },
   {
+    name: 'components.header.menuLists.federation-of-trade-unions-zone.name',
+    link: `/federation-of-trade-unions-zone`
+  },
+  {
     name: 'components.header.menuLists.menu_news.name',
     link: `/news/coverage`,
   },

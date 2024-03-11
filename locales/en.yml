@@ -16,6 +16,8 @@ components:
         name: 'Dental service'
       health-care-voucher: 
         name: 'Medical voucher for the elderly'
+      federation-of-trade-unions-zone:
+        name: 工聯會專區
       menu_news:
         name: 'Look at the new information'
         coverage: 'Media reports'

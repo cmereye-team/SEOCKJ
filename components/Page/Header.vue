@@ -132,6 +132,11 @@ const menuLists = [
     child: []
   },
   {
+    name: 'components.header.menuLists.federation-of-trade-unions-zone.name',
+    link: `/federation-of-trade-unions-zone`,
+    child: []
+  },
+  {
     name: 'components.header.menuLists.menu_news.name',
     link: `/news`,
     child: [
@@ -526,7 +531,7 @@ const handleMbMenu = () => {
               class="menuItem"
             >
               <nuxt-link
-                :class="[menuItem.child.length ? 'triangleIcon' : '',{ 'health-care-voucher': menuItem.link === '/health-care-voucher'}]"
+                :class="[menuItem.child.length ? 'triangleIcon' : '',{ 'health-care-voucher': menuItem.link === '/health-care-voucher'},{ 'federation-of-trade-unions-zone': menuItem.link === '/federation-of-trade-unions-zone'}]"
                 :to="['/news','/dental-service'].includes(menuItem.link) ? 'javaScript:void(0)': menuItem.link"
                 :title="$t(menuItem.name)"
               >
@@ -1053,6 +1058,12 @@ const handleMbMenu = () => {
           color: #00A752;
           .router-link-exact-active{
             color: #00A752;
+          }
+        }
+        .federation-of-trade-unions-zone{
+          color: #E60013;
+          .router-link-exact-active{
+            color: #E60013;
           }
         }
         &:hover .menuChild {

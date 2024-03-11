@@ -190,21 +190,66 @@ const changetopimg = (swiper:any) =>{
   topimgCur.value = (swiper.realIndex ? Number(swiper.realIndex) : 0) + 1
 }
 
-// onMounted(()=>{
-//   setTimeout(()=>{
-//     getDetail()
-//   })
-// })
+onMounted(()=>{
+  setTimeout(()=>{
+    getDetail()
+    useHead({
+      meta: [
+        {
+          property: 'og:title',
+          content: coverageDeatail.value.name || '',
+        },
+        {
+          property: 'og:description',
+          content: coverageDeatail.value.desc || '',
+        },
+        {
+          property: 'og:site_name',
+          content: 'ckjhk.com',
+        },
+        {
+          property: 'og:url',
+          content: window.location.href,
+        },
+        {
+          property: 'og:image',
+          content: coverageDeatail.value.img || '',
+        }
+      ]
+    })
+  })
+})
 const handlegetData = () =>{
   getDetail()
+  // console.log(coverageDeatail.value)
+  useHead({
+    meta: [
+      {
+        property: 'og:title',
+        content: coverageDeatail.value.name || '',
+      },
+      {
+        property: 'og:description',
+        content: coverageDeatail.value.desc || '',
+      },
+      {
+        property: 'og:site_name',
+        content: 'ckjhk.com',
+      },
+      {
+        property: 'og:url',
+        content: window.location.href,
+      },
+      {
+        property: 'og:image',
+        content: coverageDeatail.value.img || '',
+      }
+    ]
+  })
 }
 
 
 if(process.server){
-  // console.log('server');
-  getDetail()
-}else{
-  // console.log('client');
   getDetail()
 }
 
@@ -220,26 +265,6 @@ useHead({
       hid: 'Keywords',
       name: 'Keywords',
       content: '愛康健 深圳愛康健 深圳專業牙科中心 愛康健醫院 愛康健口腔醫院 深圳愛康健口腔醫院愛康健 CKJ愛康健齒科集團 深圳口腔專科醫院 愛康健齒科集團 深圳牙科醫院牙科服務內地牙科 深圳口腔專科 基本牙科 美容牙科 高階牙科 愛康健',
-    },
-    {
-      property: 'og:title',
-      content: coverageDeatail.value.name || '',
-    },
-    {
-      property: 'og:description',
-      content: coverageDeatail.value.desc || '',
-    },
-    {
-      property: 'og:site_name',
-      content: 'ckjhk.com',
-    },
-    {
-      property: 'og:url',
-      content: window.location.href,
-    },
-    {
-      property: 'og:image',
-      content: coverageDeatail.value.img || '',
     }
   ],
 })
@@ -260,10 +285,7 @@ useHead({
         <span :title="'最新資訊'">最新資訊</span>
       </div>
       <div class="articlePage-in" v-if="!errorpage" v-loading="pageLoading">
-        <!-- {{_nid}} -->
         <div class="content-topimg" v-if="coverageDeatail.pics.length">
-          <!-- {{coverageDeatail.pics}} -->
-          <!-- <img :src="coverageDeatail.pics" alt=""> -->
           <Swiper @swiper="settopimgSwiperRef" @slideChange="changetopimg">
             <Swiper-slide v-for="(topimg,topimgIndex) in coverageDeatail.pics" :key="topimgIndex">
               <img :src="topimg" alt="">

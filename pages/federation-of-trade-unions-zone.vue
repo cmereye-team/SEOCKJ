@@ -124,6 +124,13 @@ const pageDetail:any = {
       ]
     },
     {
+      type: 'img',
+      list: [
+        'https://static.cmereye.com/imgs/2024/03/1df6824262d689e7.jpg',
+      ],
+      className: 'imgone nob'
+    },
+    {
       type: 'h4',
       text: '預約流程：',
       className: 'nob',

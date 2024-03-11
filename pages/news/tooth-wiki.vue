@@ -53,12 +53,8 @@ const getNewsLists = async () => {
     const _res:any = await useFetch(`https://admin.ckjhk.com/api.php/list/16/page/${actPageNum.value}/num/6`,{
       method: 'post',
     });
-    // const _res:any = await useFetch(`https://admin.ckjhk.com/api.php/list/15`,{
-    //   method: 'post',
-    // });
     let res = JSON.parse(_res.data.value) || null
     if(res){
-      // console.log(res)
       totalPageNum.value = Math.ceil(res.rowtotal / 6)
       informationLists.value = res.data.map(item=>{
         return{
@@ -70,13 +66,12 @@ const getNewsLists = async () => {
         }
       })
     }
-    sessionStorage.setItem('informationPage', String(actPageNum.value))
+    sessionStorage.setItem('toothWikiPage', String(actPageNum.value))
     loadingShow.value = false
   }catch{
     errorpage.value = true
     loadingShow.value = false
   }
-  // console.log(coverageLists.value)
 }
 
 const subNum = () => {
@@ -122,15 +117,9 @@ const goAnchor = (_hash: any)=>{
 }
 
 onMounted(()=>{
-  if(sessionStorage.getItem('informationPage')){
-    actPageNum.value = Number(sessionStorage.getItem('informationPage')) || 1
-    // getNewsLists()
+  if(sessionStorage.getItem('toothWikiPage')){
+    actPageNum.value = Number(sessionStorage.getItem('toothWikiPage')) || 1
   }
-  // if(sessionStorage.getItem('informationid')){
-  //   setTimeout(()=>{
-  //     goAnchor(`#i${sessionStorage.getItem('informationid')}`)
-  //   },1000)
-  // }
   setTimeout(()=>{
     getNewsLists()
   })
