@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
-import { whatsAppNum } from '~/assets/js/common'
+import { whatsAppNum,smallPhoneNum } from '~/assets/js/common'
 
 defineProps({
   langType: {
@@ -71,7 +71,7 @@ let _bool = ref(false)
     <div class="navbar-content-in" id="navPcTel" title="致電">
       <div class="navbarBox">
         <div class="navbarBox-in">
-          <div class="tel">3892 5049</div>
+          <div class="tel">{{smallPhoneNum}}</div>
         </div>
       </div>
     </div>
@@ -92,7 +92,7 @@ let _bool = ref(false)
       <img src="@/assets/images/navIcon_4.png" alt="toTop" />
     </div>
     <div class="navbar-content-mb">
-      <nuxt-link  id="navMbTel" :to="'tel: +852 3892 5049'" class="mbcc-boxInAA mbcc-boxInAA-1"></nuxt-link>
+      <nuxt-link  id="navMbTel" :to="`tel: +852 ${smallPhoneNum}`" class="mbcc-boxInAA mbcc-boxInAA-1"></nuxt-link>
       <nuxt-link id="navMbWhatsapp" :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" target="_blank" class="mbcc-boxInAA mbcc-boxInAA-2"></nuxt-link>
       <div id="navMbContactFormBtn" class="mbcc-boxInAA mbcc-boxInAA-3" @click="handleNavFormNav">
         <img src="https://static.cmereye.com/imgs/2023/09/a8f9c3f82bbda125.png" alt="馬上預約">

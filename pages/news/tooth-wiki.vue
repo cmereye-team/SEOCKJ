@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 
 useHead({
-  title: '最新資訊',
+  title: '牙齒百科',
   meta: [
     {
       hid: 'description',
@@ -50,7 +50,7 @@ let loadingShow = ref(false)
 const getNewsLists = async () => {
   loadingShow.value = true
   try{
-    const _res:any = await useFetch(`https://admin.ckjhk.com/api.php/list/15/page/${actPageNum.value}/num/6`,{
+    const _res:any = await useFetch(`https://admin.ckjhk.com/api.php/list/16/page/${actPageNum.value}/num/6`,{
       method: 'post',
     });
     // const _res:any = await useFetch(`https://admin.ckjhk.com/api.php/list/15`,{
@@ -162,7 +162,7 @@ const getPagination = (pageitem) => {
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor informationPage">
-      <div class="index_title pageCon informationPage-title" id="information">最新資訊</div>
+      <div class="index_title pageCon informationPage-title" id="information">牙齒百科</div>
       <div class="tabNav noTitle pageCon">
         <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
           <span>主頁</span>
@@ -170,12 +170,12 @@ const getPagination = (pageitem) => {
         <nuxt-link :to="''">
           <span>睇牙新資訊</span>
         </nuxt-link>
-        <span :title="'最新資訊'">最新資訊</span>
+        <span :title="'牙齒百科'">牙齒百科</span>
       </div>
       <div class="pageCon">
         <div class="lists" v-if="!errorpage">
           <div v-loading="loadingShow">
-            <nuxt-link :to="`/news/news-information/${item.id}`" :id="`i${item.id}`" class="lists-in" v-for="(item,index) in informationLists" :key="index" @click="handlelink(item.id)">
+            <nuxt-link :to="`/news/news-tooth-wiki/${item.id}`" :id="`i${item.id}`" class="lists-in" v-for="(item,index) in informationLists" :key="index" @click="handlelink(item.id)">
               <div class="lists-in-img">
                 <img :src="item.img" alt="">
               </div>
@@ -192,7 +192,7 @@ const getPagination = (pageitem) => {
                 </div>
                 <div style="flex: 1;"></div>
                 <div class="btn">
-                  <nuxt-link :to="`/news/news-information/${item.id}`">查看全文</nuxt-link>
+                  <PageAnimBtnTypeTwo :link="`/news/news-tooth-wiki/${item.id}`" str="查看原文" />
                 </div>
               </div>
             </nuxt-link>
@@ -226,7 +226,7 @@ const getPagination = (pageitem) => {
             </div>
           </div>
         </div>
-        <div class="lists" v-else>服務異常</div>
+        <div class="lists" v-else></div>
       </div>
       <NewAddress />
     </div>
@@ -267,8 +267,8 @@ const getPagination = (pageitem) => {
     display: flex;
     margin-bottom: calc(125 / 1448 * 100%);
     &-img{
-      width: calc(500 / 1448* 100%);
-      margin-right: calc(26 / 1448* 100%);
+      width: calc(594 / 1448* 100%);
+      margin-right: calc(30 / 1448* 100%);
       img{
         width: 100%;
       }
@@ -280,39 +280,26 @@ const getPagination = (pageitem) => {
       &-top{
         display: flex;
         justify-content: space-between;
-        margin-bottom: 23px;
+        margin-bottom: 10px;
         .title{
           color: var(--indexColor1);
-          font-size: 50px;
+          font-size: 30px;
           font-style: normal;
           font-weight: 400;
           line-height: 130%;
           display: -webkit-box;  
-          -webkit-line-clamp: 2; 
-          line-clamp: 2; 
+          -webkit-line-clamp: 1; 
+          line-clamp: 1; 
           -webkit-box-orient: vertical;  
           overflow: hidden;  
           text-overflow: ellipsis; 
         }
-        // .time{
-        //   span{
-        //     display: block;
-        //     text-align: right;
-        //     font-size: 20px;
-        //     font-style: normal;
-        //     font-weight: 400;
-        //     line-height: 160%; /* 32px */
-        //     letter-spacing: 2px;
-        //     color: var(--textColor);
-        //   }
-        // }
       }
       .desc{
-        // flex: 1;
         font-size: 20px;
         font-style: normal;
         font-weight: 400;
-        line-height: 160%; /* 32px */
+        line-height: 160%;
         letter-spacing: 2px;
         color: var(--textColor);
         display: -webkit-box;  
@@ -320,16 +307,12 @@ const getPagination = (pageitem) => {
         line-clamp: 11; 
         -webkit-box-orient: vertical;  
         overflow: hidden;  
-        text-overflow: ellipsis; 
-        // &::after{
-        //   content: '......';
-        //   display: block;
-        // }
+        text-overflow: ellipsis;
       }
       .btn{
         margin-top: 10px;
         display: flex;
-        // justify-content: center;
+        padding: 20px;
         a{
           font-size: 35px;
           font-style: normal;

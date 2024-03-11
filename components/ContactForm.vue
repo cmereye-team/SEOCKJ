@@ -3,6 +3,7 @@
 import service from '~/assets/js/service'
 import type { FormInstance, FormRules } from 'element-plus'
 import { useAppState } from '~/stores/appState'
+import { smallPhoneNum } from '~/assets/js/common'
 const appState = useAppState()
 
 const props = defineProps({
@@ -195,7 +196,7 @@ onMounted(() => {
           <div class="linkBox">
             <div class="linkBox-in">
               <img src="@/assets/images/navIcon_1.png" alt="" />
-              <span>3892 5049</span>
+              <span>{{smallPhoneNum}}</span>
             </div>
             <div class="linkBox-in">
               <img src="@/assets/images/navIcon_2.png" alt="" />

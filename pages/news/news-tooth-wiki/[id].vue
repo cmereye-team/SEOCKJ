@@ -5,7 +5,7 @@ const route = useRoute()
 const router = useRouter()
 let _nid = route.params.id
 useHead({
-  title: '最新資訊',
+  title: '牙齒百科',
   meta: [
     {
       hid: 'description',
@@ -46,7 +46,9 @@ let coverageDeatail = ref({
   source: '',
   news_tag: '',
   content: '',
-  pics: []
+  pics: [],
+  btnText: '',
+  btnLink: ''
 })
 function copySpecifiedText(text) {  
     if (navigator.clipboard) {  
@@ -99,7 +101,7 @@ const getDetail = async () => {
         img: (_data.ico.indexOf('/static/upload/image') !== -1 ? `https://admin.ckjhk.com${_data.ico}`:_data.ico) || '',
         desc: _data.ext_news_desc || '',
         name: _data.title || '',
-        time: formatDate(_data.ext_news_time) || '',
+        time: formatDate(_data.update_time) || '',
         tags: _data.tags || '',
         author: _data.author || '',
         visits: _data.visits || '',
@@ -108,8 +110,11 @@ const getDetail = async () => {
         content: _data.content || '',
         pics: !_Showpics && _data.pics.split(',').map(tt=>{
           return (tt.indexOf('/static/upload/image') !== -1 ? `https://admin.ckjhk.com${tt}`: tt) || ''
-        }) || []
+        }) || [],
+        btnText: _data.ext_news_btn_text || '',
+        btnLink: _data.ext_news_btn_link || ''
       }
+      // console.log(coverageDeatail.value.pics)
       changeassociationData(JSON.parse(_data.ext_news_association || "[]"))
     }
   }catch{
@@ -119,7 +124,7 @@ const getDetail = async () => {
   pageLoading.value = false
 }
 const toassociation = (_id) => {
-  router.push(`/news/news-information/${_id}`)
+  router.push(`/news/news-tooth-wiki/${_id}`)
 }
 
   // [
@@ -213,7 +218,7 @@ if(process.server){
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor articlePage">
-      <div class="index_title pageCon articlePage-title">最新資訊</div>
+      <div class="index_title pageCon articlePage-title">牙齒百科</div>
       <div class="tabNav noTitle pageCon">
         <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
           <span>主頁</span>
@@ -221,10 +226,12 @@ if(process.server){
         <nuxt-link :to="''">
           <span>睇牙新資訊</span>
         </nuxt-link>
-        <span :title="'最新資訊'">最新資訊</span>
+        <span :title="'牙齒百科'">牙齒百科</span>
       </div>
       <div class="articlePage-in" v-if="!errorpage" v-loading="pageLoading">
-        <!-- {{_nid}} -->
+        <!-- <div class="content-topimg">
+            <img :src="coverageDeatail.img" :alt="coverageDeatail.name" :title="coverageDeatail.name">
+        </div> -->
         <div class="content-topimg" v-if="coverageDeatail.pics.length">
           <!-- {{coverageDeatail.pics}} -->
           <!-- <img :src="coverageDeatail.pics" alt=""> -->
@@ -246,20 +253,23 @@ if(process.server){
         <div class="content" v-html="coverageDeatail.content">
           
         </div>
+        <div class="content-bbtn" v-if="coverageDeatail.btnText !== ''">
+          <PageAnimBtnTypeTwo :link="coverageDeatail.btnLink" :str="coverageDeatail.btnText" />
+        </div>
         <div class="content-bdetail">
           <div class="content-bdetail-in">
             <div class="context">
               <div>資料來源︰<a :href="coverageDeatail.source">原文鏈接</a></div>
-              <div>瀏覽次數︰{{coverageDeatail.visits}}</div>
+              <div>瀏覽次數︰{{coverageDeatail.visits || 0}}</div>
               <div>更新時間︰{{coverageDeatail.time}}</div>
               <div class="righeBox">
                 <span class="copy" title="複製鏈接" @click="copyText"></span>
-                <a :href="`https://www.facebook.com/sharer/sharer.php?u=https://www.ckjhk.com/news/news-information/${_nid}`" target="_block" class="facebook" title="分享facebook"></a>
+                <a :href="`https://www.facebook.com/sharer/sharer.php?u=https://www.ckjhk.com/news/news-tooth-wiki/${_nid}`" target="_block" class="facebook" title="分享facebook"></a>
               </div>
             </div>
             <div class="btn">
               <el-button :style="{background: (!associationData.isshowprev ? '#FF85AF': '#FC1682')}" :disabled="!associationData.isshowprev" @click="toassociation(associationData.prev_id)">上一篇</el-button>
-              <nuxt-link :to="'/news/information'">返回所有文章目錄</nuxt-link>
+              <nuxt-link :to="'/news/tooth-wiki'">返回所有文章目錄</nuxt-link>
               <el-button :style="{background: (!associationData.isshownext ? '#FF85AF': '#FC1682')}" :disabled="!associationData.isshownext" @click="toassociation(associationData.next_id)">下一篇</el-button>
               <!-- <a href="#" v-disabled="true">下一篇</a> -->
             </div>
@@ -391,24 +401,7 @@ if(process.server){
 .content-bbtn{
   display: flex;
   justify-content: center;
-  a{
-    color: #fff;
-    text-align: center;
-    font-size: 35px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 160%;
-    letter-spacing: 7px;
-    background: var(--indexColor1);
-    border-radius: 50px;
-    box-shadow: 3px 3px 12.4px 0px rgba(252, 22, 130, 0.50);
-    padding: calc(7 / 1920 * 100%) calc(40 / 1920 * 100%);
-    margin: 0 auto calc(56 / 1920 * 100%);
-    transition: all .3s;
-    &:hover{
-      background: #FF85AF;
-    }
-  }
+  padding: 50px 0;
 }
 .content-bdetail{
   background: linear-gradient(180deg, rgba(252, 22, 130, 0.40) -68.47%, rgba(252, 22, 130, 0.28) -68.46%, rgba(255, 168, 198, 0.00) 63.88%);
@@ -543,7 +536,7 @@ if(process.server){
   }
   .content-title{
     margin-top: 30px;
-    font-size: 20px;
+    font-size: 28px;
   }
   .content{
     // width: 100%;
@@ -581,11 +574,7 @@ if(process.server){
 
   }
   .content-bbtn{
-    a{
-      font-size: 28px;
-      padding: 8px 29px;
-      margin: 15px 0 50px;
-    }
+    padding: 0 0 50px;
   }
   .content-bdetail{
     &-in{

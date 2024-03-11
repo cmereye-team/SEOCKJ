@@ -35,7 +35,7 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     '@zadigetvoltaire/nuxt-gtm',
     '@nuxt/content',
-    'nuxt-simple-sitemap',
+    // 'nuxt-simple-sitemap',
     'nuxt-windicss',
     'nuxt-swiper'
   ],
@@ -83,7 +83,7 @@ export default defineNuxtConfig({
   },
 
   // windicss
-  windicss: {
+  // windicss: {
   //   analyze: {
   //     analysis: {
   //       interpretUtilities: false,
@@ -93,8 +93,8 @@ export default defineNuxtConfig({
   //       open: false,
   //     },
   //   },
-    scan: true,
-  },
+  //   scan: true,
+  // },
 
   // content
   content: {

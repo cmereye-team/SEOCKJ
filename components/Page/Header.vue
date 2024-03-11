@@ -2,7 +2,7 @@
 import { zh_tran,zh_getLang,getCookie } from '~/assets/js/uselang'
 // import gsap from 'gsap'
 import { useAppState } from '~/stores/appState'
-import { toWhatsApp } from '~/assets/js/common'
+import { toWhatsApp,smallPhoneNum } from '~/assets/js/common'
 const route = useRoute()
 const appState = useAppState()
 defineProps({
@@ -189,7 +189,7 @@ const headerData = {
   bannerText: '全程式預約一體化診療服務，讓每一位顧客享受',
   bannerTextSpan: '健康微笑之旅。',
   menuBoxBtn: '諮詢熱線',
-  menuBoxPhone: '3892 5049',
+  menuBoxPhone: smallPhoneNum,
 }
 
 const menuBoxBool = ref(false)
@@ -612,7 +612,7 @@ const handleMbMenu = () => {
           <span class="zh_click" :style="{color: (appState.langs === 's'?'#FC1682':'#FF85AF')}" @click="glangs('s')">简体中文</span>
         </div>
         <!-- 立即預約 -->
-        <nuxt-link to="tel: +852 3892 5049">
+        <nuxt-link :to="`tel: +852 ${smallPhoneNum}`">
           <div class="menuBox-btn">
             {{ headerData.menuBoxBtn }}
           </div>

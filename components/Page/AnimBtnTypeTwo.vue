@@ -19,7 +19,7 @@ defineProps({
 
 <template>
   <div class="animbtntypetwo">
-    <nuxt-link :to="link" class="animbtntypetwo-in" :class="typeClass">
+    <nuxt-link :to="link === '' ? `https://api.whatsapp.com/send/?phone=${whatsAppNum}` : link" class="animbtntypetwo-in" :class="typeClass">
       <span>{{str}}</span>
     </nuxt-link>
   </div>
