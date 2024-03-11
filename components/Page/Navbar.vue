@@ -71,7 +71,7 @@ let _bool = ref(false)
     <div class="navbar-content-in" id="navPcTel" title="致電">
       <div class="navbarBox">
         <div class="navbarBox-in">
-          <div class="tel">{{smallPhoneNum}}</div>
+          <div class="tel">（852）{{smallPhoneNum}}</div>
         </div>
       </div>
     </div>

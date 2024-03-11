@@ -676,7 +676,7 @@ const glangs = (_type) =>{
           </div>
         </nuxt-link>
         <div class="menuBox-phone">
-          <img src="@/assets/images/icon_11.svg" />{{ headerData.menuBoxPhone }}
+          <img src="@/assets/images/icon_11.svg" />（852）{{ headerData.menuBoxPhone }}
         </div>
         <div class="menuBox-icon">
           <!-- <div class="menuBox-icon-in">
