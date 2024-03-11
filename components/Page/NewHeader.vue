@@ -1144,6 +1144,12 @@ const glangs = (_type) =>{
             color: #00A752;
           }
         }
+        .federation-of-trade-unions-zone{
+          color: #E60013;
+          .router-link-exact-active{
+            color: #E60013;
+          }
+        }
         .menuChild {
           position: absolute;
           top: 100%;
