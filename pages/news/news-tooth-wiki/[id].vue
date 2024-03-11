@@ -114,6 +114,30 @@ const getDetail = async () => {
         btnText: _data.ext_news_btn_text || '',
         btnLink: _data.ext_news_btn_link || ''
       }
+      useHead({
+        meta: [
+          {
+            property: 'og:title',
+            content: coverageDeatail.value.name || '',
+          },
+          {
+            property: 'og:description',
+            content: coverageDeatail.value.desc || '',
+          },
+          {
+            property: 'og:site_name',
+            content: 'ckjhk.com',
+          },
+          {
+            property: 'og:url',
+            content: window.location.href,
+          },
+          {
+            property: 'og:image',
+            content: coverageDeatail.value.img || '',
+          }
+        ]
+      })
       // console.log(coverageDeatail.value.pics)
       changeassociationData(JSON.parse(_data.ext_news_association || "[]"))
     }
@@ -198,30 +222,6 @@ const changetopimg = (swiper:any) =>{
 onMounted(()=>{
   setTimeout(()=>{
     getDetail()
-    useHead({
-      meta: [
-        {
-          property: 'og:title',
-          content: coverageDeatail.value.name || '',
-        },
-        {
-          property: 'og:description',
-          content: coverageDeatail.value.desc || '',
-        },
-        {
-          property: 'og:site_name',
-          content: 'ckjhk.com',
-        },
-        {
-          property: 'og:url',
-          content: window.location.href,
-        },
-        {
-          property: 'og:image',
-          content: coverageDeatail.value.img || '',
-        }
-      ]
-    })
   })
 })
 const handlegetData = () =>{
@@ -230,7 +230,6 @@ const handlegetData = () =>{
 
 
 if(process.server){
-  // console.log('server');
   getDetail()
 }
 </script>
