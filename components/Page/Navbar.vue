@@ -408,7 +408,7 @@ let _bool = ref(false)
       // display: block;
       width: 100%;
       height: auto;
-      // background: #FFF;
+      background: #FFF;
       // box-shadow: 0px 4px 19px 0px rgba(0, 0, 0, 0.25);
       filter: drop-shadow(0 -3px 5px rgba(252, 22, 130, .3));
       position: fixed;
@@ -485,7 +485,7 @@ let _bool = ref(false)
         align-items: center;
         background: var(--indexColor1);
         color: #fff;
-        margin-top: 10px;
+        // margin-top: 10px;
         font-size: 16px;
         line-height: 130%;
         &-top{
@@ -504,7 +504,7 @@ let _bool = ref(false)
         &:nth-of-type(2){
           flex: 1.5;
           background: #fff;
-          margin-top: 0;
+          margin-top: -10px;
           border-radius: 10px 10px 0 0;
           padding: 15px 0 10px;
         }
