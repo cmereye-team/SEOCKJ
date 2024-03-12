@@ -423,38 +423,6 @@ watch(
             </Swiper>
           </div>
         </div>
-        <!-- <div class="index-doctorTeam-detail index-doctorTeam-con" v-if="doctorCur !== ''">
-          <div class="index-doctorTeam-detail-l">
-            <div class="index-doctorTeam-detail-l-in">
-              <img :srcset="'https://static.cmereye.com/imgs/2024/02/3305056d2ab78db8.webp 768w, https://static.cmereye.com/imgs/2024/02/d9ed594b3c173297.webp'" src="https://static.cmereye.com/imgs/2024/02/d9ed594b3c173297.webp" alt="">
-              <img :srcset="`${doctorDetail.mbImg} 768w, ${doctorDetail.imgUrl}`" :src="doctorDetail.imgUrl" :alt="doctorDetail.name" :title="doctorDetail.name">
-            </div>
-          </div>
-          <div class="index-doctorTeam-detail-r">
-            <div class="detail-1">
-              <span>{{doctorDetail.name}}</span>
-              <span>{{doctorDetail.text}}</span>
-            </div>
-            <div class="detail-2" v-if="doctorDetail.newOrg">
-              <span>{{doctorDetail.newOrg}}</span>
-            </div>
-            <div class="detail-3">
-              <span v-for="(jobItem,jobIndex) in doctorDetail.newJobs" :key="jobIndex">{{jobItem}}</span>
-            </div>
-            <div class="detail-4">
-              <span>擅長項目：</span>
-              <span>
-                {{doctorDetail.newSkilled}}
-              </span>
-            </div>
-            <div class="detail-5">
-              <span v-for="(tagItem,tagIndex) in doctorDetail.tags" :key="tagIndex">
-                {{tagItem}}
-              </span>
-            </div>
-            <div class="detail-6"><span @click="toWhatsApp">線上咨詢</span></div>
-          </div>
-        </div> -->
         <div v-if="doctorCur !== ''">
           <Swiper
             :loop="true"
@@ -470,7 +438,10 @@ watch(
                 <div class="index-doctorTeam-detail-l">
                   <div class="index-doctorTeam-detail-l-in">
                     <img :srcset="'https://static.cmereye.com/imgs/2024/02/3305056d2ab78db8.webp 768w, https://static.cmereye.com/imgs/2024/02/d9ed594b3c173297.webp'" src="https://static.cmereye.com/imgs/2024/02/d9ed594b3c173297.webp" alt="">
-                    <img :srcset="`${doctorItem.mbImg} 768w, ${doctorItem.imgUrl}`" :src="doctorItem.imgUrl" :alt="doctorItem.name" :title="doctorItem.name">
+                    <img :srcset="`${doctorItem.mbImg} 768w, ${doctorItem.imgUrl}`" :src="doctorItem.imgUrl" :alt="doctorItem.name" :title="doctorItem.name"> 
+                  </div>
+                  <div class="index-doctorTeam-detail-l-btn">
+                    <PageAnimBtnTypeTwo str="線上咨詢" />
                   </div>
                 </div>
                 <div class="index-doctorTeam-detail-r">
@@ -496,7 +467,6 @@ watch(
                     </span>
                   </div>
                   <div class="detail-6">
-                    <!-- <span @click="toWhatsApp">線上咨詢</span> -->
                     <PageAnimBtnTypeTwo str="線上咨詢" />
                   </div>
                 </div>
@@ -889,13 +859,18 @@ svg:hover path{
           bottom: 3px;
           left: 50%;
           transform: translateX(-50%);
-          // width: calc(100% - 3px);
-          // max-width: 80%;
           max-height: calc(92% - 3px);
           display: block;
         }
       }
-      
+      &-btn{
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%,50%);
+        z-index: 1;
+        width: max-content;
+      }
     }
     &-r{
       flex: 1;
@@ -927,7 +902,6 @@ svg:hover path{
         margin-bottom: 30px;
         margin-top: 5px;
         span{
-          // white-space: pre-wrap;
           display: block;
         }
       }
@@ -961,19 +935,7 @@ svg:hover path{
         margin-top: 30px;
         margin-left: 20px;
         margin-bottom: 20px;
-        // span{
-        //   cursor: pointer;
-        //   color: #fff;
-        //   background: var(--indexColor1);
-        //   font-size: 35px;
-        //   border-radius: 50px;
-        //   padding: 10px 30px;
-        //   box-shadow: 0 5px 10px var(--indexColor1);
-        //   transition: all .3s;
-        //   &:hover{
-        //     opacity: .7;
-        //   }
-        // }
+        display: none;
       }
     }
   }
@@ -1359,7 +1321,6 @@ svg:hover path{
             border: none;
           }
           &:nth-of-type(2){
-            // width: 55%;
             height: 100%;
             max-height: 90%;
             left: 50%;
@@ -1367,6 +1328,9 @@ svg:hover path{
             bottom: 0;
             transform: translateX(-50%);
           }
+        }
+        &-btn{
+          display: none;
         }
       }
       &-r{

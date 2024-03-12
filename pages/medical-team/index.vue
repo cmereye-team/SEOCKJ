@@ -237,6 +237,9 @@ watch(
                   <img :srcset="'https://static.cmereye.com/imgs/2024/02/3305056d2ab78db8.webp 768w, https://static.cmereye.com/imgs/2024/02/d9ed594b3c173297.webp'" src="https://static.cmereye.com/imgs/2024/02/d9ed594b3c173297.webp" alt="">
                   <img :srcset="`${doctorItem.mbImg} 768w, ${doctorItem.imgUrl}`" :src="doctorItem.imgUrl" :alt="doctorItem.name" :title="doctorItem.name">
                 </div>
+                <div class="index-doctorTeam-detail-l-btn">
+                  <PageAnimBtnTypeTwo str="線上咨詢" />
+                </div>
               </div>
               <div class="index-doctorTeam-detail-r">
                 <div class="detail-1">
@@ -260,7 +263,10 @@ watch(
                     {{tagItem}}
                   </span>
                 </div>
-                <div class="detail-6"><span @click="toWhatsApp">線上咨詢</span></div>
+                <div class="detail-6">
+                  <!-- <span @click="toWhatsApp">線上咨詢</span> -->
+                  <PageAnimBtnTypeTwo str="線上咨詢" />
+                </div>
               </div>
             </div>
           </section>
@@ -463,7 +469,14 @@ watch(
                 display: block;
               }
             }
-
+            &-btn{
+              position: absolute;
+              bottom: 0;
+              left: 50%;
+              transform: translate(-50%,50%);
+              z-index: 1;
+              width: max-content;
+            }
           }
           &-r{
             flex: 1;
@@ -536,6 +549,7 @@ watch(
             .detail-6{
               margin-top: 30px;
               margin-left: 20px;
+              display: none;
               span{
                 cursor: pointer;
                 color: #fff;
@@ -742,6 +756,9 @@ watch(
                   bottom: 0;
                   transform: translateX(-50%);
                 }
+              }
+              &-btn{
+                display: none;
               }
             }
             &-r{
