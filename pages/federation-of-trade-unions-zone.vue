@@ -126,9 +126,9 @@ const pageDetail:any = {
     {
       type: 'img',
       list: [
-        'https://static.cmereye.com/imgs/2024/03/1df6824262d689e7.jpg',
+        'https://static.cmereye.com/imgs/2024/03/f815d241009d865b.jpg',
       ],
-      className: 'imgone nob'
+      className: 'imgone'
     },
     {
       type: 'h4',
@@ -160,6 +160,11 @@ const pageDetail:any = {
         }
       ],
       className: 'pbeford',
+    },
+    {
+      type: 'animBtn',
+      text: '立即預約會員洗牙',
+      className: '',
     },
     {
       type: 'img',
@@ -262,12 +267,16 @@ const pageDetail:any = {
               </div>
             </nuxt-link>
           </section>
+          <section v-else-if="item.type === 'animBtn'">
+            <div class="animBtn">
+              <PageAnimBtnTypeTwo link="https://bit.ly/FTU洗牙" :str="item.text" />
+            </div>
+          </section>
           <section v-else></section>
         </div>
-        <div class="btn">
-          <!-- <PageAnimBtn link="https://bit.ly/FTU洗牙" str="立即預約會員洗牙" /> -->
-          <PageAnimBtnTypeTwo link="https://bit.ly/FTU洗牙" str="立即預約會員洗牙" />
-        </div>
+        <!-- <div class="btn">
+          <PageAnimBtn link="https://bit.ly/FTU洗牙" str="立即預約會員洗牙" />
+        </div> -->
       </div>
       <NewAddress />
     </div>
@@ -407,6 +416,11 @@ const pageDetail:any = {
   margin: 60px auto;
   &>div{
     margin-bottom: 45px;
+    .animBtn{
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
     &.nob{
       margin-bottom: 0;
     }
