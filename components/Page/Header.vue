@@ -292,6 +292,25 @@ const handleMbMenu = () => {
     })
   }
 }
+let _bool = ref(false)
+const handlecopywechatcode = () =>{
+  if (navigator.clipboard) {  
+      navigator.clipboard.writeText('ckjhongkong').then(function() {
+        _bool.value = true
+      }, function(err) {
+          ElMessage({
+            showClose: true,
+            message: '操作異常，請刷新頁面試試',
+            type: 'warning',
+          })
+      });  
+  } else {  
+      alert('Clipboard API is not supported by your browser.');  
+  }  
+}
+const handleopenwechat = () =>{
+  window.location.href = "weixin://"
+}
 </script>
 
 <template>
@@ -574,9 +593,25 @@ const handleMbMenu = () => {
               </div>
             </div>
           </div>
-          <div class="icon" @click="menuBoxBool = !menuBoxBool">
-            <img v-if="!menuBoxBool" src="@/assets/images/icon_61.png" />
-            <img v-else src="@/assets/images/icon_7.svg" />
+          <div class="icon">
+            <div class="icon-lists">
+              <nuxt-link class="icon-lists-in" to="https://www.facebook.com/ckjdental.hk/">
+                <img src="@/assets/images/icon_33.svg" alt="facebook">
+              </nuxt-link>
+              <nuxt-link class="icon-lists-in" to="https://www.instagram.com/ckj_hk/">
+                <img src="@/assets/images/icon_31.svg" alt="instagram">
+              </nuxt-link>
+              <div class="icon-lists-in" to="" @click="handlecopywechatcode">
+                <img src="@/assets/images/icon_34.svg" alt="weChat">
+              </div>
+              <nuxt-link class="icon-lists-in" to="https://www.youtube.com/channel/UC4AQD5eeOiHIGd3QYFGK4aA">
+                <img src="@/assets/images/icon_32.svg" alt="youtobe">
+              </nuxt-link>
+            </div>
+            <div class="icon-menuopen" @click="menuBoxBool = !menuBoxBool">
+              <img v-if="!menuBoxBool" src="@/assets/images/icon_61.png" />
+              <img v-else src="@/assets/images/icon_7.svg" />
+            </div>
           </div>
         </div>
       </div>
@@ -614,7 +649,7 @@ const handleMbMenu = () => {
         <div class="langItem">
           <img src="@/assets/images/icon_27.svg" alt="语言">
           <span class="zh_click" :style="{color: (appState.langs === 't'?'#FC1682':'#FF85AF')}" @click="glangs('t')">繁體中文</span>
-          <span class="zh_click" :style="{color: (appState.langs === 's'?'#FC1682':'#FF85AF')}" @click="glangs('s')">简体中文</span>
+          <span class="zh_click" :style="{color: (appState.langs === 's'?'#FC1682':'#FF85AF'),'font-family': '微软雅黑'}" @click="glangs('s')">简体中文</span>
         </div>
         <!-- 立即預約 -->
         <nuxt-link :to="`tel: +852 ${smallPhoneNum}`">
@@ -652,10 +687,91 @@ const handleMbMenu = () => {
       <!-- 水波纹盒子 -->
       <div class="waterBg" :class="headerConfig.pageName"></div>
     </div>
+    <div :class="['dialogBox',{show:_bool}]" @click="_bool=false">
+      <div :class="['dialogBox-in',{'show-in':_bool}]" @click.stop="">
+        <div class="title">
+          WeChat ID已複製
+        </div>
+        <div class="content">
+          點擊「打開微信」進入微信，點右上⊕，粘貼ID，添加客服開始免費咨詢！
+        </div>
+        <div class="btn">
+          <el-button @click="_bool = false">取消</el-button>
+          <el-button type="primary" @click="handleopenwechat">
+            打開微信
+          </el-button>
+        </div>
+      </div>
+    </div>
   </header>
 </template>
 
 <style lang="scss" scoped>
+@keyframes contentIn {
+  to{
+    opacity: 1;
+  }
+}
+@keyframes topIn {
+  50%{
+    top: 52%;
+  }
+  75%{
+    top: 49%;
+  }
+  100%{
+    top: 50%;
+    opacity: 1;
+  }
+}
+.dialogBox{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: rgba(0,0,0,.3);
+  opacity: 0;
+  display: none;
+  &.show{
+    display: block;
+    animation: contentIn 1s forwards;
+  }
+  &-in{
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%,-50%);
+    width: calc(100% - 60px);
+    height: auto;
+    max-width: 768px;
+    z-index: 1000;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #fff;
+    padding: 10px 30px 15px;
+    border-radius: 10px;
+    &.show-in{
+      animation: topIn .7s ease-out forwards;
+    }
+    .title{
+      font-size: 20px;
+      font-weight: 600;
+      text-align: center;
+    }
+    .content{
+      font-size: 16px;
+      margin: 10px 0 20px;
+    }
+    .btn{
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
 @keyframes btnAnim {
   0% {
     clip-path: polygon(-10% 0, 0 0, -10% 100%, -20% 100%);
@@ -1502,33 +1618,33 @@ const handleMbMenu = () => {
     &-bgImg-implant {
       // display: none;
       position: relative;
-      top: 80px;
+      top: 60px;
       &.rootCanal-test{
-        padding-bottom: 60px;
+        padding-bottom: 40px;
       }
       &.rootCanal{
-        padding-bottom: 60px;
+        padding-bottom: 40px;
       }
       &.scaling-and-polishing{
-        padding-bottom: 80px;
+        padding-bottom: 60px;
       }
       &.scaling-and-polishing-test{
-        padding-bottom: 80px;
+        padding-bottom: 60px;
       }
       &.periodontal-test,&.orthodontics-test,&.invisalign-test,&.veneers-test{
-        padding-bottom: 80px;
+        padding-bottom: 60px;
       }
       &.implant{
-        padding-bottom: 80px;
+        padding-bottom: 60px;
       }
       &.course-new{
-        padding-bottom: 70px;
+        padding-bottom: 50px;
       }
       &.health-care-voucher{
-        padding-bottom: 160px;
+        padding-bottom: 140px;
       }
       &.coverage{
-        padding-bottom: 140px;
+        padding-bottom: 120px;
       }
     }
     &-btn-implant {
@@ -1609,19 +1725,35 @@ const handleMbMenu = () => {
       position: fixed;
       top: 0;
       justify-content: space-between;
+      align-items: center;
       margin: 0;
-      padding: 20px 0 0 30px;
+      padding: 20px 0 0 20px;
       .logo {
-        width: 150px;
+        width: 125px;
         margin-bottom: 0;
       }
       .menu {
         display: none;
       }
       .icon {
-        display: block;
-        width: 24px;
-        margin-right: 30px;
+        display: flex;
+        align-items: center;
+        &-menuopen{
+          display: block;
+          width: 20px;
+          margin-right: 25px;
+        }
+        &-lists{
+          display: flex;
+          align-items: center;
+          &-in{
+            display: block;
+            margin-right: 15px;
+            img{
+              width: 20px;
+            }
+          }
+        }
       }
     }
     &-span {
@@ -1667,11 +1799,11 @@ const handleMbMenu = () => {
   }
   .waterBg::after {
     transform: rotate(180deg);
-    top: -30px;
+    top: -50px;
   }
   .waterBg::before {
     transform: rotate(180deg);
-    top: -40px;
+    top: -60px;
   }
   .menuBox {
     position: fixed;

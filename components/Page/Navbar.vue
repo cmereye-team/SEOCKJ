@@ -33,7 +33,6 @@ const toContactUs = () =>{
   window.location.href = '/contactUs#contactUsFormNav'
 }
 
-let mbQDCodeBool = ref(false)
 
 const centerDialogVisible = ref(false)
 const handlecopywechatcode = () =>{
@@ -92,27 +91,33 @@ let _bool = ref(false)
       <img src="@/assets/images/navIcon_4.png" alt="toTop" />
     </div>
     <div class="navbar-content-mb">
-      <nuxt-link  id="navMbTel" :to="`tel: +852 ${smallPhoneNum}`" class="mbcc-boxInAA mbcc-boxInAA-1"></nuxt-link>
+      <!-- <nuxt-link  id="navMbTel" :to="`tel: +852 ${smallPhoneNum}`" class="mbcc-boxInAA mbcc-boxInAA-1"></nuxt-link>
       <nuxt-link id="navMbWhatsapp" :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" target="_blank" class="mbcc-boxInAA mbcc-boxInAA-2"></nuxt-link>
       <div id="navMbContactFormBtn" class="mbcc-boxInAA mbcc-boxInAA-3" @click="handleNavFormNav">
         <img src="https://static.cmereye.com/imgs/2023/09/a8f9c3f82bbda125.png" alt="馬上預約">
         <span :class="{english:langType === 'english'}">馬上預約</span>
       </div>
       <div id="navMbWeChat" class="mbcc-boxInAA mbcc-boxInAA-4" @click="handlecopywechatcode"></div>
-      <!-- <div id="navMbWeChat" class="mbcc-boxInAA mbcc-boxInAA-4" @click="mbQDCodeBool = true"></div> -->
-      <nuxt-link id="navMbFacebook" to="https://www.facebook.com/ckjdental.hk/"  target="_blank" class="mbcc-boxInAA mbcc-boxInAA-5"></nuxt-link>
+      <nuxt-link id="navMbFacebook" to="https://www.facebook.com/ckjdental.hk/"  target="_blank" class="mbcc-boxInAA mbcc-boxInAA-5"></nuxt-link> -->
+      <nuxt-link class="navbar-content-mb-in" id="navMbWhatsapp" :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`">
+        <img src="@/assets/images/icon_28.svg" alt="">
+        <span>WhatsApp</span>
+      </nuxt-link>
+      <nuxt-link class="navbar-content-mb-in" id="navMbTel" :to="`tel: +852 ${smallPhoneNum}`">
+        <div class="navbar-content-mb-in-top">
+          <img src="@/assets/images/icon_29.svg" alt="">
+          <span>香港熱線</span>
+        </div>
+        <span class="navbar-content-mb-in-center">(852) {{smallPhoneNum}}</span>
+      </nuxt-link>
+      <div class="navbar-content-mb-in" id="navMbContactFormBtn" @click="handleNavFormNav">
+        <img src="@/assets/images/icon_30.svg" alt="">
+        <span>預約表格</span>
+      </div>
     </div>
     <div class="navForm" :style="{bottom: (appState.isShowForm ? '0' : '-150%')}">
       <ContactForm />
       <div class="navForm-icon" @click="navFormClose">
-        <img src="@/assets/images/icon_7.svg" alt="close">
-      </div>
-    </div>
-    <div class="navForm" :style="{bottom: (mbQDCodeBool ? '0' : '-150%')}">
-      <div class="qdCode">
-        <img src="https://static.cmereye.com/imgs/2023/09/a43a869a1fc07eea.jpg" alt="二维码" />
-      </div>
-      <div class="navForm-icon" @click="mbQDCodeBool = false">
         <img src="@/assets/images/icon_7.svg" alt="close">
       </div>
     </div>
@@ -400,17 +405,18 @@ let _bool = ref(false)
       }
     }
     &-mb{
-      display: block;
+      // display: block;
       width: 100%;
       height: auto;
-      background: #FFF;
-      box-shadow: 0px 4px 19px 0px rgba(0, 0, 0, 0.25);
+      // background: #FFF;
+      // box-shadow: 0px 4px 19px 0px rgba(0, 0, 0, 0.25);
+      filter: drop-shadow(0 -3px 5px rgba(252, 22, 130, .3));
       position: fixed;
       bottom: 0;
       left: 0;
       display: flex;
       justify-content: center;
-      padding: 0 10px;
+      // padding: 0 10px;
       padding-bottom: constant(safe-area-inset-bottom);
       padding-bottom: env(safe-area-inset-bottom);
       .mbcc-boxInAA{
@@ -468,6 +474,42 @@ let _bool = ref(false)
           background: url(https://static.cmereye.com/imgs/2023/07/d067e48cd2a6f7a4.png) no-repeat;
           background-position: center center;
           animation: fromLeft 1s none;
+        }
+      }
+      display: flex;
+      &-in{
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        background: var(--indexColor1);
+        color: #fff;
+        margin-top: 10px;
+        font-size: 16px;
+        line-height: 130%;
+        &-top{
+          display: flex;
+          align-items: center;
+          color: var(--indexColor1);
+          font-size: 20px;
+          line-height: 160%;
+          &>span{
+            margin-left: 8px;
+          }
+        }
+        &-center{
+          color: var(--textColor);
+        }
+        &:nth-of-type(2){
+          flex: 1.5;
+          background: #fff;
+          margin-top: 0;
+          border-radius: 10px 10px 0 0;
+          padding: 15px 0 10px;
+        }
+        &>span{
+          margin-top: 5px;
         }
       }
     }
