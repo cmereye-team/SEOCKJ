@@ -254,7 +254,7 @@ if(process.server){
         </nuxt-link>
         <span :title="'牙齒百科'">牙齒百科</span>
       </div>
-      <div class="articlePage-in" v-loading="pageLoading">
+      <div class="articlePage-in" v-if="!errorpage" v-loading="pageLoading">
         <!-- <div class="content-topimg">
             <img :src="coverageDeatail.img" :alt="coverageDeatail.name" :title="coverageDeatail.name">
         </div> -->
@@ -271,9 +271,9 @@ if(process.server){
         <div class="content-topimg" v-else>
             <img :src="coverageDeatail.img" :alt="coverageDeatail.name" :title="coverageDeatail.name">
         </div>
-        <!-- <div class="content-title">
+        <div class="content-title">
           <h1>{{coverageDeatail.name}}</h1>
-        </div> -->
+        </div>
         <div class="content" v-html="coverageDeatail.content">
           
         </div>
@@ -309,9 +309,9 @@ if(process.server){
           </div>
         </div>
       </div>
-      <!-- <div class="articlePage-err" v-else>
+      <div class="articlePage-err" v-else>
         <span>服務異常或内容已删除！</span>
-      </div> -->
+      </div>
       <!-- <div @click="handlegetData">獲取數據</div> -->
       <NewAddress />
     </div>
@@ -693,7 +693,7 @@ if(process.server){
         flex-wrap: wrap;
         margin-top: 30px;
         button,a{
-          font-size: 28px;
+          font-size: 22px;
           padding: 8px 29px;
           letter-spacing: 2px;
           width: calc(50% - 15px);

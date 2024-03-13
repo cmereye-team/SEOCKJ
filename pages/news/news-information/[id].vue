@@ -302,7 +302,7 @@ if(process.server){
               <div>更新時間︰{{coverageDeatail.time}}</div>
               <div class="righeBox">
                 <span class="copy" title="複製鏈接" @click="copyText"></span>
-                <!-- <a :href="`https://www.facebook.com/sharer/sharer.php?u=https://www.ckjhk.com/news/news-information/${_nid}`" target="_block" class="facebook" title="分享facebook"></a> -->
+                <a :href="`https://www.facebook.com/sharer/sharer.php?u=https://www.ckjhk.com/news/news-information/${_nid}`" target="_block" class="facebook" title="分享facebook"></a>
               </div>
             </div>
             <div class="btn">
@@ -661,7 +661,7 @@ if(process.server){
       .btn{
         flex-wrap: wrap;
         button,a{
-          font-size: 28px;
+          font-size: 22px;
           padding: 8px 29px;
           letter-spacing: 2px;
           width: calc(50% - 15px);

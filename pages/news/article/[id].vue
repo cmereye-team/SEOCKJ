@@ -21,7 +21,8 @@ let coverageDeatail = ref({
   visits: '',
   source: '',
   news_tag: '',
-  content: ''
+  content: '',
+  pics: []
 })
 useHead({
   title: pageType.value === '1'?'媒體報導': '最新資訊',
@@ -123,6 +124,7 @@ const getDetail = async () => {
     if(res){
       // console.log(res)
       let _data = res.data
+      let _Showpics = (_data.pics.split(',')[0] === '')
       coverageDeatail.value = {
         id: _data.id || '',
         logo: (_data.ext_news_logo.indexOf('/static/upload/image') !== -1 ? `https://admin.ckjhk.com${_data.ext_news_logo}`:_data.ext_news_logo) || '',
@@ -136,7 +138,10 @@ const getDetail = async () => {
         visits: _data.visits || '',
         source: _data.source || '',
         news_tag: _data.ext_news_tag || '',
-        content: _data.content || ''
+        content: _data.content || '',
+        pics: !_Showpics && _data.pics.split(',').map(tt=>{
+          return (tt.indexOf('/static/upload/image') !== -1 ? `https://admin.ckjhk.com${tt}`: tt) || ''
+        }) || []
       }
       changeassociationData(JSON.parse(_data.ext_news_association || "[]"))
     }
@@ -203,6 +208,21 @@ let associationData = ref({
   lists: <any>[]
 })
 
+
+let topimgSwiperRef = {
+  slideToLoop: (a)=>{}
+}
+const settopimgSwiperRef = (swiper:any) => {
+  topimgSwiperRef = swiper;
+}
+let topimgCur = ref(1)
+const handleLineCur = (_value) =>{
+  topimgSwiperRef.slideToLoop(_value-1)
+  topimgCur.value = _value
+}
+const changetopimg = (swiper:any) =>{
+  topimgCur.value = (swiper.realIndex ? Number(swiper.realIndex) : 0) + 1
+}
 // onMounted(()=>{
 //   setTimeout(()=>{
 //     getDetail()
@@ -237,7 +257,22 @@ if(process.server){
         <span :title="pageType.value === '2'?'最新資訊': '媒體報導'">{{pageType.value === '2'?'最新資訊': '媒體報導'}}</span>
       </div>
       <div class="articlePage-in" v-if="!errorpage" v-loading="pageLoading">
-        <!-- {{_nid}} -->
+        <div class="content-topimg" v-if="coverageDeatail.pics.length">
+          <Swiper @swiper="settopimgSwiperRef" @slideChange="changetopimg">
+            <Swiper-slide v-for="(topimg,topimgIndex) in coverageDeatail.pics" :key="topimgIndex">
+              <img :src="topimg" alt="">
+            </Swiper-slide>
+          </Swiper>
+          <div class="content-topimg-line" :style="{'max-width': (coverageDeatail.pics.length<5 ? `${50 * coverageDeatail.pics.length}px` : '330px')}" v-if="coverageDeatail.pics.length>1">
+            <PageSwiperPointLine :latestNewsNum="coverageDeatail.pics.length" :latestNewsCurrent="topimgCur" @changeLineCur="handleLineCur"></PageSwiperPointLine>
+          </div>
+        </div>
+        <div class="content-topimg" v-else>
+            <img :src="coverageDeatail.img" :alt="coverageDeatail.name" :title="coverageDeatail.name">
+        </div>
+        <div class="content-title">
+          <h1>{{coverageDeatail.name}}</h1>
+        </div>
         <div class="content" v-html="coverageDeatail.content">
           
         </div>
@@ -254,7 +289,7 @@ if(process.server){
               <div>更新時間︰{{coverageDeatail.time}}</div>
               <div class="righeBox">
                 <span class="copy" title="複製鏈接" @click="copyText"></span>
-                <!-- <a :href="`https://www.facebook.com/sharer/sharer.php?u=https://www.ckjhk.com/news/article/${_nid}`" target="_block" class="facebook" title="分享facebook"></a> -->
+                <a :href="`https://www.facebook.com/sharer/sharer.php?u=https://www.ckjhk.com/news/article/${_nid}`" target="_block" class="facebook" title="分享facebook"></a>
               </div>
             </div>
             <div class="news" v-if="pageType === '1'">
@@ -314,6 +349,24 @@ if(process.server){
     padding: 100px 0;
     text-align: center;
   }
+}
+.content-topimg{
+  width: 100%;
+  max-width: 960px;
+  margin: 63px auto 0;
+  img{
+    width: 100%;
+  }
+  &-line{
+    margin: 40px auto 50px;
+  }
+}
+.content-title{
+  width: calc(100% - 60px);
+  max-width: 960px;
+  margin: 30px auto 0;
+  color: var(--indexColor1);
+  font-size: 50px;
 }
 .content{
   width: calc(100% - 60px);
@@ -527,26 +580,34 @@ if(process.server){
     font-size: 1rem;
     margin-top: 0px;
   }
+  .content-topimg{
+    margin-top: 30px;
+  }
+  .content-title{
+    margin-top: 30px;
+    font-size: 28px;
+  }
   .content{
     width: 100%;
     margin-top: 30px;
     margin-bottom: 50px;
+    padding: 0 30px;
     :deep(.content-h1){
-      padding: 0 30px;
+      // padding: 0 30px;
       margin-top: 30px;
       font-size: 20px;
     }
     :deep(.content-time){
-      padding: 0 30px;
+      // padding: 0 30px;
       margin: 10px 0 30px;
       font-size: 16px;
     }
     :deep(.content-h2){
-      padding: 0 30px;
+      // padding: 0 30px;
       font-size: 20px;
     }
     :deep(.content-text){
-      padding: 0 30px;
+      // padding: 0 30px;
       font-size: 16px;
       display: inline-block;
       text-align: justify;
@@ -596,7 +657,7 @@ if(process.server){
       .btn{
         flex-wrap: wrap;
         button,a{
-          font-size: 28px;
+          font-size: 22px;
           padding: 8px 29px;
           letter-spacing: 2px;
           width: calc(50% - 15px);
