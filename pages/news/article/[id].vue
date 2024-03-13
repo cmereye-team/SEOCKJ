@@ -50,7 +50,7 @@ useHead({
     },
     {
       property: 'og:site_name',
-      content: 'ckjhk.com',
+      content: '媒體報導 | 深圳愛康健口腔醫院',
     },
     {
       property: 'og:url',

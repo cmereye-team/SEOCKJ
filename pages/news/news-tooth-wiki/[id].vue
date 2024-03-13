@@ -20,7 +20,8 @@ let coverageDeatail = ref({
   content: '',
   pics: [],
   btnText: '',
-  btnLink: ''
+  btnLink: '',
+  hashtag: []
 })
 useHead({
   title: '牙齒百科',
@@ -49,7 +50,7 @@ useHead({
     },
     {
       property: 'og:site_name',
-      content: 'ckjhk.com',
+      content: '牙齒百科 | 深圳愛康健口腔醫院',
     },
     {
       property: 'og:url',
@@ -106,7 +107,7 @@ const formatDate = (dateString) =>{
     var year = date.getFullYear();  
     var month = ("0" + (date.getMonth() + 1)).slice(-2); // getMonth() is zero-based  
     var day = ("0" + date.getDate()).slice(-2);  
-    return year + "年" + month + "月" + day + "日";  
+    return year + "-" + month + "-" + day;  
 }  
 const getDetail = async () => {
   pageLoading.value = true
@@ -141,7 +142,8 @@ const getDetail = async () => {
           return (tt.indexOf('/static/upload/image') !== -1 ? `https://admin.ckjhk.com${tt}`: tt) || ''
         }) || [],
         btnText: _data.ext_news_btn_text || '',
-        btnLink: _data.ext_news_btn_link || ''
+        btnLink: _data.ext_news_btn_link || '',
+        hashtag: _data.ext_news_hashtag.split(',') || [],
       }
       changeassociationData(JSON.parse(_data.ext_news_association || "[]"))
     }
@@ -257,8 +259,6 @@ if(process.server){
             <img :src="coverageDeatail.img" :alt="coverageDeatail.name" :title="coverageDeatail.name">
         </div> -->
         <div class="content-topimg" v-if="coverageDeatail.pics.length">
-          <!-- {{coverageDeatail.pics}} -->
-          <!-- <img :src="coverageDeatail.pics" alt=""> -->
           <Swiper @swiper="settopimgSwiperRef" @slideChange="changetopimg">
             <Swiper-slide v-for="(topimg,topimgIndex) in coverageDeatail.pics" :key="topimgIndex">
               <img :src="topimg" alt="">
@@ -271,14 +271,23 @@ if(process.server){
         <div class="content-topimg" v-else>
             <img :src="coverageDeatail.img" :alt="coverageDeatail.name" :title="coverageDeatail.name">
         </div>
-        <div class="content-title">
+        <!-- <div class="content-title">
           <h1>{{coverageDeatail.name}}</h1>
-        </div>
+        </div> -->
         <div class="content" v-html="coverageDeatail.content">
           
         </div>
         <div class="content-bbtn" v-if="coverageDeatail.btnText !== ''">
-          <PageAnimBtnTypeTwo :link="coverageDeatail.btnLink" :str="coverageDeatail.btnText" />
+          <div class="content-bbtn-in">
+            <PageAnimBtnTypeTwo :link="coverageDeatail.btnLink" :str="coverageDeatail.btnText" />
+            <img class="content-bbtn-in-img" src="@/assets/images/icon_35.svg" alt="">
+          </div>
+          
+        </div>
+        <div class="content-hashtag">
+          <div class="content-hashtag-in" v-for="(hashtagItem,hashtagIndex) in coverageDeatail.hashtag" :key="hashtagIndex">
+            {{hashtagItem}}
+          </div>
         </div>
         <div class="content-bdetail">
           <div class="content-bdetail-in">
@@ -426,6 +435,33 @@ if(process.server){
   display: flex;
   justify-content: center;
   padding: 50px 0;
+  position: relative;
+  &-in{
+    position: relative;
+    &-img{
+      position: absolute;
+      z-index: 1;
+      right: -5px;
+      bottom: -5px;
+      width: 45px;
+    }
+  }
+  
+}
+.content-hashtag{
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(100% - 60px);
+  max-width: 960px;
+  margin: 30px auto 100px;
+  &-in{
+    font-size: 20px;
+    line-height: 100%;
+    color: var(--textColor);
+    border-bottom: 1px solid var(--textColor);
+    margin-bottom: 20px;
+    margin-right: 20px;
+  }
 }
 .content-bdetail{
   background: linear-gradient(180deg, rgba(252, 22, 130, 0.40) -68.47%, rgba(252, 22, 130, 0.28) -68.46%, rgba(255, 168, 198, 0.00) 63.88%);
@@ -534,6 +570,17 @@ if(process.server){
     }
   }
 }
+@media (min-width: 768px) and (max-width: 1600px) {
+  .content-bbtn{
+    &-in{
+      &-img{
+        width: 3.5vw;
+        max-width: 45px;
+        min-width: 35px;
+      }
+    }
+  }
+}
 @media (min-width: 768px) and (max-width: 850px) {
   .content-bdetail{
     .btn{
@@ -542,6 +589,7 @@ if(process.server){
       }
     }
   }
+  
 }
 @media screen and (max-width: 768px) {
   .articlePage{
@@ -566,9 +614,15 @@ if(process.server){
     // width: 100%;
     margin-bottom: 50px;
     :deep(.content-h1){
-      padding: 0 30px;
+      // padding: 0 30px;
       margin-top: 30px;
       font-size: 20px;
+      span{
+        font-size: 28px !important;
+        font-weight: 500 !important;
+        line-height: 44.8px;
+        font-family: var(--indexFontFamily) !important;
+      }
     }
     :deep(.content-time){
       padding: 0 30px;
@@ -599,12 +653,24 @@ if(process.server){
   }
   .content-bbtn{
     padding: 0 0 50px;
+    &-in{
+      &-img{
+        width: 30px;
+      }
+    }
+  }
+  .content-hashtag{
+    margin: 0px auto 50px;
+    &-in{
+      font-size: 16px;
+    }
   }
   .content-bdetail{
     &-in{
       padding: 35px 0 0;
       .context{
         font-size: 15px;
+        letter-spacing: 1px;
         .righeBox{
           span,a{
             width: 40px;
@@ -625,6 +691,7 @@ if(process.server){
       }
       .btn{
         flex-wrap: wrap;
+        margin-top: 30px;
         button,a{
           font-size: 28px;
           padding: 8px 29px;

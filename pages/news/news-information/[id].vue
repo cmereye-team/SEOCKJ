@@ -47,7 +47,7 @@ useHead({
     },
     {
       property: 'og:site_name',
-      content: 'ckjhk.com',
+      content: '最新資訊 | 深圳愛康健口腔醫院',
     },
     {
       property: 'og:url',

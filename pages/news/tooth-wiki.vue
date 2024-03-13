@@ -389,12 +389,12 @@ const getPagination = (pageitem) => {
       &-context{
         &-top{
           .title{
-            font-size: 3vw;
+            font-size: 2.4vw;
           }
           
         }
         .desc{
-          font-size: 1.4vw; 
+          font-size: 1.2vw; 
           -webkit-line-clamp: 5; 
           line-clamp: 5;
         }
