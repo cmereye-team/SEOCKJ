@@ -557,6 +557,9 @@ let _bool = ref(false)
         display: flex;
       }
     }
+    &-whatApp{
+      display:none;
+    }
     &-mb{
       // display: block;
       width: 100%;
