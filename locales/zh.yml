@@ -22,6 +22,7 @@ components:
         name: 睇牙新信息
         coverage: 媒体报导
         information: 最新信息
+        tooth-wiki: 牙齒百科
       menu_medical_team:
         name: 医生团队
       menu_caseSharing:

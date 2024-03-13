@@ -22,6 +22,7 @@ components:
         name: 'Look at the new information'
         coverage: 'Media reports'
         information: 'Latest information'
+        tooth-wiki: 牙齒百科
       menu_medical_team: 
         name: 'medical team'
       menu_caseSharing: 

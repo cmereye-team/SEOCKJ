@@ -148,6 +148,10 @@ const menuLists = [
         name: 'components.header.menuLists.menu_news.information',
         link: '/news/information',
       },
+      // {
+      //   name: 'components.header.menuLists.menu_news.tooth-wiki',
+      //   link: '/news/tooth-wiki',
+      // },
     ]
   },
   {
