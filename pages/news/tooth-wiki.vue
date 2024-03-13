@@ -126,10 +126,10 @@ onMounted(()=>{
 })
 
 
-if(process.server){
+// if(process.server){
   // console.log('server');
-  getNewsLists()
-}
+  // getNewsLists()
+// }
 
 const getPagination = (pageitem) => {
   if(actPageNum.value>=4 && actPageNum.value<totalPageNum.value-3){

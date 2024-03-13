@@ -4,34 +4,6 @@ import { log } from "console"
 const route = useRoute()
 const router = useRouter()
 let _nid = route.params.id
-useHead({
-  title: '牙齒百科',
-  meta: [
-    {
-      hid: 'description',
-      name: 'description',
-      content: '愛康健作為深圳愛康健口腔醫院是一家專業口腔醫院，秉承著「專科·專業」的服務理念，科學、合理地整合醫療資源。我們的醫師團隊均畢業於國內知名口腔學院，包括種植醫師、美學修復醫師、牙周病醫師等專業人員。他們帶領著醫護人員共同構成我們的服務團隊，為患者提供專業、優質的口腔醫療服務。',
-    },
-    {
-      hid: 'Keywords',
-      name: 'Keywords',
-      content: '愛康健 深圳愛康健 深圳專業牙科中心 愛康健醫院 愛康健口腔醫院 深圳愛康健口腔醫院愛康健 CKJ愛康健齒科集團 深圳口腔專科醫院 愛康健齒科集團 深圳牙科醫院牙科服務內地牙科 深圳口腔專科 基本牙科 美容牙科 高階牙科 愛康健',
-    },
-  ],
-})
-
-const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2024/02/3b281359c56b586d.jpg',
-  bg: '',
-  mbImg: 'https://static.cmereye.com/imgs/2024/02/7efb3f385ea64b26.jpg',
-  pageName: 'coverage',
-  pcText: [],
-  mbText: []
-}
-
-
-let errorpage = ref(false)
-let pageLoading = ref(false)
 let coverageDeatail = ref({
   logo: '',
   link: '',
@@ -50,6 +22,63 @@ let coverageDeatail = ref({
   btnText: '',
   btnLink: ''
 })
+useHead({
+  title: '牙齒百科',
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content: '愛康健作為深圳愛康健口腔醫院是一家專業口腔醫院，秉承著「專科·專業」的服務理念，科學、合理地整合醫療資源。我們的醫師團隊均畢業於國內知名口腔學院，包括種植醫師、美學修復醫師、牙周病醫師等專業人員。他們帶領著醫護人員共同構成我們的服務團隊，為患者提供專業、優質的口腔醫療服務。',
+    },
+    {
+      hid: 'Keywords',
+      name: 'Keywords',
+      content: '愛康健 深圳愛康健 深圳專業牙科中心 愛康健醫院 愛康健口腔醫院 深圳愛康健口腔醫院愛康健 CKJ愛康健齒科集團 深圳口腔專科醫院 愛康健齒科集團 深圳牙科醫院牙科服務內地牙科 深圳口腔專科 基本牙科 美容牙科 高階牙科 愛康健',
+    },
+    {
+      property: 'og:title',
+      content: ()=>{
+        return coverageDeatail.value.name
+      },
+    },
+    {
+      property: 'og:description',
+      content: ()=>{ 
+        return coverageDeatail.value.desc
+      }
+    },
+    {
+      property: 'og:site_name',
+      content: 'ckjhk.com',
+    },
+    {
+      property: 'og:url',
+      content: ()=>{
+        return 'https://www.ckjhk.com/news/news-tooth-wiki/' + coverageDeatail.value.id
+      },
+    },
+    {
+      property: 'og:image',
+      content: ()=>{
+        return coverageDeatail.value.img
+      },
+    }
+  ],
+})
+
+const headerConfig = {
+  img: 'https://static.cmereye.com/imgs/2024/02/3b281359c56b586d.jpg',
+  bg: '',
+  mbImg: 'https://static.cmereye.com/imgs/2024/02/7efb3f385ea64b26.jpg',
+  pageName: 'coverage',
+  pcText: [],
+  mbText: []
+}
+
+
+let errorpage = ref(false)
+let pageLoading = ref(false)
+
 function copySpecifiedText(text) {  
     if (navigator.clipboard) {  
         navigator.clipboard.writeText(text).then(function() {  
@@ -114,31 +143,6 @@ const getDetail = async () => {
         btnText: _data.ext_news_btn_text || '',
         btnLink: _data.ext_news_btn_link || ''
       }
-      useHead({
-        meta: [
-          {
-            property: 'og:title',
-            content: coverageDeatail.value.name || '',
-          },
-          {
-            property: 'og:description',
-            content: coverageDeatail.value.desc || '',
-          },
-          {
-            property: 'og:site_name',
-            content: 'ckjhk.com',
-          },
-          {
-            property: 'og:url',
-            content: window.location.href,
-          },
-          {
-            property: 'og:image',
-            content: coverageDeatail.value.img || '',
-          }
-        ]
-      })
-      // console.log(coverageDeatail.value.pics)
       changeassociationData(JSON.parse(_data.ext_news_association || "[]"))
     }
   }catch{
@@ -248,7 +252,7 @@ if(process.server){
         </nuxt-link>
         <span :title="'牙齒百科'">牙齒百科</span>
       </div>
-      <div class="articlePage-in" v-if="!errorpage" v-loading="pageLoading">
+      <div class="articlePage-in" v-loading="pageLoading">
         <!-- <div class="content-topimg">
             <img :src="coverageDeatail.img" :alt="coverageDeatail.name" :title="coverageDeatail.name">
         </div> -->
@@ -279,12 +283,12 @@ if(process.server){
         <div class="content-bdetail">
           <div class="content-bdetail-in">
             <div class="context">
-              <div>資料來源︰<a :href="coverageDeatail.source">原文鏈接</a></div>
+              <!-- <div>資料來源︰<a :href="coverageDeatail.source">原文鏈接</a></div> -->
               <div>瀏覽次數︰{{coverageDeatail.visits || 0}}</div>
               <div>更新時間︰{{coverageDeatail.time}}</div>
               <div class="righeBox">
                 <span class="copy" title="複製鏈接" @click="copyText"></span>
-                <!-- <a :href="`https://www.facebook.com/sharer/sharer.php?u=https://www.ckjhk.com/news/news-tooth-wiki/${_nid}`" target="_block" class="facebook" title="分享facebook"></a> -->
+                <a :href="`https://www.facebook.com/sharer/sharer.php?u=https://www.ckjhk.com/news/news-tooth-wiki/${_nid}`" target="_block" class="facebook" title="分享facebook"></a>
               </div>
             </div>
             <div class="btn">
@@ -296,9 +300,9 @@ if(process.server){
           </div>
         </div>
       </div>
-      <div class="articlePage-err" v-else>
+      <!-- <div class="articlePage-err" v-else>
         <span>服務異常或内容已删除！</span>
-      </div>
+      </div> -->
       <!-- <div @click="handlegetData">獲取數據</div> -->
       <NewAddress />
     </div>

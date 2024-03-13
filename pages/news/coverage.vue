@@ -76,17 +76,17 @@ const getData = () => {
   getNewsLists()
 }
 
-// onMounted(()=>{
-//   setTimeout(()=>{
-//     getNewsLists()
-//   })
-// })
+onMounted(()=>{
+  setTimeout(()=>{
+    getNewsLists()
+  })
+})
 if(process.server){
   // console.log('server');
   getNewsLists()
 }else{
   // console.log('client');
-  getNewsLists()
+  // getNewsLists()
 }
 </script>
 

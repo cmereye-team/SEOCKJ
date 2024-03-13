@@ -40,7 +40,7 @@ let maxPage = 50;
 let serverInformationLists:any = ref([])
 const getServerNewsLists = async () => {
   try{
-    const _res:any = await useFetch(`https://admin.ckjhk.com/api.php/list/15/page/${pageNumber.value}/num/100`,{
+    const _res:any = await useFetch(`https://admin.ckjhk.com/api.php/list/16/page/${pageNumber.value}/num/100`,{
       method: 'post',
     });
     let res = JSON.parse(_res.data.value) || null
@@ -51,8 +51,7 @@ const getServerNewsLists = async () => {
           id: item.id || '',
           img: (item.ico.indexOf('/static/upload/image') !== -1 ? `https://admin.ckjhk.com${item.ico}`:item.ico) || '',
           desc: item.ext_news_desc || '',
-          name: item.title || '',
-          time: formatDate(item.ext_news_time) || ''
+          name: item.title || ''
         }
       })
       serverInformationLists.value = [...serverInformationLists.value, ..._arr]
@@ -60,17 +59,19 @@ const getServerNewsLists = async () => {
         pageNumber.value++
         getServerNewsLists()
       }
+      console.log(serverInformationLists);
+      
     }
   }catch{
     console.log('error')
   }
 }
 
-// onMounted(()=>{
-//   setTimeout(()=>{
-//     getServerNewsLists()
-//   })
-// })
+onMounted(()=>{
+  setTimeout(()=>{
+    getServerNewsLists()
+  })
+})
 if(process.server){
   getServerNewsLists()
 }else{
@@ -83,7 +84,7 @@ if(process.server){
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor informationPage">
-      <div class="index_title pageCon informationPage-title" id="information">最新資訊</div>
+      <div class="index_title pageCon informationPage-title" id="information">牙齒百科</div>
       <div class="tabNav noTitle pageCon">
         <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
           <span>主頁</span>
@@ -91,11 +92,11 @@ if(process.server){
         <nuxt-link :to="''">
           <span>睇牙新資訊</span>
         </nuxt-link>
-        <span :title="'最新資訊'">最新資訊</span>
+        <span :title="'牙齒百科'">牙齒百科</span>
       </div>
       <div class="pageCon">
         <div class="serveLink">
-          <nuxt-link :to="`/news/news-information/${serverItem.id}`" v-for="(serverItem,serverIndex) in serverInformationLists" :key="serverIndex">
+          <nuxt-link :to="`/news/news-tooth-wiki/${serverItem.id}`" v-for="(serverItem,serverIndex) in serverInformationLists" :key="serverIndex">
             {{serverItem.name}}
           </nuxt-link>
         </div>
