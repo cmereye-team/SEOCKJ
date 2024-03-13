@@ -67,6 +67,19 @@ let _bool = ref(false)
 
 <template>
   <div class="navbar-content" :style="{'z-index': appState.isShowForm ? 100 : 50}">
+    <div class="navbar-content-whatApp">
+      <div class="navbar-content-whatApp-icon">
+        <img class="navbar-content-whatApp-icon-in" src="https://static.cmereye.com/imgs/2024/03/22dd0fd2c5f7164e.png" alt="">
+        <img class="navbar-content-whatApp-icon-right" src="https://static.cmereye.com/imgs/2024/03/3fee6b4b5c9a323a.png" alt="">
+      </div>
+      <nuxt-link class="navbar-content-whatApp-btn" id="navPcWhatsapp" :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" title="WhatsApp" target="_blank">
+        <div class="navbar-content-whatApp-btn-text">立即</div>
+        <div class="navbar-content-whatApp-btn-img">
+          <img src="@/assets/images/navIcon_2.png" alt="">
+        </div>
+        <div class="navbar-content-whatApp-btn-text">預約</div>
+      </nuxt-link>
+    </div>
     <div class="navbar-content-in" id="navPcTel" title="致電">
       <div class="navbarBox">
         <div class="navbarBox-in">
@@ -74,8 +87,8 @@ let _bool = ref(false)
         </div>
       </div>
     </div>
-    <nuxt-link class="navbar-content-in" id="navPcWhatsapp" :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" title="WhatsApp" target="_blank">
-    </nuxt-link>
+    <!-- <nuxt-link class="navbar-content-in" id="navPcWhatsapp" :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" title="WhatsApp" target="_blank">
+    </nuxt-link> -->
     <!-- <div class="navbar-content-in" id="navPcWeChat" title="WeChat">
       <div class="navbarBox">
         <div class="navbarBox-in">
@@ -140,6 +153,61 @@ let _bool = ref(false)
   </div>
 </template>
 <style lang="scss" scoped>
+@keyframes whatAppIconAnim {
+  0%{
+    transform: rotate(0deg);
+  }
+  5%{
+    transform: rotate(-10deg);
+  }
+  10%{
+    transform: rotate(10deg);
+  }
+  15%{
+    transform: rotate(-10deg);
+  }
+  20%{
+    transform: rotate(10deg);
+  }
+  25%{
+    transform: rotate(-10deg);
+  }
+  30%{
+    transform: rotate(10deg);
+  }
+  35%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(0deg);
+  }
+}
+@keyframes btntestafterAnima {
+  0%{
+    width: 90%;
+    height: 90%;
+    border: 10px solid #86F99B;
+  }
+  19%{
+    border: 10px solid rgba(134, 249, 155, .5);
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+  }
+  24%{
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+  }
+  29%{
+    border: 0 solid rgba(134, 249, 155, 0);
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+  }
+  100%{
+    border: 0 solid rgba(134, 249, 155, 0);
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+  }
+}
 @keyframes animLeftIn {
   from{
   }
@@ -151,7 +219,7 @@ let _bool = ref(false)
 .navbar-content {
   width: 66px;
   position: fixed;
-  right: 3vw;
+  right: 4.5vw;
   top: 30vh;
   z-index: 50;
   &-in {
@@ -159,7 +227,7 @@ let _bool = ref(false)
     height: 66px;
     margin-bottom: 13px;
     cursor: pointer;
-    background: var(--indexColor3);
+    background: var(--indexColor1);
     border-radius: 33px;
     display: flex;
     justify-content: center;
@@ -214,10 +282,79 @@ let _bool = ref(false)
       width: 40px;
     }
     &:hover{
-      background: var(--indexColor1);
+      background: var(--indexColor3);
       .navbarBox{
         display: flex;
         animation: animLeftIn 1s forwards;
+      }
+    }
+  }
+  &-whatApp{
+    margin-left: calc(132px - 200px);
+    width: 200px;
+    position: relative;
+    margin-bottom: 30px;
+    &-icon{
+      position: relative;
+      width: 90%;
+      &-in{
+        width: 100%;
+      }
+      &-right{
+        position: absolute;
+        width: calc(51 / 197 * 100%);
+        right: 10px;
+        bottom: 10px;
+        animation: whatAppIconAnim 5s infinite;
+        transform-origin: bottom center;
+      }
+    }
+    &-btn{
+      display: flex;
+      height: 44px;
+      margin-top: -30px;
+      background: var(--indexColor1);
+      border-radius: 50px;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+      &-text{
+        color: #fff;
+        line-height: 1;
+        font-size: 23px;
+      }
+      &-img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 66px;
+        height: 66px;
+        background: #86F99B;
+        border-radius: 50%;
+        margin: 0 5px;
+        position: relative;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+        img{
+          width: 60%;
+          width: 60%;
+        }
+        &::after{
+          content: '';
+          position: absolute;
+          display: inline-block;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          -webkit-transform: translate(-50%, -50%);
+          width: 100%;
+          height: 100%;
+          border: 10px solid #86F99B;
+          z-index: 0;
+          border-radius: 70px;
+          animation: btntestafterAnima 5.6s infinite;
+          transition: all .5s;
+        }
       }
     }
   }
@@ -231,11 +368,11 @@ let _bool = ref(false)
     background-repeat: no-repeat;
     background-position: 50%;
   }
-  #navPcWhatsapp{
-    background-image:url(@/assets/images/navIcon_2.png);
-    background-repeat: no-repeat;
-    background-position: 50%;
-  }
+  // #navPcWhatsapp{
+  //   background-image:url(@/assets/images/navIcon_2.png);
+  //   background-repeat: no-repeat;
+  //   background-position: 50%;
+  // }
   #navPcFaceBook{
     background-image:url(@/assets/images/navIcon_6.png);
   }
@@ -356,6 +493,22 @@ let _bool = ref(false)
       }
       img{
         width: 30px;
+      }
+    }
+    &-whatApp{
+      margin-left: calc(100px - 150px);
+      width: 150px;
+      margin-bottom: 20px;
+      &-btn{
+        margin-top: -20px;
+        height: 35px;
+        &-text{
+          font-size: 16px;
+        }
+        &-img{
+          width: 50px;
+          height: 50px;
+        }
       }
     }
     #navPcTel{
