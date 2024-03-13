@@ -312,7 +312,7 @@ let _bool = ref(false)
     &-btn{
       display: flex;
       height: 44px;
-      margin-top: -30px;
+      margin-top: -25px;
       background: var(--indexColor1);
       border-radius: 50px;
       align-items: center;
