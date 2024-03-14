@@ -240,9 +240,10 @@ defineProps({
           margin-top: 13px;
         }
         .image {
-          width: 223px;
-          height: 223px;
-          margin: 20px 0 0 60px;
+          max-width: 223px;
+          width: calc(223 / 288 * 100%);
+          height: auto;
+          margin: 20px 0 0 calc(60 / 288 * 100%);
         }
       }
       &-r {
