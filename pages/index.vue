@@ -697,7 +697,7 @@ svg:hover path{
     align-items: flex-end;
   }
   &-con{
-    // width: 80%;
+    width: 80%;
     max-width: 1365px;
     margin: 30px auto 0;
   }
@@ -1068,6 +1068,7 @@ svg:hover path{
         margin-top: 20px;
         display: flex;
         justify-content: center;
+        line-height: 1.6;
       }
       a{
         display: block;
@@ -1114,11 +1115,8 @@ svg:hover path{
     }
   }
 }
-@media (min-width: 1452px) and (max-width: 1600px){
+@media (min-width: 1452px) and (max-width: 1800px){
   .index-doctorTeam{
-    &-con{
-      // width: 80%;
-    }
     &-tab1{
       :deep(.areaTab){
         div{
@@ -1130,6 +1128,31 @@ svg:hover path{
       &-in{
         &>div{
           font-size: 24px;
+        }
+      }
+    }
+  }
+  .index-org{
+    &-tag{
+      &-in{
+        font-size: 2vw;
+      }
+    }
+  }
+  .treatment-data{
+    &-in{
+      .dataBox{
+        .num{
+          font-size: 3vw;
+          .numIn{
+            height: 6vw;
+            span{
+              line-height: 6vw;
+            }
+          }
+        }
+        .name{
+          font-size: 1.6vw;
         }
       }
     }
@@ -1200,6 +1223,31 @@ svg:hover path{
       }
     }
   }
+  .index-org{
+    &-tag{
+      &-in{
+        font-size: 2vw;
+      }
+    }
+  }
+  .treatment-data{
+    &-in{
+      .dataBox{
+        .num{
+          font-size: 3vw;
+          .numIn{
+            height: 6vw;
+            span{
+              line-height: 6vw;
+            }
+          }
+        }
+        .name{
+          font-size: 1.6vw;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -1233,6 +1281,9 @@ svg:hover path{
   .index-doctorTeam{
     margin: 90px 0;
     width: 100%;
+    &-con{
+      width: 100%;
+    }
     &-t{
       flex-direction: column;
       align-items: flex-start;

@@ -50,11 +50,6 @@ const activeNames = ref(0)
 <style lang="scss" scoped>
 .problem {
   margin-top: 98px;
-  &-title {
-    &-in {
-      font-size: 50px;
-    }
-  }
   &-in {
     margin-top: 35px;
     width: 100%;

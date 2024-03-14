@@ -821,11 +821,6 @@ const doctorData = {
         max-width: 803px;
         margin: 0 auto;
       }
-      &-title{
-        &-in{
-          font-size: 50px;
-        }
-      }
       &-lists{
         margin-top: 98px;
         display: flex;
@@ -904,11 +899,6 @@ const doctorData = {
       width: 100%;
       max-width: 1450px;
       margin: 200px auto 0;
-      &-title{
-        &-in{
-          font-size: 50px;
-        }
-      }
       &-topText,&-bottomText{
         width: 100%;
         span{
@@ -993,11 +983,6 @@ const doctorData = {
         width: 100%;
         max-width: 1444px;
         margin: 0 auto;
-      }
-      &-title{
-        &-in{
-          font-size: 50px;
-        }
       }
       &-lists{
         margin-top: 98px;
@@ -1156,11 +1141,6 @@ const doctorData = {
     }
     .note{
       margin-top: 206px;
-      &-title{
-        &-in{
-          font-size: 50px;
-        }
-      }
       .noteCard{
         display: flex;
         flex-wrap: wrap;

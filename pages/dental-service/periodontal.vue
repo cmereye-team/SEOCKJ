@@ -507,11 +507,6 @@ const reason2Data = {
 <style lang="scss" scoped>
 .reason {
   margin-top: 188px;
-  &-title {
-    &-in {
-      font-size: 50px;
-    }
-  }
   &-lists {
     width: 100%;
     max-width: 1656px;
@@ -542,11 +537,6 @@ const reason2Data = {
 }
 .reason2 {
   margin-top: 150px;
-  &-title {
-    &-in {
-      font-size: 50px;
-    }
-  }
   &-lists {
     width: 100%;
     max-width: 1656px;
@@ -588,11 +578,6 @@ const reason2Data = {
   width: 100%;
   max-width: 1200px;
   margin: 126px auto 0;
-  &-title {
-    &-in {
-      font-size: 50px;
-    }
-  }
   &-lists{
     display: flex;
     flex-wrap: wrap;
@@ -678,11 +663,6 @@ const reason2Data = {
 }
 .care {
   margin-top: 140px;
-  &-title {
-    &-in {
-      font-size: 50px;
-    }
-  }
   &-lists {
     display: flex;
     flex-wrap: wrap;

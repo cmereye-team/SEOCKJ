@@ -1368,168 +1368,169 @@ const handleopenwechat = () =>{
   display: none;
 }
 
-@media (min-width: 768px) and (max-width: 1000px) {
-  .header-content {
-    &-bgImg {
-      &-in {
-        left: 50%;
-        .bannerTitle {
-          font-size: 2rem;
-          line-height: 130%;
-          span {
-            display: block;
-            &:last-child {
-              margin-left: 10%;
-            }
-          }
-        }
-        .text {
-          margin-top: 1%;
-          font-size: 1.2rem;
-          line-height: 130%;
-          span {
-            font-size: 1.2rem;
-            color: var(--indexColor);
-          }
-        }
-      }
-    }
-    &-text-implant {
-      // bottom: 60px;
-      div{
-        width: calc(80%);
-        margin: 0 auto;
-        // font-size: 2vw;
-      }
-    }
-    &-btn-implant{
-      bottom: auto;
-      span{
-        font-size: 2vw;
-        padding: 5px 4vw;
-      }
-    }
-    &-in{
-      width: calc(80% + 60px);
-    }
-    &-bgImgBB{
-      width: 100%;
-    }
-    .waterBg {
-      &.implant,
-      &.rootCanal-test,
-      &.periodontal-test,
-      &.orthodontics-test,
-      &.invisalign-test,
-      &.veneers-test,
-      &.health-care-voucher,
-      &.scaling-and-polishing-test {
-        bottom: 60px;
-      }
-    }
-    .pcMenuBox {
-      &.health-care-voucher{
-        margin-top: 60px;
-      }
-    }
-  }
-  .waterBg::after,
-  .waterBg::before {
-    height: 160px;
-  }
-}
-@media (min-width: 1001px) and (max-width: 1452px) {
-  .header-content {
-    &-in{
-      width: calc(80% + 60px);
-      padding: 10px 10px 0 30px;
-      .logo{
-        width: 200px;
-        margin-bottom: 15px;
-      }
-    }
-    .waterBg {
-      &.implant,
-      &.rootCanal-test,
-      &.periodontal-test,
-      &.orthodontics-test,
-      &.invisalign-test,
-      &.veneers-test,
-      &.health-care-voucher,
-      &.scaling-and-polishing-test {
-        bottom: 65px;
-      }
-      // &.health-care-voucher{
-      //   bottom: 70px;
-      // }
-    }
-    &-text-implant {
-      bottom: 80px;
-      &.health-care-voucher{
-        bottom: 100px;
-      }
-      div{
-        width: calc(80%);
-        margin: 0 auto;
-      }
-    }
-    &-bgImg {
-      &-in {
-        top: 30%;
-        .bannerTitle {
-          font-size: 2.5rem;
-          line-height: 130%;
-          span {
-            display: block;
-            &:last-child {
-              margin-left: 15%;
-            }
-          }
-        }
-        .text {
-          margin-top: 2%;
-          font-size: 1.4rem;
-          line-height: 130%;
-          span {
-            font-size: 1.4rem;
-            color: var(--indexColor);
-          }
-        }
-      }
-    }
-    &-bgImgBB{
-      width: 100%;
-    }
-    &-btn-implant{
-      bottom: 18vw;
-      span{
-        font-size: 2vw;
-        padding: 5px 4vw;
-      }
-    }
-  }
-}
+// @media (min-width: 768px) and (max-width: 1000px) {
+//   .header-content {
+//     &-bgImg {
+//       &-in {
+//         left: 50%;
+//         .bannerTitle {
+//           font-size: 2rem;
+//           line-height: 130%;
+//           span {
+//             display: block;
+//             &:last-child {
+//               margin-left: 10%;
+//             }
+//           }
+//         }
+//         .text {
+//           margin-top: 1%;
+//           font-size: 1.2rem;
+//           line-height: 130%;
+//           span {
+//             font-size: 1.2rem;
+//             color: var(--indexColor);
+//           }
+//         }
+//       }
+//     }
+//     &-text-implant {
+//       // bottom: 60px;
+//       div{
+//         width: calc(80%);
+//         margin: 0 auto;
+//         // font-size: 2vw;
+//       }
+//     }
+//     &-btn-implant{
+//       bottom: auto;
+//       span{
+//         font-size: 2vw;
+//         padding: 5px 4vw;
+//       }
+//     }
+//     &-in{
+//       width: calc(80% + 60px);
+//     }
+//     &-bgImgBB{
+//       width: 100%;
+//     }
+//     .waterBg {
+//       &.implant,
+//       &.rootCanal-test,
+//       &.periodontal-test,
+//       &.orthodontics-test,
+//       &.invisalign-test,
+//       &.veneers-test,
+//       &.health-care-voucher,
+//       &.scaling-and-polishing-test {
+//         bottom: 60px;
+//       }
+//     }
+//     .pcMenuBox {
+//       &.health-care-voucher{
+//         margin-top: 60px;
+//       }
+//     }
+//   }
+//   .waterBg::after,
+//   .waterBg::before {
+//     height: 160px;
+//   }
+// }
+// @media (min-width: 1001px) and (max-width: 1452px) {
+//   .header-content {
+//     &-in{
+//       width: calc(80% + 60px);
+//       padding: 10px 10px 0 30px;
+//       .logo{
+//         width: 200px;
+//         margin-bottom: 15px;
+//       }
+//     }
+//     .waterBg {
+//       &.implant,
+//       &.rootCanal-test,
+//       &.periodontal-test,
+//       &.orthodontics-test,
+//       &.invisalign-test,
+//       &.veneers-test,
+//       &.health-care-voucher,
+//       &.scaling-and-polishing-test {
+//         bottom: 65px;
+//       }
+//       // &.health-care-voucher{
+//       //   bottom: 70px;
+//       // }
+//     }
+//     &-text-implant {
+//       bottom: 80px;
+//       &.health-care-voucher{
+//         bottom: 100px;
+//       }
+//       div{
+//         width: calc(80%);
+//         margin: 0 auto;
+//       }
+//     }
+//     &-bgImg {
+//       &-in {
+//         top: 30%;
+//         .bannerTitle {
+//           font-size: 2.5rem;
+//           line-height: 130%;
+//           span {
+//             display: block;
+//             &:last-child {
+//               margin-left: 15%;
+//             }
+//           }
+//         }
+//         .text {
+//           margin-top: 2%;
+//           font-size: 1.4rem;
+//           line-height: 130%;
+//           span {
+//             font-size: 1.4rem;
+//             color: var(--indexColor);
+//           }
+//         }
+//       }
+//     }
+//     &-bgImgBB{
+//       width: 100%;
+//     }
+//     &-btn-implant{
+//       bottom: 18vw;
+//       span{
+//         font-size: 2vw;
+//         padding: 5px 4vw;
+//       }
+//     }
+//   }
+// }
 
-@media (min-width: 768px) and (max-width: 1450px) {
+@media (min-width: 768px) and (max-width: 1800px) {
   .header-content {
     &-in {
+      width: calc(80% + 60px);
       padding: 10px 15px 0 30px;
       .logo {
         width: 20%;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
       }
       .menu {
         .menuItem {
-          font-size: 100%;
+          font-size: 1.1vw;
           padding: 0 0 10px;
           & > a {
-            padding: 0 1.3vw;
+            padding: 0 1vw;
             box-sizing: border-box;
           }
           &.langItem{
-            padding: 0 1vw 10px;
+            padding: 0 1vw 1vw;
             &>img{
-              width: 20px;
+              width: 1vw;
             }
           }
           .triangleIcon:after {
@@ -1539,7 +1540,7 @@ const handleopenwechat = () =>{
           .menuChild {
             padding: 0 10px;
             &-item {
-              font-size: 1rem;
+              font-size: 1.1vw;
             }
             &::before {
               border: 5px solid;
@@ -1556,7 +1557,32 @@ const handleopenwechat = () =>{
         }
       }
     }
+    .waterBg {
+      &.implant,
+      &.rootCanal-test,
+      &.periodontal-test,
+      &.orthodontics-test,
+      &.invisalign-test,
+      &.veneers-test,
+      &.health-care-voucher,
+      &.scaling-and-polishing-test {
+        bottom: 4vw;
+      }
+      &.course-new{
+        bottom: 30px;
+      }
+    }
+    &-btn-implant {
+      bottom: calc(100px + 6vw);
+      span{
+        font-size: 1.9vw;
+        padding: .3vw 3.5vw;
+      }
+    }
     &-text-implant {
+      width: calc(80% + 60px);
+      padding: 0 30px;
+      bottom: 5vw;
       div{
         font-size: 100%;
       }

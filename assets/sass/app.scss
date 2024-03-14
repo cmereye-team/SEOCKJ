@@ -171,22 +171,22 @@ body{
   //   width: 90%;
   // }
 }
-@media (min-width: 768px) and (max-width: 1450px) {
+@media (min-width: 768px) and (max-width: 1600px) {
   .pageIn{
     padding: 120px 0;
   }
   .pageCon{
-    // width:  calc(100% - 60px);
-    // width: 80%;
-    // max-width: 1450px;
     margin: 0 auto;
   } 
+  .index_title {
+    font-size: 1.6vw;
+    text-indent: 3.5vw;
+  }
   .dentistryServices{
     &-title{
       &-in{
-        font-size: 40px;
+        font-size: 3vw;
         &.bb{
-          // border-bottom: 4px solid var(--indexColor1);
           padding-bottom: 4px;
           &::after{
             height: 4px;

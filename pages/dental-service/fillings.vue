@@ -672,11 +672,6 @@ const differData:any = {
 <style lang="scss" scoped>
 .reason {
   margin-top: 188px;
-  &-title {
-    &-in {
-      font-size: 50px;
-    }
-  }
   &-lists {
     width: 100%;
     max-width: 1656px;
@@ -934,11 +929,6 @@ const differData:any = {
 }
 .care {
   margin-top: 206px;
-  &-title {
-    &-in {
-      font-size: 50px;
-    }
-  }
   &-lists {
     display: flex;
     flex-wrap: wrap;
@@ -1139,11 +1129,6 @@ const differData:any = {
     width: 100%;
     max-width: calc(1444px + 122px);
     margin: 0 auto;
-  }
-  &-title {
-    &-in {
-      font-size: 50px;
-    }
   }
   &-lists {
     margin-top: 98px;

@@ -188,7 +188,7 @@ const servicesCardPageData = {
     padding: 0px;
   }
 }
-@media (min-width: 769px) and (max-width: 1452px) {
+@media (min-width: 769px) and (max-width: 1800px) {
   .index-dentalServices{
     padding: 150px 0 0;
     &-in{

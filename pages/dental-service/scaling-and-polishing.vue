@@ -709,11 +709,6 @@ const doctorData = {
     }
 .reason {
   margin-top: 188px;
-  &-title {
-    &-in {
-      font-size: 50px;
-    }
-  }
   &-lists {
     width: 100%;
     max-width: 1656px;
@@ -758,11 +753,6 @@ const doctorData = {
 }
 .difference {
   margin-top: 188px;
-  &-title {
-    &-in {
-      font-size: 50px;
-    }
-  }
   &-tables {
     width: 100%;
     max-width: 1244px;
@@ -817,11 +807,6 @@ const doctorData = {
 }
 .charge {
   margin-top: 206px;
-  &-title {
-    &-in {
-      font-size: 50px;
-    }
-  }
   &-tables {
     width: 100%;
     max-width: 1491px;
@@ -954,11 +939,6 @@ const doctorData = {
     max-width: calc(1444px + 122px);
     margin: 0 auto;
   }
-  &-title {
-    &-in {
-      font-size: 50px;
-    }
-  }
   &-lists {
     margin-top: 98px;
     padding: 0 20px;
@@ -1087,11 +1067,6 @@ const doctorData = {
 .care {
   margin-top: 206px;
   padding-bottom: 108px;
-  &-title {
-    &-in {
-      font-size: 50px;
-    }
-  }
   &-lists {
     display: flex;
     flex-wrap: wrap;

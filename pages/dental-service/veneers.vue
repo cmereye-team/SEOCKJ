@@ -663,11 +663,6 @@ const caseLists = [
     max-width: calc(1444px + 122px);
     margin: 0 auto;
   }
-  &-title {
-    &-in {
-      font-size: 50px;
-    }
-  }
   &-lists {
     margin-top: 98px;
     padding: 0 20px;
@@ -937,11 +932,6 @@ const caseLists = [
 }
 .care {
   margin-top: 118px;
-  &-title {
-    &-in {
-      font-size: 50px;
-    }
-  }
   &-lists {
     display: flex;
     flex-wrap: wrap;

@@ -155,8 +155,8 @@ defineProps({
   .animbtntypetwo{
     &-in{
       &>span{
-        font-size: 2.4vw;
-        padding: 10px 40px;
+        font-size: 2vw;
+        padding: .5vw 2.5vw;
       }
     }
   }

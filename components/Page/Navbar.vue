@@ -476,7 +476,7 @@ let _bool = ref(false)
     opacity: 1;
   }
 }
-@media (min-width: 768px) and (max-width: 1440px) {
+@media (min-width: 768px) and (max-width: 1800px) {
   .navbar-content{
     width: 50px;
     &-in{

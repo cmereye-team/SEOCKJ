@@ -674,11 +674,6 @@ const careData = {
 }
 .care {
   margin-top: 206px;
-  &-title {
-    &-in {
-      font-size: 50px;
-    }
-  }
   &-lists {
     display: flex;
     flex-wrap: wrap;
@@ -748,11 +743,6 @@ const careData = {
     width: 100%;
     max-width: 1444px;
     margin: 0 auto;
-  }
-  &-title {
-    &-in {
-      font-size: 50px;
-    }
   }
   &-lists {
     margin-top: 98px;

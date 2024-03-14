@@ -730,11 +730,6 @@ const differData = {
     max-width: 1444px;
     margin: 0 auto;
   }
-  &-title {
-    &-in {
-      font-size: 50px;
-    }
-  }
   &-lists {
     margin-top: 98px;
     display: flex;
