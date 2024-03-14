@@ -67,19 +67,22 @@ let _bool = ref(false)
 
 <template>
   <div class="navbar-content" :style="{'z-index': appState.isShowForm ? 100 : 50}">
-    <div class="navbar-content-whatApp">
+    <nuxt-link class="navbar-content-whatApp" id="navPcWhatsapp" :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" title="WhatsApp" target="_blank">
       <div class="navbar-content-whatApp-icon">
         <img class="navbar-content-whatApp-icon-in" src="https://static.cmereye.com/imgs/2024/03/22dd0fd2c5f7164e.png" alt="">
         <img class="navbar-content-whatApp-icon-right" src="https://static.cmereye.com/imgs/2024/03/3fee6b4b5c9a323a.png" alt="">
       </div>
-      <nuxt-link class="navbar-content-whatApp-btn" id="navPcWhatsapp" :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" title="WhatsApp" target="_blank">
+      <div class="navbar-content-whatApp-btn">
         <div class="navbar-content-whatApp-btn-text">立即</div>
         <div class="navbar-content-whatApp-btn-img">
-          <img src="@/assets/images/navIcon_2.png" alt="">
+          <!-- <img src="@/assets/images/navIcon_2.png" alt=""> -->
+          <div class="navbar-content-whatApp-btn-img-in">
+            <img src="@/assets/images/navIcon_2.png" alt="">
+          </div>
         </div>
         <div class="navbar-content-whatApp-btn-text">預約</div>
-      </nuxt-link>
-    </div>
+      </div>
+    </nuxt-link>
     <div class="navbar-content-in" id="navPcTel" title="致電">
       <div class="navbarBox">
         <div class="navbarBox-in">
@@ -183,6 +186,32 @@ let _bool = ref(false)
   }
 }
 @keyframes btntestafterAnima {
+  0%{
+    width: 90%;
+    height: 90%;
+    border: 10px solid #86F99B;
+  }
+  19%{
+    border: 8px solid rgba(134, 249, 155, .5);
+    width: calc(100% + 32px);
+    height: calc(100% + 32px);
+  }
+  24%{
+    width: calc(100% + 32px);
+    height: calc(100% + 32px);
+  }
+  29%{
+    border: 0 solid rgba(134, 249, 155, 0);
+    width: calc(100% + 32px);
+    height: calc(100% + 32px);
+  }
+  100%{
+    border: 0 solid rgba(134, 249, 155, 0);
+    width: calc(100% + 32px);
+    height: calc(100% + 32px);
+  }
+}
+@keyframes btntestafterAnimaHover {
   0%{
     width: 90%;
     height: 90%;
@@ -294,6 +323,8 @@ let _bool = ref(false)
     width: 200px;
     position: relative;
     margin-bottom: 30px;
+    display: block;
+    transition: all .3s;
     &-icon{
       position: relative;
       width: 90%;
@@ -323,18 +354,26 @@ let _bool = ref(false)
         color: #fff;
         line-height: 1;
         font-size: 23px;
+        font-weight: 600;
       }
       &-img{
-        display: flex;
-        justify-content: center;
-        align-items: center;
         width: 66px;
         height: 66px;
-        background: #86F99B;
-        border-radius: 50%;
         margin: 0 5px;
         position: relative;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+        transition: all .3s;
+        &-in{
+          width: 100%;
+          height: 100%;
+          position: relative;
+          z-index: 1;
+          background: #32d851;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+        }
         img{
           width: 60%;
           width: 60%;
@@ -349,11 +388,22 @@ let _bool = ref(false)
           -webkit-transform: translate(-50%, -50%);
           width: 100%;
           height: 100%;
-          border: 10px solid #86F99B;
+          // border: 10px solid #86F99B;
           z-index: 0;
           border-radius: 70px;
           animation: btntestafterAnima 5.6s infinite;
           transition: all .5s;
+        }
+      }
+    }
+    &:hover{
+      transform: scale(1.08) translateY(-10px);
+      .navbar-content-whatApp-btn{
+        &-img{
+        
+          &::after{
+            animation: btntestafterAnimaHover 4s infinite;
+          }
         }
       }
     }
