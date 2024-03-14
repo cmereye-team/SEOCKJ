@@ -92,7 +92,7 @@ const caseLists = [
     padding: 58px 0 62px;
     background: linear-gradient(279deg, rgba(252, 22, 130, 0.40) -0.55%, rgba(252, 22, 130, 0.28) -0.54%, rgba(255, 168, 198, 0.00) 99.3%);
     &-in{
-      width: 100%;
+      width: 80%;
       max-width: 1560px;
       margin: 0 auto;
       display: flex;
@@ -148,7 +148,30 @@ const caseLists = [
     }
   }
 }
-@media (min-width: 768px) and (max-width: 1452px) {}
+@media (min-width: 768px) and (max-width: 1800px) {
+  .case{
+    &-content{
+      &-in{
+        &>div{
+          padding: .8vw 1.6vw 1.4vw;
+        }
+        &-l{
+          span{
+            &:nth-of-type(1){
+              font-size: 1.5VW;
+            }
+            &:nth-of-type(2){
+              font-size: 1.2VW;
+            }
+          }
+        }
+        &-r{
+          font-size: 1.1VW;
+        }
+      }
+    }
+  }
+}
 @media screen and (max-width: 768px) {
   .case{
     margin-top: 40px;
@@ -186,6 +209,7 @@ const caseLists = [
         &>div{
           width: 100%;
           padding: 14px 36px 25px;
+          padding: 14px 0 25px;
           &:not(:first-child){
             margin-left: 0px;
           }

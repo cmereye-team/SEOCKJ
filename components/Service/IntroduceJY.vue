@@ -41,7 +41,7 @@ defineProps({
     }
     &-content{
       position: absolute;
-      width: 100%;
+      // width: 100%;
       height: 100%;
       top: 0;
       left: 50%;
@@ -69,7 +69,7 @@ defineProps({
     }
   }
 }
-@media (min-width: 768px) and (max-width: 1452px) {
+@media (min-width: 768px) and (max-width: 1800px) {
   .introduce{
     &-in{
       &-content{

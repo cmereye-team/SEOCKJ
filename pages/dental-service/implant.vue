@@ -992,18 +992,10 @@ const doctorData = {
         &-in{
           display: flex;
           align-items: center;
-          // width: 30%;
           margin-bottom: 60px;
           &:nth-of-type(n+4){
             margin-bottom: 0;
           }
-          // &:nth-of-type(4),&:nth-of-type(5){
-          //   .step-lists-in-l{
-          //     .name{
-          //       clip-path: polygon(0 0, 95% 0, 100% 100%, 0 100%);
-          //     }
-          //   }
-          // }
           &:nth-of-type(3),&:nth-of-type(6){
             .step-lists-in-r{
               display: none;
@@ -1313,7 +1305,7 @@ const doctorData = {
       }
     }
   }
-  @media (min-width: 768px) and (max-width: 1452px) {
+  @media (min-width: 768px) and (max-width: 1800px) {
     .dentistryServices{
       padding: 110px 0;
       .note{
@@ -1336,6 +1328,30 @@ const doctorData = {
       .tabNav {
         font-size: 1.5vw;
         margin-top: 20px;
+      }
+      .step{
+        width: 80%;
+        margin: 150px auto;
+        &-lists{
+          &-in{
+            &-l{
+              width: calc(420 / 1920 * 100vw);
+              .title{
+                font-size: 2vw;
+              }
+              .name{
+                padding: 8px 70px 8px 15px;
+                font-size: 1.1vw;
+              }
+              .context{
+                font-size: 1.1vw;
+              }
+            }
+            &-r{
+              width: calc(50 / 1920 * 100vw);
+            }
+          }
+        }
       }
     }
   }
@@ -1405,6 +1421,9 @@ const doctorData = {
       .plague{
         margin-top: 0;
         padding: 31px 0 44px;
+        &-in{
+          max-width: 403px;
+        }
         &-title{
           &-in{
             font-size: 26px;
@@ -1577,6 +1596,7 @@ const doctorData = {
                 margin-top: -25px;
                 font-size: 16px;
                 clip-path: polygon(0 0, 80% 0, 85% 100%, 0 100%);
+                padding: 8px 70px 8px 15px;
               }
               .context{
                 font-size: 16px;
