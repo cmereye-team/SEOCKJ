@@ -340,34 +340,6 @@ const handlecopywechatcode = () =>{
 const handleopenwechat = () =>{
   window.location.href = "weixin://"
 }
-
-const bannerLists = [
-  {
-    link: '/health-care-voucher',
-    img_pc: 'https://static.cmereye.com/imgs/2024/02/3443d2e2314e6e50.webp',
-    img_mb: 'https://static.cmereye.com/imgs/2024/02/afdfd3c22104497f.webp',
-    isShowMb: true
-  },
-  {
-    link: 'https://bit.ly/愛康健裕亨新店開業優惠',
-    img_pc: 'https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg',
-    img_mb: 'https://static.cmereye.com/imgs/2024/02/216458f63817b47e.jpg',
-    isShowMb: true
-  },
-  {
-    link: '/medical-team',
-    img_pc: 'https://static.cmereye.com/imgs/2024/03/a2877cc6bbeefbfa.webp',
-    img_mb: 'https://static.cmereye.com/imgs/2024/03/4abbdd7326af4cc3.webp',
-    isShowMb: false
-  },
-  {
-    link: '',
-    img_pc: 'https://static.cmereye.com/imgs/2024/03/9615682d1948c5f5.png',
-    img_mb: 'https://static.cmereye.com/imgs/2024/03/4abbdd7326af4cc3.webp',
-    isShowMb: true
-  }
-]
-
 </script>
 
 <template>
@@ -436,11 +408,6 @@ const bannerLists = [
             :speed="3000"
             @swiper="setBannerSwiperRef"
             @slideChange="changebanner">
-            <!-- <SwiperSlide class="bannerItem" v-for="(bannerItem,bannerIndex) in bannerLists" :key="bannerIndex">
-              <nuxt-link :to="bannerItem.link">
-                <img :srcset="`${bannerItem.img_mb} 768w, ${bannerItem.img_pc}`" :src="bannerItem.img_pc" alt="">
-              </nuxt-link>
-            </SwiperSlide> -->
           <SwiperSlide>
             <nuxt-link to="/health-care-voucher">
               <img :srcset="`https://static.cmereye.com/imgs/2024/02/afdfd3c22104497f.webp 768w, https://static.cmereye.com/imgs/2024/02/3443d2e2314e6e50.webp`"  src="https://static.cmereye.com/imgs/2024/02/3443d2e2314e6e50.webp" alt="">
@@ -451,12 +418,8 @@ const bannerLists = [
               <img :srcset="`https://static.cmereye.com/imgs/2024/02/216458f63817b47e.jpg 768w, https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg`"  src="https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg" alt="">
             </nuxt-link>
           </SwiperSlide>
-          <SwiperSlide class="mbShow">
-            <nuxt-link to="/medical-team">
-              <img :srcset="`https://static.cmereye.com/imgs/2024/03/a2877cc6bbeefbfa.webp 768w, https://static.cmereye.com/imgs/2024/03/a2877cc6bbeefbfa.webp`"  src="https://static.cmereye.com/imgs/2024/03/a2877cc6bbeefbfa.webp" alt="">
-            </nuxt-link>
-          </SwiperSlide>
           <SwiperSlide>
+            <!-- https://static.cmereye.com/imgs/2024/02/8f33d6acfe425e15.webp -->
               <img :srcset="`https://static.cmereye.com/imgs/2024/03/4abbdd7326af4cc3.webp 768w, https://static.cmereye.com/imgs/2024/03/9615682d1948c5f5.png`"  src="https://static.cmereye.com/imgs/2024/03/9615682d1948c5f5.png" alt="">
           </SwiperSlide>
         </swiper>
@@ -498,13 +461,7 @@ const bannerLists = [
         v-if="['course-new'].includes(headerConfig.pageName)"
         class="header-content-btn-implant bannerLine"
       >
-      <!-- <div class="bannerLine-in">
-        <PageSwiperPointLine :latestNewsNum="4" :latestNewsCurrent="bannerCurrent" @changeLineCur="handleBannerLineCur"></PageSwiperPointLine>
-      </div> -->
-      <div class="bannerLine-in bannerLine-in-pc">
-        <PageSwiperPointLine :latestNewsNum="4" :latestNewsCurrent="bannerCurrent" @changeLineCur="handleBannerLineCur"></PageSwiperPointLine>
-      </div>
-      <div class="bannerLine-in bannerLine-in-mb">
+      <div class="bannerLine-in">
         <PageSwiperPointLine :latestNewsNum="3" :latestNewsCurrent="bannerCurrent" @changeLineCur="handleBannerLineCur"></PageSwiperPointLine>
       </div>
       </div>
@@ -1098,9 +1055,6 @@ const bannerLists = [
     img {
       width: 100%;
     }
-    .mbShow{
-      
-    }
   }
   // &-bgImg-implant-mb {
   //   display: none;
@@ -1146,11 +1100,7 @@ const bannerLists = [
       bottom: 130px;
       z-index: 41;
       .bannerLine-in{
-        width: 250px;
-        &.bannerLine-in-mb{
-          width: 150px;
-          display: none;
-        }
+        width: 200px;
       }
     }
   }
@@ -1210,7 +1160,7 @@ const bannerLists = [
     }
   }
   &-in {
-    width: 80%;
+    width: 100%;
     max-width: 1512px;
     display: flex;
     background: #fff;
@@ -1508,158 +1458,157 @@ const bannerLists = [
   display: none;
 }
 
-// @media (min-width: 768px) and (max-width: 1000px) {
-//   .header-content {
-//     &-bgImg {
-//       &-in {
-//         left: 50%;
-//         .bannerTitle {
-//           font-size: 2rem;
-//           line-height: 130%;
-//           span {
-//             display: block;
-//             &:last-child {
-//               margin-left: 10%;
-//             }
-//           }
-//         }
-//         .text {
-//           margin-top: 1%;
-//           font-size: 1.2rem;
-//           line-height: 130%;
-//           span {
-//             font-size: 1.2rem;
-//             color: var(--indexColor);
-//           }
-//         }
-//       }
-//     }
-//     &-text-implant {
-//       // bottom: 60px;
-//       div{
-//         width: calc(80%);
-//         margin: 0 auto;
-//         // font-size: 2vw;
-//       }
-//     }
-//     &-btn-implant{
-//       bottom: auto;
-//       span{
-//         font-size: 2vw;
-//         padding: 5px 4vw;
-//       }
-//     }
-//     &-in{
-//       width: calc(80% + 60px);
-//     }
-//     &-bgImgBB{
-//       width: 100%;
-//     }
-//     .waterBg {
-//       &.implant,
-//       &.rootCanal-test,
-//       &.periodontal-test,
-//       &.orthodontics-test,
-//       &.invisalign-test,
-//       &.veneers-test,
-//       &.health-care-voucher,
-//       &.scaling-and-polishing-test {
-//         bottom: 60px;
-//       }
-//     }
-//   }
-//   .waterBg::after,
-//   .waterBg::before {
-//     height: 160px;
-//   }
-// }
-// @media (min-width: 1001px) and (max-width: 1452px) {
-//   .header-content {
-//     &-in{
-//       width: calc(80% + 60px);
-//       padding: 10px 10px 0 30px;
-//       .logo{
-//         width: 200px;
-//         margin-bottom: 15px;
-//       }
-//     }
-//     .waterBg {
-//       &.implant,
-//       &.rootCanal-test,
-//       &.periodontal-test,
-//       &.orthodontics-test,
-//       &.invisalign-test,
-//       &.veneers-test,
-//       &.health-care-voucher,
-//       &.scaling-and-polishing-test {
-//         bottom: 65px;
-//       }
-//     }
-//     &-text-implant {
-//       bottom: 80px;
-//       div{
-//         width: calc(80%);
-//         margin: 0 auto;
-//       }
-//     }
-//     &-bgImg {
-//       &-in {
-//         top: 30%;
-//         .bannerTitle {
-//           font-size: 2.5rem;
-//           line-height: 130%;
-//           span {
-//             display: block;
-//             &:last-child {
-//               margin-left: 15%;
-//             }
-//           }
-//         }
-//         .text {
-//           margin-top: 2%;
-//           font-size: 1.4rem;
-//           line-height: 130%;
-//           span {
-//             font-size: 1.4rem;
-//             color: var(--indexColor);
-//           }
-//         }
-//       }
-//     }
-//     &-bgImgBB{
-//       width: 100%;
-//     }
-//     &-btn-implant{
-//       bottom: 18vw;
-//       span{
-//         font-size: 2vw;
-//         padding: 5px 4vw;
-//       }
-//     }
-//   }
-// }
+@media (min-width: 768px) and (max-width: 1000px) {
+  .header-content {
+    &-bgImg {
+      &-in {
+        left: 50%;
+        .bannerTitle {
+          font-size: 2rem;
+          line-height: 130%;
+          span {
+            display: block;
+            &:last-child {
+              margin-left: 10%;
+            }
+          }
+        }
+        .text {
+          margin-top: 1%;
+          font-size: 1.2rem;
+          line-height: 130%;
+          span {
+            font-size: 1.2rem;
+            color: var(--indexColor);
+          }
+        }
+      }
+    }
+    &-text-implant {
+      // bottom: 60px;
+      div{
+        width: calc(80%);
+        margin: 0 auto;
+        // font-size: 2vw;
+      }
+    }
+    &-btn-implant{
+      bottom: auto;
+      span{
+        font-size: 2vw;
+        padding: 5px 4vw;
+      }
+    }
+    &-in{
+      width: calc(80% + 60px);
+    }
+    &-bgImgBB{
+      width: 100%;
+    }
+    .waterBg {
+      &.implant,
+      &.rootCanal-test,
+      &.periodontal-test,
+      &.orthodontics-test,
+      &.invisalign-test,
+      &.veneers-test,
+      &.health-care-voucher,
+      &.scaling-and-polishing-test {
+        bottom: 60px;
+      }
+    }
+  }
+  .waterBg::after,
+  .waterBg::before {
+    height: 160px;
+  }
+}
+@media (min-width: 1001px) and (max-width: 1452px) {
+  .header-content {
+    &-in{
+      width: calc(80% + 60px);
+      padding: 10px 10px 0 30px;
+      .logo{
+        width: 200px;
+        margin-bottom: 15px;
+      }
+    }
+    .waterBg {
+      &.implant,
+      &.rootCanal-test,
+      &.periodontal-test,
+      &.orthodontics-test,
+      &.invisalign-test,
+      &.veneers-test,
+      &.health-care-voucher,
+      &.scaling-and-polishing-test {
+        bottom: 65px;
+      }
+    }
+    &-text-implant {
+      bottom: 80px;
+      div{
+        width: calc(80%);
+        margin: 0 auto;
+      }
+    }
+    &-bgImg {
+      &-in {
+        top: 30%;
+        .bannerTitle {
+          font-size: 2.5rem;
+          line-height: 130%;
+          span {
+            display: block;
+            &:last-child {
+              margin-left: 15%;
+            }
+          }
+        }
+        .text {
+          margin-top: 2%;
+          font-size: 1.4rem;
+          line-height: 130%;
+          span {
+            font-size: 1.4rem;
+            color: var(--indexColor);
+          }
+        }
+      }
+    }
+    &-bgImgBB{
+      width: 100%;
+    }
+    &-btn-implant{
+      bottom: 18vw;
+      span{
+        font-size: 2vw;
+        padding: 5px 4vw;
+      }
+    }
+  }
+}
 
-@media (min-width: 768px) and (max-width: 1800px) {
+@media (min-width: 768px) and (max-width: 1450px) {
   .header-content {
     &-in {
-      width: calc(80% + 60px);
       padding: 10px 15px 0 30px;
       .logo {
         width: 20%;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
       }
       .menu {
         .menuItem {
-          font-size: 1.1vw;
+          font-size: 100%;
           padding: 0 0 10px;
           & > a {
             padding: 0 1vw;
             box-sizing: border-box;
           }
           &.langItem{
-            padding: 0 1vw 1vw;
+            padding: 0 1vw 10px;
             &>img{
-              width: 1vw;
+              width: 20px;
             }
           }
           .triangleIcon:after {
@@ -1669,7 +1618,7 @@ const bannerLists = [
           .menuChild {
             padding: 0 10px;
             &-item {
-              font-size: 1.1vw;
+              font-size: 1rem;
             }
             &::before {
               border: 5px solid;
@@ -1686,32 +1635,7 @@ const bannerLists = [
         }
       }
     }
-    .waterBg {
-      &.implant,
-      &.rootCanal-test,
-      &.periodontal-test,
-      &.orthodontics-test,
-      &.invisalign-test,
-      &.veneers-test,
-      &.health-care-voucher,
-      &.scaling-and-polishing-test {
-        bottom: 4vw;
-      }
-      &.course-new{
-        bottom: 30px;
-      }
-    }
-    &-btn-implant {
-      bottom: calc(100px + 6vw);
-      span{
-        font-size: 1.9vw;
-        padding: .3vw 3.5vw;
-      }
-    }
     &-text-implant {
-      width: calc(80% + 60px);
-      padding: 0 30px;
-      bottom: 5vw;
       div{
         font-size: 100%;
       }
@@ -1813,15 +1737,8 @@ const bannerLists = [
         bottom: -80px;
         z-index: 2;
         .bannerLine-in{
-          width: 200px;
-          &.bannerLine-in-pc{
-            display: none;
-          }
-          &.bannerLine-in-mb{
-            display: block;
-          }
+          width: 100px;
         }
-        
       }
     }
     &-text-implant {
@@ -1907,7 +1824,6 @@ const bannerLists = [
       align-items: center;
       margin: 0;
       padding: 20px 0 0 20px;
-      width: 100%;
       .logo {
         width: 125px;
         margin-bottom: 0;
@@ -1942,11 +1858,6 @@ const bannerLists = [
       font-size: 20px;
       right: 30px;
       bottom: 60px;
-    }
-    &-bgImg-implant{
-      .mbShow{
-        display: none;
-      }
     }
     .waterBg {
       position: fixed;
