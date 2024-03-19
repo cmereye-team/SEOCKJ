@@ -592,6 +592,11 @@ const doctorData = {
         </div>
       </div>
       <ServiceIntroduceJY :introduceData="introduceJY" />
+      <div class="youtobe-video">
+        <div class="youtobe-video-in">
+          <iframe width="560" src="https://www.youtube.com/embed/WCbVfokM-iU?si=FBsi3CnSYRK31JwB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </div>
       <div class="Dental_implant_technology">
         <div class="dentistryServices-title">
           <div class="dentistryServices-title-in bb">
@@ -759,6 +764,11 @@ const doctorData = {
           <div class="implantCase-content-line">
             <PageSwiperPointLine :latestNewsNum="implantCaseData.length" :latestNewsCurrent="implantCaseCurrent" @changeLineCur="handleLineCur"></PageSwiperPointLine>
           </div>
+        </div>
+      </div>
+      <div class="youtobe-video">
+        <div class="youtobe-video-in">
+          <iframe width="560" src="https://www.youtube.com/embed/u1wuly-2FGA?si=sQaXBCB8NzH482Dm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
       </div>
       <div class="note">
@@ -1132,7 +1142,7 @@ const doctorData = {
       margin-top: 80px;
     }
     .note{
-      margin-top: 206px;
+      margin-top: 100px;
       .noteCard{
         display: flex;
         flex-wrap: wrap;
@@ -1269,6 +1279,24 @@ const doctorData = {
         &-line{
           width: 326px;
           margin: 60px auto 0;
+        }
+      }
+    }
+    .youtobe-video{
+      width: 80%;
+      max-width: 960px;
+      margin: 80px auto 0;
+      &-in{
+        width: 100%;
+        height: 0;
+        padding-bottom: calc(316 / 560 * 100%);
+        position: relative;
+        &>iframe{
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
         }
       }
     }
@@ -1771,6 +1799,13 @@ const doctorData = {
               animation: identifier .9s infinite
             }
           }
+        }
+      }
+      .youtobe-video{
+        width: 100%;
+        margin: 30px auto 0;
+        &-in{
+          padding-bottom: calc(315 / 560 * 100%);
         }
       }
     }
