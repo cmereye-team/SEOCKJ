@@ -299,6 +299,8 @@ const changebanner = ( swiper )=>{
   if(swiper.realIndex){
     if(Number(swiper.realIndex)===1){
       bannerlink.value = 'https://bit.ly/愛康健裕亨新店開業優惠'
+    }else if(Number(swiper.realIndex)===2){
+      bannerlink.value = '/medical-team'
     }else{
       bannerlink.value = ''
     }
@@ -419,6 +421,11 @@ const handleopenwechat = () =>{
             </nuxt-link>
           </SwiperSlide>
           <SwiperSlide>
+            <nuxt-link to="/medical-team">
+              <img :srcset="`https://static.cmereye.com/imgs/2024/03/f3f241b74364a6b7.jpg 768w, https://static.cmereye.com/imgs/2024/03/a2877cc6bbeefbfa.webp`"  src="https://static.cmereye.com/imgs/2024/03/a2877cc6bbeefbfa.webp" alt="">
+            </nuxt-link>
+          </SwiperSlide>
+          <SwiperSlide>
             <!-- https://static.cmereye.com/imgs/2024/02/8f33d6acfe425e15.webp -->
               <img :srcset="`https://static.cmereye.com/imgs/2024/03/4abbdd7326af4cc3.webp 768w, https://static.cmereye.com/imgs/2024/03/9615682d1948c5f5.png`"  src="https://static.cmereye.com/imgs/2024/03/9615682d1948c5f5.png" alt="">
           </SwiperSlide>
@@ -462,7 +469,7 @@ const handleopenwechat = () =>{
         class="header-content-btn-implant bannerLine"
       >
       <div class="bannerLine-in">
-        <PageSwiperPointLine :latestNewsNum="3" :latestNewsCurrent="bannerCurrent" @changeLineCur="handleBannerLineCur"></PageSwiperPointLine>
+        <PageSwiperPointLine :latestNewsNum="4" :latestNewsCurrent="bannerCurrent" @changeLineCur="handleBannerLineCur"></PageSwiperPointLine>
       </div>
       </div>
       <div
@@ -1100,7 +1107,7 @@ const handleopenwechat = () =>{
       bottom: 130px;
       z-index: 41;
       .bannerLine-in{
-        width: 200px;
+        width: 250px;
       }
     }
   }
@@ -1737,7 +1744,7 @@ const handleopenwechat = () =>{
         bottom: -80px;
         z-index: 2;
         .bannerLine-in{
-          width: 100px;
+          width: 150px;
         }
       }
     }
