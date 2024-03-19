@@ -592,19 +592,23 @@ const doctorData = {
         </div>
       </div>
       <ServiceIntroduceJY :introduceData="introduceJY" />
-      <div class="youtobe-video">
-        <div class="youtobe-video-in">
-          <iframe width="560" src="https://www.youtube.com/embed/WCbVfokM-iU?si=FBsi3CnSYRK31JwB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
-      </div>
+      
       <div class="Dental_implant_technology">
-        <div class="dentistryServices-title">
+        <div class="dentistryServices-title Dental_implant_technology-title">
           <div class="dentistryServices-title-in bb">
             種植牙技術
           </div>
         </div>
+       
         <div class="Dental_implant_technology-context">
           為了提供精准化的種植牙服務，運用先進電腦圖形影像技術，對客戶進行定制化分析。根據口腔內CT掃描和光學掃描的數據，在電腦上重建下顎骨立體模型，旨在確保每次種植的精準性和成功率。
+        </div>
+        <div class="Dental_implant_technology-video">
+          <div class="youtobe-video">
+            <div class="youtobe-video-in">
+              <iframe width="560" src="https://www.youtube.com/embed/WCbVfokM-iU?si=FBsi3CnSYRK31JwB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          </div>
         </div>
         <div class="Dental_implant_technology-img">
           <img src="https://static.cmereye.com/imgs/2024/02/889bd45e5e2ee385.png" alt="">
@@ -890,7 +894,16 @@ const doctorData = {
       }
     }
     .Dental_implant_technology{
-      margin-top: 80px;
+      margin-top: 0px;
+      display: flex;
+      flex-direction: column;
+      &-title{
+        order: 2;
+        margin-top: 80px;
+      }
+      &-video{
+        order: 1;
+      }
       &-context{
         width: 100%;
         max-width: 1016px;
@@ -898,11 +911,13 @@ const doctorData = {
         font-size: 20px;
         line-height: 160%;
         text-align: center;
+        order: 3;
       }
       &-img{
         width: 100%;
         max-width: 1038px;
         margin: 0 auto;
+        order: 4;
       }
     }
     .notice{
@@ -1438,6 +1453,13 @@ const doctorData = {
         margin-top: 0;
       }
       .Dental_implant_technology{
+        display: block;
+        &-title{
+          margin-top: 50px;
+        }
+        &-video{
+          margin-bottom: 50px;
+        }
         &-context{
           font-size: 16px;
           line-height: 200%;
