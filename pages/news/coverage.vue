@@ -187,13 +187,14 @@ if(process.server){
       &-top{
         display: flex;
         justify-content: space-between;
+        align-items: center;
         margin-bottom: 23px;
         img{
           max-height: 78px;
-          height: max-content;
           max-width: 132px;
         }
         &>div{
+          height: 100%;
           span{
             display: block;
             text-align: right;
