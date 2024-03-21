@@ -27,12 +27,12 @@ useHead({
       name: 'author',
       content: '愛康健口腔醫院',
     },
-    { property: 'og:image', content: '/favicon.ico' }
+    { property: 'og:image', content: 'https://www.ckjhk.com/favicon.ico' }
   ],
   link: [
     { rel: 'shortcut icon', type: 'image/x-icon', href: '/favicon.ico' },
-    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-    { rel: 'apple-touch-icon', type: 'image/x-icon', href: '/favicon.ico' },
+    { rel: 'icon', type: 'image/x-icon', href: 'https://www.ckjhk.com/favicon.ico' },
+    { rel: 'apple-touch-icon', type: 'image/x-icon', href: 'https://www.ckjhk.com/favicon.ico' },
   ],
   script:[
     { type: 'text/javascript', src: '/common.js' },
