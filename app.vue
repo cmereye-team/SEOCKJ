@@ -27,6 +27,7 @@ useHead({
       name: 'author',
       content: '愛康健口腔醫院',
     },
+    { property: 'og:image', content: '/favicon.ico' }
   ],
   link: [
     { rel: 'shortcut icon', type: 'image/x-icon', href: '/favicon.ico' },
