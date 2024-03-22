@@ -516,6 +516,7 @@ if(process.server){
       a{
         color: var(--indexColor1);
         transition: all .3s;
+        display: block;
         &:hover{
           color: #FF85AF;
         }

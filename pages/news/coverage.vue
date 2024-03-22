@@ -45,14 +45,18 @@ const formatDate = (dateString) =>{
     return year + "年" + month + "月" + day + "日";  
 }  
 
+let totalPageNum = ref(1)
+let actPageNum = ref(1) 
+
 const getNewsLists = async () => {
   try{
-    const _res:any = await useFetch('https://admin.ckjhk.com/api.php/list/14',{
+    const _res:any = await useFetch(`https://admin.ckjhk.com/api.php/list/14/page/${actPageNum.value}/num/6`,{
       method: 'post',
     });
     let res = JSON.parse(_res.data.value) || null
     if(res){
       // console.log(res)
+      totalPageNum.value = Math.ceil(res.rowtotal / 6)
       coverageLists.value = res.data.map(item=>{
         return{
           id: item.id || '',
@@ -66,6 +70,7 @@ const getNewsLists = async () => {
         }
       })
     }
+    sessionStorage.setItem('coveragePage',String(actPageNum.value))
   }catch{
     errorpage.value = true
   }
@@ -77,6 +82,9 @@ const getData = () => {
 }
 
 onMounted(()=>{
+  if(sessionStorage.getItem('coveragePage')){
+    actPageNum.value = Number(sessionStorage.getItem('coveragePage')) || 1
+  }
   setTimeout(()=>{
     getNewsLists()
   })
@@ -88,13 +96,52 @@ if(process.server){
   // console.log('client');
   // getNewsLists()
 }
+
+const subNum = () => {
+  if(actPageNum.value > 1){
+    actPageNum.value --
+    window.location.href = "#coverage"
+    getNewsLists()
+  }
+}
+
+const addNum = () => {
+  if(actPageNum.value < totalPageNum.value){
+    actPageNum.value ++
+    window.location.href = "#coverage"
+    getNewsLists()
+  }
+}
+
+const toPage = (_page) => {
+  if(actPageNum.value === _page){
+    return
+  }
+  actPageNum.value = _page
+  window.location.href = "#coverage"
+  getNewsLists()
+}
+
+const getPagination = (pageitem) => {
+  if(actPageNum.value>=4 && actPageNum.value<totalPageNum.value-3){
+    return actPageNum.value-3+pageitem
+  }else{
+    if(actPageNum.value<4){
+      return pageitem + 1
+    }else if(actPageNum.value>=totalPageNum.value-3){
+      return totalPageNum.value-6+pageitem
+    }else{
+      return 0
+    }
+  }
+}
 </script>
 
 <template>
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor coveragePage">
-      <div class="index_title pageCon coveragePage-title">媒體報導</div>
+      <div class="index_title pageCon coveragePage-title" id="coverage">媒體報導</div>
       <div class="tabNav noTitle pageCon">
         <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
           <span>主頁</span>
@@ -129,6 +176,34 @@ if(process.server){
               </div>
             </div>
           </nuxt-link>
+          <div class="lists-btn">
+            <div @click="subNum" :class="{btndisabled: actPageNum === 1}">
+              <span class="subNum">
+                <img src="@/assets/images/icon_25.svg" alt="">
+              </span>
+            </div>
+            <div class="lists-btn-page">
+              <section v-if="totalPageNum<=7">
+                <span class="y" :class="{act: actPageNum === pageitem}" v-for="pageitem in totalPageNum" :key="pageitem" @click="toPage(pageitem)">
+                  {{ pageitem }}
+                </span>
+              </section>
+              <section v-else>
+                <span class="y" :class="{act: actPageNum === 1}" @click="toPage(1)">1</span>
+                <span v-if="actPageNum>4">...</span>
+                <span class="y" :class="{act: actPageNum === getPagination(pageitem)}" v-for="pageitem in 5" :key="pageitem" @click="toPage(getPagination(pageitem))">
+                    {{getPagination(pageitem)}}
+                </span>
+                <span v-if="actPageNum<=totalPageNum-4">...</span>
+                <span class="y" :class="{act: actPageNum === totalPageNum}" @click="toPage(totalPageNum)">{{totalPageNum}}</span>
+              </section>
+            </div>
+            <div @click="addNum" :class="{btndisabled: actPageNum === totalPageNum}">
+              <span class="addNum">
+                <img src="@/assets/images/icon_25.svg" alt="">
+              </span>
+            </div>
+          </div>
         </div>
         <div class="lists" v-else>服務異常</div>
       </div>
@@ -233,15 +308,15 @@ if(process.server){
         text-align: justify;
         span{
           display: -webkit-box;  
-          -webkit-line-clamp: 7; 
-          line-clamp: 7; 
+          -webkit-line-clamp: 5; 
+          line-clamp: 5; 
           -webkit-box-orient: vertical;  
           overflow: hidden;  
           text-overflow: ellipsis; 
         }
       }
       .btn{
-        margin-top: 10px;
+        margin: 10px 0 5px;
         a{
           font-size: 35px;
           font-style: normal;
@@ -258,6 +333,66 @@ if(process.server){
           &:hover{
             background: #FF85AF;
           }
+        }
+      }
+    }
+  }
+  &-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &>div{
+      font-size: 26px;
+      margin: 0 10px;
+      color: var(--textColor);
+      span{
+        color: var(--indexColor1);
+        cursor: pointer;
+        &:hover{
+          opacity: .7;
+        }
+      }
+      &.btndisabled{
+        span{
+          opacity: .7;
+          cursor: not-allowed;
+        }
+      }
+    }
+    .subNum,.addNum{
+      img{
+        width: 12px;
+        height: auto;
+      }
+    }
+    .addNum{
+      img{
+        transform: rotate(180deg);
+      }
+    }
+    &-page{
+      display: flex;
+      &>section{
+        display: flex;
+        height: 30px;
+      }
+      .y{
+        margin: 0 5px;
+        color: var(--indexColor1);
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: block;
+        border: 2px solid var(--indexColor1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        letter-spacing: -0.8px;
+        transition: all .3s;
+        &.act{
+          background: var(--indexColor1);
+          color: #fff;
         }
       }
     }
@@ -335,6 +470,22 @@ if(process.server){
             font-size: 28px;
             padding: 8px 29px;
           }
+        }
+      }
+    }
+    &-btn{
+      &>div{
+        font-size: 20px;
+        margin: 0 5px;
+      }
+      &-page{
+        &>section{
+          height: 25px;
+        }
+        .y{
+          width: 25px;
+          height: 25px;
+          font-size: 16px;
         }
       }
     }

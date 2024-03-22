@@ -166,19 +166,19 @@ const toassociation = (_id) => {
   //     type: 'next',
   //     id: '32',
   //   },
-  //   {
-  //     type: 'association',
-  //     lists: [
-  //       {
-  //         id: '31',
-  //         title: 'hahahahaha'
-  //       },
-  //       {
-  //         id: '32',
-  //         title: 'hahahahah'
-  //       }
-  //     ]
-  //   }
+    // {
+    //   type: 'association',
+    //   lists: [
+    //     {
+    //       id: '95',
+    //       title: '港人北上睇牙成趨勢 安全標準媲美私家診所 福田全新愛康健齒科 限時免費服務吸客ahaha'
+    //     },
+    //     {
+    //       id: '96',
+    //       title: '福田口岸全新愛康健裕亨口腔診所 香港級專業服務 新張優惠益港人'
+    //     }
+    //   ]
+    // }
   // ]
 const changeassociationData = (_data:any) =>{
   if(Array.isArray(_data)){
@@ -527,6 +527,7 @@ if(process.server){
       a{
         color: var(--indexColor1);
         transition: all .3s;
+        display: block;
         &:hover{
           color: #FF85AF;
         }
