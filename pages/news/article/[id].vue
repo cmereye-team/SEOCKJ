@@ -443,7 +443,7 @@ if(process.server){
   :deep(.youtobe-video){
     width: 80%;
     max-width: 960px;
-    margin: 80px auto 0;
+    margin: 0 auto;
     .youtobe-video-in{
       width: 100%;
       height: 0;
