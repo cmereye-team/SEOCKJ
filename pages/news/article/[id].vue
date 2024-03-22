@@ -22,7 +22,10 @@ let coverageDeatail = ref({
   source: '',
   news_tag: '',
   content: '',
-  pics: []
+  pics: [],
+  btnText: '',
+  btnLink: '',
+  hashtag: [],
 })
 useHead({
   title: pageType.value === '1'?'媒體報導': '最新資訊',
@@ -141,7 +144,10 @@ const getDetail = async () => {
         content: _data.content || '',
         pics: !_Showpics && _data.pics.split(',').map(tt=>{
           return (tt.indexOf('/static/upload/image') !== -1 ? `https://admin.ckjhk.com${tt}`: tt) || ''
-        }) || []
+        }) || [],
+        btnText: _data.ext_news_btn_text || '',
+        btnLink: _data.ext_news_btn_link || '',
+        hashtag: _data.ext_news_hashtag.split(',') || [],
       }
       changeassociationData(JSON.parse(_data.ext_news_association || "[]"))
     }
@@ -276,8 +282,13 @@ if(process.server){
         <div class="content" v-html="coverageDeatail.content">
           
         </div>
-        <div class="content-bbtn" v-if="pageType === '1'">
+        <!-- <div class="content-bbtn" v-if="pageType === '1'">
           <nuxt-link to="/dental-service/scaling-and-polishing" v-if="coverageDeatail.news_tag === '洗牙'">了解更多洗牙資訊</nuxt-link>
+        </div> -->
+        <div class="content-bbtn" v-if="coverageDeatail.btnText !== ''">
+          <div class="content-bbtn-in">
+            <PageAnimBtnTypeTwo :link="coverageDeatail.btnLink" :str="coverageDeatail.btnText" />
+          </div>
         </div>
         <div class="content-bdetail">
           <div class="content-bdetail-in">
@@ -433,24 +444,7 @@ if(process.server){
 .content-bbtn{
   display: flex;
   justify-content: center;
-  a{
-    color: #fff;
-    text-align: center;
-    font-size: 35px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 160%;
-    letter-spacing: 7px;
-    background: var(--indexColor1);
-    border-radius: 50px;
-    box-shadow: 3px 3px 12.4px 0px rgba(252, 22, 130, 0.50);
-    padding: calc(7 / 1920 * 100%) calc(40 / 1920 * 100%);
-    margin: 0 auto calc(56 / 1920 * 100%);
-    transition: all .3s;
-    &:hover{
-      background: #FF85AF;
-    }
-  }
+  padding: 50px 0;
 }
 .content-bdetail{
   background: linear-gradient(180deg, rgba(252, 22, 130, 0.40) -68.47%, rgba(252, 22, 130, 0.28) -68.46%, rgba(255, 168, 198, 0.00) 63.88%);
@@ -626,11 +620,7 @@ if(process.server){
 
   }
   .content-bbtn{
-    a{
-      font-size: 28px;
-      padding: 8px 29px;
-      margin: 15px 0 50px;
-    }
+    padding: 0 0 50px;
   }
   .content-bdetail{
     &-in{
