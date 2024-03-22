@@ -218,13 +218,10 @@ let doctorDetail:any = ref({
 const handletab2 =(id:string)=>{
   dentalProfessionCur.value = id;
   doctorCur.value = changleDoctorLists().length>0 ? changleDoctorLists()[0].id : ''
-  // doctorDetail.value = changeDoctorDetail()
   doctorItemSwiper.slideToLoop(0)
 }
 const handleDoctorItem = (id:any) =>{
   doctorCur.value = id
-  // doctorDetail.value = changeDoctorDetail()
-  // doctorCur.value
   let _idx = changleDoctorLists().findIndex(item=>item.id === id) || 0
   doctorItemSwiper.slideToLoop(_idx)
 }
@@ -236,7 +233,6 @@ const setDoctorItemSwiper = (swiper:any)=>{
   doctorItemSwiper = swiper;
 }
 const doctorItemSlideChange = (swiper) =>{
-  // console.log(changleDoctorLists()[swiper.realIndex])
   doctorCur.value = changleDoctorLists()[swiper.realIndex].id || ''
   doctorTabSwiper_pc.slideToLoop(swiper.realIndex)
   doctorTabSwiper_mb.slideToLoop(swiper.realIndex)

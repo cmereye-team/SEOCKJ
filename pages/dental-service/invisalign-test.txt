@@ -369,7 +369,7 @@ const differData = {
         </div>
       </div>
       <div class="bp-btn">
-        <PageAnimBtn :str="'獲取免費諮詢'" />
+        <PageAnimBtnTypeTwo :str="'獲取免費諮詢'" />
       </div>
         
     </div>
@@ -434,7 +434,7 @@ const differData = {
             </div>
             <div class="lastBox-b">
               <!-- <span @click="toWhatsApp">立即預約牙齒檢查</span> -->
-              <PageAnimBtn :str="'立即預約牙齒檢查'" />
+              <PageAnimBtnTypeTwo :str="'立即預約牙齒檢查'" />
             </div>
           </div>
         </div>

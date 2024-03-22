@@ -344,7 +344,7 @@ const doctorData = {
           </div>
         </div>
         <div class="care-btn">
-          <!-- <PageAnimBtn :str="'與我們了解更多'" /> -->
+          <!-- <PageAnimBtnTypeTwo :str="'與我們了解更多'" /> -->
           <PageAnimBtnTypeTwo :str="'與我們了解更多'" />
         </div>
       </div>
@@ -422,7 +422,7 @@ const doctorData = {
               </div>
               <div class="lastBox-b">
                 <!-- <span @click="toWhatsApp">立即預約牙齒檢查</span> -->
-                <!-- <PageAnimBtn :str="'立即預約牙齒檢查'" /> -->
+                <!-- <PageAnimBtnTypeTwo :str="'立即預約牙齒檢查'" /> -->
                 <PageAnimBtnTypeTwo str="立即預約牙齒檢查" />
               </div>
             </div>

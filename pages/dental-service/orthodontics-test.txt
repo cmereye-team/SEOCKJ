@@ -374,7 +374,7 @@ const careData = {
       </div>
       <div class="principle-btn">
         <!-- <a :href="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`">預約免費口腔檢查</a> -->
-        <PageAnimBtn :str="'預約免費口腔檢查'" />
+        <PageAnimBtnTypeTwo :str="'預約免費口腔檢查'" />
       </div>
     </div>
     <!-- <ServiceStep :stepData="stepData" /> -->
@@ -451,7 +451,7 @@ const careData = {
               </div>
               <div class="lastBox-b">
                 <!-- <span @click="toWhatsApp">預約免費口腔檢查</span> -->
-                <PageAnimBtn :str="'預約免費口腔檢查'" />
+                <PageAnimBtnTypeTwo :str="'預約免費口腔檢查'" />
               </div>
             </div>
           </div>

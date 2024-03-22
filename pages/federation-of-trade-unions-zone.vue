@@ -275,7 +275,7 @@ const pageDetail:any = {
           <section v-else></section>
         </div>
         <!-- <div class="btn">
-          <PageAnimBtn link="https://bit.ly/FTU洗牙" str="立即預約會員洗牙" />
+          <PageAnimBtnTypeTwo link="https://bit.ly/FTU洗牙" str="立即預約會員洗牙" />
         </div> -->
       </div>
       <NewAddress />

@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { zh_tran,zh_getLang,getCookie } from '~/assets/js/uselang'
 import { Autoplay } from 'swiper';
-// import gsap from 'gsap'
 import { useAppState } from '~/stores/appState'
 import { toWhatsApp,smallPhoneNum } from '~/assets/js/common'
 const route = useRoute()
@@ -28,11 +27,6 @@ const menuLists = [
     link: '/',
     child: [],
   },
-  // {
-  //   name: '最新消息',
-  //   link: '/newsPage',
-  //   child: [],
-  // },
   {
     name: 'components.header.menuLists.menu_brand.name',
     link: `/brand/${appState.brand}`,
@@ -58,7 +52,6 @@ const menuLists = [
       },
       {
         name: 'service.orthodontics',
-        // imgUrl: 'https://static.cmereye.com/imgs/2023/05/4344be2a0c460ef5.png',
         imgUrl: 'https://static.cmereye.com/imgs/2023/12/7da6bba89026b274.png',
         link: '/dental-service/orthodontics'
       },
@@ -70,7 +63,6 @@ const menuLists = [
       {
         name: 'service.invisalign',
         imgUrl: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/z0x4bI.tif.48men0yif480.png',
-        // link: '/dental-service/invisalign'
         link: '/dental-service/invisiblebraces'
       },
       {
@@ -95,7 +87,6 @@ const menuLists = [
       },
       {
         name: 'service.toothtray',
-        // imgUrl: 'https://static.cmereye.com/imgs/2023/12/f9139f98feecb5d0.png',
         imgUrl: 'https://static.cmereye.com/imgs/2023/12/649dce292f6182b6.png',
         link: '/dental-service/toothtray'
       },
@@ -121,7 +112,6 @@ const menuLists = [
       },
       {
         name: 'service.children_dentistry',
-        // imgUrl: 'https://static.cmereye.com/imgs/2023/05/0c2dfc7b0c54bc01.png',
         imgUrl: 'https://static.cmereye.com/imgs/2023/12/1c8586701fba6af8.png',
         link: '/dental-service/children-dentistry'
       }
@@ -181,11 +171,6 @@ const menuLists = [
       },
     ],
   },
-  // {
-  //   name: 'components.header.menuLists.menu_caseSharing.name',
-  //   link: '/aboutUs',
-  //   child: [],
-  // },
   {
     name: 'components.header.menuLists.menu_contactUs.name',
     link: '/contactUs',
@@ -208,7 +193,6 @@ const menuActNum = ref(0)
 const handleMenu = (_idx: number) => {
   if (menuActNum.value === _idx) menuActNum.value = 0
   else menuActNum.value = _idx
-  // console.log(menuActNum)
 }
 
 const handleMenuChild = (_menu: any, _idx: number) => {
@@ -244,16 +228,6 @@ const imgBgHeight = ref({
 
 const isFiexdHeader = ref(false)
 onMounted(() => {
-  // gsap.from('.header-content-bgImg-in', {
-  //   opacity: 0,
-  //   y: 100,
-  //   duration: 2,
-  // })
-  // gsap.from('.header-content-bgImg-imgInfo', {
-  //   opacity: 0,
-  //   y: 100,
-  //   duration: 2,
-  // })
   getScrollHeight()
   getWindowWidth()
   window.addEventListener('scroll', getScrollHeight)
@@ -347,11 +321,6 @@ const handleopenwechat = () =>{
 <template>
   <header>
     <div class="header-content">
-      <!-- <div class="LanguageSwitcher" :style="{opacity:isShowLanguageBool?'1':'0'}">
-        <div class="LanguageSwitcher-in pageCon">
-          <LanguageSwitcher />
-        </div>
-      </div> -->
       <div class="header-content-bgImg" :class="headerConfig.pageName">
         <img class="imgBgBox pcBox" :src="headerConfig.bg" alt="" />
         <div class="header-content-bgImg-imgInfo bigPageCon">
@@ -370,40 +339,11 @@ const handleopenwechat = () =>{
           :src="headerConfig.mbImg"
           alt="banner"
         />
-        <div class="header-content-bgImg-textInfo pageCon">
-          <div :class="['header-content-bgImg-in', headerConfig.pageName]">
-            <div :class="['bannerTitle', headerConfig.pageName]">
-              <span>{{
-                windowWidth > 768
-                  ? headerConfig.pcText[0]
-                  : headerConfig.mbText[0]
-              }}</span>
-              <span>{{
-                windowWidth > 768
-                  ? headerConfig.pcText[1]
-                  : headerConfig.mbText[1]
-              }}</span>
-            </div>
-            <div class="text">
-              {{ headerData.bannerText }}
-              <span>{{ headerData.bannerTextSpan }}</span>
-            </div>
-          </div>
-        </div>
       </div>
       <div
-        v-if="
-          ['implant', 'rootCanal-test', 'scaling-and-polishing-test','periodontal-test','orthodontics-test','invisalign-test','veneers-test','action-message','course-new','health-care-voucher','coverage'].includes(
-            headerConfig.pageName
-          )
-        "
         class="header-content-bgImg-implant"
         :class="headerConfig.pageName"
       >
-        <!-- <img :data-cfsrc="headerConfig.img" :srcset="`${headerConfig.mbImg} 768w, ${headerConfig.img}`" :src="headerConfig.img" alt="banner"   /> -->
-        <!-- <a href="https://bit.ly/愛康健裕亨新店開業優惠">
-          <img :data-cfsrc="headerConfig.img" :srcset="`${headerConfig.mbImg} 768w, ${headerConfig.img}`" :src="headerConfig.img" alt="banner"   />
-        </a> -->
         <swiper :modules="[Autoplay]"
             :loop="true"
             :autoplay="{ delay: 3000 }"
@@ -426,176 +366,28 @@ const handleopenwechat = () =>{
             </nuxt-link>
           </SwiperSlide>
           <SwiperSlide>
-            <!-- https://static.cmereye.com/imgs/2024/02/8f33d6acfe425e15.webp -->
               <img :srcset="`https://static.cmereye.com/imgs/2024/03/4abbdd7326af4cc3.webp 768w, https://static.cmereye.com/imgs/2024/03/9615682d1948c5f5.png`"  src="https://static.cmereye.com/imgs/2024/03/9615682d1948c5f5.png" alt="">
           </SwiperSlide>
         </swiper>
       </div>
-      <!-- <div
-        v-if="
-          ['implant', 'rootCanal-test', 'scaling-and-polishing-test'].includes(
-            headerConfig.pageName
-          )
-        "
-        class="header-content-bgImg-implant-mb"
-      >
-        <img :src="headerConfig.mbImg" alt="banner" />
-      </div> -->
       <div
         ref="imgBgHeight"
         class="header-content-bgImgBB pageCon pcBox"
         :class="headerConfig.pageName"
       >
-        <!-- <a href="https://bit.ly/愛康健裕亨新店開業優惠">
-          <img :data-cfsrc="headerConfig.img" :srcset="`${headerConfig.mbImg} 768w, ${headerConfig.img}`" :src="headerConfig.img"  alt="banner" />
-        </a> -->
         <nuxt-link :to="bannerlink">
           <img data-cfsrc="https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg" :srcset="`https://static.cmereye.com/imgs/2024/02/216458f63817b47e.jpg 768w, https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg`"  src="https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg" alt="">
         </nuxt-link>
       </div>
       <div
-        v-if="
-          ['implant', 'rootCanal-test', 'scaling-and-polishing-test'].includes(
-            headerConfig.pageName
-          )
-        "
-        class="header-content-btn-implant"
-      >
-        <span @click="toWhatsApp">預約檢查及諮詢</span>
-        <span @click="toWhatsApp">預約檢查及諮詢</span>
-      </div>
-      <div
-        v-if="['course-new'].includes(headerConfig.pageName)"
         class="header-content-btn-implant bannerLine"
       >
-      <div class="bannerLine-in">
-        <PageSwiperPointLine :latestNewsNum="4" :latestNewsCurrent="bannerCurrent" @changeLineCur="handleBannerLineCur"></PageSwiperPointLine>
+        <div class="bannerLine-in">
+          <PageSwiperPointLine :latestNewsNum="4" :latestNewsCurrent="bannerCurrent" @changeLineCur="handleBannerLineCur"></PageSwiperPointLine>
+        </div>
       </div>
-      </div>
+      <div class="waterBg-implant"></div>
       <div
-        v-if="
-          ['periodontal-test'].includes(
-            headerConfig.pageName
-          )
-        "
-        class="header-content-btn-implant"
-      >
-        <span @click="toWhatsApp">獲取免費諮詢</span>
-        <span @click="toWhatsApp">獲取免費諮詢</span>
-      </div>
-      <div
-        v-if="
-          ['orthodontics-test'].includes(
-            headerConfig.pageName
-          )
-        "
-        class="header-content-btn-implant"
-      >
-        <span @click="toWhatsApp">獲取免費諮詢</span>
-        <span @click="toWhatsApp">獲取免費諮詢</span>
-      </div>
-      <div
-        v-if="
-          ['invisalign-test','veneers-test'].includes(
-            headerConfig.pageName
-          )
-        "
-        class="header-content-btn-implant"
-      >
-        <span @click="toWhatsApp">獲取免費諮詢</span>
-        <span @click="toWhatsApp">獲取免費諮詢</span>
-      </div>
-      <div
-        v-if="
-          ['implant', 'rootCanal-test', 'scaling-and-polishing-test','index-test','periodontal-test','orthodontics-test','invisalign-test','veneers-test','action-message','course-new','health-care-voucher','coverage'].includes(
-            headerConfig.pageName
-          )
-        "
-        class="waterBg-implant"
-      ></div>
-      <div
-        v-if="headerConfig.pageName === 'implant'"
-        class="header-content-text-implant"
-      >
-        <div>29年專科•專業•專注</div>
-        <div><span>港人首選</span>一站式連鎖牙科品牌</div>
-      </div>
-      <div
-        v-if="headerConfig.pageName === 'rootCanal-test'"
-        class="header-content-text-implant"
-      >
-        <!-- <div>保留原生牙齒</div>
-        <div>徹底<span>解放美食自由</span></div> -->
-        <div>29年專科•專業•專注</div>
-        <div><span>港人首選</span>一站式連鎖牙科品牌</div>
-      </div>
-      <div
-        v-if="headerConfig.pageName === 'scaling-and-polishing-test'"
-        class="header-content-text-implant"
-      >
-        <!-- <div>口腔健康，從洗牙開始！</div> -->
-        <div>29年專科•專業•專注</div>
-        <div><span>港人首選</span>一站式連鎖牙科品牌</div>
-      </div>
-      <div
-        v-if="headerConfig.pageName === 'health-care-voucher'"
-        class="header-content-text-implant"
-        :class="headerConfig.pageName"
-      >
-        <div>29年專科•專業•專注</div>
-        <div><span>港人首選</span>一站式連鎖牙科品牌</div>
-      </div>
-      <div
-        v-if="headerConfig.pageName === 'index-test'"
-        class="header-content-text-implant"
-        :class="headerConfig.pageName"
-      >
-        <!-- <div>口腔健康，從洗牙開始！</div> -->
-        <div>全程式預約一體化診療服務</div>
-        <div>讓每一位顧客享受<span>健康微笑之旅。</span></div>
-      </div>
-      <div
-        v-if="headerConfig.pageName === 'periodontal-test'"
-        class="header-content-text-implant"
-        :class="headerConfig.pageName"
-      >
-        <div>健康牙齒，從<span>牙周病治療</span>開始</div>
-        <div>保持口氣清新、牙周健康</div>
-      </div>
-      <div
-        v-if="headerConfig.pageName === 'orthodontics-test'"
-        class="header-content-text-implant"
-        :class="headerConfig.pageName"
-      >
-        <div>全程式預約一體化診療服務，</div>
-        <div>讓每一位顧客享受 <span>健康微笑之旅。</span></div>
-      </div>
-      <div
-        v-if="headerConfig.pageName === 'invisalign-test'"
-        class="header-content-text-implant"
-        :class="headerConfig.pageName"
-      >
-        <div>全程式預約一體化診療服務，</div>
-        <div>讓每一位顧客享受 <span>健康微笑之旅。</span></div>
-      </div>
-      <div
-        v-if="headerConfig.pageName === 'veneers-test'"
-        class="header-content-text-implant"
-        :class="headerConfig.pageName"
-      >
-        <div>全程式預約一體化診療服務，</div>
-        <div>讓每一位顧客享受 <span>健康微笑之旅。</span></div>
-      </div>
-      <div
-        v-if="headerConfig.pageName === 'action-message'"
-        class="header-content-text-implant"
-        :class="headerConfig.pageName"
-      >
-        <div>全程式預約一體化診療服務，</div>
-        <div>讓每一位顧客享受 <span>健康微笑之旅。</span></div>
-      </div>
-      <div
-        v-if="headerConfig.pageName === 'course-new'"
         class="header-content-text-implant"
         :class="headerConfig.pageName"
       >
@@ -644,12 +436,6 @@ const handleopenwechat = () =>{
                   </nuxt-link>
                 </div>
               </div>
-              <!-- <div
-                v-if="menuItem.link.includes('/dental-service')"
-                class="menuChild serviceCard"
-              >
-                <serviceCard :is-menu="true" />
-              </div> -->
             </div>
             <div class="menuItem langItem">
               <img src="@/assets/images/icon_26.svg" alt="">
@@ -890,71 +676,8 @@ const handleopenwechat = () =>{
     left: 50%;
     transform: translateX(-50%);
     z-index: -1;
-    &.implant,
-    &.rootCanal-test,
-    &.periodontal-test,
-    &.orthodontics-test,
-    &.invisalign-test,
-    &.veneers-test,
-    &.action-message,
-    &.coverage,
-    &.course-new,
-    &.health-care-voucher,
-    &.scaling-and-polishing-test {
+    &.course-new{
       display: none;
-    }
-    &-imgInfo {
-      & > img {
-        &.brand {
-          float: right;
-        }
-        &.implant {
-          float: right;
-          margin-right: calc((100% - 1452px) / 2);
-        }
-        &.rootCanal,
-        &.orthodontics {
-          float: right;
-          margin-right: calc((100% - 1600px) / 2);
-        }
-        &.toothtray,
-        &.general-oral-examination {
-          float: right;
-          margin-right: calc((100% - 1700px) / 2);
-        }
-        &.invisalign,
-        &.veneers,
-        &.wisdom-teeth-extraction,
-        &.periodontal,
-        &.teeth-whitening,
-        &.scaling-and-polishing,
-        &.children-dentistry,
-        &.all-ceramic-crowns {
-          float: right;
-          margin-right: calc((100% - 1920px) / 2);
-        }
-        &.fillings {
-          float: right;
-          margin-right: calc((100% - 1200px) / 2);
-        }
-      }
-    }
-    &-mbImg {
-      &.veneers,
-      &.periodontal {
-        -moz-transform: matrix(-1, 0, 0, 1, 0, 0);
-        -o-transform: matrix(-1, 0, 0, 1, 0, 0);
-        -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
-        transform: matrix(-1, 0, 0, 1, 0, 0);
-      }
-    }
-    &-textInfo {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      left: 50%;
-      top: 0;
-      transform: translateX(-50%);
     }
     .imgBgBox {
       width: 100%;
@@ -976,83 +699,6 @@ const handleopenwechat = () =>{
     & > img {
       width: 100%;
     }
-    &-in {
-      position: absolute;
-      left: 55%;
-      top: 30%;
-      .bannerTitle {
-        font-weight: 700;
-        font-size: 42px;
-        line-height: 160%;
-        color: #666666;
-        span {
-          display: block;
-          &:last-child {
-            margin-left: 200px;
-          }
-        }
-        &.rootCanal,
-        &.wisdom-teeth-extraction {
-          span {
-            &:last-child {
-              margin-left: 120px;
-            }
-          }
-        }
-        &.toothtray,
-        &.scaling-and-polishing,
-        &.invisalign {
-          span {
-            &:last-child {
-              margin-left: 130px;
-            }
-          }
-        }
-      }
-      .text {
-        margin-top: 32px;
-        max-width: 550px;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 25px;
-        line-height: 160%;
-        color: #666666;
-        width: 73%;
-        span {
-          font-size: 25px;
-          color: var(--indexColor);
-        }
-      }
-      &.brand {
-        left: 0;
-      }
-      &.implant,
-      &.orthodontics,
-      &.rootCanal,
-      &.invisalign,
-      &.veneers,
-      &.all-ceramic-crowns {
-        left: 0;
-        top: 25%;
-      }
-      &.wisdom-teeth-extraction,
-      &.periodontal,
-      &.toothtray,
-      &.teeth-whitening,
-      &.scaling-and-polishing {
-        left: 0;
-        top: 25%;
-      }
-      &.fillings,
-      &.general-oral-examination,
-      &.children-dentistry {
-        left: 0;
-        top: 25%;
-      }
-      &.index-test,&.action-message,&.course-new,&.health-care-voucher,&.coverage{
-        display: none;
-      }
-    }
   }
   &-bgImg-implant {
     position: fixed;
@@ -1063,9 +709,6 @@ const handleopenwechat = () =>{
       width: 100%;
     }
   }
-  // &-bgImg-implant-mb {
-  //   display: none;
-  // }
   &-btn-implant {
     display: flex;
     justify-content: center;
@@ -1131,34 +774,13 @@ const handleopenwechat = () =>{
         color: var(--indexColor1);
       }
     }
-    &.index-test,&.action-message,&.course-new,&.coverage{
-      display: none;
-    }
-    &.periodontal-test{
-      display: none;
-    }
-    &.orthodontics-test{
-      display: none;
-    }
-    &.invisalign-test,&.veneers-test{
+    &.course-new{
       display: none;
     }
   }
   &-bgImgBB {
     opacity: 0;
-    &.index-test{
-      max-width: 1920px;
-      min-height: calc(650 / 1920 * 100%);
-    }
-    &.action-message,&.course-new,&.health-care-voucher,&.coverage,
-    &.implant,
-    &.health-care-voucher,
-    &.rootCanal-test,
-    &.periodontal-test,
-    &.orthodontics-test,
-    &.invisalign-test,
-    &.veneers-test,
-    &.scaling-and-polishing-test {
+    &.course-new {
       max-width: 100%;
       min-height: calc(726 / 1920 * 100vw);
       img {
@@ -1233,17 +855,6 @@ const handleopenwechat = () =>{
         & > .router-link-exact-active {
           color: var(--indexColor1);
           text-decoration-line: underline;
-          // position: relative;
-          // &::after{
-          //   content: '';
-          //   width: 100%;
-          //   height: 3px;
-          //   border-radius: 2px;
-          //   background: var(--indexColor1);
-          //   position: absolute;
-          //   bottom: 20px;
-          //   left: 0;
-          // }
           &.triangleIcon:after {
             border-color: var(--indexColor1) transparent transparent transparent;
           }
@@ -1254,16 +865,6 @@ const handleopenwechat = () =>{
           .triangleIcon:after {
             border-color: var(--indexColor1) transparent transparent transparent;
           }
-          // &::after{
-          //   content: '';
-          //   width: 100%;
-          //   height: 3px;
-          //   border-radius: 2px;
-          //   background: var(--indexColor1);
-          //   position: absolute;
-          //   bottom: 20px;
-          //   left: 0;
-          // }
         }
         &:hover .menuChild {
           display: flex;
@@ -1340,32 +941,11 @@ const handleopenwechat = () =>{
   .waterBg {
     position: relative;
     z-index: 35;
-    &.implant,
-    &.rootCanal-test,
-    &.periodontal-test,
-    &.orthodontics-test,
-    &.invisalign-test,
-    &.veneers-test,
-    &.health-care-voucher,
-    &.scaling-and-polishing-test {
-      bottom: 100px;
-    }
     &.course-new{
       bottom: 60px;
     }
   }
   .pcMenuBox {
-    &.implant,
-    &.rootCanal-test,
-    &.periodontal-test,
-    &.orthodontics-test,
-    &.invisalign-test,
-    &.veneers-test,
-    &.health-care-voucher,
-    &.scaling-and-polishing-test {
-      margin-top: 100px;
-      transition: all 0.3s;
-    }
     &.course-new{
       margin-top: 60px;
     }
@@ -1467,36 +1047,10 @@ const handleopenwechat = () =>{
 
 @media (min-width: 768px) and (max-width: 1000px) {
   .header-content {
-    &-bgImg {
-      &-in {
-        left: 50%;
-        .bannerTitle {
-          font-size: 2rem;
-          line-height: 130%;
-          span {
-            display: block;
-            &:last-child {
-              margin-left: 10%;
-            }
-          }
-        }
-        .text {
-          margin-top: 1%;
-          font-size: 1.2rem;
-          line-height: 130%;
-          span {
-            font-size: 1.2rem;
-            color: var(--indexColor);
-          }
-        }
-      }
-    }
     &-text-implant {
-      // bottom: 60px;
       div{
         width: calc(80%);
         margin: 0 auto;
-        // font-size: 2vw;
       }
     }
     &-btn-implant{
@@ -1511,18 +1065,6 @@ const handleopenwechat = () =>{
     }
     &-bgImgBB{
       width: 100%;
-    }
-    .waterBg {
-      &.implant,
-      &.rootCanal-test,
-      &.periodontal-test,
-      &.orthodontics-test,
-      &.invisalign-test,
-      &.veneers-test,
-      &.health-care-voucher,
-      &.scaling-and-polishing-test {
-        bottom: 60px;
-      }
     }
   }
   .waterBg::after,
@@ -1540,47 +1082,11 @@ const handleopenwechat = () =>{
         margin-bottom: 15px;
       }
     }
-    .waterBg {
-      &.implant,
-      &.rootCanal-test,
-      &.periodontal-test,
-      &.orthodontics-test,
-      &.invisalign-test,
-      &.veneers-test,
-      &.health-care-voucher,
-      &.scaling-and-polishing-test {
-        bottom: 65px;
-      }
-    }
     &-text-implant {
       bottom: 80px;
       div{
         width: calc(80%);
         margin: 0 auto;
-      }
-    }
-    &-bgImg {
-      &-in {
-        top: 30%;
-        .bannerTitle {
-          font-size: 2.5rem;
-          line-height: 130%;
-          span {
-            display: block;
-            &:last-child {
-              margin-left: 15%;
-            }
-          }
-        }
-        .text {
-          margin-top: 2%;
-          font-size: 1.4rem;
-          line-height: 130%;
-          span {
-            font-size: 1.4rem;
-            color: var(--indexColor);
-          }
-        }
       }
     }
     &-bgImgBB{
@@ -1654,88 +1160,16 @@ const handleopenwechat = () =>{
   .header-content {
     &-bgImg {
       position: relative;
-      &-textInfo {
-        position: static;
-        width: 100%;
-        background: #fff;
-        transform: none;
-      }
-      &-in {
-        position: static;
-        .bannerTitle {
-          position: absolute;
-          line-height: 140%;
-          color: #000;
-          font-weight: 400;
-          font-size: 1.25rem;
-          left: auto;
-          top: auto;
-          right: 30px;
-          bottom: 0;
-          span {
-            padding: 10px 2px;
-            background: #fff;
-            text-align: center;
-            writing-mode: tb-rl;
-            text-align: center;
-            letter-spacing: 7px;
-            vertical-align: middle;
-            &:first-child {
-              margin-left: 50px;
-            }
-            &:last-child {
-              margin-left: 0;
-              margin-top: -120px;
-            }
-          }
-        }
-        .text {
-          left: 55%;
-          font-weight: 500;
-          font-size: 1.25rem;
-          width: 60vw;
-          padding-left: 30px;
-          margin-top: 0;
-          span {
-            font-size: 1.25rem;
-          }
-        }
-      }
-      &.index-test,&.action-message,&.course-new,&.health-care-voucher,&.coverage{
+      &.course-new{
         margin-top: 70px;
       }
     }
     &-bgImg-implant {
-      // display: none;
       position: relative;
       top: 60px;
       z-index: 1;
-      &.rootCanal-test{
-        padding-bottom: 40px;
-      }
-      &.rootCanal{
-        padding-bottom: 40px;
-      }
-      &.scaling-and-polishing{
-        padding-bottom: 60px;
-      }
-      &.scaling-and-polishing-test{
-        padding-bottom: 60px;
-      }
-      &.periodontal-test,&.orthodontics-test,&.invisalign-test,&.veneers-test{
-        padding-bottom: 60px;
-      }
-      &.implant{
-        padding-bottom: 60px;
-      }
       &.course-new{
         padding-bottom: 5px;
-      }
-      &.health-care-voucher{
-        padding-bottom: 140px;
-      }
-      &.coverage{
-        padding-bottom: 120px;
       }
     }
     &-btn-implant {
@@ -1758,18 +1192,9 @@ const handleopenwechat = () =>{
       & > div {
         font-size: 20px;
       }
-      &.index-test,&.action-message{
-        display: block;
-      }
       &.course-new{
         display: block;
         margin-top: 150px;
-      }
-      &.periodontal-test,&.orthodontics-test,&.invisalign-test,&.veneers-test{
-        display: block;
-      }
-      &.health-care-voucher{
-        display: none;
       }
     }
     .waterBg-implant {
@@ -1817,13 +1242,6 @@ const handleopenwechat = () =>{
         filter: drop-shadow(0px -8px 4px rgba(77, 77, 77, 0.15));
       }
     }
-    // &-bgImg-implant-mb {
-    //   display: block;
-    //   padding-top: 80px;
-    //   img {
-    //     width: 100%;
-    //   }
-    // }
     &-in {
       position: fixed;
       top: 0;
@@ -1871,29 +1289,8 @@ const handleopenwechat = () =>{
       top: 0;
       left: 0;
       width: 100%;
-      &.implant,
-      &.rootCanal-test,
-      &.periodontal-test,
-      &.orthodontics-test,
-      &.invisalign-test,
-      &.veneers-test,
-      &.health-care-voucher,
-      &.course-new,
-      &.scaling-and-polishing-test {
+      &.course-new{
         bottom: auto;
-      }
-    }
-    .pcMenuBox {
-      &.implant,
-      &.rootCanal-test,
-      &.periodontal-test,
-      &.orthodontics-test,
-      &.invisalign-test,
-      &.veneers-test,
-      &.health-care-voucher,
-      &.scaling-and-polishing-test {
-        margin-top: 0px;
-        transition: all 0.3s;
       }
     }
     .headerBox02 {

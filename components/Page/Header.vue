@@ -320,11 +320,6 @@ const handleopenwechat = () =>{
 <template>
   <header>
     <div class="header-content">
-      <!-- <div class="LanguageSwitcher" :style="{opacity:isShowLanguageBool?'1':'0'}">
-        <div class="LanguageSwitcher-in pageCon">
-          <LanguageSwitcher />
-        </div>
-      </div> -->
       <div class="header-content-bgImg" :class="headerConfig.pageName">
         <img class="imgBgBox pcBox" :src="headerConfig.bg" alt="" />
         <div class="header-content-bgImg-imgInfo bigPageCon">
@@ -375,16 +370,6 @@ const handleopenwechat = () =>{
       >
         <img :data-cfsrc="headerConfig.img" :srcset="`${headerConfig.mbImg} 768w, ${headerConfig.img}`" :src="headerConfig.img" alt="banner"   />
       </div>
-      <!-- <div
-        v-if="
-          ['implant', 'rootCanal-test', 'scaling-and-polishing-test'].includes(
-            headerConfig.pageName
-          )
-        "
-        class="header-content-bgImg-implant-mb"
-      >
-        <img :src="headerConfig.mbImg" alt="banner" />
-      </div> -->
       <div
         ref="imgBgHeight"
         class="header-content-bgImgBB pageCon pcBox"
@@ -394,7 +379,7 @@ const handleopenwechat = () =>{
       </div>
       <div
         v-if="
-          ['implant', 'rootCanal-test', 'scaling-and-polishing-test'].includes(
+          ['implant', 'rootCanal-test', 'scaling-and-polishing-test','invisalign-test','veneers-test'].includes(
             headerConfig.pageName
           )
         "
@@ -405,7 +390,7 @@ const handleopenwechat = () =>{
       </div>
       <div
         v-if="
-          ['periodontal-test'].includes(
+          ['periodontal-test','orthodontics-test'].includes(
             headerConfig.pageName
           )
         "
@@ -413,28 +398,6 @@ const handleopenwechat = () =>{
       >
         <span @click="toWhatsApp">獲取免費諮詢</span>
         <span @click="toWhatsApp">獲取免費諮詢</span>
-      </div>
-      <div
-        v-if="
-          ['orthodontics-test'].includes(
-            headerConfig.pageName
-          )
-        "
-        class="header-content-btn-implant"
-      >
-        <span @click="toWhatsApp">獲取免費諮詢</span>
-        <span @click="toWhatsApp">獲取免費諮詢</span>
-      </div>
-      <div
-        v-if="
-          ['invisalign-test','veneers-test'].includes(
-            headerConfig.pageName
-          )
-        "
-        class="header-content-btn-implant"
-      >
-        <span @click="toWhatsApp">免費網上預約</span>
-        <span @click="toWhatsApp">免費網上預約</span>
       </div>
       <div
         v-if="
@@ -445,45 +408,12 @@ const handleopenwechat = () =>{
         class="waterBg-implant"
       ></div>
       <div
-        v-if="headerConfig.pageName === 'implant'"
-        class="header-content-text-implant"
-      >
-        <div>29年專科•專業•專注</div>
-        <div><span>港人首選</span>一站式連鎖牙科品牌</div>
-      </div>
-      <div
-        v-if="headerConfig.pageName === 'rootCanal-test'"
-        class="header-content-text-implant"
-      >
-        <!-- <div>保留原生牙齒</div>
-        <div>徹底<span>解放美食自由</span></div> -->
-        <div>29年專科•專業•專注</div>
-        <div><span>港人首選</span>一站式連鎖牙科品牌</div>
-      </div>
-      <div
-        v-if="headerConfig.pageName === 'scaling-and-polishing-test'"
-        class="header-content-text-implant"
-      >
-        <!-- <div>口腔健康，從洗牙開始！</div> -->
-        <div>29年專科•專業•專注</div>
-        <div><span>港人首選</span>一站式連鎖牙科品牌</div>
-      </div>
-      <div
-        v-if="headerConfig.pageName === 'health-care-voucher'"
+        v-if="['implant','rootCanal-test','scaling-and-polishing-test','health-care-voucher'].includes(headerConfig.pageName)"
         class="header-content-text-implant"
         :class="headerConfig.pageName"
       >
-        <div>{{$t('health-care-voucher.header_text1')}}</div>
-        <div><span>{{$t('health-care-voucher.header_text2')}}</span>{{$t('health-care-voucher.header_text3')}}</div>
-      </div>
-      <div
-        v-if="headerConfig.pageName === 'index-test'"
-        class="header-content-text-implant"
-        :class="headerConfig.pageName"
-      >
-        <!-- <div>口腔健康，從洗牙開始！</div> -->
-        <div>全程式預約一體化診療服務</div>
-        <div>讓每一位顧客享受<span>健康微笑之旅。</span></div>
+        <div>29年專科•專業•專注</div>
+        <div><span>港人首選</span>一站式連鎖牙科品牌</div>
       </div>
       <div
         v-if="headerConfig.pageName === 'periodontal-test'"
@@ -494,39 +424,7 @@ const handleopenwechat = () =>{
         <div>保持口氣清新、牙周健康</div>
       </div>
       <div
-        v-if="headerConfig.pageName === 'orthodontics-test'"
-        class="header-content-text-implant"
-        :class="headerConfig.pageName"
-      >
-        <div>全程式預約一體化診療服務，</div>
-        <div>讓每一位顧客享受 <span>健康微笑之旅。</span></div>
-      </div>
-      <div
-        v-if="headerConfig.pageName === 'invisalign-test'"
-        class="header-content-text-implant"
-        :class="headerConfig.pageName"
-      >
-        <div>全程式預約一體化診療服務，</div>
-        <div>讓每一位顧客享受 <span>健康微笑之旅。</span></div>
-      </div>
-      <div
-        v-if="headerConfig.pageName === 'veneers-test'"
-        class="header-content-text-implant"
-        :class="headerConfig.pageName"
-      >
-        <div>全程式預約一體化診療服務，</div>
-        <div>讓每一位顧客享受 <span>健康微笑之旅。</span></div>
-      </div>
-      <div
-        v-if="headerConfig.pageName === 'action-message'"
-        class="header-content-text-implant"
-        :class="headerConfig.pageName"
-      >
-        <div>全程式預約一體化診療服務，</div>
-        <div>讓每一位顧客享受 <span>健康微笑之旅。</span></div>
-      </div>
-      <div
-        v-if="headerConfig.pageName === 'course-new'"
+        v-if="['veneers-test','action-message','course-new','invisalign-test','orthodontics-test','index-test'].includes(headerConfig.pageName)"
         class="header-content-text-implant"
         :class="headerConfig.pageName"
       >

@@ -435,7 +435,7 @@ const reason2Data = {
         <!-- <div ref="detailBtn" class="btn">
           <span @click="toWhatsApp">與我們了解更多</span>
         </div> -->
-        <PageAnimBtn :str="'與我們了解更多'" />
+        <PageAnimBtnTypeTwo :str="'與我們了解更多'" />
       </div>
     </div>
     <div class="note">
@@ -466,7 +466,7 @@ const reason2Data = {
     <!-- <ServiceNote :noteData="noteData" /> -->
     <div class="care2">
       <div class="care2-btn">
-        <PageAnimBtn :str="'立即線上諮詢'" />
+        <PageAnimBtnTypeTwo :str="'立即線上諮詢'" />
         <!-- <div ref="detailBtn" class="btn">
           <span @click="toWhatsApp">立即線上諮詢</span>
         </div> -->
@@ -717,6 +717,8 @@ const reason2Data = {
   }
   &-btn {
     margin-top: 55px;
+    display: flex;
+    justify-content: center;
   }
 }
 .care2 {
@@ -770,6 +772,10 @@ const reason2Data = {
         margin-top: 15px;
       }
     }
+  }
+  &-btn{
+    display: flex;
+    justify-content: center;
   }
 }
 @media (min-width: 768px) and (max-width: 1200px) {

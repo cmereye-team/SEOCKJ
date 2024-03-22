@@ -409,14 +409,14 @@ const caseLists = [
             </div>
             <div class="lastBox-b">
               <!-- <span @click="toWhatsApp">獲取免費諮詢</span> -->
-              <PageAnimBtn :str="'獲取免費檢查諮詢'">
-                <template #animbtnAfter>
+              <PageAnimBtnTypeTwo :str="'獲取免費檢查諮詢'">
+                <!-- <template #animbtnAfter>
                   獲取<span class="bigBan">免費</span>檢查諮詢
                 </template>
                 <template #animbtnFront>
                   獲取<span class="bigBan">免費</span>檢查諮詢
-                </template>
-              </PageAnimBtn>
+                </template> -->
+              </PageAnimBtnTypeTwo>
             </div>
           </div>
         </div>
@@ -454,7 +454,7 @@ const caseLists = [
         </div>
       </div>
       <div class="differ-btn">
-        <PageAnimBtn :str="'獲取免費諮詢'" />
+        <PageAnimBtnTypeTwo :str="'獲取免費諮詢'" />
       </div>
     </div>
     <div class="care">
