@@ -440,6 +440,24 @@ if(process.server){
     font-size: 20px;
     margin-top: 35px;
   }
+  :deep(.youtobe-video){
+    width: 80%;
+    max-width: 960px;
+    margin: 80px auto 0;
+    .youtobe-video-in{
+      width: 100%;
+      height: 0;
+      padding-bottom: calc(316 / 560 * 100%);
+      position: relative;
+      &>iframe{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
 }
 .content-bbtn{
   display: flex;
@@ -617,7 +635,13 @@ if(process.server){
       margin: 0 30px 23px;
       font-size: 16px;
     }
-
+    :deep(.youtobe-video){
+      width: 100%;
+      margin: 30px auto 0;
+      .youtobe-video-in{
+        padding-bottom: calc(315 / 560 * 100%);
+      }
+    }
   }
   .content-bbtn{
     padding: 0 0 50px;
