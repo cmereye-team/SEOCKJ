@@ -229,15 +229,8 @@ const imgBgHeight = ref({
 const isFiexdHeader = ref(false)
 onMounted(() => {
   getScrollHeight()
-  getWindowWidth()
   window.addEventListener('scroll', getScrollHeight)
-  window.addEventListener('resize', getWindowWidth)
 })
-const windowWidth = ref(1920)
-
-const getWindowWidth = () => {
-  windowWidth.value = window.innerWidth
-}
 const isShowLanguageBool = ref(false)
 const getScrollHeight = () => {
   if(imgBgHeight.value && imgBgHeight.value.offsetHeight){
@@ -372,16 +365,14 @@ const handleopenwechat = () =>{
       </div>
       <div
         ref="imgBgHeight"
-        class="header-content-bgImgBB pageCon pcBox"
+        class="header-content-bgImgBB pcBox"
         :class="headerConfig.pageName"
       >
         <nuxt-link :to="bannerlink">
           <img data-cfsrc="https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg" :srcset="`https://static.cmereye.com/imgs/2024/02/216458f63817b47e.jpg 768w, https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg`"  src="https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg" alt="">
         </nuxt-link>
       </div>
-      <div
-        class="header-content-btn-implant bannerLine"
-      >
+      <div class="header-content-btn-implant bannerLine">
         <div class="bannerLine-in">
           <PageSwiperPointLine :latestNewsNum="4" :latestNewsCurrent="bannerCurrent" @changeLineCur="handleBannerLineCur"></PageSwiperPointLine>
         </div>
@@ -650,20 +641,6 @@ const handleopenwechat = () =>{
     transform: translate(-50%,0);
   }
 }
-.LanguageSwitcher {
-  width: 100%;
-  background: rgba(255, 255, 255, 0.5);
-  height: 30px;
-  position: fixed;
-  z-index: 38;
-  transition: all 1s;
-  &-in {
-    height: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
-}
 .header-content {
   width: 100%;
   box-sizing: border-box;
@@ -688,14 +665,6 @@ const handleopenwechat = () =>{
       transform: translateX(-50%);
       z-index: -2;
     }
-    .imgBgBox-1 {
-      width: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -3;
-      filter: blur(10px);
-    }
     & > img {
       width: 100%;
     }
@@ -717,35 +686,6 @@ const handleopenwechat = () =>{
     left: 0;
     z-index: 40;
     width: 100%;
-    span {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #fff;
-      background: var(--indexColor1);
-      font-size: 35px;
-      font-weight: 900;
-      border-radius: 40px;
-      padding: 5px 80px;
-      box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
-      cursor: pointer;
-      z-index: 1;
-      transition: all .3s;
-      &:nth-of-type(2) {
-        color: var(--indexColor1);
-        background: #fff;
-        z-index: 2;
-        animation: btnAnim 1s linear;
-        animation-fill-mode: forwards;
-      }
-    }
-    &:hover{
-      span{
-        &:nth-of-type(1){
-          background: #FF85AF;
-        }
-      }
-    }
     &.bannerLine{
       bottom: 130px;
       z-index: 41;
@@ -1094,10 +1034,6 @@ const handleopenwechat = () =>{
     }
     &-btn-implant{
       bottom: 18vw;
-      span{
-        font-size: 2vw;
-        padding: 5px 4vw;
-      }
     }
   }
 }
@@ -1149,6 +1085,86 @@ const handleopenwechat = () =>{
       }
     }
     &-text-implant {
+      div{
+        font-size: 100%;
+      }
+    }
+  }
+}
+
+@media (min-width: 1450px) and (max-width: 1800px) {
+  .header-content {
+    &-in {
+      width: calc(80% + 60px);
+      padding: 10px 15px 0 30px;
+      .logo {
+        width: 20%;
+        margin-bottom: 10px;
+      }
+      .menu {
+        .menuItem {
+          font-size: 1.1vw;
+          padding: 0 0 10px;
+          & > a {
+            padding: 0 1vw;
+            box-sizing: border-box;
+          }
+          &.langItem{
+            padding: 0 1vw 1vw;
+            &>img{
+              width: 1vw;
+            }
+          }
+          .triangleIcon:after {
+            border: 5px solid;
+            border-color: #666666 transparent transparent transparent;
+          }
+          .menuChild {
+            padding: 0 10px;
+            &-item {
+              font-size: 1.1vw;
+            }
+            &::before {
+              border: 5px solid;
+              border-color: transparent transparent #fff transparent;
+              position: absolute;
+              top: -10px;
+              left: 50%;
+              transform: translateX(-50%);
+            }
+          }
+          .serviceCard {
+            padding: 12px 6px;
+          }
+        }
+      }
+    }
+    .waterBg {
+      &.implant,
+      &.rootCanal-test,
+      &.periodontal-test,
+      &.orthodontics-test,
+      &.invisalign-test,
+      &.veneers-test,
+      &.health-care-voucher,
+      &.scaling-and-polishing-test {
+        bottom: 4vw;
+      }
+      &.course-new{
+        bottom: 30px;
+      }
+    }
+    &-btn-implant {
+      bottom: calc(100px + 6vw);
+      span{
+        font-size: 1.9vw;
+        padding: .3vw 3.5vw;
+      }
+    }
+    &-text-implant {
+      width: calc(80% + 60px);
+      padding: 0 30px;
+      bottom: 5vw;
       div{
         font-size: 100%;
       }

@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { zh_tran,zh_getLang,getCookie } from '~/assets/js/uselang'
-// import gsap from 'gsap'
 import { useAppState } from '~/stores/appState'
 import { toWhatsApp,smallPhoneNum } from '~/assets/js/common'
 const route = useRoute()
@@ -27,11 +26,6 @@ const menuLists = [
     link: '/',
     child: [],
   },
-  // {
-  //   name: '最新消息',
-  //   link: '/newsPage',
-  //   child: [],
-  // },
   {
     name: 'components.header.menuLists.menu_brand.name',
     link: `/brand/${appState.brand}`,
@@ -57,7 +51,6 @@ const menuLists = [
       },
       {
         name: 'service.orthodontics',
-        // imgUrl: 'https://static.cmereye.com/imgs/2023/05/4344be2a0c460ef5.png',
         imgUrl: 'https://static.cmereye.com/imgs/2023/12/7da6bba89026b274.png',
         link: '/dental-service/orthodontics'
       },
@@ -69,7 +62,6 @@ const menuLists = [
       {
         name: 'service.invisalign',
         imgUrl: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/z0x4bI.tif.48men0yif480.png',
-        // link: '/dental-service/invisalign'
         link: '/dental-service/invisiblebraces'
       },
       {
@@ -94,7 +86,6 @@ const menuLists = [
       },
       {
         name: 'service.toothtray',
-        // imgUrl: 'https://static.cmereye.com/imgs/2023/12/f9139f98feecb5d0.png',
         imgUrl: 'https://static.cmereye.com/imgs/2023/12/649dce292f6182b6.png',
         link: '/dental-service/toothtray'
       },
@@ -120,7 +111,6 @@ const menuLists = [
       },
       {
         name: 'service.children_dentistry',
-        // imgUrl: 'https://static.cmereye.com/imgs/2023/05/0c2dfc7b0c54bc01.png',
         imgUrl: 'https://static.cmereye.com/imgs/2023/12/1c8586701fba6af8.png',
         link: '/dental-service/children-dentistry'
       }
@@ -180,11 +170,6 @@ const menuLists = [
       },
     ],
   },
-  // {
-  //   name: 'components.header.menuLists.menu_caseSharing.name',
-  //   link: '/aboutUs',
-  //   child: [],
-  // },
   {
     name: 'components.header.menuLists.menu_contactUs.name',
     link: '/contactUs',
@@ -207,7 +192,6 @@ const menuActNum = ref(0)
 const handleMenu = (_idx: number) => {
   if (menuActNum.value === _idx) menuActNum.value = 0
   else menuActNum.value = _idx
-  // console.log(menuActNum)
 }
 
 const handleMenuChild = (_menu: any, _idx: number) => {
@@ -243,16 +227,6 @@ const imgBgHeight = ref({
 
 const isFiexdHeader = ref(false)
 onMounted(() => {
-  // gsap.from('.header-content-bgImg-in', {
-  //   opacity: 0,
-  //   y: 100,
-  //   duration: 2,
-  // })
-  // gsap.from('.header-content-bgImg-imgInfo', {
-  //   opacity: 0,
-  //   y: 100,
-  //   duration: 2,
-  // })
   getScrollHeight()
   getWindowWidth()
   window.addEventListener('scroll', getScrollHeight)
@@ -372,7 +346,7 @@ const handleopenwechat = () =>{
       </div>
       <div
         ref="imgBgHeight"
-        class="header-content-bgImgBB pageCon pcBox"
+        class="header-content-bgImgBB pcBox"
         :class="headerConfig.pageName"
       >
         <img :data-cfsrc="headerConfig.img" :srcset="`${headerConfig.mbImg} 768w, ${headerConfig.img}`" :src="headerConfig.img"  alt="banner" />
@@ -385,8 +359,9 @@ const handleopenwechat = () =>{
         "
         class="header-content-btn-implant"
       >
-        <span @click="toWhatsApp">免費網上預約</span>
-        <span @click="toWhatsApp">免費網上預約</span>
+        <!-- <span @click="toWhatsApp">免費網上預約</span> -->
+        <!-- <span @click="toWhatsApp">免費網上預約</span> -->
+        <PageAnimBtnTypeTwo :str="'免費網上預約'" />
       </div>
       <div
         v-if="
@@ -396,8 +371,9 @@ const handleopenwechat = () =>{
         "
         class="header-content-btn-implant"
       >
-        <span @click="toWhatsApp">獲取免費諮詢</span>
-        <span @click="toWhatsApp">獲取免費諮詢</span>
+        <!-- <span @click="toWhatsApp">獲取免費諮詢</span> -->
+        <!-- <span @click="toWhatsApp">獲取免費諮詢</span> -->
+        <PageAnimBtnTypeTwo :str="'獲取免費諮詢'" />
       </div>
       <div
         v-if="
@@ -674,37 +650,23 @@ const handleopenwechat = () =>{
     }
   }
 }
-@keyframes btnAnim {
-  0% {
-    clip-path: polygon(-10% 0, 0 0, -10% 100%, -20% 100%);
-  }
-  50% {
-    clip-path: polygon(50% 0, 60% 0, 50% 100%, 40% 100%);
-  }
-  100% {
-    clip-path: polygon(110% 0, 120% 0, 110% 100%, 100% 100%);
-  }
-}
+// @keyframes btnAnim {
+//   0% {
+//     clip-path: polygon(-10% 0, 0 0, -10% 100%, -20% 100%);
+//   }
+//   50% {
+//     clip-path: polygon(50% 0, 60% 0, 50% 100%, 40% 100%);
+//   }
+//   100% {
+//     clip-path: polygon(110% 0, 120% 0, 110% 100%, 100% 100%);
+//   }
+// }
 @keyframes animBottomIn {
   from{
   }
   to{
     opacity: 1;
     transform: translate(-50%,0);
-  }
-}
-.LanguageSwitcher {
-  width: 100%;
-  background: rgba(255, 255, 255, 0.5);
-  height: 30px;
-  position: fixed;
-  z-index: 38;
-  transition: all 1s;
-  &-in {
-    height: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
   }
 }
 .header-content {
@@ -899,39 +861,39 @@ const handleopenwechat = () =>{
     display: flex;
     justify-content: center;
     position: absolute;
-    bottom: 240px;
+    bottom: 200px;
     left: 0;
     z-index: 40;
     width: 100%;
-    span {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #fff;
-      background: var(--indexColor1);
-      font-size: 35px;
-      font-weight: 900;
-      border-radius: 40px;
-      padding: 5px 80px;
-      box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
-      cursor: pointer;
-      z-index: 1;
-      transition: all .3s;
-      &:nth-of-type(2) {
-        color: var(--indexColor1);
-        background: #fff;
-        z-index: 2;
-        animation: btnAnim 1s linear;
-        animation-fill-mode: forwards;
-      }
-    }
-    &:hover{
-      span{
-        &:nth-of-type(1){
-          background: #FF85AF;
-        }
-      }
-    }
+    // span {
+    //   position: absolute;
+    //   left: 50%;
+    //   transform: translateX(-50%);
+    //   color: #fff;
+    //   background: var(--indexColor1);
+    //   font-size: 35px;
+    //   font-weight: 900;
+    //   border-radius: 40px;
+    //   padding: 5px 80px;
+    //   box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
+    //   cursor: pointer;
+    //   z-index: 1;
+    //   transition: all .3s;
+    //   &:nth-of-type(2) {
+    //     color: var(--indexColor1);
+    //     background: #fff;
+    //     z-index: 2;
+    //     animation: btnAnim 1s linear;
+    //     animation-fill-mode: forwards;
+    //   }
+    // }
+    // &:hover{
+    //   span{
+    //     &:nth-of-type(1){
+    //       background: #FF85AF;
+    //     }
+    //   }
+    // }
   }
   .waterBg-implant {
     display: none;
@@ -1266,149 +1228,203 @@ const handleopenwechat = () =>{
   display: none;
 }
 
-// @media (min-width: 768px) and (max-width: 1000px) {
-//   .header-content {
-//     &-bgImg {
-//       &-in {
-//         left: 50%;
-//         .bannerTitle {
-//           font-size: 2rem;
-//           line-height: 130%;
-//           span {
-//             display: block;
-//             &:last-child {
-//               margin-left: 10%;
-//             }
-//           }
-//         }
-//         .text {
-//           margin-top: 1%;
-//           font-size: 1.2rem;
-//           line-height: 130%;
-//           span {
-//             font-size: 1.2rem;
-//             color: var(--indexColor);
-//           }
-//         }
-//       }
-//     }
-//     &-text-implant {
-//       // bottom: 60px;
-//       div{
-//         width: calc(80%);
-//         margin: 0 auto;
-//         // font-size: 2vw;
-//       }
-//     }
-//     &-btn-implant{
-//       bottom: auto;
-//       span{
-//         font-size: 2vw;
-//         padding: 5px 4vw;
-//       }
-//     }
-//     &-in{
-//       width: calc(80% + 60px);
-//     }
-//     &-bgImgBB{
-//       width: 100%;
-//     }
-//     .waterBg {
-//       &.implant,
-//       &.rootCanal-test,
-//       &.periodontal-test,
-//       &.orthodontics-test,
-//       &.invisalign-test,
-//       &.veneers-test,
-//       &.health-care-voucher,
-//       &.scaling-and-polishing-test {
-//         bottom: 60px;
-//       }
-//     }
-//     .pcMenuBox {
-//       &.health-care-voucher{
-//         margin-top: 60px;
-//       }
-//     }
-//   }
-//   .waterBg::after,
-//   .waterBg::before {
-//     height: 160px;
-//   }
-// }
-// @media (min-width: 1001px) and (max-width: 1452px) {
-//   .header-content {
-//     &-in{
-//       width: calc(80% + 60px);
-//       padding: 10px 10px 0 30px;
-//       .logo{
-//         width: 200px;
-//         margin-bottom: 15px;
-//       }
-//     }
-//     .waterBg {
-//       &.implant,
-//       &.rootCanal-test,
-//       &.periodontal-test,
-//       &.orthodontics-test,
-//       &.invisalign-test,
-//       &.veneers-test,
-//       &.health-care-voucher,
-//       &.scaling-and-polishing-test {
-//         bottom: 65px;
-//       }
-//       // &.health-care-voucher{
-//       //   bottom: 70px;
-//       // }
-//     }
-//     &-text-implant {
-//       bottom: 80px;
-//       &.health-care-voucher{
-//         bottom: 100px;
-//       }
-//       div{
-//         width: calc(80%);
-//         margin: 0 auto;
-//       }
-//     }
-//     &-bgImg {
-//       &-in {
-//         top: 30%;
-//         .bannerTitle {
-//           font-size: 2.5rem;
-//           line-height: 130%;
-//           span {
-//             display: block;
-//             &:last-child {
-//               margin-left: 15%;
-//             }
-//           }
-//         }
-//         .text {
-//           margin-top: 2%;
-//           font-size: 1.4rem;
-//           line-height: 130%;
-//           span {
-//             font-size: 1.4rem;
-//             color: var(--indexColor);
-//           }
-//         }
-//       }
-//     }
-//     &-bgImgBB{
-//       width: 100%;
-//     }
-//     &-btn-implant{
-//       bottom: 18vw;
-//       span{
-//         font-size: 2vw;
-//         padding: 5px 4vw;
-//       }
-//     }
-//   }
-// }
 
-@media (min-width: 768px) and (max-width: 1800px) {
+@media (min-width: 768px) and (max-width: 1000px) {
+  .header-content {
+    &-bgImg {
+      &-in {
+        left: 50%;
+        .bannerTitle {
+          font-size: 2rem;
+          line-height: 130%;
+          span {
+            display: block;
+            &:last-child {
+              margin-left: 10%;
+            }
+          }
+        }
+        .text {
+          margin-top: 1%;
+          font-size: 1.2rem;
+          line-height: 130%;
+          span {
+            font-size: 1.2rem;
+            color: var(--indexColor);
+          }
+        }
+      }
+    }
+    &-text-implant {
+      // bottom: 60px;
+      div{
+        width: calc(80%);
+        margin: 0 auto;
+        // font-size: 2vw;
+      }
+    }
+    &-btn-implant{
+      bottom: 18vw;
+      // span{
+      //   font-size: 2vw;
+      //   padding: 5px 4vw;
+      // }
+    }
+    &-in{
+      width: calc(80% + 60px);
+    }
+    &-bgImgBB{
+      width: 100%;
+    }
+    .waterBg {
+      &.implant,
+      &.rootCanal-test,
+      &.periodontal-test,
+      &.orthodontics-test,
+      &.invisalign-test,
+      &.veneers-test,
+      &.health-care-voucher,
+      &.scaling-and-polishing-test {
+        bottom: 60px;
+      }
+    }
+    .pcMenuBox {
+      &.health-care-voucher{
+        margin-top: 60px;
+      }
+    }
+  }
+  .waterBg::after,
+  .waterBg::before {
+    height: 160px;
+  }
+}
+@media (min-width: 1001px) and (max-width: 1452px) {
+  .header-content {
+    &-in{
+      width: calc(80% + 60px);
+      padding: 10px 10px 0 30px;
+      .logo{
+        width: 200px;
+        margin-bottom: 15px;
+      }
+    }
+    .waterBg {
+      &.implant,
+      &.rootCanal-test,
+      &.periodontal-test,
+      &.orthodontics-test,
+      &.invisalign-test,
+      &.veneers-test,
+      &.health-care-voucher,
+      &.scaling-and-polishing-test {
+        bottom: 65px;
+      }
+      // &.health-care-voucher{
+      //   bottom: 70px;
+      // }
+    }
+    &-text-implant {
+      bottom: 80px;
+      &.health-care-voucher{
+        bottom: 100px;
+      }
+      div{
+        width: calc(80%);
+        margin: 0 auto;
+      }
+    }
+    &-bgImg {
+      &-in {
+        top: 30%;
+        .bannerTitle {
+          font-size: 2.5rem;
+          line-height: 130%;
+          span {
+            display: block;
+            &:last-child {
+              margin-left: 15%;
+            }
+          }
+        }
+        .text {
+          margin-top: 2%;
+          font-size: 1.4rem;
+          line-height: 130%;
+          span {
+            font-size: 1.4rem;
+            color: var(--indexColor);
+          }
+        }
+      }
+    }
+    &-bgImgBB{
+      width: 100%;
+    }
+    &-btn-implant{
+      bottom: 12vw;
+      // span{
+      //   font-size: 2vw;
+      //   padding: 5px 4vw;
+      // }
+    }
+  }
+}
+@media (min-width: 768px) and (max-width: 1450px) {
+  .header-content {
+    &-in {
+      padding: 10px 15px 0 30px;
+      .logo {
+        width: 20%;
+        margin-bottom: 15px;
+      }
+      .menu {
+        .menuItem {
+          font-size: 100%;
+          padding: 0 0 10px;
+          & > a {
+            padding: 0 1vw;
+            box-sizing: border-box;
+          }
+          &.langItem{
+            padding: 0 1vw 10px;
+            &>img{
+              width: 20px;
+            }
+          }
+          .triangleIcon:after {
+            border: 5px solid;
+            border-color: #666666 transparent transparent transparent;
+          }
+          .menuChild {
+            padding: 0 10px;
+            &-item {
+              font-size: 1rem;
+            }
+            &::before {
+              border: 5px solid;
+              border-color: transparent transparent #fff transparent;
+              position: absolute;
+              top: -10px;
+              left: 50%;
+              transform: translateX(-50%);
+            }
+          }
+          .serviceCard {
+            padding: 12px 6px;
+          }
+        }
+      }
+    }
+    &-text-implant {
+      div{
+        font-size: 100%;
+      }
+    }
+  }
+}
+
+@media (min-width: 1450px) and (max-width: 1800px) {
   .header-content {
     &-in {
       width: calc(80% + 60px);
@@ -1471,11 +1487,11 @@ const handleopenwechat = () =>{
       }
     }
     &-btn-implant {
-      bottom: calc(100px + 6vw);
-      span{
-        font-size: 1.9vw;
-        padding: .3vw 3.5vw;
-      }
+      bottom: calc(100px + 5vw);
+      // span{
+      //   font-size: 1.9vw;
+      //   padding: .3vw 3.5vw;
+      // }
     }
     &-text-implant {
       width: calc(80% + 60px);
