@@ -885,7 +885,7 @@ svg:hover path{
         color: #fff;
         span{
           font-size: 28px;
-          padding: 5px 70px 5px 15px;
+          padding: 5px 70px 5px 20px;
           display: inline-block;
           background: var(--indexColor1);
           clip-path: polygon(0 0, 93% 0, 100% 100%, 0 100%);
