@@ -1249,23 +1249,69 @@ svg:hover path{
 @media screen and (max-width: 768px) {
   .treatment-data{
     margin-top: 70px;
+    overflow: hidden;
     &-title{
       span{
         font-size: 20px;
       }
     }
     &-in{
-      margin-top: 100px;
-      flex-direction: column;
+      padding: 0 20px;
+      margin-top: 60px;
+      
+      // flex-direction: column;
       .dataBox{
+        width: 50%;
         &:not(:last-child){
           margin-bottom: 62px;
+        }
+        .num{
+          font-size: 35px;
+          img{
+            width: 100px;
+
+          }
+          .numIn{
+            height: 50px;
+            span{
+              line-height: 50px;
+            }
+          }
+        }
+        .name{
+          font-size: 24px;
+        }
+        &:nth-of-type(1){
+          img{
+            left: 15% !important;
+            top: -60% !important;
+          }
+        }
+        &:nth-of-type(2){
+          img{
+            left: -5% !important;
+            top: -30% !important;
+            width: 50%;
+          }
+        }
+        &:nth-of-type(3){
+          img{
+            left: 5% !important;
+            top: -50% !important;
+          }
+        }
+        &:nth-of-type(4){
+          img{
+            width: 70%;
+            left: 45% !important;
+            top: -10% !important;
+          }
         }
       }
     }
     &-bText{
       font-size: 16px;
-      margin-top: 60px;
+      margin-top: 0px;
     }
   }
   .indexPage {

@@ -1,12 +1,39 @@
 <script lang="ts" setup>
 import { phoneNum } from '~/assets/js/common'
 import { defineProps } from "vue";
+// import './globals'
 defineProps({
   str:{
     type: String,
     default: ''
   }
 })
+useHead({
+  // script:[
+  //   {
+  //     src:'https://code.jquery.com/jquery-3.6.0.min.js'
+  //   },
+  //   {
+  //     src: 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
+  //   }
+  // ]
+})
+interface googleface {
+  translate: {
+    TranslateElement: new (
+      options: any,
+      elementId: string
+    ) => unknown;
+  };
+}
+const google:googleface = {
+  translate: {
+    TranslateElement: class FakeTranslateElement {},
+  },
+}
+const googleTranslateElementInit = () => {
+  new window['google'].translate.TranslateElement({pageLanguage: 'zh-TW'}, 'google_translate_element');
+}
 const centerDialogVisible = ref(false)
 const handlecopywechatcode = () =>{
   if (navigator.clipboard) {  
@@ -32,6 +59,15 @@ const handlecopywechatcode = () =>{
 const handleopenwechat = () =>{
   window.location.href = "weixin://"
 }
+onMounted(()=>{
+  // nextTick(()=>{
+    // googleTranslateElementInit()
+  // })
+  // console.log(window)
+  // if(window['google']){
+  //   console.log(window['google'])
+  // }
+})
 </script>
 
 <template>
@@ -69,6 +105,10 @@ const handleopenwechat = () =>{
         </div>
 
         <PageAnimBtnTypeTwo />
+
+        <div id="google_translate_element">
+          <!-- 语言盒子 -->
+        </div>
       </div>
     </div>
     <PageFooter />
@@ -79,6 +119,9 @@ const handleopenwechat = () =>{
 
 
 <style lang="scss" scoped>
+#google_translate_element{
+  margin-top: 100px;
+}
 :deep(body){
   background:#000;
   width: 100% !important;
