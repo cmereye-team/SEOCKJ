@@ -17,7 +17,7 @@ let form = reactive({
   name: '',
   gender: '',
   phone: '',
-  email: '',
+  // email: '',
   service: '',
 })
 
@@ -44,8 +44,8 @@ const ruleFormRef = ref<FormInstance>()
 const rules = reactive<FormRules>({
   name: [{ required: true, message: '請填寫您的姓名', trigger: 'blur' }],
   gender: [{ required: true, message: '請選擇稱呼', trigger: 'change' }],
-  phone: [{ required: true, message: '請填寫您的電話號碼', trigger: 'blur' }, { min: 8, max: 11, message: '請填寫正確的電話號碼', trigger: 'blur' }],
-  email: [{ type: 'email', required: true, validator: valiemail, trigger: 'blur' }],
+  phone: [{ required: true, message: '請填寫您的Whatsapp電話', trigger: 'blur' }, { min: 8, max: 11, message: '請填寫正確的Whatsapp電話', trigger: 'blur' }],
+  // email: [{ type: 'email', required: true, validator: valiemail, trigger: 'blur' }],
   service: [{ required: true, message: '請選擇服務', trigger: 'change' }],
 })
 
@@ -83,7 +83,7 @@ const onSubmit = async () => {
   _formData.append('contact_name',_form.name)
   _formData.append('gender',_form.gender)
   _formData.append('phone',_form.phone)
-  _formData.append('email',_form.email)
+  // _formData.append('email',_form.email)
   _formData.append('service',_form.service)
   _formData.append('formUrl', `${location.href}`)
   const { data }:any = await useFetch('https://admin.ckjhk.com/api.php/cms/addform/fcode/3',{
@@ -169,9 +169,9 @@ onMounted(() => {
           <el-form-item :label="`${$t('contactUs.contact_form.formItem.telephone_number')}：`" prop="phone">
             <el-input v-model="form.phone" />
           </el-form-item>
-          <el-form-item :label="`${$t('contactUs.contact_form.formItem.email_address')}：`" prop="email">
+          <!-- <el-form-item :label="`${$t('contactUs.contact_form.formItem.email_address')}：`" prop="email">
             <el-input v-model="form.email" />
-          </el-form-item>
+          </el-form-item> -->
           <el-form-item :label="`${$t('contactUs.contact_form.formItem.service_selection')}：`" prop="service" label-width="100%">
             <el-select v-model="form.service" :placeholder="$t('contactUs.contact_form.formItem.please_select_service')">
               <el-option

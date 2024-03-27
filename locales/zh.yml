@@ -738,7 +738,7 @@ contactUs:
     formItem: 
       name: 姓名
       gender: 称呼
-      telephone_number: 电话号码
+      telephone_number: Whatsapp電話
       email_address: 电邮地址
       service_selection: 服务选择
       please_select_service: 请选择服务
