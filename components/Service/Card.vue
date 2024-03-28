@@ -46,7 +46,8 @@ const servicesCardPageData = {
       </div>
       <div class="context" v-if="!isMenu">
         <!-- 中心提供基本牙科、美容牙科及高階牙科服務，從一般口腔檢查、洗牙、補牙，到牙齒美白、全口修復及各種牙科治療，幫助客人回復自信笑容。 -->
-        <div class="context-in">{{$t(servicesCardPageData.contextIn)}}</div>
+        <div class="context-in" v-if="!isIndexShow">{{$t(servicesCardPageData.contextIn)}}</div>
+        <div class="context-in isIndex" v-else>愛康健集團是大灣區專業牙科連鎖機構，其愛康健口腔醫院為香港政府納入長者醫療券大灣區試點。14間門診有超過20種牙科治療項目，專注為港服務超過29年。</div>
       </div>
       <div :class="{'servicesCard':true,'isMenu': isMenu}">
         <div class="servicesCard-in" v-for="(item,index) in servicesCardLists" :key="index">
@@ -102,6 +103,9 @@ const servicesCardPageData = {
         line-height: 160%;
         color: #666666;
         text-align: center;
+        &.isIndex{
+          max-width: 760px;
+        }
       }
     }
     .servicesCard{

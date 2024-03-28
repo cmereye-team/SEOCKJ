@@ -331,6 +331,7 @@ onMounted(() => {
       color: var(--indexColor1);
       background-color: transparent;
       border: 1px solid #CBCBCB;
+      transition: all .3s;
       &:hover {
         color: #fff;
         background-color: var(--indexColor1);

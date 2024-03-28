@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
-import {Navigation,Thumbs,FreeMode} from 'swiper';
+import {Navigation,Thumbs,FreeMode,Autoplay} from 'swiper';
 const appState = useAppState()
 useHead({
   title: "聯絡我們 | 牙科服務",
@@ -90,10 +90,29 @@ const handleImg = (_idx:number) => {
   console.log(_idx)
   environmentCur.value = _idx
 }
-let thumbsSwiper = ref(null);
+let thumbsSwiper = ref({
+  slideToLoop: (a)=>{}
+});
 
 const setThumbsSwiper = (swiper:any) => {
   thumbsSwiper.value = swiper;
+}
+
+const changeThumbsSwiper = (swiper:any) => {
+  environmentSwiperRef.value.slideToLoop(swiper.realIndex)
+}
+
+let environmentSwiperRef = ref({
+  slideToLoop: (a)=>{}
+})
+const setEnvironmentSwiperRef = (swiper:any)=>{
+  environmentSwiperRef.value = swiper;
+}
+
+const changeEnvironment = (swiper:any) => {
+  // console.log(swiper)
+  // thumbsSwiper.value = swiper
+  thumbsSwiper.value.slideToLoop(swiper.realIndex)
 }
 
 let windowWidth = ref(390)
@@ -121,20 +140,28 @@ onMounted(() => {
           <div class="index_title">{{$t('contactUs.clinic_environment')}}</div>
         </div>
         <div class="environment-in pageCon">
-          <swiper class="environmentSwiperBox" :loop="true" :thumbs="{ swiper: thumbsSwiper }" :modules="[Thumbs,FreeMode]">
+          <swiper
+            class="environmentSwiperBox" 
+            :loop="true"
+            :autoplay="{
+              delay: 3000,
+            }"
+            :modules="[Autoplay]"
+            @swiper="setEnvironmentSwiperRef"
+            @slideChange="changeEnvironment">
             <swiper-slide class="environmentSwiperBox-slide" v-for="(imgItem,imgIndex) in environmentLists02" :key="imgIndex">
                 <img :src="imgItem" />
             </swiper-slide>
           </swiper>
           <swiper
-            @swiper="setThumbsSwiper"
             :spaceBetween="30"
             :slidesPerView="windowWidth>768 ? 4 : 'auto'"
-            :freeMode="true"
             :loop="true"
             :navigation="true"
-            :modules="[Navigation,Thumbs,FreeMode]"
+            :modules="[Navigation]"
             class="mySwiper"
+            @swiper="setThumbsSwiper"
+            @slideChange="changeThumbsSwiper"
           >
             <swiper-slide class="mySwiper-slide" v-for="(imgItem,imgIndex) in environmentLists02" :key="imgIndex">
               <img :src="imgItem" /> 

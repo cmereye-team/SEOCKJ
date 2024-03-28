@@ -579,8 +579,8 @@ watch(
         </div>
       </div>
       <!-- 聯絡我們 -->
-      <!-- <NewAddress /> -->
       <NewAddress />
+      <ContactForm />
     </div>
     <!-- <PageAdbox /> -->
     <PageFooter />
