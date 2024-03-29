@@ -502,6 +502,21 @@ const Plant_brand_series_data = [
   }
 ]
 
+const plant_brand_series_ref = ref({
+  slideToLoop: (a)=>{},
+})
+const set_plant_brand_series_ref = (swiper:any) => {
+  plant_brand_series_ref.value = swiper
+}
+const on_plant_brand_series_change = (swiper:any) => {
+  // plant_brand_series_ref.value.slideToLoop(swiper.realIndex)
+  Plant_brand_series_cur.value = swiper.realIndex
+}
+const handle_lant_brand_series_tab = ( _idx: number ) =>{
+  plant_brand_series_ref.value.slideToLoop(_idx)
+}
+
+
 const doctorData = {
   title: '種植專科團隊',
   lists: [
@@ -591,8 +606,7 @@ const doctorData = {
           </div>
         </div>
       </div>
-      <ServiceIntroduceJY :introduceData="introduceJY" />
-      
+      <ServiceIntroduceJY :introduceData="introduceJY" />     
       <div class="Dental_implant_technology">
         <div class="dentistryServices-title Dental_implant_technology-title">
           <div class="dentistryServices-title-in bb">
@@ -665,30 +679,42 @@ const doctorData = {
           </div>
         </div>
         <div class="Plant_brand_series-tab">
-          <span :class="{active: Plant_brand_series_cur === tabIndex}" v-for="(tabItem,tabIndex) in Plant_brand_series_data" :key="tabIndex" @click="Plant_brand_series_cur = tabIndex">
+          <span :class="{active: Plant_brand_series_cur === tabIndex}" v-for="(tabItem,tabIndex) in Plant_brand_series_data" :key="tabIndex" @click="handle_lant_brand_series_tab(tabIndex)">
             <span v-for="(tabspanitem,tabspanindex) in tabItem.name" :key='tabspanindex'>
               {{tabspanitem}}
             </span>
           </span>
         </div>
-        <div class="Plant_brand_series-content">
-          <div class="Plant_brand_series-content-l">
-            <img :src="Plant_brand_series_data[Plant_brand_series_cur].img" alt="">
-          </div>
-          <div class="Plant_brand_series-content-r">
-            <div><img :src="Plant_brand_series_data[Plant_brand_series_cur].logo" alt=""></div>
-            <div>
-              <span v-for="(tabspanitem,tabspanindex) in Plant_brand_series_data[Plant_brand_series_cur].name" :key='tabspanindex'>
-                {{tabspanitem}}
-              </span>
+        <Swiper
+          :loop="true"
+          :modules="[Autoplay]"
+          :autoplay="{
+            delay: 3000,
+          }"
+          @swiper="set_plant_brand_series_ref"
+          @slideChange="on_plant_brand_series_change">
+          <Swiper-slide v-for="(plant_brand_series_item,plant_brand_series_index) in Plant_brand_series_data" :key="plant_brand_series_index">
+            <div class="Plant_brand_series-content">
+              <div class="Plant_brand_series-content-l">
+                <img :src="plant_brand_series_item.img" alt="">
+              </div>
+              <div class="Plant_brand_series-content-r">
+                <div><img :src="plant_brand_series_item.logo" alt=""></div>
+                <div>
+                  <span v-for="(tabspanitem,tabspanindex) in plant_brand_series_item.name" :key='tabspanindex'>
+                    {{tabspanitem}}
+                  </span>
+                </div>
+                <div>
+                  <span v-for="(item,index) in plant_brand_series_item.lists" :key="index">
+                    {{item}}
+                  </span>
+                </div>
+              </div>
             </div>
-            <div>
-              <span v-for="(item,index) in Plant_brand_series_data[Plant_brand_series_cur].lists" :key="index">
-                {{item}}
-              </span>
-            </div>
-          </div>
-        </div>
+          </Swiper-slide>
+        </Swiper>
+        
       </div>
       <div class="doctorTeam">
         <ServiceSpecializedTeam :doctorData="doctorData" />
@@ -1348,81 +1374,248 @@ const doctorData = {
       }
     }
   }
-  @media (min-width: 768px) and (max-width: 1800px) {
+  @media (min-width: 768px) and (max-width: 1920px) {
     .dentistryServices{
-      padding: 110px 0;
-      .note{
-        .noteCard{
-          &-in{
-            padding: 0 3vw;
-             &-image{
+      .plague{
+        padding: 5.1042vw 0;
+        margin-top: 1.5625vw;
+        &-in{
+          max-width: 41.8229vw;
+        }
+        &-lists{
+          margin-top: 5.1042vw;
+          &>div{
+            &:nth-of-type(1){
+              span{
+                margin-bottom: -3.125vw;
+              }
+            }
+            &:nth-of-type(3){
               img{
-                max-width: 80%;
-                max-height: 80%;
+                margin-bottom: -4.1667vw;
+                margin-top: 4.1667vw;
               }
-              &-name{
-                height: 60px;
-                line-height: 60px;
-              }
+            }
+            &:nth-of-type(5){
+              margin-top: 2.7604vw;
+              padding-right: 1.7448vw;
+            }
+            &:nth-of-type(6){
+              margin-top: 2.7604vw;
+              padding-left: 1.7448vw;
+            }
+            span{
+              width: 13.5417vw;
+              height: 13.5417vw;
+              font-size: 1.8229vw;
+            }
+            img{
+              width: 13.5417vw;
+              height: 13.5417vw;
             }
           }
         }
       }
-      .tabNav {
-        font-size: 1.5vw;
-        margin-top: 20px;
+      .Dental_implant_technology{
+        &-title{
+          margin-top: 4.1667vw;
+        }
+        &-context{
+          max-width: 52.9167vw;
+          margin: 1.0417vw auto 2.6042vw;
+          font-size: 1.0417vw;
+        }
+        &-img{
+          max-width: 54.0625vw;
+        }
+      }   
+      .notice{
+        max-width: 75.5208vw;
+        margin: 10.4167vw auto 0;
+        &-topText,&-bottomText{
+          span{
+            font-size: 1.0417vw;
+          }
+        }
+        &-topText{
+          margin: 1.8229vw auto 0;
+        }
+        &-bottomText{
+          margin: 2.8125vw auto 0;
+        }
+        &-in{
+          margin: 2.8125vw auto 0;
+          .lists{
+            border-radius: 3.125vw;
+            &-in{
+              &>div{
+                margin-bottom: .4167vw;
+                padding: 2.6042vw 2.0833vw;
+                font-size: 1.0417vw;
+                &:not(:last-child){
+                  margin-right: .4167vw;
+                }
+              }
+              &:nth-of-type(1){
+                &>div{
+                  padding: .6771vw 0;
+                  font-size: 1.4583vw;
+                }
+              }
+            }
+          }
+        }
+        &-line{
+          width: 4.3229vw;
+          margin: 1.1458vw auto;
+        }
       }
       .step{
-        width: 80%;
-        margin: 150px auto;
+        padding: 5.1042vw 0;
+        margin-top: 10.7292vw;
+        &-in{
+          max-width: 75.2083vw;
+        }
         &-lists{
+          margin-top: 5.1042vw;
           &-in{
+            margin-bottom: 3.125vw;
             &-l{
-              width: calc(420 / 1920 * 100vw);
+              max-width: 20.8333vw;
               .title{
-                font-size: 2vw;
+                font-size: 1.8229vw;
+                margin-bottom: .7813vw;
+                img{
+                  margin-right: .7813vw;
+                }
+              }
+              .image{
+                img{
+                  border-radius: 1.5625vw;
+                }
               }
               .name{
-                padding: 8px 70px 8px 15px;
-                font-size: 1.1vw;
+                font-size: 1.0417vw;
+                margin-top: 1.25vw;
+                margin-bottom: .7813vw;
+                padding: .4167vw .7813vw;
               }
               .context{
-                font-size: 1.1vw;
+                font-size: 1.0417vw;
               }
             }
             &-r{
-              width: calc(50 / 1920 * 100vw);
+              margin-left: 2.6042vw;
+              img{
+                width: .7813vw;
+              }
             }
           }
         }
       }
-    }
-  }
-  @media (min-width: 768px) and (max-width: 1100px) {
-    .dentistryServices{
-      .implantCase{
+      .Plant_brand_series{
+        margin-top: 4.1667vw;
+        &-tab{
+          max-width: 45vw;
+          margin: 1.5625vw auto;
+          &>span{
+            font-size: 1.1458vw;
+            padding: .3646vw 0;
+            &:first-child{
+              border-radius: .2604vw 0 0 .2604vw;
+            }
+            &:last-child{
+              border-radius: 0 .2604vw .2604vw 0;
+            }
+          }
+        }
         &-content{
+          &-r{
+            &>div{
+              &:nth-of-type(2){
+                font-size: 1.5625vw;
+                padding-left: .8854vw;
+                margin: .5208vw 0;
+              }
+              &:nth-of-type(3){
+                span{
+                  font-size: 1.3542vw;
+                  &::before{
+                    margin-right: .5208vw;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .doctorTeam{
+        margin-top: 4.1667vw;
+      }
+      .implantCase{
+        margin-top: 5.8333vw;
+        &-content{
+          margin-top: 2.0833vw;
+          padding: 6.6146vw 0;
+          .implantCaseBoxSwiper{
+            .implantCaseBox{
+              &-t{
+                max-width: 29.2708vw;
+                font-size: 1.8229vw;
+                border-radius: 1.5625vw;
+              }
+              &:not(:first-child){
+                .implantCaseBox-t{
+                  margin-top: 3.0729vw;
+                }
+              }
+              &-b{
+                margin-top: 3.125vw;
+                img{
+                    border-radius: 1.5625vw;
+                  }
+              }
+            }
+          }
           .leftBtn{
-            left: 0;
+            svg{
+              width: 5.2083vw;
+              height: 5.2083vw;
+            }
           }
           .rightBtn{
-            right: 0;
+            svg{
+              width: 5.2083vw;
+              height: 5.2083vw;
+            }
+          }
+          &-line{
+            width: 16.9792vw;
+            margin: 3.125vw auto 0;
           }
         }
       }
-
-    }
-  }
-  @media (min-width: 768px) and (max-width: 890px) {
-    .dentistryServices{
       .note{
-        &-in{
-          &-ul{
-            &-li{
-              margin-right: 3vw;
+        margin-top: 5.2083vw;
+        .noteCard{
+          margin: 2.8125vw auto 0;
+          max-width: 56.7708vw;
+          &-in{
+            padding: 0 2.3438vw;
+            &-image{
+              border-radius: .5208vw;
+            }
+            &-name{
+              height: 3.3333vw;
+              line-height: 3.3333vw;
+              font-size: 1.0417vw;
             }
           }
         }
+      }
+      .youtobe-video{
+        max-width: 50vw;
+        margin: 4.1667vw auto 0;
       }
     }
   }

@@ -150,19 +150,6 @@ const handleDoctor = () => {
             }
             &-btn{
               margin-bottom: 30px;
-              // span{
-              //   color: #fff;
-              //   background: var(--indexColor1);
-              //   border-radius: 50px;
-              //   font-size: 35px;
-              //   padding: 10px 50px;
-              //   box-shadow: 0 5px 10px #FF85AF;
-              //   cursor: pointer;
-              //   transition: all .3s;
-              //   &:hover{
-              //     background: #FF85AF;
-              //   }
-              // }
             }
             &:hover{
               transform: translateY(-20px);
@@ -173,7 +160,51 @@ const handleDoctor = () => {
     }
   }
 }
-@media (min-width: 768px) and (max-width: 1452px) {}
+@media (min-width: 768px) and (max-width: 1920px) {
+  .Specialized_team{
+    &-content{
+      margin-top: 2.6042vw;
+      &-in{
+        max-width: 40.8333vw;
+        .Specialized_team_swiper{
+          .Specialized_team_swiper_slide{
+            padding: calc(150 / 750 * 100%) 1.0417vw 1.0417vw;
+            .doctorContent{
+              min-height: 37.1875vw;
+              filter: drop-shadow(0 .2604vw .2604vw rgba(255, 96, 150,.5));
+              &-name{
+                width: calc(100% + 1.0417vw);
+                border: .2083vw solid rgb(255, 168, 198, .4);
+                font-size: 1.8229vw;
+                margin-top: -2.3438vw;
+                span{
+                  font-size: 1.3542vw;
+                }
+              }
+              &-address{
+                margin-top: 1.0417vw;
+                font-size: 1.3542vw;
+                padding: .2604vw 0;
+              }
+              &-context{
+                padding: 1.0417vw 1.5625vw;
+                span{
+                  font-size: 1.0417vw;
+                  &:nth-of-type(1){
+                    font-size: 1.3542vw;
+                  }
+                }
+              }
+              &-btn{
+                margin-bottom: 1.5625vw;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 @media screen and (max-width: 768px) {
   .Specialized_team{
     &-content{

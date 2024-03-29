@@ -172,43 +172,89 @@ defineProps({
     }
   }
 }
-@media (min-width: 768px) and (max-width: 1452px) {
-  .reason {
-    padding: 3vw 0 0;
-    &-in {
-      &-l {
-        background-size: 19vw 19vw;
-        padding-left: 7vw;
-        .text_one {
-          font-size: 2vw;
-          margin-top: 5vw;
-        }
+@media (min-width: 768px) and (max-width: 1920px) {
+.reason {
+  padding: 5.625vw 0 0;
+  &-in {
+    &.implant{
+      margin-top: 5.2083vw;
+      .reason-in-l{
         .text_two {
-          font-size: 3vw;
-          margin-top: 1.4vw;
-        }
-        .image {
-          width: 19vw;
-          height: 19vw;
-          margin: 0.5vw 6vw 0;
+          font-size: 2.6042vw;
         }
       }
-      &-r {
-        margin-top: 10.5vw;
-        &.wisdom-teeth-extraction{
-          margin-left: 1.5vw;
+    }
+    &-l {
+      background-size: 14.9479vw 14.9479vw;
+      padding-left: 5.3646vw;
+      .text_one {
+        font-size: 1.4583vw;
+        margin-top: 4.3229vw;
+      }
+      .text_two {
+        font-size: 1.5625vw;
+        margin-top: .9896vw;
+      }
+      .image {
+        width: 14.9479vw;
+        height: 14.9479vw;
+        margin: .4167vw 5.2083vw 0 5.2083vw;
+      }
+    }
+    &-r {
+      max-width: 27.0833vw;
+      margin-top: 8.0729vw;
+      &.wisdom-teeth-extraction{
+        margin-left: 1.1458vw;
+      }
+      &.periodontal{
+        max-width: 29.1667vw;
+      }
+      &.toothtray{
+        max-width: 35.4167vw;
+      }
+      &.mediumCW{
+        max-width: 34.5313vw;
+      }
+      & > div {
+        font-size: 1.0417vw;
+        .icon{
+          width: 1.0417vw;
         }
-        & > div {
-          font-size: 1.7vw;
-          .context{
-            &.smallFontSize{
-              font-size: 1.5vw;
+        .context{
+          &.smallFontSize{
+            font-size: 1.25vw;
+            margin-bottom: 1.25vw;
+          }
+        }
+      }
+      &.implant{
+        &>div{
+          &:not(:last-child){
+            margin-bottom: 2.0833vw;
+          }
+          .title{
+            font-size: 1.6667vw;
+            span{
+              font-size: 2.6042vw;
+              padding-right: .5208vw;
+              &::before{
+                width: 2.6042vw;
+                height: 2.6042vw;
+                right: .5208vw;
+                bottom: 1.0417vw;
+              }
             }
+          }
+          .context{
+            font-size: 1.3542vw;
+            margin-top: 1.3021vw;
           }
         }
       }
     }
   }
+}
 }
 @media screen and (max-width: 768px) {
   .reason {

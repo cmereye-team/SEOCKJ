@@ -148,25 +148,43 @@ const caseLists = [
     }
   }
 }
-@media (min-width: 768px) and (max-width: 1800px) {
+@media (min-width: 768px) and (max-width: 1920px) {
   .case{
+    margin-top: 5.0521vw;
+    &-context{
+      margin-top: 1.0938vw;
+      span{
+        font-size: 1.8229vw;
+      }
+    }
     &-content{
+      margin-top: 2.3958vw;
+      padding: 3.0208vw 0 3.2292vw;
       &-in{
+        max-width: 81.25vw;
         &>div{
-          padding: .8vw 1.6vw 1.4vw;
+          padding: .7292vw 1.5104vw 1.3021vw;
+          &:not(:first-child){
+            margin-left: .8333vw;
+          }
         }
         &-l{
+          img{
+            border: .4167vw solid #fff;
+          }
           span{
+            margin-left: .9375vw;
             &:nth-of-type(1){
-              font-size: 1.5VW;
+              font-size: 1.4583vw;
             }
             &:nth-of-type(2){
-              font-size: 1.2VW;
+              font-size: 1.0938vw;
             }
           }
         }
         &-r{
-          font-size: 1.1VW;
+          margin-top: .7813vw;
+          font-size: 1.0417vw;
         }
       }
     }

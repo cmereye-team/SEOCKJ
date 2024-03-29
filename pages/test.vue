@@ -96,14 +96,17 @@ onMounted(()=>{
             </template>
           </el-dialog>
         </client-only>
-
         <div class="titletest">按钮动画演示</div>
         <div class="btntest">
           <div class="btntest-in">
             <span>立即預約牙齒檢查</span>
           </div>
         </div>
-
+        <!-- <div>
+          <el-input type="text" name="" id="">
+          <el-input type="text" name="" id="">
+          <el-input type="text" name="" id="">
+        </div> -->
         <PageAnimBtnTypeTwo />
 
         <div id="google_translate_element">
