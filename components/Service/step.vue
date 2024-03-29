@@ -206,7 +206,6 @@ defineProps({
         padding: 0 30px;
       }
     }
-
 @media (min-width: 768px) and (max-width: 1452px) {
   .step{
     margin-top: 8vw;
@@ -219,6 +218,81 @@ defineProps({
     }
   }
 }
+
+// @media (min-width: 768px) and (max-width: 1920px) {
+//   .step{
+//       margin-top: 6.7708vw;
+//       padding: 5vw 0 5.5208vw;
+//       &-remark{
+//         max-width: 43.2292vw;
+//         margin: 1.8229vw auto 0;
+//         font-size: 1.0417vw;
+//         &.scaling-and-polishing{
+//           max-width: 54.2708vw;
+//         }
+//       }
+//       &-in{
+//         max-width: 75.5208vw;
+//         box-shadow: 0px .2083vw .4167vw var(--indexColor3);
+//         margin-top: 1.8229vw;
+//         padding: 2.2917vw 3.3854vw;
+//         min-height: 23.9583vw;
+//         &-box{
+//           .step-itemLists{
+//             &-in{
+//               padding-bottom: 2.0833vw;
+//               min-height: 6.25vw;
+//               .line{
+//                 width: .2083vw;
+//                 top: 1.0417vw;
+//                 left: .5208vw;
+//               }
+//               .round{
+//                 width: 1.25vw;
+//                 height: 1.25vw;
+//                 margin-right: .7292vw;
+//                 margin-top: .4167vw;
+//               }
+//               .title{
+//                 margin-right: 1.4583vw;
+//                 font-size: 1.4583vw;
+//               }
+//               .text{
+//                 font-size: 1.0417vw;
+//                 padding-top: .5208vw;
+//                 &-th{
+//                   font-size: 1.4583vw;
+//                   padding-bottom: 1.0417vw;
+//                 }
+//               }
+//             }
+//           }
+//           &:first-child{
+//             padding-right: 2.0833vw;
+//           }
+//           &:last-child{
+//             margin-left: 2.0833vw;
+//           }
+//           .step-bottom{
+//             font-size: 1.0417vw;
+//             margin-top: 2.6042vw;
+//           }
+//         }
+//         &.scaling-and-polishing{
+//           min-height: 15.625vw;
+//         }
+//         &.invisalign{
+//           min-height: 15.625vw;
+//         }
+//       }
+//       &.invisalign{
+//         padding: 0 0 5.5208vw;
+//       }
+//       &.rootCanal{
+//         padding: 0 1.5625vw;
+//       }
+//     }
+// }
 @media screen and (max-width: 768px) {
   .step{
         background: linear-gradient(360deg, rgba(255, 241, 240, 0) 0%, rgba(255, 241, 240, 0.7) 12.5%, rgba(255, 241, 240, 0.7) 81.99%, rgba(255, 241, 240, 0) 100%);

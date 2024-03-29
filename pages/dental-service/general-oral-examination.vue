@@ -350,17 +350,81 @@ const getWindowWidth = () => {
     }
   }
 }
-@media (min-width: 768px) and (max-width: 1452px) {
+@media (min-width: 768px) and (max-width: 1920px) {
   .notice {
+    max-width: 75.5208vw;
+    margin: 7.9688vw auto 0;
     &-in {
+      margin: 1.5625vw auto 0;
       .box {
         .box-in {
-          font-size: 18px;
-          padding: 0 4vw;
+          height: 14.4792vw;
+          margin-top: .7813vw;
+          font-size: 1.0417vw;
+          padding: 0 4.1667vw;
+          &:first-child {
+            height: 3.5938vw;
+            font-size: 1.4583vw;
+          }
+        }
+      }
+      .box-left {
+        border-radius: 3.125vw 0 0 3.125vw;
+      }
+      .box-right {
+        margin-left: .1563vw;
+        border-radius: 0 3.125vw 3.125vw 0;
+      }
+    }
+    &-line {
+      width: 4.3229vw;
+      margin: 1.1458vw auto;
+    }
+  }
+  .frequency {
+  margin-top: 5.5208vw;
+  &-in {
+    max-width: 64.8958vw;
+    padding: 3.0729vw 2.6042vw;
+    box-shadow: 0px .2083vw .4167vw var(--indexColor3);
+    margin: 1.8229vw auto;
+    &-top {
+      font-size: 1.4583vw;
+      span {
+        font-size: 1.5625vw;
+      }
+    }
+    &-title {
+      font-size: 1.4583vw;
+      margin-top: .8854vw;
+    }
+    &-lists {
+      margin-top: 1.5625vw;
+      & > div {
+        padding: 1.875vw 1.5625vw;
+        border-radius: 1.5625vw;
+        margin: 0 1.0417vw;
+        min-height: 15.8333vw;
+        & > div:first-child {
+          font-size: 1.1458vw;
+        }
+        & > div:last-child {
+          font-size: 1.0417vw;
+        }
+        &:nth-of-type(1) {
+          min-width: 11.7708vw;
+        }
+        &:nth-of-type(2) {
+          min-width: 17.1875vw;
         }
       }
     }
+    &-bottom {
+      margin-top: 2.8125vw;
+      font-size: 1.4583vw;
+    }
   }
+}
 }
 
 @media only screen and (max-width: 768px) {
