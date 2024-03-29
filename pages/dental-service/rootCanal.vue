@@ -859,20 +859,194 @@ const doctorData = {
   }
 }
 
-@media (min-width: 768px) and (max-width: 1200px) {
+// @media (min-width: 768px) and (max-width: 1200px) {
+//   .reason {
+//     &-lists {
+//       &-item {
+//         .image {
+//           div {
+//             font-size: 4vw;
+//             width: 9vw;
+//             height: calc(9vw + 3px);
+//             background-size: 100% 100%;
+//           }
+//         }
+//         .text {
+//           font-size: 3vw;
+//         }
+//       }
+//     }
+//   }
+// }
+@media (min-width: 768px) and (max-width: 1920px) {
   .reason {
+    margin-top: 9.7917vw;
     &-lists {
+      max-width: 86.25vw;
+      margin: 6.0417vw auto 0;
       &-item {
-        .image {
-          div {
-            font-size: 4vw;
-            width: 9vw;
-            height: calc(9vw + 3px);
-            background-size: 100% 100%;
+        padding: 0 2.8646vw;
+        .text {
+          margin-top: -2.3438vw;
+          span {
+            font-size: 1.8229vw;
+            &:nth-of-type(1) {
+              border-radius: 1.5625vw;
+              padding: 0 2.0833vw;
+              filter: drop-shadow(
+                0px .1929vw .3859vw
+                  rgba(252, 22, 130, 0.38)
+              );
+            }
+            &:nth-of-type(2) {
+              margin-top: 2.2917vw;
+            }
           }
         }
-        .text {
-          font-size: 3vw;
+      }
+    }
+  }
+  .care {
+    margin-top: 10.7292vw;
+    &-lists {
+      max-width: 42.6563vw;
+      margin: 6.6146vw auto 0;
+      &-item {
+        & > div {
+          .image {
+            &-in {
+              margin-bottom: .6771vw;
+              border-radius: .5208vw;
+            }
+          }
+          .text {
+            font-size: 1.25vw;
+          }
+        }
+        &:nth-of-type(n + 4) {
+          margin-top: 4.6875vw;
+        }
+      }
+    }
+    &-btn{
+      margin-top: 5.5208vw;
+    }
+  }
+  .infoCard {
+    margin-top: 11.9792vw;
+    &-title {
+      &-in {
+        font-size: 2.6042vw;
+      }
+    }
+    &-content {
+      max-width: 64.6875vw;
+      margin: 3.125vw auto 0;
+      &-r {
+        & > div {
+          span {
+            font-size: 1.4583vw;
+            &:nth-of-type(1) {
+              min-width: 1.5625vw;
+            }
+          }
+        }
+      }
+    }
+  }
+  .Root_canal_treatment_equipment{
+    max-width: calc(66.875vw + 3.125vw);
+    margin: 7.2917vw auto 0;
+    &-in{
+      margin-top: 2.7604vw;
+      &-r{
+        span{
+          font-size: 1.4583vw;
+          margin-top: 2.0833vw;
+        }
+      }
+    }
+  }
+  .step {
+    padding: 3.1771vw 0 7.2917vw;
+    margin-top: 7.2917vw;
+    &-in {
+      max-width: 75.2083vw;
+    }
+    &-lists {
+      margin-top: 5.1042vw;
+      &-in {
+        margin-bottom: 4.7917vw;
+        &-l {
+          max-width: 20.8333vw;
+          .title {
+            font-size: 1.8229vw;
+            margin-bottom: .7813vw;
+            img {
+              margin-right: .7813vw;
+            }
+          }
+          .image {
+            img {
+              border-radius: 1.5625vw;
+            }
+          }
+          .name {
+            font-size: 1.0417vw;
+            margin-top: 1.25vw;
+            margin-bottom: .7813vw;
+            padding: .4167vw .7813vw;
+          }
+          .context {
+            font-size: 1.0417vw;
+            padding: 0 .7813vw;
+          }
+        }
+        &-r {
+          margin-left: 2.6042vw;
+          img {
+            width: .7813vw;
+          }
+        }
+        &:nth-of-type(8) {
+          .lastBox-t {
+            & > div {
+              font-size: 3.9063vw;
+              &:nth-of-type(1) {
+                padding-bottom: 1.3021vw;
+                margin-right: 1.5625vw;
+              }
+              &:nth-of-type(3) {
+                padding-bottom: 1.3021vw;
+                margin-left: 1.5625vw;
+              }
+            }
+          }
+          .lastBox-b {
+            margin-top: .7813vw;
+          }
+        }
+      }
+    }
+  }
+  .note {
+    margin-top: 7.2917vw;
+    &-title {
+      &-in {
+        font-size: 2.6042vw;
+      }
+    }
+    &-content {
+      max-width: 66.9792vw;
+      margin: 4.1667vw auto 0;
+      &-r {
+        & > div {
+          span {
+            font-size: 1.4583vw;
+            &:nth-of-type(1) {
+              min-width: 1.5625vw;
+            }
+          }
         }
       }
     }
