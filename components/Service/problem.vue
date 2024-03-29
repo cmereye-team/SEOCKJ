@@ -136,7 +136,44 @@ const activeNames = ref(0)
 :deep(.el-icon) {
   display: none;
 }
-@media (min-width: 768px) and (max-width: 1452px) {
+@media (min-width: 768px) and (max-width: 1920px) {
+  .problem {
+    margin-top: 5.1042vw;
+    &-in {
+      margin-top: 1.8229vw;
+      max-width: 63.75vw;
+      &-title {
+        & > div:nth-of-type(1) {
+          font-size: 2.0833vw;
+          margin-left: 1.6667vw;
+          margin-top: -0.3125vw;
+        }
+        & > div:nth-of-type(2) {
+          font-size: 1.25vw;
+          max-width: calc(100% - 3.6458vw);
+          margin-left: 1.0417vw;
+        }
+        & > div:nth-of-type(3) {
+          margin-right: 1.6667vw;
+        }
+      }
+      &-context {
+        & > span:first-child {
+          font-size: 2.0833vw;
+          margin-left: 1.6667vw;
+          margin-top: 1.0417vw;
+        }
+        & > span:last-child {
+          font-size: 1.0417vw;
+          padding: 2.3438vw 4.2708vw 1.3542vw .9896vw;
+        }
+      }
+    }
+  }
+  :deep(.el-collapse-item__header) {
+    padding: .625vw 0;
+    min-height: 2.3438vw;
+  }
 }
 @media screen and (max-width: 768px) {
   .problem {

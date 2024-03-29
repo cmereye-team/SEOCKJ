@@ -682,31 +682,31 @@ const doctorData = {
 
 <style lang="scss" scoped>
 .tabNav {
-      font-weight: 400;
-      font-size: 1.25rem;
-      line-height: 160%;
-      color: #cbcbcb;
-      margin-top: 20px;
-      a {
-        &:not(:last-child)::after {
-          content: '';
-          width: 20px;
-          height: 2px;
-          margin: 0 10px;
-          background: #cbcbcb;
-          display: inline-block;
-          vertical-align: middle;
-          margin-top: -4px;
-        }
-      }
-      & > span {
-        cursor: pointer;
-        color: var(--indexColor1);
-      }
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 160%;
+  color: #cbcbcb;
+  margin-top: 20px;
+  a {
+    &:not(:last-child)::after {
+      content: '';
+      width: 20px;
+      height: 2px;
+      margin: 0 10px;
+      background: #cbcbcb;
+      display: inline-block;
+      vertical-align: middle;
+      margin-top: -4px;
     }
-    .introduceJY{
-      margin-top: 140px;
-    }
+  }
+  & > span {
+    cursor: pointer;
+    color: var(--indexColor1);
+  }
+}
+.introduceJY{
+  margin-top: 140px;
+}
 .reason {
   margin-top: 188px;
   &-lists {
@@ -1192,68 +1192,310 @@ const doctorData = {
     }
   }
 }
-@media (min-width: 768px) and (max-width: 1300px) {
-  .step {
+// @media (min-width: 768px) and (max-width: 1300px) {
+//   .step {
+//     &-lists {
+//       &-in{
+//         &:nth-of-type(6) {
+//           .lastBox-t {
+//             &>div{
+//               font-size: 35px;
+//               span{
+//                 font-size: 60px;
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+// @media (min-width: 768px) and (max-width: 1200px) {
+//   .reason {
+//     &-lists {
+//       &-item {
+//         .image {
+//           div {
+//             font-size: 4vw;
+//             width: 9vw;
+//             height: calc(9vw + 3px);
+//             background-size: 100% 100%;
+//           }
+//         }
+//         .text {
+//           font-size: 3vw;
+//         }
+//       }
+//     }
+//   }
+//   .charge {
+//     &-tables {
+//       &-in {
+//         margin: 0 150px;
+//       }
+//     }
+//   }
+//   .step {
+//     &-lists {
+//       &-in{
+//         width: calc(100% / 2);
+//       }
+//     }
+//   }
+// }
+// @media (min-width: 768px) and (max-width: 1100px) {
+//   .step {
+//     &-lists {
+//       &-in{
+//         // padding: 0 calc((61 / ( 1444 + 122 )) * 100%);
+//         &-l {
+//           .image{
+//             &::after{
+//               right: -10%;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+@media (min-width: 768px) and (max-width: 1920px) {
+  .introduceJY{
+    margin-top: 7.2917vw;
+  }
+  .reason {
+    margin-top: 9.7917vw;
     &-lists {
-      &-in{
+      max-width: 86.25vw;
+      margin: 6.0417vw auto 0;
+      &-item {
+        padding: 0 2.3438vw;
+        .image {
+          div {
+            top: -1.5104vw;
+            left: -0.6771vw;
+            width: 5.7292vw;
+            height: 5.8854vw;
+            font-size: 2.6042vw;
+          }
+        }
+        .text {
+          font-size: 1.8229vw;
+          margin-top: 1.8229vw;
+        }
+      }
+    }
+  } 
+  .difference {
+    margin-top: 9.7917vw;
+    &-tables {
+      max-width: 64.7917vw;
+      margin: 2.8125vw auto 0;
+      border-radius: 3.125vw;
+      &-item {
+        height: 4.7917vw;
+        margin-bottom: .4167vw;
+        .item-in {
+          font-size: 1.0417vw;
+          &:nth-of-type(3) {
+            font-size: 1.4583vw;
+          }
+          &:not(:last-child) {
+            margin-right: .4167vw;
+          }
+        }
+        &:nth-of-type(1) {
+          height: 3.6458vw;
+          .item-in {
+            font-size: 1.4583vw;
+            &:nth-of-type(3) {
+              font-size: 1.7708vw;
+            }
+          }
+        }
+      }
+    }
+  }  
+  .step {
+    padding: 3.1771vw 0 5.1563vw;
+    margin-top: 7.2917vw;
+    &-in {
+      max-width: calc(75.2083vw + 6.3542vw);
+    }
+    &-lists {
+      margin-top: 5.1042vw;
+      padding: 0 1.0417vw;
+      &-in {
+        margin-bottom: 4.7917vw;
+        &-l {
+          max-width: 20.8333vw;
+          .title {
+            font-size: 1.8229vw;
+            margin-bottom: .7813vw;
+            img {
+              margin-right: .7813vw;
+            }
+          }
+          .image {
+            img {
+              border-radius: 1.5625vw;
+            }
+              &::after{
+                width: .8333vw;
+                height: 1.5625vw;
+              }
+          }
+          .name {
+            font-size: 1.0417vw;
+            margin-top: 1.25vw;
+            margin-bottom: .7813vw;
+            padding: .4167vw .7813vw;
+          }
+          .context {
+            font-size: 1.0417vw;
+            padding: 0 .7813vw;
+          }
+        }
+        &-r {
+          img {
+            width: .7813vw;
+          }
+        }
         &:nth-of-type(6) {
           .lastBox-t {
-            &>div{
-              font-size: 35px;
-              span{
-                font-size: 60px;
+            & > div {
+              font-size: 2.8646vw;
+              span {
+                font-size: 4.4271vw;
+              }
+              &:nth-of-type(1) {
+                margin-bottom: .7813vw;
+              }
+            }
+          }
+          .lastBox-b {
+            margin-top: 1.0417vw;
+            .bigBan{
+              font-size: 2.2917vw;
+            }
+          }
+        }
+      }
+    }
+  }
+  .charge {
+    margin-top: 10.7292vw;
+    &-tables {
+      max-width: 77.6563vw;
+      margin: 2.8125vw auto 0;
+      &-in {
+        max-width: 56.8229vw;
+        margin: 0 10.4167vw;
+        border-radius: 3.125vw;
+      }
+      &-item {
+        height: 6.7708vw;
+        margin-bottom: .4167vw;
+        .item-in {
+          font-size: 1.25vw;
+          span {
+            font-size: 1.4583vw;
+            &:nth-of-type(2) {
+              font-size: .8333vw;
+            }
+          }
+          &:not(:last-child) {
+            margin-right: .4167vw;
+          }
+        }
+        &:nth-of-type(1) {
+          height: 3.6458vw;
+          .item-in {
+            font-size: 1.4583vw;
+          }
+        }
+        &:nth-of-type(3) {
+          .item-in {
+            font-size: 1.4583vw;
+            span {
+              font-size: 1.9271vw;
+              &:nth-of-type(2) {
+                font-size: .8333vw;
               }
             }
           }
         }
       }
     }
+    &-text {
+      font-size: 1.8229vw;
+      margin: 2.8125vw auto 1.7708vw;
+    }
+    &-btn {
+      margin-top: 1.8229vw;
+    }
   }
-}
-@media (min-width: 768px) and (max-width: 1200px) {
-  .reason {
-    &-lists {
-      &-item {
-        .image {
-          div {
-            font-size: 4vw;
-            width: 9vw;
-            height: calc(9vw + 3px);
-            background-size: 100% 100%;
+  .Medical_sterilization_equipment{
+    margin-top: 7.2917vw;
+    padding: 2.6042vw 0 .5208vw;
+    &-in{
+      margin-top: 3.125vw;
+      &-box{
+        max-width: 62.7604vw;
+        margin-bottom: 2.0833vw;
+        img{
+          border-radius: 1.0417vw;
+        }
+        &>div{
+          font-size: 1.4583vw;
+          border-radius: 1.0417vw;
+          &::after{
+            width: calc(100% + 1.5625vw);
+            border-radius: 1.0417vw;
           }
         }
-        .text {
-          font-size: 3vw;
-        }
-      }
-    }
-  }
-  .charge {
-    &-tables {
-      &-in {
-        margin: 0 150px;
-      }
-    }
-  }
-  .step {
-    &-lists {
-      &-in{
-        width: calc(100% / 2);
-      }
-    }
-  }
-}
-@media (min-width: 768px) and (max-width: 1100px) {
-  .step {
-    &-lists {
-      &-in{
-        // padding: 0 calc((61 / ( 1444 + 122 )) * 100%);
-        &-l {
-          .image{
+        &:nth-of-type(1){
+          &>div{
+            padding: 1.5625vw 1.5625vw 1.5625vw 0;
             &::after{
-              right: -10%;
+              left: -1.5625vw;
             }
           }
+        }
+        &:nth-of-type(2){
+          &>div{
+            padding: 1.5625vw 0 1.5625vw 1.5625vw;
+            &::after{
+              right: -1.5625vw;
+            }
+          }
+        }
+      }
+    }
+  }
+  .doctorTeam{
+    margin-top: 7.2917vw;
+  }
+  .care {
+    margin-top: 10.7292vw;
+    padding-bottom: 5.625vw;
+    &-lists {
+      max-width: 42.6563vw;
+      margin: 2.8125vw auto 0;
+      &-item {
+        & > div {
+          .image {
+            &-in {
+              margin-bottom: .6771vw;
+              border-radius: .5208vw;
+            }
+          }
+          .text {
+            font-size: 1.25vw;
+          }
+        }
+        &:nth-of-type(n + 4) {
+          margin-top: 3.125vw;
         }
       }
     }
