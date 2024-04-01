@@ -407,6 +407,11 @@ if(process.server){
       font-family: var(--contextFamily);
     }
   } 
+  :deep(.content-imgMessage){
+    font-size: 16px;
+    text-align: center;
+    color: var(--textColor);
+  }
   :deep(.indexColor){
     color: var(--indexColor1);
   }
@@ -626,19 +631,22 @@ if(process.server){
       }
     }
     :deep(.content-time){
-      padding: 0 30px;
+      // padding: 0 30px;
       margin: 10px 0 30px;
       font-size: 16px;
     }
     :deep(.content-h2){
-      padding: 0 30px;
+      // padding: 0 30px;
       font-size: 20px;
     }
     :deep(.content-text){
-      padding: 0 30px;
       font-size: 16px;
       display: inline-block;
       text-align: justify;
+    }
+    :deep(.content-imgMessage){
+      font-size: 12px;
+      text-align: center;
     }
     :deep(.md-flex-col){
       flex-direction: column;
