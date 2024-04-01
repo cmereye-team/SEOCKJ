@@ -131,45 +131,59 @@ defineProps({
     color: var(--indexColor1);
   }
 }
-@media (min-width: 768px) and (max-width: 1452px) {
+@media (min-width: 768px) and (max-width: 1920px) {
   .introduce {
     &-in {
-      margin-top: 3.5vw;
+      margin-top: 2.3438vw;
+      height: 32.709vw;
+      max-height: 32.7083vw;
       &-l {
-        padding-bottom: 7vw;
+        padding-bottom: 4.6875vw;
         .title {
-          font-size: 2.2vw;
-          margin-top: 6vw;
-          &.rootCanal-test,&.periodontal-test {
+          font-size: 1.5625vw;
+          margin-top: 7.8125vw;
+          &.rootCanal-test {
             margin-top: 5vw;
-            font-size: 3.5vw;
+            font-size: 2.6042vw;
+          }
+          &.periodontal-test{
+            margin-top: 5vw;
+            font-size: 2.6042vw;
           }
           &.scaling-and-polishing-test ,&.orthodontics-test,&.veneers-test{
             margin-top: 5vw;
-            font-size: 3.5vw;
+            font-size: 2.6042vw;
           }
         }
         .content {
-          font-size: 1.7vw;
-          width: 33.85vw;
-          margin-top: 4vw;
+          font-size: 1.0417vw;
+          max-width: 33.8542vw;
+          width: 33.8542vw;
+          margin-top: 3.5417vw;
           &.orthodontics {
-            width: 25vw;
+            width: 21.3021vw;
           }
-          &.rootCanal-test,&.periodontal-test {
-            width: 43vw;
-            font-size: 1.8vw;
+          &.periodontal-test{
+            font-size: 1.4583vw;
           }
-          &.scaling-and-polishing-test,&.orthodontics-test,&.veneers-test {
-            font-size: 1.4vw;
+          &.rootCanal-test ,&.orthodontics-test,&.veneers-test{
+            font-size: 1.4583vw;
           }
         }
       }
     }
   }
   .tabNav {
-    font-size: 1.5vw;
-    margin-top: 6vw;
+    font-size: 1.0417vw;
+    margin-top: 4.3229vw;
+    a {
+      &:not(:last-child)::after {
+        width: 1.0417vw;
+        height: .1042vw;
+        margin: 0 .5208vw;
+        margin-top: -0.2083vw;
+      }
+    }
   }
 }
 @media screen and (max-width: 768px) {

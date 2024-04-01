@@ -18,18 +18,6 @@ const servicesCardPageData = {
   contextIn: 'components.service.card.contextIn'
 }
 
-// let windowWidth = ref(1920)
-
-// onMounted(()=>{
-//   getWindowWidth()
-//   window.addEventListener('resize',getWindowWidth)
-// })
-
-// const getWindowWidth = () => {
-//   windowWidth.value = window.innerWidth
-//   // console.log(windowWidth)
-// }
-
 </script>
 
 
@@ -37,15 +25,12 @@ const servicesCardPageData = {
   <div :class="[{'index-dentalServices':true,'isMenu': isMenu},{'index-dentalServices-indexshow': isIndexShow}]">
     <div :class="['index-dentalServices-in', 'pageCon', {'isIndexShow': !isIndexShow,'isMenu': isMenu}]">
       <div class="titile">
-        <!-- 牙科服務 -->
         <div class="index_title" v-if="isIndexShow">{{$t(servicesCardPageData.title)}}</div>
       </div>
       <div class="index-dentistryServices-in-title" v-if="!isIndexShow && !isMenu">
-        <!-- 牙科服務 -->
         <div class="services_title">{{$t(servicesCardPageData.dentalServicesTitleIn)}}</div>
       </div>
       <div class="context" v-if="!isMenu">
-        <!-- 中心提供基本牙科、美容牙科及高階牙科服務，從一般口腔檢查、洗牙、補牙，到牙齒美白、全口修復及各種牙科治療，幫助客人回復自信笑容。 -->
         <div class="context-in" v-if="!isIndexShow">{{$t(servicesCardPageData.contextIn)}}</div>
         <div class="context-in isIndex" v-else>愛康健集團是大灣區專業牙科連鎖機構，其愛康健口腔醫院為香港政府納入長者醫療券大灣區試點。14間門診有超過20種牙科治療項目，專注為港服務超過29年。</div>
       </div>
@@ -176,8 +161,6 @@ const servicesCardPageData = {
           &-name{
             font-weight: 600;
             font-size: 15px;
-            // height: 32px;
-            // line-height: 32px;
             line-height: 160%;
             padding: 8px 0;
             height: auto;
@@ -192,34 +175,62 @@ const servicesCardPageData = {
     padding: 0px;
   }
 }
-@media (min-width: 769px) and (max-width: 1800px) {
+@media (min-width: 769px) and (max-width: 1920px) {
+  .services_title{
+    font-size: 24px;
+    text-indent: 45px;
+    padding-bottom: 15px;
+  }
   .index-dentalServices{
-    padding: 150px 0 0;
+    padding: 9.8438vw 0 0;
+    &-indexshow{
+      padding: 5.2083vw 0 0;
+    }
     &-in{
-      .servicesCard{
-        width: 70%;
+      .context{
+        margin-top: 1.8229vw;
         &-in{
-          padding: 0 2vw;
-           &-image{
-            img{
-              max-width: 80%;
-              max-height: 80%;
-            }
-          }
-          &-name{
-            font-size: 1.6vw;
-            padding: 1vw 0 2vw;
+          max-width: 36.4583vw;
+          font-size: 1.0417vw;
+          &.isIndex{
+            max-width: 39.5833vw;
           }
         }
       }
-      &.isMenu{
-        width: 100%;
-        .servicesCard{
-          width: 100%;
-          &-in{
-            width: 25%;
+      .servicesCard{
+        margin: 2.3958vw auto 0;
+        max-width: 56.7708vw;
+        &-in{
+          padding: 0 2.3438vw;
+          &-image{
+            box-shadow: 0 .1042vw .2083vw rgba(0,0,0,.25);
+            border-radius: .5208vw;
+            border: .1042vw solid #FFF1F0;
+            &:hover{
+              box-shadow: 0 .2604vw .2604vw rgba(0,0,0,.45);
+              transform: translateY(-0.2604vw);
+            }
           }
-        } 
+          &-name{
+            padding: .5208vw 0 2.0833vw;
+            font-size: 1.3542vw;
+          }
+          &>.router-link-exact-active{
+            .servicesCard-in-image{
+              box-shadow: 0 .2604vw .2604vw rgba(0,0,0,.45);
+              transform: translateY(-0.2604vw);
+            }
+          }
+        }
+        &.isMenu{
+          .servicesCard-in{
+            padding: 0 .3125vw;
+            &-name{
+              font-size: .7813vw;
+              padding: .4167vw 0;
+            }
+          }
+        }
       }
     }
   }

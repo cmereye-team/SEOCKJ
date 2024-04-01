@@ -336,7 +336,6 @@ const careData = {
   <div class="orthodonticsPage">
     <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
     <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
-    <!-- <ServiceReason :reasonData="reasonData" /> -->
     <div class="bp">
       <div class="dentistryServices-title">
         <div class="dentistryServices-title-in bb">
@@ -377,8 +376,6 @@ const careData = {
         <PageAnimBtnTypeTwo :str="'預約免費口腔檢查'" />
       </div>
     </div>
-    <!-- <ServiceStep :stepData="stepData" /> -->
-    <!-- <ServiceDiffer :differData="differData" /> -->
     <div class="differ">
       <div class="differ-title dentistryServices-title">
         <div class="dentistryServices-title-in bb">{{differData.title}}</div>
@@ -499,77 +496,6 @@ const careData = {
 }
 .bp{
   margin-top: 176px;
-  &-swiper{
-    margin-top: 42px;
-    .swiper-slide-in{
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 0 39.5px 83.1px;
-      box-sizing: border-box;
-      align-items: center;
-      &-title{
-        min-width: 165px;
-        height: 40px;
-        line-height: 40px;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 20px;
-        text-align: center;
-        color: #FFFFFF;
-        background: var(--indexColor1);
-        position: relative;
-        &::after{
-          content: '';
-          position: absolute;
-          bottom: -40px;
-          left: 50%;
-          transform: translateX(-50%);
-          border-top: 20px solid;
-          border-left: 8px solid;
-          border-right: 8px solid;
-          border-bottom: 20px solid;
-          border-color: var(--indexColor1) transparent transparent transparent;
-        }
-      }
-      img{
-        width: 100%;
-        max-width: 267px;
-        margin: 36px auto 0;
-      }
-      &:last-child{
-        padding: 0 39.5px;
-      }
-    }
-    .swiper-slide{
-      padding: 0 30px;
-      height: 100%;
-      &:nth-of-type(3){
-        .swiper-slide-in{
-          padding: 0 39.5px 53.1px;
-          // &:last-child{
-          //   padding: 0 39.5px;
-          // }
-        }
-      }
-    }
-    &-line{
-      max-width: 216px;
-      margin: 53px auto 0;
-    }
-  }
-  &-text{
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 160%;
-    color: #666666;
-    width: 100%;
-    max-width: 1042px;
-    text-align: center;
-    margin: 36px auto 0;
-  }
   &-lists{
     display: flex;
     flex-wrap: wrap;
@@ -577,7 +503,8 @@ const careData = {
     max-width: 1100px;
     margin: 60px auto;
     &-in{
-      min-width: 33.33%;
+      // min-width: 33.33%;
+      width: calc(100% / 3);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -940,19 +867,6 @@ const careData = {
     display: flex;
     justify-content: center;
     margin-top: 29px;
-    // a{
-    //   border-radius: 233.38px;
-    //   background: #FC1682;
-    //   box-shadow: 0px 3.704px 7.409px 0px rgba(252, 22, 130, 0.38);
-    //   color: #fff;
-    //   text-align: center;
-    //   font-size: 35px;
-    //   font-style: normal;
-    //   font-weight: 900;
-    //   line-height: 160%; 
-    //   display: inline-block;
-    //   padding: 0 50px;
-    // }
   }
 }
 .differ{
@@ -1023,14 +937,212 @@ const careData = {
     }
   }
 }
-@media (min-width: 768px) and (max-width: 1100px) {
+@media (min-width: 768px) and (max-width: 1920px) {
   .bp{
-    &-text{
-      padding: 0 30px;
-    }
-    &-list{
+    margin-top: 9.1667vw;
+    &-lists{
+      max-width: 57.2917vw;
+      margin: 3.125vw auto;
       &-in{
-        min-width: 50%;
+        padding: 0 1.9vw 4.9839vw;
+        &-title{
+          min-width: 8.5938vw;
+          height: 2.0833vw;
+          line-height: 2.0833vw;
+          font-size: 1.0417vw;
+          &::after{
+            bottom: -2vw;
+            border-top: 1.0417vw solid;
+            border-left: .4167vw solid;
+            border-right: .4167vw solid;
+            border-bottom: 1.0417vw solid;
+            border-color: var(--indexColor1) transparent transparent transparent;
+          }
+        }
+        img{
+          margin-top: 1.5625vw;
+        }
+      }
+    }
+  }
+  .principle{
+    &-topCon{
+      font-size: 1.4583vw;
+      margin-top: 1.5625vw;
+    }
+    &-in{
+      margin-top: 2.0833vw;
+      &-box{
+        max-width: 24.0625vw;
+        div{
+          &:nth-of-type(1){
+            padding: 0 3.125vw;
+            font-size: 1.8229vw;
+            border-radius: 1.5625vw;
+            filter: drop-shadow(0px .1929vw .3859vw rgba(252, 22, 130, 0.38));
+          }
+          &:nth-of-type(2){
+            margin-top: 3.2813vw;
+            font-size: 1.4583vw;
+            padding: 0 2.0833vw;
+          }
+        }
+      }
+    }
+    &-bottomCon{
+      margin-top: 4.4271vw;
+      img{
+        width: 1.875vw;
+        height: 2.0833vw;
+      }
+      div{
+        font-size: 1.8229vw;
+        max-width: 46.4583vw;
+        margin-right: 1.3542vw;
+        margin-left: 2.2917vw;
+      }
+    }
+    &-btn{
+      margin-top: 1.5104vw;
+    }
+  }
+  .differ{
+    margin-top: 7.0833vw;
+    &-context{
+      margin-top: 2.0833vw;
+      font-size: 1.4583vw;
+    }
+    &-lists{
+      max-width: 65.1563vw;
+      margin: 2.0833vw auto 0;
+      &-in{
+        &:not(:last-child){
+          margin-bottom: .7813vw;
+        }
+        &:nth-of-type(1){
+          &>div{
+            min-height: 2.3438vw;
+            font-size: 1.4583vw;
+          }
+        }
+        &>div{
+          font-size: 1.0417vw;
+          min-height: 5.8333vw;
+          &:nth-of-type(1){
+            border-radius: 3.125vw 0 0 3.125vw;
+          }
+          &:nth-of-type(2){
+            margin-left: .1302vw;
+          }
+          &:nth-of-type(3){
+            margin-left: .1302vw;
+            border-radius: 0 3.125vw 3.125vw 0;
+          }
+        }
+      }
+    }
+  }
+  .aesthetics{
+    margin-top: 5.625vw;
+    &-in{
+      margin-top: 2.0833vw;
+      padding: 4.5833vw 0;
+      background: linear-gradient(-99deg, rgba(252, 22, 130, 0.40) -0.55%, rgba(252, 22, 130, 0.28) -0.54%, rgba(255, 168, 198, 0.00) 99.3%);
+    }
+    &-swiper{
+      padding-bottom: .5208vw;
+      max-width: 78.75vw;
+      .swiper-slide{
+        padding: 0 1.5625vw;
+        &-in{
+          box-shadow: .2083vw .2083vw .3125vw rgba(255, 163, 158, 0.25), inset 1px -1px 0px #FFCCC7;
+          border-radius: .7813vw;
+          min-height: 25.2604vw;
+          &-title{
+            font-size: 1.4583vw;
+            margin-top: 2.0833vw;
+          }
+          &-text{
+            padding: .9375vw 1.7708vw .9375vw;
+            font-size: .9375vw;
+          }
+        }
+      }
+    }
+  }
+  .step {
+    padding: 3.1771vw 0 7.2917vw;
+    &-in {
+      max-width: 75.2083vw;
+    }
+    &-lists {
+      margin-top: 5.1042vw;
+      &-in {
+        margin-bottom: 4.7917vw;
+        &-l {
+          max-width: 20.8333vw;
+          .title {
+            font-size: 1.8229vw;
+            margin-bottom: .7813vw;
+            img {
+              margin-right: .7813vw;
+            }
+          }
+          .image {
+            img {
+              border-radius: 1.5625vw;
+            }
+          }
+          .name {
+            font-size: 1.0417vw;
+            margin-top: 1.25vw;
+            margin-bottom: .7813vw;
+            padding: .4167vw .7813vw;
+          }
+          .context {
+            font-size: 1.0417vw;
+            padding: 0 .7813vw;
+          }
+        }
+        &-r {
+          margin-left: 2.6042vw;
+          img {
+            width: .7813vw;
+          }
+        }
+        &:nth-of-type(6) {
+          .lastBox-b {
+            margin-top: .7813vw;
+          }
+          .lastBox-t{
+            img{
+              width: 9.6875vw;
+            }
+          }
+        }
+      }
+    }
+  }
+  .care {
+    margin-top: 10.7292vw;
+    &-lists {
+      max-width: 42.6563vw;
+      margin: 2.8125vw auto 0;
+      &-item {
+        & > div {
+          .image {
+            &-in {
+              margin-bottom: .6771vw;
+              border-radius: .5208vw;
+            }
+          }
+          .text {
+            font-size: 1.25vw;
+          }
+        }
+        &:nth-of-type(n + 4) {
+          margin-top: 2.6563vw;
+        }
       }
     }
   }

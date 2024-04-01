@@ -81,7 +81,7 @@ const pageDetail:any = {
       list: [
         {
           type: "defule",
-          text: '洗牙後30天內，首顆德國常規聲波樹脂補牙特價¥275/顆，第二顆起享有85折優惠。'
+          text: '洗牙後30天內，首顆德國常規聲波樹脂補牙特價¥275/顆，第二顆起享有7折優惠。'
         }
       ]
     },
@@ -126,7 +126,7 @@ const pageDetail:any = {
     {
       type: 'img',
       list: [
-        'https://static.cmereye.com/imgs/2024/03/f815d241009d865b.jpg',
+        'https://static.cmereye.com/imgs/2024/04/327adc16a8cc097b.jpg',
       ],
       className: 'imgone'
     },
@@ -185,13 +185,13 @@ const pageDetail:any = {
         "此會員優惠只限本人使用，不得轉讓",
         "工聯會會員必須需出示有效工聯咭，才享獲以上優惠",
         "此優惠服務需提前進行預約，而且可能會受到可預約時間限制",
+        "會員需在當月內進行預約，方可享獲此會慶優惠",
         "如要更改或取消預約，請至少提前48小時內通知愛康健專線客服以作時間調整安排",
         "如有任何爭議，愛康健齒科集團將會保留最後之決定權"
       ]
     }
   ]
 }
-
 
 
 </script>
