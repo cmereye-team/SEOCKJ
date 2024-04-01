@@ -38,35 +38,10 @@ const orthodonticsIntroduceData = {
   pageName: 'periodontal-test'
 }
 
-// const reasonData = {
-//   title: 'pages.dental-service.periodontal.reason.title',
-//   text: 'pages.dental-service.periodontal.reason.text',
-//   imgUrl: 'https://static.cmereye.com/imgs/2023/05/907c5d9eee09d9ea.jpg',
-//   reasonLists:[
-//     {
-//       context: 'pages.dental-service.periodontal.reason.lists[0].context',
-//     },
-//     {
-//       context: 'pages.dental-service.periodontal.reason.lists[1].context',
-//     },
-//     {
-//       context: 'pages.dental-service.periodontal.reason.lists[2].context',
-//     }
-//   ],
-//   pageName: 'periodontal'
-// }
 
 const symptomData = {
   title: '牙周病的症狀',
   lists: [
-    // {
-    //   imgUrl: 'https://static.cmereye.com/imgs/2023/05/802fd6c8cf970f64.png',
-    //   title: '刷牙時牙齦出血'
-    // },
-    // {
-    //   imgUrl: 'https://static.cmereye.com/imgs/2023/05/4778a5335712795b.png',
-    //   title: '牙肉紅腫'
-    // },
     {
       imgUrl: 'https://static.cmereye.com/imgs/2023/11/255727cb71ff0818.png',
       title: '口氣異常'
@@ -229,11 +204,6 @@ const processData = {
             text: '牙周組織增加，使牙周更鞏固，牙齒存活時間更長',
             textIn: ''
           },
-          // {
-          //   title: 'Step 6',
-          //   text: '咬緊棉花或紗布止血',
-          //   textIn: ''
-          // },
         ]
       ]
     }
@@ -262,26 +232,6 @@ const noteData = {
 const problemData = {
   title: 'pages.dental-service.periodontal.problem.title',
   lists: [
-    // {
-    //   Q: 'pages.dental-service.periodontal.problem.lists[0].Q',
-    //   A: 'pages.dental-service.periodontal.problem.lists[0].A'
-    // },
-    // {
-    //   Q: 'pages.dental-service.periodontal.problem.lists[1].Q',
-    //   A: 'pages.dental-service.periodontal.problem.lists[1].A'
-    // },
-    // {
-    //   Q: 'pages.dental-service.periodontal.problem.lists[2].Q',
-    //   A: 'pages.dental-service.periodontal.problem.lists[2].A'
-    // },
-    // {
-    //   Q: 'pages.dental-service.periodontal.problem.lists[3].Q',
-    //   A: 'pages.dental-service.periodontal.problem.lists[3].A'
-    // },
-    // {
-    //   Q: 'pages.dental-service.periodontal.problem.lists[4].Q',
-    //   A: 'pages.dental-service.periodontal.problem.lists[4].A'
-    // },
     {
       Q: '什麼是牙周袋？',
       A: '牙周病會使齒槽骨遭受破壞，導致牙齦萎縮。牙菌斑和牙結石引發的發炎腫脹會使牙肉與牙齒分離，形成「牙周袋」。牙周袋愈深，便愈難清潔，內藏細菌逐漸積聚，令病情惡化。'
@@ -349,7 +299,6 @@ const reason2Data = {
   <div class="pageIn whitebgColor">
     <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
     <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
-    <!-- <ServiceReason :reasonData="reasonData" /> -->
     <div class="reason">
       <div class="dentistryServices-title reason-title">
         <div class="dentistryServices-title-in bb reason-title-in">
@@ -393,26 +342,10 @@ const reason2Data = {
         </div>
       </div>
     </div>
-    <!-- <div class="symptom">
-      <div class="dentistryServices-title symptom-title">
-        <div class="dentistryServices-title-in bb symptom-title-in">{{symptomData.title}}</div>
-      </div>
-      <div class="symptom-box">
-        <div class="symptom-lists pageCon">
-          <div class="symptom-lists-in" v-for="(symptomItem,symptomIndex) in symptomData.lists" :key="symptomIndex">
-            <div class="symptom-lists-in-img">
-              <img :src="symptomItem.imgUrl" alt="">
-            </div>
-            <div class="symptom-lists-in-title">{{symptomItem.title}}</div>
-          </div>
-        </div>
-      </div>
-    </div> -->
     <div class="care">
       <div class="dentistryServices-title care-title">
         <div class="dentistryServices-title-in bb care-title-in">
           {{ symptomData.title }}
-          <!-- <span>{{ symptomData.title[1] }}</span> -->
         </div>
       </div>
       <div class="care-lists">
@@ -432,9 +365,6 @@ const reason2Data = {
         </div>
       </div>
       <div class="care-btn">
-        <!-- <div ref="detailBtn" class="btn">
-          <span @click="toWhatsApp">與我們了解更多</span>
-        </div> -->
         <PageAnimBtnTypeTwo :str="'與我們了解更多'" />
       </div>
     </div>
@@ -463,13 +393,9 @@ const reason2Data = {
       </div>
     </div>
     <ServiceProcess :processData="processData" />
-    <!-- <ServiceNote :noteData="noteData" /> -->
     <div class="care2">
       <div class="care2-btn">
         <PageAnimBtnTypeTwo :str="'立即線上諮詢'" />
-        <!-- <div ref="detailBtn" class="btn">
-          <span @click="toWhatsApp">立即線上諮詢</span>
-        </div> -->
       </div>
       <div class="dentistryServices-title care2-title">
         <div class="dentistryServices-title-in bb care2-title-in">
@@ -527,7 +453,6 @@ const reason2Data = {
         font-style: normal;
         font-weight: 900;
         line-height: 160%;
-        // text-align: center;
         width: 100%;
         max-width: 90%;
         margin: 35px auto 0;
@@ -778,12 +703,114 @@ const reason2Data = {
     justify-content: center;
   }
 }
-@media (min-width: 768px) and (max-width: 1200px) {
+@media (min-width: 768px) and (max-width: 1920px) {
   .reason {
+    margin-top: 9.7917vw;
     &-lists {
+      max-width: 86.25vw;
+      margin: 6.0417vw auto 0;
       &-item {
+        padding: 0 2.3438vw;
         .text {
-          font-size: 3vw;
+          font-size: 1.8229vw;
+          margin: 1.8229vw auto 0;
+        }
+      }
+    }
+  }
+  .reason2 {
+    margin-top: 7.8125vw;
+    &-lists {
+      max-width: 86.25vw;
+      margin: 2.7604vw auto 0;
+      &-item {
+        padding: 0 2.3438vw;
+        .image {
+          span{
+            font-size: 2.6042vw;
+          }
+        }
+        .text {
+          font-size: 1.4583vw;
+          margin: 1.0417vw auto 0;
+        }
+      }
+    }
+  }
+  .care {
+    margin-top: 7.2917vw;
+    &-lists {
+      max-width: 52.0833vw;
+      margin: 2.8125vw auto 0;
+      &-item {
+        & > div {
+          .image {
+            &-in {
+              margin-bottom: .6771vw;
+              border-radius: .5208vw;
+            }
+          }
+          .text {
+            font-size: 1.25vw;
+          }
+        }
+        &:nth-of-type(n + 5) {
+          margin-top: 4.6875vw;
+        }
+      }
+    }
+    &-btn {
+      margin-top: 2.8646vw;
+    }
+  }
+  .note {
+    margin-top: 5.2083vw;
+    &-title {
+      &-in {
+        font-size: 2.6042vw;
+      }
+    }
+    &-content {
+      max-width: 66.9792vw;
+      margin: 4.1667vw auto 0;
+      &-r {
+        & > div {
+          span {
+            font-size: 1.4583vw;
+            &:nth-of-type(1) {
+              min-width: 1.5625vw;
+            }
+          }
+        }
+      }
+    }
+  }
+  .care2 {
+    margin-top: 4.0625vw;
+    padding-bottom: 1.3021vw;
+    &-title {
+      margin-top: 6.5625vw;
+      &-in {
+        font-size: 2.6042vw;
+      }
+    }
+    &-lists {
+      max-width: 52.0833vw;
+      margin: 2.8125vw auto 0;
+      &-item {
+        & > div {
+          .image {
+            &-in {
+              margin-bottom: .6771vw;
+              border-radius: .5208vw;
+            }
+          }
+          .text {
+            font-size: 1.25vw;
+          }
+        }
+        &:nth-of-type(n + 5) {
+          margin-top: .7813vw;
         }
       }
     }
