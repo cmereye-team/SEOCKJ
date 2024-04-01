@@ -36,49 +36,6 @@ const orthodonticsIntroduceData = {
   pageName: 'fillings',
 }
 
-// const reasonData = {
-//   title: 'pages.dental-service.fillings.reason.title',
-//   text: 'pages.dental-service.fillings.reason.text',
-//   imgUrl: 'https://static.cmereye.com/imgs/2023/05/d053bb08e7c265a0.jpg',
-//   reasonLists: [
-//     {
-//       context:
-//         'pages.dental-service.fillings.reason.lists[0].context',
-//     },
-//   ],
-//   isMediumCW: true,
-// }
-
-// const stepData = {
-//   title: '補牙過程',
-//   stepLists: [
-//     [
-//       {
-//         title: 'Step 1',
-//         text: '清除牙齒蛀壞及脆弱的部分',
-//       },
-//       {
-//         title: 'Step 2',
-//         text: '用專用的清潔消毒劑清潔牙齒表面，吹乾後，塗上黏固劑',
-//       },
-//       {
-//         title: 'Step 3',
-//         text: '填補牙洞及修補缺損部分',
-//       },
-//     ],
-//     [
-//       {
-//         title: 'Step 4',
-//         text: '穩固填充物',
-//       },
-//       {
-//         title: 'Step 5',
-//         text: '牙齒修形及拋光（如蛀牙的程度深，或需要使用麻醉劑）',
-//       },
-//     ],
-//   ],
-// }
-
 const noteData = {
   title: '補牙後建議',
   lists: [
@@ -349,6 +306,7 @@ const differData:any = {
     },
   ]
 }
+
 </script>
 
 
@@ -358,9 +316,6 @@ const differData:any = {
     <div class="pageIn whitebgColor">
       <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
       <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
-      <!-- <ServiceReason :reasonData="reasonData" /> -->
-      <!-- <ServiceStep :stepData="stepData" /> -->
-      <!-- <ServiceNote :noteData="noteData" /> -->
       <div class="The_benefits_of_resin_filling_teeth">
         <div class="dentistryServices-title reason-title">
           <div class="dentistryServices-title-in bb reason-title-in">
@@ -547,64 +502,6 @@ const differData:any = {
           <PageAnimBtnTypeTwo :str="'了解根管治療資訊'" />
         </div>
       </div>
-      <!-- <div class="material">
-        <div class="dentistryServices-title">
-          <div class="dentistryServices-title-in bb">{{materialData.title}}</div>
-        </div>
-        <div class="material-context">
-          <span v-for="(contextItem,contextIndex) in materialData.context" :key="contextIndex">{{contextItem}}</span>
-        </div>
-        <div class="material-in">
-          <swiper
-            slidesPerView="auto"
-            class="swiper"
-            @slideChange="onSlideChange"
-          >
-            <swiper-slide class="swiper-slide">
-              <div class="box-left">
-                <div class="box">
-                  <div
-                    class="box-in"
-                    v-for="(meritItem,meritIndex) in materialData.tableLeft[0]"
-                    :key="meritIndex"
-                  >
-                    <div>{{meritItem}}</div>
-                  </div>
-                </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide class="swiper-slide">
-              <div class="box-center">
-                <div class="box">
-                  <div
-                    class="box-in"
-                    v-for="(meritItem,meritIndex) in materialData.tableLeft[1]"
-                    :key="meritIndex"
-                  >
-                    <div>{{meritItem}}</div>
-                  </div>
-                </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide class="swiper-slide">
-              <div class="box-right">
-                <div class="box">
-                  <div
-                    class="box-in"
-                    v-for="(shortcomingItem,shortcomingIndex) in materialData.tableRight"
-                    :key="shortcomingIndex"
-                  >
-                    <div>{{shortcomingItem}}</div>
-                  </div>
-                </div>
-              </div>
-            </swiper-slide>
-          </swiper>
-        </div>
-        <div class="material-line mbBox">
-          <PageSwiperPointLine :latestNewsNum="3" :latestNewsCurrent="materialCurrent"></PageSwiperPointLine>
-        </div>
-      </div> -->
       <div class="fillings-content-1">
         <div class="dentistryServices-title fillings-content-1-title">
           <div class="dentistryServices-title-in bb fillings-content-1-title-in">
@@ -1338,6 +1235,298 @@ const differData:any = {
     }
   }
 }
+
+@media (min-width: 768px) and (max-width: 1920px) {
+  .The_benefits_of_resin_filling_teeth{
+    margin-top: 1.5625vw;
+    &-img{
+      margin-top: 2.6042vw;
+      img{
+        max-width: 59.8958vw;
+      }
+    }
+    &-lists{
+      margin-top: 2.6042vw;
+      &-in{
+        max-width: 41.875vw;
+        margin-bottom: 1.5625vw;
+        &-l{
+          &>div{
+            font-size: 1.5625vw;
+          }
+        }
+        &-r{
+          font-size: 1.0417vw;
+        }
+      }
+    }
+  }
+  .step {
+    padding: 3.1771vw 0 5.1563vw;
+    margin-top: 3.6458vw;
+    &-in {
+      max-width: calc(75.2083vw + 6.3542vw);
+    }
+    &-lists {
+      margin-top: 5.1042vw;
+      padding: 0 1.0417vw;
+      &-in {
+        margin-bottom: 4.7917vw;
+        &-l {
+          max-width: 20.8333vw;
+          .title {
+            font-size: 1.8229vw;
+            margin-bottom: .7813vw;
+            img {
+              margin-right: .7813vw;
+            }
+          }
+          .image {
+            img {
+              border-radius: 1.5625vw;
+            }
+            &::after{
+              width: .8333vw;
+              height: 1.5625vw;
+            }
+          }
+          .name {
+            font-size: 1.0417vw;
+            margin-top: 1.25vw;
+            margin-bottom: .7813vw;
+            padding: .4167vw .7813vw;
+          }
+        }
+        &-r {
+          img {
+            width: .7813vw;
+          }
+        }
+        &:nth-of-type(6) {
+          &>div{
+            margin-bottom: 1.0417vw;
+          }
+          .lastBox-t {
+            & > div {
+              font-size: 2.6042vw;
+              span {
+                font-size: 2.6042vw;
+              }
+              &:nth-of-type(1) {
+                margin-bottom: .7813vw;
+              }
+            }
+          }
+          .lastBox-b {
+            margin-top: 1.0417vw;
+            .bigBan{
+              font-size: 2.2917vw;
+            }
+          }
+        }
+      }
+    }
+  }
+  .differ{
+    margin-top: 7.2917vw;
+    &-tc{
+      max-width: 52.9167vw;
+      margin: 1.5625vw auto 0;
+      span{
+        font-size: 1.0417vw;
+      }
+    }
+    &-lists{
+      max-width: 65.1563vw;
+      margin: 2.8646vw auto 0;
+      &-in{
+        &:not(:last-child){
+          margin-bottom: .7813vw;
+        }
+        &:nth-of-type(1){
+          &>div{
+            min-height: 2.3438vw;
+            font-size: 1.5625vw;
+          }
+        }
+        &>div{
+          font-size: 1.4583vw;
+          min-height: 5.8333vw;
+          span{
+            &::before{
+              margin-right: .5208vw;
+              font-size: 1.5625vw;
+              margin-top: -0.1042vw;
+            }
+          }
+          &:nth-of-type(1){
+            border-radius: 3.125vw 0 0 3.125vw;
+          }
+          &:nth-of-type(2){
+            margin-left: .1302vw;
+          }
+          &:nth-of-type(3){
+            margin-left: .1302vw;
+            border-radius: 0 3.125vw 3.125vw 0;
+          }
+        }
+      }
+    }
+  }
+  .note{
+    margin-top: 5.2083vw;
+    &-lists {
+      max-width: calc(42.6563vw / 3 * 2);
+      margin: 3.125vw auto 0;
+      &-item {
+        & > div {
+          .image {
+            &-in {
+              margin-bottom: .6771vw;
+              border-radius: .5208vw;
+            }
+          }
+          .text {
+            font-size: 1.25vw;
+            letter-spacing: .1563vw;
+          }
+        }
+        &:nth-of-type(n + 4) {
+          margin-top: 2.3438vw;
+        }
+      }
+    }
+  }
+  .note2 {
+    margin-top: 5.2083vw;
+    &-title {
+      &-in {
+        font-size: 2.6042vw;
+      }
+    }
+    &-content {
+      max-width: 69.7917vw;
+      margin: 4.1667vw auto 0;
+      &-r {
+        & > div {
+          margin-bottom: 2.0833vw;
+          span {
+            font-size: 1.4583vw;
+          }
+        }
+      }
+    }
+  }
+  .reason {
+    margin-top: 9.7917vw;
+    &-lists {
+      max-width: 86.25vw;
+      margin: 6.0417vw auto 0;
+      &-item {
+        padding: 0 2.8646vw;
+        .text {
+          margin-top: -2.3438vw;
+          span {
+            font-size: 1.8229vw;
+            &:nth-of-type(1) {
+              border-radius: 1.5625vw;
+              padding: 0 2.0833vw;
+              filter: drop-shadow(
+                0px .2083vw .3646vw
+                  rgba(252, 22, 130, 0.38)
+              );
+            }
+            &:nth-of-type(2) {
+              margin-top: 2.2917vw;
+            }
+          }
+        }
+      }
+    }
+    &-bt{
+      font-size: 1.0417vw;
+      margin-top: 1.0417vw;
+      &>div{
+        width: calc(100% - 3.125vw);
+        max-width: 44.7917vw;
+        margin-top: 1.5625vw;
+      }
+    }
+    &-btn{
+      margin-top: 2.0833vw;
+    }
+  }
+  .fillings-content-1{
+    margin-top: 5.5208vw;
+    &-in{
+      margin: 2.6042vw auto;
+      max-width: 67.7083vw;
+      &>div{
+        width: 15.625vw;
+        img{
+          border-radius: .5208vw;
+        }
+        span{
+          font-size: 1.5625vw;
+          margin-top: 1.0417vw;
+        }
+      }
+    }
+  }
+  .care {
+    margin-top: 10.7292vw;
+    &-lists {
+      max-width: 42.6563vw;
+      margin: 2.3438vw auto 0;
+      &-item {
+        & > div {
+          .image {
+            &-in {
+              margin-bottom: .6771vw;
+              border-radius: .5208vw;
+            }
+          }
+          .text {
+            font-size: 1.25vw;
+            letter-spacing: .1563vw;
+          }
+        }
+        &:nth-of-type(n + 4) {
+          margin-top: 2.3438vw;
+        }
+      }
+    }
+    &-btn{
+      margin-top: 2.3438vw;
+    }
+  }
+  .advantage{
+    margin-top: 5.1042vw;
+    &-in{
+      max-width: 57.2917vw;
+      margin: 4.0104vw auto 0;
+      &-l{
+        width: 24.2188vw;
+      }
+      &-r{
+        &>div{
+          .name{
+            font-size: 1.25vw;
+            margin-top: 1.25vw;
+            margin-bottom: .7813vw;
+            padding: .2083vw .7813vw;
+            letter-spacing: .1042vw;
+          }
+          .text{    
+            font-size: 1.0417vw;
+            padding-left: .7813vw;
+          }
+        }
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .reason {
     margin-top: 54px;

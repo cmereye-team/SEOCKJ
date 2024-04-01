@@ -330,12 +330,55 @@ const handleSkillTab = (_idx:number) => {
     }
   }
 }
-@media (min-width: 768px) and (max-width: 1000px) {
+@media (min-width: 768px) and (max-width: 1920px) {
+  .faq{
+    margin-top: 10.7813vw;
+    &-in{
+      margin-top: 2.3958vw;
+      &>div{
+        font-size: 1.4583vw;
+        height: 3.8542vw;
+        line-height: 3.8542vw;
+        border-radius: .5208vw;
+        &:not(:last-child){
+          margin-right: 1.3021vw;
+        }
+      }
+    }
+  }
   .skill{
+    margin-top: 7.5vw;
+    &-title{
+      &-in{
+        font-size: 1.5625vw;
+        border-bottom: .2083vw solid var(--indexColor1);
+      }
+    }
     &-tab{
+      margin-top: 2.3958vw;
+      box-shadow: 0px .2083vw .4167vw var(--indexColor3);
       &-t{
         &>div{
-          font-size: 24px;
+          font-size: 1.4583vw;
+          height: 3.6458vw;
+          line-height: 3.6458vw;
+          &:not(:last-child){
+            margin-right: .1563vw;
+          }
+        }
+      }
+      &-b{
+        min-height: 23.9583vw;
+        &>div{
+          max-width: 41.9792vw;
+          &>div:first-child{
+            font-size: 1.4583vw;
+            width: 7.9167vw;
+          }
+          &>div:last-child{
+            font-size: 1.0417vw;
+            padding-top: .5208vw;
+          }
         }
       }
     }
