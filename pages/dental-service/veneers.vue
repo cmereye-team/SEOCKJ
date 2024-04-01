@@ -29,7 +29,6 @@ const headerConfig = {
 }
 
 const orthodonticsIntroduceData = {
-  // title: '美容牙科',
   title: '全瓷貼片',
   content: '瓷貼片有助改善牙齒的形狀、長度、外觀及顏色，達到牙齒整齊和美白的效果。把度身訂製的纖薄瓷貼片黏附於牙齒表層，效果自然，改善外觀。',
   mbImg: 'https://static.cmereye.com/imgs/2023/12/00e7b5b8b50ed5ad.webp',
@@ -37,48 +36,6 @@ const orthodonticsIntroduceData = {
   tabNavName: '全瓷貼片',
   pageName: 'veneers-test',
 }
-
-// const stepData = {
-//   title: '瓷貼片治療過程',
-//   stepLists: [
-//     [
-//       {
-//         title: 'Step 1',
-//         text: '醫生檢查牙齒及牙周健康，如存在口腔問題，必須先洗牙或接受牙周病治療後才能使用瓷貼片'
-//       },
-//       {
-//         title: 'Step 2',
-//         text: '確定進行療程'
-//       },
-//       {
-//         title: 'Step 3',
-//         text: '輕輕磨走牙齒表面的琺瑯質及把牙齒稍稍磨短'
-//       },
-//       {
-//         title: 'Step 4',
-//         text: '印製牙模及拍攝X光片'
-//       }
-//     ],
-//     [
-//       {
-//         title: 'Step 5',
-//         text: '設計及訂製瓷貼片，確保適合進行瓷牙貼片療程'
-//       },
-//       {
-//         title: 'Step 6',
-//         text: ' 把貼片粘到牙齒上'
-//       },
-//       {
-//         title: 'Step 7',
-//         text: '檢查貼片粘合程度及顏色'
-//       },
-//       {
-//         title: 'Step 8',
-//         text: '覆診，檢查牙齦狀況與貼片位置'
-//       }
-//     ]
-//   ]
-// }
 
 const noteData = {
   title: '適合使用瓷貼片的人士',
@@ -124,18 +81,6 @@ const noticeData = {
 const problemData = {
   title: 'pages.dental-service.veneers.problem.title',
   lists: [
-    // {
-    //   Q: 'pages.dental-service.veneers.problem.lists[0].Q',
-    //   A: 'pages.dental-service.veneers.problem.lists[0].A'
-    // },
-    // {
-    //   Q: 'pages.dental-service.veneers.problem.lists[1].Q',
-    //   A: 'pages.dental-service.veneers.problem.lists[1].A'
-    // },
-    // {
-    //   Q: 'pages.dental-service.veneers.problem.lists[2].Q',
-    //   A: 'pages.dental-service.veneers.problem.lists[2].A'
-    // },
     {
       Q: '做瓷貼片一定要磨牙嗎？',
       A: '進行瓷貼片療程前，需進行輕微磨牙處理，以確保其穩定性和美觀度。'
@@ -171,7 +116,6 @@ onMounted(()=>{
 
 const getWindowWidth = () => {
   windowWidth.value = window.innerWidth
-  // console.log(windowWidth)
 }
 
 let veneerSwiperRef ={
@@ -181,7 +125,6 @@ const setVeneerSwiperRef = (swiper:any) => {
   veneerSwiperRef = swiper;
 }
 const handleLineCur = (_value:number) =>{
-  // console.log(_value)
   veneerSwiperRef.slideToLoop(_value-1)
 }
 
@@ -281,8 +224,6 @@ const differData = {
     {
       name: '優點',
       isArrayType: true,
-      // firstText: "• 不易影響咬合\n• 牙齒美白效果極佳\n• 耐用相容性高\n• 陶瓷材質不易變色損壞",
-      // secondText: "• 價格相對較實惠\n• 安裝過程簡單"
       firstText: ['不易影響咬合','牙齒美白效果極佳','耐用相容性高','陶瓷材質不易變色損壞'],
       secondText: ['價格相對較實惠','安裝過程簡單']
     }
@@ -356,7 +297,6 @@ const caseLists = [
     <!-- 介绍 -->
     <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
     <!-- 注意事项 -->
-    <!-- <ServiceNote :noteData="noteData" /> -->
     <div class="bp">
       <div class="dentistryServices-title">
         <div class="dentistryServices-title-in bb">
@@ -408,15 +348,7 @@ const caseLists = [
               <div>笑容蛻變<span>美麗綻放!!</span></div>
             </div>
             <div class="lastBox-b">
-              <!-- <span @click="toWhatsApp">獲取免費諮詢</span> -->
-              <PageAnimBtnTypeTwo :str="'獲取免費檢查諮詢'">
-                <!-- <template #animbtnAfter>
-                  獲取<span class="bigBan">免費</span>檢查諮詢
-                </template>
-                <template #animbtnFront>
-                  獲取<span class="bigBan">免費</span>檢查諮詢
-                </template> -->
-              </PageAnimBtnTypeTwo>
+              <PageAnimBtnTypeTwo :str="'獲取免費檢查諮詢'" />
             </div>
           </div>
         </div>
@@ -528,66 +460,6 @@ const caseLists = [
 <style lang="scss" scoped>
 .bp{
   margin-top: 108px;
-  &-swiper{
-    margin-top: 42px;
-    .swiper-slide-in{
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 0 39.5px 83.1px;
-      box-sizing: border-box;
-      align-items: center;
-      &-title{
-        min-width: 165px;
-        height: 40px;
-        line-height: 40px;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 20px;
-        text-align: center;
-        color: #FFFFFF;
-        background: var(--indexColor1);
-        position: relative;
-        &::after{
-          content: '';
-          position: absolute;
-          bottom: -40px;
-          left: 50%;
-          transform: translateX(-50%);
-          border-top: 20px solid;
-          border-left: 8px solid;
-          border-right: 8px solid;
-          border-bottom: 20px solid;
-          border-color: var(--indexColor1) transparent transparent transparent;
-        }
-      }
-      img{
-        width: 100%;
-        max-width: 267px;
-        margin: 36px auto 0;
-      }
-      &:last-child{
-        padding: 0 39.5px;
-      }
-    }
-    .swiper-slide{
-      padding: 0 30px;
-      height: 100%;
-      &:nth-of-type(3){
-        .swiper-slide-in{
-          padding: 0 39.5px 53.1px;
-          // &:last-child{
-          //   padding: 0 39.5px;
-          // }
-        }
-      }
-    }
-    &-line{
-      max-width: 216px;
-      margin: 53px auto 0;
-    }
-  }
   &-text{
     font-style: normal;
     font-weight: 600;
@@ -641,9 +513,6 @@ const caseLists = [
         margin-top: 30px;
         width: 100%;
       }
-      // &:last-child{
-      //   padding: 0 39.5px;
-      // }
     }
   }
 }
@@ -757,8 +626,6 @@ const caseLists = [
         align-items: center;
         padding: 0;
         .lastBox-t {
-          // display: flex;
-          // align-items: flex-end;
           & > div {
             color: var(--indexColor1);
             font-size: 55px;
@@ -908,8 +775,6 @@ const caseLists = [
           left: 50%;
           transform: translateX(-50%);
           z-index: 2;
-          // animation: btnAnim 1s linear;
-          // animation-fill-mode: forwards;
           width: max-content;
           display: flex;
           opacity: 0;
@@ -919,7 +784,6 @@ const caseLists = [
       &:hover {
         span{
           &:nth-of-type(2){
-            // display: flex;
             animation: btnAnim 1s linear;
             animation-fill-mode: forwards;
             transition: all .3s;
@@ -949,7 +813,6 @@ const caseLists = [
             width: 100%;
             height: 0;
             padding-bottom: 100%;
-            // background: #fff1f0;
             margin-bottom: 13px;
             border-radius: 10px;
             position: relative;
@@ -958,8 +821,6 @@ const caseLists = [
               top: 50%;
               left: 50%;
               transform: translate(-50%, -50%);
-              // max-width: 90%;
-              // max-height: 90%;
               width: 100%;
             }
           }
@@ -1144,63 +1005,259 @@ const caseLists = [
     opacity: 0;
   }
 }
-@media (min-width: 768px) and (max-width: 1300px) {
-  .step {
-    &-lists {
+@media (min-width: 768px) and (max-width: 1920px) {
+  .bp{
+    margin-top: 5.625vw;
+    &-text{
+      font-size: 1.0417vw;
+      max-width: 54.2708vw;
+      margin: 1.875vw auto 0;
+    }
+    &-lists{
+      max-width: 57.2917vw;
+      margin: 3.125vw auto;
       &-in{
+        min-width: 0;
+        width: calc(100% / 3);
+        padding: 0 2.0573vw 4.4271vw;
+        &-title{
+          min-width: 8.5938vw;
+          height: 2.0833vw;
+          line-height: 2.0833vw;
+          font-size: 1.0417vw;
+          &::after{
+            bottom: -2.0833vw;
+            border-top: 1.0417vw solid;
+            border-left: .4167vw solid;
+            border-right: .4167vw solid;
+            border-bottom: 1.0417vw solid;
+            border-color: var(--indexColor1) transparent transparent transparent;
+          }
+        }
+        img{
+          margin-top: 1.5625vw;
+        }
+      }
+    }
+  }
+  .step {
+    padding: 3.1771vw 0 5.1563vw;
+    margin-top: 3.6458vw;
+    &-in {
+      max-width: calc(75.2083vw + 6.3542vw);
+    }
+    &-lists {
+      margin-top: 5.1042vw;
+      padding: 0 1.0417vw;
+      &-in {
+        margin-bottom: 4.7917vw;
+        &-l {
+          max-width: 20.8333vw;
+          .title {
+            font-size: 1.8229vw;
+            margin-bottom: .7813vw;
+            img {
+              margin-right: .7813vw;
+            }
+          }
+          .image {
+            img {
+              border-radius: 1.5625vw;
+            }
+            &::after{
+              width: .8333vw;
+              height: 1.5625vw;
+            }
+          }
+          .name {
+            font-size: 1.0417vw;
+            margin-top: 1.25vw;
+            margin-bottom: .7813vw;
+            padding: .4167vw .7813vw;
+          }
+          .context {
+            font-size: 1.0417vw;
+            padding: 0 .7813vw;
+          }
+        }
+        &-r {
+          img {
+            width: .7813vw;
+          }
+        }
         &:nth-of-type(6) {
           .lastBox-t {
-            &>div{
-              font-size: 35px;
-              span{
-                font-size: 60px;
+            & > div {
+              font-size: 2.8646vw;
+              span {
+                font-size: 4.4271vw;
               }
+              &:nth-of-type(1) {
+                margin-bottom: .7813vw;
+              }
+            }
+          }
+          .lastBox-b {
+            margin-top: 1.0417vw;
+            .bigBan{
+              font-size: 2.2917vw;
             }
           }
         }
       }
     }
   }
-}
-@media (min-width: 768px) and (max-width: 1200px) {
-  .step {
-    &-lists {
-      &-in{
-        width: calc(100% / 2);
+  .advantage{
+    margin-top: 5.1042vw;
+    &-in{
+      max-width: 64.8958vw;
+      margin: 4.0104vw auto 0;
+      &-l{
+        width: 24.2188vw;
+      }
+      &-r{
+        &>div{
+          .name{
+            font-size: 1.0417vw;
+            margin-top: 1.25vw;
+            margin-bottom: .7813vw;
+            padding: .4167vw .7813vw;
+          }
+          .text{    
+            font-size: 1.0417vw;
+            text-indent: .7813vw;
+          }
+        }
       }
     }
   }
-}
-@media (min-width: 768px) and (max-width: 1100px) {
-  .bp{
-    &-text{
-      padding: 0 30px;
-    }
-    &-list{
+  .differ{
+    margin-top: 7.0833vw;
+    &-lists{
+      max-width: 65.1563vw;
+      margin: 2.8646vw auto 0;
       &-in{
-        min-width: 50%;
+        &:not(:last-child){
+          margin-bottom: .7813vw;
+        }
+        &:nth-of-type(1){
+          &>div{
+            min-height: 2.3438vw;
+            font-size: 1.4583vw;
+          }
+        }
+        &>div{
+          font-size: 1.0417vw;
+          min-height: 5.8333vw;
+          &:nth-of-type(1){
+            border-radius: 3.125vw 0 0 3.125vw;
+          }
+          &:nth-of-type(2){
+            margin-left: .1302vw;
+          }
+          &:nth-of-type(3){
+            margin-left: .1302vw;
+            border-radius: 0 3.125vw 3.125vw 0;
+          }
+        }
+      }
+    }
+    &-btn {
+      margin-top: 2.9688vw;
+      .btn {
+        span {
+          box-shadow: 0px 1.74695px 3.4939px 0px rgba(252, 22, 130, 0.38);
+          font-size: 1.8229vw;
+          border-radius: 2.0833vw;
+          padding: .2604vw 4.6875vw;
+          &:nth-of-type(2) {
+            color: var(--indexColor1);
+            box-shadow: 0px 1.74695px 3.4939px 0px rgb(230, 230, 230);
+          }
+        }
       }
     }
   }
-  .step {
+  .care {
+    margin-top: 6.1458vw;
     &-lists {
-      &-in{
-        // padding: 0 calc((61 / ( 1444 + 122 )) * 100%);
-        &-l {
-          .image{
-            &::after{
-              right: -10%;
+      max-width: 42.6563vw;
+      margin: 2.8125vw auto 0;
+      &-item {
+        & > div {
+          .image {
+            &-in {
+              margin-bottom: .6771vw;
+              border-radius: .5208vw;
             }
           }
+          .text {
+            font-size: 1.25vw;
+          }
+        }
+        &:nth-of-type(n + 4) {
+          margin-top: 2.6563vw;
+        }
+      }
+    }
+    &-context{
+      max-width: 51.5625vw;
+      padding: 1.0417vw 1.5625vw;
+      font-size: 1.8229vw;
+    }
+  }
+  .case{
+    margin-top: 5.0521vw;
+    &-title{
+      &-in{
+        font-size: 1.5625vw;
+        text-indent: 3.3854vw;
+        padding-bottom: .2604vw;
+        padding-right: .3646vw;
+      }
+    }
+    &-context{
+      margin-top: 1.0938vw;
+      span{
+        font-size: 1.8229vw;
+      }
+    }
+    &-content{
+      margin-top: 2.3958vw;
+      padding: 3.0208vw 0 3.2292vw;
+      &-in{
+        max-width: 81.25vw;
+        &>div{
+          padding: .7292vw 1.5104vw 1.3021vw;
+          &:not(:first-child){
+            margin-left: .8333vw;
+          }
+        }
+        &-l{
+          img{
+            width: 9.1146vw;
+            border: .4167vw solid #fff;
+          }
+          span{
+            margin-left: .9375vw;
+            &:nth-of-type(1){
+              font-size: 1.4583vw;
+            }
+            &:nth-of-type(2){
+              font-size: 1.0938vw;
+            }
+          }
+        }
+        &-r{
+          margin-top: .7813vw;
+          font-size: 1.0417vw;
         }
       }
     }
   }
 }
 //md
-
 @media only screen and (max-width: 768px) {
-  
   .bp{
     margin-top: 94px;
     &-text{
@@ -1299,7 +1356,6 @@ const caseLists = [
                 display: none;
               }
               &:nth-of-type(2) {
-                // display: none;
                 &::before,&::after{
                   content: '';
                   display: inline-block;
@@ -1310,10 +1366,6 @@ const caseLists = [
                   background-size: 100% 100%;
                 }
               }
-              // &:nth-of-type(3) {
-              //   padding-bottom: 5px;
-              //   margin-left: 7px;
-              // }
             }
           }
           .lastBox-b {
@@ -1437,7 +1489,6 @@ const caseLists = [
     &-btn {
       margin-top: 35px;
       .btn {
-        // margin-top: 30px;
         span {
           font-size: 20px;
           padding: 5px 40px;
@@ -1491,7 +1542,6 @@ const caseLists = [
              font-size: 16px;
              clip-path: polygon(0 0, 90% 0, 95% 100%, 0 100%);
              margin-top: 0;
-            // margin-bottom: 15px;
            }
            .text{
              font-size: 16px;
@@ -1508,7 +1558,6 @@ const caseLists = [
   }
   .case{
     margin-top: 20px;
-    // background: linear-gradient(279deg, rgba(252, 22, 130, 0.40) -0.55%, rgba(252, 22, 130, 0.28) -0.54%, rgba(255, 168, 198, 0.00) 99.3%);
     padding: 44px 30px 0;
     &-title{
       &-in{
