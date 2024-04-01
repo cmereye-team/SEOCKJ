@@ -363,6 +363,9 @@ const problemData = {
               background: #FFFFFF;
               color: var(--indexColor1);
               margin-bottom: 6px;
+              &:last-child{
+                margin-bottom: 0;
+              }
             }
           }
         }
@@ -382,62 +385,91 @@ const problemData = {
   }
 }
 
-@media (min-width: 768px) and (max-width: 1452px) {
+@media (min-width: 768px) and (max-width: 1920px) {
   .contrast{
-    margin-top: 120px;
+    margin-top: 7.6563vw;
     &-bg{
-      padding: 55px 0 70px;
+      padding: 3.9583vw 0 5.3646vw;
     }
     &-context{
-      margin: 25px auto 0;
-      font-size: 17px;
+      font-size: 1.0417vw;
+      max-width: 42.7083vw;
+      margin: 1.8229vw auto 0;
     }
     &-tableRemark{
-      font-size: 17px;
-      margin-top: 18px;
+      margin-top: 1.4583vw;
+      font-size: 1.0417vw;
     }
     &-table{
+      margin: 2.0833vw auto 0;
+      max-width: 75.625vw;
       &-in{
         &>div{
           &.content{
+            margin-bottom: .3125vw;
+            &>div{
+              font-size: 1.25vw;
+              padding: 0 .9375vw;
               &>div{
-                font-size: 20px;
-                padding-left: 15px;
-                &>div{
-                  span{
-                    &:first-child{
-                      width: 17px;
-                    }
+                span{
+                  &:first-child{
+                    width: 1.0417vw;
                   }
                 }
               }
+            }
+            .content-l{
+              margin-right: .2083vw;
+            }
           }
           &:nth-of-type(1){
+            height: 7.1875vw;
+            margin-bottom: .3125vw;
             .th{
-              font-size: 24px;
+              font-size: 1.4583vw;
+              margin-bottom: .3125vw;
             }
             &>div{
               .td{
-                font-size: 23px;
+                font-size: 1.4583vw;
               }
               span{
                 &:last-child{
-                  margin-left: 3.4px;
+                  margin-left: .2083vw;
                 }
               }
             }
+          } 
+          &:nth-of-type(2){
+            height: 9.5313vw;
+          } 
+          &:nth-of-type(3){
+            height: 7.5vw;
+          } 
+          &:nth-of-type(4){
+            height: 5.6771vw;
+          } 
+          &:nth-of-type(5){
+            height: 9.4792vw;
           }
         }
       }
       .swiper{
         .swiper-slide{
           &:nth-of-type(1){
+            border-radius: 3.125vw 0 0 3.125vw;
+            margin-right: .2083vw;
             .contrast-table-in{
               &>div{
-                font-size: 24px;
+                font-size: 1.4583vw;
+                margin-bottom: .3125vw;
               }
             }
           }
+          &:nth-of-type(3){
+            padding-left: .2083vw;
+            border-radius: 0 3.125vw 3.125vw 0;
+          } 
         }
       }
     }
