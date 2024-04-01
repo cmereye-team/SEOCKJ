@@ -232,62 +232,21 @@ const allAddressLists = [
   ]
 ]
 
-let contactUsSwiperRef ={
-  // slideTo: (a,b)=>{}
-}
-
-const setContactUsSwiperRef = (swiper:any) => {
-  // contactUsSwiperRef = swiper;
-};
-
-const onSlideContactUsSwiperChange = (swiper:any) => {
-  // currentAddress.value = swiper.realIndex
-}
 
 const handleAddress = (_idx:any) => {
   currentAddress.value = _idx
-  // changedetail()
 }
 
 const toAddressLink = (url) => {
   location.href = url
 }
 
-const handleAddresslx = () => {
-
-}
-// let addressDatail():any = ref({
-//   id: '101',
-//   name: 'contactUs.addressLists.address_101.name',
-//   tabname: 'contactUs.addressLists.address_101.tabname',
-//   address: 'contactUs.addressLists.address_101.address',
-//   time: 'contactUs.addressLists.address_101.time',
-//   phone: phoneNum,
-//   busRoutes: 'contactUs.addressLists.address_101.busRoutes',
-//   metroRoutes: 'contactUs.addressLists.address_101.metroRoutes',
-//   addressUrl: 'https://static.cmereye.com/imgs/2023/09/11e84702229e6caf.jpg',
-//   googleMap: 'https://goo.gl/maps/yuWB8353yF3u4EJS6?coh=178572&entry=tt',
-//   baiduMap: 'https://j.map.baidu.com/b3/j3Yu',
-//   imgLists: [
-//     'https://static.cmereye.com/imgs/2024/02/2ba7058400f2ed03.png',
-//     'https://static.cmereye.com/imgs/2024/02/2f20ab9660e0bfa7.webp',
-//     'https://static.cmereye.com/imgs/2024/02/3cc92ffa0caa8ed1.webp'
-//   ]
-// })
 
 const pageLoading = ref(false)
 const changedetail = () =>{
   pageLoading.value = true
   isShowlxBox.value = false
   imgcur.value = 0
-  // let _obj = allAddressLists[appState.areaTabCurNum].find(item=>item.id === currentAddress.value)
-  // if(_obj){
-    // getDetail().value = _obj
-    // imgcur.value = (_obj.imgLists.length ? _obj.imgLists[0] : '')
-  // }else{
-    // currentAddress.value = allAddressLists[appState.areaTabCurNum][0].id
-    // getDetail().value = allAddressLists[appState.areaTabCurNum][0]
-  // }
   pageLoading.value = false
 }
 
@@ -298,23 +257,15 @@ const getDetail:any = () =>{
 let isShowlxBox = ref(false)
 
 const changeTabCur = () =>{
-  // currentAddress.value = allAddressLists[appState.areaTabCurNum][0].id
   currentAddress.value = 0
   isShowlxBox.value = false
-  // changedetail()
 }
 
 let imgcur:any = ref(0)
 
-onMounted(()=>{
-  // changedetail()
-  // getWindowResize()
-  // window.addEventListener('resize',getWindowResize)
-})
 watch(
   appState,
   (n,o)=>{
-    // console.log(n.areaTabCurNum)
     currentAddress.value = 0
   }
 )
@@ -336,7 +287,6 @@ watch(
         </div>
       </div>
       <div class="address" v-loading="pageLoading">
-        <!-- {{getDetail}} -->
         <div class="address-l">
           <img :src="getDetail().imgLists[imgcur]" :alt="$t(getDetail().name)" />
         </div>
@@ -400,7 +350,6 @@ watch(
 
 .index-contactUs{
   padding: 140px 0 100px;
-  // max-width: 1550px; 
   margin: 0 auto;
   &-t{
     display: flex;
@@ -668,65 +617,139 @@ watch(
     opacity: 1;
   }
 }
-@media (min-width: 768px) and (max-width: 1600px) {
+
+@media (min-width: 768px) and (max-width: 1920px) {
   .index-contactUs{
+    padding: 7.2917vw 0 5.2083vw;
     &-tab{
+      margin-top: 2.0833vw;
       :deep(.areaTab){
         div{
-          font-size: 24px;
+          font-size: 1.8229vw;
         }
       }
     }
     &-clinicTab{
+      margin-top: 1.5625vw;
       &-in{
-        font-size: 20px;
+        font-size: 1.5625vw;
+        border-top: .1042vw solid #00AEFF;
+        border-bottom: .1042vw solid #00AEFF;
+        border-left: .1042vw solid #00AEFF;
+        padding: .2604vw 0;
+        &:first-child{
+          border-radius: .2604vw 0 0 .2604vw;
+        }
+        &:last-child{
+          border-radius: 0 .2604vw .2604vw 0;
+          border-right: .1042vw solid #00AEFF;
+        }
       }
     }
     .address{
+      margin-top: 1.5625vw;
+      &-l{
+        img{
+          border-radius: 1.0417vw 0 0 1.0417vw;
+        }
+      }
       &-r{
+        &-img{
+          padding: 0 1.5625vw 1.0417vw 1.5625vw;
+          &>div{
+            max-width: 9.1146vw;
+          }
+        }
         &-name{
-          font-size: 2.4vw;
+          padding: .2604vw 3.6458vw .2604vw 1.5625vw;
+          font-size: 1.8229vw;
         }
         &-content{
+          padding: 1.0417vw 0 2.0833vw;
           &>div{
-            padding-left: 1vw;
+            padding-left: 1.5625vw;
             span{
-              font-size: 1.2vw;
-              padding-right: 1vw;
+              font-size: 1.0417vw;
+              padding-right: 1.5625vw;
               &:nth-of-type(1){
-                font-size: 1.6vw;
+                font-size: 1.1458vw;
               }
             }
-          }
-        }
-        &-btn{
-          &>div{
-            max-width: 50%;
-            span{
-              font-size: 2vw;
-              padding: 5px 2vw;
-            }
-          }
-          &-lx{
-            &>span{
-              margin-right: 3vw;
-              &::after{
-                width: 1.2vw;
-                height: 1.2vw;
-                background-size: 100% auto;
+            &:nth-of-type(1){
+              span{
+                &:nth-of-type(1){
+                  &::before{
+                    width: .8854vw;
+                    height: .8854vw;
+                    margin-right: .2604vw;
+                  }
+                }
               }
             }
-            .lx-box{
-              max-width: 200%;
-              &>div{
-                span{
-                  font-size: 1.2vw;
+            &:nth-of-type(2){
+              span{
+                &:nth-of-type(1){
+                  &::before{
+                    width: .8854vw;
+                    height: .8854vw;
+                    margin-right: .2604vw;
+                  }
+                }
+              }
+            }
+            &:nth-of-type(3){
+              span{
+                &:nth-of-type(1){
+                  &::before{
+                    width: .8854vw;
+                    height: .8854vw;
+                    margin-right: .2604vw;
+                  }
                 }
               }
             }
           }
         }
-        
+        &-btn{
+          padding: 0 1.5625vw;
+          &>div{
+            filter: drop-shadow(0 .1563vw .2604vw var(--indexColor3));
+            -webkit-filter: drop-shadow(0 .1563vw .2604vw var(--indexColor3));
+            span{
+              padding: .2604vw 2.0833vw;
+              border-radius: 2.0833vw;
+              font-size: 1.8229vw;
+            }
+          }
+          &-lx{
+            &>span{
+              margin-right: 2.6042vw;
+              &::after{
+                width: 1.0417vw;
+                height: 1.0417vw;
+                margin-left: .2604vw;
+                margin-top: -0.2604vw;
+                background-size: 100% auto;
+              }
+              &.cur{
+                border-radius: 2.0833vw 2.0833vw 0 0;
+                padding-bottom: 1.0417vw;
+              }
+            }
+            .lx-box{
+              padding: 1.0417vw .5208vw;
+              &>div{
+                padding: 0 .5208vw;
+                span{
+                  font-size: 1.0417vw;
+                }
+              }
+              &.cur{
+                border-radius: 0 1.5625vw 1.5625vw;
+              }
+            }
+          }
+        }
       }
     }
   }
