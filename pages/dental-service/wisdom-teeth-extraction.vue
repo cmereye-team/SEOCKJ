@@ -370,26 +370,53 @@ const problemData = {
   }
 }
 
-@media (min-width: 768px) and (max-width: 1452px) {
+@media (min-width: 768px) and (max-width: 1920px) {
   .issue{
-    margin-top: 10vw;
+    margin-top: 6.5625vw;
     &-top{
-      margin-left: 13vw;
-      font-size: 3vw;
+      margin-left: 10.5729vw;
+      font-size: 2.6042vw;
     }
     &-bottom{
-      margin-left: 13vw;
-      margin-top: 2vw;
+      margin-top: 1.9271vw;
+      margin-left: 10.5729vw;
       &-img{
-        width: 23vw;
-        height: 23vw;
-        margin-right: 2vw;
+        width: 18.75vw;
+        height: 18.75vw;
+        margin-right: 2.5521vw;
       }
       &-lists{
-        max-width: 45vw;
+        max-width: 39.0625vw;
         &-in{
-          font-size: 1.7vw;
+          font-size: 1.4583vw;
+          &>div:first-child{
+            width: 1.0417vw;
+          }
         }
+      }
+    }
+  }
+  .note{
+    padding: 5vw 0 0;
+    &-in{
+      max-width: 62.5vw;
+      margin: 1.8229vw auto;
+      padding: 3.125vw 0;
+      box-shadow: 0px .2083vw .4167vw var(--indexColor3);
+      min-height: 19.6875vw;
+      &-lists{
+        max-width: 52.0833vw;
+        &-item{
+          font-size: 1.25vw;
+          &>div:first-child{
+            width: 1.0417vw;
+          }
+        }
+      }
+      &-text{
+        margin-top: 1.6667vw;
+        max-width: 52.0833vw;
+        font-size: 1.0417vw;
       }
     }
   }

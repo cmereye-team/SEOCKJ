@@ -343,34 +343,70 @@ const getWindowWidth = () => {
   }
 }
 
-@media (min-width: 768px) and (max-width: 1452px) {
+@media (min-width: 768px) and (max-width: 1920px) {
   .foibles{
+    margin-top: 6.9792vw;
     &-context{
-      font-size: 18px;
-      &>span{
-        font-size: 18px;
-      }
+      margin-top: 1.8229vw;
+      font-size: 1.0417vw;
     }
     &-in{
-      margin-top: 49px;
+      margin-top: 2.8125vw;
       &-box{
+        max-width: 72.6042vw;
         &-th{
+          width: 7.8125vw;
+          .title{
+            height: 3.5938vw;
+          }
           .listsTh{
-            font-weight: 600;
-            font-size: 20px;
+            font-size: 1.4583vw;
+            &:nth-of-type(2){
+              height: 12.4479vw;
+              line-height: 12.4479vw;
+            }
+            &:last-child{
+              height: 14.1146vw;
+              line-height: 14.1146vw;
+            }
           }
         }
         &-item{
+          .title{
+            height: 3.5938vw;
+            font-size: 1.4583vw;
+            line-height: 3.5938vw;
+          }
           .listsBox{
-            padding: 0 23px 0 16px;
-            padding: 10px 2.5vw 0 22px;
+            padding: 1.1458vw 2.7083vw 0 1.4583vw;
             &-in{
-              font-weight: 500;
-              font-size: 17px;
+              font-size: 1.0417vw;
               div:first-child{
-                width: 15px;
+                width: 1.0417vw;
               }
             }
+          }
+          .merit{
+            height: 12.4479vw;
+          }
+          .shortcoming{
+            height: 14.1146vw;
+            margin-top: .7813vw;
+          }
+          &:not(:last-child){
+            margin-right: .1563vw;
+          }
+          &:nth-of-type(2){
+            border-radius: 3.125vw 0 0 3.125vw;
+          }
+        }
+        .swiper-slide{
+          &:nth-of-type(1){
+            margin-right: .1563vw;
+          }
+          &:nth-of-type(3){
+            border-radius: 0 3.125vw 3.125vw 0;
+            margin-left: .1563vw;
           }
         }
       }
