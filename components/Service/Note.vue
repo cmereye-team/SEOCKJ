@@ -43,7 +43,6 @@ defineProps({
     padding: 60px 0;
     background: var(--indexColor2);
     box-shadow: 0px 4px 8px var(--indexColor3);
-    // min-height: 378px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,8 +67,31 @@ defineProps({
   }
 }
 
+@media (min-width: 768px) and (max-width: 1920px) {
+  .note{
+    padding: 5vw 0 0;
+    &.children-dentistry{
+      padding: 7.4479vw 0 0;
+    }
+    &-in{
+      max-width: 62.5vw;
+      margin: 1.8229vw auto;
+      padding: 3.125vw 0;
+      box-shadow: 0px .2083vw .4167vw var(--indexColor3);
+      &-lists{
+        max-width: 52.0833vw;
+        &-item{
+          font-size: 1.25vw;
+          &>div:first-child{
+            width: 1.0417vw;
+          }
+        }
+      }
+    }
+  }
+}
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 768px) {
   .note{
     padding: 96px 30px 0;
     box-sizing: border-box;
