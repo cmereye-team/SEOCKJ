@@ -37,87 +37,9 @@ const orthodonticsIntroduceData = {
   pageName: 'invisalign'
 }
 
-// const stepData = {
-//   title: '隱適美流程',
-//   stepLists: [
-//     [
-//       {
-//         title: 'Step 1',
-//         text: '與牙醫諮詢及溝通過後，專人會為你的牙齒進行拍照、X光片、口腔內掃瞄或牙模套印來建立你的牙齒資料，亦會透過詳細講解令你明白整個療程過程及效果。'
-//       },
-//       {
-//         title: 'Step 2',
-//         text: '牙醫會與廠商方面溝通，為你建立專屬的3D矯齒治療方案。'
-//       },
-//     ],
-//     [
-//       {
-//         title: 'Step 3',
-//         text: '廠商用3D電腦雷射列印科技製成一系列訂製牙箍，寄送至牙醫診所。我們會聯絡客人安排到診進行試戴並評估效果。客人需要每6至8星期複診，與牙醫跟進矯齒進度及取得新牙箍。'
-//       }
-//     ]
-//   ],
-//   pageName: 'invisalign'
-// }
-
-// const differData = {
-//   title: '為何選擇隱適美療程？',
-//   text: '',
-//   firstTextTh: 'Invisalign 隱適美',
-//   secondTextTh: '其他隱形牙箍品牌',
-//   listDatas: [
-//     {
-//       name: '舒適度',
-//       firstText: '物料為具專利的復合層物料製造牙箍以U型剪裁貼合牙齦，舒適度最佳',
-//       secondText: '使用無乳膠或醫用塑料牙箍剪裁較為平面，舒適度欠佳，有機會令牙齦受感染'
-//     },
-//     {
-//       name: '療程跟進',
-//       firstText: '由註冊及持續接手培訓的隱適美牙醫看診及制定療程每4-8星期回診，定期跟進矯齒效果及進度',
-//       secondText: '獲註冊牙醫最少3次看診，只有註冊牙醫初次面診，甚至沒有註冊牙醫看診及跟進'
-//     },
-//     {
-//       name: '數據支援',
-//       firstText: '收集及擁有來自全球隱適美使用者資料庫，超過1,200萬大數據不斷更新及調整矯正技術，提高成效及舒適度',
-//       secondText: '未有收集資料庫或使用者數據甚少'
-//     },
-//     {
-//       name: '可處理療程',
-//       firstText: '可處理輕微、中度至複雜的矯齒個案',
-//       secondText: '只可處理輕微至中度複雜個案'
-//     },
-//     {
-//       name: '預測技術',
-//       firstText: '牙箍內附有SmartForce專利附件粒粒，預測及精準配合牙齒移動需要，同步將不同牙齒的牙冠和牙腳正確移動',
-//       secondText: '未有使用附件或預測精準度低'
-//     }
-//   ],
-//   pageName: 'invisalign'
-// }
-
 const problemData = {
   title: '隱形矯正常見問題',
   lists: [
-    // {
-    //   Q: 'pages.dental-service.invisalign.problem.lists[0].Q',
-    //   A: 'pages.dental-service.invisalign.problem.lists[0].A',
-    // },
-    // {
-    //   Q: 'pages.dental-service.invisalign.problem.lists[1].Q',
-    //   A: 'pages.dental-service.invisalign.problem.lists[1].A',
-    // },
-    // {
-    //   Q: 'pages.dental-service.invisalign.problem.lists[2].Q',
-    //   A: 'pages.dental-service.invisalign.problem.lists[2].A',
-    // },
-    // {
-    //   Q: 'pages.dental-service.invisalign.problem.lists[3].Q',
-    //   A: 'pages.dental-service.invisalign.problem.lists[3].A',
-    // },
-    // {
-    //   Q: 'pages.dental-service.invisalign.problem.lists[4].Q',
-    //   A: 'pages.dental-service.invisalign.problem.lists[4].A',
-    // },
     {
       Q: '隱形矯正療程需時多久？',
       A: '療程長短因人而異，視乎矯齒難度。一般約需1年至1年半，較複雜情況可能超過2年，而初見改善需約3個月。'
@@ -247,30 +169,6 @@ const bpData ={
       title: '齒列擠擁',
       imgUrl: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Component-42-(1).7f6rnufo4vk0.jpg'
     },
-    // {
-    //   title: '咬合過深',
-    //   imgUrl: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Component-38-(1).1glrwc1wuw00.jpg'
-    // },
-    // {
-    //   title: '開 咬',
-    //   imgUrl: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Component-41-(1).3fzvrknw66c0.jpg'
-    // },
-    // {
-    //   title: '反咬合',
-    //   imgUrl: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Component-39-(1).5dt9vtsy9w00.jpg'
-    // },
-    // {
-    //   title: '牙縫疏大',
-    //   imgUrl: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Component-40-(1).2l66y7enxs80.jpg'
-    // },
-    // {
-    //   title: '牙齒倒及',
-    //   imgUrl: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Group-1556.6xop3m9cz3k0.jpg'
-    // },
-    // {
-    //   title: '齒列擠擁',
-    //   imgUrl: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/Component-42-(1).7f6rnufo4vk0.jpg'
-    // },
   ]
 }
 
@@ -344,8 +242,6 @@ const differData = {
   <div class="pageIn whitebgColor">
     <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
     <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
-    <!-- <ServiceStep :stepData="stepData" /> -->
-    <!-- <ServiceDiffer :differData="differData" /> -->
     <div class="bp">
       <div class="dentistryServices-title">
         <div class="dentistryServices-title-in bb">
@@ -548,7 +444,7 @@ const differData = {
     max-width: 1100px;
     margin: 40px auto 0;
     &-in{
-      min-width: 33.33%;
+      width: calc(100% / 3);
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -827,40 +723,6 @@ const differData = {
         }
         .lastBox-b {
           margin-top: 15px;
-          // span {
-          //   cursor: pointer;
-          //   background: var(--indexColor1);
-          //   color: #fff;
-          //   font-size: 35px;
-          //   font-weight: 700;
-          //   padding: 5px 50px;
-          //   border-radius: 30px;
-          //   display: block;
-          //   box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
-          //   position: relative;
-          //   z-index: 1;
-          //   &::after,&::before{
-          //     content: '';
-          //     width: 100%;
-          //     height: 100%;
-          //     position: absolute;
-          //     left: 50%;
-          //     top: 50%;
-          //     transform: translate(-50%,-50%);
-          //     opacity: 0;
-          //     border-radius: 50px;
-          //     background: var(--indexColor1);
-          //     z-index: -1;
-          //   }
-          //   &:hover{
-          //     &::after{
-          //       animation: btnAnim2 3s infinite;
-          //     }
-          //     &::before{
-          //       animation: btnAnim3 3s infinite;
-          //     }
-          //   }
-          // }
         }
       }
     }
@@ -1002,14 +864,232 @@ const differData = {
     }
   }
 }
-@media (min-width: 768px) and (max-width: 1100px) {
+@media (min-width: 768px) and (max-width: 1920px) {
   .bp{
+    margin-top: 5.5208vw;
     &-text{
-      padding: 0 30px;
+      margin-top: 1.9271vw;
+      div{
+        font-size: 1.8229vw;
+      }
     }
-    &-list{
+    &-lists{
+      max-width: 57.2917vw;
+      margin: 2.0833vw auto 0;
       &-in{
-        min-width: 50%;
+        padding: 0 2.0573vw 4.1667vw;
+        &-title{
+          min-width: 8.5938vw;
+          height: 2.0833vw;
+          line-height: 2.0833vw;
+          font-size: 1.0417vw;
+          &::after{
+            bottom: -2vw;
+            border-top: 1.0417vw solid;
+            border-left: .4167vw solid;
+            border-right: .4167vw solid;
+            border-bottom: 1.0417vw solid;
+            border-color: var(--indexColor1) transparent transparent transparent;
+          }
+        }
+        img{
+          margin-top: 1.5625vw;
+        }
+      }
+    }
+  }
+  .advantage{
+    margin-top: 6.0938vw;
+    &-title{
+      margin-bottom: 2.8125vw;
+    }
+    &-lists{
+      max-width: 56.6667vw;
+      &-in{
+        &-image{
+          border-radius: .5208vw;
+          position: relative;
+          span{
+            font-size: 2.0833vw;
+            left: .5208vw;
+            top: .3125vw;
+          }
+        }
+        &-name{
+          font-size: 1.4583vw;
+          margin: .7813vw 0 .5208vw;
+        }
+        &-text{
+          font-size: 1.25vw;
+        }
+      }
+    }
+  }
+  .differ{
+    margin-top: 7.0833vw;
+    &-lists{
+      max-width: 65.1563vw;
+      margin: 2.8646vw auto 0;
+      &-in{
+        &:not(:last-child){
+          margin-bottom: .7813vw;
+        }
+        &:nth-of-type(1){
+          &>div{
+            min-height: 2.3438vw;
+            font-size: 1.4583vw;
+          }
+        }
+        &>div{
+          font-size: 1.0417vw;
+          min-height: 5.8333vw;
+          &:nth-of-type(1){
+            border-radius: 3.125vw 0 0 3.125vw;
+          }
+          &:nth-of-type(2){
+            margin-left: .1302vw;
+          }
+          &:nth-of-type(3){
+            margin-left: .1302vw;
+            border-radius: 0 3.125vw 3.125vw 0;
+          }
+        }
+      }
+    }
+  }
+  .step {
+    padding: 3.1771vw 0 7.2917vw;
+    margin-top: 8.4896vw;
+    &-in {
+      max-width: 75.2083vw;
+    }
+    &-lists {
+      margin-top: 5.1042vw;
+      &-in {
+        margin-bottom: 4.7917vw;
+        &-l {
+          max-width: 20.8333vw;
+          .title {
+            font-size: 1.8229vw;
+            margin-bottom: .7813vw;
+            img {
+              margin-right: .7813vw;
+            }
+          }
+          .image {
+            img {
+              border-radius: 1.5625vw;
+            }
+          }
+          .name {
+            font-size: 1.0417vw;
+            margin-top: 1.25vw;
+            margin-bottom: .7813vw;
+            padding: .4167vw .7813vw;
+          }
+          .context {
+            font-size: 1.0417vw;
+            padding: 0 .7813vw;
+          }
+        }
+        &-r {
+          margin-left: 2.6042vw;
+          img {
+            width: .7813vw;
+          }
+        }
+        &:nth-of-type(8) {
+          .lastBox-t {
+            & > div {
+              font-size: 1.8229vw;
+              span {
+                font-size: 4.4271vw;
+              }
+              &:nth-of-type(1) {
+                padding-bottom: 1.3021vw;
+                margin-right: 1.5625vw;
+              }
+              &:nth-of-type(3) {
+                padding-bottom: 1.3021vw;
+                margin-left: 1.5625vw;
+              }
+            }
+          }
+          .lastBox-b {
+            margin-top: .7813vw;
+          }
+        }
+      }
+    }
+  }
+  .case{
+    margin-top: 5.0521vw;
+    &-title{
+      &-in{
+        font-size: 1.5625vw;
+        text-indent: 3.3854vw;
+        padding-bottom: .2604vw;
+        padding-right: .3646vw;
+      }
+    }
+    &-context{
+      margin-top: 1.0938vw;
+      span{
+        font-size: 1.8229vw;
+      }
+    }
+    &-content{
+      margin-top: 2.3958vw;
+      padding: 3.0208vw 0 3.2292vw;
+      &-in{
+        max-width: 81.25vw;
+        &>div{
+          padding: .7292vw 1.5104vw 1.3021vw;
+          &:not(:first-child){
+            margin-left: .8333vw;
+          }
+        }
+        &-l{
+          img{
+            width: 9.1146vw;
+            border: .4167vw solid #fff;
+          }
+          span{
+            margin-left: .9375vw;
+            &:nth-of-type(1){
+              font-size: 1.4583vw;
+            }
+            &:nth-of-type(2){
+              font-size: 1.0938vw;
+            }
+          }
+        }
+        &-r{
+          margin-top: .7813vw;
+          font-size: 1.0417vw;
+        }
+      }
+    }
+  }
+  .note {
+    margin-top: 5.2083vw;
+    &-title {
+      &-in {
+        font-size: 2.6042vw;
+      }
+    }
+    &-content {
+      max-width: 66.9792vw;
+      margin: 4.1667vw auto 0;
+      &-r {
+        & > div {
+          span {
+            font-size: 1.4583vw;
+            &:nth-of-type(1) {
+              min-width: 1.5625vw;
+            }
+          }
+        }
       }
     }
   }
@@ -1054,6 +1134,11 @@ const differData = {
       margin-top: 44px;
       div{
         font-size: 16px;
+      }
+    }
+    &-lists{
+      &-in{
+        width: 100%;
       }
     }
     &-btn {

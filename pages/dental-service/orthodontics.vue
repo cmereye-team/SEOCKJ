@@ -751,40 +751,6 @@ const careData = {
         }
         .lastBox-b {
           margin-top: 15px;
-          // span {
-          //   cursor: pointer;
-          //   background: var(--indexColor1);
-          //   color: #fff;
-          //   font-size: 35px;
-          //   font-weight: 700;
-          //   padding: 5px 50px;
-          //   border-radius: 30px;
-          //   display: block;
-          //   box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
-          //   position: relative;
-          //   z-index: 1;
-          //   &::after,&::before{
-          //     content: '';
-          //     width: 100%;
-          //     height: 100%;
-          //     position: absolute;
-          //     left: 50%;
-          //     top: 50%;
-          //     transform: translate(-50%,-50%);
-          //     opacity: 0;
-          //     border-radius: 50px;
-          //     background: var(--indexColor1);
-          //     z-index: -1;
-          //   }
-          //   &:hover{
-          //     &::after{
-          //       animation: btnAnim2 3s infinite;
-          //     }
-          //     &::before{
-          //       animation: btnAnim3 3s infinite;
-          //     }
-          //   }
-          // }
         }
       }
     }
@@ -1153,12 +1119,10 @@ const careData = {
   }
   .bp{
     margin-top: 94px;
-    &-text{
-      padding: 0 30px;
-      font-weight: 500;
-      font-size: 16px;
-      margin: 47px auto 0;
-      text-align: justify;
+    &-lists{
+      &-in{
+        width: 100%;
+      }
     }
   }
   .aesthetics{

@@ -1256,19 +1256,13 @@ const handleopenwechat = () =>{
       }
     }
     &-text-implant {
-      // bottom: 60px;
       div{
         width: calc(80%);
         margin: 0 auto;
-        // font-size: 2vw;
       }
     }
     &-btn-implant{
       bottom: 18vw;
-      // span{
-      //   font-size: 2vw;
-      //   padding: 5px 4vw;
-      // }
     }
     &-in{
       width: calc(80% + 60px);
