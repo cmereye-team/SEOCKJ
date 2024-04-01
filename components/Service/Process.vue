@@ -23,13 +23,11 @@ const setSwiperRef = (swiper:any) => {
 
 let processTabsActive = ref(0)
 const handleProcessTabs = (_idx: number) =>{
-  processTabsActive.value = _idx 
-  // console.log('_idx',_idx)
+  processTabsActive.value = _idx
   swiperRef.slideToLoop(_idx);
 }
 
 const onSlideProcessSwiperChange = (swiper:any) => {
-  // console.log('swiperrealIndex',swiper.realIndex)
   processTabsActive.value = swiper.realIndex
 }
 </script>
@@ -232,7 +230,84 @@ const onSlideProcessSwiperChange = (swiper:any) => {
       }
   }
 }
-@media (min-width: 768px) and (max-width: 1452px) {}
+@media (min-width: 768px) and (max-width: 1920px) {
+  .process{
+    margin-top: 7.9688vw;
+    padding-top: 3.6458vw;
+    &-context{
+      margin-top: 1.8229vw;
+      span{
+        font-size: 1.0417vw;
+      }
+      &.periodontal-test{
+        max-width: 64.8958vw;
+        span{
+          font-size: 1.4583vw;
+        }
+      }
+    }
+    &-tabs{
+      margin-top: 2.9167vw;
+      &.periodontal-test{
+        margin-top: 1.0417vw;
+      }
+      div{
+        height: 3.5938vw;
+        font-size: 1.4583vw;
+        &:not(:last-child){
+          margin-right: .1563vw;
+        }
+      }
+    }
+    &-step{
+      padding-bottom: 5.5208vw;
+      .swiperBox{
+        box-shadow: 0px .2083vw .4167vw var(--indexColor3);
+      }
+      .step-in{
+        padding: 2.2917vw 3.3854vw;
+        min-height: 23.9583vw;
+        &-box{
+          .step-itemLists{
+            &-in{
+              padding-bottom: 4.6875vw;
+              .line{
+                width: .2083vw;
+                top: 1.0417vw;
+                left: .5208vw;
+              }
+              .round{
+                width: 1.25vw;
+                height: 1.25vw;
+                margin-right: .7292vw;
+                margin-top: .4167vw;
+              }
+              .title{
+                margin-right: 1.4583vw;
+                font-size: 1.4583vw;
+              }
+              .text{
+                font-size: 1.0417vw;
+                padding-top: .5208vw;
+              }
+              &:last-child{
+                .line{
+                  height: calc(50% - 1.25vw);
+                }
+              }
+            }
+          }
+          &:first-child{
+            padding-right: 2.0833vw;
+          }
+          &:last-child{
+            margin-left: 2.0833vw;
+          }
+        }
+      }
+    }
+  }
+}
 @media screen and (max-width: 768px) {
   .process{
     background: linear-gradient(360deg, rgba(255, 241, 240, 0) 0%, rgba(255, 241, 240, 0.7) 12.5%, rgba(255, 241, 240, 0.7) 81.99%, rgba(255, 241, 240, 0) 100%);
@@ -267,7 +342,6 @@ const onSlideProcessSwiperChange = (swiper:any) => {
       .step-in{
         flex-direction: column;
         padding: 23px 0 23px 24px;
-        // margin-top: 28px;
         &-box{
           width: 100%;
           .step-itemLists{
