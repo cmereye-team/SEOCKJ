@@ -468,7 +468,7 @@ const handleopenwechat = () =>{
           <div
             v-for="(item, index) in menuLists"
             :key="index"
-            :class="['menuLists-item', item.child.length ? 'childIcon' : '']"
+            :class="['menuLists-item', item.child.length ? 'childIcon' : '',{ 'health-care-voucher': item.link === '/health-care-voucher'},{ 'federation-of-trade-unions-zone': item.link === '/federation-of-trade-unions-zone'}]"
           >
             <nuxt-link :to="!item.child.length ? item.link : ''" :title="$t(item.name)">
               <div @click="handleMenu(index)">
@@ -1379,6 +1379,12 @@ const handleopenwechat = () =>{
           border-bottom: 10px solid;
           border-color: var(--indexColor1) transparent transparent transparent;
           vertical-align: middle;
+        }
+        &.health-care-voucher{
+          color: #00A752;
+        }
+        &.federation-of-trade-unions-zone{
+          color: #E60013;
         }
       }
       &-childLists {

@@ -2145,7 +2145,6 @@ letter-spacing: 4px;
             padding: 0 10px;
             img{
               width: 100%;
-              height: fit-content;
             }
           }
         }
