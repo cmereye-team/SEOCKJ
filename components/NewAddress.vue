@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
 import { phoneNum } from '~/assets/js/common'
+import { setInterval } from 'timers/promises'
 const appState = useAppState()
 const mapConShow = ref(true)
 const route = useRoute()
@@ -241,13 +242,26 @@ const toAddressLink = (url) => {
   location.href = url
 }
 
-
+const changeImgCurTime = () =>{
+  // let imgCurTimer:any = null
+  // clearInterval(imgCurTimer)
+  // if(getDetail().imgLists.length > 1){
+  //   imgCurTimer = setInterval(() => {
+  //     if(imgcur.value === getDetail().imgLists.length){
+  //       imgcur.value = 0
+  //     }else{
+  //       imgcur.value ++ 
+  //     }
+  //   },3000)
+  // }
+}
 const pageLoading = ref(false)
 const changedetail = () =>{
   pageLoading.value = true
   isShowlxBox.value = false
   imgcur.value = 0
   pageLoading.value = false
+  changeImgCurTime()
 }
 
 const getDetail:any = () =>{
@@ -262,6 +276,14 @@ const changeTabCur = () =>{
 }
 
 let imgcur:any = ref(0)
+
+
+
+onMounted(()=>{
+  // let imgCurTimer = setInterval(()=>{
+  //   imgcur.value = imgcur.value + 1
+  // },3000)
+})
 
 watch(
   appState,

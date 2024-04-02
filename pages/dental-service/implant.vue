@@ -577,6 +577,14 @@ const doctorData = {
 ]
 }
 
+const confidence_ecommendation_lists = [
+  'https://static.cmereye.com/imgs/2024/04/6c16c4cf9f4fc3b4.png',
+    'https://static.cmereye.com/imgs/2024/04/7e45b30e9d208462.png',
+    'https://static.cmereye.com/imgs/2024/04/92da0e78f2e38668.png',
+    'https://static.cmereye.com/imgs/2024/04/84aa355621c9685d.png',
+    'https://static.cmereye.com/imgs/2024/04/068ec100a33952ea.png',
+]
+
 </script>
 
 <template>
@@ -670,6 +678,21 @@ const doctorData = {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="technology">
+        <div class="dentistryServices-title">
+          <div class="dentistryServices-title-in bb">「即剝即種」技術</div>
+        </div>
+        <div class="technology-in">
+          <div class="technology-in-t">植牙流程需要經歷一段中長期的骨整合與復原，患者可能因為工作狀況或條件不允許，所以無法執行完整的植牙流程，我們會建議患者可以執行即剝即種植牙。</div>
+          <div class="technology-in-img">
+            <img src="https://static.cmereye.com/imgs/2024/04/de8191053ae703a0.jpg" alt="">
+          </div>
+          <div  class="technology-in-b">此效果會根據個人健康狀況有所差異，需經過專業的療程評估</div>
+        </div>
+        <div class="technology-btn">
+          <PageAnimBtnTypeTwo str="取得免費口腔CT檢查" />
         </div>
       </div>
       <div class="Plant_brand_series">
@@ -793,6 +816,16 @@ const doctorData = {
           </div>
           <div class="implantCase-content-line">
             <PageSwiperPointLine :latestNewsNum="implantCaseData.length" :latestNewsCurrent="implantCaseCurrent" @changeLineCur="handleLineCur"></PageSwiperPointLine>
+          </div>
+        </div>
+      </div>
+      <div class="confidence_ecommendation">
+        <div class="dentistryServices-title">
+          <div class="dentistryServices-title-in bb">香港媒體信心推薦</div>
+        </div>
+        <div class="confidence_ecommendation-in">
+          <div v-for="(item,index) in confidence_ecommendation_lists" :key="index">
+              <img :src="item" alt="">
           </div>
         </div>
       </div>
@@ -1339,6 +1372,76 @@ const doctorData = {
           width: 100%;
           height: 100%;
         }
+      }
+    }
+    .confidence_ecommendation{
+      margin-top: 144px;
+      &-in{
+        width: 100%;
+        max-width: 1041px;
+        display: flex;
+        margin: 54px auto 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        &>div{
+          width: calc(100% / 3);
+          display: flex;
+          justify-content: center;
+          margin-bottom: 60px;
+          // align-content: center;
+          align-items: center;
+          flex-wrap: nowrap;
+          img{
+            height: auto;
+          }
+        }
+      }
+    }
+    .technology{
+      width: 100%;
+      max-width: 1016px;
+      margin: 144px auto 0;
+      padding-bottom: 50px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      &-in{
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+        &-img{
+          width: 100%;
+          max-width: 552px;
+          margin-top: 34px;
+        }
+        &-t{
+          margin-top: 23px;
+          text-align: center;
+          color: var(--textColor);
+          font-family: "Noto Sans HK";
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 160%; /* 32px */
+          letter-spacing: 4px;
+        }
+        &-b{
+          margin-top: 34px;
+          /* Content-PC */
+           color: var(--textColor);
+font-family: "Noto Sans HK";
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 160%; /* 32px */
+letter-spacing: 4px;
+        }
+      }
+      &-btn{
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
       }
     }
   }
@@ -2021,6 +2124,60 @@ const doctorData = {
         margin: 30px auto 0;
         &-in{
           padding-bottom: calc(315 / 560 * 100%);
+        }
+      }
+      .confidence_ecommendation{
+        margin-top: 144px;
+        padding: 0 30px;
+        &-in{
+          width: 100%;
+          max-width: 1041px;
+          display: flex;
+          margin: 34px auto 0;
+          flex-wrap: wrap;
+          justify-content: center;
+          &>div{
+            width: calc(100% / 3);
+            display: flex;
+            justify-content: center;
+            margin-bottom: 34px;
+            align-content: center;
+            padding: 0 10px;
+            img{
+              width: 100%;
+              height: fit-content;
+            }
+          }
+        }
+      }
+      .technology{
+        padding: 0 30px 50px;
+        margin-top: 30px;
+        &-in{
+          &-t{
+            margin-top: 15px;
+            font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 200%; /* 32px */
+letter-spacing: 1.6px;
+text-align: justify;
+          }
+          &-img{
+            margin-top: 18px;
+          }
+          &-b{
+            margin-top: 25px;
+            font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 200%; /* 32px */
+letter-spacing: 1.6px;
+text-align: justify;
+          }
+        }
+        &-btn{
+          margin-top: 30px;
         }
       }
     }

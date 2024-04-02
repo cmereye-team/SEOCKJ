@@ -134,6 +134,7 @@ onMounted(() => {
     <div class="contactUs">
       <!-- <NewAddress /> -->
       <NewAddress />
+      <serviceCard :isIndexShow="true" />
       <ContactForm />
       <div class="environment">
         <div class="environment-title">

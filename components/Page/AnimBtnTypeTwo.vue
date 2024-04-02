@@ -30,7 +30,6 @@ defineProps({
 .animbtntypetwo{
   position: relative;
   display: flex;
-  // justify-content: center;
   &-in{
     position: relative;
     display: inline-block;
@@ -109,7 +108,6 @@ defineProps({
     height: calc(100% + 40px);
   }
   24%{
-    // border: 10px solid rgba(185, 217, 252, 0);
     width: calc(100% + 40px);
     height: calc(100% + 40px);
   }
@@ -136,7 +134,6 @@ defineProps({
     height: calc(100% + 40px);
   }
   24%{
-    // border: 10px solid rgba(252, 209, 185, 0);
     width: calc(100% + 40px);
     height: calc(100% + 40px);
   }

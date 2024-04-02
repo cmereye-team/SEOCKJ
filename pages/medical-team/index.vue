@@ -527,12 +527,12 @@ watch(
               margin-bottom: 20px;
               span{
                 display: block;
-                display: -webkit-box;  
-                -webkit-line-clamp: 3; 
-                line-clamp: 3; 
-                -webkit-box-orient: vertical;  
-                overflow: hidden;  
-                text-overflow: ellipsis; 
+                // display: -webkit-box;  
+                // -webkit-line-clamp: 3; 
+                // line-clamp: 3; 
+                // -webkit-box-orient: vertical;  
+                // overflow: hidden;  
+                // text-overflow: ellipsis; 
               }
             }
             .detail-5{
@@ -569,63 +569,6 @@ watch(
       }
     }
   }
-  // @media (min-width: 768px) and (max-width: 1600px) {
-  //   .doctorPage{
-  //     &-in{
-  //       .index-doctorTeam{
-  //         &-tab1{
-  //           :deep(.areaTab){
-  //             div{
-  //               font-size: 24px;
-  //             }
-  //           }
-  //         }
-  //         &-tab2{
-  //           &-in{
-  //             &>div{
-  //               font-size: 20px;
-  //             }
-  //           }
-  //         }
-  //         &-detail{
-  //           &-r{
-  //             .detail-1{
-  //               span{
-  //                 font-size: 1.4vw;
-  //                 &:nth-of-type(1){
-  //                   font-size: 2.4vw;
-  //                 }
-  //               } 
-  //             }
-  //             .detail-2{
-  //               span{
-  //                 font-size: 1.8vw;
-  //               }
-  //             }
-  //             .detail-3{
-  //               font-size: 1.4vw;
-  //               margin-bottom: 1.6vw;
-  //             }
-  //             .detail-4{
-  //               font-size: 1.4vw;
-  //               margin-bottom: 1.2vw;
-  //             }
-  //             .detail-5{
-  //               font-size: 1.4vw;
-  //             }
-  //             .detail-6{
-  //               margin-top: 1.4vw;
-  //               span{
-  //                 font-size: 2.4vw;
-  //               }
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-    
-  // }
 @media (min-width: 768px) and (max-width: 1920px) {
   .doctorPage{
     padding-bottom: 7.4479vw;

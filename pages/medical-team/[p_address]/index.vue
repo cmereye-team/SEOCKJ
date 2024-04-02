@@ -511,12 +511,12 @@ onMounted(()=>{
               margin-bottom: 20px;
               span{
                 display: block;
-                display: -webkit-box;  
-                -webkit-line-clamp: 3; 
-                line-clamp: 3; 
-                -webkit-box-orient: vertical;  
-                overflow: hidden;  
-                text-overflow: ellipsis; 
+                // display: -webkit-box;  
+                // -webkit-line-clamp: 3; 
+                // line-clamp: 3; 
+                // -webkit-box-orient: vertical;  
+                // overflow: hidden;  
+                // text-overflow: ellipsis; 
               }
             }
             .detail-5{
