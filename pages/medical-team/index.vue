@@ -569,63 +569,210 @@ watch(
       }
     }
   }
-  @media (min-width: 768px) and (max-width: 1600px) {
-    .doctorPage{
-      &-in{
-        .index-doctorTeam{
-          &-tab1{
-            :deep(.areaTab){
-              div{
-                font-size: 24px;
+  // @media (min-width: 768px) and (max-width: 1600px) {
+  //   .doctorPage{
+  //     &-in{
+  //       .index-doctorTeam{
+  //         &-tab1{
+  //           :deep(.areaTab){
+  //             div{
+  //               font-size: 24px;
+  //             }
+  //           }
+  //         }
+  //         &-tab2{
+  //           &-in{
+  //             &>div{
+  //               font-size: 20px;
+  //             }
+  //           }
+  //         }
+  //         &-detail{
+  //           &-r{
+  //             .detail-1{
+  //               span{
+  //                 font-size: 1.4vw;
+  //                 &:nth-of-type(1){
+  //                   font-size: 2.4vw;
+  //                 }
+  //               } 
+  //             }
+  //             .detail-2{
+  //               span{
+  //                 font-size: 1.8vw;
+  //               }
+  //             }
+  //             .detail-3{
+  //               font-size: 1.4vw;
+  //               margin-bottom: 1.6vw;
+  //             }
+  //             .detail-4{
+  //               font-size: 1.4vw;
+  //               margin-bottom: 1.2vw;
+  //             }
+  //             .detail-5{
+  //               font-size: 1.4vw;
+  //             }
+  //             .detail-6{
+  //               margin-top: 1.4vw;
+  //               span{
+  //                 font-size: 2.4vw;
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+    
+  // }
+@media (min-width: 768px) and (max-width: 1920px) {
+  .doctorPage{
+    padding-bottom: 7.4479vw;
+    &-in{
+      padding-top: 7.4479vw;
+      &-text{
+        font-size: 1.4583vw;
+        margin-top: 2.2917vw;
+      }
+      &-content{
+        font-size: 1.5625vw;
+        margin-top: .9896vw;
+      }
+      &-tabNav{
+        margin-top: 2.0833vw;
+        &-l{
+          font-size: 1.0417vw;
+          span{
+            &:not(:last-child)::after{
+              width: 1.0417vw;
+              height: .1042vw;
+              margin: 0 .5208vw;
+              margin-top: -0.2083vw;
+            }
+          }
+        }
+      }
+      .index-doctorTeam{
+        margin: 3.125vw auto;
+        &-tab1{
+          :deep(.areaTab){
+            div{
+              font-size: 1.8229vw;
+            }
+          }
+        }
+        &-tab2{
+          margin-top: 1.5625vw;
+          &-in{
+            &>div{
+              padding: .2604vw 0;
+              font-size: 1.8229vw;
+              letter-spacing: .1563vw;
+              &:first-child{
+                border-radius: .2604vw 0 0 .2604vw;
+              }
+              &:last-child{
+                border-radius: 0 .2604vw .2604vw 0;
               }
             }
           }
-          &-tab2{
+        }
+        &-lists{
+          .pcLists{
             &-in{
-              &>div{
-                font-size: 20px;
+              margin-bottom: 1.5625vw;
+              &:not(:last-child){
+                margin-right: 1.5625vw;
+              }
+              &-img{
+                width: 7.8125vw;
+                height: 7.8125vw;
+                border-radius: .5208vw;
               }
             }
           }
-          &-detail{
-            &-r{
-              .detail-1{
-                span{
-                  font-size: 1.4vw;
-                  &:nth-of-type(1){
-                    font-size: 2.4vw;
-                  }
-                } 
+          .mbLists{
+            width: calc(100% - 2.0833vw);
+            &-in{
+              &-img{
+                margin: 0 .5208vw;
+                border-radius: .5208vw;
               }
-              .detail-2{
-                span{
-                  font-size: 1.8vw;
+            }
+          }
+        }
+        &-detail{
+          padding: 1.0417vw;
+          margin-top: 2.6042vw;
+          &-l{
+            max-width: 22.6042vw;
+            &-in{
+              width: 100%;
+              &::after{
+                top: -1.0417vw;
+                left: -1.0417vw;
+                border-radius: 1.5625vw;
+              }
+            }
+            img{
+              border-radius: 1.5625vw;
+            }
+          }
+          &-r{
+            padding-bottom: .2604vw;
+            .detail-1{
+              padding-left: 1.0417vw;
+              span{
+                font-size: 1.0417vw;
+                &:nth-of-type(1){
+                  font-size: 1.8229vw;
+                  margin-right: .2604vw;
                 }
               }
-              .detail-3{
-                font-size: 1.4vw;
-                margin-bottom: 1.6vw;
+            }
+            .detail-2{
+              span{
+                font-size: 1.4583vw;
+                padding: .2604vw 3.6458vw .2604vw 1.0417vw;
               }
-              .detail-4{
-                font-size: 1.4vw;
-                margin-bottom: 1.2vw;
-              }
-              .detail-5{
-                font-size: 1.4vw;
-              }
-              .detail-6{
-                margin-top: 1.4vw;
-                span{
-                  font-size: 2.4vw;
+            }
+            .detail-3{
+              padding-left: 1.0417vw;
+              font-size: 1.0417vw;
+              margin-bottom: 1.5625vw;
+              margin-top: .5208vw;
+            }
+            .detail-4{
+              padding-left: 1.0417vw;
+              font-size: 1.0417vw;
+              margin-bottom: 1.0417vw;
+            }
+            .detail-5{
+              padding-left: 1.0417vw;
+              font-size: 1.0417vw;
+              span{
+                &:not(:last-child){
+                  margin-right: .5208vw;
                 }
+              }
+            }
+            .detail-6{
+              margin-top: 1.5625vw;
+              margin-left: 1.0417vw;
+              span{
+                font-size: 1.8229vw;
+                border-radius: 2.6042vw;
+                padding: .5208vw 1.5625vw;
+                box-shadow: 0 .2604vw .5208vw var(--indexColor3);
               }
             }
           }
         }
       }
     }
-    
   }
+}
   @media screen and (max-width: 768px) {
     .doctorPage{
       padding-bottom: 90px;

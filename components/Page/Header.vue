@@ -359,8 +359,6 @@ const handleopenwechat = () =>{
         "
         class="header-content-btn-implant"
       >
-        <!-- <span @click="toWhatsApp">免費網上預約</span> -->
-        <!-- <span @click="toWhatsApp">免費網上預約</span> -->
         <PageAnimBtnTypeTwo :str="'免費網上預約'" />
       </div>
       <div
@@ -371,8 +369,6 @@ const handleopenwechat = () =>{
         "
         class="header-content-btn-implant"
       >
-        <!-- <span @click="toWhatsApp">獲取免費諮詢</span> -->
-        <!-- <span @click="toWhatsApp">獲取免費諮詢</span> -->
         <PageAnimBtnTypeTwo :str="'獲取免費諮詢'" />
       </div>
       <div
