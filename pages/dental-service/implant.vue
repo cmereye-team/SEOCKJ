@@ -2127,7 +2127,7 @@ letter-spacing: 4px;
         }
       }
       .confidence_ecommendation{
-        margin-top: 144px;
+        margin-top: 60px;
         padding: 0 30px;
         &-in{
           width: 100%;
@@ -2151,16 +2151,16 @@ letter-spacing: 4px;
       }
       .technology{
         padding: 0 30px 50px;
-        margin-top: 30px;
+        margin-top: 14px;
         &-in{
           &-t{
             margin-top: 15px;
             font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: 200%; /* 32px */
-letter-spacing: 1.6px;
-text-align: justify;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 200%; /* 32px */
+            letter-spacing: 1.6px;
+            text-align: justify;
           }
           &-img{
             margin-top: 18px;
