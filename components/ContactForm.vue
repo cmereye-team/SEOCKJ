@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-
 import service from '~/assets/js/service'
 import type { FormInstance, FormRules } from 'element-plus'
 import { useAppState } from '~/stores/appState'
@@ -10,7 +9,7 @@ const props = defineProps({
   service: {
     type: String,
     default: '', //種植牙
-  }
+  },
 })
 
 let form = reactive({
@@ -21,45 +20,54 @@ let form = reactive({
   service: '',
 })
 
-
 // const timestamp = Date.parse(new Date().toString())
 
-var valiemail = (rule:any, value:any, callback:any) => {
-  const mailReg = /^([a-zA-Z0-9_-_._-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+var valiemail = (rule: any, value: any, callback: any) => {
+  const mailReg = /^([a-zA-Z0-9_-_._-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/
   if (!value) {
-    return callback(new Error('請填寫您的電郵地址'));
-    callback();
+    return callback(new Error('請填寫您的電郵地址'))
+    callback()
   }
   setTimeout(() => {
     if (mailReg.test(value.trim())) {
       // this.$refs.ruleForm.validateField('checkemail');
-      callback();
+      callback()
     } else {
-      callback(new Error('請填寫正確的電郵地址'));
+      callback(new Error('請填寫正確的電郵地址'))
     }
-  }, 100);
-};
+  }, 100)
+}
 const formLoading = ref(false)
 const ruleFormRef = ref<FormInstance>()
 const rules = reactive<FormRules>({
   name: [{ required: true, message: '請填寫您的姓名', trigger: 'blur' }],
   gender: [{ required: true, message: '請選擇稱呼', trigger: 'change' }],
-  phone: [{ required: true, message: '請填寫您的Whatsapp電話', trigger: 'blur' }, { min: 8, max: 11, message: '請填寫正確的Whatsapp電話', trigger: 'blur' }],
+  phone: [
+    { required: true, message: '請填寫您的Whatsapp電話', trigger: 'blur' },
+    { min: 8, max: 11, message: '請填寫正確的Whatsapp電話', trigger: 'blur' },
+  ],
   // email: [{ type: 'email', required: true, validator: valiemail, trigger: 'blur' }],
   service: [{ required: true, message: '請選擇服務', trigger: 'change' }],
 })
 
 const submitForm = async (formEl: FormInstance | undefined) => {
   if (!formEl) return
-  if(formLoading.value) return 
+  if (formLoading.value) return
   formLoading.value = true
-  await formEl.validate((valid: any, fields:any) => {
+  await formEl.validate((valid: any, fields: any) => {
     if (valid) {
       // console.log('submit!')
-      if(localStorage.getItem('contactForm') && localStorage.getItem('contactForm') === JSON.stringify(form)){
-        ElMessageBox.alert('If you have any questions or inquiries, please contact us via WhatsApp: +(如果您有任何问题或疑问，请通过WhatsApp与我们联系：+)', '消息通知', {
-          confirmButtonText: '好的',
-        })
+      if (
+        localStorage.getItem('contactForm') &&
+        localStorage.getItem('contactForm') === JSON.stringify(form)
+      ) {
+        ElMessageBox.alert(
+          'If you have any questions or inquiries, please contact us via WhatsApp: +(如果您有任何问题或疑问，请通过WhatsApp与我们联系：+)',
+          '消息通知',
+          {
+            confirmButtonText: '好的',
+          }
+        )
         return
       }
       onSubmit()
@@ -80,35 +88,38 @@ let messageShow = ref(false)
 const onSubmit = async () => {
   let _formData = new FormData()
   let _form = form
-  _formData.append('contact_name',_form.name)
-  _formData.append('gender',_form.gender)
-  _formData.append('phone',_form.phone)
+  _formData.append('contact_name', _form.name)
+  _formData.append('gender', _form.gender)
+  _formData.append('phone', _form.phone)
   // _formData.append('email',_form.email)
-  _formData.append('service',_form.service)
+  _formData.append('service', _form.service)
   _formData.append('formUrl', `${location.href}`)
-  const { data }:any = await useFetch('https://admin.ckjhk.com/api.php/cms/addform/fcode/3',{
-    method: 'post',
-    body: _formData
-  });
+  const { data }: any = await useFetch(
+    'https://admin.ckjhk.com/api.php/cms/addform/fcode/3',
+    {
+      method: 'post',
+      body: _formData,
+    }
+  )
   let res = JSON.parse(data.value)
   if (res) {
-    if(res.code){
+    if (res.code) {
       ElMessage({
         showClose: true,
         message: '表單提交成功！我們會盡快回覆閣下。',
         type: 'success',
-        duration: 0
+        duration: 0,
       })
-      localStorage.setItem('contactForm',JSON.stringify(_form))
+      localStorage.setItem('contactForm', JSON.stringify(_form))
       window.location.href = `/messagePage?c=${res.code}`
-    }else{
+    } else {
       ElMessage({
         showClose: true,
         message: res.data,
-        type: 'error'
+        type: 'error',
       })
     }
-  }else{
+  } else {
     ElMessage({
       showClose: true,
       message: '服务异常，请稍后重试',
@@ -119,7 +130,7 @@ const onSubmit = async () => {
   appState.setIsShowForm(false)
 }
 
-const serviceLists = service.map(item=>item.name)
+const serviceLists = service.map((item) => item.name)
 
 let windowWidth = ref(1920)
 
@@ -130,16 +141,17 @@ const getWindowWidth = () => {
 onMounted(() => {
   form.service = props.service
   getWindowWidth()
-  window.addEventListener('resize',getWindowWidth)
+  window.addEventListener('resize', getWindowWidth)
 })
 </script>
 
 <template>
-  <div class="contactForm" id="contactUsFormNav">
+  <div class="contactForm">
+    <div id="contactUsFormNav"></div>
     <div class="contactForm-bg">
       <div class="contactForm-title">
-        <span>{{$t('contactUs.contact_form.title.span1')}}</span>
-        <span>{{$t('contactUs.contact_form.title.span2')}}</span>
+        <span>{{ $t('contactUs.contact_form.title.span1') }}</span>
+        <span>{{ $t('contactUs.contact_form.title.span2') }}</span>
       </div>
       <div class="contactForm-in">
         <el-form
@@ -150,14 +162,20 @@ onMounted(() => {
           label-position="top"
         >
           <div class="firstFormItem">
-            <el-col :span="windowWidth>768 ? 12:24">
-              <el-form-item :label="`${$t('contactUs.contact_form.formItem.name')}：`" prop="name">
+            <el-col :span="windowWidth > 768 ? 12 : 24">
+              <el-form-item
+                :label="`${$t('contactUs.contact_form.formItem.name')}：`"
+                prop="name"
+              >
                 <el-input v-model="form.name" name="name" />
               </el-form-item>
             </el-col>
             <el-col :span="3"></el-col>
-            <el-col :span="windowWidth>768 ? 9:24">
-              <el-form-item :label="`${$t('contactUs.contact_form.formItem.gender')}：`" prop="gender">
+            <el-col :span="windowWidth > 768 ? 9 : 24">
+              <el-form-item
+                :label="`${$t('contactUs.contact_form.formItem.gender')}：`"
+                prop="gender"
+              >
                 <el-radio-group v-model="form.gender">
                   <el-radio label="先生" />
                   <el-radio label="女士" />
@@ -166,14 +184,30 @@ onMounted(() => {
               </el-form-item>
             </el-col>
           </div>
-          <el-form-item :label="`${$t('contactUs.contact_form.formItem.telephone_number')}：`" prop="phone">
+          <el-form-item
+            :label="`${$t(
+              'contactUs.contact_form.formItem.telephone_number'
+            )}：`"
+            prop="phone"
+          >
             <el-input v-model="form.phone" />
           </el-form-item>
           <!-- <el-form-item :label="`${$t('contactUs.contact_form.formItem.email_address')}：`" prop="email">
             <el-input v-model="form.email" />
           </el-form-item> -->
-          <el-form-item :label="`${$t('contactUs.contact_form.formItem.service_selection')}：`" prop="service" label-width="100%">
-            <el-select v-model="form.service" :placeholder="$t('contactUs.contact_form.formItem.please_select_service')">
+          <el-form-item
+            :label="`${$t(
+              'contactUs.contact_form.formItem.service_selection'
+            )}：`"
+            prop="service"
+            label-width="100%"
+          >
+            <el-select
+              v-model="form.service"
+              :placeholder="
+                $t('contactUs.contact_form.formItem.please_select_service')
+              "
+            >
               <el-option
                 :label="$t(serviceItem)"
                 v-for="serviceItem in serviceLists"
@@ -183,20 +217,28 @@ onMounted(() => {
             </el-select>
           </el-form-item>
           <el-form-item>
-            <button :id="windowWidth>768?'contactUsForm':'navMbContactForm'" type="button" class="formBtn" v-loading="formLoading" @click.stop="submitForm(ruleFormRef)">{{$t('contactUs.contact_form.formItem.submit_the_form')}}</button>
+            <button
+              :id="windowWidth > 768 ? 'contactUsForm' : 'navMbContactForm'"
+              type="button"
+              class="formBtn"
+              v-loading="formLoading"
+              @click.stop="submitForm(ruleFormRef)"
+            >
+              {{ $t('contactUs.contact_form.formItem.submit_the_form') }}
+            </button>
           </el-form-item>
         </el-form>
       </div>
       <div class="contactForm-message" v-if="messageShow">
         <div class="contactForm-message-close" @click="messageShow = false">
-          <img src="@/assets/images/icon_7.svg" alt="">
+          <img src="@/assets/images/icon_7.svg" alt="" />
         </div>
         <div class="contactForm-message-in">
-          <div class="text">{{messageText}}</div>
+          <div class="text">{{ messageText }}</div>
           <div class="linkBox">
             <div class="linkBox-in">
               <img src="@/assets/images/navIcon_1.png" alt="" />
-              <span>（852）{{smallPhoneNum}}</span>
+              <span>（852）{{ smallPhoneNum }}</span>
             </div>
             <div class="linkBox-in">
               <img src="@/assets/images/navIcon_2.png" alt="" />
@@ -218,6 +260,7 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .contactForm {
+  position: relative;
   margin-top: 54px;
   &-bg {
     position: relative;
@@ -254,7 +297,7 @@ onMounted(() => {
     width: calc(100% - 60px);
     max-width: 840px;
     margin: 61px auto 0;
-    .firstFormItem{
+    .firstFormItem {
       display: flex;
       flex-wrap: wrap;
     }
@@ -287,14 +330,14 @@ onMounted(() => {
       line-height: 160%;
       color: #666666;
     }
-    :deep(.el-radio){
+    :deep(.el-radio) {
       --el-radio-input-border-color-hover: var(--indexColor1);
     }
-    :deep(.el-radio__input.is-checked .el-radio__inner){
-      border: 1px solid #CBCBCB;
+    :deep(.el-radio__input.is-checked .el-radio__inner) {
+      border: 1px solid #cbcbcb;
       background: #fff;
     }
-    :deep(.el-radio__inner::after){
+    :deep(.el-radio__inner::after) {
       width: 100%;
       height: 100%;
       background: var(--indexColor1);
@@ -320,7 +363,7 @@ onMounted(() => {
         background-color: var(--indexColor1);
       }
     }
-    .formBtn{
+    .formBtn {
       font-family: var(--contextFamily);
       margin: 52px auto 0;
       width: 350px;
@@ -330,8 +373,8 @@ onMounted(() => {
       line-height: 160%;
       color: var(--indexColor1);
       background-color: transparent;
-      border: 1px solid #CBCBCB;
-      transition: all .3s;
+      border: 1px solid #cbcbcb;
+      transition: all 0.3s;
       &:hover {
         color: #fff;
         background-color: var(--indexColor1);
@@ -342,50 +385,50 @@ onMounted(() => {
       }
     }
   }
-  &-message{
+  &-message {
     position: absolute;
     width: 50%;
     height: 80%;
     background: #fff;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     font-size: 28px;
     font-weight: 700px;
-    transition: all .5s;
+    transition: all 0.5s;
     box-shadow: 0px 4px 8px var(--indexColor3);
     border-radius: 10px;
-    &-close{
+    &-close {
       position: absolute;
       top: 30px;
       right: 30px;
       width: 50px;
       height: 50px;
       cursor: pointer;
-      img{
+      img {
         width: 100%;
         transition: all 3s;
       }
-      &:hover{
-        img{
+      &:hover {
+        img {
           transform: rotate(360deg);
         }
       }
     }
-    &-in{
-      .text{
+    &-in {
+      .text {
         text-align: center;
       }
-      .linkBox{
+      .linkBox {
         display: flex;
         align-items: center;
         height: 200px;
         margin-top: 20%;
-        &-in{
+        &-in {
           width: 100px;
           height: 100px;
           border-radius: 50%;
@@ -396,11 +439,11 @@ onMounted(() => {
           cursor: pointer;
           position: relative;
           transition: all 1s;
-          img{
+          img {
             width: 60%;
             transition: all 3s;
           }
-          span{
+          span {
             color: #fff;
             display: none;
             text-align: center;
@@ -408,52 +451,52 @@ onMounted(() => {
             font-size: 30px;
             font-weight: 600;
           }
-          .qdCode{
+          .qdCode {
             display: none;
             margin: 5% auto;
             background: #ccc;
           }
-          &:not(:last-child){
+          &:not(:last-child) {
             margin-right: 30px;
           }
-          &:first-child{
-            &:hover{
+          &:first-child {
+            &:hover {
               width: 200px;
               border-radius: 10px;
-              img{
+              img {
                 display: none;
               }
-              span{
+              span {
                 display: block;
               }
             }
           }
-          &:nth-of-type(2){
-            &:hover{
+          &:nth-of-type(2) {
+            &:hover {
               transition: all 3s;
               transform: rotate(360deg);
             }
           }
-          &:nth-of-type(3){
-            &:hover{
+          &:nth-of-type(3) {
+            &:hover {
               width: 200px;
               height: 200px;
               border-radius: 10px;
-              img{
+              img {
                 display: none;
               }
-              .qdCode{
+              .qdCode {
                 width: 90%;
                 height: 90%;
                 display: block;
               }
             }
           }
-          &:nth-of-type(4){
-            img{
+          &:nth-of-type(4) {
+            img {
               width: 80%;
             }
-            &:hover{
+            &:hover {
               transition: all 3s;
               transform: rotate(360deg);
             }
@@ -462,6 +505,10 @@ onMounted(() => {
       }
     }
   }
+}
+#contactUsFormNav {
+  position: absolute;
+  top: -20%;
 }
 @media (min-width: 768px) and (max-width: 1452px) {
 }
@@ -497,25 +544,25 @@ onMounted(() => {
         font-size: 16px;
         margin: 30px auto 0;
       }
-      .formBtn{
+      .formBtn {
         width: 137px;
         height: 40px;
         font-size: 16px;
         margin: 30px auto 0;
       }
     }
-    &-message{
+    &-message {
       width: 80%;
       font-size: 20px;
       font-weight: 700px;
-      &-close{
+      &-close {
         width: 40px;
         height: 40px;
         top: 15px;
         right: 15px;
       }
-      &-in{
-        .linkBox{
+      &-in {
+        .linkBox {
           flex-wrap: wrap;
         }
       }

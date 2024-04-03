@@ -76,3 +76,10 @@ onMounted(()=>{
     </Body>
   </Html>
 </template>
+<style>
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+</style>
