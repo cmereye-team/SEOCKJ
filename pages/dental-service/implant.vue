@@ -687,7 +687,7 @@ const confidence_ecommendation_lists = [
         <div class="technology-in">
           <div class="technology-in-t">植牙流程需要經歷一段中長期的骨整合與復原，患者可能因為工作狀況或條件不允許，所以無法執行完整的植牙流程，我們會建議患者可以執行即剝即種植牙。</div>
           <div class="technology-in-img">
-            <img src="https://static.cmereye.com/imgs/2024/04/de8191053ae703a0.jpg" alt="">
+            <img src="https://static.cmereye.com/imgs/2024/04/bd2194046affe383.gif" alt="">
           </div>
           <div  class="technology-in-b">此效果會根據個人健康狀況有所差異，需經過專業的療程評估</div>
         </div>
