@@ -508,7 +508,7 @@ onMounted(() => {
 }
 #contactUsFormNav {
   position: absolute;
-  top: -30%;
+  top: -30vh;
 }
 @media (min-width: 768px) and (max-width: 1452px) {
 }
