@@ -584,7 +584,7 @@ watch(
       </div>
       <!-- 聯絡我們 -->
       <NewAddress />
-      <ContactForm />
+      <ContactForm-new />
     </div>
     <!-- <PageAdbox /> -->
     <PageFooter />

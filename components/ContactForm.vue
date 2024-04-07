@@ -220,7 +220,7 @@ onMounted(() => {
             <button
               :id="windowWidth > 768 ? 'contactUsForm' : 'navMbContactForm'"
               type="button"
-              class="formBtn"
+              class="formBtn contactUsForm"
               v-loading="formLoading"
               @click.stop="submitForm(ruleFormRef)"
             >

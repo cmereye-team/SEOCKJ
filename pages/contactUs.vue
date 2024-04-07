@@ -135,7 +135,7 @@ onMounted(() => {
       <!-- <NewAddress /> -->
       <NewAddress />
       <serviceCard :isIndexShow="true" />
-      <ContactForm />
+      <ContactForm-new />
       <div class="environment">
         <div class="environment-title">
           <div class="index_title">{{$t('contactUs.clinic_environment')}}</div>

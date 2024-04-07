@@ -132,7 +132,7 @@ let _bool = ref(false)
       </div>
     </div>
     <div class="navForm" :style="{bottom: (appState.isShowForm ? '0' : '-150%')}">
-      <ContactForm />
+      <ContactForm-new />
       <div class="navForm-icon" @click="navFormClose">
         <img src="@/assets/images/icon_7.svg" alt="close">
       </div>
