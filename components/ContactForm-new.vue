@@ -296,8 +296,15 @@ li{
     color: var(--indexColor1);
     height: 64px;
     line-height: 64px;
-    font-size: 35px;
+    font-size: 28px;
     letter-spacing: 7px;
+    &:hover{
+      background: #dde2ea;
+    }
+    &.selected{
+      background: #dde2ea;
+      font-weight: 500;
+    }
   }
 }
 .contactForm {
@@ -323,12 +330,12 @@ li{
       font-style: normal;
       &:first-child {
         font-weight: 500;
-        font-size: 60px;
+        font-size: 35px;
         color: var(--indexColor1);
       }
       &:last-child {
         font-weight: 400;
-        font-size: 34px;
+        font-size: 30px;
         color: #808080;
       }
     }
@@ -348,7 +355,7 @@ li{
       font-family: var(--contextFamily);
       font-style: normal;
       font-weight: 500;
-      font-size: 35px;
+      font-size: 28px;
       line-height: 160% !important;
       color: var(--indexColor1);
       letter-spacing: 5px;
@@ -376,7 +383,7 @@ li{
     }
     :deep(.el-input) {
       height: 64px;
-      font-size: 35px;
+      font-size: 28px;
       border: 2px solid var(--indexColor1);
       --el-input-border-color: var(--indexColor1);
       --el-input-focus-border-color: var(--indexColor1);
@@ -387,13 +394,21 @@ li{
       .el-input__wrapper{
         box-shadow: none;
       }
+      &.is-focus{
+        .el-input__inner{
+          &::placeholder{
+            color: #fff;
+          }
+        }
+      }
     }
     :deep(.el-input__inner){
-      font-size: 35px;
+      font-size: 28px;
       line-height: 55px;
       height: 55px;
       text-indent: 10px;
       color: var(--indexColor1);
+      
     }
     :deep(.el-form-item__content){
       display: flex;
@@ -407,7 +422,7 @@ li{
       font-size: 20px;
     }
     :deep(.el-select-dropdown__item){
-      font-size: 35px;
+      font-size: 28px;
       color: var(--indexColor1);
       height: 64px;
       line-height: 64px;
@@ -430,7 +445,7 @@ li{
       border: 1px solid #fff;
     }
     :deep(.el-select .el-input .el-select__caret){
-      font-size: 35px;
+      font-size: 28px;
       color: var(--indexColor1);
       &.is-reverse{
         color: #fff;
@@ -464,7 +479,7 @@ li{
       width: 100%;
       margin-top: 52px;
       &-label{
-        font-size: 26px;
+        font-size: 16px;
         color: var(--indexColor1);
       }
       &-content{
@@ -478,7 +493,7 @@ li{
         font-weight: 400;
         line-height: 160%; /* 41.6px */
         letter-spacing: 5.2px;
-        font-size: 26px;
+        font-size: 16px;
         margin-top: 45px;
         a{
           color: #00AEFF;
@@ -489,12 +504,12 @@ li{
           color: var(--indexColor1);
         }
         :deep(.el-radio.el-radio--large .el-radio__label){
-          font-size: 26px;
+          font-size: 16px;
           color: #808080;
         }
         :deep(.el-radio.el-radio--large .el-radio__inner){
-          width: 34px;
-          height: 34px;
+          width: 26px;
+          height: 26px;
         }
         :deep(.el-radio__inner){
           border-width: 2px;
@@ -513,7 +528,7 @@ li{
   &.el-select-dropdown__item{
     height: 3.3333vw;
     line-height: 3.3333vw;
-    font-size: 1.8229vw;
+    font-size: 1.4583vw;
     letter-spacing: .3646vw;
   }
 }
@@ -525,10 +540,10 @@ li{
   &-title {
     span {
       &:first-child {
-        font-size: 3.125vw;
+        font-size: 1.8229vw;
       }
       &:last-child {
-        font-size: 1.7708vw;
+        font-size: 1.5625vw;
       }
     }
   }
@@ -540,15 +555,15 @@ li{
       margin-bottom: 1.875vw;
     }
     :deep(.el-form-item__label) {
-      font-size: 1.6vw;
+      font-size: 1.4583vw;
       letter-spacing: .2604vw;
     }
     :deep(.el-input) {
       height: 3.3333vw;
-      font-size: 1.6vw;
+      font-size: 1.4583vw;
     }
     :deep(.el-input__inner){
-      font-size: 1.6vw;
+      font-size: 1.4583vw;
       line-height: 2.8646vw;
       height: 2.8646vw;
       text-indent: .5208vw;
@@ -563,28 +578,28 @@ li{
       font-size: 1.0417vw;
     }
     :deep(.el-select-dropdown__item){
-      font-size: 1.8229vw;
+      font-size: 1.4583vw;
       height: 3.3333vw;
       line-height: 3.3333vw;
     }
     :deep(.el-select .el-input .el-select__caret){
-      font-size: 1.6vw;
+      font-size: 1.4583vw;
     }
     .privacyPolicy{
       margin-top: 2.7083vw;
       &-label{
-        font-size: 1.3542vw;
+        font-size: .8333vw;
       }
       &-content{
         letter-spacing: .2708vw;
-        font-size: 1.3542vw;
+        font-size: .8333vw;
         margin-top: 2.3438vw;
         :deep(.el-radio.el-radio--large .el-radio__label){
-          font-size: 1.3542vw;
+          font-size: .8333vw;
         }
         :deep(.el-radio.el-radio--large .el-radio__inner){
-          width: 1.7708vw;
-          height: 1.7708vw;
+          width: 1.3542vw;
+          height: 1.3542vw;
         }
       }
     }
