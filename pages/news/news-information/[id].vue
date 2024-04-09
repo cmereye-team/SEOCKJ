@@ -224,9 +224,9 @@ const changetopimg = (swiper:any) =>{
 }
 
 onMounted(()=>{
-  // setTimeout(()=>{
-  //   getDetail()
-  // })
+  setTimeout(()=>{
+    getDetail()
+  })
 })
 const handlegetData = () =>{
   getDetail()

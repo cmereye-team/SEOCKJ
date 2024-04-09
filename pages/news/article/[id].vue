@@ -206,11 +206,11 @@ const handleLineCur = (_value) =>{
 const changetopimg = (swiper:any) =>{
   topimgCur.value = (swiper.realIndex ? Number(swiper.realIndex) : 0) + 1
 }
-// onMounted(()=>{
-//   setTimeout(()=>{
-//     getDetail()
-//   })
-// })
+onMounted(()=>{
+  setTimeout(()=>{
+    getDetail()
+  })
+})
 const handlegetData = () =>{
   getDetail()
 }

@@ -68,9 +68,9 @@ const getServerNewsLists = async () => {
 }
 
 onMounted(()=>{
-  setTimeout(()=>{
-    getServerNewsLists()
-  })
+  // setTimeout(()=>{
+  //   getServerNewsLists()
+  // })
 })
 if(process.server){
   getServerNewsLists()
@@ -99,6 +99,7 @@ if(process.server){
           <nuxt-link :to="`/news/news-tooth-wiki/${serverItem.id}`" v-for="(serverItem,serverIndex) in serverInformationLists" :key="serverIndex">
             {{serverItem.name}}
           </nuxt-link>
+          <!-- <nuxt-link :to="`/news/news-tooth-wiki/102`">测试链接</nuxt-link> -->
         </div>
       </div>
       <NewAddress />

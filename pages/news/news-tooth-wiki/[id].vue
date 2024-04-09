@@ -145,9 +145,7 @@ const getDetail = async () => {
         hashtag: _data.ext_news_hashtag.split(',') || [],
       }
       changeassociationData(JSON.parse(_data.ext_news_association || "[]"))
-      nextTick(()=>{
-        renderingDome()
-      })
+      
     }
   }catch{
     errorpage.value = true
@@ -205,9 +203,16 @@ const changetopimg = (swiper:any) =>{
 }
 
 onMounted(()=>{
-  // setTimeout(()=>{
-  //   getDetail()
-  // })
+  setTimeout(()=>{
+    // getDetail()
+    // nextTick(()=>{
+    //   renderingDome()
+    // })
+    (async function (){
+      await getDetail()
+      await renderingDome()
+    })()
+  })
 })
 
 const renderingDome = () => {
