@@ -430,6 +430,7 @@ watch(
             :autoplay="{
               delay: 2000,
             }" 
+            class="index-doctorTeam-detail-swiper"
             @swiper="setDoctorItemSwiper" 
             @slideChange="doctorItemSlideChange"
           >
@@ -690,7 +691,7 @@ svg:hover path{
 }
 //醫生團隊
 .index-doctorTeam{
-  margin: 140px auto;
+  margin: 140px auto 100px;
   &-t{
     display: flex;
     justify-content: space-between;
@@ -938,6 +939,10 @@ svg:hover path{
         display: none;
       }
     }
+  }
+  .index-doctorTeam-detail-swiper{
+    // overflow: visible;
+    padding-bottom: 40px;
   }
 }
 //個案分享

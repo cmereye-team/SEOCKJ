@@ -329,7 +329,7 @@ li{
     span {
       font-style: normal;
       &:first-child {
-        font-weight: 500;
+        font-weight: 600;
         font-size: 35px;
         color: var(--indexColor1);
       }
