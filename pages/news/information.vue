@@ -139,7 +139,7 @@ onMounted(()=>{
 
 if(process.server){
   // console.log('server');
-  // getNewsLists()
+  getNewsLists()
 }else{
   // console.log('client');
   // getNewsLists()

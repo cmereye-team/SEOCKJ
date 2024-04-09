@@ -161,29 +161,6 @@ const toassociation = (_id) => {
   router.push(`/news/article/${_id}`)
 }
 
-  // [
-  //   {
-  //     type: 'prev',
-  //     id: '31',
-  //   },
-  //   {
-  //     type: 'next',
-  //     id: '32',
-  //   },
-  //   {
-  //     type: 'association',
-  //     lists: [
-  //       {
-  //         id: '31',
-  //         title: 'hahahahaha'
-  //       },
-  //       {
-  //         id: '32',
-  //         title: 'hahahahah'
-  //       }
-  //     ]
-  //   }
-  // ]
 const changeassociationData = (_data:any) =>{
   if(Array.isArray(_data)){
     _data.forEach(item=>{

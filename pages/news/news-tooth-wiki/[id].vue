@@ -205,9 +205,9 @@ const changetopimg = (swiper:any) =>{
 }
 
 onMounted(()=>{
-  setTimeout(()=>{
-    getDetail()
-  })
+  // setTimeout(()=>{
+  //   getDetail()
+  // })
 })
 
 const renderingDome = () => {
@@ -232,7 +232,6 @@ const renderingDome = () => {
         if(_detail.newJobs && _detail.newJobs.length){
           for(var j=0;j < _detail.newJobs.length;j++){
             _dome_newJobs += `<span>${_detail.newJobs[j]}</span>`
-            console.log(_dome_newJobs)
           }
         }
         const _dome = `<div class="index-doctorTeam-detail index-doctorTeam-con" id="d${_detail.id}">
@@ -287,9 +286,9 @@ const handlegetData = async () =>{
   await getDetail()
 }
 
-// if(process.server){
-//   getDetail()
-// }
+if(process.server){
+  getDetail()
+}
 </script>
 
 <template>
@@ -1069,7 +1068,6 @@ const handlegetData = async () =>{
       font-size: 16px;
     }
     :deep(.content-doctor){
-      
       .index-doctorTeam{
         margin: 50px 0;
         width: 100%;

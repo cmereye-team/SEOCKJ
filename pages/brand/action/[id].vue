@@ -232,7 +232,6 @@ const renderingDome = () => {
         if(_detail.newJobs && _detail.newJobs.length){
           for(var j=0;j < _detail.newJobs.length;j++){
             _dome_newJobs += `<span>${_detail.newJobs[j]}</span>`
-            console.log(_dome_newJobs)
           }
         }
         const _dome = `<div class="index-doctorTeam-detail index-doctorTeam-con" id="d${_detail.id}">
@@ -276,7 +275,6 @@ const renderingDome = () => {
             </div>
           </div>
         </div>`
-        
         _doctors[i].innerHTML = _dome
       }
     }

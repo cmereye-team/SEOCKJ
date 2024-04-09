@@ -224,36 +224,12 @@ const changetopimg = (swiper:any) =>{
 }
 
 onMounted(()=>{
-  setTimeout(()=>{
-    getDetail()
-  })
+  // setTimeout(()=>{
+  //   getDetail()
+  // })
 })
 const handlegetData = () =>{
   getDetail()
-  // useHead({
-  //   meta: [
-  //     {
-  //       property: 'og:title',
-  //       content: coverageDeatail.value.name || '',
-  //     },
-  //     {
-  //       property: 'og:description',
-  //       content: coverageDeatail.value.desc || '',
-  //     },
-  //     {
-  //       property: 'og:site_name',
-  //       content: 'ckjhk.com',
-  //     },
-  //     {
-  //       property: 'og:url',
-  //       content: window.location.href,
-  //     },
-  //     {
-  //       property: 'og:image',
-  //       content: coverageDeatail.value.img || '',
-  //     }
-  //   ]
-  // })
 }
 
 

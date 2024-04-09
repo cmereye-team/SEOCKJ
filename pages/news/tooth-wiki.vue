@@ -126,10 +126,10 @@ onMounted(()=>{
 })
 
 
-// if(process.server){
+if(process.server){
   // console.log('server');
-  // getNewsLists()
-// }
+  getNewsLists()
+}
 
 const getPagination = (pageitem) => {
   if(actPageNum.value>=4 && actPageNum.value<totalPageNum.value-3){
@@ -162,6 +162,7 @@ const getPagination = (pageitem) => {
         <span :title="'牙齒百科'">牙齒百科</span>
       </div>
       <div class="pageCon">
+        <!-- <nuxt-link to="/news/news-tooth-wiki/102">测试</nuxt-link> -->
         <div class="lists" v-if="!errorpage">
           <div v-loading="loadingShow">
             <nuxt-link :to="`/news/news-tooth-wiki/${item.id}`" :id="`i${item.id}`" class="lists-in" v-for="(item,index) in informationLists" :key="index" @click="handlelink(item.id)">
