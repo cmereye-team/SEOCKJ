@@ -126,9 +126,9 @@ let _bool = ref(false)
         </div>
         <span class="navbar-content-mb-in-center">(852) {{smallPhoneNum}}</span>
       </nuxt-link>
-      <div class="navbar-content-mb-in" id="navMbContactFormBtn" @click="handleNavFormNav">
-        <img src="@/assets/images/icon_30.svg" alt="">
-        <span>預約表格</span>
+      <div class="navbar-content-mb-in navMbContactFormBtn" id="navMbContactFormBtn" @click="handleNavFormNav">
+        <img class="navMbContactFormBtn" src="@/assets/images/icon_30.svg" alt="">
+        <span class="navMbContactFormBtn">預約表格</span>
       </div>
     </div>
     <div class="navForm" :style="{bottom: (appState.isShowForm ? '0' : '-150%')}">
