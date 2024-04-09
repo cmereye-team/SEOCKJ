@@ -1022,16 +1022,18 @@ const handlegetData = async () =>{
   .content{
     // width: 100%;
     margin-bottom: 50px;
+    padding: 0 30px;
     :deep(p){
       width: 100%;
-      padding: 0 30px;
+      // padding: 0 30px;
       &.content-doctor{
-        width: 100%;
+        width: calc(100% + 60px);
+        margin-left: -30px;
         padding: 0;
       }
     }
     :deep(.content-h1){
-      // padding: 0 30px;
+      padding: 0 30px;
       margin-top: 30px;
       font-size: 20px;
       span{
@@ -1042,19 +1044,17 @@ const handlegetData = async () =>{
       }
     }
     :deep(.content-time){
-      // padding: 0 30px;
       margin: 10px 0 30px;
       font-size: 16px;
     }
     :deep(.content-h2){
-      // padding: 0 30px;
       font-size: 20px;
     }
     :deep(.content-text){
       font-size: 16px;
       display: inline-block;
       text-align: justify;
-      padding: 0 30px;
+      // padding: 0 30px;
     }
     :deep(.content-imgMessage){
       font-size: 12px;
@@ -1071,6 +1071,7 @@ const handlegetData = async () =>{
       font-size: 16px;
     }
     :deep(.content-doctor){
+      
       .index-doctorTeam{
         margin: 50px 0;
         width: 100%;

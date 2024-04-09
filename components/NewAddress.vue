@@ -253,6 +253,8 @@ const changeImgCurTime = () =>{
         imgcur.value ++ 
       }
     },3000)
+  }else{
+    imgcur.value = 0
   }
 }
 const pageLoading = ref(false)
