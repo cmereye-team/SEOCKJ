@@ -59,8 +59,6 @@ const getServerNewsLists = async () => {
         pageNumber.value++
         getServerNewsLists()
       }
-      console.log(serverInformationLists);
-      
     }
   }catch{
     console.log('error')

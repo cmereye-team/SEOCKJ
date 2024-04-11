@@ -1,6 +1,8 @@
 <script lang="ts" setup>
-import { log } from "console"
-import { getDoctorDetail } from '~/assets/js/commonFun'
+import { useAppState } from '~/stores/appState'
+import { getDoctorDetail, getAddressDetail } from '~/assets/js/commonFun'
+const appState = useAppState()
+const { t } = useLang()
 const route = useRoute()
 const router = useRouter()
 let _nid = route.params.id
@@ -21,7 +23,9 @@ let coverageDeatail = ref({
   pics: [],
   btnText: '',
   btnLink: '',
-  hashtag: []
+  hashtag: [],
+  keywords: '',
+  description: ''
 })
 useHead({
   title: '牙齒百科',
@@ -29,12 +33,18 @@ useHead({
     {
       hid: 'description',
       name: 'description',
-      content: '愛康健作為深圳愛康健口腔醫院是一家專業口腔醫院，秉承著「專科·專業」的服務理念，科學、合理地整合醫療資源。我們的醫師團隊均畢業於國內知名口腔學院，包括種植醫師、美學修復醫師、牙周病醫師等專業人員。他們帶領著醫護人員共同構成我們的服務團隊，為患者提供專業、優質的口腔醫療服務。',
+      content: ()=>{
+        let _description = '愛康健作為深圳愛康健口腔醫院是一家專業口腔醫院，秉承著「專科·專業」的服務理念，科學、合理地整合醫療資源。我們的醫師團隊均畢業於國內知名口腔學院，包括種植醫師、美學修復醫師、牙周病醫師等專業人員。他們帶領著醫護人員共同構成我們的服務團隊，為患者提供專業、優質的口腔醫療服務。'
+        return coverageDeatail.value.description || _description
+      }
     },
     {
       hid: 'Keywords',
       name: 'Keywords',
-      content: '愛康健 深圳愛康健 深圳專業牙科中心 愛康健醫院 愛康健口腔醫院 深圳愛康健口腔醫院愛康健 CKJ愛康健齒科集團 深圳口腔專科醫院 愛康健齒科集團 深圳牙科醫院牙科服務內地牙科 深圳口腔專科 基本牙科 美容牙科 高階牙科 愛康健',
+      content: ()=>{
+        let _keywords = '愛康健 深圳愛康健 深圳專業牙科中心 愛康健醫院 愛康健口腔醫院 深圳愛康健口腔醫院愛康健 CKJ愛康健齒科集團 深圳口腔專科醫院 愛康健齒科集團 深圳牙科醫院牙科服務內地牙科 深圳口腔專科 基本牙科 美容牙科 高階牙科 愛康健'
+        return coverageDeatail.value.keywords || _keywords
+      },
     },
     {
       property: 'og:title',
@@ -77,8 +87,8 @@ const headerConfig = {
 }
 
 
-let errorpage = ref(false)
-let pageLoading = ref(false)
+let pageStatus = ref('loading') // loading, success, error
+// let pageLoading = ref(false)
 
 function copySpecifiedText(text) {  
     if (navigator.clipboard) {  
@@ -110,14 +120,15 @@ const formatDate = (dateString) =>{
     return year + "-" + month + "-" + day;  
 }  
 const getDetail = async () => {
-  pageLoading.value = true
+  // pageLoading.value = true
+  pageStatus.value = 'loading'
   try{
     const _res:any = await useFetch(`https://admin.ckjhk.com/api.php/content/${_nid}`,{
       method: 'post',
     });
     let res = JSON.parse(_res.data.value) || null
     if(_res.data.value === null){
-      errorpage.value = true
+      pageStatus.value = 'error'
       return
     }
     if(res){
@@ -143,15 +154,19 @@ const getDetail = async () => {
         btnText: _data.ext_news_btn_text || '',
         btnLink: _data.ext_news_btn_link || '',
         hashtag: _data.ext_news_hashtag.split(',') || [],
+        keywords: _data.keywords || '',
+        description: _data.description || ''
       }
       changeassociationData(JSON.parse(_data.ext_news_association || "[]"))
-      
+      renderingDome()
     }
   }catch{
-    errorpage.value = true
-    pageLoading.value = false
+    pageStatus.value = 'error'
+    // errorpage.value = true
+    // pageLoading.value = false
   }
-  pageLoading.value = false
+  pageStatus.value = 'success'
+  // pageLoading.value = false
 }
 const toassociation = (_id) => {
   router.push(`/news/news-tooth-wiki/${_id}`)
@@ -203,20 +218,17 @@ const changetopimg = (swiper:any) =>{
 }
 
 onMounted(()=>{
-  setTimeout(()=>{
-    // getDetail()
-    // nextTick(()=>{
-    //   renderingDome()
-    // })
-    (async function (){
-      await getDetail()
-      await renderingDome()
-    })()
-  })
+  getDetail()
 })
 
+let imgcur = ref(0)
+
 const renderingDome = () => {
-  let _doctors:any = document.getElementsByClassName('content-doctor')
+  const originalContent = coverageDeatail.value.content || '';
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(originalContent, 'text/html');
+  let _doctors:any = doc.getElementsByClassName('content-doctor')
+  let _address:any = doc.getElementsByClassName('content-address')
   if(_doctors && _doctors.length){
     for(var i = 0;i<_doctors.length;i++){
       const targetClass = Array.from(_doctors[i].classList as DOMTokenList).find((className:String) => className.startsWith('doctor-did-'));
@@ -280,11 +292,98 @@ const renderingDome = () => {
             </div>
           </div>
         </div>`
-        
-        _doctors[i].innerHTML = _dome
+        // _doctors[i].innerHTML = _dome
+        const new_dome = doc.createElement('div')
+        new_dome.className = _doctors[i].className
+        new_dome.innerHTML = _dome
+        _doctors[i].parentNode.replaceChild(new_dome, _doctors[i]);
       }
     }
   }
+  if(_address && _address.length){
+    for(var i = 0;i<_address.length;i++){
+      const targetClass = Array.from(_address[i].classList as DOMTokenList).find((className:String) => className.startsWith('address-did-'));
+      if(targetClass){
+        const extractedId = targetClass.replace('address-did-', '');
+        const _detail = getAddressDetail(extractedId)
+        let _dome_imgLists_pc = ``
+        if(_detail.imgLists && _detail.imgLists.length){
+          for(var h=0;h < _detail.imgLists.length;h++){
+            _dome_imgLists_pc += `<div><img src="${_detail.imgLists[h]}" alt="${t(_detail.name)}" onclick="handleClickAddressRImg(event)"></div>`
+          }
+        }
+        let _dome_imgLists = ``
+        if(_detail.imgLists && _detail.imgLists.length){
+          for(var k=0;k < _detail.imgLists.length;k++){
+            _dome_imgLists += `<div class="address-r-img-swiper-slide"><img src="${_detail.imgLists[k]}" alt="${t(_detail.name)}"></div>`
+          }
+        }
+        const _dome =  `<div class="address">
+                          <div class="address-l">
+                            <img src="${_detail.imgLists[0]}" alt="${t(_detail.name)}" />
+                          </div>
+                          <div class="address-r">
+                            <div class="address-r-img">
+                              ${_dome_imgLists_pc}
+                            </div>
+                            <div class="address-r-img mbimg">
+                              <div class="address-r-img-swiper">
+                                ${_dome_imgLists}
+                              </div>
+                            </div>
+                            <div class="address-r-name">
+                              <span class="pcname">${t(_detail.name)}</span>
+                              <span class="mbname">${t(appState.areaTabs[appState.areaTabCurNum])} ${t(_detail.tabname)}</span>
+                            </div>
+                            <div class="address-r-content">
+                              <div>
+                                <span>${t("contactUs.hospital_address")}</span>
+                                <span>${t(_detail.address)}</span>
+                              </div>
+                              <div>
+                                <span>${t("contactUs.hours_of_Operation")}</span>
+                                <span>${t(_detail.time)}</span>
+                              </div>
+                              <div>
+                                <span>${t("contactUs.check_the_phone")}</span>
+                                <span>${_detail.phone}</span>
+                              </div>
+                            </div>
+                            <div class="address-r-btn">
+                              <div class="address-r-btn-lx">
+                                <span onClick="handleClicklx(event)" id="aid-${_detail.id}">${t("contactUs.traffic_route")}</span>
+                                <div class="lx-box">
+                                  <div class="lx-box-l">
+                                    <span>${t("contactUs.bus_route")}</span>
+                                    <span>${t(_detail.busRoutes)}</span>
+                                  </div>
+                                  <div class="lx-box-r">
+                                    <span>${t("contactUs.metro_lines")}</span>
+                                    <span>${t(_detail.metroRoutes)}</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="address-r-btn-bd">
+                                <a href="${_detail.baiduMap}">${t("contactUs.baidu_map")}</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>`
+        // console.log(_dome)
+        // _address[i].innerHTML = _dome
+        const new_dome = doc.createElement('div')
+        new_dome.className = _address[i].className
+        new_dome.innerHTML = _dome
+        _address[i].parentNode.replaceChild(new_dome, _address[i]);
+      }
+    }
+    const scriptElement = doc.createElement('script');
+    scriptElement.type="text/javascript"
+    scriptElement.src = './common.js';
+    doc.body.appendChild(scriptElement)
+  }
+  const replacedContent = doc.documentElement.innerHTML;
+  coverageDeatail.value.content = replacedContent;
 }
 
 const handlegetData = async () =>{
@@ -294,6 +393,7 @@ const handlegetData = async () =>{
 if(process.server){
   getDetail()
 }
+
 </script>
 
 <template>
@@ -310,10 +410,7 @@ if(process.server){
         </nuxt-link>
         <span :title="'牙齒百科'">牙齒百科</span>
       </div>
-      <div class="articlePage-in" v-if="!errorpage" v-loading="pageLoading">
-        <!-- <div class="content-topimg">
-            <img :src="coverageDeatail.img" :alt="coverageDeatail.name" :title="coverageDeatail.name">
-        </div> -->
+      <div class="articlePage-in" v-if="pageStatus !== 'error'" v-loading="pageStatus === 'loading'">
         <div class="content-topimg" v-if="coverageDeatail.pics.length">
           <Swiper @swiper="settopimgSwiperRef" @slideChange="changetopimg">
             <Swiper-slide v-for="(topimg,topimgIndex) in coverageDeatail.pics" :key="topimgIndex">
@@ -450,6 +547,11 @@ if(process.server){
     height: calc(100% + 40px);
   }
 }
+@keyframes lxAinma {
+  100%{
+    opacity: 1;
+  }
+}
 .tabNav {
   font-weight: 400;
   font-size: 1.25rem;
@@ -498,18 +600,15 @@ if(process.server){
   font-size: 50px;
 }
 .content{
-  // width: calc(100% - 60px);
-  // max-width: 960px;
   margin: 0 auto calc(37 / 1920 * 100%);
   height: auto;
-  overflow: hidden;
   :deep(p){
     width: calc(100% - 60px);
     max-width: 960px;
     margin: 0 auto;
-    &.content-doctor{
-      max-width: 1450px;
-      width: calc(100%);
+    &.content-doctor,&.content-address{
+       max-width: 1450px;
+    width: calc(100%);
     }
   }
   :deep(span){
@@ -573,6 +672,9 @@ if(process.server){
     margin-top: 35px;
   }
   :deep(.content-doctor){
+    max-width: 1450px;
+    width: calc(100%);
+    margin: 0 auto;
     .index-doctorTeam{
       margin: 60px auto;
       &-detail{
@@ -749,6 +851,225 @@ if(process.server){
       }
     }
 
+  }
+  :deep(.content-address){
+    max-width: 1450px;
+    width: calc(100%);
+    margin: 0 auto;
+    .address{
+      display: flex;
+      margin-top: 30px;
+      &-l{
+        width: calc( 600 / 1460 * 100%);
+        img{
+          width: 100%;
+          border-radius: 20px 0 0 20px;
+        }
+      }
+      &-r{
+        flex: 1;
+        &-img{
+          padding: 0 30px 20px 30px;
+          display: flex;
+          &>div{
+            cursor: pointer;
+            max-width: 175px;
+            flex: 1;
+            box-sizing: border-box;
+            display: flex;
+            border: 1px solid #fff;
+            &:not(:last-child){
+              margin-right: calc(30 / 860 * 100%);
+            }
+            img{
+              width: 100%;
+            }
+            &.cur{
+              border: 1px solid var(--indexColor1);
+            }
+          }
+          &.mbimg{
+            display: none;
+          }
+        }
+        &-name{
+          display: inline-block;
+          color: #fff;
+          background: var(--indexColor1);
+          padding: 5px 70px 5px 30px;
+          font-size: 35px;
+          clip-path: polygon(0 0, 93% 0, 100% 100%, 0 100%);
+          span{
+            &.mbname{
+              display: none;
+            }
+          }
+        }
+        &-content{
+          display: flex;
+          padding: 20px 0 40px;
+          &>div{
+            flex: 1;
+            padding-left: 30px;
+            span{
+              display: inline-block;
+              font-size: 20px;
+              line-height: 1.6;
+              color: var(--textColor);
+              padding-right: 30px;
+              white-space: pre-wrap;
+              width: 100%;
+              &:nth-of-type(1){
+                font-size: 22px;
+                line-height: 1.6;
+                color: var(--indexColor1);
+                font-weight: 600;
+              }
+            }
+            &:nth-of-type(1){
+              flex: 1.4;
+              span{
+                &:nth-of-type(1){
+                  &::before{
+                    content: '';
+                    width: 17px;
+                    height: 17px;
+                    display: inline-block;
+                    background: url(@/assets/images/icon_21.svg) no-repeat;
+                    margin-right: 5px;
+                  }
+                }
+              }
+            }
+            &:nth-of-type(2){
+              span{
+                &:nth-of-type(1){
+                  &::before{
+                    content: '';
+                    width: 17px;
+                    height: 17px;
+                    display: inline-block;
+                    background: url(@/assets/images/icon_22.svg) no-repeat;
+                    background-size: 100% 100%;
+                    margin-right: 5px;
+                  }
+                }
+              }
+            }
+            &:nth-of-type(3){
+              span{
+                &:nth-of-type(1){
+                  &::before{
+                    content: '';
+                    width: 17px;
+                    height: 17px;
+                    display: inline-block;
+                    background: url(@/assets/images/icon_23.svg) no-repeat;
+                    margin-right: 5px;
+                  }
+                }
+              }
+            }
+            &:not(:last-child){
+              span{
+                &:not(:first-child){
+                  border-right: 1px solid #FDD3E3;
+                }
+              }
+            }
+          }
+        }
+        &-btn{
+          display: flex;
+          padding: 0 30px;
+          &>div{
+            filter: drop-shadow(0 3px 5px var(--indexColor3));
+            -webkit-filter: drop-shadow(0 3px 5px var(--indexColor3));
+            max-width: calc(100% / 2);
+            a,span{
+              display: inline-block;
+              padding: 5px 40px;
+              border-radius: 40px;
+              cursor: pointer;
+              font-size: 35px;
+              transition: all .3s;
+              opacity: 1;
+            }
+          }
+          &-lx{
+            position: relative;
+            z-index: 20;
+            &>span{
+              color: var(--indexColor1);
+              background: #fff;
+              margin-right: 50px;
+              &::after{
+                content: '';
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                background: url(@/assets/images/icon_24.svg) no-repeat;
+                margin-left: 5px;
+                transition: all .3s;
+                transform: rotate(-90deg);
+                vertical-align: middle;
+                margin-top: -5px;
+              }
+              &.cur{
+                border-radius: 40px 40px 0 0;
+                padding-bottom: 20px;
+                &::after{
+                  transform: none;
+                }
+              }
+            }
+            .lx-box{
+              position: absolute;
+              top: 100%;
+              left: 0;
+              background: #fff;
+              display: flex;
+              width: 200%;
+              max-width: 200%;
+              padding: 20px 10px;
+              display: none;
+              opacity: 0;
+              &>div{
+                flex: 1;
+                padding: 0 10px;
+                span{
+                  text-align: justify;
+                  font-size: 20px;
+                  line-height: 1.6;
+                  padding: 0;
+                  width: 100%;
+                  &:nth-of-type(1){
+                    color: var(--indexColor1);
+                  }
+                  &:nth-of-type(2){
+                    color: var(--textColor);
+                  }
+                }
+              }
+              &.cur{
+                border-radius: 0 30px 30px;
+                display: flex;
+                animation: lxAinma .5s .3s forwards;
+              }
+            }
+          }
+          &-bd{
+            &>span,&>a{
+              color: #fff;
+              background: var(--indexColor1);
+              &:hover{
+                opacity: .8;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 .content-bbtn{
@@ -981,6 +1302,116 @@ if(process.server){
         }
       }
     }
+    :deep(.content-address){
+      .address{
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 1.5625vw;
+        &-l{
+          img{
+            border-radius: 1.0417vw 0 0 1.0417vw;
+          }
+        }
+        &-r{
+          &-img{
+            padding: 0 1.5625vw 1.0417vw 1.5625vw;
+            &>div{
+              max-width: 9.1146vw;
+            }
+          }
+          &-name{
+            padding: .2604vw 3.6458vw .2604vw 1.5625vw;
+            font-size: 1.8229vw;
+          }
+          &-content{
+            padding: 1.0417vw 0 2.0833vw;
+            &>div{
+              padding-left: 1.5625vw;
+              span{
+                font-size: 1.0417vw;
+                padding-right: 1.5625vw;
+                &:nth-of-type(1){
+                  font-size: 1.1458vw;
+                }
+              }
+              &:nth-of-type(1){
+                span{
+                  &:nth-of-type(1){
+                    &::before{
+                      width: .8854vw;
+                      height: .8854vw;
+                      margin-right: .2604vw;
+                    }
+                  }
+                }
+              }
+              &:nth-of-type(2){
+                span{
+                  &:nth-of-type(1){
+                    &::before{
+                      width: .8854vw;
+                      height: .8854vw;
+                      margin-right: .2604vw;
+                    }
+                  }
+                }
+              }
+              &:nth-of-type(3){
+                span{
+                  &:nth-of-type(1){
+                    &::before{
+                      width: .8854vw;
+                      height: .8854vw;
+                      margin-right: .2604vw;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          &-btn{
+            padding: 0 1.5625vw;
+            &>div{
+              filter: drop-shadow(0 .1563vw .2604vw var(--indexColor3));
+              -webkit-filter: drop-shadow(0 .1563vw .2604vw var(--indexColor3));
+              a,span{
+                padding: .2604vw 2.0833vw;
+                border-radius: 2.0833vw;
+                font-size: 1.8229vw;
+              }
+            }
+            &-lx{
+              &>span{
+                margin-right: 2.6042vw;
+                &::after{
+                  width: 1.0417vw;
+                  height: 1.0417vw;
+                  margin-left: .2604vw;
+                  margin-top: -0.2604vw;
+                  background-size: 100% auto;
+                }
+                &.cur{
+                  border-radius: 2.0833vw 2.0833vw 0 0;
+                  padding-bottom: 1.0417vw;
+                }
+              }
+              .lx-box{
+                padding: 1.0417vw .5208vw;
+                &>div{
+                  padding: 0 .5208vw;
+                  span{
+                    font-size: 1.0417vw;
+                  }
+                }
+                &.cur{
+                  border-radius: 0 1.5625vw 1.5625vw;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 @media (min-width: 768px) and (max-width: 1020px) {
@@ -1024,13 +1455,11 @@ if(process.server){
     font-size: 28px;
   }
   .content{
-    // width: 100%;
     margin-bottom: 50px;
     padding: 0 30px;
     :deep(p){
       width: 100%;
-      // padding: 0 30px;
-      &.content-doctor{
+      &.content-doctor,&.content-address{
         width: calc(100% + 60px);
         margin-left: -30px;
         padding: 0;
@@ -1073,6 +1502,9 @@ if(process.server){
       font-size: 16px;
     }
     :deep(.content-doctor){
+      width: calc(100% + 60px);
+        margin-left: -30px;
+        padding: 0;
       .index-doctorTeam{
         margin: 50px 0;
         width: 100%;
@@ -1170,6 +1602,152 @@ if(process.server){
             &>span{
               font-size: 16px;
               padding: 5px 20px;
+            }
+          }
+        }
+      }
+    }
+    :deep(.content-address){
+      width: calc(100% + 60px);
+      margin-left: -30px;
+      padding: 0;
+      .address{
+        &-l{
+          display: none;
+        }
+        &-r{
+          width: 100%;
+          &-img{
+            display: none;
+            width: 100%;
+            overflow: hidden;
+            &>div{
+              max-width: 100%;
+            }
+            &.mbimg{
+              display: block;
+              margin: 0 auto;
+              overflow: hidden;
+            }
+            &-swiper{
+              width: 100%;
+              overflow-x:scroll;
+				      scroll-snap-type: x mandatory;
+              padding: 0 40px;
+              &::-webkit-scrollbar{
+				        //隐藏滚动条
+                display: none;
+			        }
+              &-slide{
+                padding: 0 15px;
+                width: 100%;
+                flex: 0 0 100%;
+                scroll-snap-align: start;
+				        scroll-snap-stop: always;
+                white-space: nowrap;
+                img{
+                  width: 100%;
+                  margin: 0 auto;
+                }
+              }
+            }
+          }
+          &-name{
+            max-width: 90%;
+            padding: 5px 50px 5px 30px;
+            font-size: 20px;
+            clip-path: polygon(0 0, 95% 0, 100% 100%, 0 100%);
+            span{
+              &.mbname{
+                display: block;
+              }
+              &.pcname{
+                display: none;
+              }
+            }
+          }
+          &-content{
+            flex-direction: column;
+            padding: 20px 30px 20px 0;
+            &>div{
+              display: flex;
+              span{
+                padding-right: 0;
+                font-size: 16px;
+                line-height: 2;
+                &:nth-of-type(1){
+                  font-size: 16px;
+                  line-height: 2;
+                  max-width: 35%;
+                }
+              }
+              &:nth-of-type(1),&:nth-of-type(2),&:nth-of-type(3){
+                span{
+                  &:nth-of-type(1){
+                    &::before{
+                      margin-top: -5px;
+                      vertical-align: middle;
+                    }
+                  }
+                }
+              }
+              &:not(:last-child){
+                margin-bottom: 20px;
+                span{
+                  &:not(:first-child){
+                    border-right: none;
+                  }
+                }
+              }
+            }
+          }
+          &-btn{
+            display: block;
+            position: relative;
+            padding: 0 20px;
+            &>div{
+              max-width: 100%;
+              a,span{
+                padding: 7px 25px;
+                border-radius: 30px;
+                font-size: 20px;
+                font-weight: 600;
+              }
+            }
+            &-lx{
+              width: 100%;
+              padding: 10px;
+              &>span{
+                &::after{
+                  width: 10px;
+                  height: 10px;
+                  background-size: 100% auto;
+                }
+                &.cur{
+                  padding-bottom: 20px;
+                  border-radius: 30px 30px 0 0;
+                }
+              }
+              .lx-box{
+                position: initial;
+                max-width: 100%;
+                padding: 10px 10px;
+                &>div{
+                  span{
+                    font-size: 16px;
+                    line-height: 2;
+                  }
+                }
+                &.cur{
+                  display: block;
+                }
+              }
+            }
+            &-bd{
+              padding: 10px 0;
+              position: absolute;
+              right: 30px;
+              top: 0;
             }
           }
         }
