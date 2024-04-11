@@ -1031,7 +1031,7 @@ svg:hover path{
     margin-top: 50px;
     &-l{
       flex: 1;
-      div{
+      &>div{
         &:nth-of-type(1){
           color: #4D4D4D;
           font-size: 20px;
@@ -1052,26 +1052,6 @@ svg:hover path{
         display: flex;
         justify-content: center;
         line-height: 1.6;
-      }
-      a{
-        display: block;
-        color: #fff;
-        background: #FC1682;
-        border-radius: 30px;
-        height: 60px;
-        line-height: 60px;
-        text-align: center;
-        font-size: 35px;
-        font-style: normal;
-        font-weight: 900;
-        width: 100%;
-        max-width: 400px;
-        margin-top: 47px;
-        box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
-        transition: all .3s;
-        &:hover{
-          background: #FF85AF;
-        }
       }
     }
     &-r{
@@ -1129,7 +1109,7 @@ svg:hover path{
     &-c{
       margin-top: 2.6042vw;
       &-l{
-        div{
+        &>div{
           &:nth-of-type(1){
             font-size: 1.0417vw;
           }
@@ -1139,14 +1119,6 @@ svg:hover path{
         }
         &-btn{
           margin-top: 1.0417vw;
-        }
-        a{
-          border-radius: 1.5625vw;
-          height: 3.125vw;
-          line-height: 3.125vw;
-          font-size: 1.8229vw;
-          max-width: 20.8333vw;
-          margin-top: 2.4479vw;
         }
       }
     }
@@ -1627,20 +1599,13 @@ svg:hover path{
       &-l{
         width: auto;
         margin: 19px 30px 0;
-        div{
+        &>div{
           &:nth-of-type(1){
             font-size: 16px;
           }
           &:nth-of-type(2){
             font-size: 18px;
           }
-        }
-        a{
-          font-size: 20px;
-          height: 40px;
-          line-height: 40px;
-          max-width: 267px;
-          margin: 30px auto 0;
         }
       }
       &-r{
