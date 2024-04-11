@@ -1,7 +1,5 @@
 <script lang="ts" setup>
-import { useAppState } from '~/stores/appState'
-import { getDoctorDetail, getAddressDetail } from '~/assets/js/commonFun'
-const appState = useAppState()
+import { renderingDome } from '~/assets/js/commonFun'
 const { t } = useLang()
 const route = useRoute()
 const router = useRouter()
@@ -120,7 +118,6 @@ const formatDate = (dateString) =>{
     return year + "-" + month + "-" + day;  
 }  
 const getDetail = async () => {
-  // pageLoading.value = true
   pageStatus.value = 'loading'
   try{
     const _res:any = await useFetch(`https://admin.ckjhk.com/api.php/content/${_nid}`,{
@@ -158,15 +155,12 @@ const getDetail = async () => {
         description: _data.description || ''
       }
       changeassociationData(JSON.parse(_data.ext_news_association || "[]"))
-      renderingDome()
+      coverageDeatail.value.content = renderingDome(coverageDeatail.value.content,t)
     }
   }catch{
     pageStatus.value = 'error'
-    // errorpage.value = true
-    // pageLoading.value = false
   }
   pageStatus.value = 'success'
-  // pageLoading.value = false
 }
 const toassociation = (_id) => {
   router.push(`/news/news-tooth-wiki/${_id}`)
@@ -222,169 +216,6 @@ onMounted(()=>{
 })
 
 let imgcur = ref(0)
-
-const renderingDome = () => {
-  const originalContent = coverageDeatail.value.content || '';
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(originalContent, 'text/html');
-  let _doctors:any = doc.getElementsByClassName('content-doctor')
-  let _address:any = doc.getElementsByClassName('content-address')
-  if(_doctors && _doctors.length){
-    for(var i = 0;i<_doctors.length;i++){
-      const targetClass = Array.from(_doctors[i].classList as DOMTokenList).find((className:String) => className.startsWith('doctor-did-'));
-      if (targetClass) {
-        const extractedId = targetClass.replace('doctor-did-', '');
-        const _detail = getDoctorDetail(extractedId)
-        let _dome_tags = ``
-        if(_detail.tags && _detail.tags.length){
-          for(var j=0;j < _detail.tags.length;j++){
-            _dome_tags += `<span>${_detail.tags[j]}</span>`
-          }
-        }
-        let _dome_newOrg = ``
-        if(_detail.newOrg && _detail.newOrg !== ''){
-          _dome_newOrg = `<div class="detail-2"><span>${_detail.newOrg}</span></div>`
-        }
-        let _dome_newJobs = ``
-        if(_detail.newJobs && _detail.newJobs.length){
-          for(var j=0;j < _detail.newJobs.length;j++){
-            _dome_newJobs += `<span>${_detail.newJobs[j]}</span>`
-          }
-        }
-        const _dome = `<div class="index-doctorTeam-detail index-doctorTeam-con" id="d${_detail.id}">
-          <div class="index-doctorTeam-detail-l">
-            <div class="index-doctorTeam-detail-l-in">
-              <img srcset="https://static.cmereye.com/imgs/2024/02/3305056d2ab78db8.webp 768w, https://static.cmereye.com/imgs/2024/02/d9ed594b3c173297.webp" src="https://static.cmereye.com/imgs/2024/02/d9ed594b3c173297.webp" alt="">
-              <img srcset="${_detail.mbImg} 768w, ${_detail.imgUrl}" :src="${_detail.imgUrl}" alt="${_detail.name}" title="${_detail.name}">
-            </div>
-            <div class="index-doctorTeam-detail-l-btn">
-              <div class="animbtntypetwo">
-                <a href="https://api.whatsapp.com/send/?phone=85269338128" class="animbtntypetwo-in" alt="whatsapp" title="whatsapp">
-                  <span>線上咨詢</span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="index-doctorTeam-detail-r">
-            <div class="detail-1">
-              <span>${_detail.name}</span>
-              <span>${_detail.text}</span>
-            </div>
-            ${_dome_newOrg}
-            <div class="detail-3">
-              ${_dome_newJobs}
-            </div>
-            <div class="detail-4">
-              <span>擅長項目：</span>
-              <span>
-                ${_detail.newSkilled}
-              </span>
-            </div>
-            <div class="detail-5">
-              ${_dome_tags}  
-            </div>
-            <div class="detail-6">
-              <div class="animbtntypetwo">
-                <a href="https://api.whatsapp.com/send/?phone=85269338128" class="animbtntypetwo-in" alt="whatsapp" title="whatsapp">
-                  <span>線上咨詢</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>`
-        // _doctors[i].innerHTML = _dome
-        const new_dome = doc.createElement('div')
-        new_dome.className = _doctors[i].className
-        new_dome.innerHTML = _dome
-        _doctors[i].parentNode.replaceChild(new_dome, _doctors[i]);
-      }
-    }
-  }
-  if(_address && _address.length){
-    for(var i = 0;i<_address.length;i++){
-      const targetClass = Array.from(_address[i].classList as DOMTokenList).find((className:String) => className.startsWith('address-did-'));
-      if(targetClass){
-        const extractedId = targetClass.replace('address-did-', '');
-        const _detail = getAddressDetail(extractedId)
-        let _dome_imgLists_pc = ``
-        if(_detail.imgLists && _detail.imgLists.length){
-          for(var h=0;h < _detail.imgLists.length;h++){
-            _dome_imgLists_pc += `<div><img src="${_detail.imgLists[h]}" alt="${t(_detail.name)}" onclick="handleClickAddressRImg(event)"></div>`
-          }
-        }
-        let _dome_imgLists = ``
-        if(_detail.imgLists && _detail.imgLists.length){
-          for(var k=0;k < _detail.imgLists.length;k++){
-            _dome_imgLists += `<div class="address-r-img-swiper-slide"><img src="${_detail.imgLists[k]}" alt="${t(_detail.name)}"></div>`
-          }
-        }
-        const _dome =  `<div class="address">
-                          <div class="address-l">
-                            <img src="${_detail.imgLists[0]}" alt="${t(_detail.name)}" />
-                          </div>
-                          <div class="address-r">
-                            <div class="address-r-img">
-                              ${_dome_imgLists_pc}
-                            </div>
-                            <div class="address-r-img mbimg">
-                              <div class="address-r-img-swiper">
-                                ${_dome_imgLists}
-                              </div>
-                            </div>
-                            <div class="address-r-name">
-                              <span class="pcname">${t(_detail.name)}</span>
-                              <span class="mbname">${t(appState.areaTabs[appState.areaTabCurNum])} ${t(_detail.tabname)}</span>
-                            </div>
-                            <div class="address-r-content">
-                              <div>
-                                <span>${t("contactUs.hospital_address")}</span>
-                                <span>${t(_detail.address)}</span>
-                              </div>
-                              <div>
-                                <span>${t("contactUs.hours_of_Operation")}</span>
-                                <span>${t(_detail.time)}</span>
-                              </div>
-                              <div>
-                                <span>${t("contactUs.check_the_phone")}</span>
-                                <span>${_detail.phone}</span>
-                              </div>
-                            </div>
-                            <div class="address-r-btn">
-                              <div class="address-r-btn-lx">
-                                <span onClick="handleClicklx(event)" id="aid-${_detail.id}">${t("contactUs.traffic_route")}</span>
-                                <div class="lx-box">
-                                  <div class="lx-box-l">
-                                    <span>${t("contactUs.bus_route")}</span>
-                                    <span>${t(_detail.busRoutes)}</span>
-                                  </div>
-                                  <div class="lx-box-r">
-                                    <span>${t("contactUs.metro_lines")}</span>
-                                    <span>${t(_detail.metroRoutes)}</span>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="address-r-btn-bd">
-                                <a href="${_detail.baiduMap}">${t("contactUs.baidu_map")}</a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>`
-        // console.log(_dome)
-        // _address[i].innerHTML = _dome
-        const new_dome = doc.createElement('div')
-        new_dome.className = _address[i].className
-        new_dome.innerHTML = _dome
-        _address[i].parentNode.replaceChild(new_dome, _address[i]);
-      }
-    }
-    const scriptElement = doc.createElement('script');
-    scriptElement.type="text/javascript"
-    scriptElement.src = './common.js';
-    doc.body.appendChild(scriptElement)
-  }
-  const replacedContent = doc.documentElement.innerHTML;
-  coverageDeatail.value.content = replacedContent;
-}
 
 const handlegetData = async () =>{
   await getDetail()

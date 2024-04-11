@@ -74,7 +74,7 @@ const getServerNewsLists = async () => {
 if(process.server){
   getServerNewsLists()
 }else{
-  // getServerNewsLists()
+  getServerNewsLists()
 }
 
 </script>

@@ -73,7 +73,7 @@ onMounted(()=>{
 if(process.server){
   getServerNewsLists()
 }else{
-  // getServerNewsLists()
+  getServerNewsLists()
 }
 
 </script>
