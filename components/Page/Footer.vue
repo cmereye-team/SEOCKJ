@@ -324,6 +324,54 @@ const handleopenwechat = () =>{
     }
   }
 }
+@media (min-width: 768px) and (max-width: 1920px) {
+  .footer-content {
+    padding: 3.125vw;
+    &-nav {
+      & > div {
+        padding: .5208vw 1.0417vw;
+        font-size: 1.1458vw;
+        text-shadow: 0px 0px .2083vw rgba(255, 120, 117, 0.45);
+      }
+    }
+    &-logo_one {
+      padding: 1.3021vw 0;
+      & > img {
+        width: 7.8125vw;
+      }
+    }
+    &-text {
+      font-size: 1.1458vw;
+    }
+    &-icon {
+      margin-top: 1.5625vw;
+      &-in {
+        padding: 0 .651vw;
+        .weChat{
+          .navbarBox{
+            padding-right: .5208vw;
+            transform: translateY(1.0417vw);
+            &-in{
+              padding: 1.0417vw;
+              border-radius: .5208vw;
+              .weChat{
+                width: 10.4167vw;
+              }
+            }
+          }
+        }
+      }
+    }
+    &-copyright{
+      font-size: .8333vw;
+      margin-top: .2604vw;
+    }
+    &-Disclaimer{
+      font-size: .8333vw;
+      margin-top: 1.0417vw;
+    }
+  }
+}
 @media screen and (max-width: 768px) {
   .footer-content {
     padding: 50px 30px 170px;

@@ -373,7 +373,7 @@ watch(
 
       <!-- 醫生團隊 -->
       <div class="index-doctorTeam">
-        <div class="index-doctorTeam-t pageCon">
+        <div class="index-doctorTeam-t smallPageCon">
           <div class="index_title index_title_2">醫生團隊</div>
         </div>
         <div class="index-doctorTeam-tab1 index-doctorTeam-con">
@@ -483,15 +483,15 @@ watch(
       <brandConcept-test />
 
       <div class="index-org">
-        <div class="index-org-t pageCon">
+        <div class="index-org-t smallPageCon">
           <div class="index_title index_title_2">相關機構</div>
         </div>
-        <div class="index-org-tag pageCon">
+        <div class="index-org-tag smallPageCon">
           <div class="index-org-tag-in" :class="{'active': orgTabCur === orgTabIndex}" v-for="(orgTabItem,orgTabIndex) in orgTabLists" :key="orgTabIndex" @click="handleorgtabfun(orgTabIndex)">
             {{orgTabItem}}
           </div>
         </div>
-        <div class="index-org-content pageCon">
+        <div class="index-org-content smallPageCon">
           <Swiper
             class="index-org-content-swiper"
             :loop="true"
@@ -512,10 +512,10 @@ watch(
       </div>
 
       <div class="index-videoBox">
-        <div class="index-videoBox-t pageCon">
+        <div class="index-videoBox-t smallPageCon">
           <div class="index_title index_title_2">專題報導</div>
         </div>
-        <div class="index-videoBox-c pageCon">
+        <div class="index-videoBox-c smallPageCon">
           <div class="index-videoBox-c-l">
             <div>HK01</div>
             <div>深圳食買玩，點少得睇牙!口岸位置、性價比高 咪咪姐推薦口腔醫院</div>
@@ -552,9 +552,6 @@ watch(
               <CaseSharingImageItem :userInfo="caseSharingItem" :userIndex="caseSharingIndex" />
             </div>
           </div>
-          <!-- <div class="in-bottom">
-            <span>了解更多</span>
-          </div> -->
         </div>
       </div>
       <div class="treatment-data">
@@ -562,7 +559,7 @@ watch(
           <span>早期深圳二級口腔醫院</span>
           <span>香港品牌 實力信心</span>
         </div>
-        <div class="treatment-data-in pageCon">
+        <div class="treatment-data-in smallPageCon">
           <div class="dataBox" v-for="(treatmentItem,treatmentIndex) in treatmentData" :key="treatmentIndex">
             <div class="num">
               <img :src="treatmentItem.bg" :style="{left: treatmentItem.left,top: treatmentItem.top}" alt="">
@@ -970,25 +967,6 @@ svg:hover path{
         width: calc(50% - 8px);
       }
     }
-    .in-bottom{
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      margin-top: 35px;
-      span{
-        cursor: pointer;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 2rem;
-        line-height: 160%;
-        text-align: center;
-        display: inline-block;
-        padding: 10px 70px;
-        background: #FFFFFF;
-        color: #666666;
-        box-shadow: 1px 1px 4px rgba(255, 163, 158, 0.45);
-      }
-    }
   }
 }
 .index-org{
@@ -1120,137 +1098,228 @@ svg:hover path{
     }
   }
 }
-@media (min-width: 1452px) and (max-width: 1800px){
-  .index-doctorTeam{
-    &-tab1{
-      :deep(.areaTab){
-        div{
-          font-size: 30px;
+@media (min-width: 768px) and (max-width: 1920px){
+  .index-org{
+    margin-top: 8.8542vw;
+    &-tag{
+      max-width: 41.875vw;
+      margin-top: 2.6042vw;
+      &-in{
+        padding: .2604vw;
+        font-size: 1.8229vw;
+        &:first-child{
+          border-radius: .2604vw 0 0 .2604vw;
+        }
+        &:last-child{
+          border-radius: 0 .2604vw .2604vw 0;
         }
       }
     }
-    &-tab2{
+    &-content{
+      max-width: 62.5vw;
+      margin-top: 1.5625vw;
       &-in{
-        &>div{
-          font-size: 24px;
+        width: calc((100% - 15.625vw) / 5);
+        margin: 0 1.5625vw 2.0833vw;
+      }
+    }
+  }
+  .index-videoBox{
+    margin-top: 6.875vw;
+    &-c{
+      margin-top: 2.6042vw;
+      &-l{
+        div{
+          &:nth-of-type(1){
+            font-size: 1.0417vw;
+          }
+          &:nth-of-type(2){
+            font-size: 1.4583vw;
+          }
+        }
+        &-btn{
+          margin-top: 1.0417vw;
+        }
+        a{
+          border-radius: 1.5625vw;
+          height: 3.125vw;
+          line-height: 3.125vw;
+          font-size: 1.8229vw;
+          max-width: 20.8333vw;
+          margin-top: 2.4479vw;
         }
       }
     }
   }
-  .index-org{
-    &-tag{
-      &-in{
-        font-size: 2vw;
+  .index-caseSharing{
+    padding: 1.8229vw 0;
+    margin-top: 7.2917vw;
+    &-in{
+      width: 70%;
+      max-width: 54.4792vw;
+      margin: 2.3438vw auto 0;
+      .in-cen{
+        margin-top: 6.25vw;
+        &-box{
+          width: calc(50% - .4167vw);
+        }
       }
     }
   }
   .treatment-data{
+    margin-top: 7.2917vw;
+    &-title{
+      span{
+        font-size: 1.8229vw;
+      }
+    }
     &-in{
+      margin-top: 2.5vw;
       .dataBox{
         .num{
-          font-size: 3vw;
+          font-size: 3.125vw;
+          .numBold{
+            margin-top: .2604vw;
+          }
           .numIn{
-            height: 6vw;
+            height: 5vw;
             span{
-              line-height: 6vw;
+              line-height: 5vw;
             }
           }
         }
         .name{
-          font-size: 1.6vw;
+          font-size: 1.4583vw;
+          margin-top: -0.5208vw;
         }
       }
     }
-  }
-}
-@media (min-width: 768px) and (max-width: 1452px) {
-  .index-videoBox{
-    &-c{
-      &-l{
-        a{
-          width: 50%;
-          min-width: 50px;
-          font-size: 2vw;
-          margin-top: 2vw;
-          height: 4vw;
-          line-height: 4vw;
-        }
-      }
+    &-bText{
+      font-size: 1.0417vw;
+      margin-top: 1.5625vw;
     }
   }
   .index-doctorTeam{
+    margin: 7.2917vw auto 5.2083vw;
     &-con{
-      width: 80%;
+      width: 70%;
+      max-width: 71.0938vw;
+      margin: 1.5625vw auto 0;
     }
     &-tab1{
       :deep(.areaTab){
         div{
-          font-size: 24px;
+          font-size: 1.8229vw;
         }
       }
     }
     &-tab2{
       &-in{
         &>div{
-          font-size: 20px;
+          padding: .2604vw 0;
+          font-size: 1.8229vw;
+          letter-spacing: .1563vw;
+          &:first-child{
+            border-radius: .2604vw 0 0 .2604vw;
+          }
+          &:last-child{
+            border-radius: 0 .2604vw .2604vw 0;
+          }
+        }
+      }
+    }
+    &-lists{
+      .pcLists{
+        &-in{
+          margin-bottom: 1.5625vw;
+          &:not(:last-child){
+            margin-right: 1.5625vw;
+          }
+          &-img{
+            width: 7.8125vw;
+            height: 7.8125vw;
+            border-radius: .5208vw;
+          }
+        }
+        .swiperpcLists-in{
+          &-img{
+            margin: 0 .7813vw;
+            border-radius: .5208vw;
+          }
+        }
+      }
+      .mbLists{
+        width: calc(100% - 2.0833vw);
+        &-in{
+          &-img{
+            margin: 0 .5208vw;
+            border-radius: .5208vw;
+          }
         }
       }
     }
     &-detail{
+      padding: 1.0417vw;
+      margin-top: 2.6042vw;
+      &-l{
+        max-width: 22.6042vw;
+        &-in{
+          &::after{
+            top: -1.0417vw;
+            left: -1.0417vw;
+            border-radius: 1.5625vw;
+          }
+        }
+        img{
+          border-radius: 1.5625vw;
+        }
+      }
       &-r{
         .detail-1{
+          padding-left: 1.0417vw;
           span{
-            font-size: 1.4vw;
+            font-size: 1.0417vw;
             &:nth-of-type(1){
-              font-size: 2.4vw;
+              font-size: 1.8229vw;
+              margin-right: .2604vw;
             }
-          } 
+          }
         }
         .detail-2{
           span{
-            font-size: 1.8vw;
+            font-size: 1.4583vw;
+            padding: .2604vw 3.6458vw .2604vw 1.0417vw;
           }
         }
         .detail-3{
-          font-size: 1.4vw;
-          margin-bottom: 1.6vw;
+          padding-left: 1.0417vw;
+          font-size: 1.0417vw;
+          margin-bottom: 1.5625vw;
+          margin-top: .2604vw;
         }
         .detail-4{
-          font-size: 1.4vw;
-          margin-bottom: 1.2vw;
+          padding-left: 1.0417vw;
+          font-size: 1.0417vw;
+          margin-bottom: 1.0417vw;
         }
         .detail-5{
-          font-size: 1.4vw;
-        }
-        .detail-6{
-          margin-top: 1.4vw;
-        }
-      }
-    }
-  }
-  .index-org{
-    &-tag{
-      &-in{
-        font-size: 2vw;
-      }
-    }
-  }
-  .treatment-data{
-    &-in{
-      .dataBox{
-        .num{
-          font-size: 3vw;
-          .numIn{
-            height: 6vw;
-            span{
-              line-height: 6vw;
+          padding-left: 1.0417vw;
+          font-size: 1.0417vw;
+          span{
+            &:not(:last-child){
+              margin-right: .5208vw;
             }
           }
         }
-        .name{
-          font-size: 1.6vw;
+        .detail-6{
+          margin-top: 1.5625vw;
+          margin-left: 1.0417vw;
+          margin-bottom: 1.0417vw;
         }
       }
+    }
+    .index-doctorTeam-detail-swiper{
+      padding-bottom: 2.0833vw;
     }
   }
 }
@@ -1267,8 +1336,6 @@ svg:hover path{
     &-in{
       padding: 0 20px;
       margin-top: 60px;
-      
-      // flex-direction: column;
       .dataBox{
         width: 50%;
         &:not(:last-child){

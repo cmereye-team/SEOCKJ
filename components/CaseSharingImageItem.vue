@@ -102,31 +102,38 @@ defineProps({
   }
 } 
 
-@media (min-width: 769px) and (max-width: 1200px) {
+@media (min-width: 769px) and (max-width: 1920px) {
   .caseSaringImageItem{
+    padding: 2.0833vw;
+    padding: 0 2.1875vw 1.3021vw 1.0938vw;
     &-t{
       &-img{
-        width: 40%;
+        max-width: 9.1667vw;
+        margin-right: .8854vw;
         img{
-          margin: -20% auto 0;
+          margin: -2.3438vw auto 0;
+          border: .4167vw solid #fff;
         }
       }
       &-context{
         .name{
-          font-size: 2vw;
+          font-size: 1.3021vw;
+          margin-top: .7292vw;
         }
         .skill{
-          font-size: 1.6vw;
+          font-size: 1.0938vw;
         }
         .text{
-          font-size: 1.6vw;
+          font-size: 1.0938vw;
         }
       }
     }
     &-b{
-      font-size: 1.4vw;
+      padding-left: .4167vw;
+      font-size: .9375vw;
+      margin-top: .5208vw;
     }
-  }
+  } 
 }
 
 @media screen and (max-width: 768px) {

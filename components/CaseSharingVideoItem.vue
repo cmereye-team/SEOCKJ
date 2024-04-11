@@ -118,30 +118,36 @@ const props = defineProps({
   }
 }
 
-@media (min-width: 768px) and (max-width: 1600px) {
+@media (min-width: 768px) and (max-width: 1920px) {
   .caseSaringVideoItem{
     &-l{
-
+      img{
+        margin-top: -2.0833vw;
+      }
     }
     &-r{
+      padding: 0 2.9167vw 0 2.4479vw;
       .type{
-        font-size: 2vw;
+        font-size: 1.7708vw;
       }
       .name{
-        font-size: 1.6vw;
+        font-size: 1.5625vw;
+        margin-top: .4688vw;
       }
       .skill{
-        font-size: 1.4vw;
+        font-size: 1.0417vw;
       }
       .process{
-        font-size: 1.4vw;
+        font-size: 1.0417vw;
+        margin-top: 3.6458vw;
       }
       .text{
-        font-size: 1.4vw;
+        font-size: .9375vw;
       }
       .bg_box{
-        width: calc(100% + 30px); 
-        height: 60%;
+        width: 37.2917vw;
+        height: 13.125vw;
+        bottom: -1.5625vw;
       }
     }
   }

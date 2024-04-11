@@ -21,7 +21,7 @@ const onSlideChange = (swiper:any) => {
 
 <template>
 <div class="index-brandConcept">
-  <div class="pageCon">
+  <div class="smallPageCon">
     <div class="index_title brandConceptTitle">{{$t('pages.brand.title')}}</div>
   </div>
   <swiper
@@ -37,7 +37,7 @@ const onSlideChange = (swiper:any) => {
     <swiper-slide class="swiper-slide">
       <div class="index-brandConcept-in bigPageCon">
         <img class="bgImg" :data-cfsrc="'https://static.cmereye.com/imgs/2024/01/f4ba25aef63c2a5b.jpg'" :srcset="`https://static.cmereye.com/imgs/2024/01/64f1f4312e2a0f2c.jpg 768w, https://static.cmereye.com/imgs/2024/01/f4ba25aef63c2a5b.jpg`" :src="'https://static.cmereye.com/imgs/2024/01/f4ba25aef63c2a5b.jpg'" >
-        <div class="index-brandConcept-in-box pageCon">
+        <div class="index-brandConcept-in-box smallPageCon">
           <div class="brandConcept-title">
             <span>{{$t('components.brandConcept.title.span_1')}}</span>
             <span>{{$t('components.brandConcept.title.span_2')}}</span>
@@ -51,7 +51,7 @@ const onSlideChange = (swiper:any) => {
     <swiper-slide class="swiper-slide">
       <div class="index-brandConcept-in bigPageCon">
       <img class="bgImg" :data-cfsrc="'https://static.cmereye.com/imgs/2024/01/83f687493170cb87.jpg'" :srcset="`https://static.cmereye.com/imgs/2024/01/e4c3cb0ba5a58c54.jpg 768w, https://static.cmereye.com/imgs/2024/01/83f687493170cb87.jpg`" :src="'https://static.cmereye.com/imgs/2024/01/83f687493170cb87.jpg'" >
-      <div class="index-brandConcept-in-box pageCon">
+      <div class="index-brandConcept-in-box smallPageCon">
         <div class="brandConcept-title act">
           <span>接待香港工聯會代表團</span>
         </div>
@@ -132,29 +132,7 @@ const onSlideChange = (swiper:any) => {
       margin-top: 70px;
     }
     .btn{
-    //   color: #fff;
-    //   background: var(--indexColor1);
-    //   text-align: center;
-    //   font-size: 20px;
-    //   font-style: normal;
-    //   font-weight: 900;
-    //   line-height: 160%;
-      // width: 157px;
-      // display: flex;
-    //   height: 46px;
-    //   line-height: 46px;
-    //   border-radius: 30px;
       margin-top: 30px;
-    //   box-shadow: 0px 3.704px 7.409px 0px rgba(252, 22, 130, 0.38);
-    //   transition: all .3s;
-    //   a{
-    //     width: 100%;
-    //     height: 100%;
-    //     display: block;
-    //   }
-    //   &:hover{
-    //     background: var(--indexColor3);
-    //   }
     }
   }
 }
@@ -178,10 +156,6 @@ const onSlideChange = (swiper:any) => {
         margin-top: calc(70 / 1920 * 100vw);
       }
       .btn{
-      //   font-size: 1.25vw;
-      //   width: calc(157 / 1920 * 100vw);
-      //   height: calc(46 / 1920 * 100vw);
-      //   line-height: calc(46 / 1920 * 100vw);
         margin-top: calc(30 / 1920 * 100vw);
       }
     }

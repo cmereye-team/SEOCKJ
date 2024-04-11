@@ -23,7 +23,7 @@ const servicesCardPageData = {
 
 <template>
   <div :class="[{'index-dentalServices':true,'isMenu': isMenu},{'index-dentalServices-indexshow': isIndexShow}]">
-    <div :class="['index-dentalServices-in', 'pageCon', {'isIndexShow': !isIndexShow,'isMenu': isMenu}]">
+    <div :class="['index-dentalServices-in', 'smallPageCon', {'isIndexShow': !isIndexShow,'isMenu': isMenu}]">
       <div class="titile">
         <div class="index_title" v-if="isIndexShow">{{$t(servicesCardPageData.title)}}</div>
       </div>

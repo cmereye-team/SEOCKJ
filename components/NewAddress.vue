@@ -76,7 +76,7 @@ watch(
 
 
 <template>
-  <div class="index-contactUs pageCon">
+  <div class="index-contactUs smallPageCon">
       <div class="index-contactUs-t">
         <div class="index_title">{{$t('contactUs.title')}}</div>
       </div>

@@ -59,7 +59,7 @@ const changemouse = (type: String) =>{
 
 <template>
   <div class="index-aboutUs">
-        <div class="pageCon">
+        <div class="smallPageCon">
           <div class="index_title">{{$t('components.aboutUs.title')}}</div>
         </div>
         <div class="index-aboutUs-swiper bigPageCon">
@@ -89,7 +89,7 @@ const changemouse = (type: String) =>{
             </SwiperSlide>
           </swiper>
         </div>
-        <div class="index-aboutUs-content pageCon">
+        <div class="index-aboutUs-content smallPageCon">
           <div class="contentBox">
             <h2>科技護航，安全放心</h2>
             <span>優質的診療服務，在於醫生的專業素養，以及匹配的醫療設備的先進程度。愛康健從口腔檢查到臨床手術，全程採購主流牙科設備，與時俱進開展醫生職業技能培訓。我們信奉技術，加進口設備，才能有好的診療功效。</span>
@@ -180,8 +180,6 @@ const changemouse = (type: String) =>{
   margin-top: 140px;
   padding-bottom: 90px;
   &-swiper{
-    // width: calc(1334 / 1920 * 100%);
-    // max-width: 1334px;
     width: 100%;
     margin: 67px auto 0;
     position: relative;
@@ -326,15 +324,62 @@ const changemouse = (type: String) =>{
     }
   }
 }
-@media (min-width: 768px) and (max-width: 1452px) {
-  .index-aboutUs{
-    
-  }
-}
-@media (min-width: 768px) and (max-width: 1000px) {
-  .index-aboutUs{
-    margin-top: 110px;
-    
+@media (min-width: 768px) and (max-width: 1920px) {
+    .index-aboutUs{
+      margin-top: 7.2917vw;
+      padding-bottom: 4.6875vw;
+      &-swiper{
+        margin: 3.4896vw auto 0;
+        &-in{
+          max-width: 69.4792vw;
+          &-slide{
+            .el-image{
+              &:hover{
+                box-shadow: 0 .2604vw .5208vw rgba(0,0,0, .3);
+              }
+            }
+          }
+        }
+      }
+    &-content{
+      max-width: 58.3333vw;
+      .contentBox{
+        &:first-child::after{
+          width: 1.875vw;
+          right: -0.9375vw;
+        }
+        h2{
+          font-size: 1.5625vw;
+          letter-spacing: .1563vw;
+        }
+        span{
+          font-size: 1.0417vw;
+          letter-spacing: .1042vw;
+          margin-top: .7813vw;
+        }
+      }
+    }
+    .deBox{
+      &-close{
+        width: 5.1563vw;
+        height: 5.1563vw;
+        top: 2.9688vw;
+        right: 2.0833vw;
+      }
+      &-in{
+        &-swiper{
+          .el-image{
+            max-width: 60.9375vw;
+          }
+        }
+      }
+      .leftBtn{
+        left: calc((100% - 75.5208vw) / 2);
+      }
+      .rightBtn{
+        right: calc((100% - 75.5208vw) / 2);
+      }
+    }
   }
 }
 @media screen and (max-width: 768px) {
@@ -342,7 +387,6 @@ const changemouse = (type: String) =>{
   .index-aboutUs{
     margin-top: 90px;
     padding-bottom: 90px;
-    
     &-swiper{
       display: none;
     }
