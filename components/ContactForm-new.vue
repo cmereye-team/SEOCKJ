@@ -294,8 +294,8 @@ ul{
 li{
   &.el-select-dropdown__item{
     color: var(--indexColor1);
-    height: 64px;
-    line-height: 64px;
+    height: 55px;
+    line-height: 55px;
     font-size: 28px;
     letter-spacing: 7px;
     &:hover{
@@ -343,13 +343,13 @@ li{
   &-in {
     width: calc(100% - 60px);
     max-width: 800px;
-    margin: 61px auto 0;
+    margin: 50px auto 0;
     .firstFormItem {
       display: flex;
       flex-wrap: wrap;
     }
     :deep(.el-form-item) {
-      margin-bottom: 36px;
+      margin-bottom: 30px;
     }
     :deep(.el-form-item__label) {
       font-family: var(--contextFamily);
@@ -382,7 +382,7 @@ li{
       }
     }
     :deep(.el-input) {
-      height: 64px;
+      height: 55px;
       font-size: 28px;
       border: 2px solid var(--indexColor1);
       --el-input-border-color: var(--indexColor1);
@@ -404,8 +404,8 @@ li{
     }
     :deep(.el-input__inner){
       font-size: 28px;
-      line-height: 55px;
-      height: 55px;
+      line-height: 50px;
+      height: 50px;
       text-indent: 10px;
       color: var(--indexColor1);
       
@@ -424,8 +424,8 @@ li{
     :deep(.el-select-dropdown__item){
       font-size: 28px;
       color: var(--indexColor1);
-      height: 64px;
-      line-height: 64px;
+      height: 55px;
+      line-height: 55px;
     }
     :deep(.el-radio-group) {
       width: 100%;
@@ -455,29 +455,10 @@ li{
       width: 100%;
       display: flex;
       justify-content: center;
-      // font-family: var(--contextFamily);
-      // margin: 52px auto 0;
-      // width: 350px;
-      // height: 60px;
-      // font-weight: 500;
-      // font-size: 20px;
-      // line-height: 160%;
-      // color: var(--indexColor1);
-      // background-color: transparent;
-      // border: 1px solid #cbcbcb;
-      // transition: all 0.3s;
-      // &:hover {
-      //   color: #fff;
-      //   background-color: var(--indexColor1);
-      // }
-      // &:active {
-      //   color: #fff;
-      //   background-color: var(--indexColor1);
-      // }
     }
     .privacyPolicy{
       width: 100%;
-      margin-top: 52px;
+      margin-top: 30px;
       &-label{
         font-size: 16px;
         color: var(--indexColor1);
@@ -494,7 +475,7 @@ li{
         line-height: 160%; /* 41.6px */
         letter-spacing: 5.2px;
         font-size: 16px;
-        margin-top: 45px;
+        margin-top: 20px;
         a{
           color: #00AEFF;
           text-decoration-line: underline;
@@ -526,8 +507,8 @@ li{
 @media (min-width: 768px) and (max-width: 1920px) {
   li{
   &.el-select-dropdown__item{
-    height: 3.3333vw;
-    line-height: 3.3333vw;
+    height: 2.8646vw;
+    line-height: 2.8646vw;
     font-size: 1.4583vw;
     letter-spacing: .3646vw;
   }
@@ -550,16 +531,16 @@ li{
   &-in {
     width: calc(100% - 3.125vw);
     max-width: 41.6667vw;
-    margin: 3.1771vw auto 0;
+    margin: 2.6042vw auto 0;
     :deep(.el-form-item) {
-      margin-bottom: 1.875vw;
+      margin-bottom: 1.5625vw;
     }
     :deep(.el-form-item__label) {
       font-size: 1.4583vw;
       letter-spacing: .2604vw;
     }
     :deep(.el-input) {
-      height: 3.3333vw;
+      height: 2.8646vw;
       font-size: 1.4583vw;
     }
     :deep(.el-input__inner){
@@ -579,21 +560,21 @@ li{
     }
     :deep(.el-select-dropdown__item){
       font-size: 1.4583vw;
-      height: 3.3333vw;
-      line-height: 3.3333vw;
+      height: 2.8646vw;
+      line-height: 2.8646vw;
     }
     :deep(.el-select .el-input .el-select__caret){
       font-size: 1.4583vw;
     }
     .privacyPolicy{
-      margin-top: 2.7083vw;
+      margin-top: 1.5625vw;
       &-label{
         font-size: .8333vw;
       }
       &-content{
         letter-spacing: .2708vw;
         font-size: .8333vw;
-        margin-top: 2.3438vw;
+        margin-top: 1.0417vw;
         :deep(.el-radio.el-radio--large .el-radio__label){
           font-size: .8333vw;
         }
