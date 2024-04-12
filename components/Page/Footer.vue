@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 
 import { useAppState } from '~/stores/appState'
+import { smallPhoneNum,phoneNum } from '~/assets/js/common' 
 const appState = useAppState()
 const navLists = [
   {
@@ -83,6 +84,10 @@ const handleopenwechat = () =>{
       </div>
       <div class="footer-content-text">
         {{$t('components.footer.text1')}} {{'\n'}}{{$t('components.footer.text2')}}
+        <nuxt-link :to="`tel: ${phoneNum}`" class="footer-content-text-tel">
+          <img src="@/assets/images/navIcon_1.png" alt="">
+          <span>香港熱線：(852) {{smallPhoneNum}}</span>
+        </nuxt-link>
       </div>
       <div class="footer-content-icon">
         <div class="footer-content-icon-in">
@@ -120,6 +125,9 @@ const handleopenwechat = () =>{
         <nuxt-link to="/disclaimer">{{$t('components.footer.disclaimer')}}</nuxt-link>
       </div>
       <div class="footer-content-copyright">©2024 {{$t('components.footer.all_rights_reserved')}}</div>
+      <div class="footer-content-copyright">
+        本網站資訊僅供參考，不能作診療及醫療為依據
+      </div>
     </div>
     <div :class="['dialogBox',{show:_bool}]" @click="_bool=false">
       <div :class="['dialogBox-in',{'show-in':_bool}]" @click.stop="">
@@ -222,7 +230,7 @@ const handleopenwechat = () =>{
   position: relative;
   font-weight: 700;
   width: 100%;
-  padding: 60px;
+  padding: 40px 0;
   box-sizing: border-box;
   &-nav {
     display: flex;
@@ -249,6 +257,16 @@ const handleopenwechat = () =>{
     line-height: 160%;
     text-shadow: 0px 0px 4px rgba(255, 120, 117, 0.45);
     white-space: pre-wrap;
+    &-tel{
+      margin-top: 25px;
+      display: flex;
+      align-items: center;
+      &>img{
+        width: 26px;
+        height: 24px;
+        margin-right: 13px;
+      }
+    }
   }
   &-icon {
     margin-top: 30px;
@@ -313,7 +331,7 @@ const handleopenwechat = () =>{
     color: #fff;
     font-size: 16px;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 30px;
     a{
       transition: all .3s;
       display: inline-block;
@@ -342,6 +360,14 @@ const handleopenwechat = () =>{
     }
     &-text {
       font-size: 1.1458vw;
+      &-tel{
+        margin-top: 1.3021vw;
+        &>img{
+          width: 1.3542vw;
+          height: 1.25vw;
+          margin-right: .6771vw;
+        }
+      }
     }
     &-icon {
       margin-top: 1.5625vw;
@@ -374,7 +400,7 @@ const handleopenwechat = () =>{
 }
 @media screen and (max-width: 768px) {
   .footer-content {
-    padding: 50px 30px 170px;
+    padding: 50px 0 170px;
     &-nav {
       flex-direction: column;
       text-align: center;
