@@ -155,7 +155,7 @@ watch(
 <style lang="scss" scoped>
 
 .index-contactUs{
-  padding: 140px 0 100px;
+  padding: 80px 0 20px;
   margin: 0 auto;
   &-t{
     display: flex;
@@ -167,19 +167,19 @@ watch(
       div{
         flex: 1;
         text-align: center;
-        font-size: 35px;
+        font-size: 24px;
       }
     }
   }
   &-clinicTab{
     display: flex;
-    margin-top: 30px;
+    margin-top: 10px;
     &-in{
       flex: 1;
       text-align: center;
       color: #00AEFF;
       transition: all .3s;
-      font-size: 30px;
+      font-size: 24px;
       cursor: pointer;
       border-top: 2px solid #00AEFF;
       border-bottom: 2px solid #00AEFF;
@@ -338,7 +338,7 @@ watch(
             padding: 5px 40px;
             border-radius: 40px;
             cursor: pointer;
-            font-size: 35px;
+            font-size: 26px;
             transition: all .3s;
             opacity: 1;
           }
@@ -426,19 +426,19 @@ watch(
 
 @media (min-width: 768px) and (max-width: 1920px) {
   .index-contactUs{
-    padding: 7.2917vw 0 5.2083vw;
+    padding: 4.1667vw 0 1.0417vw;
     &-tab{
       margin-top: 2.0833vw;
       :deep(.areaTab){
         div{
-          font-size: 1.8229vw;
+          font-size: 1.25vw;
         }
       }
     }
     &-clinicTab{
-      margin-top: 1.5625vw;
+      margin-top: .5208vw;
       &-in{
-        font-size: 1.5625vw;
+        font-size: 1.25vw;
         border-top: .1042vw solid #00AEFF;
         border-bottom: .1042vw solid #00AEFF;
         border-left: .1042vw solid #00AEFF;
@@ -524,7 +524,7 @@ watch(
             span{
               padding: .2604vw 2.0833vw;
               border-radius: 2.0833vw;
-              font-size: 1.8229vw;
+              font-size: 1.25vw;
             }
           }
           &-lx{

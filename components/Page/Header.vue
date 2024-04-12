@@ -1144,6 +1144,13 @@ const handleopenwechat = () =>{
     margin-top: 0 !important;
     .header-content-in {
       align-items: center;
+      .logo{
+        &>a{
+          img{
+            height: 30px;
+          }
+        }
+      }
     }
   }
 }

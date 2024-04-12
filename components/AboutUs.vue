@@ -177,11 +177,11 @@ const changemouse = (type: String) =>{
 }
 //關於我們
 .index-aboutUs{
-  margin-top: 140px;
-  padding-bottom: 90px;
+  margin-top: 40px;
+  // padding-bottom: 60px;
   &-swiper{
     width: 100%;
-    margin: 67px auto 0;
+    margin: 30px auto 0;
     position: relative;
     &-in{
       width: 100%;
@@ -326,10 +326,10 @@ const changemouse = (type: String) =>{
 }
 @media (min-width: 768px) and (max-width: 1920px) {
     .index-aboutUs{
-      margin-top: 7.2917vw;
-      padding-bottom: 4.6875vw;
+      margin-top: 2.0833vw;
+      // padding-bottom: 3.125vw;
       &-swiper{
-        margin: 3.4896vw auto 0;
+        margin: 1.5625vw auto 0;
         &-in{
           max-width: 69.4792vw;
           &-slide{

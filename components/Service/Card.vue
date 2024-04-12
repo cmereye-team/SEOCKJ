@@ -58,7 +58,7 @@ const servicesCardPageData = {
   font-style: normal;
   position: relative;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 120%;
   text-indent: 45px;
   color: #666666;
@@ -98,14 +98,14 @@ const servicesCardPageData = {
       flex-wrap: wrap;
       margin: 46px auto 0;
       width: 100%;
-      max-width: 1090px;
+      max-width: 980px;
       &-in{
         cursor: pointer;
-        width: 25%;
+        width: 20%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 0 45px;
+        padding: 0 30px;
         box-sizing: border-box;
         a{
           width: 100%;
@@ -127,8 +127,8 @@ const servicesCardPageData = {
             left: 50%;
             top: 50%;
             transform: translate(-50%,-50%);
-            max-width: 90%;
-            max-height: 90%;
+            max-width: 80%;
+            max-height: 80%;
           }
           &:hover{
             background: #FEE6F1;
@@ -177,9 +177,9 @@ const servicesCardPageData = {
 }
 @media (min-width: 769px) and (max-width: 1920px) {
   .services_title{
-    font-size: 24px;
-    text-indent: 45px;
-    padding-bottom: 15px;
+    font-size: 1.0417vw;
+    text-indent: 2.3438vw;
+    padding-bottom: .7813vw;
   }
   .index-dentalServices{
     padding: 9.8438vw 0 0;
@@ -199,9 +199,9 @@ const servicesCardPageData = {
       }
       .servicesCard{
         margin: 2.3958vw auto 0;
-        max-width: 56.7708vw;
+        max-width: 51.0417vw;
         &-in{
-          padding: 0 2.3438vw;
+          padding: 0 1.5625vw;
           &-image{
             box-shadow: 0 .1042vw .2083vw rgba(0,0,0,.25);
             border-radius: .5208vw;

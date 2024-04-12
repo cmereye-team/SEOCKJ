@@ -603,11 +603,11 @@ svg:hover path{
 .indexPage {
   width: 100%;
   background: #fff;
-  padding-bottom: 140px;
+  // padding-bottom: 140px;
   // overflow: hidden;
 }
 .treatment-data{
-  margin-top: 140px;
+  margin-top: 80px;
   &-title{
     span{
       color: var(--indexColor1);
@@ -687,27 +687,28 @@ svg:hover path{
 }
 //醫生團隊
 .index-doctorTeam{
-  margin: 140px auto 100px;
+  margin: 60px auto 50px;
   &-t{
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
   }
   &-con{
-    width: 80%;
-    max-width: 1365px;
-    margin: 30px auto 0;
+    width: 70%;
+    max-width: 1280px;
+    margin: 25px auto 0;
   }
   &-tab1{
     :deep(.areaTab){
       div{
         flex: 1;
         text-align: center;
-        font-size: 35px;
+        font-size: 24px;
       }
     }
   }
   &-tab2{
+    margin-top: 10px;
     &-in{
       width: 100%;
       display: flex;
@@ -719,7 +720,7 @@ svg:hover path{
         border-bottom: 2px solid #00AEFF;
         border-left: 2px solid #00AEFF;
         padding: 5px 0;
-        font-size: 35px;
+        font-size: 24px;
         text-align: center;
         letter-spacing: 3px;
         cursor: pointer;
@@ -945,7 +946,7 @@ svg:hover path{
 .index-caseSharing{
   padding: 35px 0;
   background: linear-gradient(180deg,rgba(255, 241, 240, 0) 0%,var(--indexColor2) 100%);
-  margin-top: 140px;
+  margin-top: 80px;
   &-title{
     display: flex;
     justify-content: center;
@@ -969,7 +970,7 @@ svg:hover path{
   }
 }
 .index-org{
-  margin-top: 170px;
+  margin-top: 120px;
   &-tag{
     width: 80%;
     max-width: 804px;
@@ -1023,7 +1024,7 @@ svg:hover path{
   }
 }
 .index-videoBox{
-  margin-top: 132px;
+  margin-top: 80px;
   &-c{
     display: flex;
     align-items: center;
@@ -1079,7 +1080,7 @@ svg:hover path{
 }
 @media (min-width: 768px) and (max-width: 1920px){
   .index-org{
-    margin-top: 8.8542vw;
+    margin-top: 6.25vw;
     &-tag{
       max-width: 41.875vw;
       margin-top: 2.6042vw;
@@ -1104,7 +1105,7 @@ svg:hover path{
     }
   }
   .index-videoBox{
-    margin-top: 6.875vw;
+    margin-top: 4.1667vw;
     &-c{
       margin-top: 2.6042vw;
       &-l{
@@ -1124,7 +1125,7 @@ svg:hover path{
   }
   .index-caseSharing{
     padding: 1.8229vw 0;
-    margin-top: 7.2917vw;
+    margin-top: 4.1667vw;
     &-in{
       width: 70%;
       max-width: 54.4792vw;
@@ -1138,7 +1139,7 @@ svg:hover path{
     }
   }
   .treatment-data{
-    margin-top: 7.2917vw;
+    margin-top: 4.1667vw;
     &-title{
       span{
         font-size: 1.8229vw;
@@ -1171,24 +1172,24 @@ svg:hover path{
     }
   }
   .index-doctorTeam{
-    margin: 7.2917vw auto 5.2083vw;
+    margin: 3.125vw auto 2.6042vw;
     &-con{
-      width: 70%;
-      max-width: 71.0938vw;
-      margin: 1.5625vw auto 0;
+      // max-width: 66.6667vw;
+      margin: 1.3021vw auto 0;
     }
     &-tab1{
       :deep(.areaTab){
         div{
-          font-size: 1.8229vw;
+          font-size: 1.25vw;
         }
       }
     }
     &-tab2{
+      margin-top: .5208vw;
       &-in{
         &>div{
           padding: .2604vw 0;
-          font-size: 1.8229vw;
+          font-size: 1.25vw;
           letter-spacing: .1563vw;
           &:first-child{
             border-radius: .2604vw 0 0 .2604vw;
@@ -1364,7 +1365,7 @@ svg:hover path{
   .indexPage {
     width: 100%;
     background: #fff;
-    padding: 0 0 90px;
+    // padding: 0 0 90px;
   }
   //醫生團隊
   .index-doctorTeam{
