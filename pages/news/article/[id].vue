@@ -355,6 +355,10 @@ if(process.server){
   margin: 30px auto 0;
   color: var(--indexColor1);
   font-size: 50px;
+  h1{
+    font-weight: 600;
+    font-family: var(--contextTitleFamily);
+  }
 }
 .content{
   width: calc(100% - 60px);
@@ -376,6 +380,8 @@ if(process.server){
     margin-top: 30px;
     color: var(--indexColor1);
     font-size: 50px;
+    font-weight: 600;
+    font-family: var(--contextTitleFamily);
   }
   :deep(.content-time){
     margin: 50px 0;
@@ -385,6 +391,8 @@ if(process.server){
   :deep(.content-h2){
     color: var(--indexColor1);
     font-size: 30px;
+    font-weight: 600;
+    font-family: var(--contextTitleFamily);
   }
   :deep(.content-text){
     color: var(--textColor);
