@@ -98,18 +98,20 @@ const servicesCardPageData = {
       flex-wrap: wrap;
       margin: 46px auto 0;
       width: 100%;
-      max-width: 980px;
+      max-width: 760px;
       &-in{
-        cursor: pointer;
+        
         width: 20%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 0 30px;
+        padding: 0 20px;
         box-sizing: border-box;
         a{
           width: 100%;
           height: 100%;
+          padding: 0 10px;
+          cursor: pointer;
         }
         &-image{
           width: 100%;
@@ -118,7 +120,7 @@ const servicesCardPageData = {
           position: relative;
           background: #FFF1F0;
           box-shadow: 0 2px 4px rgba(0,0,0,.25);
-          border-radius: 10px;
+          border-radius: 6px;
           transition: all .3s;
           box-sizing: border-box;
           border: 2px solid #FFF1F0;
@@ -140,7 +142,7 @@ const servicesCardPageData = {
           padding: 10px 0 40px;
           font-style: normal;
           font-weight: 700;
-          font-size: 26px;
+          font-size: 16px;
           color: #666666;
           text-align: center;
           white-space: nowrap;
@@ -199,12 +201,15 @@ const servicesCardPageData = {
       }
       .servicesCard{
         margin: 2.3958vw auto 0;
-        max-width: 51.0417vw;
+        max-width: 39.5833vw;
         &-in{
-          padding: 0 1.5625vw;
+          padding: 0 1.0417vw;
+          a{
+            padding: 0 .5208vw;
+          }
           &-image{
             box-shadow: 0 .1042vw .2083vw rgba(0,0,0,.25);
-            border-radius: .5208vw;
+            border-radius: .3125vw;
             border: .1042vw solid #FFF1F0;
             &:hover{
               box-shadow: 0 .2604vw .2604vw rgba(0,0,0,.45);
@@ -213,7 +218,7 @@ const servicesCardPageData = {
           }
           &-name{
             padding: .5208vw 0 2.0833vw;
-            font-size: 1.3542vw;
+            font-size: .8333vw;
           }
           &>.router-link-exact-active{
             .servicesCard-in-image{

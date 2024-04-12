@@ -167,7 +167,7 @@ watch(
       div{
         flex: 1;
         text-align: center;
-        font-size: 24px;
+        font-size: 20px;
       }
     }
   }
@@ -179,7 +179,7 @@ watch(
       text-align: center;
       color: #00AEFF;
       transition: all .3s;
-      font-size: 24px;
+      font-size: 18px;
       cursor: pointer;
       border-top: 2px solid #00AEFF;
       border-bottom: 2px solid #00AEFF;
@@ -431,14 +431,14 @@ watch(
       margin-top: 2.0833vw;
       :deep(.areaTab){
         div{
-          font-size: 1.25vw;
+          font-size: 1.0417vw;
         }
       }
     }
     &-clinicTab{
       margin-top: .5208vw;
       &-in{
-        font-size: 1.25vw;
+        font-size: 18px;
         border-top: .1042vw solid #00AEFF;
         border-bottom: .1042vw solid #00AEFF;
         border-left: .1042vw solid #00AEFF;

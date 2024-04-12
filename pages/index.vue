@@ -703,7 +703,7 @@ svg:hover path{
       div{
         flex: 1;
         text-align: center;
-        font-size: 24px;
+        font-size: 20px;
       }
     }
   }
@@ -720,7 +720,7 @@ svg:hover path{
         border-bottom: 2px solid #00AEFF;
         border-left: 2px solid #00AEFF;
         padding: 5px 0;
-        font-size: 24px;
+        font-size: 18px;
         text-align: center;
         letter-spacing: 3px;
         cursor: pointer;
@@ -980,7 +980,7 @@ svg:hover path{
       flex: 1;
       color: var(--indexColor1);
       padding: 5px;
-      font-size: 35px;
+      font-size: 24px;
       text-align: center;
       border-top: 2px solid var(--indexColor1);
       border-bottom: 2px solid var(--indexColor1);
@@ -1024,7 +1024,7 @@ svg:hover path{
   }
 }
 .index-videoBox{
-  margin-top: 80px;
+  margin-top: 0;
   &-c{
     display: flex;
     align-items: center;
@@ -1086,7 +1086,7 @@ svg:hover path{
       margin-top: 2.6042vw;
       &-in{
         padding: .2604vw;
-        font-size: 1.8229vw;
+        font-size: 1.25vw;
         &:first-child{
           border-radius: .2604vw 0 0 .2604vw;
         }
@@ -1105,7 +1105,7 @@ svg:hover path{
     }
   }
   .index-videoBox{
-    margin-top: 4.1667vw;
+    // margin-top: 4.1667vw;
     &-c{
       margin-top: 2.6042vw;
       &-l{
@@ -1180,7 +1180,7 @@ svg:hover path{
     &-tab1{
       :deep(.areaTab){
         div{
-          font-size: 1.25vw;
+          font-size: 1.0417vw;
         }
       }
     }
@@ -1189,7 +1189,7 @@ svg:hover path{
       &-in{
         &>div{
           padding: .2604vw 0;
-          font-size: 1.25vw;
+          font-size: .9375vw;
           letter-spacing: .1563vw;
           &:first-child{
             border-radius: .2604vw 0 0 .2604vw;
@@ -1591,7 +1591,7 @@ svg:hover path{
     }
   }
   .index-videoBox{
-    margin-top: 90px;
+    margin-top: 80px;
     &-c{
       flex-direction: column-reverse;
       text-align: center;

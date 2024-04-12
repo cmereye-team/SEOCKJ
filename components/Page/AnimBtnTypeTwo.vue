@@ -34,7 +34,7 @@ defineProps({
     position: relative;
     display: inline-block;
     &>span{
-      padding: 10px 50px;
+      padding: 8px 40px;
       color: #fff;
       background: #00AEFF;
       position: relative;
@@ -45,7 +45,7 @@ defineProps({
       box-shadow: 10px 10px 20px rgba(103, 214, 239, .75);
       cursor: pointer;
       transition: all .5s;
-      font-size: 30px;
+      font-size: 24px;
     }
     &::after{
       content: '';
@@ -152,8 +152,8 @@ defineProps({
   .animbtntypetwo{
     &-in{
       &>span{
-        font-size: 2vw;
-        padding: .5vw 2.5vw;
+        font-size: 1.25vw;
+        padding: .4167vw 2.0833vw;
       }
     }
   }

@@ -643,6 +643,7 @@ const handleopenwechat = () =>{
 }
 .header-content {
   width: 100%;
+  // margin-top: 67px;
   box-sizing: border-box;
   position: relative;
   &-bgImg {
@@ -671,8 +672,7 @@ const handleopenwechat = () =>{
   }
   &-bgImg-implant {
     position: fixed;
-    top: 0;
-    z-index: -1;
+    z-index: -2;
     width: 100%;
     img {
       width: 100%;
@@ -1178,9 +1178,15 @@ const handleopenwechat = () =>{
     }
   }
 }
+@media (min-width: 768px) and (max-width: 1920px){
+  .header-content {
+    // margin-top: 3.4896vw;
+  }
+}
 
 @media screen and (max-width: 768px) {
   .header-content {
+    // margin-top: 0;
     &-bgImg {
       position: relative;
       &.course-new{

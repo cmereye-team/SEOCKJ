@@ -92,17 +92,17 @@ const handleopenwechat = () =>{
       <div class="footer-content-icon">
         <div class="footer-content-icon-in">
           <nuxt-link to="https://www.facebook.com/ckjdental.hk/" target="_blank">
-            <img src="@/assets/images/icon_1.png" alt="facebook" />
+            <img src="@/assets/images/icon_1.png" alt="facebook" title="facebook" />
           </nuxt-link>
         </div>
         <div class="footer-content-icon-in">
           <nuxt-link to="https://www.instagram.com/ckj_hk/" target="_blank">
-            <img src="@/assets/images/icon_2.png" alt="instagram" />
+            <img src="@/assets/images/icon_2.png" alt="instagram" title="instagram" />
           </nuxt-link>
         </div>
         <div class="footer-content-icon-in">
           <nuxt-link to="https://www.youtube.com/channel/UC4AQD5eeOiHIGd3QYFGK4aA" target="_blank">
-            <img src="@/assets/images/icon_3.png" alt="youtube" />
+            <img src="@/assets/images/icon_3.png" alt="youtube" title="youtube" />
           </nuxt-link>
         </div>
         <div class="footer-content-icon-in">
