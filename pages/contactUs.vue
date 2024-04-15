@@ -180,6 +180,8 @@ onMounted(() => {
   .contactUs{
     background: #fff;
     padding-bottom: 143px;
+    position: relative;
+    z-index: 1;
   }
   .environment{
     margin-top: 154px;

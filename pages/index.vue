@@ -603,6 +603,8 @@ svg:hover path{
 .indexPage {
   width: 100%;
   background: #fff;
+  position: relative;
+  z-index: 1;
   // padding-bottom: 140px;
   // overflow: hidden;
 }

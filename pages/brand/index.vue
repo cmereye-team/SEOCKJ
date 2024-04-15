@@ -44,6 +44,8 @@ useHead({
 <style lang="scss" scoped>
   .brandMind{
     background: #fff;
+    position: relative;
+    z-index: 1;
     overflow: hidden;
     padding-bottom: 143px;
   }

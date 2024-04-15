@@ -267,6 +267,8 @@ onMounted(()=>{
   .doctorPage{
     background: #fff;
     padding-bottom: 143px;
+    position: relative;
+    z-index: 1;
     .index_title{
       z-index: 1;
     }

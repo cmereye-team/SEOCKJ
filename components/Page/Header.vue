@@ -673,7 +673,7 @@ const handleopenwechat = () =>{
     width: 100%;
     box-sizing: border-box;
     position: fixed;
-    top: 0;
+    // top: 0;
     left: 50%;
     transform: translateX(-50%);
     z-index: -1;
@@ -843,8 +843,8 @@ const handleopenwechat = () =>{
   }
   &-bgImg-implant {
     position: fixed;
-    top: 0;
-    z-index: -1;
+    // top: 0;
+    z-index: -2;
     width: 100%;
     img {
       width: 100%;

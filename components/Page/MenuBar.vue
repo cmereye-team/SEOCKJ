@@ -65,14 +65,16 @@ const menuBar = ref(null)
 .menuBar{
   width: 100%;
   height: 67px;
-  background: var(--indexColor1);
   display: flex;
-  padding: 0 70px;
-  position: fixed;
-  top: 0;
-  z-index: -1;
+  // position: relative;
   &-in{
     width: 100%;
+    height: 67px;
+    background: var(--indexColor1);
+    position: fixed;
+    z-index: 0;
+    left: 0;
+    padding: 0 70px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -111,6 +113,7 @@ const menuBar = ref(null)
       .menuBar-icon{
         display: flex;
         align-items: center;
+        cursor: pointer;
         &-in{
           margin-left: 22px;
           position: relative;
@@ -123,7 +126,7 @@ const menuBar = ref(null)
             right: 0;
             display: none;
             opacity: 0;
-            transform: translateY(-10px);
+            transform: translateX(10px);
             z-index: 42;
             &-in{
               transition: all .5s;
@@ -145,26 +148,27 @@ const menuBar = ref(null)
           }
           &.weChatBox:hover .weChatCode{
             display: flex;
-            animation: animBottomIn 1s forwards;
+            animation: animRightIn 1s forwards;
           }
         }
       }
     }
   }
 }
-@keyframes animBottomIn {
+@keyframes animRightIn {
   from{
   }
   to{
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 @media (min-width: 768px) and (max-width: 1920px) {
   .menuBar{
     height: 3.4896vw;
-    padding: 0 3.6458vw;
     &-in{
+      height: 3.4896vw;
+      padding: 0 3.6458vw;
       .menuBar-box{
         &>img{
           margin-top: -0.2604vw;

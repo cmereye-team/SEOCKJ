@@ -493,6 +493,8 @@ const careData = {
 .orthodonticsPage{
   background: #fff;
   padding: 140px 0;
+  position: relative;
+  z-index: 1;
 }
 .bp{
   margin-top: 176px;

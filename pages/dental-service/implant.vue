@@ -861,6 +861,8 @@ const confidence_ecommendation_lists = [
   .dentistryServices{
     background: #fff;
     padding: 143px 0;
+    position: relative;
+    z-index: 1;
     .tabNav {
       font-weight: 400;
       font-size: 1.25rem;
@@ -1414,6 +1416,9 @@ const confidence_ecommendation_lists = [
           width: 100%;
           max-width: 552px;
           margin-top: 34px;
+          img{
+            margin: 0 auto;
+          }
         }
         &-t{
           margin-top: 23px;
@@ -1429,13 +1434,13 @@ const confidence_ecommendation_lists = [
         &-b{
           margin-top: 34px;
           /* Content-PC */
-           color: var(--textColor);
-font-family: "Noto Sans HK";
-font-size: 20px;
-font-style: normal;
-font-weight: 400;
-line-height: 160%; /* 32px */
-letter-spacing: 4px;
+          color: var(--textColor);
+          font-family: "Noto Sans HK";
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 160%; /* 32px */
+          letter-spacing: 4px;
         }
       }
       &-btn{

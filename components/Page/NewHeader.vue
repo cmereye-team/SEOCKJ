@@ -719,6 +719,7 @@ const handleopenwechat = () =>{
     }
   }
   &-bgImgBB {
+    position: relative;
     opacity: 0;
     &.course-new {
       max-width: 100%;
