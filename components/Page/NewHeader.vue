@@ -410,7 +410,7 @@ const handleopenwechat = () =>{
                 :to="['/news','/dental-service'].includes(menuItem.link) ? 'javaScript:void(0)': menuItem.link"
                 :title="$t(menuItem.name)"
               >
-                {{ $t(menuItem.name) }}
+                <span>{{ $t(menuItem.name) }}</span>
               </nuxt-link>
               <div v-if="menuItem.child.length" class="menuChild" >
                 <div
@@ -643,7 +643,6 @@ const handleopenwechat = () =>{
 }
 .header-content {
   width: 100%;
-  // margin-top: 67px;
   box-sizing: border-box;
   position: relative;
   &-bgImg {
@@ -793,18 +792,76 @@ const handleopenwechat = () =>{
             border-color: var(--indexColor1) transparent transparent transparent;
           }
         }
+        span{
+          position: relative;
+          display: inline-block;
+          &::before{
+            content: '';
+            width: 0;
+            position: absolute;
+            left: 50%;
+            bottom: -2px;
+            transform: translateX(-50%);
+            height: 2px;
+            background: var(--textColor);
+            transition: all .3s;
+            border-radius: 2px;
+          }
+        }
         & > .router-link-exact-active {
           color: var(--indexColor1);
-          text-decoration-line: underline;
+          // text-decoration-line: underline;
           &.triangleIcon:after {
             border-color: var(--indexColor1) transparent transparent transparent;
+          }
+          span{
+            &::before{
+              width: 100%;
+              bottom: 2px;
+              background: var(--indexColor1);
+            }
+          }
+          &.health-care-voucher{
+            span{
+              &::before{
+                background: #00A752;
+              }
+            }
+          }
+          &.federation-of-trade-unions-zone{
+            span{
+              &::before{
+                background: #E60013;
+              }
+            }
           }
         }
         &:hover {
           color: var(--indexColor1);
-          text-decoration-line: underline;
+          // text-decoration-line: underline;
           .triangleIcon:after {
             border-color: var(--indexColor1) transparent transparent transparent;
+          }
+          span{
+            &::before{
+              width: 100%;
+              bottom: 2px;
+              background: var(--indexColor1);
+            }
+          }
+          .health-care-voucher{
+            span{
+              &::before{
+                background: #00A752;
+              }
+            }
+          }
+          .federation-of-trade-unions-zone{
+            span{
+              &::before{
+                background: #E60013;
+              }
+            }
           }
         }
         &:hover .menuChild {
@@ -1177,11 +1234,6 @@ const handleopenwechat = () =>{
         font-size: 100%;
       }
     }
-  }
-}
-@media (min-width: 768px) and (max-width: 1920px){
-  .header-content {
-    // margin-top: 3.4896vw;
   }
 }
 
