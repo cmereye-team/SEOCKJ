@@ -16,8 +16,8 @@ const menuBar = ref(null)
 </script>
 
 <template>
-  <div class="menuBar " ref="menuBar">
-    <div class="menuBar-in">
+  <div class="menuBar" ref="menuBar">
+    <div class="menuBar-in bgColor">
       <div class="menuBar-in-l">
         <div class="menuBar-box" title="深圳市醫保定點醫院">
           <img src="@/assets/images/icon_38.svg" alt="">

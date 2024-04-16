@@ -19,9 +19,9 @@ useHead({
 })
 
 const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2024/02/59dd6590cee09034.jpg',
+  img: 'https://static.cmereye.com/imgs/2024/03/3215d200c5bdcff0.jpg',
   bg: '',
-  mbImg: 'https://static.cmereye.com/imgs/2024/02/f56764d79a8e7ca6.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2024/03/427985a6c82b4c49.jpg',
   pageName: 'invisalign-test',
   pcText: [],
   mbText: []
@@ -35,49 +35,6 @@ const orthodonticsIntroduceData = {
   tabNavName: 'pages.dental-service.fillings.introduce.tabNavName',
   pageName: 'fillings',
 }
-
-// const reasonData = {
-//   title: 'pages.dental-service.fillings.reason.title',
-//   text: 'pages.dental-service.fillings.reason.text',
-//   imgUrl: 'https://static.cmereye.com/imgs/2023/05/d053bb08e7c265a0.jpg',
-//   reasonLists: [
-//     {
-//       context:
-//         'pages.dental-service.fillings.reason.lists[0].context',
-//     },
-//   ],
-//   isMediumCW: true,
-// }
-
-// const stepData = {
-//   title: '補牙過程',
-//   stepLists: [
-//     [
-//       {
-//         title: 'Step 1',
-//         text: '清除牙齒蛀壞及脆弱的部分',
-//       },
-//       {
-//         title: 'Step 2',
-//         text: '用專用的清潔消毒劑清潔牙齒表面，吹乾後，塗上黏固劑',
-//       },
-//       {
-//         title: 'Step 3',
-//         text: '填補牙洞及修補缺損部分',
-//       },
-//     ],
-//     [
-//       {
-//         title: 'Step 4',
-//         text: '穩固填充物',
-//       },
-//       {
-//         title: 'Step 5',
-//         text: '牙齒修形及拋光（如蛀牙的程度深，或需要使用麻醉劑）',
-//       },
-//     ],
-//   ],
-// }
 
 const noteData = {
   title: '補牙後建議',
@@ -250,24 +207,81 @@ const noteData2 = {
   ]
 }
 const reasonData = {
-  title: '蛀牙階段',
+  title: '蛀牙5個階段及對應治療方法',
   reasonLists: [
     {
-      img: 'https://static.cmereye.com/imgs/2023/10/fafa2f37cf68b4fb.jpg',
-      title: '蛀牙初期',
-      context: '最外層琺瑯質受損',
+      img: 'https://static.cmereye.com/imgs/2024/04/3888d359e0b7d48d.png',
+      title: '脫鈣（初期蛀牙）',
+      context: '出現白色斑點，牙齒表面粗糙。',
+      lists: [
+        {
+          img: 'https://static.cmereye.com/imgs/2024/04/c03a9e707f02c38a.png',
+          name: '氟化治療',
+          text: '使用含氟牙膏或氟漱口水來幫助恢復牙齒的礦化。'
+        }
+      ]
     },
     {
-      img: 'https://static.cmereye.com/imgs/2023/10/91c57e27b6a68095.jpg',
-      title: '蛀牙中期',
-      context: '受損至象牙質',
+      img: 'https://static.cmereye.com/imgs/2024/04/9f38b6263937f9b6.png',
+      title: '外層琺瑯質受損',
+      context: '牙齒出現黑色斑點或小洞。',
+      lists: [
+        {
+          img: 'https://static.cmereye.com/imgs/2024/04/afa73345f75ba23e.png',
+          name: '補牙',
+          text: '移除損壞的琺瑯質並填充牙洞。'
+        }
+      ]
     },
     {
-      img: 'https://static.cmereye.com/imgs/2024/02/110eb2fe9f155701.jpg',
-      title: '蛀牙後期',
-      context: '細菌深入牙髓\n內部組織發炎',
+      img: 'https://static.cmereye.com/imgs/2024/04/936c3035a1b735c4.png',
+      title: '內層象牙質受損',
+      context: '牙齒對冷熱或甜食敏感。',
+      lists: [
+        {
+          img: 'https://static.cmereye.com/imgs/2024/04/afa73345f75ba23e.png',
+          name: '補牙',
+          text: '如果損害未達牙髓，仍可進行補牙修復，但補牙物料需要選用更耐用材質。'
+        }
+      ]
+    },
+    {
+      img: 'https://static.cmereye.com/imgs/2024/04/b632a48711f84dc2.png',
+      title: '牙髓及神經受損',
+      context: '持續性的疼痛，牙肉紅腫。',
+      lists: [
+        {
+          img: 'https://static.cmereye.com/imgs/2024/04/e4b74d72877b3fc3.png',
+          name: '根管治療',
+          text: '徹底清除牙髓腔內的感染組織，填充和封閉根管。'
+        },
+        {
+          img: 'https://static.cmereye.com/imgs/2024/04/4d64f6318dd7347a.png',
+          name: '牙冠修復',
+          text: '在根管治療後，牙齒可能需要一個牙冠來提供額外的強度和保護。'
+        }
+      ]
+    },
+    {
+      img: 'https://static.cmereye.com/imgs/2024/04/7cad4228b8f92fa0.png',
+      title: '殘根',
+      context: '牙冠部分極度損壞，僅剩牙根。',
+      lists: [
+        {
+          img: 'https://static.cmereye.com/imgs/2024/04/f793cb2ae322224b.png',
+          name: '牙冠重建',
+          text: '如牙根處於健康情況下，可透過牙冠或其他修復療程來重建牙齒的形狀和功能。'
+        },
+        {
+          img: 'https://static.cmereye.com/imgs/2024/04/f87cd712a227222a.png',
+          name: '牙齒移除',
+          text: '如牙齒無法修復需拔除的情況下，可考慮種植牙或牙橋療程作填補。'
+        }
+      ]
     },
   ],
+  tText: '蛀牙是一個逐步破壞牙齒的過程，它可以分為幾個階段，每個階段對應不同的治療方法。由於每個病例都是獨特的，因此最適合的治療方法將由牙科醫生根據患者具體情況決定。',
+  bText: ['建議在遇到蛀牙問題時，','及早就醫並諮詢專業牙醫生建議，','以確定最適合您的治療方案。']
 }
 
 const The_benefits_of_resin_filling_teeth = {
@@ -349,6 +363,7 @@ const differData:any = {
     },
   ]
 }
+
 </script>
 
 
@@ -358,9 +373,6 @@ const differData:any = {
     <div class="pageIn whitebgColor">
       <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
       <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
-      <!-- <ServiceReason :reasonData="reasonData" /> -->
-      <!-- <ServiceStep :stepData="stepData" /> -->
-      <!-- <ServiceNote :noteData="noteData" /> -->
       <div class="The_benefits_of_resin_filling_teeth">
         <div class="dentistryServices-title reason-title">
           <div class="dentistryServices-title-in bb reason-title-in">
@@ -421,6 +433,7 @@ const differData:any = {
                   <div>最快即日<span>修補牙齒</span></div>
                 </div>
                 <div class="lastBox-b">
+                  <!-- <PageAnimBtnTypeTwo :str="'免費網上預約'" /> -->
                   <PageAnimBtnTypeTwo :str="'免費網上預約'" />
                 </div>
               </div>
@@ -522,6 +535,9 @@ const differData:any = {
             {{ reasonData.title }}
           </div>
         </div>
+        <div class="reason-tc">
+          {{reasonData.tText}}
+        </div>
         <div class="reason-lists">
           <div
             v-for="(item, index) in reasonData.reasonLists"
@@ -531,79 +547,44 @@ const differData:any = {
             <div class="image">
               <img :src="item.img" alt="" />
             </div>
-            <div class="text">
-              <span>{{ item.title }}</span>
-              <span>{{ item.context }}</span>
+            <div class="reason-lists-item-r">
+              <div class="title">
+                <span>{{item.title}}</span>
+              </div>
+              <div class="context">
+                <img src="@/assets/images/icon_41.svg" alt="">
+                <span>特徵：{{item.context}}</span>
+                <span></span>
+              </div>
+              <div class="name">
+                <img src="@/assets/images/icon_40.svg" alt="">
+                <span>治療方法：</span>
+              </div>
+              <div class="list">
+                <div class="list-in" v-for="(itemIn,itemIndex) in item.lists" :key="itemIndex"> 
+                  <div class="list-in-img">
+                    <img :src="itemIn.img" alt="">
+                  </div>
+                  <div class="list-in-text">
+                    <h2>{{itemIn.name}}</h2>
+                    <p>{{itemIn.text}}</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <div class="reason-bt">
-          <div><span>蛀牙的前期及中期可靠補牙修復。</span><span>一旦蛀牙深入牙髓，則需要接受更進一步的治療，</span><span>例如根管治療(杜牙根)、</span><span>全瓷牙冠、拔牙、種植牙。</span></div>
-          <div><span>建議在遇到蛀牙問題時，及早就醫並諮詢專業牙醫生建議，</span><span>以確定最適合您的治療方案。</span></div>
+          <div>
+            <span v-for="(bitem,bindex) in reasonData.bText" :key="bindex">{{bitem}}</span>
+          </div>
         </div>
         <div class="reason-btn">
-          <PageAnimBtnTypeTwo :str="'了解根管治療資訊'" />
+          <!-- <PageAnimBtnTypeTwo :str="'了解根管治療資訊'" /> -->
+          <PageAnimBtnTypeTwo :str="'立即WhatsApp查詢'" />
         </div>
       </div>
-      <!-- <div class="material">
-        <div class="dentistryServices-title">
-          <div class="dentistryServices-title-in bb">{{materialData.title}}</div>
-        </div>
-        <div class="material-context">
-          <span v-for="(contextItem,contextIndex) in materialData.context" :key="contextIndex">{{contextItem}}</span>
-        </div>
-        <div class="material-in">
-          <swiper
-            slidesPerView="auto"
-            class="swiper"
-            @slideChange="onSlideChange"
-          >
-            <swiper-slide class="swiper-slide">
-              <div class="box-left">
-                <div class="box">
-                  <div
-                    class="box-in"
-                    v-for="(meritItem,meritIndex) in materialData.tableLeft[0]"
-                    :key="meritIndex"
-                  >
-                    <div>{{meritItem}}</div>
-                  </div>
-                </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide class="swiper-slide">
-              <div class="box-center">
-                <div class="box">
-                  <div
-                    class="box-in"
-                    v-for="(meritItem,meritIndex) in materialData.tableLeft[1]"
-                    :key="meritIndex"
-                  >
-                    <div>{{meritItem}}</div>
-                  </div>
-                </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide class="swiper-slide">
-              <div class="box-right">
-                <div class="box">
-                  <div
-                    class="box-in"
-                    v-for="(shortcomingItem,shortcomingIndex) in materialData.tableRight"
-                    :key="shortcomingIndex"
-                  >
-                    <div>{{shortcomingItem}}</div>
-                  </div>
-                </div>
-              </div>
-            </swiper-slide>
-          </swiper>
-        </div>
-        <div class="material-line mbBox">
-          <PageSwiperPointLine :latestNewsNum="3" :latestNewsCurrent="materialCurrent"></PageSwiperPointLine>
-        </div>
-      </div> -->
-      <div class="fillings-content-1">
+      <div class="fillings-content-l">
         <div class="dentistryServices-title fillings-content-1-title">
           <div class="dentistryServices-title-in bb fillings-content-1-title-in">
             <span>容易患上蛀牙的高危人士</span>
@@ -640,6 +621,7 @@ const differData:any = {
           </div>
         </div>
         <div class="care-btn">
+          <!-- <PageAnimBtnTypeTwo :str="'立即預約免費檢查'" /> -->
           <PageAnimBtnTypeTwo :str="'立即預約免費檢查'" />
         </div>
       </div>
@@ -668,54 +650,117 @@ const differData:any = {
 
 <style lang="scss" scoped>
 .reason {
-  margin-top: 188px;
-  &-title {
-    &-in {
-      font-size: 50px;
-    }
+  margin-top: 120px;
+  margin-bottom: 120px;
+  &-tc{
+    width: calc(1016 / 1920 * 100%);
+    max-width: 1016px;
+    margin: 31px auto 52px;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%; /* 32px */
+    letter-spacing: 4px;
+    color: var(--textColor);
+    font-family: var(--contextFamily);
   }
-  &-lists {
-    width: 100%;
-    max-width: 1656px;
-    display: flex;
-    margin: 116px auto 0;
-    &-item {
-      padding: 0 55px;
-      width: calc(100% / 3);
-      .image {
-        position: relative;
-        img {
+  &-lists{
+    margin-top: 17px;
+    &-item{
+      width: calc(1616 / 1920 * 100%);
+      max-width: 1616px;
+      margin: 0 auto;
+      padding: 53px 216px;
+      display: flex;
+      align-items: center;
+      border-radius: 350px;
+      &:nth-of-type(odd){
+        background: #FFF1F0;
+      }
+      .image{
+        margin-right: 55px;
+        width: 360px;
+        height: 360px;
+        img{
           width: 100%;
+          height: 100%;
         }
       }
-      .text {
-        font-style: normal;
-        text-align: center;
-        margin-top: -45px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: relative;
-        z-index: 1;
-        span {
-          font-size: 35px;
-          font-weight: 900;
-          &:nth-of-type(1) {
+      &-r{
+        flex: 1;
+        .title{
+          span{
             color: #fff;
-            border-radius: 30px;
-            background: var(--indexColor1);
             text-align: center;
-            width: max-content;
-            padding: 0 40px;
-            filter: drop-shadow(
-              0px 3.7044363021850586px 7.408872604370117px
-                rgba(252, 22, 130, 0.38)
-            );
+            font-size: 35px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 160%; /* 56px */
+            letter-spacing: 7px;
+            background: var(--indexColor1);
+            border-radius: 50px;
+            padding: 5px 30px;
+            min-width: 363px;
+            display: inline-block;
+            box-shadow: 0px 3.704px 7.409px rgba(252, 22, 130, 0.38);
           }
-          &:nth-of-type(2) {
-            color: var(--indexColor1);
-            white-space: pre-wrap;
-            margin-top: 44px;
+        }
+        .context{
+          margin-top: 40px;
+          margin-bottom: 20px;
+          display: flex;
+          align-items: center;
+          color: var(--indexColor1);
+          font-size: 30px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 160%; /* 48px */
+          letter-spacing: 3px;
+          &>img{
+            margin-right: 10px;
+            width: 43px;
+          }
+        }
+        .name{
+          color: #00AEFF;
+          display: flex;
+          align-items: center;
+          font-size: 30px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 206%;
+          letter-spacing: 3px;
+          &>img{
+            margin-right: 10px;
+            width: 43px;
+          }
+        }
+        .list{
+          padding: 0 50px;
+          &-in{
+            display: flex;
+            align-items: center;
+            &:not(:last-child){
+              margin-bottom: 23px;
+            }
+            &-img{
+              width: 158px;
+              height: 158px;
+              margin-right: 23px;
+            }
+            &-text{
+              flex: 1;
+              color: #00AEFF;
+              font-size: 30px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 137%; /* 41.1px */
+              letter-spacing: 3px;
+              h2{
+                font-weight: 500;
+              }
+            }
           }
         }
       }
@@ -741,6 +786,8 @@ const differData:any = {
   }
   &-btn{
     margin-top: 40px;
+    display: flex;
+    justify-content: center;
   }
 }
 .material {
@@ -929,11 +976,6 @@ const differData:any = {
 }
 .care {
   margin-top: 206px;
-  &-title {
-    &-in {
-      font-size: 50px;
-    }
-  }
   &-lists {
     display: flex;
     flex-wrap: wrap;
@@ -989,6 +1031,8 @@ const differData:any = {
   }
   &-btn{
     margin-top: 45px;
+    display: flex;
+    justify-content: center;
   }
 }
 .fillings-content-1{
@@ -1133,11 +1177,6 @@ const differData:any = {
     max-width: calc(1444px + 122px);
     margin: 0 auto;
   }
-  &-title {
-    &-in {
-      font-size: 50px;
-    }
-  }
   &-lists {
     margin-top: 98px;
     padding: 0 20px;
@@ -1223,6 +1262,7 @@ const differData:any = {
       &:nth-of-type(6) {
         margin-bottom: 0;
         align-items: flex-end;
+        justify-content: center;
         &>div{
           margin-bottom: 20px;
         }
@@ -1345,35 +1385,414 @@ const differData:any = {
     }
   }
 }
-@media only screen and (max-width: 768px) {
-  .reason {
-    margin-top: 54px;
-    &-title {
-      &-in {
-        font-size: 26px;
+
+@media (min-width: 768px) and (max-width: 1920px) {
+  .The_benefits_of_resin_filling_teeth{
+    margin-top: 1.5625vw;
+    &-img{
+      margin-top: 2.6042vw;
+      img{
+        max-width: 59.8958vw;
       }
     }
+    &-lists{
+      margin-top: 2.6042vw;
+      &-in{
+        max-width: 41.875vw;
+        margin-bottom: 1.5625vw;
+        &-l{
+          &>div{
+            font-size: 1.5625vw;
+          }
+        }
+        &-r{
+          font-size: 1.0417vw;
+        }
+      }
+    }
+  }
+  .step {
+    padding: 3.1771vw 0 5.1563vw;
+    margin-top: 3.6458vw;
+    &-in {
+      max-width: calc(75.2083vw + 6.3542vw);
+    }
     &-lists {
-      flex-direction: column;
-      margin: 72px auto 0;
-      &-item {
-        width: 100%;
-        padding: 0 53px;
-        .text {
-          margin-top: -34px;
-          span {
-            font-size: 20px;
-            &:nth-of-type(1) {
-              padding: 8px 40px;
+      margin-top: 5.1042vw;
+      padding: 0 1.0417vw;
+      &-in {
+        margin-bottom: 4.7917vw;
+        &-l {
+          max-width: 20.8333vw;
+          .title {
+            font-size: 1.8229vw;
+            margin-bottom: .7813vw;
+            img {
+              margin-right: .7813vw;
             }
-            &:nth-of-type(2) {
-              margin-top: 20px;
-              white-space: normal;
+          }
+          .image {
+            img {
+              border-radius: 1.5625vw;
+            }
+            &::after{
+              width: .8333vw;
+              height: 1.5625vw;
+            }
+          }
+          .name {
+            font-size: 1.0417vw;
+            margin-top: 1.25vw;
+            margin-bottom: .7813vw;
+            padding: .4167vw .7813vw;
+          }
+        }
+        &-r {
+          img {
+            width: .7813vw;
+          }
+        }
+        &:nth-of-type(6) {
+          &>div{
+            margin-bottom: 1.0417vw;
+          }
+          .lastBox-t {
+            & > div {
+              font-size: 2.6042vw;
+              span {
+                font-size: 2.6042vw;
+              }
+              &:nth-of-type(1) {
+                margin-bottom: .7813vw;
+              }
+            }
+          }
+          .lastBox-b {
+            margin-top: 1.0417vw;
+            .bigBan{
+              font-size: 2.2917vw;
             }
           }
         }
-        &:not(:last-child) {
-          margin-bottom: 35px;
+      }
+    }
+  }
+  .differ{
+    margin-top: 7.2917vw;
+    &-tc{
+      max-width: 52.9167vw;
+      margin: 1.5625vw auto 0;
+      span{
+        font-size: 1.0417vw;
+      }
+    }
+    &-lists{
+      max-width: 65.1563vw;
+      margin: 2.8646vw auto 0;
+      &-in{
+        &:not(:last-child){
+          margin-bottom: .7813vw;
+        }
+        &:nth-of-type(1){
+          &>div{
+            min-height: 2.3438vw;
+            font-size: 1.5625vw;
+          }
+        }
+        &>div{
+          font-size: 1.4583vw;
+          min-height: 5.8333vw;
+          span{
+            &::before{
+              margin-right: .5208vw;
+              font-size: 1.5625vw;
+              margin-top: -0.1042vw;
+            }
+          }
+          &:nth-of-type(1){
+            border-radius: 3.125vw 0 0 3.125vw;
+          }
+          &:nth-of-type(2){
+            margin-left: .1302vw;
+          }
+          &:nth-of-type(3){
+            margin-left: .1302vw;
+            border-radius: 0 3.125vw 3.125vw 0;
+          }
+        }
+      }
+    }
+  }
+  .note{
+    margin-top: 5.2083vw;
+    &-lists {
+      max-width: calc(42.6563vw / 3 * 2);
+      margin: 3.125vw auto 0;
+      &-item {
+        & > div {
+          .image {
+            &-in {
+              margin-bottom: .6771vw;
+              border-radius: .5208vw;
+            }
+          }
+          .text {
+            font-size: 1.25vw;
+            letter-spacing: .1563vw;
+          }
+        }
+        &:nth-of-type(n + 4) {
+          margin-top: 2.3438vw;
+        }
+      }
+    }
+  }
+  .note2 {
+    margin-top: 5.2083vw;
+    &-title {
+      &-in {
+        font-size: 2.6042vw;
+      }
+    }
+    &-content {
+      max-width: 69.7917vw;
+      margin: 4.1667vw auto 0;
+      &-r {
+        & > div {
+          margin-bottom: 2.0833vw;
+          span {
+            font-size: 1.4583vw;
+          }
+        }
+      }
+    }
+  }
+  .reason {
+    margin-top: 6.25vw;
+    &-tc{
+      max-width: 52.9167vw;
+      margin: 1.6146vw auto 2.7083vw;
+      font-size: 1.0417vw;
+      letter-spacing: .2083vw;
+    }
+    &-lists{
+      margin-top: .8854vw;
+      &-item{
+        max-width: 84.1667vw;
+        padding: 2.7604vw 11.25vw;
+        border-radius: 18.2292vw;
+        .image{
+          margin-right: 2.8646vw;
+          width: 18.75vw;
+          height: 18.75vw;
+        }
+        &-r{
+          .title{
+            span{
+              font-size: 1.8229vw;
+              letter-spacing: .3646vw;
+              border-radius: 2.6042vw;
+              padding: .2604vw 1.5625vw;
+              min-width: 18.9063vw;
+            }
+          }
+          .context{
+            margin-top: 2.0833vw;
+            margin-bottom: 1.0417vw;
+            font-size: 1.5625vw;
+            letter-spacing: .1563vw;
+            &>img{
+              margin-right: .5208vw;
+              width: 2.2396vw;
+            }
+          }
+          .name{
+            font-size: 1.5625vw;
+            letter-spacing: .1563vw;
+            &>img{
+              margin-right: .5208vw;
+              width: 2.2396vw;
+            }
+          }
+          .list{
+            padding: 0 2.6042vw;
+            &-in{
+              &:not(:last-child){
+                margin-bottom: 1.1979vw;
+              }
+              &-img{
+                width: 8.2292vw;
+                height: 8.2292vw;
+                margin-right: 1.1979vw;
+              }
+              &-text{
+                font-size: 1.5625vw;
+                letter-spacing: .1563vw;
+              }
+            }
+          }
+        }
+      }
+    }
+    &-bt{
+      font-size: 1.0417vw;
+      margin-top: 1.0417vw;
+      &>div{
+        width: calc(100% - 3.125vw);
+        max-width: 44.7917vw;
+        margin-top: 1.5625vw;
+      }
+    }
+    &-btn{
+      margin-top: 2.0833vw;
+    }
+  }
+  .fillings-content-1{
+    margin-top: 5.5208vw;
+    &-in{
+      margin: 2.6042vw auto;
+      max-width: 67.7083vw;
+      &>div{
+        width: 15.625vw;
+        img{
+          border-radius: .5208vw;
+        }
+        span{
+          font-size: 1.5625vw;
+          margin-top: 1.0417vw;
+        }
+      }
+    }
+  }
+  .care {
+    margin-top: 10.7292vw;
+    &-lists {
+      max-width: 42.6563vw;
+      margin: 2.3438vw auto 0;
+      &-item {
+        & > div {
+          .image {
+            &-in {
+              margin-bottom: .6771vw;
+              border-radius: .5208vw;
+            }
+          }
+          .text {
+            font-size: 1.25vw;
+            letter-spacing: .1563vw;
+          }
+        }
+        &:nth-of-type(n + 4) {
+          margin-top: 2.3438vw;
+        }
+      }
+    }
+    &-btn{
+      margin-top: 2.3438vw;
+    }
+  }
+  .advantage{
+    margin-top: 5.1042vw;
+    &-in{
+      max-width: 57.2917vw;
+      margin: 4.0104vw auto 0;
+      &-l{
+        width: 24.2188vw;
+      }
+      &-r{
+        &>div{
+          .name{
+            font-size: 1.25vw;
+            margin-top: 1.25vw;
+            margin-bottom: .7813vw;
+            padding: .2083vw .7813vw;
+            letter-spacing: .1042vw;
+          }
+          .text{    
+            font-size: 1.0417vw;
+            padding-left: .7813vw;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .reason {
+    margin-top: 54px;
+    &-tc{
+      margin: 40px auto;
+      padding: 0 30px;
+      font-size: 16px;
+      letter-spacing: 1.6px;
+      width: 100%;
+      line-height: 2;
+    }
+    &-lists{
+      padding: 0 30px;
+      &-item{
+        width: 100%;
+        flex-direction: column;
+        padding: 40px 20px;
+        border-radius: 38px;
+        .image{
+          width: 100%;
+          height: auto;
+          margin-right: 0;
+        }
+        &-r{
+          width: 100%;
+          .title{
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            span{
+              font-size: 20px;
+              letter-spacing: 4px;
+              min-width: 217px;
+              margin: 0 auto;
+            }
+          }
+          .context{
+            margin-top: 30px;
+            margin-bottom: 10px;
+            font-size: 15px;
+            letter-spacing: 1.5px;
+            align-items: flex-start;
+            &>img{
+              width: 20px;
+            }
+          }
+          .name{
+            font-size: 15px;
+            letter-spacing: 1.5px;
+            &>img{
+              width: 20px;
+            }
+          }
+          .list{
+            padding: 0;
+            margin-top: 20px;
+            &-in{
+              &:not(:last-child){
+                margin-bottom: 20px;
+              }
+              &-img{
+                width: 80px;
+                height: 80px;
+                margin-right: 14px;
+              }
+              &-text{
+                font-size: 15px;
+                letter-spacing: 1.5px;
+                h2{
+                  font-size: 20px;
+                  margin-bottom: 10px;
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -1388,15 +1807,9 @@ const differData:any = {
             &:nth-of-type(1){
               width: 100%;
             }
-            &:nth-of-type(2),&:nth-of-type(3){
-              display: inline;
-            }
           }
         }
       }
-    }
-    &-btn{
-      margin-top: 20px;
     }
   }
   .material {
@@ -1698,6 +2111,8 @@ const differData:any = {
           }
           .lastBox-b {
             margin-top: 30px;
+            display: flex;
+            justify-content: center;
             .bigBan{
               font-size: 28px;
             }
