@@ -2,6 +2,8 @@
 import { zh_tran,zh_getLang,getCookie } from '~/assets/js/uselang'
 import { useAppState } from '~/stores/appState'
 import { toWhatsApp,smallPhoneNum } from '~/assets/js/common'
+
+
 const route = useRoute()
 const appState = useAppState()
 defineProps({
@@ -289,6 +291,9 @@ const handlecopywechatcode = () =>{
 const handleopenwechat = () =>{
   window.location.href = "weixin://"
 }
+
+
+//温馨提示：代码改了改，恶心程度★★★★★
 </script>
 
 <template>
@@ -433,14 +438,14 @@ const handleopenwechat = () =>{
               <div
                 v-if="menuItem.child.length"
                 class="menuChild"
+                :class="{'serviceCard': menuItem.link.includes('/dental-service')}"
               >
                 <div
                   v-for="(menuChildItem, menuChildIndex) in menuItem.child"
                   :key="menuChildIndex"
                   :class="[
                     'menuChild-item',
-                    classNamefilter(menuChildItem, menuChildIndex),
-                  ]"
+                    classNamefilter(menuChildItem, menuChildIndex)]"
                   @click.stop="handleMenuChild(menuItem, menuChildIndex)"
                 >
                   <nuxt-link :to="menuChildItem.link">
@@ -646,17 +651,6 @@ const handleopenwechat = () =>{
     }
   }
 }
-// @keyframes btnAnim {
-//   0% {
-//     clip-path: polygon(-10% 0, 0 0, -10% 100%, -20% 100%);
-//   }
-//   50% {
-//     clip-path: polygon(50% 0, 60% 0, 50% 100%, 40% 100%);
-//   }
-//   100% {
-//     clip-path: polygon(110% 0, 120% 0, 110% 100%, 100% 100%);
-//   }
-// }
 @keyframes animBottomIn {
   from{
   }
@@ -843,16 +837,12 @@ const handleopenwechat = () =>{
   }
   &-bgImg-implant {
     position: fixed;
-    // top: 0;
     z-index: -2;
     width: 100%;
     img {
       width: 100%;
     }
   }
-  // &-bgImg-implant-mb {
-  //   display: none;
-  // }
   &-btn-implant {
     display: flex;
     justify-content: center;
@@ -861,35 +851,6 @@ const handleopenwechat = () =>{
     left: 0;
     z-index: 40;
     width: 100%;
-    // span {
-    //   position: absolute;
-    //   left: 50%;
-    //   transform: translateX(-50%);
-    //   color: #fff;
-    //   background: var(--indexColor1);
-    //   font-size: 35px;
-    //   font-weight: 900;
-    //   border-radius: 40px;
-    //   padding: 5px 80px;
-    //   box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
-    //   cursor: pointer;
-    //   z-index: 1;
-    //   transition: all .3s;
-    //   &:nth-of-type(2) {
-    //     color: var(--indexColor1);
-    //     background: #fff;
-    //     z-index: 2;
-    //     animation: btnAnim 1s linear;
-    //     animation-fill-mode: forwards;
-    //   }
-    // }
-    // &:hover{
-    //   span{
-    //     &:nth-of-type(1){
-    //       background: #FF85AF;
-    //     }
-    //   }
-    // }
   }
   .waterBg-implant {
     display: none;
@@ -1034,7 +995,6 @@ const handleopenwechat = () =>{
         }
         & > .router-link-exact-active {
           color: var(--indexColor1);
-          // text-decoration-line: underline;
           &.triangleIcon:after {
             border-color: var(--indexColor1) transparent transparent transparent;
           }
@@ -1062,7 +1022,6 @@ const handleopenwechat = () =>{
         }
         &:hover {
           color: var(--indexColor1);
-          // text-decoration-line: underline;
           .triangleIcon:after {
             border-color: var(--indexColor1) transparent transparent transparent;
           }
@@ -1129,6 +1088,9 @@ const handleopenwechat = () =>{
             font-size: 18px;
             color: #666666;
             transition: all 0.3s;
+            &>a{
+              display: block;
+            }
             &:not(:last-child) {
               border-bottom: 1px solid var(--indexColor2);
             }
@@ -1152,8 +1114,44 @@ const handleopenwechat = () =>{
           }
         }
         .serviceCard {
-          width: 428px;
-          padding: 12px 6px;
+          width: 500px;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          padding: 20px 10px;
+          border-radius: 16px;
+          .menuChild-item{
+            width: calc(100% / 3);
+            border: none;
+            padding: 0;
+            position: relative;
+            &>a{
+              padding: 18px 0 14px;
+              display: block;
+            }
+            &:not(:nth-of-type(3n)) {
+              &::before{
+                content: '';
+                width: 0;
+                height: 60%;
+                border-right: 1px solid #F7C3C3;
+                top: 20%;
+                right: 0;
+                position: absolute;
+              }
+            }
+            &:not(:nth-of-type(n+13)){
+              &::after{
+                content: '';
+                width: 80%;
+                height: 0;
+                border-bottom: 1px solid #F7C3C3;
+                left: 10%;
+                bottom: 0;
+                position: absolute;
+              }
+            }
+          }
         }
       }
     }

@@ -412,7 +412,7 @@ const handleopenwechat = () =>{
               >
                 <span>{{ $t(menuItem.name) }}</span>
               </nuxt-link>
-              <div v-if="menuItem.child.length" class="menuChild" >
+              <div v-if="menuItem.child.length" class="menuChild" :class="{'serviceCard': menuItem.link.includes('/dental-service')}">
                 <div
                   v-for="(menuChildItem, menuChildIndex) in menuItem.child"
                   :key="menuChildIndex"
@@ -927,8 +927,44 @@ const handleopenwechat = () =>{
           }
         }
         .serviceCard {
-          width: 428px;
-          padding: 12px 6px;
+          width: 500px;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          padding: 20px 10px;
+          border-radius: 16px;
+          .menuChild-item{
+            width: calc(100% / 3);
+            border: none;
+            padding: 0;
+            position: relative;
+            &>a{
+              padding: 18px 0 14px;
+              display: block;
+            }
+            &:not(:nth-of-type(3n)) {
+              &::before{
+                content: '';
+                width: 0;
+                height: 60%;
+                border-right: 1px solid #F7C3C3;
+                top: 20%;
+                right: 0;
+                position: absolute;
+              }
+            }
+            &:not(:nth-of-type(n+13)){
+              &::after{
+                content: '';
+                width: 80%;
+                height: 0;
+                border-bottom: 1px solid #F7C3C3;
+                left: 10%;
+                bottom: 0;
+                position: absolute;
+              }
+            }
+          }
         }
       }
     }
