@@ -933,6 +933,7 @@ const handleopenwechat = () =>{
           flex-wrap: wrap;
           padding: 20px 10px;
           border-radius: 16px;
+          overflow: hidden;
           .menuChild-item{
             width: calc(100% / 3);
             border: none;
@@ -964,6 +965,19 @@ const handleopenwechat = () =>{
                 position: absolute;
               }
             }
+          }
+          &::after{
+            content: '';
+            width: 100px;
+            height: calc(90 / 130 * 100px);
+            background: url(https://static.cmereye.com/imgs/2024/04/4f39b444ca1b0a1d.png) no-repeat;
+            background-size: 100% auto;
+            display: block;
+            position: absolute;
+            bottom: -10px;
+            right: 30px;
+            transform: translateY(100%);
+            animation: menuIconAnim 1.5s forwards;
           }
         }
       }
@@ -1029,6 +1043,26 @@ const handleopenwechat = () =>{
   -webkit-animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
   filter: drop-shadow(0px -8px 4px rgba(77, 77, 77, 0.15));
+}
+@keyframes menuIconAnim {
+  // 0%{
+  //   transform: translateY(50px);
+  // }
+  30%{
+    transform: translateY(-7px);
+  }
+  55%{
+    transform: translateY(5px);
+  }
+  75%{
+    transform: translateY(-2px);
+  }
+  90%{
+    transform: translateY(1px);
+  }
+  100%{
+    transform: translateY(0);
+  }
 }
 @keyframes wave1 {
   0% {

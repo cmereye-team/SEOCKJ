@@ -153,7 +153,7 @@ onMounted(() => {
 
 
 let areaCode = ref('+852')
-let privacyPolicy = ref('0')
+let privacyPolicy = ref('1')
 </script>
 
 <template>
@@ -231,7 +231,6 @@ let privacyPolicy = ref('0')
                 v-for="serviceItem in serviceLists"
                 :key="$t(serviceItem)"
                 :value="$t(serviceItem)"
-                
               />
             </el-select>
           </el-form-item>
@@ -242,7 +241,7 @@ let privacyPolicy = ref('0')
                 <span>我們將會在10小時內與您聯絡確認預約詳情。</span>
                 <span>
                   <el-radio-group v-model="privacyPolicy">
-                    <el-radio label="1" size="large"><i>*</i>本人已閱讀並同意有關 <nuxt-link to="/privacyPolicy" target="_blank">私隱政策</nuxt-link> 聲明。</el-radio>
+                    <el-radio :label="'1'" size="large"><i>*</i>本人已閱讀並同意有關 <nuxt-link to="/privacyPolicy" target="_blank">私隱政策</nuxt-link> 聲明。</el-radio>
                   </el-radio-group>
                 </span>
               </div>
@@ -483,6 +482,7 @@ li{
         i{
           font-style: normal;
           color: var(--indexColor1);
+          font-size: 20px;
         }
         :deep(.el-radio.el-radio--large .el-radio__label){
           font-size: 16px;
