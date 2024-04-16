@@ -1115,7 +1115,7 @@ const handleopenwechat = () =>{
         }
         .serviceCard {
           width: 500px;
-          display: flex;
+          // display: flex;
           flex-direction: row;
           flex-wrap: wrap;
           padding: 20px 10px;
