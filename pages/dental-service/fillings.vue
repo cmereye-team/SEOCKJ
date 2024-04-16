@@ -18,6 +18,13 @@ useHead({
   ]
 })
 
+const introduceJY = {
+  title: 'pages.dental-service.fillings.introduce.title',
+  content: 'pages.dental-service.fillings.introduce.content',
+  mbImg: 'https://static.cmereye.com/imgs/2024/02/cdfb1a9c081d7a15.webp',
+  pcImg: 'https://static.cmereye.com/imgs/2024/04/b1104af283741909.webp',
+}
+
 const headerConfig = {
   img: 'https://static.cmereye.com/imgs/2024/03/3215d200c5bdcff0.jpg',
   bg: '',
@@ -372,7 +379,16 @@ const differData:any = {
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor">
       <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
-      <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
+      <div class="tabNav pageCon">
+        <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院"
+          ><span>{{ $t('pages.index.title') }}</span></nuxt-link
+        >
+        <nuxt-link :to="'#'" :title="$t('pages.dental-service.title')" :alt="('pages.dental-service.title')"
+          ><span>{{ $t('pages.dental-service.title') }}</span></nuxt-link
+        >
+        <span :title="$t(orthodonticsIntroduceData.tabNavName)">{{ $t(orthodonticsIntroduceData.tabNavName) }}</span>
+      </div>
+      <!-- <ServiceIntroduce :introduceData="orthodonticsIntroduceData" /> -->
       <div class="The_benefits_of_resin_filling_teeth">
         <div class="dentistryServices-title reason-title">
           <div class="dentistryServices-title-in bb reason-title-in">
@@ -482,6 +498,9 @@ const differData:any = {
             </div>
           </div>
         </div>
+      </div>
+      <div class="introduceJY">
+        <ServiceIntroduceJY :introduceData="introduceJY" />
       </div>
       <div class="note">
         <div class="dentistryServices-title note-title">
@@ -788,6 +807,29 @@ const differData:any = {
     margin-top: 40px;
     display: flex;
     justify-content: center;
+  }
+}
+.tabNav {
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 160%;
+  color: #cbcbcb;
+  margin-top: 20px;
+  a {
+    &:not(:last-child)::after {
+      content: '';
+      width: 20px;
+      height: 2px;
+      margin: 0 10px;
+      background: #cbcbcb;
+      display: inline-block;
+      vertical-align: middle;
+      margin-top: -4px;
+    }
+  }
+  & > span {
+    cursor: pointer;
+    color: var(--indexColor1);
   }
 }
 .material {
@@ -1385,6 +1427,9 @@ const differData:any = {
     }
   }
 }
+.introduceJY{
+  margin-top: 100px;
+}
 
 @media (min-width: 768px) and (max-width: 1920px) {
   .The_benefits_of_resin_filling_teeth{
@@ -1719,6 +1764,11 @@ const differData:any = {
 }
 
 @media only screen and (max-width: 768px) {
+  .tabNav {
+    padding: 30px;
+    font-size: 1rem;
+    margin-top: 0;
+  }
   .reason {
     margin-top: 54px;
     &-tc{
@@ -1866,7 +1916,7 @@ const differData:any = {
     }
   }
   .note{
-    margin-top: 30px;
+    margin-top: 50px;
     &-lists {
       width: auto;
       margin: 34px 15px 0;
@@ -2008,7 +2058,7 @@ const differData:any = {
      }
   }
   .The_benefits_of_resin_filling_teeth{
-    margin-top: 100px;
+    margin-top: 30px;
     &-img{
       padding: 0 30px;
     }

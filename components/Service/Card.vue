@@ -288,7 +288,7 @@ const servicesCardPageData = {
             }
           }
           &-name{
-            font-size: 18px;
+            font-size: 16px;
             padding: 10px 0 30px;
           }
         }
