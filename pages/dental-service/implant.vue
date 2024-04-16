@@ -2,6 +2,7 @@
 import { useAppState } from '~/stores/appState'
 import { Autoplay } from 'swiper';
 import { toWhatsApp } from '~/assets/js/common'
+import { useElementBounding,useWindowSize } from '@vueuse/core'
 const appState = useAppState()
 appState.setDentistryService('implant')
 useHead({
@@ -585,6 +586,10 @@ const confidence_ecommendation_lists = [
     'https://static.cmereye.com/imgs/2024/04/068ec100a33952ea.png',
 ]
 
+const doctorTeam = ref(null)
+const { top,bottom } = useElementBounding(doctorTeam)
+const { height } = useWindowSize()
+
 </script>
 
 <template>
@@ -739,7 +744,7 @@ const confidence_ecommendation_lists = [
         </Swiper>
         
       </div>
-      <div class="doctorTeam">
+      <div class="doctorTeam" ref="doctorTeam">
         <ServiceSpecializedTeam :doctorData="doctorData" />
       </div>
       <div class="implantCase">
@@ -853,7 +858,7 @@ const confidence_ecommendation_lists = [
       <NewAddress />
     </div>
     <PageFooter />
-    <PageNavbar />
+    <PageNavbar :showDialogBox="(top<(height / 3 * 2)) && (bottom > (height / 3))" />
   </div>
 </template>
 

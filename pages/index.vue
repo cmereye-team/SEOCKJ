@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useAppState } from '~/stores/appState'
 import doctorLists_cs from '~/assets/js/doctor'
 import { toWhatsApp } from '~/assets/js/common'
+import { useElementBounding,useWindowSize } from '@vueuse/core'
 const appState = useAppState()
 const { t } = useLang()
 useHead({
@@ -347,6 +348,10 @@ const onIndexOrgSlideChange = (swiper) =>{
   orgTabCur.value = (swiper.realIndex ? Number(swiper.realIndex) : 0)
 }
 
+const doctorTeam = ref(null)
+const { top,bottom } = useElementBounding(doctorTeam)
+const { height } = useWindowSize()
+
 onMounted(()=>{
   handletab2('101')
 })
@@ -371,7 +376,7 @@ watch(
       <!-- 牙科服務 -->
       <serviceCard :isIndexShow="true" />
       <!-- 醫生團隊 -->
-      <div class="index-doctorTeam">
+      <div class="index-doctorTeam" ref="doctorTeam">
         <div class="index-doctorTeam-t smallPageCon">
           <div class="index_title index_title_2">醫生團隊</div>
         </div>
@@ -583,9 +588,10 @@ watch(
       <NewAddress />
       <ContactForm-new />
     </div>
+    <!-- <div style="position: fixed; top: 50%; left: 0;z-index: 9999;">{{top}} --- {{bottom}} --- {{(top<(height / 3 * 2)) && (bottom > 0)}}</div> -->
     <!-- <PageAdbox /> -->
     <PageFooter />
-    <PageNavbar />
+    <PageNavbar :showDialogBox="(top<(height / 3 * 2)) && (bottom > (height / 3))" />
   </div>
 </template>
 

@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
 import { toWhatsApp } from '~/assets/js/common'
+import { useElementBounding,useWindowSize } from '@vueuse/core'
 const appState = useAppState()
 appState.setDentistryService('scaling-and-polishing-test')
 useHead({
@@ -337,6 +338,10 @@ const doctorData = {
   }
 ]
 }
+
+const doctorTeam = ref(null)
+const { top,bottom } = useElementBounding(doctorTeam)
+const { height } = useWindowSize()
 </script>
 
 <template>
@@ -645,7 +650,7 @@ const doctorData = {
           </div>
         </div>
       </div>
-      <div class="doctorTeam">
+      <div class="doctorTeam" ref="doctorTeam">
         <ServiceSpecializedTeam :doctorData="doctorData" />
       </div>
       <div class="care">
@@ -676,7 +681,7 @@ const doctorData = {
       <NewAddress />
     </div>
     <PageFooter />
-    <PageNavbar />
+    <PageNavbar :showDialogBox="(top<(height / 3 * 2)) && (bottom > (height / 3))" />
   </div>
 </template>
 

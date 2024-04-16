@@ -6,6 +6,10 @@ defineProps({
   langType: {
     default: '',
     type: String
+  },
+  showDialogBox: {
+    default: false,
+    type: Boolean
   }
 })
 const appState = useAppState()
@@ -68,6 +72,12 @@ let _bool = ref(false)
 <template>
   <div class="navbar-content" :style="{'z-index': appState.isShowForm ? 100 : 50}">
     <nuxt-link class="navbar-content-whatApp" id="navPcWhatsapp" :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" title="WhatsApp" target="_blank">
+      <div class="iconDialogBox" v-if="showDialogBox">
+        <span>專業客服為你匹配適合你的醫生！</span>
+        <img class="iconDialogBox-icon" data-ord="1" src="@/assets/images/icon_42.svg" alt="">
+        <img class="iconDialogBox-icon" data-ord="2" src="@/assets/images/icon_43.svg" alt="">
+        <img class="iconDialogBox-icon" data-ord="3" src="@/assets/images/icon_44.svg" alt="">
+      </div>
       <div class="navbar-content-whatApp-icon">
         <img class="navbar-content-whatApp-icon-in" src="https://static.cmereye.com/imgs/2024/03/22dd0fd2c5f7164e.png" alt="">
         <img class="navbar-content-whatApp-icon-right" src="https://static.cmereye.com/imgs/2024/03/3fee6b4b5c9a323a.png" alt="">
@@ -245,6 +255,50 @@ let _bool = ref(false)
     transform: translateX(0);
   }
 }
+@keyframes animTopIn {
+  to{
+    transform: translateX(-50%);
+    opacity: 1;
+  }
+}
+@keyframes iconTopIn {
+  20%{
+    transform: translateY(7px);
+    opacity: 1;
+  }
+  40%{
+    transform: translateY(-3px);
+  }
+  60%{
+    transform: translateY(2px);
+  }
+  80%{
+    transform: translateY(-1px);
+  }
+  100%{
+    transform: none;
+    opacity: 1;
+  }
+}
+@keyframes iconBottomIn {
+  20%{
+    transform: translateY(-7px);
+    opacity: 1;
+  }
+  40%{
+    transform: translateY(3px);
+  }
+  60%{
+    transform: translateY(-2px);
+  }
+  80%{
+    transform: translateY(1px);
+  }
+  100%{
+    transform: none;
+    opacity: 1;
+  }
+}
 .navbar-content {
   width: 66px;
   position: fixed;
@@ -327,7 +381,7 @@ let _bool = ref(false)
     transition: all .3s;
     &-icon{
       position: relative;
-      width: 90%;
+      width: 95%;
       &-in{
         width: 100%;
       }
@@ -405,6 +459,62 @@ let _bool = ref(false)
             animation: btntestafterAnimaHover 4s infinite;
           }
         }
+      }
+    }
+    .iconDialogBox{
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      width: 220px;
+      font-size: 22px;
+      text-align: center;
+      opacity: 0;
+      transform: translate(-50%,20px);
+      animation: animTopIn 1s forwards;
+      padding-bottom: 20px;
+      &>span{
+        border-radius: 12px;
+        background: var(--indexColor1);
+        padding: 20px;
+        display: inline-block;
+      }
+      &-icon{
+        position: absolute;
+        opacity: 0;
+        &[data-ord="1"]{
+          left: 60%;
+          top: -30px;
+          transform: translateY(-40px);
+          animation: iconTopIn 2s .5s forwards;
+        }
+        &[data-ord="2"]{
+          bottom: 15px;
+          left: -15px;
+          transform: translateY(40px);
+          animation: iconBottomIn 2s .5s forwards;
+        }
+        &[data-ord="3"]{
+          bottom: 45px;
+          right: 10px;
+          transform: translateY(40px);
+          animation: iconBottomIn 2s .5s forwards;
+        }
+      }
+      &::after{
+        content: '';
+        position: absolute;
+        bottom: 7px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-top: 15px solid;
+        border-left: 10px solid;
+        border-bottom: 0 solid;
+        border-right: 10px solid;
+        border-color: var(--indexColor1) transparent transparent  transparent ;
       }
     }
   }
@@ -558,6 +668,31 @@ let _bool = ref(false)
         &-img{
           width: 50px;
           height: 50px;
+        }
+      }
+      .iconDialogBox{
+        font-size: 16px;
+        width: 170px;
+        &>span{
+          padding: 15px;
+          border-radius: 8px;
+        }
+        &-icon{
+          &[data-ord="1"]{
+            width: 40px;
+            left: 55%;
+            top: -20px;
+            transform: translateY(-30px);
+          }
+          &[data-ord="2"]{
+            width: 40px;
+            left: -10px;
+          }
+          &[data-ord="3"]{
+            bottom: 30px;
+            right: 10px;
+            transform: translateY(30px);
+          }
         }
       }
     }
