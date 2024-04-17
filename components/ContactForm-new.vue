@@ -281,6 +281,15 @@ ul{
     padding: 0;
   }
 }
+// .el-scrollbar__wrap--hidden-default {
+//     scrollbar-width: thin;
+// }
+.el-scrollbar__bar.is-vertical{
+  width: 15px;
+  .el-scrollbar__thumb{
+    background-color: var(--indexColor);
+  }
+}
 .el-popper__arrow{
   display: none;
 }

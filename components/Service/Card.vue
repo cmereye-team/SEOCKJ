@@ -257,7 +257,7 @@ const servicesCardPageData = {
   .index-dentalServices{
     padding: 100px 0 0;
     &-indexshow{
-      padding: 50px 0 0;
+      padding: 0;
     }
     &-in{
       align-items: flex-start;

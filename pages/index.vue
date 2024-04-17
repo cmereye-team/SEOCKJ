@@ -1377,7 +1377,7 @@ svg:hover path{
   }
   //醫生團隊
   .index-doctorTeam{
-    margin: 90px 0;
+    margin: 50px 0 0;
     width: 100%;
     &-con{
       width: 100%;
@@ -1599,7 +1599,7 @@ svg:hover path{
     }
   }
   .index-videoBox{
-    margin-top: 80px;
+    margin-top: 20px;
     &-c{
       flex-direction: column-reverse;
       text-align: center;

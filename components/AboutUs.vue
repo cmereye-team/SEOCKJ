@@ -385,8 +385,8 @@ const changemouse = (type: String) =>{
 @media screen and (max-width: 768px) {
 //關於我們
   .index-aboutUs{
-    margin-top: 90px;
-    padding-bottom: 90px;
+    margin-top: 0;
+    padding-bottom: 50px;
     &-swiper{
       display: none;
     }
@@ -438,7 +438,7 @@ const changemouse = (type: String) =>{
     &-content{
       flex-direction: column;
       .contentBox{
-        padding: 30px;
+        padding: 10px 30px;
         &:first-child::after{
           display: none;
         }
