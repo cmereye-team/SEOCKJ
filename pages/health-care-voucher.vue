@@ -314,39 +314,13 @@ const handleLocale = (l) =>{
 } 
 
 
-onMounted(()=>{
-  // mac不兼容
-  // translate.language.setLocal('chinese_traditional'); 
-  // translate.service.use('client.edge');
-  // translate.nomenclature.append('chinese_traditional','english',`
-  // 此篩選過程涵蓋多個關鍵考量，=This screening process covers multiple key considerations, 
-  // 以確保所選擇的機構能夠提供高品質的醫療服務。=to ensure that the selected institution can provide high-quality medical services.
-  // 為醫療券使用者提供更多選擇=Provide more choices for medical voucher users
-  // 愛康健口腔醫院可為醫療券使用者提供以下牙科醫療服務，=Aikangjian Dental Hospital can provide the following dental medical services for medical voucher users,
-  // 包括=include
-  // 醫療券=Medical vouchers
-  // 長者=Elderly
-  // 政府政策=government policy
-  // `);
-  // translate.listener.renderTaskFinish = function(task){
-  //   var _text = "'FakePearl-Regular','幼圆', Serif"
-  //   if(translate.to === 'chinese_simplified'){
-	// 		_text = "微软雅黑"
-	// 	}
-  //   langCur.value = translate.to || 'chinese_traditional'
-  //   document.documentElement.style.setProperty("--indexFontFamily", _text);
-  // }
-  // translate.selectLanguageTag.languages = 'english,chinese_simplified,chinese_traditional';
-  // translate.selectLanguageTag.show = false;
-  // translate.execute();
-})
 </script>
 
 <template>
   <div>
     <PageHeader :headerConfig="headerConfig" /> 
     <div class="health-care-voucher pageIn whitebgColor">
-      <div class="pageCon health-care-voucher-top">
+      <div class="smallPageCon health-care-voucher-top">
         <div class="index_title health-care-voucher-title">{{$t('components.header.menuLists.health-care-voucher.name')}}</div>
         <!-- <div class="lang">
           <span @click="handleLocale('en')" class="ignore">Eng</span>
@@ -355,7 +329,7 @@ onMounted(()=>{
         </div> -->
         <!-- <div id="translate"></div> -->
       </div>
-      <div class="tabNav noTitle pageCon">
+      <div class="tabNav noTitle smallPageCon">
         <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
           <span>{{$t('components.footer.nav_index')}}</span>
         </nuxt-link>

@@ -141,8 +141,8 @@ const getPagination = (pageitem) => {
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor coveragePage">
-      <div class="index_title pageCon coveragePage-title" id="coverage">媒體報導</div>
-      <div class="tabNav noTitle pageCon">
+      <div class="index_title smallPageCon coveragePage-title" id="coverage">媒體報導</div>
+      <div class="tabNav noTitle smallPageCon">
         <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
           <span>主頁</span>
         </nuxt-link>
@@ -151,7 +151,7 @@ const getPagination = (pageitem) => {
         </nuxt-link>
         <span :title="'媒體報導'">媒體報導</span>
       </div>
-      <div class="pageCon">
+      <div class="smallPageCon">
         <div class="lists" v-if="!errorpage">
           <nuxt-link :to="`/news/article/${item.id}`" class="lists-in" v-for="(item,index) in coverageLists" :key="index">
             <div class="lists-in-img">
@@ -244,7 +244,7 @@ const getPagination = (pageitem) => {
   margin-top: calc(77 / 1448 * 100%);
   &-in{
     display: flex;
-    margin-bottom: calc(166 / 1448 * 100%);
+    margin-bottom: 80px;
     &-img{
       order: 2;
       width: calc(866 / 1448* 100%);
@@ -284,7 +284,7 @@ const getPagination = (pageitem) => {
       }
       .title{
         margin-bottom: 14px;
-        font-size: 30px;
+        font-size: 26px;
         font-style: normal;
         font-weight: 400;
         line-height: 160%; /* 48px */
@@ -318,7 +318,7 @@ const getPagination = (pageitem) => {
       .btn{
         margin: 10px 0 5px;
         a{
-          font-size: 35px;
+          font-size: 28px;
           font-style: normal;
           font-weight: 400;
           line-height: 160%; /* 56px */
@@ -403,12 +403,24 @@ const getPagination = (pageitem) => {
     &-in{
       &-context{
         min-width: 330px;
+        &-top{
+          img{
+            max-width: 100px;
+            max-height: 60px;
+            
+          }
+          &>div{
+              span{
+                font-size: 16px;
+              }
+            }
+        }
       }
       .title{
-        font-size: 24px;
+        font-size: 20px;
       }
       .desc{
-        font-size: 20px;
+        font-size: 16px;
         span{
           -webkit-line-clamp: 5;
           line-clamp: 5;
@@ -437,7 +449,7 @@ const getPagination = (pageitem) => {
   .lists{
     &-in{
       flex-direction: column;
-      margin-bottom: 67px;
+      margin-bottom: 30px;
       &-img{
         order: 1;
         width: 100%;

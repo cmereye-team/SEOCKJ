@@ -165,8 +165,8 @@ const getPagination = (pageitem) => {
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor informationPage">
-      <div class="index_title pageCon informationPage-title" id="information">最新資訊</div>
-      <div class="tabNav noTitle pageCon">
+      <div class="index_title smallPageCon informationPage-title" id="information">最新資訊</div>
+      <div class="tabNav noTitle smallPageCon">
         <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
           <span>主頁</span>
         </nuxt-link>
@@ -175,7 +175,7 @@ const getPagination = (pageitem) => {
         </nuxt-link>
         <span :title="'最新資訊'">最新資訊</span>
       </div>
-      <div class="pageCon">
+      <div class="smallPageCon">
         <div class="lists" v-if="!errorpage">
           <div v-loading="loadingShow">
             <nuxt-link :to="`/news/news-information/${item.id}`" :id="`i${item.id}`" class="lists-in" v-for="(item,index) in informationLists" :key="index" @click="handlelink(item.id)">
@@ -268,7 +268,7 @@ const getPagination = (pageitem) => {
   min-height: 300px;
   &-in{
     display: flex;
-    margin-bottom: calc(125 / 1448 * 100%);
+    margin-bottom: calc(100 / 1448 * 100%);
     &-img{
       width: calc(500 / 1448* 100%);
       margin-right: calc(26 / 1448* 100%);
@@ -286,7 +286,7 @@ const getPagination = (pageitem) => {
         margin-bottom: 23px;
         .title{
           color: var(--indexColor1);
-          font-size: 50px;
+          font-size: 30px;
           font-style: normal;
           font-weight: 400;
           line-height: 130%;
@@ -297,44 +297,27 @@ const getPagination = (pageitem) => {
           overflow: hidden;  
           text-overflow: ellipsis; 
         }
-        // .time{
-        //   span{
-        //     display: block;
-        //     text-align: right;
-        //     font-size: 20px;
-        //     font-style: normal;
-        //     font-weight: 400;
-        //     line-height: 160%; /* 32px */
-        //     letter-spacing: 2px;
-        //     color: var(--textColor);
-        //   }
-        // }
       }
       .desc{
-        // flex: 1;
-        font-size: 20px;
+        font-size: 18px;
         font-style: normal;
         font-weight: 400;
         line-height: 160%; /* 32px */
         letter-spacing: 2px;
         color: var(--textColor);
         display: -webkit-box;  
-        -webkit-line-clamp: 11; 
-        line-clamp: 11; 
+        -webkit-line-clamp: 10; 
+        line-clamp: 10; 
         -webkit-box-orient: vertical;  
         overflow: hidden;  
-        text-overflow: ellipsis; 
-        // &::after{
-        //   content: '......';
-        //   display: block;
-        // }
+        text-overflow: ellipsis;
       }
       .btn{
         margin-top: 10px;
         display: flex;
         // justify-content: center;
         a{
-          font-size: 35px;
+          font-size: 30px;
           font-style: normal;
           font-weight: 400;
           line-height: 160%; /* 56px */
@@ -420,18 +403,18 @@ const getPagination = (pageitem) => {
       &-context{
         &-top{
           .title{
-            font-size: 3vw;
+            font-size: 1.8vw;
           }
           
         }
         .desc{
-          font-size: 1.4vw; 
+          font-size: 1vw; 
           -webkit-line-clamp: 5; 
           line-clamp: 5;
         }
         .btn{
           a{
-            font-size: 2.4vw;
+            font-size: 1.6;
           }
         }
       }

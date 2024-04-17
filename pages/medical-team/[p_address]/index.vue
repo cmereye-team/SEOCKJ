@@ -4,6 +4,7 @@ import doctorLists_hk from '~/assets/js/doctor'
 import doctorLists_zh from '~/assets/js/doctor_zh'
 import { Scrollbar } from 'swiper';
 import { toWhatsApp } from '~/assets/js/common'
+import { useElementBounding,useWindowSize } from '@vueuse/core'
 const locale = useState<string>('locale.setting')
 const appState = useAppState()
 useHead({
@@ -191,6 +192,9 @@ onMounted(()=>{
     })
   }
 })
+const doctorTeam = ref(null)
+const { top,bottom } = useElementBounding(doctorTeam)
+const { height } = useWindowSize()
 </script>
 
 <template>
@@ -207,7 +211,7 @@ onMounted(()=>{
           </div>
         </div>
         <div class="doctorPage-in-content"><span>{{$t('pages.medical_team.content.span_1')}}</span><span>{{$t('pages.medical_team.content.span_2')}}</span></div>
-        <div class="index-doctorTeam">
+        <div class="index-doctorTeam" ref="doctorTeam">
           <div class="index-doctorTeam-tab1 index-doctorTeam-con">
               <AreaTab @changeTabCur="changeAreaTabCur" />
           </div>
@@ -259,7 +263,7 @@ onMounted(()=>{
       <NewAddress />
     </div>
     <PageFooter />
-    <PageNavbar />
+    <PageNavbar :showDialogBox="(top<(height / 3 * 2)) && (bottom > (height / 3))" />
   </div>
 </template>
 

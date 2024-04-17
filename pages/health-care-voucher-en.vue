@@ -319,7 +319,7 @@ const handleLocale = (l) =>{
   <div>
     <PageHeader :headerConfig="headerConfig" /> 
     <div class="health-care-voucher pageIn whitebgColor">
-      <div class="pageCon health-care-voucher-top">
+      <div class="smallPageCon health-care-voucher-top">
         <div class="index_title health-care-voucher-title">{{$t('components.header.menuLists.health-care-voucher.name')}}</div>
         <!-- <div class="lang">
           <span @click="handleLocale('en')" class="ignore">Eng</span>
@@ -328,7 +328,7 @@ const handleLocale = (l) =>{
         </div> -->
         <!-- <div id="translate"></div> -->
       </div>
-      <div class="tabNav noTitle pageCon">
+      <div class="tabNav noTitle smallPageCon">
         <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
           <span>{{$t('components.footer.nav_index')}}</span>
         </nuxt-link>

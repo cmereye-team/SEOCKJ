@@ -438,7 +438,7 @@ watch(
     &-clinicTab{
       margin-top: .5208vw;
       &-in{
-        font-size: 18px;
+        font-size: .9375vw;
         border-top: .1042vw solid #00AEFF;
         border-bottom: .1042vw solid #00AEFF;
         border-left: .1042vw solid #00AEFF;

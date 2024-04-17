@@ -134,7 +134,9 @@ onMounted(() => {
     <div class="contactUs">
       <!-- <NewAddress /> -->
       <NewAddress />
-      <serviceCard :isIndexShow="true" />
+      <div class="serviceCard">
+        <serviceCard :isIndexShow="true" />
+      </div>
       <ContactForm-new />
       <div class="environment">
         <div class="environment-title">
@@ -243,6 +245,9 @@ onMounted(() => {
         position: relative;
         z-index: 1 !important;
       }
+    }
+    .serviceCard{
+      margin-top: 30px;
     }
     .environment{
       margin-top: 0px;

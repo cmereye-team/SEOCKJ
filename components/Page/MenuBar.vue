@@ -31,7 +31,7 @@ const menuBar = ref(null)
       <div class="menuBar-in-r">
         <nuxtLink :to="`tel: ${phoneNum}`" class="menuBar-box" title="香港熱線">
           <img src="@/assets/images/navIcon_1.png" alt="香港熱線">
-          <p>香港熱線：(852) {{smallPhoneNum}}</p>
+          <p>香港真人熱線電話及WhatsApp：(852) {{smallPhoneNum}}</p>
         </nuxtLink>
         <div class="menuBar-box" title="營業時間">
           <p>營業時間：9:00-17:30（假日照常應診）</p>
@@ -74,7 +74,7 @@ const menuBar = ref(null)
     position: fixed;
     z-index: 0;
     left: 0;
-    padding: 0 70px;
+    padding: 0 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -97,14 +97,14 @@ const menuBar = ref(null)
       display: flex;
       align-items: center;
       .menuBar-box{
-        margin-right: 57px;
+        margin-right: 40px;
       }
     }
     &-r{
       display: flex;
       align-items: center;
       .menuBar-box{
-        margin-left: 40px;
+        margin-left: 30px;
         &>img{
           max-height: 24px;
           margin-top: -3px;
@@ -115,7 +115,7 @@ const menuBar = ref(null)
         align-items: center;
         cursor: pointer;
         &-in{
-          margin-left: 22px;
+          margin-left: 15px;
           position: relative;
           &>img{
             max-height: 27px;
@@ -168,7 +168,7 @@ const menuBar = ref(null)
     height: 3.4896vw;
     &-in{
       height: 3.4896vw;
-      padding: 0 3.6458vw;
+      padding: 0 3.125vw;
       .menuBar-box{
         &>img{
           margin-top: -0.2604vw;
@@ -180,12 +180,12 @@ const menuBar = ref(null)
       }
       &-l{
         .menuBar-box{
-          margin-right: 2.9688vw;
+          margin-right: 2.0833vw;
         }
       }
       &-r{
         .menuBar-box{
-          margin-left: 2.0833vw;
+          margin-left: 1.5625vw;
           &>img{
             max-height: 1.25vw;
             margin-top: -0.1563vw;
@@ -193,7 +193,7 @@ const menuBar = ref(null)
         }
         .menuBar-icon{
           &-in{
-            margin-left: 1.1458vw;
+            margin-left: .7813vw;
             &>img{
               max-height: 1.4063vw;
             }

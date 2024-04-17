@@ -151,8 +151,8 @@ const getPagination = (pageitem) => {
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor informationPage">
-      <div class="index_title pageCon informationPage-title" id="information">牙齒百科</div>
-      <div class="tabNav noTitle pageCon">
+      <div class="index_title smallPageCon informationPage-title" id="information">牙齒百科</div>
+      <div class="tabNav noTitle smallPageCon">
         <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
           <span>主頁</span>
         </nuxt-link>
@@ -161,7 +161,7 @@ const getPagination = (pageitem) => {
         </nuxt-link>
         <span :title="'牙齒百科'">牙齒百科</span>
       </div>
-      <div class="pageCon">
+      <div class="smallPageCon">
         <!-- <nuxt-link to="/news/news-tooth-wiki/102">测试</nuxt-link> -->
         <div class="lists" v-if="!errorpage">
           <div v-loading="loadingShow">

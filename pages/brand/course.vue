@@ -274,7 +274,7 @@ const changeSwiper = (swiper) =>{
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor">
-      <div class="index_title pageCon">{{$t('pages.brand.title')}}</div>
+      <div class="index_title smallPageCon">{{$t('pages.brand.title')}}</div>
       <div class="introduce bigPageCon">
         <div
           class="introduce-in"
@@ -284,7 +284,7 @@ const changeSwiper = (swiper) =>{
         backgroundSize: 'auto 100%'
         }"
         >
-          <div class="tabNav noTitle pageCon">
+          <div class="tabNav noTitle smallPageCon">
             <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
               <span>{{$t('pages.index.title')}}</span>
             </nuxt-link>
@@ -296,7 +296,7 @@ const changeSwiper = (swiper) =>{
           <div class="introduce-in-t mbBox">
             <img :src="introduceData.mbImg" />
           </div>
-          <div class="introduce-in-l pageCon">
+          <div class="introduce-in-l smallPageCon">
             <div class="title">品牌介紹</div>
             <div class="content">{{$t(introduceData.content)}}</div>
           </div>
@@ -412,13 +412,13 @@ const changeSwiper = (swiper) =>{
       padding-bottom: 90px;
       .title {
         font-weight: 700;
-        font-size: 50px;
+        font-size: 36px;
         margin-top: 96px;
         color: var(--indexColor1);
       }
       .content {
         font-weight: 600;
-        font-size: 26px;
+        font-size: 20px;
         max-width: 630px;
         width: 630px;
         margin-top: 56px;
@@ -450,7 +450,7 @@ const changeSwiper = (swiper) =>{
   }
 }
 .course{
-  margin-top: 157px;
+  margin-top: 100px;
   &-in{
     width: 100%;
     margin: 36px auto 0;
@@ -577,8 +577,8 @@ const changeSwiper = (swiper) =>{
 .course-action{
   width: 100%;
   padding: 0 30px;
-  margin: 129px auto 0;
-  max-width: 1470px;
+  margin: 80px auto 0;
+  max-width: 1280px;
   &-in{
     display: flex;
     width: 100%;
@@ -668,11 +668,11 @@ const changeSwiper = (swiper) =>{
       &-l {
         padding-bottom: 7vw;
         .title {
-          font-size: 2.2vw;
+          font-size: 1.875vw;
           margin-top: 6vw;
         }
         .content {
-          font-size: 1.5vw;
+          font-size: 1.0417vw;
           margin-top: 3vw;
           width: 42vw;
         }

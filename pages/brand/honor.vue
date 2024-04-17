@@ -55,7 +55,7 @@ const handleProcessBtn = (_type: string) => {
 <div>
   <PageHeader :headerConfig="headerConfig" />
   <div class="pageIn whitebgColor">
-    <div class="index_title pageCon">{{$t('pages.brand.title')}}</div>
+    <div class="index_title smallPageCon">{{$t('pages.brand.title')}}</div>
     <div class="introduce bigPageCon">
       <div
         class="introduce-in"
@@ -65,7 +65,7 @@ const handleProcessBtn = (_type: string) => {
           backgroundSize: 'auto 100%'
           }"
         >
-        <div class="tabNav noTitle pageCon">
+        <div class="tabNav noTitle smallPageCon">
           <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
             <span>{{$t('pages.index.title')}}</span>
           </nuxt-link>
@@ -77,7 +77,7 @@ const handleProcessBtn = (_type: string) => {
         <div class="introduce-in-t mbBox">
           <img :src="introduceData.mbImg" />
         </div>
-        <div class="introduce-in-l pageCon">
+        <div class="introduce-in-l smallPageCon">
           <div class="title">{{$t(introduceData.title)}}</div>
           <div class="content">{{$t(introduceData.content)}}</div>
         </div>
@@ -90,7 +90,7 @@ const handleProcessBtn = (_type: string) => {
           <span>{{$t('pages.brand.honor.honorSwiper.title.span_1')}}</span>
           <span>{{$t('pages.brand.honor.honorSwiper.title.span_2')}}</span>
         </div>
-        <div class="honor-in pageCon">
+        <div class="honor-in smallPageCon">
           <div class="leftBtn" @click="handleProcessBtn('slidePrev')"></div>
           <swiper
             slidesPerView="auto"
@@ -125,7 +125,7 @@ const handleProcessBtn = (_type: string) => {
         {{$t('pages.brand.honor.international.context.item_6')}}<br />
         {{$t('pages.brand.honor.international.context.item_7')}}<br />
       </div>
-      <div class="international-in pageCon">
+      <div class="international-in smallPageCon">
         <!-- https://static.cmereye.com/imgs/2023/05/f358efedd13763fe.jpg -->
         <swiper
           slidesPerView="auto"
@@ -209,16 +209,16 @@ const handleProcessBtn = (_type: string) => {
     max-height: 628px;
     &-l {
       color: #666666;
-      padding-bottom: 90px;
+      padding-bottom: 0px;
       font-style: normal;
       .title {
         font-weight: 700;
-        font-size: 50px;
+        font-size: 35px;
         margin-top: 96px;
       }
       .content {
         font-weight: 600;
-        font-size: 26px;
+        font-size: 20px;
         max-width: 650px;
         width: 650px;
         margin-top: 68px;
@@ -251,7 +251,7 @@ const handleProcessBtn = (_type: string) => {
   }
 }
 .honor{
-  margin-top: 157px;
+  margin-top: 20px;
   &-bg{
     padding: 70px 0 106px;
     background: linear-gradient(270deg, rgba(255, 241, 240, 0) 2.6%, rgba(255, 241, 240, 0.7) 23.89%, rgba(255, 241, 240, 0.7) 75.33%, rgba(255, 241, 240, 0) 97.4%);
@@ -327,7 +327,7 @@ const handleProcessBtn = (_type: string) => {
   }
 }
 .international{
-  margin-top: 98px;
+  margin-top: 60px;
   &-title{
     display: flex;
     justify-content: center;
@@ -385,11 +385,11 @@ const handleProcessBtn = (_type: string) => {
   }
 }
 .brand{
-  margin-top: 140px;
+  margin-top: 80px;
   &-title{
     font-style: normal;
     font-weight: 700;
-    font-size: 30px;
+    font-size: 26px;
     line-height: 160%;
     color: #666666;
     display: flex;
@@ -406,15 +406,15 @@ const handleProcessBtn = (_type: string) => {
   &-context{
     font-style: normal;
     font-weight: 600;
-    font-size: 28px;
+    font-size: 24px;
     line-height: 160%;
     text-align: center;
     color: var(--indexColor1);
-    margin-top: 35px;
+    margin-top: 28px;
   }
   &-in{
     width: 100%;
-    max-width: 1452px;
+    max-width: 1280px;
     margin: 61px auto 0;
     display: flex;
     justify-content: space-between;
@@ -424,7 +424,7 @@ const handleProcessBtn = (_type: string) => {
       &>div{
         font-style: normal;
         font-weight: 700;
-        font-size: 26px;
+        font-size: 22px;
         line-height: 160%;
         text-align: center;
         color: #4C4C4C;
@@ -509,7 +509,7 @@ const handleProcessBtn = (_type: string) => {
     margin-top: 20px;
   }
   .honor{
-    margin-top: 90px;
+    margin-top: 30px;
     &-bg{
       padding: 44px 30px;
       background: linear-gradient(360deg, rgba(255, 241, 240, 0) 0%, rgba(255, 241, 240, 0.3) 12.5%, rgba(255, 241, 240, 0.3) 81.99%, rgba(255, 241, 240, 0) 100%);
@@ -550,7 +550,7 @@ const handleProcessBtn = (_type: string) => {
     }
   }
   .international{
-    margin-top: 90px;
+    margin-top: 30px;
     &-title{
       span{
         font-size: 26px;
@@ -581,7 +581,7 @@ const handleProcessBtn = (_type: string) => {
     }
   }
   .brand{
-    margin-top: 90px;
+    margin-top: 50px;
     &-title{
       font-size: 26px;
       &-in{

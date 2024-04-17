@@ -1730,6 +1730,30 @@ const { height } = useWindowSize()
         max-width: 50vw;
         margin: 4.1667vw auto 0;
       }
+      .technology{
+        max-width: 52.9167vw;
+        margin: 7.5vw auto 0;
+        padding-bottom: 2.6042vw;
+        &-in{
+          &-img{
+            max-width: 28.75vw;
+            margin-top: 1.7708vw;
+          }
+          &-t{
+            margin-top: 1.1979vw;
+            font-size: 1.0417vw;
+            letter-spacing: .2083vw;
+          }
+          &-b{
+            margin-top: 1.7708vw;
+            font-size: 1.0417vw;
+            letter-spacing: .2083vw;
+          }
+        }
+        &-btn{
+          margin-top: 2.6042vw;
+        }
+      }
     }
   }
   @media screen and (max-width: 768px) {
