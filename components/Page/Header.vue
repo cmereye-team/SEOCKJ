@@ -1115,20 +1115,22 @@ const handleopenwechat = () =>{
         }
         .serviceCard {
           width: 500px;
-          // display: flex;
           flex-direction: row;
           flex-wrap: wrap;
           padding: 20px 10px;
           border-radius: 16px;
-          overflow: hidden;
           .menuChild-item{
             width: calc(100% / 3);
             border: none;
             padding: 0;
             position: relative;
+            white-space: pre-wrap;
+            line-height: 1.2;
             &>a{
-              padding: 18px 0 14px;
-              display: block;
+              height: 56px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
             }
             &:not(:nth-of-type(3n)) {
               &::before{
@@ -1161,10 +1163,11 @@ const handleopenwechat = () =>{
             background-size: 100% auto;
             display: block;
             position: absolute;
-            bottom: -10px;
+            bottom: 0px;
             right: 30px;
-            transform: translateY(100%);
-            animation: menuIconAnim 1.5s forwards;
+            overflow: hidden;
+            background-position-y: calc(90 / 130 * 100px);
+            animation: menuIconAnim 1.5s .5s forwards;
           }
         }
       }
@@ -1247,23 +1250,20 @@ const handleopenwechat = () =>{
   filter: drop-shadow(0px -8px 4px rgba(77, 77, 77, 0.15));
 }
 @keyframes menuIconAnim {
-  // 0%{
-  //   transform: translateY(50px);
-  // }
   30%{
-    transform: translateY(-7px);
+    background-position-y: 3px;
   }
   55%{
-    transform: translateY(5px);
+    background-position-y: 15px;
   }
   75%{
-    transform: translateY(-2px);
+    background-position-y: 8px;
   }
   90%{
-    transform: translateY(1px);
+    background-position-y: 11px;
   }
   100%{
-    transform: translateY(0);
+    background-position-y: 10px;
   }
 }
 @keyframes wave1 {
