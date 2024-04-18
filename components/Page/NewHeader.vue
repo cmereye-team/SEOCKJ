@@ -345,21 +345,21 @@ const handleopenwechat = () =>{
             @slideChange="changebanner">
           <SwiperSlide>
             <nuxt-link to="/health-care-voucher">
-              <img :srcset="`https://static.cmereye.com/imgs/2024/02/afdfd3c22104497f.webp 768w, https://static.cmereye.com/imgs/2024/02/3443d2e2314e6e50.webp`"  src="https://static.cmereye.com/imgs/2024/02/3443d2e2314e6e50.webp" alt="">
+              <img :srcset="`https://static.cmereye.com/imgs/2024/02/afdfd3c22104497f.webp 768w, https://static.cmereye.com/imgs/2024/04/02e0cbb29d86af90.webp`"  src="https://static.cmereye.com/imgs/2024/04/02e0cbb29d86af90.webp" alt="">
             </nuxt-link>
           </SwiperSlide>
           <SwiperSlide>
             <nuxt-link to="https://bit.ly/愛康健裕亨新店開業優惠">
-              <img :srcset="`https://static.cmereye.com/imgs/2024/02/216458f63817b47e.jpg?v=1.2.0 768w, https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg`"  src="https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg" alt="">
+              <img :srcset="`https://static.cmereye.com/imgs/2024/02/216458f63817b47e.jpg?v=1.2.0 768w, https://static.cmereye.com/imgs/2024/04/ea3b6c9d7c7c2cc6.webp`"  src="https://static.cmereye.com/imgs/2024/04/ea3b6c9d7c7c2cc6.webp" alt="">
             </nuxt-link>
           </SwiperSlide>
           <SwiperSlide>
             <nuxt-link to="/medical-team">
-              <img :srcset="`https://static.cmereye.com/imgs/2024/03/f3f241b74364a6b7.jpg?v=1.2.0 768w, https://static.cmereye.com/imgs/2024/03/a2877cc6bbeefbfa.webp`"  src="https://static.cmereye.com/imgs/2024/03/a2877cc6bbeefbfa.webp" alt="">
+              <img :srcset="`https://static.cmereye.com/imgs/2024/03/f3f241b74364a6b7.jpg?v=1.2.0 768w, https://static.cmereye.com/imgs/2024/04/df1e63bdd93c3504.webp`"  src="https://static.cmereye.com/imgs/2024/04/df1e63bdd93c3504.webp" alt="">
             </nuxt-link>
           </SwiperSlide>
           <SwiperSlide>
-              <img :srcset="`https://static.cmereye.com/imgs/2024/03/4abbdd7326af4cc3.webp 768w, https://static.cmereye.com/imgs/2024/03/9615682d1948c5f5.png`"  src="https://static.cmereye.com/imgs/2024/03/9615682d1948c5f5.png" alt="">
+              <img :srcset="`https://static.cmereye.com/imgs/2024/03/4abbdd7326af4cc3.webp 768w, https://static.cmereye.com/imgs/2024/04/cf5124d2a6d53efd.webp`"  src="https://static.cmereye.com/imgs/2024/04/cf5124d2a6d53efd.webp" alt="">
           </SwiperSlide>
         </swiper>
       </div>
@@ -369,7 +369,7 @@ const handleopenwechat = () =>{
         :class="headerConfig.pageName"
       >
         <nuxt-link :to="bannerlink">
-          <img data-cfsrc="https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg" :srcset="`https://static.cmereye.com/imgs/2024/02/216458f63817b47e.jpg 768w, https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg`"  src="https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg" alt="">
+          <img data-cfsrc="" srcset="https://static.cmereye.com/imgs/2024/02/afdfd3c22104497f.webp 768w, https://static.cmereye.com/imgs/2024/04/02e0cbb29d86af90.webp`"  src="https://static.cmereye.com/imgs/2024/04/02e0cbb29d86af90.webp" alt="">
         </nuxt-link>
       </div>
       <div class="header-content-btn-implant bannerLine">
@@ -723,7 +723,7 @@ const handleopenwechat = () =>{
     opacity: 0;
     &.course-new {
       max-width: 100%;
-      min-height: calc(726 / 1920 * 100vw);
+      min-height: calc(580 / 1920 * 100vw);
       img {
         width: 100%;
       }

@@ -449,6 +449,7 @@ const handleopenwechat = () =>{
                   @click.stop="handleMenuChild(menuItem, menuChildIndex)"
                 >
                   <nuxt-link :to="menuChildItem.link">
+                    {{ menuChildItem.link === '/dental-service/wisdom-teeth-extraction' ? '拔牙\n' : '' }}
                     {{ $t(menuChildItem.name) }}
                   </nuxt-link>
                 </div>
