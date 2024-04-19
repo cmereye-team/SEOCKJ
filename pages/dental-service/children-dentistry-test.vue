@@ -58,56 +58,47 @@ const problemData = {
   ]
 }
 
-const skillData ={
-  title: ['從乳牙開始培養好的口腔衛生', '習慣，有助於建立良好的牙齒健康基礎。'],
+const services = [
+  {
+    img: 'https://static.cmereye.com/static/ckj/imgs/children-dentistry/service01.png',
+    name: '兒童洗牙',
+    price: '¥150',
+  },
+  {
+    img: 'https://static.cmereye.com/static/ckj/imgs/children-dentistry/service02.png',
+    name: '兒童補牙',
+    price: '¥300/顆'
+  },
+  {
+    img: 'https://static.cmereye.com/static/ckj/imgs/children-dentistry/service03.png',
+    name: '牙齒塗氟',
+    price: '¥200/全口',
+  },
+  {
+    img: 'https://static.cmereye.com/static/ckj/imgs/children-dentistry/service04.png',
+    name: '乳齒拔除',
+    price: '¥300/顆'
+  },
+  {
+    img: 'https://static.cmereye.com/static/ckj/imgs/children-dentistry/service05.png',
+    name: '窩溝封閉',
+    price: '¥300/顆',
+  },
+]
+
+const noteData = {
+  title: '兒童定期牙科保健的重要性？',
   lists: [
     {
-      title: '窩溝封閉',
-      introduce: '用高分子材料把牙齒的窩溝填平，使牙面變得光滑易清潔，一方面，窩溝封閉後，窩溝內原有的細菌斷絕了營養的來源，逐漸死亡；另一方面外面的致齲細菌不能再進入，從而達到預防窩溝齲的目的。',
-      characteristic: '操作簡單、兒童易配合，有效避免齲齒發生。',
-      adapt: '3—12歲乳磨牙、第一恒磨牙、第二恒磨牙。'
+      name: '及早教育小朋友保護牙齒都好,預防蛀牙及其他口腔疾病'
     },
     {
-      title: '塗氟',
-      introduce: '塗氟是一種保護孩子牙齒的方法，通常使用氟化物溶液塗抹在孩子的乳牙或恒牙表面，以增強牙齒質地，預防蛀牙和齲齒的形成。',
-      characteristic: '簡單操作無需局部麻醉，使用的氟化物溶液濃度低，長期效果穩定，可以持續保護孩子的牙齒長達數月至一年的時間。',
-      adapt: '一般為孩子乳牙長出後至恒牙長成之前的時間段，這個時間段通常是從孩子3歲開始到12歲左右。建議孩子每年至少進行一次塗氟治療，以保護他們的牙齒健康。'
+      name: '緊貼小朋友牙齒發育進度,及早作出針對性治療',
     },
     {
-      title: '補牙(蛀牙)',
-      introduce: '採用人造物質修補牙體缺損的方法，用於修補的物質叫充填材料。凡因齲齒、楔狀缺損、外傷等造成牙體組織缺損者都需要修補，以恢復其外形和功能。',
-      characteristic: '預防繼續齲齒；恢復正常咬合，維持牙弓長度。',
-      adapt: '乳磨牙齲壞、年輕恒牙齲壞。'
-    },
-    {
-      title: '兒童牙齒矯正',
-      introduce: '通過矯治器的方式可以改善兒童牙齒反頜、牙齒不齊等情況。',
-      characteristic: '恢復牙齒美觀和功能；改善口腔不良習慣；舒適、健康、便捷。',
-      adapt: '牙列畸形、反頜、牙齒錯位。'
-    },
-    {
-      title: '舒適拔牙',
-      introduce: '兒童牙科拔牙是一種治療方法，常用於治療牙齒損傷、感染、畸形或擁擠等问题。\n•使用麻醉技術，對孩子的疼痛感受最小化。\n•將拔牙傷害降到最小，減少感染及出血。\n•手術時間短，恢復快。',
-      characteristic: '對孩子的身心健康影響較小，疼痛輕微。傷口癒合迅速，不會影響孩子的飲食和日常生活，並可以解決牙齒問題，保護健康的牙齒和口腔健康。',
-      adapt: '一般來說，孩子的乳牙在6-12歲之間掉落，而恒牙則在11-14歲之間生長。如果孩子有牙齒問題，建議及早就診，根據醫生的建議決定是否需要拔牙治療。'
-    },
-    {
-      title: '根管治療',
-      introduce: '根管治療是一種治療乳牙或恒牙牙髓炎或牙髓壞死等問題的方法。\n•使用麻醉技術對孩子的疼痛感受最小化。\n•將治療風險降到最小，減少感染和出血。\n•根管治療技術使其保留牙齒和神經系統的功能，減少後續治療。',
-      characteristic: '對孩子的身心健康影響較小，疼痛輕微。效果長期穩定，可以保護孩子的牙齒健康，並可以避免拔牙對口腔造成的影響，保留自然牙齒。',
-      adapt: '兒童牙科根管治療需要根據孩子的年齡、牙齒狀況以及治療需要等多方面因素進行綜合考慮，建議家長及時就醫，並根據醫生的建議進行治療。'
+      name: '把握小朋友矯齒黃金期,大大提高改善牙齒排列、面部輪廓、咬字發音等問題的成功率',
     }
   ]
-}
-
-const changeSkillTitle = (_idx:number) => {
-  let a = ['適應期','適應期','適用','適用','適應期','注意事項']
-  return a[_idx]
-}
-
-let skillCur = ref(0)
-const handleSkillTab = (_idx:number) => {
-  skillCur.value = _idx
 }
 </script>
 
@@ -136,8 +127,47 @@ const handleSkillTab = (_idx:number) => {
         定期兒童牙科檢查有助於早期發現和治療牙齒問題，預防牙病發展。
       </div>
       <div class="services-lists">
-        <div class="services-lists-in">
-          <div></div>
+        <div class="services-lists-in" v-for="(item,index) in services" :key="index">
+          <div class="image">
+            <img :src="item.img" alt="">
+          </div>
+          <div class="text">
+            <h3>{{item.name}}</h3>
+            <p>{{item.price}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="youtube">
+      <div class="youtube-title">
+        <h3>小朋友睇牙<span>唔</span><span>洗</span><span>怕</span></h3>
+        <h3>愛康健兒童專屬診症室</h3>
+      </div>
+      <div class="youtube-in">
+
+      </div>
+    </div>
+    <div class="note">
+      <div class="dentistryServices-title note-title">
+        <div class="dentistryServices-title-in bb note-title-in">
+          {{noteData.title}}
+        </div>
+      </div>
+      <div class="note-content">
+        <div class="note-content-l">
+          <img
+            src="https://static.cmereye.com/static/ckj/imgs/children-dentistry/xin.webp"
+            alt=""
+          />
+        </div>
+        <div class="note-content-r">
+          <div
+            v-for="(noteItem, noteIndex) in noteData.lists"
+            :key="noteIndex"
+          >
+            <span>·</span>
+            <span>{{ $t(noteItem.name) }}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -145,10 +175,9 @@ const handleSkillTab = (_idx:number) => {
     <serviceCard />
     <NewAddress />
   </div>
-  <div class="YaNav">
+  <!-- <div class="YaNav">
     <div class="YaNav-img">
       <img class="YaNav-img-in" src="https://static.cmereye.com/imgs/2024/04/1b6462901bf4df9e.png" alt="">
-      <!-- <div></div> -->
     </div>
     <div class="YaNav-text">
       <div class="YaNav-text-in">
@@ -158,7 +187,7 @@ const handleSkillTab = (_idx:number) => {
         </span>
       </div>
     </div>
-  </div>
+  </div> -->
   <PageFooter />
   <PageNavbar />
 </div>
@@ -266,6 +295,151 @@ const handleSkillTab = (_idx:number) => {
         animation:none;
       }
     }
+  }
+}
+.services{
+  margin-top: 100px;
+  &-text{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 160%; /* 32px */
+    letter-spacing: 4px;
+    margin-bottom: 75px;
+    margin-top: 30px;
+  }
+  &-lists{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 1329px;
+    margin: 0 auto;
+    &-in{
+      width: calc(100% / 3);
+      padding: 0 60px;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      .image{
+        width: 319px;
+        img{
+          width: 100%;
+        }
+      }
+      .text{
+        color: var(--textColor);
+        margin-top: 11px;
+        text-align: center;
+        h3{
+          font-size: 30px;
+          font-weight: 400;
+          line-height: 160%; /* 48px */
+          letter-spacing: 3px;
+        }
+        p{
+          font-size: 30px;
+          font-weight: 900;
+          line-height: 160%; /* 48px */
+          letter-spacing: 3px;
+        }
+      }
+    }
+  }
+}
+.youtube{
+  margin-top: 113px;
+  &-title{
+    h3{
+      font-size: 50px;
+      font-weight: 400;
+      letter-spacing: 5.5px;
+      text-align: center;
+      color: var(--indexColor1);
+      span{
+        color: #fff;
+        background: var(--indexColor1);
+        display: inline-block;
+        border-radius: 50%;
+        width: 83px;
+        height: 83px;
+        line-height: 83px;
+        margin: 0 -10px;
+      }
+    }
+  }
+  &-in{
+    width: 936px;
+    height: 526px;
+    margin: 50px auto 0;
+    background: var(--indexColor2);
+    position: relative;
+    iframe{
+      width: 100%;
+      height: 100%;
+    }
+    &::after{
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: -1;
+      width: 224px;
+      height: 278px;
+      background: url(https://static.cmereye.com/static/ckj/imgs/children-dentistry/icon_1.png)no-repeat;
+      background-size: 100% auto;
+      animation: youtubeIcon 1s forwards;
+    }
+  }
+}
+.note {
+  margin-top: 100px;
+  &-title {
+    &-in {
+      font-size: 50px;
+      span {
+        color: var(--indexColor1);
+      }
+    }
+  }
+  &-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1286px;
+    margin: 80px auto 0;
+    &-l {
+      width: calc((482 / 1242) * 100%);
+      img {
+        width: 100%;
+      }
+    }
+    &-r {
+      margin-left: calc((42 / 1242) * 100%);
+      flex: 1;
+      & > div {
+        display: flex;
+        span {
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 193%; /* 38.6px */
+          letter-spacing: 3.2px;
+          color: var(--textColor);
+          &:nth-of-type(1) {
+            min-width: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+@keyframes youtubeIcon {
+  from{
+    // transform: translateX(0);
+  }
+  to{
+    transform: translateX(65%);
   }
 }
 @media (min-width: 768px) and (max-width: 1920px) {

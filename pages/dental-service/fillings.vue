@@ -21,7 +21,7 @@ useHead({
 const introduceJY = {
   title: 'pages.dental-service.fillings.introduce.title',
   content: 'pages.dental-service.fillings.introduce.content',
-  mbImg: 'https://static.cmereye.com/imgs/2024/02/cdfb1a9c081d7a15.webp',
+  mbImg: 'https://static.cmereye.com/imgs/2024/04/908db92c90966e34.webp',
   pcImg: 'https://static.cmereye.com/imgs/2024/04/b1104af283741909.webp',
 }
 
