@@ -1369,6 +1369,7 @@ watch(
         font-family: var(--contextFamily);
         font-weight: 700;
         text-align: center;
+        font-size: 20px;
         span{
           writing-mode: initial;
           line-height: 1.2;
