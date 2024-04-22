@@ -433,7 +433,7 @@ watch(
   transition: all .3s;
   .close{
     position: absolute;
-    bottom: 300%;
+    bottom: 380%;
     left: 0;
     width: 30px;
     height: 30px;
@@ -1040,8 +1040,8 @@ watch(
     }
   }
   .YaNav{
-    right: 10.4167vw;
-    bottom:5.2083vw;
+    // right: 10.4167vw;
+    // bottom: 5.2083vw;
     
     &-img{
       bottom: .5208vw;
