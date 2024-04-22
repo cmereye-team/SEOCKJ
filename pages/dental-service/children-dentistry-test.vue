@@ -1,5 +1,9 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
+import { useWindowSize,useWindowScroll } from '@vueuse/core'
+import { whatsAppNum } from '~/assets/js/common'
+const { y } = useWindowScroll()
+const { width } = useWindowSize()
 const route = useRouter()
 const appState = useAppState()
 appState.setDentistryService('children-dentistry')
@@ -172,6 +176,29 @@ const skillData ={
     }
   ]
 }
+
+
+let shownav = ref(true)
+const debounce = <T extends (...args: any[]) => any>(func: T, wait: number) =>{
+  let timerId: NodeJS.Timeout | null = null;
+  return function(this: ThisParameterType<T>, ...args: Parameters<T>){
+    if(timerId) clearTimeout(timerId)
+    timerId = setTimeout(()=>{
+      func.apply(this,args)
+    },wait)
+  }
+}
+watch(
+  y, ()=>{
+    shownav.value = false
+  }
+)
+watch(
+  y, debounce(function(newY: any, oldY: any) {
+      // 进行其他操作...
+      shownav.value = true
+  }, 1000)
+)
 </script>
 
 
@@ -188,7 +215,7 @@ const skillData ={
           ><span>{{ $t('pages.dental-service.title') }}</span></nuxt-link
         >
         <span :title="$t(introduceData.tabNavName)">{{ $t(introduceData.tabNavName) }}</span>
-      </div>
+    </div>
     <div class="services">
       <div class="dentistryServices-title">
         <div class="dentistryServices-title-in bb">
@@ -274,7 +301,6 @@ const skillData ={
         <h3><span>習</span><span>慣</span>有助於建立良好的牙齒健康基礎</h3>
         <img class="habits-right" src="https://static.cmereye.com/static/ckj/imgs/children-dentistry/La124512.png" alt="">
       </div>
-      
     </div>
     <div class="skill">
       <div class="skill-lists">
@@ -317,19 +343,19 @@ const skillData ={
     <serviceCard />
     <NewAddress />
   </div>
-  <!-- <div class="YaNav">
+  <nuxt-link :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" class="YaNav" :class="{shownav: shownav}">
     <div class="YaNav-img">
-      <img class="YaNav-img-in" src="https://static.cmereye.com/imgs/2024/04/1b6462901bf4df9e.png" alt="">
+      <img class="YaNav-img-in" srcset="https://static.cmereye.com/static/ckj/imgs/children-dentistry/yanavimgmb.png 768w, https://static.cmereye.com/static/ckj/imgs/children-dentistry/yanavimgpc.png" src="https://static.cmereye.com/static/ckj/imgs/children-dentistry/yanavimgpc.png" alt="">
     </div>
     <div class="YaNav-text">
       <div class="YaNav-text-in">
-        超聲波洗牙
+        {{width > 768 ? '超聲波洗牙' : '成人洗牙'}}
         <span>
-          ￥88
+          <i>￥</i>88
         </span>
       </div>
     </div>
-  </div> -->
+  </nuxt-link>
   <PageFooter />
   <PageNavbar />
 </div>
@@ -364,33 +390,27 @@ const skillData ={
 @keyframes YaNavAnim {
   0%{
     transform: scale(1);
-    // padding: 10px 30px;
   }
   10%{
-    transform: scale(1.1);
-    // padding: 10px 40px;
+    transform: scale(1.05);
   }
   20%{
     transform: scale(1);
-    // padding: 10px 30px;
   }
   30%{
-    transform: scale(1.1);
-    // padding: 10px 40px;
+    transform: scale(1.05);
   }
   40%{
     transform: scale(1);
-    // padding: 10px 30px;
   }
   100%{
     transform: scale(1);
-    // padding: 10px 30px;
   }
 }
 .YaNav{
   position: fixed;
   z-index: 101;
-  right: 100px;
+  right: 130px;
   bottom:100px;
   filter: drop-shadow(0 2px 4px rgba(255, 96, 150, .5));
   cursor: pointer;
@@ -409,7 +429,6 @@ const skillData ={
   &-text{
     background: var(--indexColor1);
     clip-path: polygon(0 0,50% 12%,100% 0,92% 50%,100% 100%,50% 88%,0 100%,8% 50%);
-    // animation: YaNavAnim 7s linear infinite;
     transition: all .3s;
     &-in{
       color: #fff;
@@ -420,21 +439,20 @@ const skillData ={
       justify-content: center;
       align-items: center;
       transition: all .3s;
-      // animation: YaNavAnim 7s linear infinite;
       span{
         font-family: var(--contextFamily);
         font-size: 26px;
+        i{
+          font-style: normal;
+        }
       }
     }
   }
   &:hover{
     .YaNav-text{
-      // clip-path: polygon(0 0,50% 12%,100% 0,92% 50%,100% 100%,50% 88%,0 100%,8% 50%);
-      // clip-path: polygon(0 0,100% 0,100% 100%, 0 100%);
-      // transform: scale(1.1);
       &-in{
         padding: 10px 40px;
-        animation:none;
+        animation: none;
       }
     }
   }
@@ -533,9 +551,9 @@ const skillData ={
     width: 936px;
     height: 526px;
     margin: 50px auto 0;
-    // background: var(--indexColor2);
-    background: url(https://static.cmereye.com/imgs/2024/04/17c157c4b09a17ef.jpg);
-    background-size: 100%;
+    background: url(https://static.cmereye.com/imgs/2024/04/17c157c4b09a17ef.jpg) no-repeat;
+    background-size: 100% auto;
+    background-position: center center;
     position: relative;
     iframe{
       width: 100%;
@@ -553,10 +571,6 @@ const skillData ={
       background-size: 100% auto;
       animation: youtubeIcon 1s forwards;
     }
-    // &::before[
-      // content: '';
-      // position: absolute;
-    // ]
   }
 }
 .note {
@@ -640,7 +654,7 @@ const skillData ={
   max-width: 1396px;
   margin: 100px auto 0; 
   padding: 110px 0 110px;
-  background: url(https://static.cmereye.com/static/ckj/imgs/children-dentistry/appointmentbg.svg);
+  background: url(https://static.cmereye.com/static/ckj/imgs/children-dentistry/appointmentbg.png);
   background-size: 100% 100%;
   position: relative;
   &::before{
@@ -663,8 +677,9 @@ const skillData ={
       align-items: center;
       width: 246px;
       .image{
-        margin-bottom: 18px;
+        margin-bottom: 10px;
         max-width: 159px;
+        min-height: 159px;
         img{
           width: 100%;
         }
@@ -885,9 +900,6 @@ const skillData ={
         background: #FFF1F0;
         border: none;
         .skill-lists-in-right,.skill-lists-in-left{
-          &::before{
-
-          }
           &::after{
             border: none;
           }
@@ -928,7 +940,266 @@ const skillData ={
   }
 }
 @media (min-width: 768px) and (max-width: 1920px) {
-  
+  .YaNav{
+    right: 6.7708vw;
+    bottom:5.2083vw;
+    &-img{
+      bottom: .5208vw;
+    }
+    &-text{
+      &-in{
+        font-size: 1.0417vw;
+        padding: .5208vw 1.5625vw;
+        span{
+          font-size: 1.3542vw;
+        }
+      }
+    }
+    &:hover{
+      .YaNav-text{
+        &-in{
+          padding: .5208vw 2.0833vw;
+        }
+      }
+    }
+  }
+  .services{
+    max-width: 100vw;
+    margin: 5.2083vw auto 0;
+    &-text{
+      font-size: 1.0417vw;
+      letter-spacing: .2083vw;
+      margin-bottom: 3.9063vw;
+      margin-top: 1.5625vw;
+    }
+    &-lists{
+      max-width: 69.2188vw;
+      &-in{
+        padding: 0 3.125vw;
+        .image{
+          width: 16.6146vw;
+        }
+        .text{
+          margin-top: .5729vw;
+          h3{
+            font-size: 1.5625vw;
+            letter-spacing: .1563vw;
+          }
+          p{
+            font-size: 1.5625vw;
+            letter-spacing: .1563vw;
+          }
+        }
+      }
+    }
+    .services-bg{
+      top: -9.375vw;
+      width: 34.8958vw;
+      height: 29.8438vw;
+    }
+  }
+  .youtube{
+    margin-top: 5.8854vw;
+    &-title{
+      h3{
+        font-size: 2.6042vw;
+        letter-spacing: .2865vw;
+        span{
+          width: 4.3229vw;
+          height: 4.3229vw;
+          line-height: 4.3229vw;
+          margin: 0 -0.5208vw;
+          &:first-child{
+            margin-left: .5208vw;
+          }
+        }
+      }
+    }
+    &-in{
+      width: 48.75vw;
+      height: 27.3958vw;
+      margin: 2.6042vw auto 0;
+      &::after{
+        width: 11.6667vw;
+        height: 14.4792vw;
+      }
+    }
+  }
+  .note {
+    margin-top: 5.2083vw;
+    &-content {
+      max-width: 46.5104vw;
+      margin: 4.1667vw auto 0;
+      &-r {
+        & > div {
+          span {
+            font-size: 1.0417vw;
+            letter-spacing: .1667vw;
+            &:nth-of-type(1) {
+              min-width: 1.0417vw;
+              font-size: 1.3542vw;
+            }
+          }
+        }
+      }
+      &::before{
+        width: 11.3021vw;
+        height: 11.0938vw;
+        bottom: -2.6042vw;
+        left: -7.8125vw;
+      }
+      &::after{
+        width: 8.8021vw;
+        height: 9.0625vw;
+        right: -7.2917vw;
+      }
+    }
+  }
+  .appointment{
+    max-width: 72.7083vw;
+    margin: 5.2083vw auto 0; 
+    padding: 5.7292vw 0 5.7292vw;
+    &::before{
+      width: 13.75vw;
+      height: 13.8021vw;
+      right: 13.4896vw;
+    }
+    &-lists{
+      margin-top: 4.6875vw;
+      &-in{
+        width: 12.8125vw;
+        .image{
+          margin-bottom: .5208vw;
+          max-width: 8.2813vw;
+          min-height: 8.2813vw;
+        }
+        .title{
+          h3{
+            span{
+              font-size: 1.5625vw;
+            }
+          }
+        }
+        .text{
+          font-size: 1.0417vw;
+          letter-spacing: .2604vw;
+        }
+      }
+    }
+    &-btn{
+      margin-top: 2.2917vw;
+    }
+  }
+  .habits{
+    margin-top: 10.4167vw;
+    &-title{
+      h3{
+        font-size: 2.6042vw;
+        letter-spacing: .2865vw;
+        span{
+          width: 4.3229vw;
+          height: 4.3229vw;
+          line-height: 4.3229vw;
+          margin: 0 -0.5208vw;
+          &:last-child{
+            margin-right: .5208vw;
+          }
+        }
+      }
+    }
+    &-right{
+      width: 5.5729vw;
+      height: 8.9583vw;
+    }
+  }
+  .skill{
+    &-lists{
+      margin: 7.2917vw auto 0;
+      max-width: 74.8958vw;
+      &-in{
+        padding: 2.0833vw;
+        border-radius: 5.2083vw;
+        border: .1563vw solid #F8CDCD;
+        margin-bottom: 1.0417vw;
+        &-box{
+          border: .2083vw dotted var(--indexColor1);
+          border-radius: 4.1667vw;
+          padding: 4.1667vw 0;
+        }
+        &-l{
+          width: 16.9271vw;
+          margin-right: 2.5521vw;
+        }
+        &-r{
+          width: 34.8438vw;
+          .title{
+            margin-bottom: 1.5625vw;
+            h3{
+              width: 18.9063vw;
+              border-radius: 1.5625vw;
+              font-size: 1.8229vw;
+              letter-spacing: .3646vw;
+            }
+          }
+          .context{
+            font-size: 1.5625vw;
+            letter-spacing: .1563vw;
+            margin-top: .3646vw;
+            &>div{
+              width: 11.7188vw;
+              &>img{
+                width: 2.4479vw;
+                margin-right: .5729vw;
+              }
+            }
+          }
+        }
+        &-left,&-right{
+          &-in{
+            width: 1.3542vw;
+            height: 5.5208vw;
+            border-radius: .2604vw;
+          }
+          &::before,&::after{
+            width: 2.5521vw;
+            height: 2.5521vw;
+            border: .1563vw solid #F8CDCD;
+          }
+        }
+        &-left{
+          left: 9.5833vw;
+        }
+        &-right{
+          right: 9.5833vw;
+        }
+        &:first-child{
+          .skill-lists-in-right,.skill-lists-in-left{
+            &-in{
+              height: 4.4792vw;
+            }
+          }
+        }
+      }
+    }
+    &-anim{
+      &-1{
+        width: 13.75vw;
+        height: 16.9271vw;
+        left: -4.6875vw;
+      }
+      &-2{
+        width: 10.2604vw;
+        height: 12.8646vw;
+        right: -5.2083vw;
+      }
+      &-3{
+        width: 13.75vw;
+        height: 16.9271vw;
+        right: -3.6458vw;
+        bottom: -2.6042vw;
+      }
+    }
+  }
 }
 @media only screen and (max-width: 768px) {
   .tabNav {
@@ -937,7 +1208,45 @@ const skillData ={
     margin-top: 0;
   }
   .YaNav{
-    display: none;
+    right: 7px;
+    bottom: 30%;
+    animation: none;
+    right: -20px;
+    &-img{
+      width: 120%;
+      bottom: 88%;
+      margin: 0 -10%;
+    }
+    &-text{
+      clip-path: polygon(0 0,50% 8%,100% 0,85% 50%,100% 100%,50% 92%,0 100%,15% 50%);
+      &-in{
+        padding: 20px 10px;
+        writing-mode: vertical-lr;
+        font-family: var(--contextFamily);
+        font-weight: 700;
+        span{
+          writing-mode: initial;
+          line-height: 1.2;
+          font-size: 28px;
+          i{
+            font-size: 14px;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+    &.shownav{
+      right: 7px;
+      transform: none;
+      animation: YaNavAnim 6s 1s linear infinite;
+    }
+    &:hover{
+      .YaNav-text{
+        &-in{
+          padding: 20px 10px;
+        }
+      }
+    }
   }
   .services{
     margin-top: 30px;
@@ -1051,11 +1360,68 @@ const skillData ={
     }
   }
   .appointment{
-    background-size: auto 100%;
+    margin: 70px auto 0; 
+    padding: 80px 0 60px;
+    background: url(https://static.cmereye.com/static/ckj/imgs/children-dentistry/appointmentbg1.png) no-repeat;
+    background-size: 100% 100%;
+    &::before{
+      width: 92px;
+      height: 94px;
+      right: 34px;
+      top: 150px;
+    }
     &-lists{
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 50px;
       &-in{
-        width: 120px;
+        width: 100%;
+        align-items: flex-start;
+        margin-top: -45px;
+        position: relative;
+        .image{
+          width: 110px;
+          min-height: 0;
+        }
+        .title{
+          width: 120px;
+          h3{
+            span{
+              font-size: 18px;
+            }
+          }
+        }
+        .text{
+          width: 120px;
+          font-size: 12px;
+          letter-spacing: 1.2px;
+          text-align: center;
+        }
+        &::after{
+          content: '';
+          width: 34px;
+          height: 20px;
+          background: url(@/assets/images/icon_46.svg) no-repeat;
+          background-size: 100% 100%;
+          position: absolute;
+          left: 120px;
+          bottom: 35px;
+        }
+        &:last-child{
+          &::after{
+            display: none;
+          }
+        }
+        &:nth-of-type(even){
+          align-items: flex-end;
+          &::after{
+            left: auto;
+            right: 130px;
+            bottom: 25px;
+            transform: rotateY(180deg);
+          }
+        }
       }
     }
   }
