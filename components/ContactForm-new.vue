@@ -71,7 +71,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
         formLoading.value = false
         return
       }
-      if(privacyPolicy.value === '0'){
+      if(!privacyPolicy.value){
         ElMessage({
           showClose: true,
           message: '請勾選同意有關私隱政策聲明。',
@@ -101,6 +101,15 @@ const onSubmit = async () => {
   // _formData.append('email',_form.email)
   _formData.append('service', _form.service)
   _formData.append('formUrl', `${location.href}`)
+  if(_form.service === '洗牙'){
+    _formData.append('preferential', `超聲波洗牙--優惠價：¥88、原價 ¥180；\n菌斑導向專業洗牙（含鹽）--優惠價：¥168、原價 ¥350；\n菌斑導向專業洗牙（無鹽）--價格：¥550；`)
+  }else{
+    _formData.append('preferential', `無`)
+  }
+  // console.log(`超聲波洗牙--優惠價：¥88、原價 ¥180；\n菌斑導向專業洗牙（含鹽）--優惠價：¥168、原價 ¥350；\n菌斑導向專業洗牙（無鹽）--價格：¥550；`)
+  // console.log(_form)
+  // console.log(_formData)
+  // return
   const { data }: any = await useFetch(
     'https://admin.ckjhk.com/api.php/cms/addform/fcode/3',
     {
@@ -153,7 +162,7 @@ onMounted(() => {
 
 
 let areaCode = ref('+852')
-let privacyPolicy = ref('1')
+let privacyPolicy = ref(true)
 </script>
 
 <template>
@@ -237,12 +246,11 @@ let privacyPolicy = ref('1')
           <el-form-item>
             <div class="privacyPolicy">
               <div class="privacyPolicy-label">*為必填</div>
-              <div class="privacyPolicy-content">
+              <div class="privacyPolicy-content" @click.stop="privacyPolicy = !privacyPolicy">
                 <span>我們將會在10小時內與您聯絡確認預約詳情。</span>
-                <span>
-                  <el-radio-group v-model="privacyPolicy">
-                    <el-radio :label="'1'" size="large"><i>*</i>本人已閱讀並同意有關 <nuxt-link to="/privacyPolicy" target="_blank">私隱政策</nuxt-link> 聲明。</el-radio>
-                  </el-radio-group>
+                <span class="radio">
+                  <div :class="['radio-in',{'act': privacyPolicy}]"></div>
+                  <i>*</i>本人已閱讀並同意有關 <nuxt-link to="/privacyPolicy" target="_blank">私隱政策</nuxt-link> 聲明。
                 </span>
               </div>
             </div>
@@ -452,6 +460,40 @@ li{
       background: var(--indexColor1);
       border: 1px solid #fff;
     }
+    .radio{
+      display: flex;
+      align-items: center;
+      margin-top: 5px;
+      cursor: pointer;
+      &-in{
+        border-radius: 50%;
+        border: 2px solid var(--indexColor1);
+        background: #fff;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        margin-top: -2px;
+        position: relative;
+        &::before{
+          content: '';
+          width: 0;
+          height: 0;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+          background: var(--indexColor1);
+          transition: all .3s;
+          border-radius: 50%;
+        }
+        &.act{
+          &::before{
+            width: 12px;
+            height: 12px;
+          }
+        }
+      }
+    }
     :deep(.el-select .el-input .el-select__caret){
       font-size: 28px;
       color: var(--indexColor1);
@@ -554,8 +596,8 @@ li{
     }
     :deep(.el-input__inner){
       font-size: 1.4583vw;
-      line-height: 2.8646vw;
-      height: 2.8646vw;
+      line-height: 2vw;
+      height: 2vw;
       text-indent: .5208vw;
     }
     :deep(.el-form-item__content){
@@ -607,7 +649,7 @@ li{
   }
   .contactForm {
     &-bg {
-      padding: 50px 0;
+      padding: 70px 0 50px;
       background: #fff;
     }
     span {
@@ -636,7 +678,7 @@ li{
         font-size: 12px;
       }
       :deep(.el-input) {
-        height: 26px;
+        height: 30px;
         font-size: 15px;
         border: 1px solid var(--indexColor1);
       }

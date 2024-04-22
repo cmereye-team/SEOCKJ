@@ -19,13 +19,21 @@ useHead({
   ]
 })
 
+// const headerConfig = {
+//   img: 'https://static.cmereye.com/imgs/2023/06/67f203a9b4c651be.png',
+//   bg: 'https://static.cmereye.com/imgs/2023/06/4a26475cb4471cee.jpg',
+//   mbImg: 'https://static.cmereye.com/imgs/2023/06/671098dc7b098348.jpg',
+//   pageName: 'children-dentistry',
+//   pcText: ['關注口腔健康，從定期檢查開始','立即預約檢查，展開護牙行動'],
+//   mbText: ['關注口腔健康','從定期檢查開始']
+// }
 const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2023/06/67f203a9b4c651be.png',
-  bg: 'https://static.cmereye.com/imgs/2023/06/4a26475cb4471cee.jpg',
-  mbImg: 'https://static.cmereye.com/imgs/2023/06/671098dc7b098348.jpg',
-  pageName: 'children-dentistry',
-  pcText: ['關注口腔健康，從定期檢查開始','立即預約檢查，展開護牙行動'],
-  mbText: ['關注口腔健康','從定期檢查開始']
+  img: 'https://static.cmereye.com/imgs/2024/03/6fcd8f2992e9550b.jpg',
+  bg: '',
+  mbImg: 'https://static.cmereye.com/imgs/2024/03/98983f4c7178e454.jpg',
+  pageName: 'scaling-and-polishing-test',
+  pcText: [],
+  mbText: [],
 }
 
 const introduceData = {
@@ -100,6 +108,70 @@ const noteData = {
     }
   ]
 }
+
+const appointment = [
+  {
+    img: 'https://static.cmereye.com/static/ckj/imgs/children-dentistry/appointment1.png',
+    title: ['Whatsapp','預約指定時間'],
+    text: ''
+  },{
+    img: 'https://static.cmereye.com/static/ckj/imgs/children-dentistry/appointment2.png',
+    title: ['收到','SMS預約通知'],
+    text: ''
+  },{
+    img: 'https://static.cmereye.com/static/ckj/imgs/children-dentistry/appointment3.png',
+    title: ['牙齒檢查'],
+    text: '診斷後作合適報價'
+  },{
+    img: 'https://static.cmereye.com/static/ckj/imgs/children-dentistry/appointment4.png',
+    title: ['進行牙科治療'],
+    text: '由專科醫生進行治療'
+  },{
+    img: 'https://static.cmereye.com/static/ckj/imgs/children-dentistry/appointment5.png',
+    title: ['預約覆診及','完成付款'],
+    text: ''
+  } 
+]
+
+const skillData ={
+  lists: [
+    {
+      img: 'https://static.cmereye.com/static/ckj/imgs/children-dentistry/service05.png',
+      title: '窩溝封閉',
+      introduce: '用高分子材料把牙齒的窩溝填平，使牙面變得光滑易清潔，一方面，窩溝封閉後，窩溝內原有的細菌斷絕了營養的來源，逐漸死亡；另一方面外面的致齲細菌不能再進入，從而達到預防窩溝齲的目的。',
+      characteristic: '操作簡單、兒童易配合，有效避免齲齒發生。',
+      adapt: '3—12歲乳磨牙、第一恒磨牙、第二恒磨牙。'
+    },
+    {
+      img: 'https://static.cmereye.com/static/ckj/imgs/children-dentistry/service03.png',
+      title: '塗氟',
+      introduce: '塗氟是一種保護孩子牙齒的方法，通常使用氟化物溶液塗抹在孩子的乳牙或恒牙表面，以增強牙齒質地，預防蛀牙和齲齒的形成。',
+      characteristic: '簡單操作無需局部麻醉，使用的氟化物溶液濃度低，長期效果穩定，可以持續保護孩子的牙齒長達數月至一年的時間。',
+      adapt: '一般為孩子乳牙長出後至恒牙長成之前的時間段，這個時間段通常是從孩子3歲開始到12歲左右。建議孩子每年至少進行一次塗氟治療，以保護他們的牙齒健康。'
+    },
+    {
+      img: 'https://static.cmereye.com/static/ckj/imgs/children-dentistry/service02.png',
+      title: '補牙(蛀牙)',
+      introduce: '採用人造物質修補牙體缺損的方法，用於修補的物質叫充填材料。凡因齲齒、楔狀缺損、外傷等造成牙體組織缺損者都需要修補，以恢復其外形和功能。',
+      characteristic: '預防繼續齲齒；恢復正常咬合，維持牙弓長度。',
+      adapt: '乳磨牙齲壞、年輕恒牙齲壞。'
+    },
+    {
+      img: 'https://static.cmereye.com/static/ckj/imgs/children-dentistry/skill01.png',
+      title: '兒童牙齒矯正',
+      introduce: '通過矯治器的方式可以改善兒童牙齒反頜、牙齒不齊等情況。',
+      characteristic: '恢復牙齒美觀和功能；改善口腔不良習慣；舒適、健康、便捷。',
+      adapt: '牙列畸形、反頜、牙齒錯位。'
+    },
+    {
+      img: 'https://static.cmereye.com/static/ckj/imgs/children-dentistry/service04.png',
+      title: '舒適拔牙',
+      introduce: '兒童牙科拔牙是一種治療方法，常用於治療牙齒損傷、感染、畸形或擁擠等问题。\n•使用麻醉技術，對孩子的疼痛感受最小化。\n•將拔牙傷害降到最小，減少感染及出血。\n•手術時間短，恢復快。',
+      characteristic: '對孩子的身心健康影響較小，疼痛輕微。傷口癒合迅速，不會影響孩子的飲食和日常生活，並可以解決牙齒問題，保護健康的牙齒和口腔健康。',
+      adapt: '一般來說，孩子的乳牙在6-12歲之間掉落，而恒牙則在11-14歲之間生長。如果孩子有牙齒問題，建議及早就診，根據醫生的建議決定是否需要拔牙治療。'
+    }
+  ]
+}
 </script>
 
 
@@ -118,8 +190,8 @@ const noteData = {
         <span :title="$t(introduceData.tabNavName)">{{ $t(introduceData.tabNavName) }}</span>
       </div>
     <div class="services">
-      <div class="dentistryServices-title problem-title">
-        <div class="dentistryServices-title-in bb problem-title-in">
+      <div class="dentistryServices-title">
+        <div class="dentistryServices-title-in bb">
           兒童牙科服務
         </div>
       </div>
@@ -137,6 +209,8 @@ const noteData = {
           </div>
         </div>
       </div>
+      <img class="services-bg services-bg-1" src="https://static.cmereye.com/static/ckj/imgs/children-dentistry/servicesbg1.png">
+      <img class="services-bg services-bg-2" src="https://static.cmereye.com/static/ckj/imgs/children-dentistry/servicesbg2.png">
     </div>
     <div class="youtube">
       <div class="youtube-title">
@@ -144,12 +218,35 @@ const noteData = {
         <h3>愛康健兒童專屬診症室</h3>
       </div>
       <div class="youtube-in">
-
+        <iframe src="https://www.youtube.com/embed/rnuhXoXJFRc?si=OqhqfaVEBOr_peDA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="appointment">
+      <div class="dentistryServices-title">
+        <div class="dentistryServices-title-in bb">
+          預約5部曲
+        </div>
+      </div>
+      <div class="appointment-lists">
+        <div class="appointment-lists-in" v-for="(item,index) in appointment" :key="index">
+          <div class="image"><img :src="item.img" alt=""></div>
+          <div class="title">
+            <h3>
+              <span v-for="(titleItem,titleIndex) in item.title" :key="titleIndex">{{titleItem}}</span>
+            </h3>
+          </div>
+          <div class="text">
+            <p>{{item.text}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="appointment-btn">
+        <PageAnimBtnTypeTwo str="立即預約"/>
       </div>
     </div>
     <div class="note">
-      <div class="dentistryServices-title note-title">
-        <div class="dentistryServices-title-in bb note-title-in">
+      <div class="dentistryServices-title">
+        <div class="dentistryServices-title-in bb">
           {{noteData.title}}
         </div>
       </div>
@@ -169,6 +266,51 @@ const noteData = {
             <span>{{ $t(noteItem.name) }}</span>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="habits">
+      <div class="habits-title">
+        <h3>從乳牙開始培養好的口腔衛生</h3>
+        <h3><span>習</span><span>慣</span>有助於建立良好的牙齒健康基礎</h3>
+        <img class="habits-right" src="https://static.cmereye.com/static/ckj/imgs/children-dentistry/La124512.png" alt="">
+      </div>
+      
+    </div>
+    <div class="skill">
+      <div class="skill-lists">
+        <div class="skill-lists-in" v-for="(item,index) in skillData.lists" :key="index">
+          <div class="skill-lists-in-box">
+          <div class="skill-lists-in-l">
+            <img :src="item.img" alt="">
+          </div>
+          <div class="skill-lists-in-r">
+            <div class="title">
+              <h3>{{item.title}}</h3>
+            </div>
+            <div class="context">
+              <div><img src="https://static.cmereye.com/static/ckj/imgs/children-dentistry/Layer_1.svg" alt="">技術介紹</div>
+              <p>{{item.introduce}}</p>
+            </div>
+            <div class="context">
+              <div><img src="https://static.cmereye.com/static/ckj/imgs/children-dentistry/Layer_2.svg" alt="">技術特點</div>
+              <p>{{item.characteristic}}</p>
+            </div>
+            <div class="context">
+              <div><img src="https://static.cmereye.com/static/ckj/imgs/children-dentistry/Layer_3.svg" alt="">適應期</div>
+              <p>{{item.adapt}}</p>
+            </div>
+          </div>
+          <div class="skill-lists-in-right">
+            <div class="skill-lists-in-right-in"></div>
+          </div>
+          <div class="skill-lists-in-left">
+            <div class="skill-lists-in-left-in"></div>
+          </div>
+          </div>
+        </div>
+        <img class="skill-anim skill-anim-1" src="https://static.cmereye.com/static/ckj/imgs/children-dentistry/skill_anim-1.png">
+        <img class="skill-anim skill-anim-2" src="https://static.cmereye.com/static/ckj/imgs/children-dentistry/skill_anim-2.png">
+        <img class="skill-anim skill-anim-3" src="https://static.cmereye.com/static/ckj/imgs/children-dentistry/skill_anim-3.png">
       </div>
     </div>
     <ServiceProblem :problemData="problemData" />
@@ -298,7 +440,10 @@ const noteData = {
   }
 }
 .services{
-  margin-top: 100px;
+  width: 100%;
+  max-width: 1920px;
+  margin: 100px auto 0;
+  position: relative;
   &-text{
     text-align: center;
     font-size: 20px;
@@ -346,6 +491,19 @@ const noteData = {
       }
     }
   }
+  .services-bg{
+    position: absolute;
+    top: -180px;
+    width: 670px;
+    height: 573px;
+    z-index: -1;
+    &-1{
+      left: 0;
+    }
+    &-2{
+      right: 0;
+    }
+  }
 }
 .youtube{
   margin-top: 113px;
@@ -365,6 +523,9 @@ const noteData = {
         height: 83px;
         line-height: 83px;
         margin: 0 -10px;
+        &:first-child{
+          margin-left: 10px;
+        }
       }
     }
   }
@@ -372,7 +533,9 @@ const noteData = {
     width: 936px;
     height: 526px;
     margin: 50px auto 0;
-    background: var(--indexColor2);
+    // background: var(--indexColor2);
+    background: url(https://static.cmereye.com/imgs/2024/04/17c157c4b09a17ef.jpg);
+    background-size: 100%;
     position: relative;
     iframe{
       width: 100%;
@@ -390,32 +553,29 @@ const noteData = {
       background-size: 100% auto;
       animation: youtubeIcon 1s forwards;
     }
+    // &::before[
+      // content: '';
+      // position: absolute;
+    // ]
   }
 }
 .note {
   margin-top: 100px;
-  &-title {
-    &-in {
-      font-size: 50px;
-      span {
-        color: var(--indexColor1);
-      }
-    }
-  }
   &-content {
     display: flex;
     align-items: center;
     width: 100%;
-    max-width: 1286px;
+    max-width: 893px;
     margin: 80px auto 0;
+    position: relative;
     &-l {
-      width: calc((482 / 1242) * 100%);
+      width: calc((462 / 893) * 100%);
       img {
         width: 100%;
       }
     }
     &-r {
-      margin-left: calc((42 / 1242) * 100%);
+      margin-left: calc((48 / 893) * 100%);
       flex: 1;
       & > div {
         display: flex;
@@ -427,11 +587,163 @@ const noteData = {
           letter-spacing: 3.2px;
           color: var(--textColor);
           &:nth-of-type(1) {
-            min-width: 30px;
+            min-width: 20px;
+            font-size: 26px;
+            line-height: 1.5;
           }
         }
       }
     }
+    &::before{
+      content: '';
+      position: absolute;
+      width: 217px;
+      height: 213px;
+      bottom: -50px;
+      left: -150px;
+      background: url(https://static.cmereye.com/static/ckj/imgs/children-dentistry/note-1.png);
+      background-size: 100% 100%;
+      animation: noteAnim 4s linear infinite;
+    }
+    &::after{
+      content: '';
+      position: absolute;
+      width: 169px;
+      height: 174px;
+      top: 0;
+      right: -140px;
+      background: url(https://static.cmereye.com/static/ckj/imgs/children-dentistry/note-2.png);
+      background-size: 100% 100%;
+      animation: noteAnim 6s linear infinite;
+    }
+  }
+}
+@keyframes noteAnim {
+  0%{
+    transform: translate(0);
+  }
+  25%{
+    transform: translate(-10px,-10px);
+  }
+  50%{
+    transform: translate(10px, -10px);
+  }
+  75%{
+    transform: translate(0, 10px);
+  }
+  100%{
+    transform: translate(0);
+  }
+}
+.appointment{
+  width: 100%;
+  max-width: 1396px;
+  margin: 100px auto 0; 
+  padding: 110px 0 110px;
+  background: url(https://static.cmereye.com/static/ckj/imgs/children-dentistry/appointmentbg.svg);
+  background-size: 100% 100%;
+  position: relative;
+  &::before{
+    content: '';
+    width: 264px;
+    height: 265px;
+    position: absolute;
+    top: 0;
+    right: 259px;
+    background: url(https://static.cmereye.com/static/ckj/imgs/children-dentistry/appointment_icon1.png);
+    background-size: 100% 100%;
+  }
+  &-lists{
+    display: flex;
+    justify-content: center;
+    margin-top: 90px;
+    &-in{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 246px;
+      .image{
+        margin-bottom: 18px;
+        max-width: 159px;
+        img{
+          width: 100%;
+        }
+      }
+      .title{
+        h3{
+          span{
+            display: block;
+            text-align: center;
+            color: var(--textColor);
+            font-size: 30px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 160%;
+          }
+        }
+      }
+      .text{
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 160%;
+        letter-spacing: 5px;
+      }
+    }
+  }
+  &-btn{
+    margin-top: 44px;
+    display: flex;
+    justify-content: center;
+  }
+}
+.habits{
+  margin-top: 200px;
+  position: relative;
+  &-title{
+    h3{
+      font-size: 50px;
+      font-weight: 400;
+      letter-spacing: 5.5px;
+      text-align: center;
+      color: var(--indexColor1);
+      span{
+        color: #fff;
+        background: var(--indexColor1);
+        display: inline-block;
+        border-radius: 50%;
+        width: 83px;
+        height: 83px;
+        line-height: 83px;
+        margin: 0 -10px;
+        &:last-child{
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+  &-right{
+    position: absolute;
+    left: 50%;
+    bottom: 80%;
+    width: 107px;
+    height: 172px;
+    transform: translateX(310%);
+    transform-origin: left bottom;
+    animation: habits 4s linear infinite;
+  }
+}
+@keyframes habits{
+  0%{
+    transform: translateX(310%);
+  }
+  33%{
+    transform: translateX(310%) rotate(5deg);
+  }
+  66%{
+    transform: translateX(310%) rotate(-5deg);;
+  }
+  100%{
+    transform: translateX(310%);
   }
 }
 @keyframes youtubeIcon {
@@ -440,6 +752,179 @@ const noteData = {
   }
   to{
     transform: translateX(65%);
+  }
+}
+.skill{
+  position: relative;
+  &-lists{
+    margin: 140px auto 0;
+    max-width: 1438px;
+    width: 100%;
+    position: relative;
+    &-in{
+      padding: 40px;
+      border-radius: 100px;
+      position: relative;
+      border: 3px solid #F8CDCD;
+      margin-bottom: 20px;
+      &-box{
+        border: 4px dotted var(--indexColor1);
+        border-radius: 80px;
+        display: flex;
+        justify-content: center;
+        padding: 80px 0;
+      }
+      &-l{
+        width: 325px;
+        margin-right: 49px;
+        img{
+          width: 100%;
+        }
+      }
+      &-r{
+        width: 669px;
+        .title{
+          margin-bottom: 30px;
+          h3{
+            background: var(--indexColor1);
+            color: #fff;
+            display: inline-block;
+            width: 363px;
+            border-radius: 30px;
+            text-align: center;
+            font-size: 35px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 160%; /* 56px */
+            letter-spacing: 7px;
+          }
+        }
+        .context{
+          font-size: 30px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 160%; /* 48px */
+          letter-spacing: 3px;
+          display: flex;
+          align-items: flex-start;
+          margin-top: 7px;
+          &>div{
+            width: 225px;
+            display: flex;
+            align-items: center;
+            &>img{
+              width: 47px;
+              margin-right: 11px;
+            }
+          }
+          &:nth-of-type(2){
+            color: #00AEFF;
+          }
+          &:nth-of-type(3){
+            color: var(--indexColor1);
+          }
+          &:nth-of-type(4){
+            color: #F90;
+          }
+          p{
+            flex: 1;
+          }
+        }
+      }
+      &-left,&-right{
+        position: absolute;
+        top: 0;
+        transform: translateY(-60%);
+        &-in{
+          width: 26px;
+          height: 106px;
+          background: var(--indexColor1);
+          position: relative;
+          z-index: 1;
+          border-radius: 5px;
+        }
+        &::before,&::after{
+          content: '';
+          position: absolute;
+          left: 50%;
+          z-index: 0;
+          width: 49px;
+          height: 49px;
+          border-radius: 50%;
+          background: #fff;
+          box-sizing: border-box;
+          border: 3px solid #F8CDCD;
+        }
+        &::before{
+          top: 0;
+          transform: translate(-50%,-50%);
+        }
+        &::after{
+          bottom: 0;
+          transform: translate(-50%,50%);
+        }
+        
+      }
+      &-left{
+        left: 184px;
+      }
+      &-right{
+        right: 184px
+      }
+      &:first-child{
+        .skill-lists-in-right,.skill-lists-in-left{
+          &::before{
+            display: none;
+          }
+          &-in{
+            height: 86px;
+          }
+        }
+      }
+      &:nth-of-type(odd){
+        background: #FFF1F0;
+        border: none;
+        .skill-lists-in-right,.skill-lists-in-left{
+          &::before{
+
+          }
+          &::after{
+            border: none;
+          }
+        }
+      }
+      &:nth-of-type(even){
+         .skill-lists-in-right,.skill-lists-in-left{
+          &::before{
+            border: none;
+          }
+         }
+      }
+    }
+  }
+  &-anim{
+    position: absolute;
+    &-1{
+      width: 264px;
+      height: 325px;
+      top: 33%;
+      left: -90px;
+      animation: noteAnim 6.5s linear infinite;
+    }
+    &-2{
+      width: 197px;
+      height: 247px;
+      top: 40%;
+      right: -100px;
+      animation: noteAnim 4s linear infinite;
+    }
+    &-3{
+      width: 264px;
+      height: 325px;
+      right: -70px;
+      bottom: -50px;
+      animation: noteAnim 5s linear infinite;
+    }
   }
 }
 @media (min-width: 768px) and (max-width: 1920px) {
@@ -453,6 +938,199 @@ const noteData = {
   }
   .YaNav{
     display: none;
+  }
+  .services{
+    margin-top: 30px;
+    &-text{
+      letter-spacing: 1.6px;
+      font-size: 16px;
+      padding: 0 50px;
+      margin-bottom: 45px;
+    }
+    &-lists{
+      padding: 0 15px;
+      &-in{
+        padding: 0 15px;
+        width: calc(100% / 2);
+        margin-bottom: 23px;
+        .image{
+          width: 100%;
+
+        }
+        .text{
+          h3{
+            font-size: 16px;
+            line-height: 1.4;
+          }
+          p{
+            font-size: 20px;
+            line-height: 1.4;
+          }
+        }
+      }
+    }
+    .services-bg{
+      width: 130px;
+      height: 100px;
+      top: -20px;
+    }
+  }
+  .youtube{
+    padding: 0 30px;
+    margin-top: 63px;
+    &-title{
+      h3{
+        font-size: 18px;
+        letter-spacing: 1.98px;
+        span{
+          width: 28px;
+          height: 28px;
+          line-height: 28px;
+          margin: 0 -3px;
+          letter-spacing: 0;
+          &:first-child{
+            margin-left: 2px;
+          }
+        }
+      }
+    }
+    &-in{
+      width: 100%;
+      height: calc(526 / 936 * 330px);
+      margin: 26px auto 0;
+      &::after{
+        animation: none;  
+        width: 82px;
+        height: 100px;
+        bottom: -15px;
+        right: -25px;
+        z-index: 1;
+      }
+    }
+  }
+  .note {
+    margin-top: 60px;
+    &-content{
+      padding: 0 30px;
+      margin: 45px auto 0;
+      display: flex;
+      flex-direction: column;
+      &-l {
+        width: 100%;
+      }
+      &-r{
+        width: 100%;
+        margin-top: 45px;
+        padding-right: 10px;
+        &>div{
+          span{
+            font-size: 15px;
+            letter-spacing: 2.4px;
+            &:nth-of-type(1) {
+              font-size: 20px;
+              min-width: 15px;
+              line-height: 1.4;
+            }
+          }
+        }
+      }
+      &::before{
+        left: 10px;
+        top: 50%;
+        width: 70px;
+        height: 77px;
+        animation: none;
+      }
+      &::after{
+        right: 10px;
+        top: 50%;
+        width: 60px;
+        height: 66px;
+        animation: none;
+      }
+    }
+  }
+  .habits{
+    margin-top: 60px;
+    &-title{
+      h3{
+        font-size: 18px;
+        letter-spacing: 1.98px;
+        span{
+          width: 28px;
+          height: 28px;
+          line-height: 28px;
+          letter-spacing: 0;
+          margin: 0 -3px;
+          &:last-child{
+            margin-right: 2px;
+          }
+        }
+      }
+    }
+    &-right{
+      transform: none;
+      left: auto;
+      right: 40px;
+      width: 32px;
+      height: auto;
+    }
+  }
+  @keyframes habits{
+    0%{
+      transform: translateX(0);
+    }
+    33%{
+      transform: rotate(5deg);
+    }
+    66%{
+      transform: rotate(-5deg);;
+    }
+    100%{
+      transform: translateX(0);
+    }
+  }
+  .skill{
+    &-lists{
+      margin-top: 82px;
+      padding: 0 30px;
+      &-in{
+        padding: 10px;
+        border-radius: 17px;
+        &-box{
+          border-radius: 15px;
+          border: 1px dotted var(--indexColor1);
+          padding: 14px 12px;
+        }
+        &-l{
+          width: calc(68 / 320 * 100%);
+          margin-right: 14px;
+        }
+        &-r{
+          flex: 1;
+          
+          .title{
+            margin-bottom: 8px;
+            h3{
+              font-size: 15px;
+              letter-spacing: 3px;
+              width: 133px;
+            }
+          }
+          .context{
+            font-size: 12px;
+            &>div{
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+    &-anim{
+      left: 0;
+      right: 0;
+      animation: none;
+    }
   }
 }
 </style>
