@@ -88,9 +88,21 @@ const submitForm = async (formEl: FormInstance | undefined) => {
   })
 }
 
-// interface contactUs {
-//   value: string
-// }
+const servicePreferential = [
+  {
+    name: '洗牙',
+    text: `超聲波洗牙--優惠價：¥88、原價 ¥ -- ；\n菌斑導向專業洗牙（含鹽）--優惠價：¥168、原價 ¥350；\n菌斑導向專業洗牙（無鹽）--價格：¥550；`
+  },{
+    name: '種植牙',
+    text: `春日感謝限定優惠：歐美種植牙 即減￥2,000/顆`
+  },{
+    name: '矯齒(箍牙)',
+    text: `春日感謝限定優惠：即減￥3,000`
+  },{
+    name: '隱形矯正',
+    text: `春日感謝限定優惠：即減￥5,000`
+  }
+]
 
 const onSubmit = async () => {
   let _formData = new FormData()
@@ -101,14 +113,13 @@ const onSubmit = async () => {
   // _formData.append('email',_form.email)
   _formData.append('service', _form.service)
   _formData.append('formUrl', `${location.href}`)
-  if(_form.service === '洗牙'){
-    _formData.append('preferential', `超聲波洗牙--優惠價：¥88、原價 ¥180；\n菌斑導向專業洗牙（含鹽）--優惠價：¥168、原價 ¥350；\n菌斑導向專業洗牙（無鹽）--價格：¥550；`)
+  let _preferential = servicePreferential.find(item=>item.name === _form.service)
+  if(_preferential){
+    _formData.append('preferential', _preferential.text)
+    // console.log(_preferential.text)
   }else{
     _formData.append('preferential', `無`)
   }
-  // console.log(`超聲波洗牙--優惠價：¥88、原價 ¥180；\n菌斑導向專業洗牙（含鹽）--優惠價：¥168、原價 ¥350；\n菌斑導向專業洗牙（無鹽）--價格：¥550；`)
-  // console.log(_form)
-  // console.log(_formData)
   // return
   const { data }: any = await useFetch(
     'https://admin.ckjhk.com/api.php/cms/addform/fcode/3',
