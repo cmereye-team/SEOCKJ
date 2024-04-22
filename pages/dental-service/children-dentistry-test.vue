@@ -407,6 +407,19 @@ watch(
     transform: scale(1);
   }
 }
+@keyframes YaNavAnim_icon {
+  0%{
+    opacity: 0;
+    transform: translate(30%,100%);
+  }
+  70%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+    transform: translate(0);
+  }
+}
 .YaNav{
   position: fixed;
   z-index: 101;
@@ -416,6 +429,7 @@ watch(
   cursor: pointer;
   transition: all .3s;
   animation: YaNavAnim 7s linear infinite;
+  display: block;
   &-img{
     width: 80%;
     position: absolute;
@@ -424,6 +438,28 @@ watch(
     &-in{
       width: 100%;
       height: auto;
+    }
+    &::before{
+      content: '';
+      position: absolute;
+      width: 35.16px;
+      height: 28.57px;
+      background: url(@/assets/images/icon_45.svg) no-repeat;
+      background-size: 100% 100%;
+      right: 82%;
+      top: -8px;
+      animation: YaNavAnim_icon 2s 1s linear infinite;
+    }
+    &::after{
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 13px;
+      background: url(@/assets/images/icon_45.svg) no-repeat;
+      background-size: 100% 100%;
+      right: 65%;
+      top: -15px;
+      animation: YaNavAnim_icon 2s linear infinite;
     }
   }
   &-text{
@@ -559,6 +595,18 @@ watch(
       width: 100%;
       height: 100%;
     }
+    &::before{
+      content: '';
+      position: absolute;
+      width: 32px;
+      height: 26px;
+      background: url(@/assets/images/icon_45.svg) no-repeat;
+      background-size: 100% 100%;
+      right: -103px;
+      bottom: 50%;
+      transform: rotate(45deg);
+      animation: youtubeAnim 3s linear infinite;
+    }
     &::after{
       content: '';
       position: absolute;
@@ -571,6 +619,19 @@ watch(
       background-size: 100% auto;
       animation: youtubeIcon 1s forwards;
     }
+  }
+}
+@keyframes youtubeAnim{
+  0%{
+    opacity: 0;
+    transform: rotate(45deg) translate(30%,100%);
+  }
+  70%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+    transform: rotate(45deg);
   }
 }
 .note {
@@ -945,6 +1006,16 @@ watch(
     bottom:5.2083vw;
     &-img{
       bottom: .5208vw;
+      &::before{
+        width: 1.8312vw;
+        height: 1.488vw;
+        top: -0.4167vw;
+      }
+      &::after{
+        width: .8333vw;
+        height: .6771vw;
+        top: -0.7813vw;
+      }
     }
     &-text{
       &-in{
@@ -1019,6 +1090,11 @@ watch(
       width: 48.75vw;
       height: 27.3958vw;
       margin: 2.6042vw auto 0;
+      &::before{
+        width: 1.6667vw;
+        height: 1.3542vw;
+        right: -5.3646vw;
+      }
       &::after{
         width: 11.6667vw;
         height: 14.4792vw;
@@ -1212,18 +1288,33 @@ watch(
     bottom: 30%;
     animation: none;
     right: -20px;
+    display: block;
     &-img{
       width: 120%;
       bottom: 88%;
       margin: 0 -10%;
+      &::before{
+        width: 15px;
+        height: calc(28.57 / 35.16 * 15px);
+        top: 0;
+      }
+      &::after{
+        width: 7px;
+        height: calc(28.57 / 35.16 * 7px);
+        top: -5px;
+        right: 70%;
+      }
     }
     &-text{
       clip-path: polygon(0 0,50% 8%,100% 0,85% 50%,100% 100%,50% 92%,0 100%,15% 50%);
       &-in{
         padding: 20px 10px;
+        width: 70px;
         writing-mode: vertical-lr;
+        -webkit-writing-mode: vertical-lr;
         font-family: var(--contextFamily);
         font-weight: 700;
+        text-align: center;
         span{
           writing-mode: initial;
           line-height: 1.2;
@@ -1307,6 +1398,12 @@ watch(
       width: 100%;
       height: calc(526 / 936 * 330px);
       margin: 26px auto 0;
+      &::before{
+        width: 20px;
+        height: calc(26 / 32 * 20px);
+        right: -17px;
+        bottom: 45%;
+      }
       &::after{
         animation: none;  
         width: 82px;
@@ -1368,13 +1465,14 @@ watch(
       width: 92px;
       height: 94px;
       right: 34px;
-      top: 150px;
+      top: 120px;
     }
     &-lists{
       flex-direction: column;
       justify-content: center;
       align-items: center;
       padding: 0 50px;
+      margin-top: 70px;
       &-in{
         width: 100%;
         align-items: flex-start;

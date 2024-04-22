@@ -1595,6 +1595,9 @@ svg:hover path{
       &-in{
         margin: 0 10px 30px;
         width: calc((100% - 60px) / 3);
+        img{
+          max-height: 70px;
+        }
       }
     }
   }
