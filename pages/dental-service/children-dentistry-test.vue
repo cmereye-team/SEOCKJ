@@ -1,9 +1,8 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
-import { useWindowSize,useWindowScroll } from '@vueuse/core'
+import { useWindowScroll } from '@vueuse/core'
 import { whatsAppNum } from '~/assets/js/common'
 const { y } = useWindowScroll()
-const { width } = useWindowSize()
 const route = useRouter()
 const appState = useAppState()
 appState.setDentistryService('children-dentistry')
@@ -179,6 +178,7 @@ const skillData ={
 
 
 let shownav = ref(true)
+let shownav_2 = ref(true)
 const debounce = <T extends (...args: any[]) => any>(func: T, wait: number) =>{
   let timerId: NodeJS.Timeout | null = null;
   return function(this: ThisParameterType<T>, ...args: Parameters<T>){
@@ -343,19 +343,24 @@ watch(
     <serviceCard />
     <NewAddress />
   </div>
-  <nuxt-link :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" class="YaNav" :class="{shownav: shownav}">
+  <div class="YaNavBox" v-if="shownav_2" :class="{shownav: shownav}">
+    <img class="close" src="@/assets/images/icon_7.svg" alt="" @click.stop="shownav_2 = !shownav_2">
+    <nuxt-link :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" class="YaNav">
+    
     <div class="YaNav-img">
       <img class="YaNav-img-in" srcset="https://static.cmereye.com/static/ckj/imgs/children-dentistry/yanavimgmb.png 768w, https://static.cmereye.com/static/ckj/imgs/children-dentistry/yanavimgpc.png" src="https://static.cmereye.com/static/ckj/imgs/children-dentistry/yanavimgpc.png" alt="">
     </div>
     <div class="YaNav-text">
       <div class="YaNav-text-in">
-        {{width > 768 ? '超聲波洗牙' : '成人洗牙'}}
+        成人洗牙
         <span>
           <i>￥</i>88
         </span>
       </div>
     </div>
+    
   </nuxt-link>
+  </div>
   <PageFooter />
   <PageNavbar />
 </div>
@@ -420,11 +425,29 @@ watch(
     transform: translate(0);
   }
 }
-.YaNav{
+.YaNavBox{
   position: fixed;
   z-index: 101;
-  right: 130px;
+  right: 200px;
   bottom:100px;
+  transition: all .3s;
+  .close{
+    position: absolute;
+    bottom: 300%;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    // background: url(@/assets/images/icon_7.svg) no-repeat;
+    // background-size: 100% 100%;
+    z-index: 102;
+    cursor: pointer;
+    transition: all .3s;
+    &:hover{
+      transform: rotate(90deg);
+    }
+  }
+}
+.YaNav{
   filter: drop-shadow(0 2px 4px rgba(255, 96, 150, .5));
   cursor: pointer;
   transition: all .3s;
@@ -468,7 +491,9 @@ watch(
     transition: all .3s;
     &-in{
       color: #fff;
-      font-size: 20px;
+      font-size: 26px;
+      line-height: 1.6;
+      font-weight: 900;
       padding: 10px 30px;
       font-family: var(--contextFamily);
       display: flex;
@@ -477,14 +502,18 @@ watch(
       transition: all .3s;
       span{
         font-family: var(--contextFamily);
-        font-size: 26px;
+        font-size: 35px;
+        line-height: 1;
         i{
+          font-size: 26px;
+          line-height: 1.6;
           font-style: normal;
         }
       }
     }
   }
   &:hover{
+    margin-right: -10px;
     .YaNav-text{
       &-in{
         padding: 10px 40px;
@@ -492,6 +521,7 @@ watch(
       }
     }
   }
+  
 }
 .services{
   width: 100%;
@@ -1001,9 +1031,18 @@ watch(
   }
 }
 @media (min-width: 768px) and (max-width: 1920px) {
-  .YaNav{
-    right: 6.7708vw;
+  .YaNavBox{
+    right: 10.4167vw;
     bottom:5.2083vw;
+    .close{
+      width: 1.5625vw;
+      height: 1.5625vw;
+    }
+  }
+  .YaNav{
+    right: 10.4167vw;
+    bottom:5.2083vw;
+    
     &-img{
       bottom: .5208vw;
       &::before{
@@ -1019,14 +1058,18 @@ watch(
     }
     &-text{
       &-in{
-        font-size: 1.0417vw;
+        font-size: 1.3542vw;
         padding: .5208vw 1.5625vw;
         span{
-          font-size: 1.3542vw;
+          font-size: 1.8229vw;
+          i{
+            font-size: 1.3542vw;
+          }
         }
       }
     }
     &:hover{
+      margin-right: -0.5208vw;
       .YaNav-text{
         &-in{
           padding: .5208vw 2.0833vw;
@@ -1283,12 +1326,23 @@ watch(
     font-size: 1rem;
     margin-top: 0;
   }
-  .YaNav{
+  .YaNavBox{
     right: 7px;
     bottom: 30%;
-    animation: none;
     right: -20px;
-    display: block;
+    .close{
+      bottom: 150%;
+      left: auto;
+      right: 0;
+      width: 20px;
+      height: 20px;
+    }
+    &.shownav{
+      right: 7px;
+    }
+  }
+  .YaNav{
+    animation: YaNavAnim 6s 1s linear infinite;
     &-img{
       width: 120%;
       bottom: 88%;
@@ -1326,12 +1380,8 @@ watch(
         }
       }
     }
-    &.shownav{
-      right: 7px;
-      transform: none;
-      animation: YaNavAnim 6s 1s linear infinite;
-    }
     &:hover{
+      margin-right: 0;
       .YaNav-text{
         &-in{
           padding: 20px 10px;
