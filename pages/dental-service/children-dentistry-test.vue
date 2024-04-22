@@ -1037,16 +1037,25 @@ const skillData ={
       &::before{
         left: 10px;
         top: 50%;
-        width: 70px;
-        height: 77px;
-        animation: none;
+        width: 75px;
+        height: 70px;
+        // animation: none;
       }
       &::after{
         right: 10px;
         top: 50%;
         width: 60px;
         height: 66px;
-        animation: none;
+        // animation: none;
+      }
+    }
+  }
+  .appointment{
+    background-size: auto 100%;
+    &-lists{
+      flex-direction: column;
+      &-in{
+        width: 120px;
       }
     }
   }
@@ -1092,23 +1101,27 @@ const skillData ={
   }
   .skill{
     &-lists{
-      margin-top: 82px;
+      margin-top: 80px;
       padding: 0 30px;
       &-in{
         padding: 10px;
         border-radius: 17px;
+        margin-bottom: 10px;
+        border: 1px solid #F8CDCD;
         &-box{
           border-radius: 15px;
           border: 1px dotted var(--indexColor1);
           padding: 14px 12px;
+          box-sizing: border-box;
         }
         &-l{
           width: calc(68 / 320 * 100%);
+          min-width: calc(68 / 320 * 100%);
           margin-right: 14px;
         }
         &-r{
           flex: 1;
-          
+          width: auto;
           .title{
             margin-bottom: 8px;
             h3{
@@ -1119,17 +1132,87 @@ const skillData ={
           }
           .context{
             font-size: 12px;
+            flex-direction: column;
+            margin-top: 3px;
             &>div{
               font-size: 14px;
+              height: 25px;
+              width: auto;
+              &>img{
+                width: 16px;
+                height: 16px;
+                margin-right: 5px;
+              }
+            }
+            
+          }
+        }
+        &-left,&-right{
+          transform: translateY(-65%);
+          &-in{
+            width: 6px;
+            height: 35px;
+            border-radius: 2px;
+            
+          }
+          &::before,&::after{
+            width: 14px;    
+            height: 14px;
+            border: 1px solid #F8CDCD;
+          }
+        }
+        &-left{
+          left: 44px;
+        }
+        &-right{
+          right: 44px
+        }
+        &:first-child{
+          .skill-lists-in-right,.skill-lists-in-left{
+            &-in{
+              height: 25px;
             }
           }
         }
       }
     }
     &-anim{
-      left: 0;
-      right: 0;
-      animation: none;
+      &-1{
+        width: 60px;
+        height: auto;
+        top: 29%;
+        left: 20px;
+      }
+      &-2{
+        width: 50px;
+        height: auto;
+        top: 65%;
+        right: 20px;
+      }
+      &-3{
+        width: 70px;
+        height: auto;
+        left: 10px;
+        right: auto;
+        bottom: -30px;
+      }
+    }
+  }
+  @keyframes noteAnim {
+    0%{
+      transform: translate(0);
+    }
+    25%{
+      transform: translate(-5px,-5px);
+    }
+    50%{
+      transform: translate(5px, -5px);
+    }
+    75%{
+      transform: translate(0, 5px);
+    }
+    100%{
+      transform: translate(0);
     }
   }
 }

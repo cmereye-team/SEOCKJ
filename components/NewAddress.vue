@@ -406,6 +406,7 @@ watch(
           }
         }
         &-bd{
+          z-index: 21;
           &>span{
             color: #fff;
             background: var(--indexColor1);

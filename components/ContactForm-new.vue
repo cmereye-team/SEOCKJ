@@ -666,6 +666,7 @@ li{
         letter-spacing: 3px;
         &:first-child{
           font-size: 26px;
+          font-weight: 500;
         }
         &:last-child{
           font-size: 15px;
