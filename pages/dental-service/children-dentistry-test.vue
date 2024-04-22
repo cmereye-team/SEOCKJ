@@ -343,7 +343,7 @@ watch(
     <serviceCard />
     <NewAddress />
   </div>
-  <div class="YaNavBox" v-if="shownav_2" :class="{shownav: shownav}">
+  <div class="YaNavBox" v-if="shownav_2">
     <img class="close" src="@/assets/images/icon_7.svg" alt="" @click.stop="shownav_2 = !shownav_2">
     <nuxt-link :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" class="YaNav">
     
@@ -433,8 +433,8 @@ watch(
   transition: all .3s;
   .close{
     position: absolute;
-    bottom: 380%;
-    left: 0;
+    bottom: 390%;
+    left: -5px;
     width: 30px;
     height: 30px;
     // background: url(@/assets/images/icon_7.svg) no-repeat;
@@ -1331,9 +1331,9 @@ watch(
     bottom: 30%;
     right: -20px;
     .close{
-      bottom: 150%;
-      left: auto;
-      right: 0;
+      bottom: 160%;
+      //left: auto;
+      //right: 0;
       width: 20px;
       height: 20px;
     }
