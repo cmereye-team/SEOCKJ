@@ -343,7 +343,7 @@ watch(
     <serviceCard />
     <NewAddress />
   </div>
-  <div class="YaNavBox" v-if="shownav_2">
+  <div class="YaNavBox shownav" v-if="shownav_2">
     <img class="close" src="@/assets/images/icon_7.svg" alt="" @click.stop="shownav_2 = !shownav_2">
     <nuxt-link :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" class="YaNav">
     
