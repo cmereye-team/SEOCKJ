@@ -344,22 +344,22 @@ const handleopenwechat = () =>{
             @swiper="setBannerSwiperRef"
             @slideChange="changebanner">
           <SwiperSlide>
-            <nuxt-link to="/health-care-voucher">
-              <img :srcset="`https://static.cmereye.com/imgs/2024/02/afdfd3c22104497f.webp 768w, https://static.cmereye.com/imgs/2024/04/02e0cbb29d86af90.webp`"  src="https://static.cmereye.com/imgs/2024/04/02e0cbb29d86af90.webp" alt="">
+            <nuxt-link to="/health-care-voucher" title="灣區長者醫療券banner" alt="灣區長者醫療券banner">
+              <img :srcset="`https://static.cmereye.com/imgs/2024/02/afdfd3c22104497f.webp 768w, https://static.cmereye.com/imgs/2024/04/02e0cbb29d86af90.webp`"  src="https://static.cmereye.com/imgs/2024/04/02e0cbb29d86af90.webp" alt="灣區長者醫療券banner" title="灣區長者醫療券banner">
             </nuxt-link>
           </SwiperSlide>
           <SwiperSlide>
-            <nuxt-link to="https://bit.ly/愛康健裕亨新店開業優惠">
-              <img :srcset="`https://static.cmereye.com/imgs/2024/02/216458f63817b47e.jpg?v=1.2.0 768w, https://static.cmereye.com/imgs/2024/04/ea3b6c9d7c7c2cc6.webp`"  src="https://static.cmereye.com/imgs/2024/04/ea3b6c9d7c7c2cc6.webp" alt="">
+            <nuxt-link to="https://bit.ly/愛康健裕亨新店開業優惠" alt="愛康健裕亨新店開業優惠banner" title="愛康健裕亨新店開業優惠banner">
+              <img :srcset="`https://static.cmereye.com/imgs/2024/02/216458f63817b47e.jpg?v=1.2.0 768w, https://static.cmereye.com/imgs/2024/04/ea3b6c9d7c7c2cc6.webp`"  src="https://static.cmereye.com/imgs/2024/04/ea3b6c9d7c7c2cc6.webp" alt="愛康健裕亨新店開業優惠banner" title="愛康健裕亨新店開業優惠banner">
             </nuxt-link>
           </SwiperSlide>
           <SwiperSlide>
-            <nuxt-link to="/medical-team">
-              <img :srcset="`https://static.cmereye.com/imgs/2024/03/f3f241b74364a6b7.jpg?v=1.2.0 768w, https://static.cmereye.com/imgs/2024/04/df1e63bdd93c3504.webp`"  src="https://static.cmereye.com/imgs/2024/04/df1e63bdd93c3504.webp" alt="">
+            <nuxt-link to="/medical-team" alt="醫生團隊banner" title="醫生團隊banner">
+              <img :srcset="`https://static.cmereye.com/imgs/2024/03/f3f241b74364a6b7.jpg?v=1.2.0 768w, https://static.cmereye.com/imgs/2024/04/df1e63bdd93c3504.webp`"  src="https://static.cmereye.com/imgs/2024/04/df1e63bdd93c3504.webp" alt="醫生團隊banner" title="醫生團隊banner">
             </nuxt-link>
           </SwiperSlide>
           <SwiperSlide>
-              <img :srcset="`https://static.cmereye.com/imgs/2024/03/4abbdd7326af4cc3.webp 768w, https://static.cmereye.com/imgs/2024/04/cf5124d2a6d53efd.webp`"  src="https://static.cmereye.com/imgs/2024/04/cf5124d2a6d53efd.webp" alt="">
+              <img :srcset="`https://static.cmereye.com/imgs/2024/03/4abbdd7326af4cc3.webp 768w, https://static.cmereye.com/imgs/2024/04/cf5124d2a6d53efd.webp`"  src="https://static.cmereye.com/imgs/2024/04/cf5124d2a6d53efd.webp" alt="深圳愛康健口腔醫院banner" title="深圳愛康健口腔醫院">
           </SwiperSlide>
         </swiper>
       </div>
@@ -471,7 +471,7 @@ const handleopenwechat = () =>{
             :key="index"
             :class="['menuLists-item', item.child.length ? 'childIcon' : '',{ 'health-care-voucher': item.link === '/health-care-voucher'},{ 'federation-of-trade-unions-zone': item.link === '/federation-of-trade-unions-zone'}]"
           >
-            <nuxt-link :to="!item.child.length ? item.link : ''" :title="$t(item.name)">
+            <nuxt-link :to="!item.child.length ? item.link : 'javaScript:void(0)'" :title="$t(item.name)">
               <div @click="handleMenu(index)">
                 {{ $t(item.name) }}
               </div>

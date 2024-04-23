@@ -36,7 +36,7 @@ const onSlideChange = (swiper:any) => {
   >
     <swiper-slide class="swiper-slide">
       <div class="index-brandConcept-in bigPageCon">
-        <img class="bgImg" :data-cfsrc="'https://static.cmereye.com/imgs/2024/01/f4ba25aef63c2a5b.jpg'" :srcset="`https://static.cmereye.com/imgs/2024/01/64f1f4312e2a0f2c.jpg 768w, https://static.cmereye.com/imgs/2024/01/f4ba25aef63c2a5b.jpg`" :src="'https://static.cmereye.com/imgs/2024/01/f4ba25aef63c2a5b.jpg'" >
+        <img class="bgImg" alt="深圳愛康健口腔醫院_愛康健齒科連鎖品牌_29年專注你的口腔健康" title="深圳愛康健口腔醫院_愛康健齒科連鎖品牌" :data-cfsrc="'https://static.cmereye.com/imgs/2024/01/f4ba25aef63c2a5b.jpg'" :srcset="`https://static.cmereye.com/imgs/2024/01/64f1f4312e2a0f2c.jpg 768w, https://static.cmereye.com/imgs/2024/01/f4ba25aef63c2a5b.jpg`" :src="'https://static.cmereye.com/imgs/2024/01/f4ba25aef63c2a5b.jpg'" >
         <div class="index-brandConcept-in-box smallPageCon">
           <div class="brandConcept-title">
             <span>{{$t('components.brandConcept.title.span_1')}}</span>
@@ -50,7 +50,7 @@ const onSlideChange = (swiper:any) => {
     </swiper-slide>
     <swiper-slide class="swiper-slide">
       <div class="index-brandConcept-in bigPageCon">
-      <img class="bgImg" :data-cfsrc="'https://static.cmereye.com/imgs/2024/01/83f687493170cb87.jpg'" :srcset="`https://static.cmereye.com/imgs/2024/01/e4c3cb0ba5a58c54.jpg 768w, https://static.cmereye.com/imgs/2024/01/83f687493170cb87.jpg`" :src="'https://static.cmereye.com/imgs/2024/01/83f687493170cb87.jpg'" >
+      <img class="bgImg" alt="深圳愛康健口腔醫院_接待香港工聯會代表團" title="深圳愛康健口腔醫院_接待香港工聯會代表團" :data-cfsrc="'https://static.cmereye.com/imgs/2024/01/83f687493170cb87.jpg'" :srcset="`https://static.cmereye.com/imgs/2024/01/e4c3cb0ba5a58c54.jpg 768w, https://static.cmereye.com/imgs/2024/01/83f687493170cb87.jpg`" :src="'https://static.cmereye.com/imgs/2024/01/83f687493170cb87.jpg'" >
       <div class="index-brandConcept-in-box smallPageCon">
         <div class="brandConcept-title act">
           <span>接待香港工聯會代表團</span>

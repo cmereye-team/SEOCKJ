@@ -503,7 +503,7 @@ const handleopenwechat = () =>{
             :key="index"
             :class="['menuLists-item', item.child.length ? 'childIcon' : '',{ 'health-care-voucher': item.link === '/health-care-voucher'},{ 'federation-of-trade-unions-zone': item.link === '/federation-of-trade-unions-zone'}]"
           >
-            <nuxt-link :to="!item.child.length ? item.link : ''" :title="$t(item.name)">
+            <nuxt-link :to="!item.child.length ? item.link : 'javaScript:void(0)'" :title="$t(item.name)">
               <div @click="handleMenu(index)">
                 {{ $t(item.name) }}
               </div>

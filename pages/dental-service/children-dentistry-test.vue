@@ -345,7 +345,7 @@ watch(
   </div>
   <div class="YaNavBox" v-if="shownav_2" :class="{shownav: shownav}">
     <img class="close" src="@/assets/images/icon_7.svg" alt="" @click.stop="shownav_2 = !shownav_2">
-    <nuxt-link :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" class="YaNav">
+    <nuxt-link :to="`/dental-service/scaling-and-polishing`" class="YaNav">
     
     <div class="YaNav-img">
       <img class="YaNav-img-in" srcset="https://static.cmereye.com/static/ckj/imgs/children-dentistry/yanavimgmb.png 768w, https://static.cmereye.com/static/ckj/imgs/children-dentistry/yanavimgpc.png" src="https://static.cmereye.com/static/ckj/imgs/children-dentistry/yanavimgpc.png" alt="">

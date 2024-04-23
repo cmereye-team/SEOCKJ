@@ -71,7 +71,7 @@ const changemouse = (type: String) =>{
             :speed="mouseType === 'leave' ? 6000 : 1000"
           >
             <SwiperSlide class="index-aboutUs-swiper-in-slide" v-for="(item,index) in imgsLists" :key="index">
-              <el-image :src="item" @click="handleshowdeBox(index)"></el-image>
+              <el-image :src="item" alt="深圳愛康健口腔醫院_醫院相片" title="深圳愛康健口腔醫院_醫院相片" @click="handleshowdeBox(index)"></el-image>
             </SwiperSlide>
           </Swiper>
           <div class="index-aboutUs-swiper-in-mouseLeft" @mouseleave.stop="changemouse('leave')" @mouseover.stop="changemouse('over')"></div>
@@ -80,12 +80,12 @@ const changemouse = (type: String) =>{
         <div class="index-aboutUs-mbswiper">
           <swiper class="index-aboutUs-mbswiper-t" :modules="[Controller]" :controller="{ control: secondSwiper }" @swiper="setFirstSwiper">
             <SwiperSlide v-for="(item,tindex) in imgsLists" :key="tindex">
-              <el-image :src="item"></el-image>
+              <el-image :src="item" alt="深圳愛康健口腔醫院_醫院相片" title="深圳愛康健口腔醫院_醫院相片"></el-image>
             </SwiperSlide>
           </swiper>
           <swiper class="index-aboutUs-mbswiper-b" :modules="[Controller]" :controller="{ control: firstSwiper }" @swiper="setSecondSwiper" @click="handleFirstSwiper">
             <SwiperSlide class="index-aboutUs-mbswiper-b-slide" v-for="(item,bindex) in imgsLists" :key="bindex">
-              <el-image :src="item"></el-image>
+              <el-image :src="item" alt="深圳愛康健口腔醫院_醫院相片" title="深圳愛康健口腔醫院_醫院相片"></el-image>
             </SwiperSlide>
           </swiper>
         </div>
@@ -124,7 +124,7 @@ const changemouse = (type: String) =>{
           <div class="deBox-in">
             <swiper class="deBox-in-swiper" @swiper="setdeBoxSwiperRef">
               <SwiperSlide class="deBox-in-swiper-slide" v-for="(item,deBoxindex) in imgsLists" :key="deBoxindex">
-                <el-image :src="item" @click.stop="()=>{}"></el-image>
+                <el-image :src="item" @click.stop="()=>{}"  alt="深圳愛康健口腔醫院_醫院相片" title="深圳愛康健口腔醫院_醫院相片"></el-image>
               </SwiperSlide>
             </swiper>
             <div class="leftBtn" @click.stop="handleProcessBtn('slidePrev')">
