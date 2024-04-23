@@ -437,8 +437,6 @@ watch(
     left: -5px;
     width: 30px;
     height: 30px;
-    // background: url(@/assets/images/icon_7.svg) no-repeat;
-    // background-size: 100% 100%;
     z-index: 102;
     cursor: pointer;
     transition: all .3s;
@@ -449,6 +447,11 @@ watch(
 }
 .YaNav{
   filter: drop-shadow(0 2px 4px rgba(255, 96, 150, .5));
+  // filter: drop-shadow(1px 1px 0 #fff)
+  //           drop-shadow(-1px 1px 0 #fff)
+  //           drop-shadow(1px -1px 0 #fff)
+  //           drop-shadow(-1px -1px 0 #fff)
+  //           drop-shadow(0 2px 4px rgba(255, 96, 150, .5));
   cursor: pointer;
   transition: all .3s;
   animation: YaNavAnim 7s linear infinite;
@@ -486,10 +489,15 @@ watch(
     }
   }
   &-text{
-    background: var(--indexColor1);
-    clip-path: polygon(0 0,50% 12%,100% 0,92% 50%,100% 100%,50% 88%,0 100%,8% 50%);
+    
+    filter: drop-shadow(1px 1px 0 #fff)
+            drop-shadow(-1px 1px 0 #fff)
+            drop-shadow(1px -1px 0 #fff)
+            drop-shadow(-1px -1px 0 #fff);
     transition: all .3s;
     &-in{
+      background: var(--indexColor1);
+      clip-path: polygon(0 0,50% 12%,100% 0,92% 50%,100% 100%,50% 88%,0 100%,8% 50%);
       color: #fff;
       font-size: 26px;
       line-height: 1.6;
@@ -1035,6 +1043,7 @@ watch(
     right: 10.4167vw;
     bottom:5.2083vw;
     .close{
+      left: -0.2604vw;
       width: 1.5625vw;
       height: 1.5625vw;
     }
@@ -1327,18 +1336,19 @@ watch(
     margin-top: 0;
   }
   .YaNavBox{
-    right: 7px;
+    right: 20px;
     bottom: 30%;
-    right: -20px;
+    // right: -20px;
     .close{
       bottom: 160%;
       //left: auto;
+      left: calc(50% - 10px);
       //right: 0;
       width: 20px;
       height: 20px;
     }
     &.shownav{
-      right: 7px;
+      // right: 7px;
     }
   }
   .YaNav{
@@ -1360,20 +1370,21 @@ watch(
       }
     }
     &-text{
-      clip-path: polygon(0 0,50% 8%,100% 0,85% 50%,100% 100%,50% 92%,0 100%,15% 50%);
+      
       &-in{
-        padding: 20px 10px;
-        width: 70px;
+        clip-path: polygon(0 0,50% 8%,100% 0,85% 50%,100% 100%,50% 92%,0 100%,15% 50%);
+        padding: 20px 0px;
+        width: 60px;
         writing-mode: vertical-lr;
         -webkit-writing-mode: vertical-lr;
         font-family: var(--contextFamily);
         font-weight: 700;
         text-align: center;
-        font-size: 20px;
+        font-size: 18px;
         span{
           writing-mode: initial;
           line-height: 1.2;
-          font-size: 28px;
+          font-size: 24px;
           i{
             font-size: 14px;
             font-weight: 600;
@@ -1392,6 +1403,7 @@ watch(
   }
   .services{
     margin-top: 30px;
+    max-width: 390px;
     &-text{
       letter-spacing: 1.6px;
       font-size: 16px;
@@ -1447,6 +1459,7 @@ watch(
     }
     &-in{
       width: 100%;
+      max-width: 390px;
       height: calc(526 / 936 * 330px);
       margin: 26px auto 0;
       &::before{
@@ -1466,7 +1479,8 @@ watch(
     }
   }
   .note {
-    margin-top: 60px;
+    max-width: 390px;
+    margin: 60px auto 0;
     &-content{
       padding: 0 30px;
       margin: 45px auto 0;
@@ -1510,11 +1524,12 @@ watch(
   .appointment{
     margin: 70px auto 0; 
     padding: 80px 0 60px;
-    background: url(https://static.cmereye.com/static/ckj/imgs/children-dentistry/appointmentbg1.png) no-repeat;
-    background-size: 100% 100%;
+    background: url(https://static.cmereye.com/static/ckj/imgs/children-dentistry/appointmentbg11.png) no-repeat;
+    background-size: auto 100%;
+    background-position: center center;
     &::before{
-      width: 92px;
-      height: 94px;
+      width: 110px;
+      height: 112px;
       right: 34px;
       top: 120px;
     }
@@ -1523,7 +1538,9 @@ watch(
       justify-content: center;
       align-items: center;
       padding: 0 50px;
-      margin-top: 70px;
+      margin: 70px auto 0;
+      width: 100%;
+      max-width: 390px;
       &-in{
         width: 100%;
         align-items: flex-start;
@@ -1575,7 +1592,8 @@ watch(
     }
   }
   .habits{
-    margin-top: 60px;
+    max-width: 390px;
+    margin: 60px auto 0;
     &-title{
       h3{
         font-size: 18px;
