@@ -442,6 +442,15 @@ if(process.server){
     width: calc(100%);
     }
   }
+  :deep(ul){
+    width: calc(100% - 60px);
+    max-width: 960px;
+    padding-left: 20px;
+    margin: 0 auto;
+    p{
+      width: 100%;
+    }
+  }
   :deep(span){
     text-wrap: wrap !important;
     word-break: break-all !important;
@@ -1295,6 +1304,10 @@ if(process.server){
         margin-left: -30px;
         padding: 0;
       }
+    }
+    :deep(ul){
+      width: 100%;
+      padding-left: 20px;
     }
     :deep(.content-h1){
       margin-top: 30px;
