@@ -22,14 +22,6 @@ useHead({
   ]
 })
 
-// const headerConfig = {
-//   img: 'https://static.cmereye.com/imgs/2023/06/67f203a9b4c651be.png',
-//   bg: 'https://static.cmereye.com/imgs/2023/06/4a26475cb4471cee.jpg',
-//   mbImg: 'https://static.cmereye.com/imgs/2023/06/671098dc7b098348.jpg',
-//   pageName: 'children-dentistry',
-//   pcText: ['關注口腔健康，從定期檢查開始','立即預約檢查，展開護牙行動'],
-//   mbText: ['關注口腔健康','從定期檢查開始']
-// }
 const headerConfig = {
   img: 'https://static.cmereye.com/imgs/2024/03/6fcd8f2992e9550b.jpg',
   bg: '',
@@ -447,11 +439,6 @@ watch(
 }
 .YaNav{
   filter: drop-shadow(0 2px 4px rgba(255, 96, 150, .5));
-  // filter: drop-shadow(1px 1px 0 #fff)
-  //           drop-shadow(-1px 1px 0 #fff)
-  //           drop-shadow(1px -1px 0 #fff)
-  //           drop-shadow(-1px -1px 0 #fff)
-  //           drop-shadow(0 2px 4px rgba(255, 96, 150, .5));
   cursor: pointer;
   transition: all .3s;
   animation: YaNavAnim 7s linear infinite;
@@ -569,14 +556,14 @@ watch(
         margin-top: 11px;
         text-align: center;
         h3{
-          font-size: 30px;
+          font-size: 26px;
           font-weight: 400;
           line-height: 160%; /* 48px */
           letter-spacing: 3px;
         }
         p{
-          font-size: 30px;
-          font-weight: 900;
+          font-size: 24px;
+          font-weight: 600;
           line-height: 160%; /* 48px */
           letter-spacing: 3px;
         }
@@ -601,7 +588,7 @@ watch(
   margin-top: 113px;
   &-title{
     h3{
-      font-size: 50px;
+      font-size: 35px;
       font-weight: 400;
       letter-spacing: 5.5px;
       text-align: center;
@@ -611,12 +598,12 @@ watch(
         background: var(--indexColor1);
         display: inline-block;
         border-radius: 50%;
-        width: 83px;
-        height: 83px;
-        line-height: 83px;
-        margin: 0 -10px;
+        width: 55px;
+        height: 55px;
+        line-height: 55px;
+        margin: 0 -6px;
         &:first-child{
-          margin-left: 10px;
+          margin-left: 5px;
         }
       }
     }
@@ -789,7 +776,7 @@ watch(
             display: block;
             text-align: center;
             color: var(--textColor);
-            font-size: 30px;
+            font-size: 26px;
             font-style: normal;
             font-weight: 400;
             line-height: 160%;
@@ -797,7 +784,7 @@ watch(
         }
       }
       .text{
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 400;
         line-height: 160%;
         letter-spacing: 5px;
@@ -815,7 +802,7 @@ watch(
   position: relative;
   &-title{
     h3{
-      font-size: 50px;
+      font-size: 35px;
       font-weight: 400;
       letter-spacing: 5.5px;
       text-align: center;
@@ -825,12 +812,12 @@ watch(
         background: var(--indexColor1);
         display: inline-block;
         border-radius: 50%;
-        width: 83px;
-        height: 83px;
-        line-height: 83px;
-        margin: 0 -10px;
+        width: 55px;
+        height: 55px;
+        line-height: 55px;
+        margin: 0 -6px;
         &:last-child{
-          margin-right: 10px;
+          margin-right: 5px;
         }
       }
     }
@@ -838,26 +825,26 @@ watch(
   &-right{
     position: absolute;
     left: 50%;
-    bottom: 80%;
+    bottom: 76%;
     width: 107px;
     height: 172px;
-    transform: translateX(310%);
+    transform: translateX(225%);
     transform-origin: left bottom;
     animation: habits 4s linear infinite;
   }
 }
 @keyframes habits{
   0%{
-    transform: translateX(310%);
+    transform: translateX(225%);
   }
   33%{
-    transform: translateX(310%) rotate(5deg);
+    transform: translateX(225%) rotate(5deg);
   }
   66%{
-    transform: translateX(310%) rotate(-5deg);;
+    transform: translateX(225%) rotate(-5deg);
   }
   100%{
-    transform: translateX(310%);
+    transform: translateX(225%);
   }
 }
 @keyframes youtubeIcon {
@@ -906,7 +893,7 @@ watch(
             width: 363px;
             border-radius: 30px;
             text-align: center;
-            font-size: 35px;
+            font-size: 28px;
             font-style: normal;
             font-weight: 400;
             line-height: 160%; /* 56px */
@@ -914,7 +901,7 @@ watch(
           }
         }
         .context{
-          font-size: 30px;
+          font-size: 24px;
           font-style: normal;
           font-weight: 400;
           line-height: 160%; /* 48px */
@@ -927,7 +914,7 @@ watch(
             display: flex;
             align-items: center;
             &>img{
-              width: 47px;
+              width: 35px;
               margin-right: 11px;
             }
           }
@@ -1049,9 +1036,6 @@ watch(
     }
   }
   .YaNav{
-    // right: 10.4167vw;
-    // bottom: 5.2083vw;
-    
     &-img{
       bottom: .5208vw;
       &::before{
@@ -1105,11 +1089,11 @@ watch(
         .text{
           margin-top: .5729vw;
           h3{
-            font-size: 1.5625vw;
+            font-size: 1.3542vw;
             letter-spacing: .1563vw;
           }
           p{
-            font-size: 1.5625vw;
+            font-size: 1.25vw;
             letter-spacing: .1563vw;
           }
         }
@@ -1125,15 +1109,15 @@ watch(
     margin-top: 5.8854vw;
     &-title{
       h3{
-        font-size: 2.6042vw;
+        font-size: 1.8229vw;
         letter-spacing: .2865vw;
         span{
-          width: 4.3229vw;
-          height: 4.3229vw;
-          line-height: 4.3229vw;
-          margin: 0 -0.5208vw;
+          width: 2.8646vw;
+          height: 2.8646vw;
+          line-height: 2.8646vw;
+          margin: 0 -0.3125vw;
           &:first-child{
-            margin-left: .5208vw;
+            margin-left: .2604vw;
           }
         }
       }
@@ -1204,12 +1188,12 @@ watch(
         .title{
           h3{
             span{
-              font-size: 1.5625vw;
+              font-size: 1.3542vw;
             }
           }
         }
         .text{
-          font-size: 1.0417vw;
+          font-size: .9375vw;
           letter-spacing: .2604vw;
         }
       }
@@ -1222,15 +1206,15 @@ watch(
     margin-top: 10.4167vw;
     &-title{
       h3{
-        font-size: 2.6042vw;
+        font-size: 1.8229vw;
         letter-spacing: .2865vw;
         span{
-          width: 4.3229vw;
-          height: 4.3229vw;
-          line-height: 4.3229vw;
-          margin: 0 -0.5208vw;
+          width: 2.8646vw;
+          height: 2.8646vw;
+          line-height: 2.8646vw;
+          margin: 0 -0.3125vw;
           &:last-child{
-            margin-right: .5208vw;
+            margin-right: .2604vw;
           }
         }
       }
@@ -1265,18 +1249,18 @@ watch(
             h3{
               width: 18.9063vw;
               border-radius: 1.5625vw;
-              font-size: 1.8229vw;
+              font-size: 1.4583vw;
               letter-spacing: .3646vw;
             }
           }
           .context{
-            font-size: 1.5625vw;
+            font-size: 1.25vw;
             letter-spacing: .1563vw;
             margin-top: .3646vw;
             &>div{
               width: 11.7188vw;
               &>img{
-                width: 2.4479vw;
+                width: 1.8229vw;
                 margin-right: .5729vw;
               }
             }
