@@ -196,7 +196,7 @@ watch(
 
 <template>
 <div>
-  <PageHeader :headerConfig="headerConfig" />
+  <PageHeader :headerConfig="headerConfig" btnText="預約免費牙齒檢查" />
   <div class="pageIn whitebgColor">
     <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
     <div class="tabNav pageCon">
@@ -859,7 +859,7 @@ watch(
   position: relative;
   &-lists{
     margin: 140px auto 0;
-    max-width: 1438px;
+    max-width: 1280px;
     width: 100%;
     position: relative;
     &-in{
@@ -876,21 +876,21 @@ watch(
         padding: 80px 0;
       }
       &-l{
-        width: 325px;
+        width: 200px;
         margin-right: 49px;
         img{
           width: 100%;
         }
       }
       &-r{
-        width: 669px;
+        width: 600px;
         .title{
           margin-bottom: 30px;
           h3{
             background: var(--indexColor1);
             color: #fff;
             display: inline-block;
-            width: 363px;
+            width: 300px;
             border-radius: 30px;
             text-align: center;
             font-size: 28px;
@@ -901,20 +901,20 @@ watch(
           }
         }
         .context{
-          font-size: 24px;
+          font-size: 18px;
           font-style: normal;
           font-weight: 400;
           line-height: 160%; /* 48px */
           letter-spacing: 3px;
           display: flex;
           align-items: flex-start;
-          margin-top: 7px;
+          margin-top: 10px;
           &>div{
-            width: 225px;
+            width: 180px;
             display: flex;
             align-items: center;
             &>img{
-              width: 35px;
+              width: 28px;
               margin-right: 11px;
             }
           }
@@ -1227,7 +1227,7 @@ watch(
   .skill{
     &-lists{
       margin: 7.2917vw auto 0;
-      max-width: 74.8958vw;
+      max-width: 66.6667vw;
       &-in{
         padding: 2.0833vw;
         border-radius: 5.2083vw;
@@ -1239,28 +1239,28 @@ watch(
           padding: 4.1667vw 0;
         }
         &-l{
-          width: 16.9271vw;
+          width: 10.4167vw;
           margin-right: 2.5521vw;
         }
         &-r{
-          width: 34.8438vw;
+          width: 31.25vw;
           .title{
             margin-bottom: 1.5625vw;
             h3{
-              width: 18.9063vw;
+              width: 15.625vw;
               border-radius: 1.5625vw;
               font-size: 1.4583vw;
               letter-spacing: .3646vw;
             }
           }
           .context{
-            font-size: 1.25vw;
+            font-size: .9375vw;
             letter-spacing: .1563vw;
             margin-top: .3646vw;
             &>div{
-              width: 11.7188vw;
+              width: 9.375vw;
               &>img{
-                width: 1.8229vw;
+                width: 1.4583vw;
                 margin-right: .5729vw;
               }
             }

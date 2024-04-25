@@ -20,6 +20,10 @@ defineProps({
       }
     },
   },
+  btnText: {
+    type: String,
+    default: ''
+  }
 })
 
 const menuLists = [
@@ -364,7 +368,7 @@ const handleopenwechat = () =>{
         "
         class="header-content-btn-implant"
       >
-        <PageAnimBtnTypeTwo :str="'免費網上預約'" />
+        <PageAnimBtnTypeTwo :str="btnText || '免費網上預約'" />
       </div>
       <div
         v-if="
