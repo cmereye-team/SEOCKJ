@@ -130,7 +130,7 @@ watch(
 
 const headerConfigData = {
   img: 'https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg',
-  bg: 'https://static.cmereye.com/imgs/2023/11/be45851e1f050a5b.png',
+  bg: '',
   mbImg: 'https://static.cmereye.com/imgs/2024/02/216458f63817b47e.jpg',
   pageName: 'course-new',
   pcText: ['重拾自信笑容', '愛牙愛己，由你做起'],

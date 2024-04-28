@@ -340,7 +340,7 @@ const handleopenwechat = () =>{
         <swiper :modules="[Autoplay]"
             :loop="true"
             :autoplay="{ delay: 3000 }"
-            :speed="3000"
+            :speed="1000"
             @swiper="setBannerSwiperRef"
             @slideChange="changebanner">
           <SwiperSlide>

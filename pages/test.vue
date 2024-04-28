@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { phoneNum } from '~/assets/js/common'
 import { defineProps } from "vue";
+import { useMouseInElement } from '@vueuse/core'
 // import './globals'
 defineProps({
   str:{
@@ -59,6 +60,58 @@ const handlecopywechatcode = () =>{
 const handleopenwechat = () =>{
   window.location.href = "weixin://"
 }
+
+let yuanimg = ref('')
+let webpimg = ref('')
+let imgName = ref('')
+let imgLeft = ref('50%')
+const canvasWebp:any = ref(null)
+const yuanspan = ref(null)
+const { elementX,elementWidth } = useMouseInElement(yuanspan)
+
+const handleFileChange = (e) =>{
+  imgName.value = e.target.files[0].name.split('.')[0]
+  const url = URL.createObjectURL(e.target.files[0])
+  yuanimg.value = url
+  const canvas = canvasWebp.value
+  const ctx = canvas.getContext('2d')
+  const img = new Image()
+  img.src = yuanimg.value
+  img.onload = function() {
+    canvas.width = img.width
+    canvas.height = img.height
+    ctx.drawImage(img, 0, 0)
+    webpimg.value = canvas.toDataURL('image/webp')
+  }
+  
+}
+
+const downWebp = () =>{
+  //将base64转成webp并下载
+  const link = document.createElement('a')
+  link.href = webpimg.value
+  link.download = `${imgName.value}.webp`
+  link.click()
+}
+
+let isDragging = ref(false)
+watch(
+  elementX,
+  (n,o)=>{
+    if(isDragging.value){
+      let a = (elementX.value + 5) / elementWidth.value
+      if(a < 0 ){
+        imgLeft.value = '10px'
+      }else if(a > 1){
+        imgLeft.value = '100%'
+      }else{
+        imgLeft.value = `${(a*100).toFixed(4)}%`
+      }
+      
+    }
+  }
+)
+
 onMounted(()=>{
   // nextTick(()=>{
     // googleTranslateElementInit()
@@ -67,6 +120,18 @@ onMounted(()=>{
   // if(window['google']){
   //   console.log(window['google'])
   // }
+  nextTick(()=>{
+    // 按住imgline 拖动
+    const imgline = document.getElementById('imgline')
+    if(imgline){
+      imgline.addEventListener('mousedown', (e) => {
+        isDragging.value = true
+      })
+      imgline.addEventListener('mouseup', function(event) {
+        isDragging.value = false
+      });
+    }
+  })
 })
 </script>
 
@@ -112,6 +177,23 @@ onMounted(()=>{
         <div id="google_translate_element">
           <!-- 语言盒子 -->
         </div>
+
+        <div class="imagetowebp">
+          <input type="file" @change="handleFileChange" />
+          <button @click="downWebp">下载webp</button>
+        </div>
+        <div class="imagetowebp-text">
+          <div>前</div>
+          <div>后webp</div>
+        </div>
+        <div  class="imagetowebp-canvasWebp">
+          <div ref="yuanspan" class="yuan" :style="{'clip-path':`polygon(0 0, ${imgLeft} 0, ${imgLeft} 100%, 0 100%)`}">
+            <img :src="yuanimg" alt="" title="">
+            <span  :style="{'left': imgLeft}" id="imgline"></span>
+          </div>
+          <canvas ref="canvasWebp" id="canvasWebp"></canvas>
+          <img :src="webpimg" alt="" title="">
+        </div>
       </div>
     </div>
     <PageFooter />
@@ -122,6 +204,94 @@ onMounted(()=>{
 
 
 <style lang="scss" scoped>
+.imagetowebp{
+  &-box{
+    display: flex;
+    min-height: 500px;
+    margin:  50px;
+    // align-items: center;
+    &>div{
+      flex: 1;
+      min-height: 100%;
+      img{
+        width: 100%;
+      }
+      canvas{
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  &-text{
+    margin-top: 50px;
+    width: 100%;
+    max-width: 1280px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+    color: var(--indexColor1);
+  }
+  button{
+    border: 2px solid rgba(252, 22, 130,.7);
+    background: rgba(252, 22, 130,.5);
+    color: #fff;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin-left: 30px;
+    transition: all .3s;
+    position: relative;
+    &:hover{
+      border: 2px solid rgba(252, 22, 130,1);
+      background: rgba(252, 22, 130, .7);
+    }
+    
+  }
+  &-canvasWebp{
+    position: relative;
+    img{
+      //禁止选中
+      user-select: none;
+    }
+    .yuan{
+      width: 100%;
+      height: 100%;
+      // overflow: hidden;
+      position: absolute;
+      left: 0;
+      top: 0;
+      clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+      img{
+        width: auto;
+        height: 100%;
+      }
+      span{
+        width: 10px;
+        height: 100%;
+        display: block;
+        background: var(--indexColor1);
+        position: absolute;
+        left: 50%;
+        transform: translateX(-10px);
+        top: 0;
+        opacity: .5;
+        cursor: col-resize;
+        // &::before{
+        //   content: '';
+        //   background: var(--indexColor1);
+        //   opacity: .5;
+        //   position: absolute;
+        //   top: 0;
+        //   left: 50%;
+        // }
+      }
+    }
+    #canvasWebp{
+      opacity: 0;
+      position: absolute;
+      z-index: -3;
+    }
+  }
+}
 #google_translate_element{
   margin-top: 100px;
 }
