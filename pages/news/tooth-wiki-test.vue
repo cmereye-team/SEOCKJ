@@ -163,6 +163,37 @@ const shareFacebook = (event,id) =>{
   event.preventDefault();
   window.open(`https://www.facebook.com/sharer/sharer.php?u=https://www.ckjhk.com/news/news-tooth-wiki/${id}`)  
 }
+function copySpecifiedText(event,text) {  
+  event.preventDefault();
+    if (navigator.clipboard) {  
+        navigator.clipboard.writeText(`https://www.ckjhk.com/news/news-tooth-wiki/${text}`).then(function() {  
+          ElMessage({
+            showClose: true,
+            message: '已複製到剪切板',
+            type: 'success',
+          }) 
+        }, function(err) {
+            ElMessage({
+              showClose: true,
+              message: '操作異常，請刷新頁面試試',
+              type: 'warning',
+            })
+        });  
+    } else {  
+        alert('Clipboard API is not supported by your browser.');  
+    }  
+}
+
+let actShowShare = ref('')
+const handleClick = (event,_id) =>{
+  event.preventDefault();
+  if(actShowShare.value === _id){
+    actShowShare.value = ''
+  }else{
+    actShowShare.value = _id
+  }
+}
+
 
 </script>
 
@@ -184,7 +215,7 @@ const shareFacebook = (event,id) =>{
         <!-- <nuxt-link to="/news/news-tooth-wiki/102">测试</nuxt-link> -->
         <div class="lists" v-if="!errorpage">
           <div v-loading="loadingShow" class="listsbox">
-            <nuxt-link :to="`/news/news-tooth-wiki/${item.id}`" :id="`i${item.id}`" class="lists-in" v-for="(item,index) in informationLists" :key="index" @click="handlelink(item.id)">
+            <nuxt-link :to="`/news/news-tooth-wiki/${item.id}`" :id="`i${item.id}`" :alt="item.name" :title="item.name" class="lists-in" v-for="(item,index) in informationLists" :key="index">
               <div class="lists-in-img">
                 <img :src="item.img" alt="">
               </div>
@@ -197,10 +228,13 @@ const shareFacebook = (event,id) =>{
                     <span>
                       {{item.time}} by ckjhk - Leave a comment
                     </span>
-                    <svg @click.stop="shareFacebook($event,item.id)" xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
-<path d="M7.4227 20.8082C7.42449 20.0204 7.41199 19.2309 7.44593 18.4448C7.53704 16.295 8.53036 14.2494 10.2714 12.8554C11.3862 11.9634 12.6957 11.406 14.1893 11.1773C14.3956 11.1453 14.6037 11.1285 14.8181 11.1083C14.9066 11.0999 14.9744 11.0293 14.9744 10.9452V8.25734C14.9744 8.11862 15.1451 8.04295 15.2594 8.13039L21.5203 12.9303C21.6061 12.9958 21.6061 13.1194 21.5203 13.185C19.4354 14.7892 17.3622 16.3841 15.2674 17.9958C15.1531 18.0833 14.9825 18.0076 14.9825 17.8689V15.2062C14.9825 15.1078 14.8905 15.0313 14.7869 15.0431C14.4992 15.0759 14.2214 15.1028 13.949 15.1558C11.5148 15.6257 9.69162 16.8852 8.54108 18.9602C8.28293 19.4268 7.86845 20.3197 7.6219 20.8485C7.57724 20.9452 7.4227 20.9149 7.4236 20.809L7.4227 20.8082Z" stroke="#AAAAAA" stroke-width="2" stroke-miterlimit="10"/>
-<circle cx="14.5" cy="14.5" r="13.5" stroke="#AAAAAA" stroke-width="2"/>
-</svg>
+                    <div class="shareIcon" @click.stop="handleClick($event,item.id)" alt="">
+                      <div class="shareIcon-img" alt="分享" title="分享"><img src="@/assets/images/icon_47.svg" alt=""></div>
+                      <div class="shareIcon-in" v-if="actShowShare === item.id">
+                        <div class="shareIcon-in-item" @click="shareFacebook($event,item.id)" alt="Facebook 分享" title="Facebook 分享"><img src="@/assets/images/icon_49.svg" alt=""><span>Facebook 分享</span></div>
+                        <div class="shareIcon-in-item" @click="copySpecifiedText($event,item.id)" alt="複製連結" title="複製連結"><img src="@/assets/images/icon_48.svg" alt=""><span>複製連結</span></div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="desc" v-html="item.desc">
@@ -325,8 +359,9 @@ const shareFacebook = (event,id) =>{
           color: #aaa;
           margin-top: 10px;
           display: flex;
+          align-items: center;
           justify-content: space-between;
-          span{
+          &>span{
             max-width: 340px;
             white-space: nowrap; 
             overflow: hidden;
@@ -342,10 +377,60 @@ const shareFacebook = (event,id) =>{
               top: 0;
             }
           }
-          svg{
-            display: inline-block;
-            vertical-align: middle;
-            margin-top: -2px;
+          .shareIcon{
+            position: relative;
+            &-img{
+              width: 30px;
+              height: 30px;
+              border-radius: 50%;
+              background: #fff;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              position: relative;
+              border: 2px solid #aaa;
+              &>img{
+                width: 60%;
+                height: auto;
+              }
+            }
+            &-in{
+              position: absolute;
+              right: 0;
+              top: 100%;
+              background: #fff;
+              padding: 15px 0;
+              border-radius: 15px 0 15px 15px;
+              width: 150px;
+              // display: none;
+              border: 2px solid #aaa;
+              z-index: 20;
+              &-item{
+                display: flex;
+                align-items: center;
+                padding: 5px 10px;
+                &>img{
+                  width: 20px;
+                  margin-right: 5px;
+                }
+                &>span{
+                  font-size: 14px;
+                }
+                &:hover{
+                  background: #F6F6F6;
+                }
+              }
+            }
+            // &:hover{
+            //   .shareIcon-in{
+            //     display: block;
+            //   }
+            // }
+            // &:focus{
+            //   .shareIcon-in{
+            //     display: block;
+            //   }
+            // }
           }
         }
       }
@@ -468,10 +553,28 @@ const shareFacebook = (event,id) =>{
                 width: 1.5625vw;
               }
             }
-            svg{
-              width: 1.5104vw;
-              height: 1.5104vw;
-              margin-top: -0.1042vw;
+            .shareIcon{
+              &-img{
+                width: 1.5625vw;
+                height: 1.5625vw;
+                border: .1042vw solid #aaa;
+              }
+              &-in{
+                padding: .7813vw 0;
+                border-radius: .7813vw 0 .7813vw .7813vw;
+                width: 7.8125vw;
+                border: .1042vw solid #aaa;
+                &-item{
+                  padding: .2604vw .5208vw;
+                  &>img{
+                    width: 1.0417vw;
+                    margin-right: .2604vw;
+                  }
+                  &>span{
+                    font-size: .7292vw;
+                  }
+                }
+              }
             }
           }
         }
