@@ -433,7 +433,7 @@ if(process.server){
 .content{
   margin: 0 auto calc(37 / 1920 * 100%);
   height: auto;
-  :deep(p){
+  :deep(p),:deep(h3),:deep(h2),:deep(h1),:deep(h4){
     width: calc(100% - 60px);
     max-width: 960px;
     margin: 0 auto;
@@ -1297,7 +1297,7 @@ if(process.server){
   .content{
     margin-bottom: 50px;
     padding: 0 30px;
-    :deep(p){
+    :deep(p),:deep(h3),:deep(h2),:deep(h1),:deep(h4){
       width: 100%;
       &.content-doctor,&.content-address{
         width: calc(100% + 60px);
