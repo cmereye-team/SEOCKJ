@@ -180,7 +180,7 @@ function copySpecifiedText(event,text) {
             })
         });  
     } else {  
-        alert('Clipboard API is not supported by your browser.');  
+        alert('您的瀏覽器不支持此功能，請更新瀏覽器');  
     }  
 }
 
@@ -229,7 +229,7 @@ const handleClick = (event,_id) =>{
                       {{item.time}} by ckjhk - Leave a comment
                     </span>
                     <div class="shareIcon" @click.stop="handleClick($event,item.id)" alt="">
-                      <div class="shareIcon-img" alt="分享" title="分享"><img src="@/assets/images/icon_47.svg" alt=""></div>
+                      <div :class="['shareIcon-img',{ act: actShowShare === item.id }]" alt="分享" title="分享"><img src="@/assets/images/icon_47.svg" alt=""></div>
                       <div class="shareIcon-in" v-if="actShowShare === item.id">
                         <div class="shareIcon-in-item" @click="shareFacebook($event,item.id)" alt="Facebook 分享" title="Facebook 分享"><img src="@/assets/images/icon_49.svg" alt=""><span>Facebook 分享</span></div>
                         <div class="shareIcon-in-item" @click="copySpecifiedText($event,item.id)" alt="複製連結" title="複製連結"><img src="@/assets/images/icon_48.svg" alt=""><span>複製連結</span></div>
@@ -383,32 +383,40 @@ const handleClick = (event,_id) =>{
               width: 30px;
               height: 30px;
               border-radius: 50%;
-              background: #fff;
               display: flex;
               align-items: center;
               justify-content: center;
               position: relative;
               border: 2px solid #aaa;
+              z-index: 21;
               &>img{
                 width: 60%;
                 height: auto;
               }
+              &.act{
+                border: none;
+              }
             }
             &-in{
               position: absolute;
-              right: 0;
-              top: 100%;
-              background: #fff;
-              padding: 15px 0;
-              border-radius: 15px 0 15px 15px;
-              width: 150px;
-              // display: none;
-              border: 2px solid #aaa;
               z-index: 20;
+              top: 0;
+              right: 0;
+              width: 159px;
+              height: 115px;
+              background: url(https://static.cmereye.com/static/ckj/imgs/default/shareIcon.svg);
+              background-size: 100% 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-end;
+              filter: drop-shadow(0 2px 3px rgba(0,0,0,.3));
+              padding: 12px 0;
               &-item{
                 display: flex;
                 align-items: center;
                 padding: 5px 10px;
+                margin: 0 2px;
+                border-radius: 3px;
                 &>img{
                   width: 20px;
                   margin-right: 5px;
@@ -421,16 +429,6 @@ const handleClick = (event,_id) =>{
                 }
               }
             }
-            // &:hover{
-            //   .shareIcon-in{
-            //     display: block;
-            //   }
-            // }
-            // &:focus{
-            //   .shareIcon-in{
-            //     display: block;
-            //   }
-            // }
           }
         }
       }
@@ -553,29 +551,6 @@ const handleClick = (event,_id) =>{
                 width: 1.5625vw;
               }
             }
-            .shareIcon{
-              &-img{
-                width: 1.5625vw;
-                height: 1.5625vw;
-                border: .1042vw solid #aaa;
-              }
-              &-in{
-                padding: .7813vw 0;
-                border-radius: .7813vw 0 .7813vw .7813vw;
-                width: 7.8125vw;
-                border: .1042vw solid #aaa;
-                &-item{
-                  padding: .2604vw .5208vw;
-                  &>img{
-                    width: 1.0417vw;
-                    margin-right: .2604vw;
-                  }
-                  &>span{
-                    font-size: .7292vw;
-                  }
-                }
-              }
-            }
           }
         }
         .desc{
@@ -650,9 +625,16 @@ const handleClick = (event,_id) =>{
             color: var(--indexColor1);
           }
           .time{
-            span{
+            &>span{
               text-align: left;
               font-size: 16px;
+            }
+            .shareIcon{
+              &-in{
+                &-item{
+                  padding: 3px 10px;
+                }
+              }
             }
           }
         }
