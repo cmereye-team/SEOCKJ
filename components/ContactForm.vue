@@ -121,49 +121,50 @@ const onSubmit = async () => {
     _formData.append('preferential', `無`)
   }
   // return
-  let _EmailformData = {
-      "to": [
-        {
-          "email": "setqianqian@163.com",
-        }
-      ],
-      "from": {
-        "email": "MS_mCYizS@trial-pq3enl6ymv5g2vwr.mlsender.net",
-        "name": "ckjhk.com"
-      },
-      "subject": "来自ckjhk.com的預約表單信息",
-      "html": 
-        `<p>名称：${_form.name}</p>
-        <p>称呼：${_form.gender}</p>
-        <p>联系方式：${areaCode.value} ${_form.phone}</p>
-        <p>服务：${_form.service}</p>
-        <p>来源：${location.href}</p>
-        <p>优惠信息：${_preferential?_preferential.text:'無'}</p>
-        <p>提交時間：${new Date().toLocaleString()}</p>`
-  }
-  // 来自网站https://admin.ckjhk.com（2024-04-28 14:40:32）
-  const { data }: any = await useFetch(
-    '/sendmail/v1/email',
-    {
-      method: 'post',
-      headers: {
-        'Authorization': 'Bearer mlsn.af3269665a0933f2eb9ec9cbf7d1aca61448d23387c688190873b6e3fa19274c',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(_EmailformData),
-    }
-  )
+  // let _EmailformData = {
+  //     "to": [
+  //       {
+  //         "email": "vikim_lee@outlook.com",
+  //       }
+  //     ],
+  //     "from": {
+  //       "email": "MS_mCYizS@trial-pq3enl6ymv5g2vwr.mlsender.net",
+  //       "name": "ckjhk.com"
+  //     },
+  //     "subject": "来自ckjhk.com的預約表單信息-应急服务",
+  //     "html": 
+  //       `<p>名称：${_form.name}</p>
+  //       <p>称呼：${_form.gender}</p>
+  //       <p>联系方式：${areaCode.value} ${_form.phone}</p>
+  //       <p>服务：${_form.service}</p>
+  //       <p>来源：${location.href}</p>
+  //       <p>优惠信息：${_preferential?_preferential.text:'無'}</p>
+  //       <p>提交時間：${new Date().toLocaleString()}</p>`
+  // }
+  // // 来自网站https://admin.ckjhk.com（2024-04-28 14:40:32）
+  // const { data }: any = await useFetch(
+  //   '/sendmail/v1/email',
+  //   {
+  //     method: 'post',
+  //     headers: {
+  //       'Authorization': 'Bearer mlsn.af3269665a0933f2eb9ec9cbf7d1aca61448d23387c688190873b6e3fa19274c',
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify(_EmailformData),
+  //   }
+  // )
   // console.log(data)
-  if(data.value === ""){
-    localStorage.setItem('contactForm', JSON.stringify(_form))
-    window.location.href = `/messagePage`
-  }else{
-    ElMessage({
-      showClose: true,
-      message: '服务异常，请稍后重试',
-      type: 'error',
-    })
-  }
+  // if(data.value === ""){
+  //   localStorage.setItem('contactForm', JSON.stringify(_form))
+  //   window.location.href = `/messagePage`
+  // }else{
+  //   ElMessage({
+  //     showClose: true,
+  //     message: '服务异常，请稍后重试',
+  //     type: 'error',
+  //   })
+  // }
+  postData(_form,_preferential)
   // return
   // const { data }: any = await useFetch(
   //   'https://admin.ckjhk.com/api.php/cms/addform/fcode/3',
@@ -199,6 +200,40 @@ const onSubmit = async () => {
   // }
   formLoading.value = false
   appState.setIsShowForm(false)
+}
+
+const postData = async (_form,_preferential) => {
+  let _message = {
+  msgtype: "text",
+  text: {
+    content: `名称：${_form.name}
+称呼：${_form.gender}
+联系方式：${areaCode.value} ${_form.phone}
+服务：${_form.service}
+来源：${location.href}
+优惠信息：${_preferential ? _preferential.text : '无'}
+
+提交时间：${new Date().toLocaleString()}
+备注信息：服务器离线由备用服务推送`
+  }
+};
+  let { data }:any = await useFetch('/dingtalk/robot/send?access_token=5bb9e8ea63ce1048488a7a2434abd58a25748f7ff51a1a9ba6d038bf57556322',{
+    method: 'post',
+    headers: {
+      "Content-Type": "application/json;charset=utf-8"
+    },
+    body: JSON.stringify(_message)
+  })
+  if(data){
+    localStorage.setItem('contactForm', JSON.stringify(_form))
+    window.location.href = `/messagePage`
+  }else{
+    ElMessage({
+      showClose: true,
+      message: '服务异常，请稍后重试',
+      type: 'error',
+    })
+  }
 }
 
 const serviceLists = service.map((item) => item.name)

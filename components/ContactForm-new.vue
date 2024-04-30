@@ -150,14 +150,49 @@ const onSubmit = async () => {
       })
     }
   } else {
+    // ElMessage({
+    //   showClose: true,
+    //   message: '服务异常，请稍后重试',
+    //   type: 'error',
+    // })
+    postData(_formData,_preferential)
+  }
+  formLoading.value = false
+  appState.setIsShowForm(false)
+}
+
+const postData = async (_form,_preferential) => {
+  let _message = {
+  msgtype: "text",
+  text: {
+    content: `名称：${_form.name}
+称呼：${_form.gender}
+联系方式：${areaCode.value} ${_form.phone}
+服务：${_form.service}
+来源：${location.href}
+优惠信息：${_preferential ? _preferential.text : '无'}
+
+提交时间：${new Date().toLocaleString()}
+备注信息：服务器离线由备用服务推送`
+  }
+};
+  let { data }:any = await useFetch('/dingtalk/robot/send?access_token=5bb9e8ea63ce1048488a7a2434abd58a25748f7ff51a1a9ba6d038bf57556322',{
+    method: 'post',
+    headers: {
+      "Content-Type": "application/json;charset=utf-8"
+    },
+    body: JSON.stringify(_message)
+  })
+  if(data){
+    localStorage.setItem('contactForm', JSON.stringify(_form))
+    window.location.href = `/messagePage`
+  }else{
     ElMessage({
       showClose: true,
       message: '服务异常，请稍后重试',
       type: 'error',
     })
   }
-  formLoading.value = false
-  appState.setIsShowForm(false)
 }
 
 const serviceLists = service.map((item) => item.name)

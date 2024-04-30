@@ -143,6 +143,11 @@ export default defineNuxtConfig({
         target: 'https://api.mailersend.com',
         prependPath: true,
         changeOrigin: true,
+      },
+      "/dingtalk":{
+        target: 'https://oapi.dingtalk.com',
+        prependPath: true,
+        changeOrigin: true,
       }
     }
   },
