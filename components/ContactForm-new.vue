@@ -156,6 +156,7 @@ const onSubmit = async () => {
     //   type: 'error',
     // })
     postData(_formData,_preferential)
+    errorserver(_form,_preferential)
   }
   formLoading.value = false
   appState.setIsShowForm(false)
@@ -170,13 +171,13 @@ const postData = async (_form,_preferential) => {
 联系方式：${areaCode.value} ${_form.phone}
 服务：${_form.service}
 来源：${location.href}
-优惠信息：${_preferential ? _preferential.text : '无'}
+优惠信息：${_preferential ? _preferential.text : '無'}
 
 提交时间：${new Date().toLocaleString()}
 备注信息：服务器离线由备用服务推送`
   }
 };
-  let { data }:any = await useFetch('/dingtalk/robot/send?access_token=f50755f36df72ca18cd09a5f726f0d060560faf182e7bc1dbc2206bdcc88495d',{
+  let { data }:any = await useFetch('/dingtalk/robot/send?access_token=29f5dd6fd3019078bea0734c5dcfdea2e9b1792e238860a907faf486ae17ba55',{
     method: 'post',
     headers: {
       "Content-Type": "application/json;charset=utf-8"
@@ -194,6 +195,55 @@ const postData = async (_form,_preferential) => {
     })
   }
 }
+const errorserver = async (_form,_preferential) =>{
+  let emailLists = [
+    'vikim_lee@outlook.com',
+    'jamie_chung@cmermedical.com',
+    'info@ckjhk.com',
+    'joanna.choi@cmermedical.com',
+    'hazel.ho@cmermedical.com',
+    '1934019260@qq.com'
+  ]
+  let _EmailformData:any = []
+  for(var i = 0;i<emailLists.length;i++){
+    let _message = {
+      "to": [
+        {
+          "email": emailLists[i],
+        }
+      ],
+      "from": {
+        "email": "MS_mCYizS@trial-pq3enl6ymv5g2vwr.mlsender.net",
+        "name": "ckjhk.com"
+      },
+      "subject": "来自ckjhk.com的預約表單信息-备用服务",
+      "html": 
+        `<p>名称：${_form.name}</p>
+        <p>称呼：${_form.gender}</p>
+        <p>联系方式：${areaCode.value} ${_form.phone}</p>
+        <p>服务：${_form.service}</p>
+        <p>来源：${location.href}</p>
+        <p>优惠信息：${_preferential?_preferential.text:'無'}</p><br/>
+        <p>提交時間：${new Date().toLocaleString()}</p>
+        <p>备注信息：服务器离线由备用服务推送</p>`
+    }
+    _EmailformData.push(_message)
+  } 
+  // console.log(_EmailformData)
+  const { data }: any = await useFetch(
+    '/sendmail/v1/bulk-email',
+    {
+      method: 'post',
+      headers: {
+        'Authorization': 'Bearer mlsn.af3269665a0933f2eb9ec9cbf7d1aca61448d23387c688190873b6e3fa19274c',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(_EmailformData),
+    }
+  )
+  console.log(data)
+}
+
 
 const serviceLists = service.map((item) => item.name)
 

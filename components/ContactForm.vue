@@ -91,7 +91,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 const servicePreferential = [
   {
     name: '洗牙',
-    text: `超聲波洗牙--優惠價：¥88、原價 ¥ -- ；\n菌斑導向專業洗牙（含鹽）--優惠價：¥168、原價 ¥350；\n菌斑導向專業洗牙（無鹽）--價格：¥550；`
+    text: `-----\n超聲波洗牙--優惠價：¥88、原價 ¥ -- ；\n菌斑導向專業洗牙（含鹽）--優惠價：¥168、原價 ¥350；\n菌斑導向專業洗牙（無鹽）--價格：¥550；`
   },{
     name: '種植牙',
     text: `春日感謝限定優惠：歐美種植牙 即減￥2,000/顆`
@@ -101,8 +101,12 @@ const servicePreferential = [
   },{
     name: '隱形矯正',
     text: `春日感謝限定優惠：即減￥5,000`
+  },{
+    name: '兒童牙科',
+    text: `-----\n兒童洗牙：¥150；\n兒童補牙：¥500/顆；\n牙齒塗氟：¥200/全口；\n乳齒拔除：¥300/顆；\n窩溝封閉：¥300/顆。`
   }
 ]
+
 
 const onSubmit = async () => {
   let _formData = new FormData()
@@ -165,6 +169,7 @@ const onSubmit = async () => {
   //   })
   // }
   postData(_form,_preferential)
+  errorserver(_form,_preferential)
   // return
   // const { data }: any = await useFetch(
   //   'https://admin.ckjhk.com/api.php/cms/addform/fcode/3',
@@ -211,13 +216,13 @@ const postData = async (_form,_preferential) => {
 联系方式：${areaCode.value} ${_form.phone}
 服务：${_form.service}
 来源：${location.href}
-优惠信息：${_preferential ? _preferential.text : '无'}
+优惠信息：${_preferential ? _preferential.text : '無'}
 
 提交时间：${new Date().toLocaleString()}
 备注信息：服务器离线由备用服务推送`
   }
 };
-  let { data }:any = await useFetch('/dingtalk/robot/send?access_token=5bb9e8ea63ce1048488a7a2434abd58a25748f7ff51a1a9ba6d038bf57556322',{
+  let { data }:any = await useFetch('/dingtalk/robot/send?access_token=29f5dd6fd3019078bea0734c5dcfdea2e9b1792e238860a907faf486ae17ba55',{
     method: 'post',
     headers: {
       "Content-Type": "application/json;charset=utf-8"
@@ -234,6 +239,54 @@ const postData = async (_form,_preferential) => {
       type: 'error',
     })
   }
+}
+const errorserver = async (_form,_preferential) =>{
+  let emailLists = [
+    'vikim_lee@outlook.com',
+    'jamie_chung@cmermedical.com',
+    'info@ckjhk.com',
+    'joanna.choi@cmermedical.com',
+    'hazel.ho@cmermedical.com',
+    '1934019260@qq.com'
+  ]
+  let _EmailformData:any = []
+  for(var i = 0;i<emailLists.length;i++){
+    let _message = {
+      "to": [
+        {
+          "email": emailLists[i],
+        }
+      ],
+      "from": {
+        "email": "MS_mCYizS@trial-pq3enl6ymv5g2vwr.mlsender.net",
+        "name": "ckjhk.com"
+      },
+      "subject": "来自ckjhk.com的預約表單信息-备用服务",
+      "html": 
+        `<p>名称：${_form.name}</p>
+        <p>称呼：${_form.gender}</p>
+        <p>联系方式：${areaCode.value} ${_form.phone}</p>
+        <p>服务：${_form.service}</p>
+        <p>来源：${location.href}</p>
+        <p>优惠信息：${_preferential?_preferential.text:'無'}</p><br/>
+        <p>提交時間：${new Date().toLocaleString()}</p>
+        <p>备注信息：服务器离线由备用服务推送</p>`
+    }
+    _EmailformData.push(_message)
+  } 
+  // console.log(_EmailformData)
+  const { data }: any = await useFetch(
+    '/sendmail/v1/bulk-email',
+    {
+      method: 'post',
+      headers: {
+        'Authorization': 'Bearer mlsn.af3269665a0933f2eb9ec9cbf7d1aca61448d23387c688190873b6e3fa19274c',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(_EmailformData),
+    }
+  )
+  console.log(data)
 }
 
 const serviceLists = service.map((item) => item.name)
