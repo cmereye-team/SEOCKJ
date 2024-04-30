@@ -194,6 +194,7 @@ onMounted(()=>{
           <canvas ref="canvasWebp" id="canvasWebp"></canvas>
           <img :src="webpimg" alt="" title="">
         </div>
+        <ContactForm />
       </div>
     </div>
     <PageFooter />
