@@ -139,7 +139,7 @@ const getWindowWidth = () => {
         </div>
         <div class="notice-in">
           <swiper
-            :slidesPerView="windowWidth>768 ? '2': '1'"
+            :slidesPerView="windowWidth>768 ? 2: 1"
             class="swiper-wrapper"
             @slideChange="onSlideChange"
           >

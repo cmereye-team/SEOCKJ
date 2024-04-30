@@ -134,7 +134,7 @@ const getWindowWidth = () => {
         <div class="foibles-in-box">
           <swiper
             class="swiperBox foibles-in-box"
-            :slidesPerView="windowWidth>768 ? '3': '1.2'"
+            :slidesPerView="windowWidth>768 ? 3: 1.2"
             @swiper="setFoiblesSwiperRef"
             @slideChange="onSlideChange"
           >

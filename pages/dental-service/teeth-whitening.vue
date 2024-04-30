@@ -286,7 +286,7 @@ const conditionData = {
         </div>
         <div class="notice-in">
           <swiper
-            :slidesPerView="windowWidth>768 ? '4': '1.6'"
+            :slidesPerView="windowWidth>768 ? 4: 1.6"
             :scrollbar="{
               hide: true,
             }"

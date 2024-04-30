@@ -62,7 +62,7 @@ const handleLineCur = (_value:number) =>{
         {{differData.text}}
       </div>
       <div class="differ-in">
-        <swiper :slidesPerView="windowWidth>768 ? '2': '1.1'" class="swiper-wrapper" @slideChange="onSlideChange" @swiper="setDifferSwiperRef">
+        <swiper :slidesPerView="windowWidth>768 ? 2: 1.1" class="swiper-wrapper" @slideChange="onSlideChange" @swiper="setDifferSwiperRef">
             <swiper-slide :class="['swiper-slide',differData.pageName]">
               <div class="box">
                 <div class="box-in">
