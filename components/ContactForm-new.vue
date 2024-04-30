@@ -176,7 +176,7 @@ const postData = async (_form,_preferential) => {
 备注信息：服务器离线由备用服务推送`
   }
 };
-  let { data }:any = await useFetch('/dingtalk/robot/send?access_token=5bb9e8ea63ce1048488a7a2434abd58a25748f7ff51a1a9ba6d038bf57556322',{
+  let { data }:any = await useFetch('/dingtalk/robot/send?access_token=f50755f36df72ca18cd09a5f726f0d060560faf182e7bc1dbc2206bdcc88495d',{
     method: 'post',
     headers: {
       "Content-Type": "application/json;charset=utf-8"
