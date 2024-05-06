@@ -343,8 +343,8 @@ const differData:any = {
   listDatas: [
     {
       name: '',
-      firstText: '全瓷貼片',
-      secondText: '樹脂貼片'
+      firstText: '複合樹脂',
+      secondText: '銀汞合金'
     },
     {
       name: '',

@@ -390,7 +390,7 @@ const handleClick = (event,_id) =>{
               border: 2px solid #aaa;
               z-index: 21;
               &>img{
-                width: 60%;
+                width: 16px;
                 height: auto;
               }
               &.act{
