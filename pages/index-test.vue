@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useAppState } from '~/stores/appState'
 import doctorLists_cs from '~/assets/js/doctor'
 import { toWhatsApp } from '~/assets/js/common'
+import { useElementBounding,useWindowSize } from '@vueuse/core'
 const appState = useAppState()
 const { t } = useLang()
 useHead({
@@ -14,7 +15,7 @@ useHead({
     {
       hid: 'description',
       name: 'description',
-      content: '愛康健集團是大灣區專業牙科連鎖機構，其愛康健口腔醫院為香港政府納入長者醫療券大灣區試點。14間門診有超過20種牙科治療項目，專注為港服務超過29年。',
+      content: '愛康健集團是大灣區牙科連鎖機構，其口腔醫院為香港政府指定長者醫療券大灣區試點。（香港熱線: 6933 8128）14間門診有超過20種牙科治療項目，專注為港服務超過29年。',
     },
     {
       hid: 'Keywords',
@@ -129,7 +130,7 @@ watch(
 
 const headerConfigData = {
   img: 'https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg',
-  bg: 'https://static.cmereye.com/imgs/2023/11/be45851e1f050a5b.png',
+  bg: '',
   mbImg: 'https://static.cmereye.com/imgs/2024/02/216458f63817b47e.jpg',
   pageName: 'course-new',
   pcText: ['重拾自信笑容', '愛牙愛己，由你做起'],
@@ -171,7 +172,9 @@ const dentalProfessionList = [
 let doctorCur = ref('')
 
 const changleDoctorLists:any = () =>{
-  return doctorLists_cs[appState.areaTabCurNum].filter((temp:any)=>{return temp.dentalProfessionId.includes(dentalProfessionCur.value)}) || []
+  return doctorLists_cs[appState.areaTabCurNum].filter((temp:any)=>{
+    return temp.dentalProfessionId.includes(dentalProfessionCur.value) && temp.isIndexShow
+  }) || []
 }
 const changeDoctorDetail = () => {
   let obj = {
@@ -204,7 +207,7 @@ let doctorDetail:any = ref({
   org: '羅湖區 深圳愛康健口腔醫院，口腔牙周病科，口腔修復科，牙體牙髓科',
   newOrg: '羅湖區 深圳愛康健口腔醫院',
   tags: ['口腔牙周病科','口腔修復科','牙體牙髓科'],
-  newJobs: '愛康健口腔醫院院長\n口腔專業主治醫師生\n華西口腔醫學院碩士研究生',
+  newJobs: ['愛康健口腔醫院院長','口腔專業主治醫師生','華西口腔醫學院碩士研究生'],
   text: '醫院院長、主治醫師',
   posts: '主治醫師',
   job:'愛康健口腔醫院院長',
@@ -214,20 +217,52 @@ let doctorDetail:any = ref({
   educated: '口腔醫學碩士',
 })
 const handletab2 =(id:string)=>{
+  // console.log(id)
+  doctorItemSwiper.slideToLoop(0)
   dentalProfessionCur.value = id;
   doctorCur.value = changleDoctorLists().length>0 ? changleDoctorLists()[0].id : ''
-  doctorDetail.value = changeDoctorDetail()
+  // console.log(doctorCur.value);
+  // doctorItemSwiper.slideToLoop(0)
 }
 const handleDoctorItem = (id:any) =>{
   doctorCur.value = id
-  doctorDetail.value = changeDoctorDetail()
+  let _idx = changleDoctorLists().findIndex(item=>item.id === id) || 0
+  doctorItemSwiper.slideToLoop(_idx)
 }
+
+let doctorItemSwiper = {
+  slideToLoop: (a)=>{}
+}
+const setDoctorItemSwiper = (swiper:any)=>{
+  doctorItemSwiper = swiper;
+}
+const doctorItemSlideChange = (swiper) =>{
+  doctorCur.value = changleDoctorLists()[swiper.realIndex].id || ''
+  doctorTabSwiper_pc.slideToLoop(swiper.realIndex)
+  doctorTabSwiper_mb.slideToLoop(swiper.realIndex)
+}
+
+let doctorTabSwiper_pc = {
+  slideToLoop: (a)=>{}
+}
+let doctorTabSwiper_mb = {
+  slideToLoop: (a)=>{}
+}
+const setDoctorTabSwiperRef_pc = (swiper:any) => {
+  doctorTabSwiper_pc = swiper;
+}
+const setDoctorTabSwiperRef_mb = (swiper:any) => {
+  doctorTabSwiper_mb = swiper;
+}
+
 const changeDentalProfessionList = () =>{
   let _lists:any = []
   if(doctorLists_cs[appState.areaTabCurNum].length>0){
     for(var i = 0; i<doctorLists_cs[appState.areaTabCurNum].length;i++ ){
-      _lists = [ ..._lists, ...doctorLists_cs[appState.areaTabCurNum][i].dentalProfessionId]
-      _lists = [...new Set(_lists)];
+      if(doctorLists_cs[appState.areaTabCurNum][i].isIndexShow){
+        _lists = [ ..._lists, ...doctorLists_cs[appState.areaTabCurNum][i].dentalProfessionId]
+        _lists = [...new Set(_lists)];
+      }
     }
   }
   return dentalProfessionList.filter(item => _lists.includes(item.id)) || []
@@ -269,6 +304,10 @@ const orgLists = [
   ],
   [
     'https://static.cmereye.com/static/ckjnewsite/org/org-3001.png',
+    'https://static.cmereye.com/imgs/2024/04/0a0cc588677cf1ab.png',
+    'https://static.cmereye.com/imgs/2024/04/746c9bc800d9bd68.png',
+    'https://static.cmereye.com/imgs/2024/04/9dd67f204905f590.png',
+    'https://static.cmereye.com/imgs/2024/04/438936f0a5412fd7.png',
     'https://static.cmereye.com/static/ckjnewsite/org/org-3002.png',
     'https://static.cmereye.com/static/ckjnewsite/org/org-3003.png',
     'https://static.cmereye.com/static/ckjnewsite/org/org-3004.png',
@@ -312,11 +351,23 @@ const onIndexOrgSlideChange = (swiper) =>{
   orgTabCur.value = (swiper.realIndex ? Number(swiper.realIndex) : 0)
 }
 
+const doctorTeam = ref(null)
+const { top,bottom } = useElementBounding(doctorTeam)
+const { height } = useWindowSize()
 
 onMounted(()=>{
   handletab2('101')
 })
 
+watch(
+  appState,
+  (n,o)=>{
+    // console.log(n.areaTabCurNum)
+    if(n.areaTabCurNum === 4){
+      handletab2('102')
+    }
+  }
+)
 </script>
 
 <template>
@@ -327,42 +378,9 @@ onMounted(()=>{
       <!-- <LatestNews /> -->
       <!-- 牙科服務 -->
       <serviceCard :isIndexShow="true" />
-
       <!-- 醫生團隊 -->
-      <!-- <div class="index-doctorTeam">
-        <div class="index-doctorTeam-t pageCon">
-          <div class="index_title index_title_2">醫生團隊</div>
-          <AreaTab />
-        </div>
-        <div class="index-doctorTeam-c pageCon">
-            <Swiper
-              class="swiperBox"
-              :loop="true"
-              :autoplay="{
-                disableOnInteraction: true,
-              }"
-              @swiper="setDoctorTeamSwiperRef"
-              @slideChange="onSlideDoctorTeamSwiperChange"
-            >
-              <SwiperSlide v-for="(swiperPage,swiperPageIndex) in Math.ceil( doctorLists_cs[appState.areaTabCurNum].length / 12 )" :key="swiperPageIndex" >
-                <div class="doctorTeamPage">
-                  <div class="doctorItem" v-for="(doctorItem,doctorIndex) in doctorLists_cs[appState.areaTabCurNum].slice(swiperPageIndex*12,(swiperPageIndex+1)*12)" :key="doctorIndex">
-                    <nuxt-link :to="`/medical-team?did=${doctorItem.id}`">
-                      <img :src="doctorItem.mbImg || ''" :alt="doctorItem.name" :title="doctorItem.name">
-                    </nuxt-link>
-                  </div>
-                </div>
-              </SwiperSlide>
-            </Swiper>
-        </div>
-        <div class="index-doctorTeam-b pageCon">
-          <div class="index-doctorTeam-b-in">
-            <PageSwiperPointLine :latestNewsNum="Math.ceil( doctorLists_cs[appState.areaTabCurNum].length / 12 )" :latestNewsCurrent="doctorTeamCurrent" :isAutoWidth="true" @changeLineCur="handleLineCur"></PageSwiperPointLine>
-          </div>
-        </div>
-      </div> -->
-      <div class="index-doctorTeam">
-        <div class="index-doctorTeam-t pageCon">
+      <div class="index-doctorTeam" ref="doctorTeam">
+        <div class="index-doctorTeam-t smallPageCon">
           <div class="index_title index_title_2">醫生團隊</div>
         </div>
         <div class="index-doctorTeam-tab1 index-doctorTeam-con">
@@ -377,16 +395,32 @@ onMounted(()=>{
         </div>
         <div class="index-doctorTeam-lists index-doctorTeam-con">
           <div class="pcLists">
-            <div class="pcLists-in" :class="{acitve:doctorCur===doctorItem.id}" v-for="doctorItem in changleDoctorLists()" :key="doctorItem.id" @click="handleDoctorItem(doctorItem.id)">
-              <div class="pcLists-in-img">
-                <img :src="doctorItem.mbImg || ''" :alt="doctorItem.name" :title="doctorItem.name">
+            <section v-if="changleDoctorLists().length < 7">
+              <div class="pcLists-in" :class="{acitve:doctorCur===doctorItem.id}" v-for="doctorItem in changleDoctorLists()" :key="doctorItem.id" @click="handleDoctorItem(doctorItem.id)">
+                <div class="pcLists-in-img">
+                  <img :src="doctorItem.mbImg || ''" :alt="doctorItem.name" :title="doctorItem.name">
+                </div>
               </div>
-            </div>
+            </section>
+            <section v-else>
+              <Swiper
+                class="swiperpcLists-in"
+                :slidesPerView="7"
+                @swiper="setDoctorTabSwiperRef_pc"
+              >
+                <SwiperSlide class="swiperpcLists-in-slide" v-for="doctorItem in changleDoctorLists()" :key="doctorItem.id">
+                  <div class="swiperpcLists-in-img" :class="{acitve:doctorCur===doctorItem.id}" @click="handleDoctorItem(doctorItem.id)">
+                    <img :src="doctorItem.mbImg || ''" :alt="doctorItem.name" :title="doctorItem.name">
+                  </div>
+                </SwiperSlide>
+              </Swiper>
+            </section>
           </div>
           <div class="mbLists">
             <Swiper
               class="mbLists-in"
               :slidesPerView="3"
+              @swiper="setDoctorTabSwiperRef_mb"
             >
               <SwiperSlide class="mbLists-in-slide" v-for="doctorItem in changleDoctorLists()" :key="doctorItem.id">
                 <div class="mbLists-in-img" :class="{acitve:doctorCur===doctorItem.id}" @click="handleDoctorItem(doctorItem.id)">
@@ -396,37 +430,57 @@ onMounted(()=>{
             </Swiper>
           </div>
         </div>
-        <div class="index-doctorTeam-detail index-doctorTeam-con" v-if="doctorCur !== ''">
-          <div class="index-doctorTeam-detail-l">
-            <div class="index-doctorTeam-detail-l-in">
-              <img :srcset="'https://static.cmereye.com/imgs/2024/02/3305056d2ab78db8.webp 768w, https://static.cmereye.com/imgs/2024/02/d9ed594b3c173297.webp'" src="https://static.cmereye.com/imgs/2024/02/d9ed594b3c173297.webp" alt="">
-              <img :srcset="`${doctorDetail.mbImg} 768w, ${doctorDetail.imgUrl}`" :src="doctorDetail.imgUrl" :alt="doctorDetail.name" :title="doctorDetail.name">
-            </div>
-          </div>
-          <div class="index-doctorTeam-detail-r">
-            <div class="detail-1">
-              <span>{{doctorDetail.name}}</span>
-              <span>{{doctorDetail.text}}</span>
-            </div>
-            <div class="detail-2" v-if="doctorDetail.newOrg">
-              <span>{{doctorDetail.newOrg}}</span>
-            </div>
-            <div class="detail-3">
-              <span>{{doctorDetail.newJobs}}</span>
-            </div>
-            <div class="detail-4">
-              <span>擅長項目：</span>
-              <span>
-                {{doctorDetail.newSkilled}}
-              </span>
-            </div>
-            <div class="detail-5">
-              <span v-for="(tagItem,tagIndex) in doctorDetail.tags" :key="tagIndex">
-                {{tagItem}}
-              </span>
-            </div>
-            <div class="detail-6"><span @click="toWhatsApp">線上咨詢</span></div>
-          </div>
+        <div v-if="doctorCur !== ''">
+          <Swiper
+            :loop="true"
+            :modules="[Autoplay]"
+            :autoplay="{
+              delay: 2000,
+            }" 
+            class="index-doctorTeam-detail-swiper"
+            @swiper="setDoctorItemSwiper" 
+            @slideChange="doctorItemSlideChange"
+          >
+            <Swiper-slide v-for="doctorItem in changleDoctorLists()" :key="doctorItem.id">
+              <div class="index-doctorTeam-detail index-doctorTeam-con" :id="`d${doctorItem.id}`">
+                <div class="index-doctorTeam-detail-l">
+                  <div class="index-doctorTeam-detail-l-in">
+                    <img :srcset="'https://static.cmereye.com/imgs/2024/02/3305056d2ab78db8.webp 768w, https://static.cmereye.com/imgs/2024/02/d9ed594b3c173297.webp'" src="https://static.cmereye.com/imgs/2024/02/d9ed594b3c173297.webp" alt="">
+                    <img :srcset="`${doctorItem.mbImg} 768w, ${doctorItem.imgUrl}`" :src="doctorItem.imgUrl" :alt="doctorItem.name" :title="doctorItem.name"> 
+                  </div>
+                  <div class="index-doctorTeam-detail-l-btn">
+                    <PageAnimBtnTypeTwo str="線上咨詢" />
+                  </div>
+                </div>
+                <div class="index-doctorTeam-detail-r">
+                  <div class="detail-1">
+                    <span>{{doctorItem.name}}</span>
+                    <span>{{doctorItem.text}}</span>
+                  </div>
+                  <div class="detail-2" v-if="doctorItem.newOrg">
+                    <span>{{doctorItem.newOrg}}</span>
+                  </div>
+                  <div class="detail-3">
+                    <span v-for="(jobItem,jobIndex) in doctorItem.newJobs" :key="jobIndex">{{jobItem}}</span>
+                  </div>
+                  <div class="detail-4">
+                    <span>擅長項目：</span>
+                    <span>
+                      {{doctorItem.newSkilled}}
+                    </span>
+                  </div>
+                  <div class="detail-5">
+                    <span v-for="(tagItem,tagIndex) in doctorItem.tags" :key="tagIndex">
+                      {{tagItem}}
+                    </span>
+                  </div>
+                  <div class="detail-6">
+                    <PageAnimBtnTypeTwo str="線上咨詢" />
+                  </div>
+                </div>
+              </div>
+            </Swiper-slide>
+          </Swiper>
         </div>
       </div>
       <!-- 视频地址 -->
@@ -434,17 +488,16 @@ onMounted(()=>{
       <AboutUs />
       <!-- 品牌理念 -->
       <brandConcept-test />
-
       <div class="index-org">
-        <div class="index-org-t pageCon">
+        <div class="index-org-t smallPageCon">
           <div class="index_title index_title_2">相關機構</div>
         </div>
-        <div class="index-org-tag pageCon">
+        <div class="index-org-tag smallPageCon">
           <div class="index-org-tag-in" :class="{'active': orgTabCur === orgTabIndex}" v-for="(orgTabItem,orgTabIndex) in orgTabLists" :key="orgTabIndex" @click="handleorgtabfun(orgTabIndex)">
             {{orgTabItem}}
           </div>
         </div>
-        <div class="index-org-content pageCon">
+        <div class="index-org-content smallPageCon">
           <Swiper
             class="index-org-content-swiper"
             :loop="true"
@@ -463,27 +516,32 @@ onMounted(()=>{
           </Swiper>
         </div>
       </div>
-
       <div class="index-videoBox">
-        <div class="index-videoBox-t pageCon">
+        <div class="index-videoBox-t smallPageCon">
           <div class="index_title index_title_2">專題報導</div>
         </div>
-        <div class="index-videoBox-c pageCon">
+        <div class="index-videoBox-c smallPageCon">
           <div class="index-videoBox-c-l">
             <div>HK01</div>
             <div>深圳食買玩，點少得睇牙!口岸位置、性價比高 咪咪姐推薦口腔醫院</div>
-            <a href="https://www.hk01.com/%E5%81%A5%E5%BA%B7Easy/959987/%E6%B7%B1%E5%9C%B3%E9%A3%9F%E8%B2%B7%E7%8E%A9-%E9%BB%9E%E5%B0%91%E5%BE%97%E7%9D%87%E7%89%99-%E5%8F%A3%E5%B2%B8%E4%BD%8D%E7%BD%AE-%E6%80%A7%E5%83%B9%E6%AF%94%E9%AB%98-%E5%92%AA%E5%92%AA%E5%A7%90%E6%8E%A8%E8%96%A6%E5%8F%A3%E8%85%94%E9%86%AB%E9%99%A2" target="black">
+            <!-- <nuxt-link to="/news/article/31">
               查看原文
-            </a>
+            </nuxt-link> -->
+            <div class="index-videoBox-c-l-btn">
+              <PageAnimBtnTypeTwo link="/news/article/31" str="查看原文" />
+            </div>
           </div>
           <div class="index-videoBox-c-r">
-            <a href="https://www.hk01.com/%E5%81%A5%E5%BA%B7Easy/959987/%E6%B7%B1%E5%9C%B3%E9%A3%9F%E8%B2%B7%E7%8E%A9-%E9%BB%9E%E5%B0%91%E5%BE%97%E7%9D%87%E7%89%99-%E5%8F%A3%E5%B2%B8%E4%BD%8D%E7%BD%AE-%E6%80%A7%E5%83%B9%E6%AF%94%E9%AB%98-%E5%92%AA%E5%92%AA%E5%A7%90%E6%8E%A8%E8%96%A6%E5%8F%A3%E8%85%94%E9%86%AB%E9%99%A2" target="black">
+            <!-- <a href="https://www.hk01.com/%E5%81%A5%E5%BA%B7Easy/959987/%E6%B7%B1%E5%9C%B3%E9%A3%9F%E8%B2%B7%E7%8E%A9-%E9%BB%9E%E5%B0%91%E5%BE%97%E7%9D%87%E7%89%99-%E5%8F%A3%E5%B2%B8%E4%BD%8D%E7%BD%AE-%E6%80%A7%E5%83%B9%E6%AF%94%E9%AB%98-%E5%92%AA%E5%92%AA%E5%A7%90%E6%8E%A8%E8%96%A6%E5%8F%A3%E8%85%94%E9%86%AB%E9%99%A2" target="black">
               <img src="https://static.cmereye.com/imgs/2023/12/0ef603cd96873713.webp" alt="專題報導" title="專題報導">
               <img src="https://static.cmereye.com/imgs/2023/12/e974c03be612528f.png" class="icon" alt="">
-            </a>
+            </a> -->
+            <nuxt-link to="/news/article/31">
+              <img src="https://static.cmereye.com/imgs/2023/12/0ef603cd96873713.webp" alt="專題報導" title="專題報導">
+            </nuxt-link>
           </div>
         </div>
-      </div>
+      </div>   
       <!-- 個案分享 -->
       <div class="index-caseSharing">
         <div class="index-caseSharing-title">
@@ -498,9 +556,6 @@ onMounted(()=>{
               <CaseSharingImageItem :userInfo="caseSharingItem" :userIndex="caseSharingIndex" />
             </div>
           </div>
-          <!-- <div class="in-bottom">
-            <span>了解更多</span>
-          </div> -->
         </div>
       </div>
       <div class="treatment-data">
@@ -508,7 +563,7 @@ onMounted(()=>{
           <span>早期深圳二級口腔醫院</span>
           <span>香港品牌 實力信心</span>
         </div>
-        <div class="treatment-data-in pageCon">
+        <div class="treatment-data-in smallPageCon">
           <div class="dataBox" v-for="(treatmentItem,treatmentIndex) in treatmentData" :key="treatmentIndex">
             <div class="num">
               <img :src="treatmentItem.bg" :style="{left: treatmentItem.left,top: treatmentItem.top}" alt="">
@@ -531,10 +586,12 @@ onMounted(()=>{
       </div>
       <!-- 聯絡我們 -->
       <NewAddress />
+      <ContactForm-new />
     </div>
+    <!-- <div style="position: fixed; top: 50%; left: 0;z-index: 9999;">{{top}} --- {{bottom}} --- {{(top<(height / 3 * 2)) && (bottom > 0)}}</div> -->
     <!-- <PageAdbox /> -->
     <PageFooter />
-    <PageNavbar />
+    <PageNavbar :showDialogBox="(top<(height / 3 * 2)) && (bottom > (height / 3))" />
   </div>
 </template>
 
@@ -552,11 +609,13 @@ svg:hover path{
 .indexPage {
   width: 100%;
   background: #fff;
-  padding-bottom: 140px;
-  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  // padding-bottom: 140px;
+  // overflow: hidden;
 }
 .treatment-data{
-  margin-top: 140px;
+  margin-top: 80px;
   &-title{
     span{
       color: var(--indexColor1);
@@ -636,60 +695,28 @@ svg:hover path{
 }
 //醫生團隊
 .index-doctorTeam{
-  margin: 140px auto;
+  margin: 60px auto 50px;
   &-t{
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
   }
-  &-c{
-    margin-top: 45px;
-    .doctorTeamPage{
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      padding: 10px;
-      .doctorItem{
-        cursor: pointer;
-        flex: 1;
-        min-width: 16.55%;
-        max-width: 16.6%;
-        border-right: 1px solid;
-        border-bottom: 1px solid;
-        border-color: #FFA39E;
-        transition: all .5s;
-        overflow: hidden;
-        box-shadow: 2px -2px 8px rgba(255, 163, 158, 0.25);
-        img{
-          width: calc(100% - 1px);
-          height: calc(100% - 1px);
-        }
-        &:hover{
-          background: var(--indexColor);
-        }
-      }
-    }
-  }
-  &-b{
-    padding-top: 60px;
-    display: flex;
-    justify-content: center;
-  }
   &-con{
-    width: 100%;
-    max-width: 1365px;
-    margin: 30px auto 0;
+    width: 70%;
+    max-width: 1280px;
+    margin: 25px auto 0;
   }
   &-tab1{
     :deep(.areaTab){
       div{
         flex: 1;
         text-align: center;
-        font-size: 35px;
+        font-size: 20px;
       }
     }
   }
   &-tab2{
+    margin-top: 10px;
     &-in{
       width: 100%;
       display: flex;
@@ -701,7 +728,7 @@ svg:hover path{
         border-bottom: 2px solid #00AEFF;
         border-left: 2px solid #00AEFF;
         padding: 5px 0;
-        font-size: 35px;
+        font-size: 18px;
         text-align: center;
         letter-spacing: 3px;
         cursor: pointer;
@@ -758,10 +785,32 @@ svg:hover path{
           }
         }
       }
+      &>section{
+        max-width: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .swiperpcLists-in{
+        width: 100%;
+        overflow: visible;
+        &-img{
+          margin: 0 15px;
+          height: auto;
+          border-radius: 10px;
+          overflow: hidden;
+          background: rgba(254, 169, 209,.7);
+          transition: all .3s;
+          cursor: pointer;
+          &:hover,&.acitve{
+            background: #FFA8C6;
+          }
+        }
+      }
     }
     .mbLists{
       width: calc(100% - 40px);
-      max-width: 675px;
       margin: 0 auto;
       display: none;
       &-in{
@@ -774,6 +823,9 @@ svg:hover path{
           border-radius: 10px;
           overflow: hidden;
           background: rgba(254, 169, 209,.7);
+          &.acitve{
+            background: #FFA8C6;
+          }
         }
       }
     }
@@ -813,13 +865,18 @@ svg:hover path{
           bottom: 3px;
           left: 50%;
           transform: translateX(-50%);
-          // width: calc(100% - 3px);
-          // max-width: 80%;
-          max-height: calc(100% - 3px);
+          max-height: calc(92% - 3px);
           display: block;
         }
       }
-      
+      &-btn{
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%,50%);
+        z-index: 1;
+        width: max-content;
+      }
     }
     &-r{
       flex: 1;
@@ -851,7 +908,7 @@ svg:hover path{
         margin-bottom: 30px;
         margin-top: 5px;
         span{
-          white-space: pre-wrap;
+          display: block;
         }
       }
       .detail-4{
@@ -883,34 +940,27 @@ svg:hover path{
       .detail-6{
         margin-top: 30px;
         margin-left: 20px;
-        span{
-          cursor: pointer;
-          color: #fff;
-          background: var(--indexColor1);
-          font-size: 35px;
-          border-radius: 50px;
-          padding: 10px 30px;
-          box-shadow: 0 5px 10px var(--indexColor1);
-          transition: all .3s;
-          &:hover{
-            opacity: .7;
-          }
-        }
+        margin-bottom: 20px;
+        display: none;
       }
     }
+  }
+  .index-doctorTeam-detail-swiper{
+    // overflow: visible;
+    padding-bottom: 40px;
   }
 }
 //個案分享
 .index-caseSharing{
   padding: 35px 0;
   background: linear-gradient(180deg,rgba(255, 241, 240, 0) 0%,var(--indexColor2) 100%);
-  margin-top: 140px;
+  margin-top: 80px;
   &-title{
     display: flex;
     justify-content: center;
   }
   &-in{
-    width: 100%;
+    width: 80%;
     max-width: 1046px;
     margin: 45px auto 0;
     .in-top{
@@ -925,31 +975,12 @@ svg:hover path{
         width: calc(50% - 8px);
       }
     }
-    .in-bottom{
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      margin-top: 35px;
-      span{
-        cursor: pointer;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 2rem;
-        line-height: 160%;
-        text-align: center;
-        display: inline-block;
-        padding: 10px 70px;
-        background: #FFFFFF;
-        color: #666666;
-        box-shadow: 1px 1px 4px rgba(255, 163, 158, 0.45);
-      }
-    }
   }
 }
 .index-org{
-  margin-top: 170px;
+  margin-top: 120px;
   &-tag{
-    width: 100%;
+    width: 80%;
     max-width: 804px;
     display: flex;
     margin-top: 50px;
@@ -957,7 +988,7 @@ svg:hover path{
       flex: 1;
       color: var(--indexColor1);
       padding: 5px;
-      font-size: 35px;
+      font-size: 24px;
       text-align: center;
       border-top: 2px solid var(--indexColor1);
       border-bottom: 2px solid var(--indexColor1);
@@ -980,9 +1011,6 @@ svg:hover path{
   &-content{
     max-width: 1200px;
     margin-top: 30px;
-    // display: flex;
-    // justify-content: center;
-    // flex-wrap: wrap;
     &-swiper{
       width: 100%;
       &-slie{
@@ -1004,14 +1032,14 @@ svg:hover path{
   }
 }
 .index-videoBox{
-  margin-top: 132px;
+  margin-top: 0;
   &-c{
     display: flex;
     align-items: center;
     margin-top: 50px;
     &-l{
       flex: 1;
-      div{
+      &>div{
         &:nth-of-type(1){
           color: #4D4D4D;
           font-size: 20px;
@@ -1027,25 +1055,11 @@ svg:hover path{
           line-height: 160%; 
         }
       }
-      a{
-        display: block;
-        color: #fff;
-        background: #FC1682;
-        border-radius: 30px;
-        height: 60px;
-        line-height: 60px;
-        text-align: center;
-        font-size: 35px;
-        font-style: normal;
-        font-weight: 900;
-        width: 100%;
-        max-width: 400px;
-        margin-top: 47px;
-        box-shadow: 0px 3.70444px 7.40887px 0px rgba(252, 22, 130, 0.38);
-        transition: all .3s;
-        &:hover{
-          background: #FF85AF;
-        }
+      &-btn{
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        line-height: 1.6;
       }
     }
     &-r{
@@ -1072,19 +1086,220 @@ svg:hover path{
     }
   }
 }
-@media (min-width: 768px) and (max-width: 1452px) {
-  .index-videoBox{
-    &-c{
-      &-l{
-        a{
-          width: 50%;
-          min-width: 50px;
-          font-size: 2vw;
-          margin-top: 2vw;
-          height: 4vw;
-          line-height: 4vw;
+@media (min-width: 768px) and (max-width: 1920px){
+  .index-org{
+    margin-top: 6.25vw;
+    &-tag{
+      max-width: 41.875vw;
+      margin-top: 2.6042vw;
+      &-in{
+        padding: .2604vw;
+        font-size: 1.25vw;
+        &:first-child{
+          border-radius: .2604vw 0 0 .2604vw;
+        }
+        &:last-child{
+          border-radius: 0 .2604vw .2604vw 0;
         }
       }
+    }
+    &-content{
+      max-width: 62.5vw;
+      margin-top: 1.5625vw;
+      &-in{
+        width: calc((100% - 15.625vw) / 5);
+        margin: 0 1.5625vw 2.0833vw;
+      }
+    }
+  }
+  .index-videoBox{
+    // margin-top: 4.1667vw;
+    &-c{
+      margin-top: 2.6042vw;
+      &-l{
+        &>div{
+          &:nth-of-type(1){
+            font-size: 1.0417vw;
+          }
+          &:nth-of-type(2){
+            font-size: 1.4583vw;
+          }
+        }
+        &-btn{
+          margin-top: 1.0417vw;
+        }
+      }
+    }
+  }
+  .index-caseSharing{
+    padding: 1.8229vw 0;
+    margin-top: 4.1667vw;
+    &-in{
+      width: 70%;
+      max-width: 54.4792vw;
+      margin: 2.3438vw auto 0;
+      .in-cen{
+        margin-top: 6.25vw;
+        &-box{
+          width: calc(50% - .4167vw);
+        }
+      }
+    }
+  }
+  .treatment-data{
+    margin-top: 4.1667vw;
+    &-title{
+      span{
+        font-size: 1.8229vw;
+      }
+    }
+    &-in{
+      margin-top: 2.5vw;
+      .dataBox{
+        .num{
+          font-size: 3.125vw;
+          .numBold{
+            margin-top: .2604vw;
+          }
+          .numIn{
+            height: 5vw;
+            span{
+              line-height: 5vw;
+            }
+          }
+        }
+        .name{
+          font-size: 1.4583vw;
+          margin-top: -0.5208vw;
+        }
+      }
+    }
+    &-bText{
+      font-size: 1.0417vw;
+      margin-top: 1.5625vw;
+    }
+  }
+  .index-doctorTeam{
+    margin: 3.125vw auto 2.6042vw;
+    &-con{
+      // max-width: 66.6667vw;
+      margin: 1.3021vw auto 0;
+    }
+    &-tab1{
+      :deep(.areaTab){
+        div{
+          font-size: 1.0417vw;
+        }
+      }
+    }
+    &-tab2{
+      margin-top: .5208vw;
+      &-in{
+        &>div{
+          padding: .2604vw 0;
+          font-size: .9375vw;
+          letter-spacing: .1563vw;
+          &:first-child{
+            border-radius: .2604vw 0 0 .2604vw;
+          }
+          &:last-child{
+            border-radius: 0 .2604vw .2604vw 0;
+          }
+        }
+      }
+    }
+    &-lists{
+      .pcLists{
+        &-in{
+          margin-bottom: 1.5625vw;
+          &:not(:last-child){
+            margin-right: 1.5625vw;
+          }
+          &-img{
+            width: 7.8125vw;
+            height: 7.8125vw;
+            border-radius: .5208vw;
+          }
+        }
+        .swiperpcLists-in{
+          &-img{
+            margin: 0 .7813vw;
+            border-radius: .5208vw;
+          }
+        }
+      }
+      .mbLists{
+        width: calc(100% - 2.0833vw);
+        &-in{
+          &-img{
+            margin: 0 .5208vw;
+            border-radius: .5208vw;
+          }
+        }
+      }
+    }
+    &-detail{
+      padding: 1.0417vw;
+      margin-top: 2.6042vw;
+      &-l{
+        max-width: 22.6042vw;
+        &-in{
+          &::after{
+            top: -1.0417vw;
+            left: -1.0417vw;
+            border-radius: 1.5625vw;
+          }
+        }
+        img{
+          border-radius: 1.5625vw;
+        }
+      }
+      &-r{
+        .detail-1{
+          padding-left: 1.0417vw;
+          span{
+            font-size: 1.0417vw;
+            &:nth-of-type(1){
+              font-size: 1.8229vw;
+              margin-right: .2604vw;
+            }
+          }
+        }
+        .detail-2{
+          span{
+            font-size: 1.4583vw;
+            padding: .2604vw 3.6458vw .2604vw 1.0417vw;
+          }
+        }
+        .detail-3{
+          padding-left: 1.0417vw;
+          font-size: 1.0417vw;
+          margin-bottom: 1.5625vw;
+          margin-top: .2604vw;
+        }
+        .detail-4{
+          padding-left: 1.0417vw;
+          font-size: 1.0417vw;
+          margin-bottom: 1.0417vw;
+        }
+        .detail-5{
+          padding-left: 1.0417vw;
+          font-size: 1.0417vw;
+          span{
+            &:not(:last-child){
+              margin-right: .5208vw;
+            }
+          }
+        }
+        .detail-6{
+          margin-top: 1.5625vw;
+          margin-left: 1.0417vw;
+          margin-bottom: 1.0417vw;
+        }
+      }
+    }
+    .index-doctorTeam-detail-swiper{
+      padding-bottom: 2.0833vw;
     }
   }
 }
@@ -1092,47 +1307,85 @@ svg:hover path{
 @media screen and (max-width: 768px) {
   .treatment-data{
     margin-top: 70px;
+    overflow: hidden;
     &-title{
       span{
         font-size: 20px;
       }
     }
     &-in{
-      margin-top: 100px;
-      flex-direction: column;
+      padding: 0 20px;
+      margin-top: 60px;
       .dataBox{
+        width: 50%;
         &:not(:last-child){
           margin-bottom: 62px;
+        }
+        .num{
+          font-size: 35px;
+          img{
+            width: 100px;
+
+          }
+          .numIn{
+            height: 50px;
+            span{
+              line-height: 50px;
+            }
+          }
+        }
+        .name{
+          font-size: 24px;
+        }
+        &:nth-of-type(1){
+          img{
+            left: 15% !important;
+            top: -60% !important;
+          }
+        }
+        &:nth-of-type(2){
+          img{
+            left: -5% !important;
+            top: -30% !important;
+            width: 50%;
+          }
+        }
+        &:nth-of-type(3){
+          img{
+            left: 5% !important;
+            top: -50% !important;
+          }
+        }
+        &:nth-of-type(4){
+          img{
+            width: 70%;
+            left: 45% !important;
+            top: -10% !important;
+          }
         }
       }
     }
     &-bText{
       font-size: 16px;
-      margin-top: 60px;
+      margin-top: 0px;
     }
   }
   .indexPage {
     width: 100%;
     background: #fff;
-    padding: 0 0 90px;
+    // padding: 0 0 90px;
   }
   //醫生團隊
   .index-doctorTeam{
-    margin: 90px 0;
+    margin: 50px 0 0;
+    width: 100%;
+    &-con{
+      width: 100%;
+    }
     &-t{
       flex-direction: column;
       align-items: flex-start;
       box-sizing: border-box;
-    }
-    &-c{
-      margin-top: 20px;
-      .doctorTeamPage{
-        .doctorItem{
-          // width: 33.33%;
-          min-width: 33.33%;
-          max-width: 33.34%;
-        }
-      }
     }
     &-tab1{
       :deep(.areaTab){
@@ -1192,6 +1445,7 @@ svg:hover path{
     }
     &-lists{
       margin-top: 20px;
+      overflow: hidden;
       .pcLists{
         display: none;
       }
@@ -1216,7 +1470,6 @@ svg:hover path{
             border: none;
           }
           &:nth-of-type(2){
-            // width: 55%;
             height: 100%;
             max-height: 90%;
             left: 50%;
@@ -1224,6 +1477,9 @@ svg:hover path{
             bottom: 0;
             transform: translateX(-50%);
           }
+        }
+        &-btn{
+          display: none;
         }
       }
       &-r{
@@ -1284,6 +1540,7 @@ svg:hover path{
     background:none;
     margin-top: 90px;
     &-in{
+      width: 100%;
       margin: 35px auto 0;
       .in-cen{
         margin-top: 34px;
@@ -1320,6 +1577,7 @@ svg:hover path{
   .index-org{
     margin-top: 90px;
     &-tag{
+      width: 100%;
       max-width: calc(100% - 60px);
       margin-top: 30px;
       &-in{
@@ -1329,14 +1587,22 @@ svg:hover path{
     &-content{
       max-width: calc(100% - 20px);
       justify-content: flex-start;
-      &>div{
+      &-swiper{
+        &-slie{
+          justify-content: initial;
+        }
+      }
+      &-in{
         margin: 0 10px 30px;
         width: calc((100% - 60px) / 3);
+        img{
+          max-height: 70px;
+        }
       }
     }
   }
   .index-videoBox{
-    margin-top: 90px;
+    margin-top: 20px;
     &-c{
       flex-direction: column-reverse;
       text-align: center;
@@ -1344,20 +1610,13 @@ svg:hover path{
       &-l{
         width: auto;
         margin: 19px 30px 0;
-        div{
+        &>div{
           &:nth-of-type(1){
             font-size: 16px;
           }
           &:nth-of-type(2){
             font-size: 18px;
           }
-        }
-        a{
-          font-size: 20px;
-          height: 40px;
-          line-height: 40px;
-          max-width: 267px;
-          margin: 30px auto 0;
         }
       }
       &-r{

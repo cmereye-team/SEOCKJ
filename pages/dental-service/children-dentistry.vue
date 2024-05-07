@@ -789,9 +789,6 @@ watch(
         font-weight: 400;
         line-height: 160%;
         letter-spacing: 5px;
-        p{
-          font-family: var(--contextFamily);
-        }
       }
     }
   }
