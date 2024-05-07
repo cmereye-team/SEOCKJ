@@ -785,7 +785,7 @@ watch(
         }
       }
       .text{
-        font-size: 18px;
+        font-size: 20px;
         font-weight: 400;
         line-height: 160%;
         letter-spacing: 5px;

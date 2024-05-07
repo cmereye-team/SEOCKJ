@@ -20,12 +20,12 @@ useHead({
 })
 
 const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2023/06/be6cbd721fed563e.png',
-  bg: 'https://static.cmereye.com/imgs/2023/06/fc94e41b3cd98d6b.jpg',
-  mbImg: 'https://static.cmereye.com/imgs/2023/06/9fd49477afcd2b60.jpg',
-  pageName: 'wisdom-teeth-extraction',
-  pcText: ['拔牙及智慧齒脫除','專業醫療團隊，照顧每一位客人健康與感受'],
-  mbText: ['專業醫療團隊','照顧客人健康']
+  img: 'https://static.cmereye.com/imgs/2024/05/76485b8792a5142e.png',
+  bg: '',
+  mbImg: 'https://static.cmereye.com/imgs/2024/05/65f9bae568911e27.webp',
+  pageName: 'scaling-and-polishing-test',
+  pcText: [],
+  mbText: []
 }
 
 const orthodonticsIntroduceData = {
@@ -402,7 +402,7 @@ const precautions = {
 
 <template>
 <div>
-  <PageHeader :headerConfig="headerConfig" />
+  <PageHeader :headerConfig="headerConfig" btnText="預約免費牙齒檢查" />
   <div class="pageIn whitebgColor">
     <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
     <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
@@ -700,12 +700,40 @@ const precautions = {
   width: 100%;
   margin: 80px auto 0;
   &-in{
+    display: grid;
+    justify-content: center;
+    grid-template-rows: repeat(4,1fr);
+    grid-template-columns: repeat(2,1fr);
+    gap: 58px 117px;
+    padding: 35px 0;
     .lists-in{
+      display: flex;
+      align-items: center;
       &-img{
-
+        width: 148px;
+        height: 148px;
+        background: #FFF1F0;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+          max-width: 80%;
+          max-height: 80%;
+        }
       }
       &-text{
-
+        flex: 1;
+        padding-left: 30px;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 160%;
+        color: var(--textColor);
+      }
+      &:nth-of-type(2),&:nth-of-type(3),&:nth-of-type(6),&:nth-of-type(7){
+        .lists-in-img{
+          background: #FEE6F1;
+        }
       }
     }
   }
