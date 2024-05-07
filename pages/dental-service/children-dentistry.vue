@@ -23,9 +23,9 @@ useHead({
 })
 
 const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2024/03/6fcd8f2992e9550b.jpg',
+  img: 'https://static.cmereye.com/imgs/2024/05/362da8c4bba078b5.png',
   bg: '',
-  mbImg: 'https://static.cmereye.com/imgs/2024/03/98983f4c7178e454.jpg',
+  mbImg: 'https://static.cmereye.com/imgs/2024/05/03307ff2f4b2c9dc.webp',
   pageName: 'scaling-and-polishing-test',
   pcText: [],
   mbText: [],
@@ -531,6 +531,7 @@ watch(
     letter-spacing: 4px;
     margin-bottom: 75px;
     margin-top: 30px;
+    font-family: var(--contextFamily);
   }
   &-lists{
     display: flex;
@@ -788,6 +789,9 @@ watch(
         font-weight: 400;
         line-height: 160%;
         letter-spacing: 5px;
+        p{
+          font-family: var(--contextFamily);
+        }
       }
     }
   }

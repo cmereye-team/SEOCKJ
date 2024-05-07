@@ -2,6 +2,7 @@
 import { useAppState } from '~/stores/appState'
 const appState = useAppState()
 appState.setDentistryService('wisdom-teeth-extraction')
+
 useHead({
   title: "拔牙 | 智慧齒",
   meta: [
@@ -362,6 +363,41 @@ const process = {
     }
   ]
 }
+const precautions = {
+  title: '療程後注意事項',
+  lists: [
+    {
+      img: 'https://static.cmereye.com/static/ckj/imgs/wisdom-teeth-extraction/Group1.svg',
+      text: '一般需咬緊棉花或紗布約三十分鐘至一小時止血，其間可如常吞口水'
+    },
+    {
+      img: 'https://static.cmereye.com/static/ckj/imgs/wisdom-teeth-extraction/Group2.svg',
+      text: '避免飲用含酒精飲品'
+    },
+    {
+      img: 'https://static.cmereye.com/static/ckj/imgs/wisdom-teeth-extraction/Group3.svg',
+      text: '進食後以溫水或鹽水輕輕漱口，保持傷口清潔'
+    },
+    {
+      img: 'https://static.cmereye.com/static/ckj/imgs/wisdom-teeth-extraction/Group4.svg',
+      text: '避免吃過冷或過熱的食物'
+    },
+    {
+      img: 'https://static.cmereye.com/static/ckj/imgs/wisdom-teeth-extraction/Group5.svg',
+      text: '避免觸碰傷口上的凝固血塊，引致出血'
+    },
+    {
+      img: 'https://static.cmereye.com/static/ckj/imgs/wisdom-teeth-extraction/Group6.svg',
+      text: '避免大力漱口或吐痰'
+    },
+    {
+      img: 'https://static.cmereye.com/static/ckj/imgs/wisdom-teeth-extraction/Group7.svg',
+      text: '避免食用堅硬和粗糙的食物'
+    }
+  ],
+  bottomText: '*拔牙後，傷口有機會出現腫脹，一般會數天後消退，可按醫生處方服藥或以冷敷消腫及紓緩不適。如傷口持續或大量出血，需盡快聯絡醫生，或視乎嚴重程度前往就近急症室求診。'
+}
+
 </script>
 
 <template>
@@ -409,16 +445,16 @@ const process = {
     <div class="process">
       <div class="process-title dentistryServices-title">
         <div class="process-title-in dentistryServices-title-in bb">
-          拔牙及智慧齒脫除過程
+          {{process.title}}
         </div>
       </div>
       <div class="process-topText">
-        拔牙一般不需要進行手術，但若牙齒歪生或非常接近神經，則有機會需要進行手術式脫牙。
+        {{process.topText}}
       </div>
       <div class="process-in">
         <div class="list-in" v-for="(item,index) in process.lists" :key="index">
           <div class="list-in-l">
-            <img :src="item.img" alt="">
+            <img :src="item.img" :alt="item.name" :title="item.name">
           </div>
           <div class="list-in-r">
             <div class="title">
@@ -430,6 +466,21 @@ const process = {
                 <div>{{contentIn.text}}</div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="precautions">
+      <div class="dentistryServices-title">
+        <div class="dentistryServices-title-in bb">{{precautions.title}}</div>
+      </div>
+      <div class="precautions-in">
+        <div class="lists-in" v-for="(item,index) in precautions.lists" :key="index">
+          <div class="lists-in-img">
+            <img :src="item.img" :alt="item.text" :title="item.text">
+          </div>
+          <div class="lists-in-text">
+            <span>{{item.text}}</span>
           </div>
         </div>
       </div>
@@ -489,7 +540,7 @@ const process = {
     grid-template-rows: repeat(2,1fr);
     grid-template-columns: repeat(3,1fr);
     gap: 60px 140px;
-    padding: 35px 0; 
+    padding: 35px 0;
     .list-in{
       display: flex;
       flex-direction: column;
@@ -545,6 +596,7 @@ const process = {
     margin: 35px 0 50px;
   }
   &-in{
+    position: relative;
     .list-in{
       display: flex;
       height: 496px;
@@ -613,8 +665,47 @@ const process = {
           }
         }
       }
+      &:last-child{
+        .list-in-r{
+          .content{
+            &-in{
+              max-width: 72px;
+              min-width: 72px;
+              &:not(:last-child){
+                max-width: 148px;
+                min-width: 148px;
+              }
+            }
+          }
+        }
+      }
       &:not(:last-child){
         margin-bottom: 27px;
+      }
+    }
+    &::after{
+      content: '';
+      position: absolute;
+      bottom: -65px;
+      right: 290px;
+      width: 275px;
+      height: 287px;
+      background: url(https://static.cmereye.com/imgs/2024/05/6b4b515fe0fdf8e8.png) no-repeat;
+      background-size: 100% 100%;
+    }
+  }
+}
+.precautions{
+  max-width: 1024px;
+  width: 100%;
+  margin: 80px auto 0;
+  &-in{
+    .lists-in{
+      &-img{
+
+      }
+      &-text{
+
       }
     }
   }

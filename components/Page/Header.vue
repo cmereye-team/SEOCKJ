@@ -906,7 +906,7 @@ const handleopenwechat = () =>{
     &.veneers-test,
     &.scaling-and-polishing-test {
       max-width: 100%;
-      min-height: calc(726 / 1920 * 100vw);
+      // min-height: calc(726 / 1920 * 100vw);
       img {
         width: 100%;
       }
