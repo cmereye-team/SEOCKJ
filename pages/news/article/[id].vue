@@ -237,7 +237,10 @@ if(process.server){
         <nuxt-link :to="''">
           <span>睇牙新資訊</span>
         </nuxt-link>
-        <span :title="pageType.value === '2'?'最新資訊': '媒體報導'">{{pageType.value === '2'?'最新資訊': '媒體報導'}}</span>
+        <nuxt-link :to="'/news/coverage'">
+          <span :title="pageType.value === '2'?'最新資訊': '媒體報導'">{{pageType.value === '2'?'最新資訊': '媒體報導'}}</span>
+        </nuxt-link>
+        <span>{{coverageDeatail.name}}</span>
       </div>
       <div class="articlePage-in" v-if="!errorpage" v-loading="pageLoading">
         <div class="content-topimg" v-if="coverageDeatail.pics.length">

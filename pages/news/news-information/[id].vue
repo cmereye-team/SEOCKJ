@@ -252,7 +252,10 @@ if(process.server){
         <nuxt-link :to="''">
           <span>睇牙新資訊</span>
         </nuxt-link>
-        <span :title="'最新資訊'">最新資訊</span>
+        <nuxt-link :to="'/news/information'">
+          <span :title="'最新資訊'">最新資訊</span>
+        </nuxt-link>
+        <span>{{coverageDeatail.name}}</span>
       </div>
       <div class="articlePage-in" v-if="!errorpage" v-loading="pageLoading">
         <div class="content-topimg" v-if="coverageDeatail.pics.length">
@@ -343,7 +346,7 @@ if(process.server){
 }
 .content-topimg{
   width: 100%;
-  max-width: 960px;
+  max-width: 600px;
   margin: 63px auto 0;
   img{
     width: 100%;

@@ -239,7 +239,10 @@ if(process.server){
         <nuxt-link :to="''">
           <span>睇牙新資訊</span>
         </nuxt-link>
-        <span :title="'牙齒百科'">牙齒百科</span>
+        <nuxt-link :to="'/news/tooth-wiki'">
+          <span :title="'牙齒百科'">牙齒百科</span>
+        </nuxt-link>
+        <span>{{coverageDeatail.name}}</span>
       </div>
       <div class="articlePage-in" v-if="pageStatus !== 'error'" v-loading="pageStatus === 'loading'">
         <div class="content-topimg" v-if="coverageDeatail.pics.length">
