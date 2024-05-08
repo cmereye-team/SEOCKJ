@@ -1,7 +1,5 @@
 <script lang="ts" setup>
 import { phoneNum } from '~/assets/js/common'
-// const cdnUseLang = require('~/assets/js/cdnUseLang')
-// import { translate } from '~/assets/js/cdnUseLang'
 const locale = useState<string>('locale.setting')
 useHead({
   title: "長者醫療券",
@@ -322,12 +320,6 @@ const handleLocale = (l) =>{
     <div class="health-care-voucher pageIn whitebgColor">
       <div class="smallPageCon health-care-voucher-top">
         <div class="index_title health-care-voucher-title">{{$t('components.header.menuLists.health-care-voucher.name')}}</div>
-        <!-- <div class="lang">
-          <span @click="handleLocale('en')" class="ignore">Eng</span>
-          <span @click="handleLocale('zh')" class="ignore">简中</span>
-          <span @click="handleLocale('hk')" class="ignore">繁中</span>
-        </div> -->
-        <!-- <div id="translate"></div> -->
       </div>
       <div class="tabNav noTitle smallPageCon">
         <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">

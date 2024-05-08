@@ -1,7 +1,5 @@
 <script lang="ts" setup>
 import { phoneNum } from '~/assets/js/common'
-// const cdnUseLang = require('~/assets/js/cdnUseLang')
-// import { translate } from '~/assets/js/cdnUseLang'
 const locale = useState<string>('locale.setting')
 useHead({
   title: "長者醫療券",

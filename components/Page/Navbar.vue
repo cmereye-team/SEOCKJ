@@ -85,7 +85,6 @@ let _bool = ref(false)
       <div class="navbar-content-whatApp-btn">
         <div class="navbar-content-whatApp-btn-text">立即</div>
         <div class="navbar-content-whatApp-btn-img">
-          <!-- <img src="@/assets/images/navIcon_2.png" alt=""> -->
           <div class="navbar-content-whatApp-btn-img-in">
             <img src="@/assets/images/navIcon_2.png" alt="">
           </div>
@@ -100,31 +99,12 @@ let _bool = ref(false)
         </div>
       </div>
     </div>
-    <!-- <nuxt-link class="navbar-content-in" id="navPcWhatsapp" :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" title="WhatsApp" target="_blank">
-    </nuxt-link> -->
-    <!-- <div class="navbar-content-in" id="navPcWeChat" title="WeChat">
-      <div class="navbarBox">
-        <div class="navbarBox-in">
-          <div class="weChat"><img src="https://static.cmereye.com/imgs/2023/09/a43a869a1fc07eea.jpg" alt="二维码"></div>
-        </div>
-      </div>
-    </div> -->
-    <!-- <nuxt-link class="navbar-content-in" id="navPcFaceBook" to="https://www.facebook.com/ckjdental.hk/" title="FaceBook" target="_blank">
-    </nuxt-link> -->
     <div class="navbar-content-in" id="navPcContactForm" title="預約" @click="toContactUs">
     </div>
-    <div class="navbar-content-in" @click="toPageTop">
-      <img src="@/assets/images/navIcon_4.png" alt="toTop" />
+    <div class="navbar-content-in pageTop" @click="toPageTop">
+      <img srcset="@/assets/images/icon_50.svg 768w, @/assets/images/navIcon_4.png" src="@/assets/images/navIcon_4.png" alt="toTop" />
     </div>
     <div class="navbar-content-mb">
-      <!-- <nuxt-link  id="navMbTel" :to="`tel: +852 ${smallPhoneNum}`" class="mbcc-boxInAA mbcc-boxInAA-1"></nuxt-link>
-      <nuxt-link id="navMbWhatsapp" :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" target="_blank" class="mbcc-boxInAA mbcc-boxInAA-2"></nuxt-link>
-      <div id="navMbContactFormBtn" class="mbcc-boxInAA mbcc-boxInAA-3" @click="handleNavFormNav">
-        <img src="https://static.cmereye.com/imgs/2023/09/a8f9c3f82bbda125.png" alt="馬上預約">
-        <span :class="{english:langType === 'english'}">馬上預約</span>
-      </div>
-      <div id="navMbWeChat" class="mbcc-boxInAA mbcc-boxInAA-4" @click="handlecopywechatcode"></div>
-      <nuxt-link id="navMbFacebook" to="https://www.facebook.com/ckjdental.hk/"  target="_blank" class="mbcc-boxInAA mbcc-boxInAA-5"></nuxt-link> -->
       <nuxt-link class="navbar-content-mb-in" id="navMbWhatsapp" :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`">
         <img src="@/assets/images/icon_28.svg" alt="">
         <span>WhatsApp</span>
@@ -741,23 +721,39 @@ let _bool = ref(false)
       &:nth-of-type(4){
         display: flex;
       }
+      &.pageTop{
+        display: block;
+        width: 40px;
+        height: auto;
+        background: none;
+        right: 12px;
+        top: auto;
+        bottom: 80px;
+        img{
+          width: 100%;
+          // background-clip: text;
+          // mix-blend-mode: difference;
+          // box-shadow:2px 2px 0 #fff;
+          filter: drop-shadow(1px 1px 0 #fff)
+          drop-shadow(-1px 1px 0 #fff)
+          drop-shadow(1px -1px 0 #fff)
+          drop-shadow(-1px -1px 0 #fff);
+        }
+      }
     }
     &-whatApp{
       display:none;
     }
     &-mb{
-      // display: block;
       width: 100%;
       height: auto;
       background: #FFF;
-      // box-shadow: 0px 4px 19px 0px rgba(0, 0, 0, 0.25);
       filter: drop-shadow(0 -3px 5px rgba(252, 22, 130, .3));
       position: fixed;
       bottom: 0;
       left: 0;
       display: flex;
       justify-content: center;
-      // padding: 0 10px;
       padding-bottom: constant(safe-area-inset-bottom);
       padding-bottom: env(safe-area-inset-bottom);
       .mbcc-boxInAA{
