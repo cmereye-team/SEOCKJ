@@ -579,7 +579,7 @@ const doctorData = {
 }
 
 const confidence_ecommendation_lists = [
-  'https://static.cmereye.com/imgs/2024/04/6c16c4cf9f4fc3b4.png',
+  'https://static.cmereye.com/imgs/2024/05/9f5332b53eaf9f2c.png',
     'https://static.cmereye.com/imgs/2024/04/7e45b30e9d208462.png',
     'https://static.cmereye.com/imgs/2024/04/92da0e78f2e38668.png',
     'https://static.cmereye.com/imgs/2024/04/84aa355621c9685d.png',
@@ -854,9 +854,9 @@ const { height } = useWindowSize()
       </div>
       <ServiceCase />
       <ServiceProblem :problemData="problemData" />
-      <div class="contactForm">
+      <!-- <div class="contactForm">
         <ContactForm-new />
-      </div>
+      </div> -->
       <serviceCard />
       <NewAddress />
     </div>
