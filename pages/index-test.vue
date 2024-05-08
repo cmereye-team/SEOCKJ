@@ -217,12 +217,11 @@ let doctorDetail:any = ref({
   educated: '口腔醫學碩士',
 })
 const handletab2 =(id:string)=>{
-  // console.log(id)
-  doctorItemSwiper.slideToLoop(0)
+  console.log(id)
   dentalProfessionCur.value = id;
   doctorCur.value = changleDoctorLists().length>0 ? changleDoctorLists()[0].id : ''
-  // console.log(doctorCur.value);
-  // doctorItemSwiper.slideToLoop(0)
+  doctorItemSwiper.slideToLoop('0')
+  console.log(doctorCur.value)
 }
 const handleDoctorItem = (id:any) =>{
   doctorCur.value = id

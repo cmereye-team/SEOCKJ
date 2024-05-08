@@ -276,7 +276,7 @@ let orgTabCur = ref(0)
 const orgTabLists = [
   '監管單位',
   '戰略合作',
-  '媒體支持',
+  '媒體合作',
   '服務客戶'
 ]
 const orgLists = [
@@ -300,7 +300,7 @@ const orgLists = [
     'https://static.cmereye.com/static/ckjnewsite/org/org-1008.png'
   ],
   [
-    'https://static.cmereye.com/static/ckjnewsite/org/org-3001.png',
+    'https://static.cmereye.com/imgs/2024/05/10fa105dea15be81.png',
     'https://static.cmereye.com/imgs/2024/04/0a0cc588677cf1ab.png',
     'https://static.cmereye.com/imgs/2024/04/746c9bc800d9bd68.png',
     'https://static.cmereye.com/imgs/2024/04/9dd67f204905f590.png',

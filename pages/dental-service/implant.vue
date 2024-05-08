@@ -854,6 +854,9 @@ const { height } = useWindowSize()
       </div>
       <ServiceCase />
       <ServiceProblem :problemData="problemData" />
+      <div class="contactForm">
+        <ContactForm-new />
+      </div>
       <serviceCard />
       <NewAddress />
     </div>
@@ -1454,6 +1457,9 @@ const { height } = useWindowSize()
         margin-top: 50px;
       }
     }
+  }
+  .contactForm{
+    margin-top: 100px;
   }
   @keyframes btnAnim {
     0%{
@@ -2213,6 +2219,9 @@ text-align: justify;
           margin-top: 30px;
         }
       }
+    }
+    .contactForm{
+      margin-top: 50px;
     }
   }
   @media screen and (max-width: 360px) {
