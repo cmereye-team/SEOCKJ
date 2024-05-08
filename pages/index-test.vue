@@ -61,18 +61,6 @@ let areaTabCurNum = computed(()=>{
   return appState.areaTabCurNum
 })
 
-let doctorTeamSwiperRef = {
-  slideTo: (a,b)=>{},
-  slideToLoop: (a)=>{}
-}
-const setDoctorTeamSwiperRef = (swiper:any) => {
-  doctorTeamSwiperRef = swiper;
-}
-
-const handleLineCur = (_value:number) =>{
-  doctorTeamSwiperRef.slideToLoop(_value-1)
-}
-
 const treatmentData = [
   {
     name: '接診人數',
@@ -121,7 +109,7 @@ onMounted(()=>{
 
 watch(
   areaTabCurNum, (newValue, oldValue) => {
-    doctorTeamSwiperRef.slideTo(0, 0);
+    changeAreaTabCur(newValue)
   },
   {
     deep: true,
@@ -137,7 +125,7 @@ const headerConfigData = {
   mbText: ['重拾自信笑容', '愛牙愛己，由你做起'],
 }
 
-let dentalProfessionCur = ref('101')
+let dentalProfessionCur = ref('0')
 const dentalProfessionList = [
   {
     id: '101',
@@ -171,76 +159,56 @@ const dentalProfessionList = [
 
 let doctorCur = ref('')
 
+let actDoctorListd:any = ref([])
+
 const changleDoctorLists:any = () =>{
-  return doctorLists_cs[appState.areaTabCurNum].filter((temp:any)=>{
+  let a = doctorLists_cs[appState.areaTabCurNum]
+  let b = a.filter((temp:any)=>{
     return temp.dentalProfessionId.includes(dentalProfessionCur.value) && temp.isIndexShow
   }) || []
+  actDoctorListd.value = b
 }
-const changeDoctorDetail = () => {
-  let obj = {
-    id: '',
-    dentalProfessionId: [],
-    imgUrl: '',
-    mbImg: '',
-    name: '',
-    org: '',
-    posts: '',
-    job:'',
-    skilled: '',
-    context: '',
-    educated: ''
-  }
-  if(changleDoctorLists().length>0){
-    let _obj = changleDoctorLists().find(item=>item.id === doctorCur.value);
-    if(_obj){
-      obj = JSON.parse(JSON.stringify(_obj))
-    }
-  }
-  return obj
+let loading = ref(false)
+const handletab2 = async (id:string,dpc:Boolean = false)=>{
+  if(!dpc && dentalProfessionCur.value === id) return 
+  actDoctorListd.value = []
+  loading.value = true
+  setTimeout(() => {
+    dentalProfessionCur.value = id;
+    changleDoctorLists()
+    doctorCur.value = actDoctorListd.value.length>0 ? actDoctorListd.value[0].id : ''
+    nextTick(()=>{
+      doctorItemSwiper.slideToLoop('0')
+    })
+    loading.value = false
+  }, 500);
 }
-let doctorDetail:any = ref({
-  id: '101',
-  dentalProfessionId: ['102','104','105'],
-  imgUrl: 'https://static.cmereye.com/imgs/2023/05/6a7b889f6f185f2a.png',
-  mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor101.png',
-  name: '鞏賢平',
-  org: '羅湖區 深圳愛康健口腔醫院，口腔牙周病科，口腔修復科，牙體牙髓科',
-  newOrg: '羅湖區 深圳愛康健口腔醫院',
-  tags: ['口腔牙周病科','口腔修復科','牙體牙髓科'],
-  newJobs: ['愛康健口腔醫院院長','口腔專業主治醫師生','華西口腔醫學院碩士研究生'],
-  text: '醫院院長、主治醫師',
-  posts: '主治醫師',
-  job:'愛康健口腔醫院院長',
-  skilled: '種植修復，微創美學修復，全口咬合重建等；熟練應用口腔顯微鏡並在顯微放大設備下進行種植手術、牙周美學手術及各類修復操作。熟練處理牙周病及牙體缺失、四環素、氟斑牙的全口美學修復工作，對於顯微治療有深入研究，具有豐富的口腔全科診療經驗。',
-  newSkilled: '牙齒美容修復、烤瓷及全瓷修復、 各類復雜義齒修復、種植修復 等。',
-  context: '主治醫師， 深圳愛康健口腔醫院院長， 集團口腔修復專業學科帶頭人， 華西口腔醫學院醫學碩士， 深圳電視臺第一現場《名醫直播問診》節目特邀專家。 從事口腔修復臨床、教學和科研工作近20年，多次赴香港、美國等地進行學習和學術交流，並受邀出席全國口腔修復學術研討會，在微創美學修復領域有著豐富的診療經驗，迄今已完成5000余例口腔微創美學修復。為人親和、細致認真、嫻熟的醫學素養是鞏醫生給人的印象，在簡短的交流中對顧客需求了如指掌，在結合專業技能使得顧客稱贊不已，充分發揮優秀醫務工作者的本質。',
-  educated: '口腔醫學碩士',
-})
-const handletab2 =(id:string)=>{
-  console.log(id)
-  dentalProfessionCur.value = id;
-  doctorCur.value = changleDoctorLists().length>0 ? changleDoctorLists()[0].id : ''
-  doctorItemSwiper.slideToLoop('0')
-  console.log(doctorCur.value)
+const changeAreaTabCur = (_idx:any) => {
+  if(_idx === 4){
+    handletab2('102',true)
+  }else{
+    handletab2('101',true)
+  }
 }
 const handleDoctorItem = (id:any) =>{
   doctorCur.value = id
-  let _idx = changleDoctorLists().findIndex(item=>item.id === id) || 0
+  let _idx = actDoctorListd.value.findIndex(item=>item.id === id) || 0
   doctorItemSwiper.slideToLoop(_idx)
 }
-
-let doctorItemSwiper = {
+let doctorItemSwiper:any = {
   slideToLoop: (a)=>{}
 }
+
 const setDoctorItemSwiper = (swiper:any)=>{
   doctorItemSwiper = swiper;
 }
 const doctorItemSlideChange = (swiper) =>{
-  doctorCur.value = changleDoctorLists()[swiper.realIndex].id || ''
-  doctorTabSwiper_pc.slideToLoop(swiper.realIndex)
-  doctorTabSwiper_mb.slideToLoop(swiper.realIndex)
+  nextTick(()=>{
+    doctorCur.value = actDoctorListd.value[swiper.realIndex].id || ''
+    doctorTabSwiper_pc.slideToLoop(swiper.realIndex)
+    doctorTabSwiper_mb.slideToLoop(swiper.realIndex)
+  })
 }
-
 let doctorTabSwiper_pc = {
   slideToLoop: (a)=>{}
 }
@@ -253,7 +221,6 @@ const setDoctorTabSwiperRef_pc = (swiper:any) => {
 const setDoctorTabSwiperRef_mb = (swiper:any) => {
   doctorTabSwiper_mb = swiper;
 }
-
 const changeDentalProfessionList = () =>{
   let _lists:any = []
   if(doctorLists_cs[appState.areaTabCurNum].length>0){
@@ -266,19 +233,13 @@ const changeDentalProfessionList = () =>{
   }
   return dentalProfessionList.filter(item => _lists.includes(item.id)) || []
 }
-const changeAreaTabCur = (_idx:any) => {
-  if(_idx === 4){
-    handletab2('102')
-  }else{
-    handletab2('101')
-  }
-}
+
 
 let orgTabCur = ref(0)
 const orgTabLists = [
   '監管單位',
   '戰略合作',
-  '媒體支持',
+  '媒體合作',
   '服務客戶'
 ]
 const orgLists = [
@@ -302,7 +263,7 @@ const orgLists = [
     'https://static.cmereye.com/static/ckjnewsite/org/org-1008.png'
   ],
   [
-    'https://static.cmereye.com/static/ckjnewsite/org/org-3001.png',
+    'https://static.cmereye.com/imgs/2024/05/10fa105dea15be81.png',
     'https://static.cmereye.com/imgs/2024/04/0a0cc588677cf1ab.png',
     'https://static.cmereye.com/imgs/2024/04/746c9bc800d9bd68.png',
     'https://static.cmereye.com/imgs/2024/04/9dd67f204905f590.png',
@@ -357,16 +318,6 @@ const { height } = useWindowSize()
 onMounted(()=>{
   handletab2('101')
 })
-
-watch(
-  appState,
-  (n,o)=>{
-    // console.log(n.areaTabCurNum)
-    if(n.areaTabCurNum === 4){
-      handletab2('102')
-    }
-  }
-)
 </script>
 
 <template>
@@ -383,7 +334,7 @@ watch(
           <div class="index_title index_title_2">醫生團隊</div>
         </div>
         <div class="index-doctorTeam-tab1 index-doctorTeam-con">
-            <AreaTab @changeTabCur="changeAreaTabCur" />
+            <AreaTab />
         </div>
         <div class="index-doctorTeam-tab2 index-doctorTeam-con">
           <div class="index-doctorTeam-tab2-in" :class="`tablang-${changeDentalProfessionList().length}`">
@@ -394,8 +345,8 @@ watch(
         </div>
         <div class="index-doctorTeam-lists index-doctorTeam-con">
           <div class="pcLists">
-            <section v-if="changleDoctorLists().length < 7">
-              <div class="pcLists-in" :class="{acitve:doctorCur===doctorItem.id}" v-for="doctorItem in changleDoctorLists()" :key="doctorItem.id" @click="handleDoctorItem(doctorItem.id)">
+            <section v-if="actDoctorListd.length < 7">
+              <div class="pcLists-in" :class="{acitve:doctorCur===doctorItem.id}" v-for="doctorItem in actDoctorListd" :key="doctorItem.id" @click="handleDoctorItem(doctorItem.id)">
                 <div class="pcLists-in-img">
                   <img :src="doctorItem.mbImg || ''" :alt="doctorItem.name" :title="doctorItem.name">
                 </div>
@@ -407,7 +358,7 @@ watch(
                 :slidesPerView="7"
                 @swiper="setDoctorTabSwiperRef_pc"
               >
-                <SwiperSlide class="swiperpcLists-in-slide" v-for="doctorItem in changleDoctorLists()" :key="doctorItem.id">
+                <SwiperSlide class="swiperpcLists-in-slide" v-for="doctorItem in actDoctorListd" :key="doctorItem.id">
                   <div class="swiperpcLists-in-img" :class="{acitve:doctorCur===doctorItem.id}" @click="handleDoctorItem(doctorItem.id)">
                     <img :src="doctorItem.mbImg || ''" :alt="doctorItem.name" :title="doctorItem.name">
                   </div>
@@ -421,7 +372,7 @@ watch(
               :slidesPerView="3"
               @swiper="setDoctorTabSwiperRef_mb"
             >
-              <SwiperSlide class="mbLists-in-slide" v-for="doctorItem in changleDoctorLists()" :key="doctorItem.id">
+              <SwiperSlide class="mbLists-in-slide" v-for="doctorItem in actDoctorListd" :key="doctorItem.id">
                 <div class="mbLists-in-img" :class="{acitve:doctorCur===doctorItem.id}" @click="handleDoctorItem(doctorItem.id)">
                   <img :src="doctorItem.mbImg || ''" :alt="doctorItem.name" :title="doctorItem.name">
                 </div>
@@ -429,18 +380,19 @@ watch(
             </Swiper>
           </div>
         </div>
-        <div v-if="doctorCur !== ''">
+        <div class="index-doctorTeam-detailBox" v-loading="loading">
           <Swiper
             :loop="true"
             :modules="[Autoplay]"
             :autoplay="{
               delay: 2000,
             }" 
+            v-if="actDoctorListd.length"
             class="index-doctorTeam-detail-swiper"
             @swiper="setDoctorItemSwiper" 
             @slideChange="doctorItemSlideChange"
           >
-            <Swiper-slide v-for="doctorItem in changleDoctorLists()" :key="doctorItem.id">
+            <Swiper-slide v-for="doctorItem in actDoctorListd" :key="`d${doctorItem.id}`">
               <div class="index-doctorTeam-detail index-doctorTeam-con" :id="`d${doctorItem.id}`">
                 <div class="index-doctorTeam-detail-l">
                   <div class="index-doctorTeam-detail-l-in">
@@ -482,7 +434,6 @@ watch(
           </Swiper>
         </div>
       </div>
-      <!-- 视频地址 -->
       <!-- 關於我們 -->
       <AboutUs />
       <!-- 品牌理念 -->
@@ -523,9 +474,6 @@ watch(
           <div class="index-videoBox-c-l">
             <div>HK01</div>
             <div>深圳食買玩，點少得睇牙!口岸位置、性價比高 咪咪姐推薦口腔醫院</div>
-            <!-- <nuxt-link to="/news/article/31">
-              查看原文
-            </nuxt-link> -->
             <div class="index-videoBox-c-l-btn">
               <PageAnimBtnTypeTwo link="/news/article/31" str="查看原文" />
             </div>
@@ -759,6 +707,7 @@ svg:hover path{
   }
   &-lists{
     width: 100%;
+    min-height: 152px;
     .pcLists{
       width: 100%;
       display: flex;
@@ -943,6 +892,9 @@ svg:hover path{
         display: none;
       }
     }
+  }
+  &-detailBox{
+    min-height: 550px;
   }
   .index-doctorTeam-detail-swiper{
     // overflow: visible;
@@ -1181,7 +1133,7 @@ svg:hover path{
   .index-doctorTeam{
     margin: 3.125vw auto 2.6042vw;
     &-con{
-      // max-width: 66.6667vw;
+      max-width: 66.6667vw;
       margin: 1.3021vw auto 0;
     }
     &-tab1{
@@ -1208,6 +1160,7 @@ svg:hover path{
       }
     }
     &-lists{
+      min-height: 7.9167vw;
       .pcLists{
         &-in{
           margin-bottom: 1.5625vw;
@@ -1444,6 +1397,7 @@ svg:hover path{
     }
     &-lists{
       margin-top: 20px;
+      min-height: 96px;
       overflow: hidden;
       .pcLists{
         display: none;
@@ -1531,6 +1485,9 @@ svg:hover path{
           }
         }
       }
+    }
+    &-detailBox{
+      min-height: 28.6458vw;
     }
   }
   //個案分享

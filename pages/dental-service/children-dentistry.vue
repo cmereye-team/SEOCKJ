@@ -161,7 +161,7 @@ const skillData ={
     {
       img: 'https://static.cmereye.com/static/ckj/imgs/children-dentistry/service04.png',
       title: '舒適拔牙',
-      introduce: '兒童牙科拔牙是一種治療方法，常用於治療牙齒損傷、感染、畸形或擁擠等问题。\n•使用麻醉技術，對孩子的疼痛感受最小化。\n•將拔牙傷害降到最小，減少感染及出血。\n•手術時間短，恢復快。',
+      introduce: '兒童牙科拔牙是一種治療方法，常用於治療牙齒損傷、感染、畸形或擁擠等問題。\n•使用麻醉技術，對孩子的疼痛感受最小化。\n•將拔牙傷害降到最小，減少感染及出血。\n•手術時間短，恢復快。',
       characteristic: '對孩子的身心健康影響較小，疼痛輕微。傷口癒合迅速，不會影響孩子的飲食和日常生活，並可以解決牙齒問題，保護健康的牙齒和口腔健康。',
       adapt: '一般來說，孩子的乳牙在6-12歲之間掉落，而恒牙則在6-14歲之間生長。如果孩子有牙齒問題，建議及早就診，根據醫生的建議決定是否需要拔牙治療。'
     }
@@ -919,6 +919,7 @@ watch(
           }
           &:nth-of-type(2){
             color: #00AEFF;
+            white-space: pre-wrap;
           }
           &:nth-of-type(3){
             color: var(--indexColor1);
