@@ -476,7 +476,6 @@ watch(
     }
   }
   &-text{
-    
     filter: drop-shadow(1px 1px 0 #fff)
             drop-shadow(-1px 1px 0 #fff)
             drop-shadow(1px -1px 0 #fff)
@@ -531,7 +530,6 @@ watch(
     letter-spacing: 4px;
     margin-bottom: 75px;
     margin-top: 30px;
-    font-family: var(--contextFamily);
   }
   &-lists{
     display: flex;
