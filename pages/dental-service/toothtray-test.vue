@@ -1397,7 +1397,7 @@ const caseLists = [
     padding: 0 30px;
     &-in{
       margin-top: 30px;
-      border-radius: 0 0 25px 25px;
+      border-radius: 20px;
     }
     .table{
       &-in{
@@ -1409,7 +1409,7 @@ const caseLists = [
           padding: 20px 12px;
         }
         &.h2{
-          border-radius: 25px 25px 0 0;
+          // border-radius: 25px 25px 0 0;
         }
         h3{
           font-size: 16px;
