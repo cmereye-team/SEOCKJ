@@ -189,14 +189,14 @@ const handleProcessBtn = (_type: string) => {
             {{$t('pages.brand.honor.brand_item.in_4')}}
           </div>
         </div>
-        <div>
+        <nuxt-link to="https://www.gma-awards.hk01.group/%E5%BE%97%E7%8D%8E%E5%90%8D%E5%96%AE">
           <div>
             <img src="https://static.cmereye.com/imgs/2024/05/a4cced5ce2d5c606.png" alt="">
           </div>
           <div>
             {{'香港01\n傑出大灣區牙科醫療\n服務機構'}}
           </div>
-        </div>
+        </nuxt-link>
       </div>
     </div>
     <NewAddress />
@@ -426,7 +426,7 @@ const handleProcessBtn = (_type: string) => {
     margin: 61px auto 0;
     display: flex;
     justify-content: space-between;
-    &>div{
+    &>div,&>a{
       flex: 1;
       padding: 0 15px;
       &>div{
@@ -473,7 +473,7 @@ const handleProcessBtn = (_type: string) => {
   }
   .brand{
     &-in{
-      &>div{
+      &>div,&>a{
         padding: 0 2vw;
       }
     }
@@ -606,7 +606,7 @@ const handleProcessBtn = (_type: string) => {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      &>div{
+      &>div,&>a{
         flex: initial;
         width: calc(100% / 3);
         padding: 0 8.5px 10px;

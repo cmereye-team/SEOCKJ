@@ -425,7 +425,7 @@ watch(
   transition: all .3s;
   .close{
     position: absolute;
-    bottom: 390%;
+    bottom: 360%;
     left: -5px;
     width: 30px;
     height: 30px;
@@ -444,10 +444,11 @@ watch(
   animation: YaNavAnim 7s linear infinite;
   display: block;
   &-img{
-    width: 80%;
+    width: 70%;
     position: absolute;
-    bottom: 10px;
+    bottom: 16px;
     margin: 10%;
+    transition: all .3s;
     &-in{
       width: 100%;
       height: auto;
@@ -508,6 +509,9 @@ watch(
   }
   &:hover{
     margin-right: -10px;
+    .YaNav-img{
+      bottom: 10px;
+    }
     .YaNav-text{
       &-in{
         padding: 10px 40px;
@@ -1037,7 +1041,7 @@ watch(
   }
   .YaNav{
     &-img{
-      bottom: .5208vw;
+      bottom: .8333vw;
       &::before{
         width: 1.8312vw;
         height: 1.488vw;
