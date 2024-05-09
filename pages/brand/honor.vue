@@ -178,7 +178,7 @@ const handleProcessBtn = (_type: string) => {
             <img src="https://static.cmereye.com/imgs/2023/05/42202884c1b63259.png" alt="">
           </div>
           <div>
-            {{$t('pages.brand.honor.brand_item.in_3.span_1')}}<br class="mbBox" />{{$t('pages.brand.honor.brand_item.in_3.span_2')}}
+            {{$t('pages.brand.honor.brand_item.in_3.span_1')}}{{$t('pages.brand.honor.brand_item.in_3.span_2')}}
           </div>
         </div>
         <div>
@@ -187,6 +187,14 @@ const handleProcessBtn = (_type: string) => {
           </div>
           <div>
             {{$t('pages.brand.honor.brand_item.in_4')}}
+          </div>
+        </div>
+        <div>
+          <div>
+            <img src="https://static.cmereye.com/imgs/2024/05/a4cced5ce2d5c606.png" alt="">
+          </div>
+          <div>
+            {{'香港01\n傑出大灣區牙科醫療\n服務機構'}}
           </div>
         </div>
       </div>
@@ -414,17 +422,17 @@ const handleProcessBtn = (_type: string) => {
   }
   &-in{
     width: 100%;
-    max-width: 1280px;
+    max-width: 1380px;
     margin: 61px auto 0;
     display: flex;
     justify-content: space-between;
     &>div{
       flex: 1;
-      padding: 0 30px;
+      padding: 0 15px;
       &>div{
         font-style: normal;
         font-weight: 700;
-        font-size: 22px;
+        font-size: 20px;
         line-height: 160%;
         text-align: center;
         color: #4C4C4C;
@@ -595,15 +603,24 @@ const handleProcessBtn = (_type: string) => {
     &-in{
       margin: 24.68px auto 0;
       padding: 0 21.5px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       &>div{
-        width: 25%;
-        padding: 0 8.5px;
+        flex: initial;
+        width: calc(100% / 3);
+        padding: 0 8.5px 10px;
         &>div{
-          font-size: 12px;
+          font-size: 8px;
+          &:first-child{
+            img{
+              width: 80%;
+            }
+          }
           &:last-child{
-            width: 200%;
-            white-space: nowrap;
-            transform: scale(.5) translate(-50%,-50%);
+            // width: 200%;
+            // white-space: nowrap;
+            // transform: scale(.5) translate(-50%,-50%);
             margin-top: 6px;
           }
           img{
