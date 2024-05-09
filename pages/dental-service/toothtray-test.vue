@@ -69,7 +69,7 @@ const contrastData = {
   tableRemark: '以下為你分析固定式/活動式假牙的優缺點：',
   table: {
     title: [
-      ['類別'],['適用','人士'],['物料'],['優點'],['缺點'],['清潔方法'],['價錢']
+      ['類別'],['適用','人士'],['物料'],['優點'],['缺點'],['清潔','方法'],['價錢']
     ],
     data: [
       {
@@ -153,6 +153,8 @@ const contrastData = {
     ]
   }
 }
+const contrastItem1 = contrastData.table.data[0]
+const contrastItem2 = contrastData.table.data[1]
 
 const problemData = {
   title: 'pages.dental-service.toothtray.problem.title',
@@ -461,52 +463,80 @@ const caseLists = [
           {{contrastData.tableRemark}}
         </div>
         <div class="contrast-table">
-          <swiper
-            slidesPerView="auto"
-            :scrollbar="{
-              hide: true,
-            }"
-            :modules="[Scrollbar]"
-            class="swiper"
-          >
-            <swiper-slide class="swiper-slide">
-              <div class="contrast-table-in">
-                <div v-for="(tableTitleItem,tableTitleIndex) in contrastData.table.title" :key="tableTitleIndex">
-                  <span v-for="item in tableTitleItem" :key="item">{{item}}</span>
-                </div>
+          <div class="tableBox tableTab">
+            <div class="contrast-table-in">
+              <div v-for="(tableTitleItem,tableTitleIndex) in contrastData.table.title" :key="tableTitleIndex">
+                <span v-for="item in tableTitleItem" :key="item">{{item}}</span>
               </div>
-            </swiper-slide>
-            <swiper-slide class="swiper-slide" v-for="(contrastTableItem,contrastTableIndex) in contrastData.table.data" :key="contrastTableIndex">
-              <div class="contrast-table-in">
+            </div>
+          </div>
+          <div class="tableBox">
+            <div class="contrast-table-in">
+              <div>
+                <div class="th">{{contrastItem1.th}}</div>
                 <div>
-                  <div class="th">{{contrastTableItem.th}}</div>
-                  <div>
-                    <span class="td" v-for="(tdItem,tdIndex) in contrastTableItem.td" :key="tdIndex" :style="{background: `url(${tdItem.bg})`,'background-size': '100% 100%'}">{{tdItem.name}}</span>
+                  <span class="td" v-for="(tdItem,tdIndex) in contrastItem1.td" :key="tdIndex" :style="{background: `url(${tdItem.bg})`,'background-size': '100% 100%'}">{{tdItem.name}}</span>
+                </div>
+              </div>
+              <div class="content" v-for="(contentItem,contentIndex) in contrastItem1.content" :key="contentIndex">
+                <div class="content-l" v-if="contentItem.l.length">
+                  <div v-for="(contentIn,contentInIndex) in contentItem.l" :key="contentInIndex">
+                    <span>· </span>
+                    <span>{{contentIn}}</span>
                   </div>
                 </div>
-                <div class="content" v-for="(contentItem,contentIndex) in contrastTableItem.content" :key="contentIndex">
-                  <div class="content-l" v-if="contentItem.l.length">
-                    <div v-for="(contentIn,contentInIndex) in contentItem.l" :key="contentInIndex">
-                      <span>· </span>
-                      <span>{{contentIn}}</span>
-                    </div>
+                <div class="content-r" v-if="contentItem.r.length">
+                  <div v-for="(contentIn,contentInIndex) in contentItem.r" :key="contentInIndex">
+                    <span>· </span>
+                    <span>{{contentIn}}</span>
                   </div>
-                  <div class="content-r" v-if="contentItem.r.length">
-                    <div v-for="(contentIn,contentInIndex) in contentItem.r" :key="contentInIndex">
-                      <span>· </span>
-                      <span>{{contentIn}}</span>
-                    </div>
-                  </div>
-                  <div class="content-c" v-if="contentItem.c.length">
-                    <div v-for="(contentIn,contentInIndex) in contentItem.c" :key="contentInIndex">
-                      <span>· </span>
-                      <span>{{contentIn}}</span>
-                    </div>
+                </div>
+                <div class="content-c" v-if="contentItem.c.length">
+                  <div v-for="(contentIn,contentInIndex) in contentItem.c" :key="contentInIndex">
+                    <span>· </span>
+                    <span>{{contentIn}}</span>
                   </div>
                 </div>
               </div>
-            </swiper-slide>
-          </swiper>
+            </div>
+          </div>
+          <div class="tableBox tableTab tabletab-mb">
+            <div class="contrast-table-in">
+              <div v-for="(tableTitleItem,tableTitleIndex) in contrastData.table.title" :key="tableTitleIndex">
+                <span v-for="item in tableTitleItem" :key="item">{{item}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="tableBox">
+            <div class="contrast-table-in">
+              <div>
+                <div class="th">{{contrastItem2.th}}</div>
+                <div>
+                  <span class="td" v-for="(tdItem,tdIndex) in contrastItem2.td" :key="tdIndex" :style="{background: `url(${tdItem.bg})`,'background-size': '100% 100%'}">{{tdItem.name}}</span>
+                </div>
+              </div>
+              <div class="content" v-for="(contentItem,contentIndex) in contrastItem2.content" :key="contentIndex">
+                <div class="content-l" v-if="contentItem.l.length">
+                  <div v-for="(contentIn,contentInIndex) in contentItem.l" :key="contentInIndex">
+                    <span>· </span>
+                    <span>{{contentIn}}</span>
+                  </div>
+                </div>
+                <div class="content-r" v-if="contentItem.r.length">
+                  <div v-for="(contentIn,contentInIndex) in contentItem.r" :key="contentInIndex">
+                    <span>· </span>
+                    <span>{{contentIn}}</span>
+                  </div>
+                </div>
+                <div class="content-c" v-if="contentItem.c.length">
+                  <div v-for="(contentIn,contentInIndex) in contentItem.c" :key="contentInIndex">
+                    <span>· </span>
+                    <span>{{contentIn}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -652,9 +682,10 @@ const caseLists = [
     text-align: center;
   }
   &-table{
-    margin: 40px auto 0;
+    margin: 20px auto 0;
     max-width: 1452px;
     width: 100%;
+    display: flex;
     &-in{
       display: flex;
       flex-direction: column;
@@ -665,7 +696,6 @@ const caseLists = [
         flex-direction: column;
         &.content{
           flex-direction: row;
-          margin-bottom: 6px;
           &>div{
             flex: 1;
             height: 100%;
@@ -690,6 +720,9 @@ const caseLists = [
                 }
               }
             }
+          }
+          &:not(:last-child){
+            margin-bottom: 6px;
           }
           .content-l{
             margin-right: 4px;
@@ -764,42 +797,37 @@ const caseLists = [
         }
       }
     }
-    .swiper{
-      .swiper-slide{
-        width: 43.1%;
-        &:nth-of-type(1){
-          width: 13.5%;
-          border-radius: 60px 0 0 60px;
-          margin-right: 4px;
-          overflow: hidden;
-          .contrast-table-in{
-            &>div{
-              font-style: normal;
-              font-weight: 500;
-              font-size: 24px;
-              line-height: 160%;
-              background: var(--indexColor2);
-              color: #505050;
-              margin-bottom: 6px;
-              &:last-child{
-                margin-bottom: 0;
-              }
+    .tableBox{
+      width: 43.1%;
+      margin-right: 4px;
+      &.tableTab{
+        width: 13.5%;
+        border-radius: 60px 0 0 60px;
+        overflow: hidden;
+        .contrast-table-in{
+          &>div{
+            font-style: normal;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 160%;
+            background: var(--indexColor2);
+            color: #505050;
+            margin-bottom: 6px;
+            &:last-child{
+              margin-bottom: 0;
             }
           }
         }
-        &:nth-of-type(3){
-          padding-left: 4px;
-          border-radius: 0 60px 60px 0;
-          overflow: hidden;
-          .contrast-table-in{
-            &>div{
-              border-right: none;
-            }
-          }
-        } 
+      }
+      &:last-child{
+        border-radius: 0 60px 60px 0;
+        overflow: hidden;
+        margin-right: 0px;
+      }
+      &.tabletab-mb{
+        display: none;
       }
     }
-    
   }
 }
 .process{
@@ -1053,12 +1081,11 @@ const caseLists = [
       font-size: 1.0417vw;
     }
     &-table{
-      margin: 2.0833vw auto 0;
+      margin: 1.0417vw auto 0;
       max-width: 75.625vw;
       &-in{
         &>div{
           &.content{
-            margin-bottom: .3125vw;
             &>div{
               font-size: 1.0417vw;
               padding: 0 .9375vw;
@@ -1069,6 +1096,9 @@ const caseLists = [
                   }
                 }
               }
+            }
+            &:not(:last-child){
+              margin-bottom: .3125vw;
             }
             .content-l{
               margin-right: .2083vw;
@@ -1113,22 +1143,20 @@ const caseLists = [
           }
         }
       }
-      .swiper{
-        .swiper-slide{
-          &:nth-of-type(1){
-            border-radius: 3.125vw 0 0 3.125vw;
-            margin-right: .2083vw;
-            .contrast-table-in{
-              &>div{
-                font-size: 1.25vw;
-                margin-bottom: .3125vw;
-              }
+      .tableBox{
+        margin-right: .2083vw;
+        &.tableTab{
+          border-radius: 3.125vw 0 0 3.125vw;
+          .contrast-table-in{
+            &>div{
+              font-size: 1.25vw;
+              margin-bottom: .3125vw;
             }
           }
-          &:nth-of-type(3){
-            padding-left: .2083vw;
-            border-radius: 0 3.125vw 3.125vw 0;
-          } 
+        }
+        &:last-child{
+          border-radius: 0 3.125vw 3.125vw 0;
+          margin-right: 0px;
         }
       }
     }
@@ -1259,7 +1287,7 @@ const caseLists = [
   .contrast{
     margin-top: 30px;
     &-bg{
-      padding: 44px 0 40px;
+      padding: 44px 0 10px;
       background: linear-gradient(360deg, rgba(255, 241, 240, 0) 0%, rgba(255, 241, 240, 0.7) 12.5%, rgba(255, 241, 240, 0.7) 81.99%, rgba(255, 241, 240, 0) 100%);
     }
     &-context{
@@ -1273,37 +1301,42 @@ const caseLists = [
       margin-top: 8px;
     }
     &-table{
+      padding: 0 30px;
       margin: 35px auto 0;
+      flex-wrap: wrap;
       &-in{
         &>div{
           &.content{
-            margin-bottom: 3.5px;
+            &>div{
+              font-size: 12px;
+              padding: 0 11px;
               &>div{
-                font-size: 15px;
-                padding: 0 11px;
-                &>div{
-                  span{
-                    &:first-child{
-                      width: 15px;
-                    }
+                span{
+                  &:first-child{
+                    width: 10px;
+                    font-size: 20px;
                   }
                 }
               }
-              .content-l{
-                margin-right: 2px;
-              }
+            }
+            .content-l{
+              margin-right: 2px;
+            }
+            &:not(:last-child){
+              margin-bottom: 2px;
+            }
           }
           &:nth-of-type(1){
-            height: 178px;
-            margin-bottom: 3.5px;
+            height: 120px;
+            margin-bottom: 2px;
             .th{
-              font-size: 20px;
-              margin-bottom: 3.5px;
-              height: 46px;
+              font-size: 15px;
+              margin-bottom: 2px;
+              height: 40px;
             }
             &>div{
               .td{
-                font-size: 18px;
+                font-size: 15px;
               }
               span{
                 &:last-child{
@@ -1316,41 +1349,47 @@ const caseLists = [
             height: 115.07px;
           } 
           &:nth-of-type(3){
-            height: 90.55px;
+            height: 78px;
           } 
           &:nth-of-type(4){
-            height: 68.54px;
+            height: 78px;
           } 
           &:nth-of-type(5){
-            height: 109.08px;
+            height: 135px;
           } 
-        }
-      }
-      .swiper{
-        padding: 0 30px 40px;
-        .swiper-slide{
-          width: 109.86%;
-          &:nth-of-type(1){
-            width: 102px;
-            margin-left: 2px;
-            .contrast-table-in{
-              &>div{
-                font-size: 18px;
-                margin-bottom: 3.5px;
-              }
-            }
+          &:nth-of-type(6){
+            height: 88px;
+          }
+          &:nth-of-type(7){
+            height: 64px;
           }
         }
       }
-      :deep(.swiper-scrollbar){
-        opacity: 1 !important;
-        width: calc(100% - 60px);
-        margin: 0 30px;
-        background: var(--indexColor2);
+      .tableBox{
+        width: calc(100% - 64px);
+        margin-right: 0;
+        border-radius: 0 20px 0 0;
+        overflow: hidden;
+        margin-bottom: 30px;
+        &.tableTab{
+          width: 60px;
+          margin-right: 2px;
+          border-radius: 20px 0 0 20px;
+          .contrast-table-in{
+            &>div{
+              font-size: 15px;
+              margin-bottom: 2px;
+            }
+          }
+        }
+        &:last-child{
+          border-radius: 0 20px 0px 0;
+        }
+        &.tabletab-mb{
+          display: block;
+        }
       }
-      :deep(.swiper-scrollbar-drag){
-        background: var(--indexColor1);
-      }
+      
     }
   }
   .process{
