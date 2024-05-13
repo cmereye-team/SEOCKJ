@@ -25,7 +25,7 @@ defineProps({
   }
 })
 
-const menuLists = [
+const menuLists:any = [
   {
     name: 'components.header.menuLists.menu_index.name',
     link: '/',
