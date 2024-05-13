@@ -20,7 +20,8 @@ let coverageDeatail = ref({
   content: '',
   pics: [],
   btnText: '',
-  btnLink: ''
+  btnLink: '',
+  videos: ''
 })
 useHead({
   title: '最新資訊',
@@ -60,7 +61,7 @@ useHead({
     {
       property: 'og:image',
       content: ()=>{
-        return coverageDeatail.value.img
+        return coverageDeatail.value.videos === '' ? coverageDeatail.value.videos : coverageDeatail.value.img
       },
     }
   ],
@@ -142,6 +143,7 @@ const getDetail = async () => {
         }) || [],
         btnText: _data.ext_news_btn_text || '',
         btnLink: _data.ext_news_btn_link || '',
+        videos: _data.ext_news_videos || ''
       }
       
       changeassociationData(JSON.parse(_data.ext_news_association || "[]"))
@@ -258,7 +260,10 @@ if(process.server){
         <span>{{coverageDeatail.name}}</span>
       </div>
       <div class="articlePage-in" v-if="!errorpage" v-loading="pageLoading">
-        <div class="content-topimg" v-if="coverageDeatail.pics.length">
+        <div class="content-topimg" v-if="coverageDeatail.videos!==''">
+          <div class="content-topimg-video" v-html="coverageDeatail.videos"></div>
+        </div>
+        <div class="content-topimg" v-else-if="coverageDeatail.videos ==='' && coverageDeatail.pics.length">
           <Swiper @swiper="settopimgSwiperRef" @slideChange="changetopimg">
             <Swiper-slide v-for="(topimg,topimgIndex) in coverageDeatail.pics" :key="topimgIndex">
               <img :src="topimg" alt="">
@@ -353,6 +358,19 @@ if(process.server){
   }
   &-line{
     margin: 40px auto 50px;
+  }
+  &-video{
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    position: relative;
+    :deep(iframe){
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
 }
 .content-title{

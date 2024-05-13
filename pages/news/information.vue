@@ -32,7 +32,8 @@ let informationLists = ref([
     img: '',
     desc: '',
     name: '',
-    time: ''
+    time: '',
+    videos: ''
   }
 ])
 const formatDate = (dateString) =>{  
@@ -66,7 +67,8 @@ const getNewsLists = async () => {
           img: (item.ico.indexOf('/static/upload/image') !== -1 ? `https://admin.ckjhk.com${item.ico}`:item.ico) || '',
           desc: item.ext_news_desc || '',
           name: item.title || '',
-          time: formatDate(item.ext_news_time) || ''
+          time: formatDate(item.ext_news_time) || '',
+          videos: item.ext_news_videos || ''
         }
       })
     }
@@ -180,7 +182,10 @@ const getPagination = (pageitem) => {
           <div v-loading="loadingShow">
             <nuxt-link :to="`/news/news-information/${item.id}`" :id="`i${item.id}`" class="lists-in" v-for="(item,index) in informationLists" :key="index" @click="handlelink(item.id)">
               <div class="lists-in-img">
-                <img :src="item.img" alt="">
+                <div class="videos" v-if="item.videos !== ''">
+                  <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fckjdental.hk%2Fvideos%2F635854418757663%2F&show_text=false&width=476&t=0" width="476" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay;"></iframe>
+                </div>
+                <img v-else :src="item.img" alt="">
               </div>
               <div class="lists-in-context">
                 <div class="lists-in-context-top">
@@ -274,6 +279,19 @@ const getPagination = (pageitem) => {
       margin-right: calc(26 / 1448* 100%);
       img{
         width: 100%;
+      }
+      .videos{
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%;
+        position: relative;
+        :deep(iframe){
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+        }
       }
     }
     &-context{
