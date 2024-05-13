@@ -261,7 +261,9 @@ if(process.server){
       </div>
       <div class="articlePage-in" v-if="!errorpage" v-loading="pageLoading">
         <div class="content-topimg" v-if="coverageDeatail.videos!==''">
-          <div class="content-topimg-video" v-html="coverageDeatail.videos"></div>
+          <div class="content-topimg-video">
+            <iframe :src="`https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fckjdental.hk%2Fvideos%2F${coverageDeatail.videos}%2F&show_text=false&width=476&t=0`" width="476" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay;"></iframe>
+          </div>
         </div>
         <div class="content-topimg" v-else-if="coverageDeatail.videos ==='' && coverageDeatail.pics.length">
           <Swiper @swiper="settopimgSwiperRef" @slideChange="changetopimg">
@@ -364,7 +366,7 @@ if(process.server){
     height: 0;
     padding-bottom: 100%;
     position: relative;
-    :deep(iframe){
+    iframe{
       position: absolute;
       left: 0;
       top: 0;

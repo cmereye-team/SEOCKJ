@@ -183,7 +183,7 @@ const getPagination = (pageitem) => {
             <nuxt-link :to="`/news/news-information/${item.id}`" :id="`i${item.id}`" class="lists-in" v-for="(item,index) in informationLists" :key="index" @click="handlelink(item.id)">
               <div class="lists-in-img">
                 <div class="videos" v-if="item.videos !== ''">
-                  <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fckjdental.hk%2Fvideos%2F635854418757663%2F&show_text=false&width=476&t=0" width="476" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay;"></iframe>
+                  <iframe :src="`https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fckjdental.hk%2Fvideos%2F${item.videos}%2F&show_text=false&width=476&t=0`" width="476" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay;"></iframe>
                 </div>
                 <img v-else :src="item.img" alt="">
               </div>
@@ -285,7 +285,7 @@ const getPagination = (pageitem) => {
         height: 0;
         padding-bottom: 100%;
         position: relative;
-        :deep(iframe){
+        iframe{
           position: absolute;
           left: 0;
           top: 0;
