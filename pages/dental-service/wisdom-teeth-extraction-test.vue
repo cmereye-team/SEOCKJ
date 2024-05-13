@@ -1144,52 +1144,37 @@ const precautions = {
     }
   }
   .precautions{
-    max-width: 1024px;
-    width: 100%;
-    margin: 100px auto 0;
+    padding: 0 30px;
     &-in{
       grid-template-rows: repeat(7,1fr);
       grid-template-columns: repeat(1,1fr);
-      gap: 58px 117px;
-      padding: 35px 0;
+      gap: 20px;
+      padding: 35px 0 30px;
       .lists-in{
-        display: flex;
-        align-items: center;
         &-img{
-          width: 148px;
-          height: 148px;
-          background: #FFF1F0;
-          border-radius: 10px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          img{
-            max-width: 80%;
-            max-height: 80%;
-          }
+          width: 105px;
+          height: 105px;
+          border-radius: 7px;
         }
         &-text{
-          flex: 1;
-          padding-left: 30px;
-          font-size: 18px;
-          font-weight: 400;
-          line-height: 160%;
-          color: var(--textColor);
+          padding-left: 20px;
+          font-size: 16px;
         }
-        &:nth-of-type(2),&:nth-of-type(3),&:nth-of-type(6),&:nth-of-type(7){
+        &:nth-of-type(even){
           .lists-in-img{
             background: #FEE6F1;
+          }
+        }
+        &:nth-of-type(odd){
+          .lists-in-img{
+            background: #FFF1F0;
           }
         }
       }
     }
     &-bottomText{
-      color: var(--indexColor1);
-      font-size: 19px;
-      font-weight: 400;
-      line-height: 160%;
-      letter-spacing: 3.8px;
-      text-align: center;
+      font-size: 15px;
+      letter-spacing: 3px;
     }
   }
 }
