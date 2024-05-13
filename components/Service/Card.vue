@@ -35,7 +35,7 @@ const servicesCardPageData = {
         <div class="context-in isIndex" v-else>愛康健集團是大灣區專業牙科連鎖機構，其愛康健口腔醫院為香港政府納入長者醫療券大灣區試點。14間門診有超過20種牙科治療項目，專注為港服務超過29年。</div>
       </div>
       <div :class="{'servicesCard':true,'isMenu': isMenu}">
-        <div class="servicesCard-in" v-for="(item,index) in servicesCardLists" :key="index">
+        <div class="servicesCard-in" :class="{hot:item.isHot}" v-for="(item,index) in servicesCardLists" :key="index">
           <nuxt-link :to="item.link">
             <div class="servicesCard-in-image">
               <img :src="item.imgUrl" alt="">
@@ -100,7 +100,6 @@ const servicesCardPageData = {
       width: 100%;
       max-width: 760px;
       &-in{
-        
         width: 20%;
         display: flex;
         flex-direction: column;
@@ -123,19 +122,40 @@ const servicesCardPageData = {
           border-radius: 6px;
           transition: all .3s;
           box-sizing: border-box;
-          border: 2px solid #FFF1F0;
+          // border: 2px solid #FFF1F0;
           img{
             position: absolute;
             left: 50%;
             top: 50%;
             transform: translate(-50%,-50%);
-            max-width: 80%;
-            max-height: 80%;
+            max-width: 70%;
+            max-height: 70%;
           }
           &:hover{
             background: #FEE6F1;
             box-shadow: 0 5px 5px rgba(0,0,0,.45);
             transform: translateY(-5px);
+          }
+        }
+        &.hot{
+          .servicesCard-in-image{
+            background: #F8CDCD;
+            // border: 2px solid #F8CDCD;
+            overflow: hidden;
+            &::before{
+              content: '熱門';
+              background: var(--indexColor1);
+              padding: 20px 30px 0;
+              position: absolute;
+              left: -25%;
+              top: -20%;
+              transform: rotate(-45deg);
+              font-size: 12px;
+              color: #fff;
+              line-height: 1.6;
+              z-index: 1;
+              transform-origin: bottom;
+            }
           }
         }
         &-name{
@@ -210,10 +230,18 @@ const servicesCardPageData = {
           &-image{
             box-shadow: 0 .1042vw .2083vw rgba(0,0,0,.25);
             border-radius: .3125vw;
-            border: .1042vw solid #FFF1F0;
+            // border: .1042vw solid #FFF1F0;
             &:hover{
               box-shadow: 0 .2604vw .2604vw rgba(0,0,0,.45);
               transform: translateY(-0.2604vw);
+            }
+          }
+          &.hot{
+            .servicesCard-in-image{
+              &::before{
+                padding: 1.0417vw 1.5625vw 0;
+                font-size: .625vw;
+              }
             }
           }
           &-name{
@@ -283,8 +311,8 @@ const servicesCardPageData = {
           padding: 0 5px;
           &-image{
             img{
-              max-width: 80%;
-              max-height: 80%;
+              max-width: 70%;
+              max-height: 70%;
             }
           }
           &-name{

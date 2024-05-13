@@ -3,6 +3,7 @@ import { zh_tran,zh_getLang,getCookie } from '~/assets/js/uselang'
 import { Autoplay } from 'swiper';
 import { useAppState } from '~/stores/appState'
 import { toWhatsApp,smallPhoneNum } from '~/assets/js/common'
+import serviceLists from '~/assets/js/service'
 const route = useRoute()
 const appState = useAppState()
 defineProps({
@@ -21,7 +22,7 @@ defineProps({
   },
 })
 
-const menuLists = [
+const menuLists:any = [
   {
     name: 'components.header.menuLists.menu_index.name',
     link: '/',
@@ -45,76 +46,7 @@ const menuLists = [
     name: 'components.header.menuLists.menu_dental_service.name',
     link: `/dental-service`,
     child: [
-      {
-        name: 'service.implant',
-        imgUrl: 'https://static.cmereye.com/imgs/2023/05/5e129af0339856f0.png',
-        link: '/dental-service/implant'
-      },
-      {
-        name: 'service.orthodontics',
-        imgUrl: 'https://static.cmereye.com/imgs/2023/12/7da6bba89026b274.png',
-        link: '/dental-service/orthodontics'
-      },
-      {
-        name: 'service.rootCanal',
-        imgUrl: 'https://static.cmereye.com/imgs/2023/05/32034ad5bb8db07a.png',
-        link: '/dental-service/rootCanal'
-      },
-      {
-        name: 'service.invisalign',
-        imgUrl: 'https://raw.gitmirror.com/CMER-SZ/picx-images-hosting/master/ckjhk/z0x4bI.tif.48men0yif480.png',
-        link: '/dental-service/invisiblebraces'
-      },
-      {
-        name: 'service.veneers',
-        imgUrl: 'https://static.cmereye.com/imgs/2024/02/00806cdcd04b63e9.png',
-        link: '/dental-service/veneers'
-      },
-      {
-        name: 'service.all_ceramic_crowns',
-        imgUrl: 'https://static.cmereye.com/imgs/2024/02/80eb6295bc71eeb3.png',
-        link: '/dental-service/all-ceramic-crowns'
-      },
-      {
-        name: 'service.wisdom_teeth_extraction',
-        imgUrl: 'https://static.cmereye.com/imgs/2024/02/5a5c41f570b977d8.png',
-        link: '/dental-service/wisdom-teeth-extraction'
-      },
-      {
-        name: 'service.periodontal',
-        imgUrl: 'https://static.cmereye.com/imgs/2023/05/db71b7e766da670e.png',
-        link: '/dental-service/periodontal'
-      },
-      {
-        name: 'service.toothtray',
-        imgUrl: 'https://static.cmereye.com/imgs/2023/12/649dce292f6182b6.png',
-        link: '/dental-service/toothtray'
-      },
-      {
-        name: 'service.teeth_whitening',
-        imgUrl: 'https://static.cmereye.com/imgs/2023/05/201d5535b39b4b5f.png',
-        link: '/dental-service/teeth-whitening'
-      },
-      {
-        name: 'service.scaling_and_polishing',
-        imgUrl: 'https://static.cmereye.com/imgs/2023/05/e4d3795bb2f0397c.png',
-        link: '/dental-service/scaling-and-polishing'
-      },
-      {
-        name: 'service.fillings',
-        imgUrl: 'https://static.cmereye.com/imgs/2023/05/b94a717160c05e3a.png',
-        link: '/dental-service/fillings'
-      },
-      {
-        name: 'service.general_oral_examination',
-        imgUrl: 'https://static.cmereye.com/imgs/2023/05/248483fd3f0ca0e2.png',
-        link: '/dental-service/general-oral-examination'
-      },
-      {
-        name: 'service.children_dentistry',
-        imgUrl: 'https://static.cmereye.com/imgs/2023/12/1c8586701fba6af8.png',
-        link: '/dental-service/children-dentistry'
-      }
+      ...serviceLists
     ],
   },
   {
@@ -422,7 +354,7 @@ const handleopenwechat = () =>{
                   ]"
                   @click.stop="handleMenuChild(menuItem, menuChildIndex)"
                 >
-                  <nuxt-link :to="menuChildItem.link">
+                  <nuxt-link :to="menuChildItem.link" :class="{hot: menuChildItem.isHot}">
                     {{ menuChildItem.link === '/dental-service/wisdom-teeth-extraction' ? '拔牙\n' : '' }}
                     {{ $t(menuChildItem.name) }}
                   </nuxt-link>
@@ -766,6 +698,7 @@ const handleopenwechat = () =>{
           padding: 0 20px 25px;
           .menuChild{
             .menuChild-item{
+              
               &>span{
                 color: var(--textColor);
               }
@@ -912,6 +845,21 @@ const handleopenwechat = () =>{
             &.menuChildCurrent {
               color: var(--indexColor1);
             }
+            // &>a{
+            //   &.hot{
+            //     position: relative;
+            //     color: var(--indexColor1);
+            //     &::after{
+            //       content: '·';
+            //       position: absolute;
+            //       left: 50%;
+            //       top: 0;
+            //       font-size: 30px;
+            //       color: var(--indexColor1);
+            //       margin-top: -8px;
+            //     }
+            //   }
+            // }
           }
           &::before {
             content: '';
@@ -943,6 +891,19 @@ const handleopenwechat = () =>{
               display: flex;
               justify-content: center;
               align-items: center;
+              &.hot{
+                position: relative;
+                color: var(--indexColor1);
+                &::after{
+                  content: '·';
+                  position: absolute;
+                  left: 50%;
+                  top: 0;
+                  font-size: 30px;
+                  color: var(--indexColor1);
+                  margin-top: -8px;
+                }
+              }
             }
             &:not(:nth-of-type(3n)) {
               &::before{

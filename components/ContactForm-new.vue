@@ -241,7 +241,7 @@ const errorserver = async (_form,_preferential) =>{
       body: JSON.stringify(_EmailformData),
     }
   )
-  console.log(data)
+  // console.log(data)
 }
 
 
