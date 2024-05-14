@@ -443,7 +443,7 @@ const precautions = {
       <div class="wisdom_teeth-in">
         <div class="list-in" v-for="(item,index) in wisdom_teeth.lists" :key="index">
           <div>
-            <img :src="item.img" :alt="item.name" :title="item.name">
+            <img :src="item.img" :alt="item.name.join()" :title="item.name.join()">
             <h3><span v-for="(nameItem,nameIndex) in item.name" :key="nameIndex">{{nameItem}}</span></h3>
             <p>{{item.text}}</p>
           </div>
