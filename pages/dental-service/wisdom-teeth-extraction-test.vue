@@ -240,27 +240,27 @@ const point_solution_requires_tooth_extraction = {
   title: '點解需要拔牙',
   lists: [
     {
-      name: '嚴重蛀牙',
+      name: ['嚴重蛀牙'],
       img: 'https://static.cmereye.com/static/ckj/imgs/wisdom-teeth-extraction/svg1.svg'
     },
     {
-      name: '牙周病',
+      name: ['牙周病'],
       img: 'https://static.cmereye.com/static/ckj/imgs/wisdom-teeth-extraction/svg2.svg'
     },
     {
-      name: '智慧齒問題',
+      name: ['智慧齒問題'],
       img: 'https://static.cmereye.com/static/ckj/imgs/wisdom-teeth-extraction/svg3.svg'
     },
     {
-      name: '牙齒損傷',
+      name: ['牙齒損傷'],
       img: 'https://static.cmereye.com/static/ckj/imgs/wisdom-teeth-extraction/svg4.svg'
     },
     {
-      name: '牙齒矯正治療需求',
+      name: ['牙齒矯正','治療需求'],
       img: 'https://static.cmereye.com/static/ckj/imgs/wisdom-teeth-extraction/svg5.svg'
     },
     {
-      name: '準備假牙',
+      name: ['準備假牙'],
       img: 'https://static.cmereye.com/static/ckj/imgs/wisdom-teeth-extraction/svg6.svg'
     }
   ],
@@ -271,37 +271,37 @@ const wisdom_teeth = {
   title: '智慧齒可能導致的口腔問題',
   lists: [
     {
-      name: '阻生牙齒',
+      name: ['阻生牙齒'],
       text: '智慧齒可能無法完全長出或只部分長出牙齦。這稱為阻生牙。阻生的智慧齒可能長斜或水平長出，對鄰近牙齒造成壓力，導致疼痛或損壞其他牙齒。',
       img: 'https://static.cmereye.com/static/ckj/imgs/wisdom-teeth-extraction/Vector1.jpg'
     },
     {
-      name: '牙齦炎和感染',
+      name: ['牙齦炎和感染'],
       text: '部分長出的智慧齒可能在牙齒和牙齦之間形成一個小空隙，這類空隙容易積聚食物殘渣和細菌，導致感染或牙齦炎，稱為周圍冠周炎。',
       img: 'https://static.cmereye.com/static/ckj/imgs/wisdom-teeth-extraction/Vector2.jpg'
     },
     {
-      name: '牙齒擁擠',
+      name: ['牙齒擁擠'],
       text: '智慧齒的長出可能會對牙弓中的其他牙齒施加壓力，導致原本正常排列的牙齒發生移動或擁擠，這可能使得牙齒矯正的效果受到影響。',
       img: 'https://static.cmereye.com/static/ckj/imgs/wisdom-teeth-extraction/Vector3.jpg'
     },
     {
-      name: '囊腫或腫瘤的形成',
+      name: ['囊腫或腫瘤','的形成'],
       text: '在極少數情況下，未能正常長出的智慧齒可能導致囊腫或腫瘤的形成，這會影響到牙齦組織和周圍的骨結構。',
       img: 'https://static.cmereye.com/static/ckj/imgs/wisdom-teeth-extraction/Vector4.jpg'
     },
     {
-      name: '難以清潔',
+      name: ['難以清潔'],
       text: '由於智慧齒位於口腔後部，清潔起來較困難，這可能增加蛀牙和牙周病的風險。',
       img: 'https://static.cmereye.com/static/ckj/imgs/wisdom-teeth-extraction/Vector5.jpg'
     },
     {
-      name: '慢性疼痛和不適',
+      name: ['慢性疼痛和不適'],
       text: '智慧齒可能導致反覆的疼痛，或是由於其位置不當造成的咬合問題，進而引起頜骨、頭部或頸部的疼痛。',
       img: 'https://static.cmereye.com/static/ckj/imgs/wisdom-teeth-extraction/Vector6.jpg'
     }
   ],
-  topText: '智慧齒通常在16至25歲間萌出。由於它們是最後長出的牙齒，有時可能因為空間不足或位置不正確而導致多種口腔問題：',
+  topText: ['智慧齒通常在16至25歲間萌出。','由於它們是最後長出的牙齒，有時可能','因為空間不足或位置不正確','而導致多種口腔問題：'],
   bottomText: '因為這些潛在問題，牙醫可能會建議在智慧齒尚未造成嚴重問題之前就將它們拔除，尤其是當預見到將來可能發展成更複雜情況時。拔除智慧齒的決定通常基於X光片的評估，\n以及對患者目前和未來口腔健康的考慮。'
 }
 
@@ -421,8 +421,10 @@ const precautions = {
       <div class="point_solution_requires_tooth_extraction-in">
         <div class="list-in" v-for="(item,index) in point_solution_requires_tooth_extraction.lists" :key="index">
           <div>
-            <img :src="item.img" :alt="item.name" :title="item.name">
-            <p>{{item.name}}</p>
+            <img :src="item.img" :alt="item.name.join()" :title="item.name.join()">
+            <p>
+              <span v-for="(nameItem,nameIndex) in item.name" :key="nameIndex">{{nameItem}}</span>
+            </p>
           </div>
         </div>
       </div>
@@ -435,13 +437,14 @@ const precautions = {
         <div class="wisdom_teeth-title-in dentistryServices-title-in bb">{{wisdom_teeth.title}}</div>
       </div>
       <div class="wisdom_teeth-topText">
-        {{wisdom_teeth.topText}}
+        <!-- {{wisdom_teeth.topText}} -->
+        <span v-for="(textItem,textIndex) in wisdom_teeth.topText" :key="textIndex">{{textItem}}</span>
       </div>
       <div class="wisdom_teeth-in">
         <div class="list-in" v-for="(item,index) in wisdom_teeth.lists" :key="index">
           <div>
             <img :src="item.img" :alt="item.name" :title="item.name">
-            <h3>{{item.name}}</h3>
+            <h3><span v-for="(nameItem,nameIndex) in item.name" :key="nameIndex">{{nameItem}}</span></h3>
             <p>{{item.text}}</p>
           </div>
         </div>
@@ -758,171 +761,97 @@ const precautions = {
   }
 }
 @media (min-width: 768px) and (max-width: 1920px) {
- .point_solution_requires_tooth_extraction{
-  width: 100%;
-  max-width: 1024px;
-  margin: 80px auto 0;
+.point_solution_requires_tooth_extraction{
+  max-width: 53.3333vw;
+  margin: 4.1667vw auto 0;
   &-in{
-    display: grid;
-    justify-content: center;
-    grid-template-rows: repeat(2,1fr);
-    grid-template-columns: repeat(3,1fr);
-    gap: 60px 0;
-    padding: 35px 90px;
+    gap: 3.125vw 0;
+    padding: 1.8229vw 4.6875vw;
     .list-in{
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: center;
       p{
-        font-size: 23px;
-        color: var(--indexColor);
-        font-weight: 500;
-        line-height: 130%;
-        text-align: center;
-        margin-top: 30px;
+        font-size: 1.1979vw;
+        margin-top: 1.5625vw;
       }
     }
   }
   &-bottomText{
-    color: var(--textColor);
-    text-align: center;
-    font-size: 19px;
-    font-weight: 400;
-    line-height: 160%;
-    letter-spacing: 3.8px;
+    font-size: .9896vw;
+    letter-spacing: .1979vw;
   }
 }
 .wisdom_teeth{
-  width: 100%;
-  max-width: 1024px;
-  margin: 80px auto 0;
+  max-width: 53.3333vw;
+  margin: 4.1667vw auto 0;
   &-in{
-    display: grid;
-    justify-content: center;
-    grid-template-rows: repeat(2,1fr);
-    grid-template-columns: repeat(3,1fr);
-    gap: 60px 140px;
-    padding: 35px 0;
+    gap: 3.125vw 7.2917vw;
+    padding: 1.8229vw 0;
     .list-in{
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      &>div{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
       h3{
-        font-size: 23px;
-        color: var(--indexColor);
-        font-weight: 500;
-        line-height: 130%;
-        text-align: center;
-        margin-top: 30px;
+        font-size: 1.1979vw;
+        margin-top: 1.5625vw;
       }
       p{
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 160%; /* 28.8px */
-        letter-spacing: 3.6px;
-        text-align: justify;
-        margin-top: 5px;
+        font-size: .9375vw;
+        letter-spacing: .1875vw;
+        margin-top: .2604vw;
       }
     }
   }
   &-topText,&-bottomText{
-    color: var(--textColor);
-    text-align: center;
-    font-size: 19px;
-    font-weight: 400;
-    line-height: 160%;
-    letter-spacing: 3.8px;
-    white-space: pre-wrap;
+    font-size: .9896vw;
+    letter-spacing: .1979vw;
   }
   &-topText{
-    margin-top: 35px;
+    margin-top: 1.8229vw;
   }
 }
 .process{
-  margin: 80px auto 0;
-  width: 100%;
-  max-width: 1616px;
+  margin: 4.1667vw auto 0;
+  max-width: 84.1667vw;
   &-topText{
-    color: var(--textColor);
-    text-align: center;
-    font-size: 19px;
-    font-weight: 400;
-    line-height: 160%;
-    letter-spacing: 3.8px;
-    margin: 35px 0 50px;
+    font-size: .9896vw;
+    letter-spacing: .1979vw;
+    margin: 1.8229vw 0 2.6042vw;
   }
   &-in{
-    position: relative;
     .list-in{
-      display: flex;
-      height: 496px;
-      background: #FFF1F0;
-      border-radius: 248px;
-      align-items: center;
-      justify-content: center;
-      padding: 0 130px;
+      height: 25.8333vw;
+      border-radius: 12.9167vw;
+      padding: 0 6.7708vw;
       &-l{
-        width: 360px;
-        margin-right: 45px;
-        img{
-          width: 100%;
-        }
+        width: 18.75vw;
+        margin-right: 2.3438vw;
       }
       &-r{
-        flex: 1;
         .title{
-          margin-bottom: 58px;
+          margin-bottom: 3.0208vw;
           span{
-            width: 363px;
-            height: 56px;
-            border-radius: 28px;
-            background: var(--indexColor1);
-            color: #fff;
-            font-size: 35px;
-            font-weight: 400;
-            line-height: 160%; /* 56px */
-            letter-spacing: 7px;
-            display: inline-block;
-            text-align: center;
+            width: 18.9063vw;
+            height: 2.9167vw;
+            border-radius: 1.4583vw;
+            font-size: 1.8229vw;
+            letter-spacing: .3646vw;
           }
         }
         .content{
-          display: flex;
           &-in{
-            max-width: 148px;
-            min-width: 72px;
-            position: relative;
+            max-width: 7.7083vw;
+            min-width: 3.75vw;
             &>div{
-              font-size: 18px;
-              color: var(--textColor);
-              font-weight: 400;
-              line-height: 160%;
+              font-size: .9375vw;
               &:nth-of-type(1){
-                text-align: center;
-                color: var(--indexColor1);
-                margin-bottom: 8px;
+                margin-bottom: .4167vw;
               }
             }
             &:not(:last-child){
-              max-width: 217px;
-              padding-right: 65px;
-              min-width: 147px;
+              max-width: 11.3021vw;
+              padding-right: 3.3854vw;
+              min-width: 7.6563vw;
               &::after{
-                content: '';
-                position: absolute;
-                width: 10px;
-                height: 18px;
-                right: 30px;
-                top: 5px;
-                background: url(@/assets/images/icon_12.png) no-repeat;
-                background-size: 100% 100%;
+                width: .5208vw;
+                height: .9375vw;
+                right: 1.5625vw;
+                top: .2604vw;
               }
             }
           }
@@ -932,81 +861,49 @@ const precautions = {
         .list-in-r{
           .content{
             &-in{
-              max-width: 72px;
-              min-width: 72px;
+              max-width: 3.75vw;
+              min-width: 3.75vw;
               &:not(:last-child){
-                max-width: 148px;
-                min-width: 148px;
+                max-width: 7.7083vw;
+                min-width: 7.7083vw;
               }
             }
           }
         }
       }
       &:not(:last-child){
-        margin-bottom: 27px;
+        margin-bottom: 1.4063vw;
       }
     }
     &::after{
-      content: '';
-      position: absolute;
-      bottom: -65px;
-      right: 290px;
-      width: 275px;
-      height: 287px;
-      background: url(https://static.cmereye.com/imgs/2024/05/6b4b515fe0fdf8e8.png) no-repeat;
-      background-size: 100% 100%;
+      bottom: -3.3854vw;
+      right: 15.1042vw;
+      width: 14.3229vw;
+      height: 14.9479vw;
     }
   }
 }
 .precautions{
-  max-width: 1024px;
-  width: 100%;
-  margin: 100px auto 0;
+  max-width: 53.3333vw;
+  margin: 5.2083vw auto 0;
   &-in{
-    display: grid;
-    justify-content: center;
-    grid-template-rows: repeat(4,1fr);
-    grid-template-columns: repeat(2,1fr);
-    gap: 58px 117px;
-    padding: 35px 0;
+    gap: 3.0208vw 6.0938vw;
+    padding: 1.8229vw 0;
     .lists-in{
-      display: flex;
-      align-items: center;
       &-img{
-        width: 148px;
-        height: 148px;
-        background: #FFF1F0;
-        border-radius: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        img{
-          max-width: 80%;
-          max-height: 80%;
-        }
+        width: 7.7083vw;
+        height: 7.7083vw;
+        border-radius: .5208vw;
       }
       &-text{
-        flex: 1;
-        padding-left: 30px;
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 160%;
-        color: var(--textColor);
-      }
-      &:nth-of-type(2),&:nth-of-type(3),&:nth-of-type(6),&:nth-of-type(7){
-        .lists-in-img{
-          background: #FEE6F1;
-        }
+        padding-left: 1.5625vw;
+        font-size: .9375vw;
       }
     }
   }
   &-bottomText{
-    color: var(--indexColor1);
-    font-size: 19px;
-    font-weight: 400;
-    line-height: 160%;
-    letter-spacing: 3.8px;
-    text-align: center;
+    font-size: .9896vw;
+    letter-spacing: .1979vw;
   }
 }
 }
@@ -1016,13 +913,18 @@ const precautions = {
     &-in{
       grid-template-rows: repeat(3,1fr);
       grid-template-columns: repeat(2,1fr);
-      gap: 42px 47px;
+      gap: 10px 47px;
       padding: 35px 30px;
       .list-in{
         p{
-          font-size: 16px;
+          font-size: 20px;
           margin-top: 20px;
+          height: 45px;
+          span{
+            display: block;
+          }
         }
+
       }
     }
     &-bottomText{
@@ -1047,6 +949,9 @@ const precautions = {
           font-size: 20px;
           line-height: 130%;
           margin-top: 20px;
+          span{
+            display: block;
+          }
         }
         p{
           font-size: 15px;
@@ -1062,9 +967,13 @@ const precautions = {
       line-height: 200%;
       letter-spacing: 1.6px;
       padding: 0 30px;
+      white-space: initial;
     }
     &-topText{
       margin-top: 35px;
+      span{
+        display: block;
+      }
     }
   }
   .process{
@@ -1130,16 +1039,22 @@ const precautions = {
           .list-in-r{
             .content{
               &-in{
+                min-width: 0;
+                max-width: 100%;
                 &:not(:last-child){
+                  max-width: 100%;
+                  min-width: 0;
                 }
               }
             }
           }
         }
-        &:not(:last-child){
-        }
       }
       &::after{
+        width: 120px;
+        height: 130px;
+        right: 10px;
+        bottom: -60px;
       }
     }
   }
