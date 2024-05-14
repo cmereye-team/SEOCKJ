@@ -662,7 +662,7 @@ const precautions = {
               }
             }
             &:not(:last-child){
-              max-width: 217px;
+              max-width: 210px;
               padding-right: 65px;
               min-width: 147px;
               &::after{
@@ -844,7 +844,7 @@ const precautions = {
               }
             }
             &:not(:last-child){
-              max-width: 11.3021vw;
+              max-width: 10.9375vw;
               padding-right: 3.3854vw;
               min-width: 7.6563vw;
               &::after{
