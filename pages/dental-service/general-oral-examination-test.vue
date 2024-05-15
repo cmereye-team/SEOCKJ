@@ -66,14 +66,26 @@ const problemData = {
   title: 'pages.dental-service.general-oral-examination.problem.title',
   lists: [
     {
-      Q: 'pages.dental-service.general-oral-examination.problem.lists[0].Q',
-      A: 'pages.dental-service.general-oral-examination.problem.lists[0].A',
+      Q: '口腔檢查會痛嗎？',
+      A: '一般來說，標準的口腔檢查是無痛的。但如果您有牙齦疾病或牙齒敏感等問題，您可能會感到些許不適。牙科醫生會盡量使用輕柔的手法進行檢查，並在需要時提供麻醉或其他舒緩措施。',
     },
     {
-      Q: 'pages.dental-service.general-oral-examination.problem.lists[1].Q',
-      A: 'pages.dental-service.general-oral-examination.problem.lists[1].A',
+      Q: '小孩應該從何時開始進行口腔檢查？',
+      A: '建議孩子在出生後的第一年內，或第一顆乳牙長出後不久就應該開始接受口腔檢查。及早開始定期檢查有助於建立良好的口腔衛生習慣，並及早發現並處理可能的口腔問題。',
     },
-  ],
+    {
+      Q: '生痱滋需要做口腔檢查嗎？',
+      A: '生痱滋（通常稱為口腔潰瘍）在許多情況下是無害的，可以在幾天到一周內自行癒合。然而，在以下情況下，建議進行口腔檢查：\n潰瘍持續時間長：如果口腔潰瘍持續超過兩周未愈合，建議看牙醫或醫生進行檢查。\n潰瘍經常復發：頻繁出現的潰瘍可能是身體某些潛在問題的指示，如營養缺失、自身免疫疾病或其他健康問題。\n伴隨其他症狀：如果口腔潰瘍伴隨有發熱、難以吞嚥或極度疼痛等症狀，應尋求醫療幫助。\n潰瘍異常大：通常口腔潰瘍的直徑小於1厘米，如果明顯大於這個尺寸，應該進行專業評估。\n進行口腔檢查可以幫助確定潰瘍的原因，並提供相應的治療建議或必要的醫療介入。',
+    },
+    {
+      Q: '牙骹疼痛要看醫生嗎?',
+      A: '牙醫可以進行口腔檢查和必要的X光檢查，以確定疼痛的具體原因。\n如果疼痛非常嚴重，伴有臉部或頸部腫脹，發熱，或無法開口等症狀，應該立即尋求緊急醫療幫助。',
+    },
+    {
+      Q: '鼻竇炎可能是牙齒感染引起？',
+      A: '當牙齒感染發生在上顎牙齒的根部附近時。這種情況被稱為「牙源性鼻竇炎」。\n症狀：包括典型的鼻竇炎症狀如鼻塞、分泌物、面部壓痛以及牙齒疼痛，特別是在上顎。\n治療：治療牙源性鼻竇炎通常需要牙科和耳鼻喉科的聯合介入。治療牙齒感染通常是解決問題的關鍵，這可能包括根管治療或牙齒的拔除。\n診斷：確定鼻竇炎是否牙源性可能需要綜合考慮症狀、臨床檢查、X光片和CT掃描。',
+    }
+  ]
 }
  
 let noticeCurrent = ref(1)
@@ -573,8 +585,185 @@ const handleServicesInclude = (index) => {
     }
   }
 }
+.step{
+  margin-top: 106px;
+  &-in{
+    max-width: 1369px;
+    margin: 50px auto 0;
+    display: grid;
+    gap: 70px;
+    grid-template-columns: repeat(5,1fr);
+    .lists-in{
+      .image{
+        img{
+          width: 100%;
+        }
+      }
+      .text{
+        margin-top: 10px;
+        p{
+          font-size: 23px;
+          color: var(--indexColor1);
+          span{
+            display: block;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
 @media (min-width: 768px) and (max-width: 1920px) {
-  
+  .note {
+    margin-top: 5.2083vw;
+    &-content {
+      max-width: 46.5104vw;
+      margin: 4.1667vw auto 0;
+      &-r {
+        & > div {
+          &:not(:last-child){
+            margin-bottom: 1.5625vw;
+          }
+          span {
+            font-size: 1.0417vw;
+            letter-spacing: .1667vw;
+            &:nth-of-type(1) {
+              min-width: 1.0417vw;
+              font-size: 1.3542vw;
+            }
+          }
+        }
+      }
+    }
+  }
+  .notice {
+    max-width: 75.5208vw;
+    margin: 7.9688vw auto 0;
+    &-in {
+      margin: 1.5625vw auto 0;
+      .box {
+        .box-in {
+          height: 14.4792vw;
+          margin-top: .7813vw;
+          font-size: 1.0417vw;
+          padding: 0 4.1667vw;
+          &:first-child {
+            height: 3.5938vw;
+            font-size: 1.4583vw;
+          }
+        }
+      }
+      .box-left {
+        border-radius: 3.125vw 0 0 3.125vw;
+      }
+      .box-right {
+        margin-left: .1563vw;
+        border-radius: 0 3.125vw 3.125vw 0;
+      }
+    }
+    &-line {
+      width: 4.3229vw;
+      margin: 1.1458vw auto;
+    }
+  }
+  .frequency {
+    margin-top: 5.5208vw;
+    &-in {
+      padding: 3.0729vw 2.6042vw;
+      box-shadow: 0px .2083vw .4167vw var(--indexColor3);
+      margin: 1.8229vw auto;
+      &-top {
+        font-size: 1.0417vw;
+        span {
+          font-size: 1.0417vw;
+        }
+      }
+      &-title {
+        font-size: 1.25vw;
+        margin-top: 2.0833vw;
+      }
+      &-lists {
+        margin: 1.5625vw auto 0;
+        max-width: 57.2917vw;
+        & > div {
+          padding: 1.875vw 1.5625vw;
+          border-radius: 1.5625vw;
+          margin: 0 1.0417vw;
+          min-height: 15.8333vw;
+          & > div:first-child {
+            font-size: 1.1458vw;
+          }
+          & > div:last-child {
+            font-size: 1.0417vw;
+          }
+          &:nth-of-type(1) {
+            min-width: 13.8542vw;
+          }
+          &:nth-of-type(2) {
+            min-width: 17.1875vw;
+          }
+        }
+      }
+      &-bottom {
+        margin-top: 2.8125vw;
+        font-size: 1.25vw;
+      }
+    }
+  }
+  .services_include{
+    margin-top: 5.5208vw;
+    &-in{
+      margin: 3.125vw auto 0;
+      max-width: 45.8333vw;
+      gap: 1.3542vw;
+      &-l{
+        .swiperBox{
+          .swiperSlide{
+            .swiperIn{
+              .context{
+                font-size: .9896vw;
+                letter-spacing: .1979vw;
+                padding: 1.0417vw;
+              }
+            }
+          }
+        }
+      }
+      &-r{
+        .name{
+          border-radius: 1.0417vw;
+          &-in{
+            span{
+              font-size: 1.1979vw;
+            }
+            &::after{
+              width: calc(100% - 2.2917vw);
+              height: calc(100% - 2.2917vw);
+              top: 1.1458vw;
+              left: 1.1458vw;
+              border-radius: .5208vw;
+            }
+          }
+        }
+      }
+    }
+  }
+  .step{
+    margin-top: 5.5208vw;
+    &-in{
+      max-width: 71.3021vw;
+      margin: 2.6042vw auto 0;
+      gap: 3.6458vw;
+      .lists-in{
+        .text{
+          margin-top: .5208vw;
+          p{
+            font-size: 1.1979vw;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -670,11 +859,11 @@ const handleServicesInclude = (index) => {
         &>div{
           span{
             font-size: 15px;
-            letter-spacing: 2.4px;
+            letter-spacing: 4.5px;
             &:nth-of-type(1) {
               font-size: 20px;
               min-width: 15px;
-              line-height: 1.4;
+              line-height: 1.2;
             }
           }
         }
@@ -712,6 +901,26 @@ const handleServicesInclude = (index) => {
               height: calc(100% - 30px);
               top: 15px;
               left: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .step{
+    margin-top: 80px;
+    &-in{
+      padding: 0 30px;
+      grid-template-columns: repeat(2,1fr);
+      gap: 30px;
+      margin-top: 35px;
+      .lists-in{
+        .text{
+          p{
+            font-size: 16px;
+            line-height: 2;
+            span{
+              font-family: var(--contextFamily);
             }
           }
         }
