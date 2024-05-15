@@ -28,7 +28,7 @@ onMounted(()=>{
         表單提交成功！我們會盡快回覆閣下。
       </div>
       <div class="s">
-        <span>{{_s}} </span>秒后返回上一页
+        <span>{{_s}} </span>秒后返回上一頁
       </div>
       <div class="messagePage-in-btn">
         <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">返回首頁</nuxt-link>

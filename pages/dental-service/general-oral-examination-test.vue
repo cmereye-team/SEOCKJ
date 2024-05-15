@@ -57,25 +57,23 @@ const stepData = {
     [
       {
         title: 'Step 1',
-        text: '檢查牙齒、牙齦健康',
+        text: ['檢查牙齒、牙齦健康'],
       },
       {
         title: 'Step 2',
-        text: '面部或頸項有否出現異常情況',
+        text: ['檢查面部或頸項','有否出現異常情況'],
       },
       {
         title: 'Step 3',
-        text: '評估整體口腔健康狀況及提供建議',
+        text: ['評估整體口腔健康','狀況及提供建議'],
       },
-    ],
-    [
       {
         title: 'Step 4',
-        text: '需要時建議進行口腔X光造影檢查',
+        text: ['需要時建議進行口腔X光造影檢查'],
       },
       {
         title: 'Step 5',
-        text: '提供口腔保健資訊',
+        text: ['提供口腔保健資訊'],
       },
     ],
   ],
@@ -258,22 +256,30 @@ const handleServicesInclude = (index) => {
           <div class="frequency-in-title">高危人士包括:</div>
           <div class="frequency-in-lists">
             <div>
-              <div>吸煙者：</div>
+              <div>吸煙者</div>
               <div>吸煙者患牙周病的機率比非吸煙者高，高達五倍或以上。</div>
             </div>
             <div>
-              <div>患有嚴重口腔疾病的人士:</div>
+              <div>患有嚴重口腔疾病的人士</div>
               <div>如嚴重蛀牙、牙周病、口腔癌、裂顎等，需要接受較頻繁的口腔檢查以維護口腔健康。</div>
             </div>
             <div>
-              <div>患有系統性疾病人士:</div>
+              <div>患有系統性疾病人士</div>
               <div>對於患有糖尿病、血友病、愛滋病等系統性疾病的人士，由於身體免疫系統受到妨礙，抵抗病原體的能力降低，如果口腔衛生不佳，牙齒表面的菌斑就會容易引致牙周病，甚至發展成嚴重疾病。</div>
             </div>
           </div>
           <div class="frequency-in-bottom">因此，高風險人群需要更加重視口腔健康，並接受更頻繁的口腔檢查</div>
         </div>
       </div>
-      <ServiceStep :stepData="stepData" />
+      <!-- <ServiceStep :stepData="stepData" /> -->
+      <div class="step">
+        <div class="dentistryServices-title">
+          <div class="dentistryServices-title-in bb">{{stepData.titile}}</div>
+        </div>
+        <div class="step-in">
+
+        </div>
+      </div>
       <ServiceProblem :problemData="problemData" />
       <serviceCard />
       <NewAddress />
@@ -394,15 +400,15 @@ const handleServicesInclude = (index) => {
     margin: 35px auto;
     &-top {
       font-style: normal;
-      font-weight: 600;
-      font-size: 28px;
+      font-weight: 500;
+      font-size: 20px;
       line-height: 160%;
       text-align: center;
       color: #666666;
       span {
         font-style: normal;
-        font-weight: 700;
-        font-size: 30px;
+        font-weight: 500;
+        font-size: 20px;
         line-height: 160%;
         color: var(--indexColor1);
       }
@@ -410,16 +416,16 @@ const handleServicesInclude = (index) => {
     &-title {
       font-style: normal;
       font-weight: 700;
-      font-size: 28px;
+      font-size: 24px;
       line-height: 160%;
       text-align: center;
       color: var(--indexColor1);
-      margin-top: 17px;
+      margin-top: 40px;
     }
     &-lists {
       display: flex;
       margin: 30px auto 0;
-      max-width: 1246px;
+      max-width: 1100px;
       & > div {
         padding: 36px 30px;
         background: #fff;
@@ -430,9 +436,10 @@ const handleServicesInclude = (index) => {
         min-height: 304px;
         & > div:first-child {
           color: var(--indexColor1);
-          font-weight: 700;
+          font-weight: 500;
           font-size: 22px;
           line-height: 160%;
+          text-align: center;
         }
         & > div:last-child {
           color: #666666;
@@ -440,9 +447,10 @@ const handleServicesInclude = (index) => {
           font-size: 20px;
           line-height: 160%;
           text-align: justify;
+          text-align: center;
         }
         &:nth-of-type(1) {
-          min-width: 226px;
+          min-width: 266px;
         }
         &:nth-of-type(2) {
           min-width: 330px;
@@ -452,8 +460,8 @@ const handleServicesInclude = (index) => {
     &-bottom {
       margin-top: 54px;
       font-style: normal;
-      font-weight: 600;
-      font-size: 28px;
+      font-weight: 500;
+      font-size: 24px;
       line-height: 160%;
       text-align: center;
       color: var(--indexColor1);
@@ -583,80 +591,7 @@ const handleServicesInclude = (index) => {
   }
 }
 @media (min-width: 768px) and (max-width: 1920px) {
-  .notice {
-    max-width: 75.5208vw;
-    margin: 7.9688vw auto 0;
-    &-in {
-      margin: 1.5625vw auto 0;
-      .box {
-        .box-in {
-          height: 14.4792vw;
-          margin-top: .7813vw;
-          font-size: 1.0417vw;
-          padding: 0 4.1667vw;
-          &:first-child {
-            height: 3.5938vw;
-            font-size: 1.4583vw;
-          }
-        }
-      }
-      .box-left {
-        border-radius: 3.125vw 0 0 3.125vw;
-      }
-      .box-right {
-        margin-left: .1563vw;
-        border-radius: 0 3.125vw 3.125vw 0;
-      }
-    }
-    &-line {
-      width: 4.3229vw;
-      margin: 1.1458vw auto;
-    }
-  }
-  .frequency {
-  margin-top: 5.5208vw;
-  &-in {
-    max-width: 64.8958vw;
-    padding: 3.0729vw 2.6042vw;
-    box-shadow: 0px .2083vw .4167vw var(--indexColor3);
-    margin: 1.8229vw auto;
-    &-top {
-      font-size: 1.4583vw;
-      span {
-        font-size: 1.5625vw;
-      }
-    }
-    &-title {
-      font-size: 1.4583vw;
-      margin-top: .8854vw;
-    }
-    &-lists {
-      margin-top: 1.5625vw;
-      & > div {
-        padding: 1.875vw 1.5625vw;
-        border-radius: 1.5625vw;
-        margin: 0 1.0417vw;
-        min-height: 15.8333vw;
-        & > div:first-child {
-          font-size: 1.1458vw;
-        }
-        & > div:last-child {
-          font-size: 1.0417vw;
-        }
-        &:nth-of-type(1) {
-          min-width: 11.7708vw;
-        }
-        &:nth-of-type(2) {
-          min-width: 17.1875vw;
-        }
-      }
-    }
-    &-bottom {
-      margin-top: 2.8125vw;
-      font-size: 1.4583vw;
-    }
-  }
-}
+  
 }
 
 @media only screen and (max-width: 768px) {
@@ -689,21 +624,21 @@ const handleServicesInclude = (index) => {
   .frequency {
     margin: 90px 0 0;
     &-in {
-      padding: 24px 16px 35px;
+      padding: 24px 30px 35px;
       &-top {
-        font-size: 14px;
+        font-size: 16px;
+        font-family: var(--contextFamily);
         span {
-          font-size: 14px;
+          font-family: var(--contextFamily);
+          font-size: 16px;
         }
       }
       &-title {
-        font-size: 26px;
-        margin-top: 11px;
+        font-size: 18px;
+        margin-top: 30px;
       }
       &-lists {
         flex-direction: column;
-        // margin-top: 13px;
-        
         margin: 13px auto 0;
         & > div {
           width: 100%;
@@ -712,12 +647,10 @@ const handleServicesInclude = (index) => {
           min-height: 0;
           border-radius: 15.5967px;
           & > div:first-child {
-            font-weight: 600;
-            font-size: 14px;
+            font-size: 16px;
           }
           & > div:last-child {
-            font-weight: 600;
-            font-size: 12px;
+            font-size: 16px;
           }
           &:nth-of-type(1) {
             min-width: 100%;
@@ -730,7 +663,7 @@ const handleServicesInclude = (index) => {
         }
       }
       &-bottom {
-        font-size: 12px;
+        font-size: 16px;
         padding: 0 30px;
         margin-top: 18px;
       }
