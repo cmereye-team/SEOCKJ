@@ -36,47 +36,30 @@ const orthodonticsIntroduceData = {
   tabNavName: 'pages.dental-service.general-oral-examination.introduce.tabNavName',
 }
 
-const reasonData = {
-  title: 'pages.dental-service.general-oral-examination.reason.title',
-  text: 'pages.dental-service.general-oral-examination.reason.text',
-  imgUrl: 'https://static.cmereye.com/imgs/2023/05/4077102eecb8a253.jpg',
-  reasonLists: [
-    {
-      context: 'pages.dental-service.general-oral-examination.reason.lists[0].context',
-    },
-    {
-      context: 'pages.dental-service.general-oral-examination.reason.lists[1].context',
-    },
-  ],
-  isMediumCW: true,
-}
-
 const stepData = {
   title: '一般口腔檢查過程',
   stepLists: [
-    [
-      {
-        title: 'Step 1',
-        text: ['檢查牙齒、牙齦健康'],
-      },
-      {
-        title: 'Step 2',
-        text: ['檢查面部或頸項','有否出現異常情況'],
-      },
-      {
-        title: 'Step 3',
-        text: ['評估整體口腔健康','狀況及提供建議'],
-      },
-      {
-        title: 'Step 4',
-        text: ['需要時建議進行口腔X光造影檢查'],
-      },
-      {
-        title: 'Step 5',
-        text: ['提供口腔保健資訊'],
-      },
-    ],
-  ],
+    {
+      img: 'https://static.cmereye.com/imgs/2024/05/ae767977839ee26a.png',
+      text: ['檢查牙齒、牙齦健康'],
+    },
+    {
+      img: 'https://static.cmereye.com/imgs/2024/05/aa4a51e8ca6733ed.png',
+      text: ['檢查面部或頸項','有否出現異常情況'],
+    },
+    {
+      img: 'https://static.cmereye.com/imgs/2024/05/bddc48d6b23920b8.png',
+      text: ['評估整體口腔健康','狀況及提供建議'],
+    },
+    {
+      img: 'https://static.cmereye.com/imgs/2024/05/4f75229a1b52a602.png',
+      text: ['需要時建議進行口腔X光造影檢查'],
+    },
+    {
+      img: 'https://static.cmereye.com/imgs/2024/05/58d5900bf105e8bf.png',
+      text: ['提供口腔保健資訊'],
+    },
+  ]
 }
 
 const problemData = {
@@ -92,18 +75,7 @@ const problemData = {
     },
   ],
 }
-
-const noticeData = {
-  title: '服務包括',
-  meritLists: [
-    '口腔及牙齒檢查',
-    '檢查口腔整體健康狀況包括檢查牙齦、牙齒、口腔組織和面頜骨，以確定是否需要進行進一步的治療。為了評估牙齒和牙齦的整體健康狀況，牙醫可能會建議進行牙齒X光檢查。',
-  ],
-  shortcomingLists: [
-    '口腔 X光片',
-    '口腔X光檢查一般分為傳統口內X光和口外全景X光兩種。口內X光可以提供牙齒、骨骼和口腔組織的詳細圖像，能夠幫助牙醫檢測蛀牙、觀察牙根、檢查牙齒四周的骨骼健康、診斷牙周病以及檢查正在生長的牙齒。',
-  ],
-}
+ 
 let noticeCurrent = ref(1)
 
 const onSlideChange = (swiper: any) => {
@@ -274,10 +246,21 @@ const handleServicesInclude = (index) => {
       <!-- <ServiceStep :stepData="stepData" /> -->
       <div class="step">
         <div class="dentistryServices-title">
-          <div class="dentistryServices-title-in bb">{{stepData.titile}}</div>
+          <div class="dentistryServices-title-in bb">{{stepData.title}}</div>
         </div>
         <div class="step-in">
-
+          <div class="lists-in" v-for="(item,index) in stepData.stepLists" :key="index">
+            <div class="image">
+              <img :src="item.img" :alt="item.text.join()" :title="item.text.join()">
+            </div>
+            <div class="text">
+              <p>
+                <span v-for="(textItem,textIndex) in item.text" :key="textIndex">
+                  {{textItem}}
+                </span>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
       <ServiceProblem :problemData="problemData" />
