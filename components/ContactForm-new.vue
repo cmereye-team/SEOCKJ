@@ -12,13 +12,22 @@ const props = defineProps({
   },
 })
 
-let form = reactive({
+let form:any = reactive({
   name: '',
   gender: '',
   phone: '',
   // email: '',
   service: '',
 })
+
+const reForm = () =>{
+  form.value = {
+    name: '',
+    gender: '',
+    phone: '',
+    service: ''
+  }
+}
 
 // const timestamp = Date.parse(new Date().toString())
 
@@ -141,6 +150,7 @@ const onSubmit = async () => {
         duration: 0,
       })
       localStorage.setItem('contactForm', JSON.stringify(_form))
+      reForm()
       window.location.href = `/messagePage?c=${res.code}`
     } else {
       ElMessage({
@@ -186,6 +196,7 @@ const postData = async (_form,_preferential) => {
   })
   if(data){
     localStorage.setItem('contactForm', JSON.stringify(_form))
+    reForm()
     window.location.href = `/messagePage`
   }else{
     ElMessage({

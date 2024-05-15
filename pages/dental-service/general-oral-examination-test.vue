@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
+import { Autoplay } from 'swiper';
 const appState = useAppState()
 appState.setDentistryService('general-oral-examination')
 useHead({
@@ -24,14 +25,14 @@ const headerConfig = {
   mbImg: 'https://static.cmereye.com/imgs/2024/05/ebc49dda0d1eb137.webp',
   pageName: 'scaling-and-polishing-test',
   pcText: [],
-  mbText: []
+  mbText: [],
 }
 
 const orthodonticsIntroduceData = {
   title: 'pages.dental-service.general-oral-examination.introduce.title',
-  content: 'pages.dental-service.general-oral-examination.introduce.content',
-  mbImg: 'https://static.cmereye.com/imgs/2023/05/1adfbf26ba2d3e03.jpg',
-  pcImg: 'https://static.cmereye.com/imgs/2023/05/0c05f7b7469e4f0d.jpg',
+  content: '許多人常忽略定期進行口腔檢查的重要性。由於口腔是細菌滋生的溫床，缺乏適當的護理可能會引發諸如蛀牙、口腔潰瘍、牙周炎及牙齦炎等問題。定期的口腔檢查有助於確保牙齒和牙齦的健康，並預防這些口腔疾病的發生。',
+  mbImg: 'https://static.cmereye.com/imgs/2024/05/fc2fa3db10c294f7.webp',
+  pcImg: 'https://static.cmereye.com/imgs/2024/05/ac6d40ca8a20cdcc.webp',
   tabNavName: 'pages.dental-service.general-oral-examination.introduce.tabNavName',
 }
 
@@ -111,64 +112,131 @@ const onSlideChange = (swiper: any) => {
   noticeCurrent.value = swiper.realIndex + 1
 }
 
-let windowWidth = ref(1920)
 
-onMounted(() => {
-  getWindowWidth()
-  window.addEventListener('resize', getWindowWidth)
-})
+const noteData = {
+  title: '口腔檢查的目的',
+  lists: [
+    {
+      name: '健康評估\n牙科醫生通過檢查可以評估牙齒、牙齦、面頜及其他口腔組織的健康狀況，及早發現潛在的蛀牙、牙齦發炎或其他問題。'
+    },
+    {
+      name: '預防措施\n透過定期檢查及早發現問題，可進行及時治療，避免病情惡化。',
+    }
+  ]
+}
 
-const getWindowWidth = () => {
-  windowWidth.value = window.innerWidth
+const services_include = {
+  title: '服務包括',
+  lists: [
+    {
+      image: 'https://static.cmereye.com/imgs/2024/05/e79c47b6045036ee.webp',
+      name: ['口腔及','牙齒檢查'],
+      text: '檢查口腔整體健康狀況包括檢查牙齦、牙齒、口腔組織和面頜骨，以確定是否需要進行進一步的治療。為了評估牙齒和牙齦的整體健康狀況，牙醫可能會建議進行牙齒X光檢查。'
+    },
+    {
+      image: 'https://static.cmereye.com/imgs/2024/05/e26252187319b784.webp',
+      name: ['口腔','X光片'],
+      text: '口腔X光檢查一般分為傳統口內X光和口外全景X光兩種。口內X光可以提供牙齒、骨骼和口腔組織的詳細圖像，能夠幫助牙醫檢測蛀牙、觀察牙根、檢查牙齒四周的骨骼健康、診斷牙周病以及檢查正在生長的牙齒。'
+    },
+    {
+      image: 'https://static.cmereye.com/imgs/2024/05/1f2d5c000d1caf6e.webp',
+      name: ['病歷','詢問'],
+      text: '牙醫會詢問您的一般健康狀況和任何過去的醫療狀況，因為這些可能影響口腔健康和治療方案。此外，也會問及任何藥物使用情況。'
+    },
+    {
+      image: 'https://static.cmereye.com/imgs/2024/05/1eecac3f9b55ddd1.webp',
+      name: ['口腔','健康建議'],
+      text: '牙醫會提供關於如何改善日常的口腔護理技巧的建議，例如正確的刷牙和使用牙線的方法。此外，牙醫也可能講解日常飲食對牙齒健康的影響，這些都是導致牙齒腐蝕的常見原因。'
+    }
+  ]
+}
+let services_include_cur = ref(0)
+let swiperRef:any = {
+  slideToLoop: (a)=>{}
+}
+const setSwiperRef = (swiper:any) => {
+  swiperRef = swiper
+}
+const changeSwiper = (swiper) =>{
+  services_include_cur.value = swiper.realIndex
+}
+const handleServicesInclude = (index) => {
+  services_include_cur.value = index
+  swiperRef.slideToLoop(index)
 }
 </script>
 
 
 <template>
   <div>
-    <PageHeader :headerConfig="headerConfig" />
+    <PageHeader :headerConfig="headerConfig" btnText="預約免費牙齒檢查" />
     <div class="pageIn whitebgColor">
       <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
       <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
-      <ServiceReason :reasonData="reasonData" />
-      <div class="notice">
+      <div class="note">
         <div class="dentistryServices-title">
           <div class="dentistryServices-title-in bb">
-            <span>{{noticeData.title}}</span>
+            {{noteData.title}}
           </div>
         </div>
-        <div class="notice-in">
-          <swiper
-            :slidesPerView="windowWidth>768 ? 2: 1"
-            class="swiper-wrapper"
-            @slideChange="onSlideChange"
-          >
-            <swiper-slide class="swiper-slide">
-              <div class="box box-left">
-                <div
-                  class="box-in"
-                  v-for="(meritItem,meritIndex) in noticeData.meritLists"
-                  :key="meritIndex"
-                >
-                  <div>{{meritItem}}</div>
-                </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide class="swiper-slide">
-              <div class="box box-right">
-                <div
-                  class="box-in"
-                  v-for="(shortcomingItem,shortcomingIndex) in noticeData.shortcomingLists"
-                  :key="shortcomingIndex"
-                >
-                  <div>{{shortcomingItem}}</div>
-                </div>
-              </div>
-            </swiper-slide>
-          </swiper>
+        <div class="note-content">
+          <div class="note-content-l">
+            <img
+              src="https://static.cmereye.com/imgs/2024/05/efd35ad22ef95b91.webp"
+              :alt="noteData.title"
+              :title="noteData.title"
+            />
+          </div>
+          <div class="note-content-r">
+            <div
+              v-for="(noteItem, noteIndex) in noteData.lists"
+              :key="noteIndex"
+            >
+              <span>·</span>
+              <span>{{ $t(noteItem.name) }}</span>
+            </div>
+          </div>
         </div>
-        <div class="notice-line mbBox">
-          <PageSwiperPointLine :latestNewsNum="2" :latestNewsCurrent="noticeCurrent"></PageSwiperPointLine>
+      </div>
+      <div class="services_include">
+        <div class="dentistryServices-title">
+          <div class="dentistryServices-title-in bb">
+            {{services_include.title}}
+          </div>
+        </div>
+        <div class="services_include-in">
+          <div class="services_include-in-l">
+            <Swiper class="swiperBox" 
+            :loop="true"
+            :modules="[Autoplay]"
+            :autoplay="{
+              delay: 3000,
+            }"
+            @swiper="setSwiperRef" 
+            @slideChange="changeSwiper">
+              <Swiper-slide class="swiperSlide" v-for="(item,index) in services_include.lists" :key="index">
+                <div class="swiperIn">
+                  <div class="image">
+                    <img :src="item.image" :alt="item.name.join()" :title="item.name.join()">
+                  </div>
+                  <div class="context">
+                    <p>{{item.text}}</p>
+                  </div>
+                </div>
+              </Swiper-slide>
+            </Swiper>
+          </div>
+          <div class="services_include-in-r">
+            <div class="fan">
+            <div class="name">
+              <div class="name-in" :class="{act: services_include_cur === index}" v-for="(item,index) in services_include.lists" :key="index" @click.stop="handleServicesInclude(index)">
+                <span v-for="(nameItem,nameIndex) in item.name" :key="nameIndex">
+                  {{nameItem}}
+                </span>
+              </div>
+            </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="frequency">
@@ -218,6 +286,47 @@ const getWindowWidth = () => {
 
 
 <style lang="scss" scoped>
+.note {
+  margin-top: 100px;
+  &-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 893px;
+    margin: 80px auto 0;
+    position: relative;
+    &-l {
+      width: calc((462 / 893) * 100%);
+      img {
+        width: 100%;
+      }
+    }
+    &-r {
+      margin-left: calc((48 / 893) * 100%);
+      flex: 1;
+      & > div {
+        display: flex;
+        &:not(:last-child){
+          margin-bottom: 30px;
+        }
+        span {
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 160%; /* 38.6px */
+          letter-spacing: 3.2px;
+          color: var(--textColor);
+          white-space: pre-wrap;
+          &:nth-of-type(1) {
+            min-width: 20px;
+            font-size: 26px;
+            line-height: 1.5;
+          }
+        }
+      }
+    }
+  }
+}
 .notice {
   width: 100%;
   max-width: 1450px;
@@ -278,7 +387,7 @@ const getWindowWidth = () => {
   margin-top: 106px;
   &-in {
     width: 100%;
-    max-width: 1246px;
+    // max-width: 1246px;
     padding: 59px 50px;
     background: var(--indexColor2);
     box-shadow: 0px 4px 8px var(--indexColor3);
@@ -309,7 +418,8 @@ const getWindowWidth = () => {
     }
     &-lists {
       display: flex;
-      margin-top: 30px;
+      margin: 30px auto 0;
+      max-width: 1246px;
       & > div {
         padding: 36px 30px;
         background: #fff;
@@ -347,6 +457,128 @@ const getWindowWidth = () => {
       line-height: 160%;
       text-align: center;
       color: var(--indexColor1);
+    }
+  }
+}
+.services_include{
+  margin-top: 106px;
+  &-in{
+    margin: 60px auto 0;
+    display: flex;
+    max-width: 880px;
+    width: auto;
+    gap: 26px;
+    &-l{
+      flex: 1;
+      max-width: 50%;
+      // max-height: 427px;
+      .swiperBox{
+        width: 100%;
+        .swiperSlide{
+          width: 100%;
+          .swiperIn{
+            .image{
+              width: 100%;
+              img{
+                width: 100%;
+              }
+            }
+            .context{
+              font-size: 19px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 160%; /* 30.4px */
+              letter-spacing: 3.8px;
+              color: var(--textColor);
+              padding: 20px;
+            }
+          }
+        }
+      }
+    }
+    &-r{
+      flex: 1;
+      .fan{
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%;
+        position: relative;
+      }
+      .name{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: #FDEDF4;
+        border-radius: 20px;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(2,1fr);
+        &-in{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          position: relative;
+          z-index: 1;
+          cursor: pointer;
+          span{
+            width: 100%;
+            text-align: center;
+            display: block;
+            color: var(--textColor);
+            font-size: 23px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 152%;
+            position: relative;
+            z-index: 1;
+            transition: all .3s;
+          }
+          &::after{
+            content: '';
+            width: calc(100% - 44px);
+            height: calc(100% - 44px);
+            position: absolute;
+            top: 22px;
+            left: 22px;
+            border-radius: 10px;
+            z-index: 0;
+            background: var(--indexColor1);
+            opacity: 0;
+            transition: all .3s;
+          }
+          &:hover{
+            span{
+              color: rgba(255,255,255,.8);
+            }
+            &::after{
+              opacity: .3;
+            }
+          }
+          &.act{
+            span{
+              color: #fff;
+            }
+            &::after{
+              opacity: 1;
+            }
+          }
+        }
+        &::after{
+          content: '';
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          left: 0;
+          top: 0;
+          z-index: 0;
+          background: url(https://static.cmereye.com/imgs/2024/05/c225182317a1ee09.png) no-repeat;
+          background-size: 100% 100%;
+        }
+      }
     }
   }
 }
@@ -455,7 +687,7 @@ const getWindowWidth = () => {
     }
   }
   .frequency {
-    margin: 90px 30px 0;
+    margin: 90px 0 0;
     &-in {
       padding: 24px 16px 35px;
       &-top {
@@ -470,7 +702,9 @@ const getWindowWidth = () => {
       }
       &-lists {
         flex-direction: column;
-        margin-top: 13px;
+        // margin-top: 13px;
+        
+        margin: 13px auto 0;
         & > div {
           width: 100%;
           margin: 0;
@@ -499,6 +733,72 @@ const getWindowWidth = () => {
         font-size: 12px;
         padding: 0 30px;
         margin-top: 18px;
+      }
+    }
+  }
+  .note {
+    max-width: 390px;
+    margin: 60px auto 0;
+    &-content{
+      padding: 0 30px;
+      margin: 45px auto 0;
+      display: flex;
+      flex-direction: column;
+      &-l {
+        width: 100%;
+      }
+      &-r{
+        width: 100%;
+        margin-top: 45px;
+        padding-right: 10px;
+        &>div{
+          span{
+            font-size: 15px;
+            letter-spacing: 2.4px;
+            &:nth-of-type(1) {
+              font-size: 20px;
+              min-width: 15px;
+              line-height: 1.4;
+            }
+          }
+        }
+      }
+    }
+  }
+  .services_include{
+    padding: 0 30px;
+    margin-top: 80px;
+    &-in{
+      flex-direction: column;
+      margin: 45px auto 0;
+      gap: 0;
+      .swiperBox{
+        .swiperSlide{
+          .swiperIn{
+            .context{
+              padding: 35px 0 10px;
+            }
+          }
+        }
+      }
+      &-l{
+        max-width: 100%;
+      }
+      &-r{
+        .name{
+          border-radius: 15px;
+          &-in{
+            span{
+              font-size: 20px;
+            }
+            &::after{
+              width: calc(100% - 30px);
+              height: calc(100% - 30px);
+              top: 15px;
+              left: 15px;
+            }
+          }
+        }
       }
     }
   }

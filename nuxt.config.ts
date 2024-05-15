@@ -32,7 +32,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxt/content',
     '@vueuse/nuxt',
-    '@nuxtjs/google-fonts',
+    // '@nuxtjs/google-fonts',
     '@zadigetvoltaire/nuxt-gtm',
     '@nuxt/content',
     // 'nuxt-simple-sitemap',
