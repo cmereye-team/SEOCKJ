@@ -165,7 +165,7 @@ const onSubmit = async () => {
     //   message: '服务异常，请稍后重试',
     //   type: 'error',
     // })
-    postData(_formData,_preferential)
+    postData(_form,_preferential)
     errorserver(_form,_preferential)
   }
   formLoading.value = false
