@@ -3,6 +3,24 @@ import { phoneNum } from '~/assets/js/common'
 const locale = useState<string>('locale.setting')
 useHead({
   title: "工聯會專區",
+  meta: [
+    { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1' },
+    {
+      hid: 'description',
+      name: 'description',
+      content: '愛康健集團是大灣區牙科連鎖機構，其口腔醫院為香港政府指定長者醫療券大灣區試點。（香港熱線: 6933 8128）14間門診有超過20種牙科治療項目，專注為港服務超過29年。',
+    },
+    {
+      hid: 'Keywords',
+      name: 'Keywords',
+      content: '愛康健 深圳愛康健 深圳專業牙科中心 愛康健醫院 愛康健口腔醫院 深圳愛康健口腔醫院愛康健 CKJ愛康健齒科集團 愛康健齒科集團 深圳口腔專科醫院 深圳牙科醫院牙科服務內地牙科 深圳口腔專科 基本牙科 美容牙科 高階牙科 工聯會洗牙 工聯會免費洗牙 愛康健洗牙',
+    },
+    {
+      name: 'author',
+      content: '愛康健口腔醫院',
+    },
+    { property: 'og:image', content: 'https://www.ckjhk.com/favicon.ico' }
+  ],
 })
 
 const headerConfig = ref({
