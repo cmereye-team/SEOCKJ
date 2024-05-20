@@ -360,7 +360,7 @@ let privacyPolicy = ref(true)
                 <span>我們將會在10小時內與您聯絡確認預約詳情。</span>
                 <span class="radio">
                   <div :class="['radio-in',{'act': privacyPolicy}]"></div>
-                  <i>*</i>本人已閱讀並同意有關 <nuxt-link to="/privacyPolicy" target="_blank">私隱政策</nuxt-link> 聲明。
+                  <i>*</i>本人已閱讀並同意有關 <nuxt-link to="/privacyPolicy?from=2" target="_blank">私隱政策</nuxt-link> 聲明。
                 </span>
               </div>
             </div>

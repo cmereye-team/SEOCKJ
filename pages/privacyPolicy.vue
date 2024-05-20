@@ -23,8 +23,18 @@ const headerConfigData = {
   mbText: [],
 }
 const router = useRouter()
+const route = useRoute()
+
+if(route.query.from === '2'){
+  console.log(route.query.from)
+}
 const goBack = () =>{
-  router.go(-1)
+  if(route.query.from === '2'){
+    //关闭当前标签页
+    window.close()
+  }else{
+    router.go(-1)
+  }
 }
 </script>
 
