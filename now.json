@@ -18,20 +18,20 @@
       "continue": true
     },
     {
+      "src": "/cn",
+      "dest": "/"
+    },
+    {
+      "src": "/hk",
+      "dest": "/"
+    },
+    {
       "src": "/cn/(.*)",
-      "dest": "/$1",
-      "headers": {
-        "Access-Control-Allow-Origin": "*"
-      },
-      "continue": true
+      "dest": "/$1"
     },
     {
       "src": "/hk/(.*)",
-      "dest": "/$1",
-      "headers": {
-        "Access-Control-Allow-Origin": "*"
-      },
-      "continue": true
+      "dest": "/$1"
     }
   ]
 }

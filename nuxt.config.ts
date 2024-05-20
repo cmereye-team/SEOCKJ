@@ -151,4 +151,13 @@ export default defineNuxtConfig({
       }
     }
   },
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push({
+        path: '/:countryCode(*)', // 用于匹配/hk/和/cn/等
+        component: resolve(__dirname, 'pages/index.vue'),
+        props: route => ({ countryCode: route.params.countryCode }),
+      });
+    },
+  } as any,
 })
