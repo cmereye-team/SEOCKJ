@@ -14,6 +14,14 @@ useHead({
    },
   ]
 })
+const headerConfigData = {
+  img: 'https://static.cmereye.com/imgs/2024/02/5605cbd7689de37c.jpg',
+  bg: '',
+  mbImg: 'https://static.cmereye.com/imgs/2024/02/216458f63817b47e.jpg',
+  pageName: 'course-new',
+  pcText: [],
+  mbText: [],
+}
 const router = useRouter()
 const goBack = () =>{
   router.go(-1)
@@ -22,7 +30,7 @@ const goBack = () =>{
 
 <template>
   <div>
-    <!-- <PageHeader /> -->
+    <PageNewHeader :headerConfig="headerConfigData" /> 
     <div class="disclaimer">
       <div class="disclaimer-title">
         免責條款
@@ -59,6 +67,8 @@ const goBack = () =>{
   padding: 200px 0;
   align-items: center;
   background: #fff;
+  position: relative;
+  z-index: 1;
   &-btn{
     margin-top: 50px;
     text-align: right;
@@ -96,7 +106,7 @@ const goBack = () =>{
 @media (min-width: 768px) and (max-width: 1452px) {}
 @media screen and (max-width: 768px) {
   .disclaimer{
-    padding: 100px 30px;
+    padding: 0px 30px 100px;
     &-title{
       font-size: 28px;
     }

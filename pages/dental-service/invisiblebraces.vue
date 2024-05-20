@@ -4,17 +4,17 @@ import { toWhatsApp } from '~/assets/js/common'
 const appState = useAppState()
 appState.setDentistryService('invisalign')
 useHead({
-  title: "隱形矯正｜牙科服務",
+  title: "隱形矯正",
   meta: [
    {
       hid: 'description',
       name: 'description',
-      content: '愛康健提供Invisalign隱適美服務，這是一種透明的配戴式牙箍，患者可以自行配戴和除下。相比傳統的牙箍，隱適美牙箍更容易清潔和適應日常飲食習慣，適合不同年齡的患者使用。它利用先進的數位科技，通過電腦模擬牙齒移動過程，制作出一系列專屬的牙箍，每個階段都有不同的適應性，利用牙箍的機械力量，推動牙齒移動至適當的位置。',
+      content: '愛康健隱形矯齒服務減5000元,香港熱線: 6933 8128免費預約掛號,羅湖福田深圳灣口岸分店，採用最新技術與個人化矯齒計劃打造黃金比例臉型',
    },
    {
       hid: 'Keywords',
       name: 'Keywords',
-      content: 'Invisalign 透明牙套 隱適美 隱適美流程 隱適美價錢 時代天使價錢 Insignia價錢 Invisalign價錢 Angel aligner價錢 Insignia價格 Invisalign價格 Angel aligner價格 箍牙價錢 隱形牙箍價錢 透明牙箍價錢 箍牙推薦 隱形牙箍推薦 透明牙箍推薦 牙齒矯正 愛康健 深圳愛康健 深圳專業牙科中心 愛康健醫院 愛康健口腔醫院 深圳愛康健口腔醫院愛康健 CKJ愛康健齒科集團 深圳口腔專科醫院 愛康健齒科集團 深圳牙科醫院牙科服務內地牙科 深圳口腔專科',
+      content: '愛康健 爱康健 CKJ aikangjian 牙科服務 內地牙科 深圳牙科 深圳愛康健口腔醫院 愛康健齒科集團 基楚牙科 美容牙科 高階牙科 醫療券 長者醫療券大灣區試點 案例 牙醫 牙医 深圳 羅湖 朱咪咪 掛號 收費 價目表 線上預約 矯齒 箍牙 隱形牙套 矯齒價錢 箍牙價錢 箍牙流程 牙齒擠擁 倒及牙 齙牙 箍牙時間 微笑設計 美容牙科 微笑曲線 黃金比例 隱形牙套 隱形矯正器 牙齒矯正 透明牙套 牙醫推薦',
    },
   ]
 })
