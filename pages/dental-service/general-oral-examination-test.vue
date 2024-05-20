@@ -255,7 +255,6 @@ const handleServicesInclude = (index) => {
           <div class="frequency-in-bottom">因此，高風險人群需要更加重視口腔健康，並接受更頻繁的口腔檢查</div>
         </div>
       </div>
-      <!-- <ServiceStep :stepData="stepData" /> -->
       <div class="step">
         <div class="dentistryServices-title">
           <div class="dentistryServices-title-in bb">{{stepData.title}}</div>

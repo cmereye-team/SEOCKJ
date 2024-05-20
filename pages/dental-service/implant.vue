@@ -643,7 +643,10 @@ const { height } = useWindowSize()
       </div>
       <div class="notice">
         <div class="dentistryServices-title notice-title">
-          <div class="dentistryServices-title-in bb notice-title-in">{{$t(noticeData.title)}}</div>
+          <div class="dentistryServices-title-in bb notice-title-in">
+            <span>傳統植牙和</span>
+            <span>微創植牙的區別？</span>
+          </div>
         </div>
         <div class="notice-topText">
           <span v-for="(topTextItem,topTextIndex) in noticeData.topText" :key="topTextIndex">{{$t(topTextItem)}}</span>
