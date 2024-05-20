@@ -25,9 +25,6 @@ const headerConfigData = {
 const router = useRouter()
 const route = useRoute()
 
-if(route.query.from === '2'){
-  console.log(route.query.from)
-}
 const goBack = () =>{
   if(route.query.from === '2'){
     //关闭当前标签页
