@@ -16,22 +16,6 @@
         "Access-Control-Allow-Origin": "*"
       },
       "continue": true
-    },
-    {
-      "src": "/cn",
-      "dest": "/"
-    },
-    {
-      "src": "/hk",
-      "dest": "/"
-    },
-    {
-      "src": "/cn/(.*)",
-      "dest": "/$1"
-    },
-    {
-      "src": "/hk/(.*)",
-      "dest": "/$1"
     }
   ]
 }
