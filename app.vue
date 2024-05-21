@@ -38,7 +38,6 @@ useHead({
     { type: 'text/javascript', src: '/common.js' },
   ]
 })
-
 onMounted(()=>{
   // zh_init()
   // 监听网络是否关闭

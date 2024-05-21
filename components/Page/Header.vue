@@ -167,6 +167,13 @@ onMounted(() => {
   getWindowWidth()
   window.addEventListener('scroll', getScrollHeight)
   window.addEventListener('resize', getWindowWidth)
+  setTimeout(() => {
+    if(route.path.includes('/cn')){
+      changlangsfun('s')
+    }else{
+      changlangsfun('t')
+    }
+  }, 500)
 })
 const windowWidth = ref(1920)
 
@@ -188,8 +195,29 @@ const getScrollHeight = () => {
     }
   }
 }
-
+const router = useRouter()
 const glangs = (_type) =>{
+  let _a = [
+    {
+      lable: 'hk',
+      value: 't'
+    },
+    {
+      lable: 'cn',
+      value: 's'
+    }
+  ]
+  let _b = _a.find(item=>item.value === _type)
+  let _str = route.path.slice(0,3)
+  if(_str === '/cn' || _str === '/hk'){
+    let _url = route.path
+    let _url_new = _url.replace(_url.slice(0,3),_b ? '/'+_b.lable : '')
+    router.push(_url_new)
+  }else{
+    router.push(`${_b ? '/'+_b.lable : ''}${route.path}`)
+  }
+}
+const changlangsfun = (_type) =>{
   zh_tran(_type)
   if(getCookie('zh_choose')) {
 		var zh_choose:any = getCookie('zh_choose');
