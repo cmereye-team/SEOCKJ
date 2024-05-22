@@ -1,18 +1,45 @@
 import UnpluginComponentsVite from 'unplugin-vue-components/vite'
 import IconsResolver from 'unplugin-icons/resolver'
+// import router_hk from './router_hk.js'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
   // server side rendering mode
   
   ssr: true,
-  
   // typescripts
   typescript: {
     strict: true,
     typeCheck: true,
   },
-  
+  hooks: {
+    'pages:extend' (pages) {
+      let _pages = JSON.parse(JSON.stringify(pages.filter(item=> {
+        let _str = ['404','test','/:id','server-']
+        if(_str.some(str => item.name?.indexOf(str) !== -1)) {
+          return false
+        } else {
+          return true
+        }
+      })))
+      _pages.forEach((item) => {
+        pages.push({
+          name: `hk-${item.name}`,
+          path: `/hk${item.path}`,
+          file: item.file,
+          children: item.children
+        })
+      })
+      _pages.forEach((item) => {
+        pages.push({
+          name: `cn-${item.name}`,
+          path: `/cn${item.path}`,
+          file: item.file,
+          children: item.children
+        })
+      })
+    }
+  },
   // css
   css: ['~/assets/sass/vendor.scss', '~/assets/sass/app.scss'],
   

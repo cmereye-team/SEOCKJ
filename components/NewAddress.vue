@@ -283,6 +283,7 @@ watch(
                   height: 17px;
                   display: inline-block;
                   background: url(@/assets/images/icon_21.svg) no-repeat;
+                  background-size: 100% 100%;
                   margin-right: 5px;
                 }
               }
@@ -312,6 +313,7 @@ watch(
                   height: 17px;
                   display: inline-block;
                   background: url(@/assets/images/icon_23.svg) no-repeat;
+                  background-size: 100% 100%;
                   margin-right: 5px;
                 }
               }
