@@ -530,16 +530,19 @@ let _bool = ref(false)
     position: fixed;
     bottom: -100%;
     left: 0;
+    overflow: hidden;
+    overflow-y: auto;
     background: #fff;
     display: flex;
     justify-content: center;
     z-index: 9999;
     transition: all .5s;
     display: none;
+    padding: 50px 0;
     &-icon{
       position: absolute;
       right: 30px;
-      top: 100px;
+      top: 150px;
       cursor: pointer;
     }
     .qdCode{

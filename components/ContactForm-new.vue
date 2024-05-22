@@ -8,13 +8,13 @@ const appState = useAppState()
 const props = defineProps({
   service: {
     type: String,
-    default: '', //種植牙
+    default: '洗牙', //種植牙
   },
 })
 
 let form:any = reactive({
   name: '',
-  gender: '',
+  // gender: '',
   phone: '',
   // email: '',
   service: '',
@@ -23,7 +23,7 @@ let form:any = reactive({
 const reForm = () =>{
   form.value = {
     name: '',
-    gender: '',
+    // gender: '',
     phone: '',
     service: ''
   }
@@ -50,7 +50,7 @@ const formLoading = ref(false)
 const ruleFormRef = ref<FormInstance>()
 const rules = reactive<FormRules>({
   name: [{ required: true, message: '請填寫您的姓名', trigger: 'change' }],
-  gender: [{ required: true, message: '請選擇稱呼', trigger: 'change' }],
+  // gender: [{ required: true, message: '請選擇稱呼', trigger: 'change' }],
   phone: [
     { required: true, message: '請填寫您的電話', trigger: 'change' },
     { min: 8, max: 11, message: '請填寫正確的電話', trigger: 'change' },
@@ -120,7 +120,7 @@ const onSubmit = async () => {
   let _formData = new FormData()
   let _form = form
   _formData.append('contact_name', _form.name)
-  _formData.append('gender', _form.gender)
+  // _formData.append('gender', _form.gender)
   _formData.append('phone', `${areaCode.value} ${_form.phone}`)
   // _formData.append('email',_form.email)
   _formData.append('service', _form.service)
@@ -160,11 +160,6 @@ const onSubmit = async () => {
       })
     }
   } else {
-    // ElMessage({
-    //   showClose: true,
-    //   message: '服务异常，请稍后重试',
-    //   type: 'error',
-    // })
     postData(_form,_preferential)
     errorserver(_form,_preferential)
   }
@@ -177,7 +172,6 @@ const postData = async (_form,_preferential) => {
   msgtype: "text",
   text: {
     content: `名称：${_form.name}
-称呼：${_form.gender}
 联系方式：${areaCode.value} ${_form.phone}
 服务：${_form.service}
 来源：${location.href}
@@ -230,7 +224,6 @@ const errorserver = async (_form,_preferential) =>{
       "subject": "来自ckjhk.com的預約表單信息-备用服务",
       "html": 
         `<p>名称：${_form.name}</p>
-        <p>称呼：${_form.gender}</p>
         <p>联系方式：${areaCode.value} ${_form.phone}</p>
         <p>服务：${_form.service}</p>
         <p>来源：${location.href}</p>
@@ -239,8 +232,7 @@ const errorserver = async (_form,_preferential) =>{
         <p>备注信息：服务器离线由备用服务推送</p>`
     }
     _EmailformData.push(_message)
-  } 
-  // console.log(_EmailformData)
+  }
   const { data }: any = await useFetch(
     '/sendmail/v1/bulk-email',
     {
@@ -252,7 +244,6 @@ const errorserver = async (_form,_preferential) =>{
       body: JSON.stringify(_EmailformData),
     }
   )
-  // console.log(data)
 }
 
 
@@ -292,16 +283,16 @@ let privacyPolicy = ref(true)
           label-position="top"
         >
           <div class="firstFormItem">
-            <el-col :span="13">
+            <!-- <el-col :span="11"> -->
               <el-form-item
                 :label="`${$t('contactUs.contact_form.formItem.name')}`"
                 prop="name"
               >
                 <el-input v-model="form.name" name="name" maxlength="30" />
               </el-form-item>
-            </el-col>
-            <el-col :span="2"></el-col>
-            <el-col :span="9">
+            <!-- </el-col> -->
+            <!-- <el-col :span="2"></el-col> -->
+            <!-- <el-col :span="9">
               <el-form-item
                 :label="`${$t('contactUs.contact_form.formItem.gender')}`"
                 prop="gender"
@@ -315,7 +306,7 @@ let privacyPolicy = ref(true)
                   <el-option label="小姐" value="小姐" />
                 </el-select>
               </el-form-item>
-            </el-col>
+            </el-col> -->
           </div>
           <el-form-item
             :label="`${$t(
@@ -360,21 +351,12 @@ let privacyPolicy = ref(true)
                 <span>我們將會在10小時內與您聯絡確認預約詳情。</span>
                 <span class="radio">
                   <div :class="['radio-in',{'act': privacyPolicy}]"></div>
-                  <i>*</i>本人已閱讀並同意有關 <nuxt-link to="/privacyPolicy?from=2" target="_blank">私隱政策</nuxt-link> 聲明。
+                  <div><i>*</i>本人已閱讀並同意有關 <nuxt-link to="/privacyPolicy?from=2" target="_blank">私隱政策</nuxt-link> 聲明。</div>
                 </span>
               </div>
             </div>
           </el-form-item>
           <el-form-item>
-            <!-- <button
-              :id="windowWidth > 768 ? 'contactUsForm' : 'navMbContactForm'"
-              type="button"
-              class="formBtn"
-              v-loading="formLoading"
-              @click.stop="submitForm(ruleFormRef)"
-            >
-              {{ $t('contactUs.contact_form.formItem.submit_the_form') }}
-            </button> -->
             <div class="formBtn contactUsForm">
               <div class="animbtntypetwo contactUsForm" v-loading="formLoading">
                 <div class="animbtntypetwo-in contactUsForm" :id="windowWidth > 768 ? 'contactUsForm' : 'navMbContactForm'" @click.stop="submitForm(ruleFormRef)">
@@ -398,9 +380,6 @@ ul{
     padding: 0;
   }
 }
-// .el-scrollbar__wrap--hidden-default {
-//     scrollbar-width: thin;
-// }
 .el-scrollbar__bar.is-vertical{
   width: 15px;
   .el-scrollbar__thumb{
@@ -757,6 +736,7 @@ li{
     }
   }
   .contactForm {
+    width: 100%;
     &-bg {
       padding: 70px 0 50px;
       background: #fff;
@@ -771,6 +751,7 @@ li{
       // }
     }
     &-title{
+      padding: 0 30px;
       span{
         letter-spacing: 3px;
         &:first-child{
