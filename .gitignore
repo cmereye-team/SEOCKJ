@@ -5,6 +5,7 @@
 .nitro
 .cache
 dist
+start.yml
 
 # Node dependencies
 node_modules
