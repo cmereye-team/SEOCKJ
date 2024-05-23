@@ -64,17 +64,9 @@ body{
             left: -0.5208vw;
         }
     }
-    .pageIn{
-        padding: 7.2917vw 0;
-        position: relative;
-        z-index: 1;
-    }
 }
 
 @media screen and (max-width: 768px) {
-    .pageIn{
-        padding: 90px 0;
-    }
     .smallPageCon{
         width: 100%;
     } 
