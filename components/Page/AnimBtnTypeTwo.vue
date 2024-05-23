@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { defineProps } from "vue";
-import { whatsAppNum } from '~/assets/js/common'
+import { whatsapplink } from '~/assets/js/common'
 defineProps({
   str:{
     type: String,
@@ -8,7 +8,7 @@ defineProps({
   },
   link: {
     type: String,
-    default: `https://api.whatsapp.com/send/?phone=${whatsAppNum}`
+    default: whatsapplink
   },
   typeClass: {
     type: String,
@@ -19,7 +19,7 @@ defineProps({
 
 <template>
   <div class="animbtntypetwo">
-    <nuxt-link :to="link === '' ? `https://api.whatsapp.com/send/?phone=${whatsAppNum}` : link" class="animbtntypetwo-in" :class="typeClass">
+    <nuxt-link :to="link === '' ? whatsapplink : link" class="animbtntypetwo-in" :class="typeClass">
       <span>{{str}}</span>
     </nuxt-link>
   </div>

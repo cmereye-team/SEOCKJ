@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useAppState } from '~/stores/appState'
-import { whatsAppNum,smallPhoneNum } from '~/assets/js/common'
+import { smallPhoneNum,whatsapplink } from '~/assets/js/common'
 
 defineProps({
   langType: {
@@ -71,7 +71,7 @@ let _bool = ref(false)
 
 <template>
   <div class="navbar-content" :style="{'z-index': appState.isShowForm ? 100 : 50}">
-    <nuxt-link class="navbar-content-whatApp" id="navPcWhatsapp" :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`" title="WhatsApp" target="_blank">
+    <nuxt-link class="navbar-content-whatApp" id="navPcWhatsapp" :to="whatsapplink" title="WhatsApp" target="_blank">
       <div class="iconDialogBox" v-if="showDialogBox">
         <span>專業客服為你匹配適合你的醫生！</span>
         <img class="iconDialogBox-icon" data-ord="1" src="@/assets/images/icon_42.svg" alt="">
@@ -105,7 +105,7 @@ let _bool = ref(false)
       <img srcset="@/assets/images/icon_50.svg 768w, @/assets/images/navIcon_4.png" src="@/assets/images/navIcon_4.png" alt="toTop" />
     </div>
     <div class="navbar-content-mb">
-      <nuxt-link class="navbar-content-mb-in" id="navMbWhatsapp" :to="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`">
+      <nuxt-link class="navbar-content-mb-in" id="navMbWhatsapp" :to="whatsapplink">
         <img src="@/assets/images/icon_28.svg" alt="">
         <span>WhatsApp</span>
       </nuxt-link>

@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { log } from "console"
 import { getDoctorDetail } from '~/assets/js/commonFun'
+import { whatsapplink } from '~/assets/js/common'
 const route = useRoute()
 const router = useRouter()
 let _nid = route.params.id
@@ -242,7 +243,7 @@ const renderingDome = () => {
             </div>
             <div class="index-doctorTeam-detail-l-btn">
               <div class="animbtntypetwo">
-                <a href="https://api.whatsapp.com/send/?phone=85269338128" class="animbtntypetwo-in" alt="whatsapp" title="whatsapp">
+                <a href="${whatsapplink}" class="animbtntypetwo-in" alt="whatsapp" title="whatsapp">
                   <span>線上咨詢</span>
                 </a>
               </div>
@@ -268,7 +269,7 @@ const renderingDome = () => {
             </div>
             <div class="detail-6">
               <div class="animbtntypetwo">
-                <a href="https://api.whatsapp.com/send/?phone=85269338128" class="animbtntypetwo-in" alt="whatsapp" title="whatsapp">
+                <a href="${whatsapplink}" class="animbtntypetwo-in" alt="whatsapp" title="whatsapp">
                   <span>線上咨詢</span>
                 </a>
               </div>

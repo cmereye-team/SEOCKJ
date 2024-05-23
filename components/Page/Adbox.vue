@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { defineProps } from "vue";
-import { whatsAppNum } from '~/assets/js/common'
+import { whatsapplink } from '~/assets/js/common'
 defineProps({
   str:{
     type: String,
@@ -23,7 +23,7 @@ onMounted(()=>{
         <img src="@/assets/images/icon_16.png" alt="" @click="_bool = false">
       </div>
       <div class="content">
-        <a :href="`https://api.whatsapp.com/send/?phone=${whatsAppNum}`">
+        <a :href="whatsapplink">
           <img :data-cfsrc="'https://static.cmereye.com/imgs/2024/01/e272eab6fd020a3c.jpg'" :srcset="`https://static.cmereye.com/imgs/2024/01/75d9f6d2c17e5b31.jpg 768w, https://static.cmereye.com/imgs/2024/01/e272eab6fd020a3c.jpg`" src="https://static.cmereye.com/imgs/2024/01/e272eab6fd020a3c.jpg" alt="新春限定優惠">
         </a>
       </div>

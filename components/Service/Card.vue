@@ -315,6 +315,17 @@ const servicesCardPageData = {
               max-height: 70%;
             }
           }
+          &.hot{
+            .servicesCard-in-image{
+              &::before{
+                padding: 30px 0 0;
+                left: -20px;
+                top: -25px;
+                width: 90px;
+                text-align: center;
+              }
+            }
+          }
           &-name{
             font-size: 16px;
             padding: 10px 0 30px;

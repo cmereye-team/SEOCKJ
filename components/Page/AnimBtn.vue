@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { defineProps } from "vue";
-import { whatsAppNum } from '~/assets/js/common'
+import { whatsapplink } from '~/assets/js/common'
 let prop = defineProps({
   str:{
     type: String,
@@ -8,7 +8,7 @@ let prop = defineProps({
   },
   link: {
     type: String,
-    default: `https://api.whatsapp.com/send/?phone=${whatsAppNum}`
+    default: whatsapplink
   },
   refName: {
     type: String,
