@@ -165,8 +165,6 @@ onMounted(() => {
   setTimeout(() => {
     if(route.path.includes('/cn')){
       changlangsfun('s')
-    }else{
-      changlangsfun('t')
     }
   }, 500)
 })
