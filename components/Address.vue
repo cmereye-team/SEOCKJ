@@ -242,6 +242,7 @@ watch(
         font-size: 35px;
         clip-path: polygon(0 0, 93% 0, 100% 100%, 0 100%);
         span{
+          color: #fff;
           &.mbname{
             display: none;
           }

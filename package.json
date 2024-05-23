@@ -21,7 +21,9 @@
     "vue-router": "^4.3.2"
   },
   "devDependencies": {
+    "@element-plus/nuxt": "^1.0.9",
     "@types/node": "^20.12.12",
+    "element-plus": "^2.7.3",
     "sass": "^1.77.2",
     "vite-plugin-sass": "^0.1.0"
   }

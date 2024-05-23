@@ -101,7 +101,7 @@ const servicesCardLists = serviceLists
           position: relative;
           background: #FFF1F0;
           box-shadow: 0 2px 4px rgba(0,0,0,.25);
-          border-radius: 6px;
+          border-radius: 50%;
           transition: all .3s;
           box-sizing: border-box;
           // border: 2px solid #FFF1F0;
@@ -121,7 +121,7 @@ const servicesCardLists = serviceLists
         }
         &.hot{
           .servicesCard-in-image{
-            background: #F8CDCD;
+            // background: #F8CDCD;
             // border: 2px solid #F8CDCD;
             overflow: hidden;
             &::before{
@@ -151,7 +151,7 @@ const servicesCardLists = serviceLists
         }
         &>.router-link-exact-active{
           .servicesCard-in-image{
-            background: var(--indexColor_2);
+            // background: var(--indexColor_2);
             box-shadow: 0 5px 5px rgba(0,0,0,.45);
             transform: translateY(-5px);
           }
@@ -207,8 +207,6 @@ const servicesCardLists = serviceLists
           }
           &-image{
             box-shadow: 0 .1042vw .2083vw rgba(0,0,0,.25);
-            border-radius: .3125vw;
-            // border: .1042vw solid #FFF1F0;
             &:hover{
               box-shadow: 0 .2604vw .2604vw rgba(0,0,0,.45);
               transform: translateY(-0.2604vw);

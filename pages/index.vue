@@ -301,10 +301,24 @@ onMounted(()=>{
 </script>
 
 <template>
-  <div>
-    <!-- <PageNewHeader :headerConfig="headerConfigData" />  -->
-    <div class="pageIn">
+  <PageContainer>
+    <template #banner>
+      <div class="pagebanner">
+        <div class="pagebanner-in"><img src="https://static.cmereye.com/imgs/2024/05/0b20ccceba0bd119.webp" alt=""></div>
+      </div>
+    </template>
+    <template #pageIn>
+      <div class="pageIn">
       <serviceCard :isIndexShow="true" />
+      <div class="meitibaodao smallPageCon">
+        <img src="@/assets/images/meitibaodao.webp" alt="">
+      </div>
+      <div class="yakezhishi smallPageCon">
+        <div class="yakezhishi-title">
+          <div class="index_title">牙科知識</div>
+        </div>
+        <img src="@/assets/images/yakezhishi.webp" alt="">
+      </div>
       <div class="index-doctorTeam" ref="doctorTeam">
         <div class="index-doctorTeam-t smallPageCon">
           <div class="index_title">醫生團隊</div>
@@ -406,8 +420,6 @@ onMounted(()=>{
           </Swiper>
         </div>
       </div>
-      <!-- <AboutUs /> -->
-      <!-- <brandConcept-test /> -->
       <div class="index-org">
         <div class="index-org-t smallPageCon">
           <div class="index_title">相關機構</div>
@@ -494,11 +506,12 @@ onMounted(()=>{
         </div>
       </div>
       <Address />
-      <!-- <ContactForm-new /> -->
-    </div>
-    <!-- <PageFooter />
-    <PageNavbar :showDialogBox="(top<(height / 3 * 2)) && (bottom > (height / 3))" /> -->
-  </div>
+      <ContactForm />
+      </div>
+    </template>
+    
+  </PageContainer>
+    <!-- <PageNavbar :showDialogBox="(top<(height / 3 * 2)) && (bottom > (height / 3))" /> -->
 </template>
 
 <style lang="scss" scoped>
@@ -511,14 +524,6 @@ onMounted(()=>{
 svg:hover path{
   cursor: pointer;
   fill:rgba(255, 120, 117, 0.65)
-}
-.pageIn {
-  width: 100%;
-  background: #fff;
-  position: relative;
-  z-index: 1;
-  // padding-bottom: 140px;
-  // overflow: hidden;
 }
 .treatment-data{
   margin-top: 80px;
@@ -798,6 +803,7 @@ svg:hover path{
         padding-left: 20px;
         span{
           font-size: 20px;
+          color: var(--indexColor);
           &:nth-of-type(1){
             font-size: 35px;
             margin-right: 5px;
@@ -805,8 +811,8 @@ svg:hover path{
         }
       }
       .detail-2{
-        color: #fff;
         span{
+          color: #fff;
           font-size: 28px;
           padding: 5px 70px 5px 20px;
           display: inline-block;
@@ -1019,6 +1025,27 @@ svg:hover path{
         }
       }
     }
+  }
+}
+.meitibaodao,.yakezhishi{
+  margin-top: 80px;
+  &-title{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+}
+.pagebanner{
+  width: 100%;
+  &-in{
+    width: 100%;
+    background: url(https://static.cmereye.com/imgs/2024/05/0b20ccceba0bd119.webp) no-repeat;
+    background-size: 100% auto;
+    background-attachment: fixed;
+  }
+  img{
+    width: 100%;
+    opacity: 0;
   }
 }
 @media (min-width: 768px) and (max-width: 1920px){
@@ -1321,11 +1348,6 @@ svg:hover path{
       font-size: 16px;
       margin-top: 0px;
     }
-  }
-  .pageIn {
-    width: 100%;
-    background: #fff;
-    // padding: 0 0 90px;
   }
   //醫生團隊
   .index-doctorTeam{

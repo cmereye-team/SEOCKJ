@@ -2,19 +2,22 @@
     --indexColor: #FF6096;
     --textColor: #4d4d4d;
     --indexColor_2: #FEE6F1;
+    --indexFont: 'Noto Sans TC';
 }
-//清除css一些默认样式
+body,div,span,h1,h2,h3,h4,h5,h6,p,li,a{
+    font-family: var(--indexFont);
+    color: var(--textColor);
+}
 a{
     text-decoration: none;
 }
-
 *{
     margin: 0;
     padding: 0;
 }
 img{
     max-width: 100%;
-    height: auto;
+    // height: initial;
 }
 body{
     width: 100%;
@@ -27,6 +30,14 @@ body{
     margin: 0 auto;
 }
 
+.bgColor{
+    background-color: var(--indexColor);
+}
+.pageIn{
+    padding: 0;
+    position: relative;
+    z-index: 1;
+}
 .index_title{
     font-size: 35px;
     color: var(--textColor);
@@ -53,11 +64,19 @@ body{
             left: -0.5208vw;
         }
     }
+    .pageIn{
+        padding: 7.2917vw 0;
+        position: relative;
+        z-index: 1;
+    }
 }
 
 @media screen and (max-width: 768px) {
+    .pageIn{
+        padding: 90px 0;
+    }
     .smallPageCon{
-      width: 100%;
+        width: 100%;
     } 
     .index_title{
         font-size: 19px;
