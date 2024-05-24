@@ -1,9 +1,8 @@
-name: Record Time and Author
-
+name: 时间以及修改者信息
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   record_time:
