@@ -383,13 +383,7 @@ li{
   &-bg {
     position: relative;
     padding: 71px 0 75px;
-    background: linear-gradient(
-      270deg,
-      rgba(255, 241, 240, 0) 2.6%,
-      rgba(255, 241, 240, 0.7) 23.89%,
-      rgba(255, 241, 240, 0.7) 75.33%,
-      rgba(255, 241, 240, 0) 97.4%
-    );
+    background: #FFF1F0;
   }
   &-title {
     display: flex;

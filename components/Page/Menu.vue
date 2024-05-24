@@ -337,6 +337,8 @@ const isFiexdHeader = ref(false)
     display: flex;
     align-items: center;
     background: #fff;
+    position: relative;
+    z-index: 2;
     &-in{
         width: 100%;
         max-width: 1450px;

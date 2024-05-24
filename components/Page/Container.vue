@@ -10,6 +10,7 @@
 
 <template>
     <div class="container">
+        <PageMenuBar />
         <slot name="banner">
             <PageBanner />
         </slot>
