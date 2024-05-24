@@ -9,6 +9,10 @@ defineProps({
             mb: ''
         }
     }
+  },
+  btn: {
+    type: String,
+    default: '掛號'
   }
 })
 </script>
@@ -16,6 +20,9 @@ defineProps({
 <template>
     <div class="pagebanner">
         <div class="pagebanner-in"><img :src="config.pc" alt=""></div>
+        <div class="pagebanner-btn">
+            <!-- <PageAnimBtnTypeTwo :str="btn" /> -->
+        </div>
     </div>
 </template>
 
