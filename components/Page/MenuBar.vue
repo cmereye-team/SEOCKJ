@@ -65,12 +65,11 @@ const menuBar = ref(null)
 .menuBar{
   width: 100%;
   height: 67px;
-  // display: flex;
-  position: fixed;
+  // position: fixed;
+  position: relative;
   top: 0;
   left: 0;
-  // position: absolute;
-  // z-index: 1;
+  z-index: 1;
   &-in{
     width: 100%;
     height: 67px;

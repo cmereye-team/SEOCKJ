@@ -37,6 +37,7 @@ defineProps({
     background: url(https://static.cmereye.com/imgs/2024/05/0b20ccceba0bd119.webp) no-repeat;
     background-size: 100% auto;
     background-attachment: fixed;
+    background-position: 0 67px;
   }
   img{
     width: 100%;
@@ -103,6 +104,12 @@ defineProps({
 //         opacity: 0;
 //     }
 // }
-@media (min-width: 768px) and (max-width: 1452px) {}
+@media (min-width: 768px) and (max-width: 1920px) {
+    .pagebanner{
+        &-in{
+            background-position: 0 3.4896vw;
+        }
+    }
+}
 @media screen and (max-width: 768px) {}
 </style>

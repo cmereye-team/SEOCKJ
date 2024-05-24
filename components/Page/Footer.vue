@@ -48,11 +48,11 @@ const handlecopywechatcode = () => {
         _bool.value = true
       },
       function (err) {
-        // ElMessage({
-        //   showClose: true,
-        //   message: '操作異常，請刷新頁面試試',
-        //   type: 'warning',
-        // })
+        ElMessage({
+          showClose: true,
+          message: '操作異常，請刷新頁面試試',
+          type: 'warning',
+        })
       }
     )
   } else {
@@ -63,19 +63,29 @@ const handlecopywechatcode = () => {
 const handleopenwechat = () => {
   window.location.href = 'weixin://'
 }
+
+
+let footerLists:any = serviceLists
+footerLists.push({
+  name: '',
+  imgUrl: '',
+  link: '',
+  isHot: false,
+  footerOrder: 12
+})
 </script>
 
 <template>
   <div class="bgColor footerBox">
-    <!-- <div class="footer-l"> -->
+    <div class="footer-l">
       <div class="footer-content bigPageCon">
-        <div class="footer-content-nav">
+        <!-- <div class="footer-content-nav">
         <div v-for="(navItem, navIndex) in navLists" :key="navIndex">
           <nuxt-link :to="'#'" :title="navItem.name">
             {{ navItem.name }}
           </nuxt-link>
         </div>
-      </div>
+      </div> -->
         <div class="footer-content-logo_one">
           <nuxt-link
             :to="'/'"
@@ -86,8 +96,7 @@ const handleopenwechat = () => {
           </nuxt-link>
         </div>
         <div class="footer-content-text">
-          <!-- {{ $t('components.footer.text1') }} {{ '\n'
-          }}{{ $t('components.footer.text2') }} -->
+          {{ '29年專科 • 專業 • 專注\n港人首選一站式連鎖牙科品牌' }}
           <nuxt-link :to="`tel: ${phoneNum}`" class="footer-content-text-tel">
             <img src="@/assets/images/navIcon_1.png" alt="" />
             <span>香港熱線：(852) {{ smallPhoneNum }}</span>
@@ -158,12 +167,12 @@ const handleopenwechat = () => {
           本網站資訊僅供參考，不能作診療及醫療為依據
         </div>
       </div>
-    <!-- </div>
+    </div>
     <div class="footer-c">
       <div class="footer-c-nav">
-        <div v-for="(navItem, navIndex) in navLists" :key="navIndex">
-          <nuxt-link :to="navItem.link" :title="$t(navItem.name)">
-            {{ $t(navItem.name) }}
+        <div :class="{serviceNavItem: navItem.link === '/dental-service/implant'}" v-for="(navItem, navIndex) in navLists" :key="navIndex">
+          <nuxt-link :to="'#'" :title="navItem.name">
+            {{ navItem.name }}
           </nuxt-link>
         </div>
       </div>
@@ -172,16 +181,18 @@ const handleopenwechat = () => {
       <nuxt-link :to="`tel: ${phoneNum}`" class="footer-content-text-tel">
         <img src="@/assets/images/navIcon_1.png" alt="" />
         <span>香港熱線：(852) {{ smallPhoneNum }}</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="566" height="14" viewBox="0 0 566 14" fill="none">
+        <path d="M2 12C16.0367 12 16.0367 2.71698 30.082 2.71698C44.1272 2.71698 44.1187 12 58.164 12C72.2092 12 72.2007 2.71698 86.2459 2.71698C100.291 2.71698 100.283 12 114.319 12C128.356 12 128.356 2.71698 142.401 2.71698C156.447 2.71698 156.438 12 170.475 12C184.512 12 184.512 2.71698 198.557 2.71698C212.602 2.71698 212.602 12 226.639 12C240.676 12 240.676 2.71698 254.721 2.71698C268.766 2.71698 268.766 12 282.803 12C296.84 12 296.84 2.71698 310.885 2.71698C324.93 2.71698 324.93 12 338.967 12C353.003 12 353.012 2.71698 367.049 2.71698C381.085 2.71698 381.094 12 395.131 12C409.167 12 409.176 2.71698 423.213 2.71698C437.249 2.71698 437.249 12 451.295 12C465.34 12 465.331 2.71698 479.377 2.71698C493.422 2.71698 493.422 12 507.459 12C521.495 12 521.504 2.71698 535.541 2.71698C549.577 2.71698 549.586 12 563.623 12" stroke="#FFC700" stroke-width="4" stroke-miterlimit="10" stroke-linecap="round"/>
+        </svg>
       </nuxt-link>
       <div class="serviceCar">
-        <div class="serviceCar-title">牙科服務</div>
         <div class="serviceCar-content">
-          <div class="serviceCar-content-item" v-for="(item,index) in serviceLists" :key="index">
-            <nuxt-link :to="item.link"><span>{{$t(item.name)}}</span></nuxt-link>
+          <div class="serviceCar-content-item" :style="{order: item.footerOrder}" v-for="(item,index) in serviceLists" :key="index">
+            <nuxt-link :class="`order-${item.footerOrder}`" :to="'#'"><span>{{item.name}}</span></nuxt-link>
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
     <div :class="['dialogBox', { show: _bool }]" @click="_bool = false">
       <div :class="['dialogBox-in', { 'show-in': _bool }]" @click.stop="">
         <div class="title">WeChat ID已複製</div>
@@ -273,62 +284,87 @@ const handleopenwechat = () => {
     transform: translateY(0);
   }
 }
-// .footerBox{
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   .footer-l{
+.footerBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 94px 300px;
+  .footer-c{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin: 0 97px;
+    &-nav{
+      display: flex;
+      flex-direction: column;
+      font-size: 22px;
+      line-height: 160%; 
+      color: #fff;
+      &>div{
+        margin: 10px 0;
+        a{
+          color: #fff;
+        }
+        &.serviceNavItem{
+          display: none;
+        }
+      }
+    }
+  }
+  .footer-r{
+    flex: 1;
+    .footer-content-text-tel{
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        color: #fff;
+        font-size: 38px;
+        position: relative;
+        & > img {
+          width: 40px;
+          height: auto;
+          margin-right: 13px;
+        }
+        &>svg{
+          position: absolute;
+          bottom: -25px;
+          left: 0;
+          width: 566px;
+        }
+    }
+    .serviceCar{
 
-//   }
-//   .footer-c{
-//     display: flex;
-//     align-items: center;
-//     height: 100%;
-//     margin: 0 97px;
-//     &-nav{
-//       display: flex;
-//       flex-direction: column;
-//       font-size: 22px;
-//       line-height: 160%; 
-//       color: #fff;
-//       &>div{
-//         margin: 10px 0;
-//       }
-//     }
-//   }
-//   .footer-r{
-//     .footer-content-text-tel{
-//         margin-top: 25px;
-//         display: flex;
-//         align-items: center;
-//         color: #fff;
-//         font-size: 22px;
-//         & > img {
-//           width: 26px;
-//           height: 24px;
-//           margin-right: 13px;
-//         }
-//     }
-//     .serviceCar{
-//       &-title{
-//         font-size: 22px;
-//         line-height: 160%;
-//         margin: 29px 0 0;
-//         color: #fff;
-//       }
-//       &-content{
-//         &-item{
-//           margin-top: 23px;
-//           margin-right: 47px;
-//           font-style: normal;
-//           line-height: 160%; /* 35.2px */
-//           letter-spacing: 5.5px;
-//           color: #fff;
-//         }
-//       }
-//     }
-//   }
-// }
+      &-content{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        &-item{
+          margin-top: 23px;
+          &>a{
+            position: relative;
+            span{
+              color: #fff;
+              font-size: 22px;
+            }
+            &.order-12{
+              display: none;
+            }
+            &:after{
+              content: '';
+              height: 10px;
+              width: 100%;
+              background: #fff;
+              position: absolute;
+              bottom: -8px;
+              left: 0;
+              border-radius: 5px;
+              transform: scaleY(.2);
+            }
+          }
+        }
+      }
+    }
+  }
+}
 .footer-content {
   display: flex;
   flex-direction: column;
@@ -337,7 +373,7 @@ const handleopenwechat = () => {
   position: relative;
   font-weight: 700;
   width: 100%;
-  padding: 40px 0;
+  // padding: 40px 0;
   box-sizing: border-box;
   &-nav {
     display: flex;
@@ -371,6 +407,7 @@ const handleopenwechat = () => {
       margin-top: 25px;
       display: flex;
       align-items: center;
+      display: none;
       & > img {
         width: 26px;
         height: 24px;
@@ -511,6 +548,49 @@ const handleopenwechat = () => {
       margin-top: 1.0417vw;
     }
   }
+  .footerBox{
+    padding: 4.8958vw 15.625vw;
+    .footer-c{
+      margin: 0 5.0521vw;
+      &-nav{
+        font-size: 1.1458vw;
+        &>div{
+          margin: .5208vw 0;
+        }
+      }
+    }
+    .footer-r{
+      .footer-content-text-tel{
+          margin-bottom: 1.5625vw;
+          font-size: 1.9792vw;
+          & > img {
+            width: 2.0833vw;
+            margin-right: .6771vw;
+          }
+          &>svg{
+            bottom: -1.3021vw;
+            width: 29.4792vw;
+          }
+      }
+      .serviceCar{
+        &-content{
+          &-item{
+            margin-top: 1.1979vw;
+            &>a{
+              span{
+                font-size: 1.1458vw;
+              }
+              &:after{
+                height: .5208vw;
+                bottom: -0.4167vw;
+                border-radius: .2604vw;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 @media screen and (max-width: 768px) {
   .footer-content {
@@ -540,6 +620,13 @@ const handleopenwechat = () => {
     }
     &-Disclaimer {
       margin-top: 0;
+    }
+  }
+  .footerBox{
+    flex-direction: column;
+    padding: 45px 30px 127px;
+    .footer-r{
+      display: none;
     }
   }
 }
