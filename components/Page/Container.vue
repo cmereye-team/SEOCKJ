@@ -10,7 +10,9 @@
 
 <template>
     <div class="container">
-        <slot name="banner"></slot>
+        <slot name="banner">
+            <PageBanner />
+        </slot>
         <PageMenu />
         <slot name="pageIn" ></slot>
         <PageFooter />

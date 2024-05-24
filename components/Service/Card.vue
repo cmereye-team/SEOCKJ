@@ -19,7 +19,7 @@ const servicesCardLists = serviceLists
   <div :class="[{'index-dentalServices':true,'isMenu': isMenu},{'index-dentalServices-indexshow': isIndexShow}]">
     <div :class="['index-dentalServices-in', 'smallPageCon', {'isIndexShow': !isIndexShow,'isMenu': isMenu}]">
       <div class="titile">
-        <div class="index_title" v-if="isIndexShow">牙科服務</div>
+        <div class="index_title" v-if="isIndexShow">診療項目</div>
       </div>
       <div class="index-dentistryServices-in-title" v-if="!isIndexShow && !isMenu">
         <div class="index_title">其他牙科服務</div>
@@ -65,7 +65,7 @@ const servicesCardLists = serviceLists
         width: 100%;
         max-width: 700px;
         font-style: normal;
-        font-weight: 600;
+        // font-weight: 600;
         font-size: 20px;
         line-height: 160%;
         color: #666666;
@@ -121,25 +121,22 @@ const servicesCardLists = serviceLists
         }
         &.hot{
           .servicesCard-in-image{
-            // background: #F8CDCD;
-            // border: 2px solid #F8CDCD;
-            overflow: hidden;
             &::before{
               content: '熱門';
-              // background: var(--indexColor);
-              // padding: 20px 30px 0;
               position: absolute;
-              width: 80px;
-              height: 80px;
-              left: 0;
-              top: 0;
+              width: 60px;
+              height: 60px;
+              left: -20px;
+              top: -10px;
               display: flex;
               justify-content: center;
               align-items: center;
               font-weight: bold;
-              font-size: 26px;
+              font-size: 20px;
               color: #FFF620;
-              background: url(@/assets/images/icon_70bg.svg);
+              background: url(@/assets/images/icon_70bg.svg) no-repeat;
+              background-size: 100% 100%;
+              z-index: 1;
             }
           }
         }
@@ -155,8 +152,8 @@ const servicesCardLists = serviceLists
         &>.router-link-exact-active{
           .servicesCard-in-image{
             // background: var(--indexColor_2);
-            box-shadow: 0 5px 5px rgba(0,0,0,.45);
-            transform: translateY(-5px);
+            // box-shadow: 0 5px 5px rgba(0,0,0,.45);
+            // transform: translateY(-5px);
           }
         }
       }
@@ -184,68 +181,6 @@ const servicesCardLists = serviceLists
 }
 @media (min-width: 769px) and (max-width: 1920px) {
  
-  .index-dentalServices{
-    padding: 9.8438vw 0 0;
-    &-indexshow{
-      padding: 5.2083vw 0 0;
-    }
-    &-in{
-      .context{
-        margin-top: 1.8229vw;
-        &-in{
-          max-width: 36.4583vw;
-          font-size: 1.0417vw;
-          &.isIndex{
-            max-width: 39.5833vw;
-          }
-        }
-      }
-      .servicesCard{
-        margin: 2.3958vw auto 0;
-        max-width: 39.5833vw;
-        &-in{
-          padding: 0 1.0417vw;
-          a{
-            padding: 0 .5208vw;
-          }
-          &-image{
-            box-shadow: 0 .1042vw .2083vw rgba(0,0,0,.25);
-            &:hover{
-              box-shadow: 0 .2604vw .2604vw rgba(0,0,0,.45);
-              transform: translateY(-0.2604vw);
-            }
-          }
-          &.hot{
-            .servicesCard-in-image{
-              &::before{
-                // padding: 1.0417vw 1.5625vw 0;
-                // font-size: .625vw;
-              }
-            }
-          }
-          &-name{
-            padding: .5208vw 0 2.0833vw;
-            font-size: .8333vw;
-          }
-          &>.router-link-exact-active{
-            .servicesCard-in-image{
-              box-shadow: 0 .2604vw .2604vw rgba(0,0,0,.45);
-              transform: translateY(-0.2604vw);
-            }
-          }
-        }
-        &.isMenu{
-          .servicesCard-in{
-            padding: 0 .3125vw;
-            &-name{
-              font-size: .7813vw;
-              padding: .4167vw 0;
-            }
-          }
-        }
-      }
-    }
-  }
 }
 @media screen and (max-width: 768px) {
   .index-dentistryServices-in-title{

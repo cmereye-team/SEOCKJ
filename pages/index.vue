@@ -303,9 +303,7 @@ onMounted(()=>{
 <template>
   <PageContainer>
     <template #banner>
-      <div class="pagebanner">
-        <div class="pagebanner-in"><img src="https://static.cmereye.com/imgs/2024/05/0b20ccceba0bd119.webp" alt=""></div>
-      </div>
+      <PageBanner />
     </template>
     <template #pageIn>
       <div class="pageIn">
@@ -1035,19 +1033,7 @@ svg:hover path{
     margin-bottom: 50px;
   }
 }
-.pagebanner{
-  width: 100%;
-  &-in{
-    width: 100%;
-    background: url(https://static.cmereye.com/imgs/2024/05/0b20ccceba0bd119.webp) no-repeat;
-    background-size: 100% auto;
-    background-attachment: fixed;
-  }
-  img{
-    width: 100%;
-    opacity: 0;
-  }
-}
+
 @media (min-width: 768px) and (max-width: 1920px){
   .index-org{
     margin-top: 6.25vw;

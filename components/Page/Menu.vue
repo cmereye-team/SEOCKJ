@@ -142,6 +142,28 @@ const classNamefilter = (_menu: any, _idx: number) => {
   return className
 }
 const windowWidth = ref(1920)
+const handleMbMenu = () => {
+  if (!window.navigator.onLine) {
+    ElMessage({
+      showClose: true,
+      message: '網路異常，請檢查網路後重試',
+      type: 'warning',
+    })
+  }
+}
+const menuActNum = ref(0)
+const handleMenu = (_idx: number) => {
+  if (menuActNum.value === _idx) menuActNum.value = 0
+  else menuActNum.value = _idx
+}
+const menuBoxBool = ref(false)
+const handleMenuChild = (_menu: any, _idx: number) => {
+  if (_menu.link.includes('medical-team')) {
+    appState.setCurNum(_idx)
+    menuBoxBool.value = false
+  }
+}
+const isFiexdHeader = ref(false)
 </script>
 
 <template>
@@ -187,7 +209,7 @@ const windowWidth = ref(1920)
                     classNamefilter(menuChildItem, menuChildIndex)]"
                   @click.stop="handleMenuChild(menuItem, menuChildIndex)"
                 >
-                  <nuxt-link :to="menuChildItem.link" :class="{hot: menuChildItem.isHot}">
+                  <nuxt-link :to="'#'" :class="{hot: menuChildItem.isHot}">
                     {{ menuChildItem.link === '/dental-service/wisdom-teeth-extraction' ? '拔牙\n' : '' }}
                     {{ menuChildItem.name }}
                   </nuxt-link>
