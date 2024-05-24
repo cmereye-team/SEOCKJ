@@ -242,7 +242,7 @@ const windowWidth = ref(1920)
             :key="index"
             :class="['menuLists-item', item.child.length ? 'childIcon' : '',{ 'health-care-voucher': item.link === '/health-care-voucher'},{ 'federation-of-trade-unions-zone': item.link === '/federation-of-trade-unions-zone'}]"
           >
-            <nuxt-link :to="!item.child.length ? item.link : 'javaScript:void(0)'" :title="item.name">
+            <nuxt-link :to="!item.child.length ? '#' : 'javaScript:void(0)'" :title="item.name">
               <div @click="handleMenu(index)">
                 {{ item.name }}
               </div>
@@ -258,7 +258,7 @@ const windowWidth = ref(1920)
                 class="menuLists-childLists-item"
                 @click="handleMenuChild(item, itemChildIndex)"
               >
-                <nuxt-link :to="itemChild.link" @click.native="handleMbMenu">
+                <nuxt-link :to="'#'" @click.native="handleMbMenu">
                   {{ itemChild.name }}
                 </nuxt-link>
               </div>

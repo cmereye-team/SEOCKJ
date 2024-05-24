@@ -126,17 +126,20 @@ const servicesCardLists = serviceLists
             overflow: hidden;
             &::before{
               content: '熱門';
-              background: var(--indexColor);
-              padding: 20px 30px 0;
+              // background: var(--indexColor);
+              // padding: 20px 30px 0;
               position: absolute;
-              left: -25%;
-              top: -20%;
-              transform: rotate(-45deg);
-              font-size: 12px;
-              color: #fff;
-              line-height: 1.6;
-              z-index: 1;
-              transform-origin: bottom;
+              width: 80px;
+              height: 80px;
+              left: 0;
+              top: 0;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-weight: bold;
+              font-size: 26px;
+              color: #FFF620;
+              background: url(@/assets/images/icon_70bg.svg);
             }
           }
         }
@@ -215,8 +218,8 @@ const servicesCardLists = serviceLists
           &.hot{
             .servicesCard-in-image{
               &::before{
-                padding: 1.0417vw 1.5625vw 0;
-                font-size: .625vw;
+                // padding: 1.0417vw 1.5625vw 0;
+                // font-size: .625vw;
               }
             }
           }
