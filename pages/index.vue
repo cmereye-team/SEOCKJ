@@ -313,25 +313,177 @@ const onIndexOrgSlideChange = (swiper) =>{
 
 const doctorTeam = ref(null)
 const { top,bottom } = useElementBounding(doctorTeam)
-const { height } = useWindowSize()
+const { width,height } = useWindowSize()
 
 onMounted(()=>{
   handletab2('101')
 })
+
+const sectionBoxImage = [
+  'https://static.cmereye.com/imgs/2024/05/d9ac62b96ae1454c.jpg',
+  'https://static.cmereye.com/imgs/2024/05/1f0c166a1a9b240f.jpg',
+  'https://static.cmereye.com/imgs/2024/05/47e396ed7c3b17ee.jpg',
+  'https://static.cmereye.com/imgs/2024/05/4baebbe0a7bf99c3.png'
+]
+let media_coverage_cur_tab = ref(0)
+
+const Dental_knowledge = [
+  {
+    name: '種植牙',
+    context: '利用鈦金屬等物料製作成植體，然後植入進行牙槽骨當中，代替牙根以作支撐，然後在上面植入假牙、牙橋或假牙托來填補空缺的牙齒。隨着醫療技術的進步，現在不僅有傳統的植牙方式，還有微創植牙。',
+    lists: [
+      {
+        q: '甚麼人不適合接受植牙治療？'
+      },
+      {
+        q: '植牙手術會痛嗎？'
+      },
+      {
+        q: '植牙有甚麼風險？'
+      },
+      {
+        q: '植牙會有甚麼後遺症？'
+      },
+      {
+        q: '可否同時接受拔牙與植牙治療？'
+      }
+    ]
+  },{
+    name: '洗牙',
+    context: ''
+  },{
+    name: '補牙',
+    context: ''
+  },{
+    name: '全瓷貼片',
+    context: ''
+  },{
+    name: '牙托',
+    context: ''
+  }
+]
+let Dental_knowledge_cur_tab = ref(0)
+
+const newsListsConfig_1 = {
+  title: '牙齒百科',
+  tab: ['最熱門','最新'],
+  lists: [
+  ]
+}
+
+const newsListsConfig_2 = {
+  title: '牙齒百科',
+  tab: ['最熱門','最新'],
+  lists: [
+  ]
+}
+
+const newsListsConfig_3 = {
+  title: '最新資訊',
+  tab: ['最熱門','最新'],
+  lists: [
+  ]
+}
+
 </script>
 
 <template>
   <div>
     <PageNewHeader :headerConfig="headerConfigData" /> 
     <div class="indexPage">
-      <!-- 最新消息 -->
-      <!-- <LatestNews /> -->
-      <!-- 牙科服務 -->
       <serviceCard :isIndexShow="true" />
-      <!-- 醫生團隊 -->
+      <div class="sectionBox">
+        <div class="sectionBox-l">
+          <div class="image-t">
+            <img src="https://static.cmereye.com/imgs/2024/05/4f0ef4264fabb9ee.jpg" alt="">
+          </div>
+          <div class="image-b">
+            <img :src="item" v-for="(item,index) in sectionBoxImage" :key="index" alt="">
+          </div>
+        </div>
+        <div class="sectionBox-c">
+          <div class="media_coverage-title">
+            <div class="index_title">
+              媒體報導
+            </div>
+          </div>
+          <div class="media_coverage-tab">
+            <div :class="{cur: media_coverage_cur_tab === 0}">
+              最熱門
+            </div>
+            <div :class="{cur: media_coverage_cur_tab === 1}">最新</div>
+          </div>
+          <div class="media_coverage-content">
+            <div class="list-in" v-for="item in width>768?2:5" :key="item">
+              <div class="list-in-t">
+                <div class="list-in-t-l">
+                  <img src="https://static.cmereye.com/imgs/2024/05/3951943c2b02c42f.jpg" alt="">
+                </div>
+                <div class="list-in-t-r">
+                  <img src="https://static.cmereye.com/imgs/2024/05/d8baabc1fdd1f406.png" alt="">
+                  <span>深圳Costco周邊食買玩一條龍｜紅山6979商場｜¥88高性價比洗牙！</span>
+                </div>
+              </div>
+              <div class="list-in-b">
+                <div class="list-in-b-l">
+                  <span>#洗牙</span>
+                  <span>#種植牙</span>
+                  <span>#愛康健羅湖</span>
+                  <span>#愛康健</span>
+                </div>
+                <div class="list-in-b-r">
+                  21小時前
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="media_coverage-btn">
+            <div>查看更多</div>
+          </div>
+        </div>
+        <div class="sectionBox-r">
+          <AboutUs />
+        </div>
+      </div>
+      <div class="Dental_knowledge">
+        <div class="Dental_knowledge-title">
+          <div class="index_title">
+            牙科知識
+          </div>
+        </div>
+        <div class="Dental_knowledge-tab">
+          <div class="Dental_knowledge-tab-in" :class="{cur: Dental_knowledge_cur_tab === index}" v-for="(item,index) in Dental_knowledge" :key="index">
+            {{item.name}}
+          </div>
+        </div>
+        <div class="Dental_knowledge-content">
+          <div class="Dental_knowledge-content-l">
+            <img src="https://static.cmereye.com/imgs/2024/05/e2d21aaaf391c909.png" alt="">
+          </div>
+          <div class="Dental_knowledge-content-c">
+            <div class="info">
+              <div class="info-l">
+                <img src="https://static.cmereye.com/imgs/2024/05/8a104fb9dc69d0a0.png" alt="">
+              </div>
+              <div class="info-r">
+                <div class="title">{{Dental_knowledge[0].name}}</div>
+                <div class="context">{{Dental_knowledge[0].context}}</div>
+              </div>
+            </div>
+            <div class="lists">
+              <div class="lists-in" v-for="(item,index) in Dental_knowledge[0].lists" :key="index">
+                {{item.q}}
+              </div>
+            </div>
+          </div>
+          <div class="Dental_knowledge-content-r">
+            <img src="https://static.cmereye.com/imgs/2024/05/758fa03eda0cc4ff.png" alt="">
+          </div>
+        </div>
+      </div>
       <div class="index-doctorTeam" ref="doctorTeam">
         <div class="index-doctorTeam-t smallPageCon">
-          <div class="index_title index_title_2">醫生團隊</div>
+          <div class="index_title">醫生團隊</div>
         </div>
         <div class="index-doctorTeam-tab1 index-doctorTeam-con">
             <AreaTab />
@@ -434,13 +586,9 @@ onMounted(()=>{
           </Swiper>
         </div>
       </div>
-      <!-- 關於我們 -->
-      <AboutUs />
-      <!-- 品牌理念 -->
-      <brandConcept-test />
       <div class="index-org">
-        <div class="index-org-t smallPageCon">
-          <div class="index_title index_title_2">相關機構</div>
+        <div class="index-org-t">
+          <div class="index_title">相關機構</div>
         </div>
         <div class="index-org-tag smallPageCon">
           <div class="index-org-tag-in" :class="{'active': orgTabCur === orgTabIndex}" v-for="(orgTabItem,orgTabIndex) in orgTabLists" :key="orgTabIndex" @click="handleorgtabfun(orgTabIndex)">
@@ -465,31 +613,7 @@ onMounted(()=>{
             </Swiper-slide>
           </Swiper>
         </div>
-      </div>
-      <div class="index-videoBox">
-        <div class="index-videoBox-t smallPageCon">
-          <div class="index_title index_title_2">專題報導</div>
-        </div>
-        <div class="index-videoBox-c smallPageCon">
-          <div class="index-videoBox-c-l">
-            <div>HK01</div>
-            <div>深圳食買玩，點少得睇牙!口岸位置、性價比高 咪咪姐推薦口腔醫院</div>
-            <div class="index-videoBox-c-l-btn">
-              <PageAnimBtnTypeTwo link="/news/article/31" str="查看原文" />
-            </div>
-          </div>
-          <div class="index-videoBox-c-r">
-            <!-- <a href="https://www.hk01.com/%E5%81%A5%E5%BA%B7Easy/959987/%E6%B7%B1%E5%9C%B3%E9%A3%9F%E8%B2%B7%E7%8E%A9-%E9%BB%9E%E5%B0%91%E5%BE%97%E7%9D%87%E7%89%99-%E5%8F%A3%E5%B2%B8%E4%BD%8D%E7%BD%AE-%E6%80%A7%E5%83%B9%E6%AF%94%E9%AB%98-%E5%92%AA%E5%92%AA%E5%A7%90%E6%8E%A8%E8%96%A6%E5%8F%A3%E8%85%94%E9%86%AB%E9%99%A2" target="black">
-              <img src="https://static.cmereye.com/imgs/2023/12/0ef603cd96873713.webp" alt="專題報導" title="專題報導">
-              <img src="https://static.cmereye.com/imgs/2023/12/e974c03be612528f.png" class="icon" alt="">
-            </a> -->
-            <nuxt-link to="/news/article/31">
-              <img src="https://static.cmereye.com/imgs/2023/12/0ef603cd96873713.webp" alt="專題報導" title="專題報導">
-            </nuxt-link>
-          </div>
-        </div>
-      </div>   
-      <!-- 個案分享 -->
+      </div>  
       <div class="index-caseSharing">
         <div class="index-caseSharing-title">
           <div class="index_title">{{$t('pages.index.caseSharing.title')}}</div>
@@ -498,45 +622,79 @@ onMounted(()=>{
           <div class="in-top">
             <CaseSharingVideoItem :caseSharingData="caseSharingTopData" />
           </div>
-          <div class="in-cen">
-            <div class="in-cen-box" v-for="(caseSharingItem,caseSharingIndex) in caseSharingLists" :key="caseSharingIndex">
-              <CaseSharingImageItem :userInfo="caseSharingItem" :userIndex="caseSharingIndex" />
-            </div>
-          </div>
         </div>
       </div>
-      <div class="treatment-data">
-        <div class="treatment-data-title">
-          <span>早期深圳二級口腔醫院</span>
-          <span>香港品牌 實力信心</span>
+      <div class="mbBox">
+        <div class="newsListsBox">
+          <NewsLists :listsConfig="newsListsConfig_1" />
         </div>
-        <div class="treatment-data-in smallPageCon">
-          <div class="dataBox" v-for="(treatmentItem,treatmentIndex) in treatmentData" :key="treatmentIndex">
-            <div class="num">
-              <img :src="treatmentItem.bg" :style="{left: treatmentItem.left,top: treatmentItem.top}" alt="">
-              <div class="numIn" v-for="(numItem,numIndex) in treatmentItem.num" :key="numIndex">
-                <span v-if="numItem === ','">{{numItem}}</span>
-                <div v-else class="numInAnim" :class="[{showNumInAnim: showTreatment}]" :style="{'animation-delay': `${(treatmentItem.num.length - numIndex) * 0.2}s`}">
-                  <span v-for="numInItem in Number(numItem) ? Number(numItem) : 10" :key="numInItem">
-                    {{numInItem === 10 ? 0 : numInItem}}
-                  </span>
-                </div>
-              </div>
-              <span class="numBold">+</span>
-            </div>
-            <div class="name">{{treatmentItem.name}}</div>
-          </div>
+        <div class="newsListsBox">
+          <NewsLists :listsConfig="newsListsConfig_2" :thameType="'2'" />
         </div>
-        <div class="treatment-data-bText">
-          *以上數據由2019年開始統計至今
+        <div class="newsListsBox">
+          <NewsLists :listsConfig="newsListsConfig_3" :thameType="'3'" />
+        </div>
+        <div class="brandConceptBox">
+          <brandConcept-test />
+        </div>
+        <div class="AboutUsBox">
+          <AboutUs />
         </div>
       </div>
-      <!-- 聯絡我們 -->
+      <div class="brand">
+        <div class="brand-title">
+          <div class="brand-title-in">
+            <span>始於1995</span>
+            <span>愛康健口腔品牌連鎖</span>
+          </div>
+        </div>
+        <div class="brand-context">- 專科 · 專業 · 專注 · 專心 - </div>
+        <div class="brand-in">
+          <div>
+            <div>
+              <img src="https://static.cmereye.com/imgs/2023/05/d7e785a21ef31545.png" alt="">
+            </div>
+            <div>
+              深圳老字號
+            </div>
+          </div>
+          <div>
+            <div>
+              <img src="https://static.cmereye.com/imgs/2023/05/6b9b5cbf87f8da95.png" alt="">
+            </div>
+            <div>
+              廣東省著名商標品牌
+            </div>
+          </div>
+          <div>
+            <div>
+              <img src="https://static.cmereye.com/imgs/2023/05/42202884c1b63259.png" alt="">
+            </div>
+            <div>
+              中山大學光華口腔醫學院研究生課程深圳教學基地
+            </div>
+          </div>
+          <div>
+            <div>
+              <img src="https://static.cmereye.com/imgs/2023/05/cb849eb2ad0023d4.png" alt="">
+            </div>
+            <div>
+              最具口碑影響力企業
+            </div>
+          </div>
+          <nuxt-link to="https://www.gma-awards.hk01.group/%E5%BE%97%E7%8D%8E%E5%90%8D%E5%96%AE">
+            <div>
+              <img src="https://static.cmereye.com/imgs/2024/05/a4cced5ce2d5c606.png" alt="">
+            </div>
+            <div>
+              {{'香港01\n傑出大灣區牙科醫療\n服務機構'}}
+            </div>
+          </nuxt-link>
+        </div>
+      </div>
       <NewAddress />
       <ContactForm-new />
     </div>
-    <!-- <div style="position: fixed; top: 50%; left: 0;z-index: 9999;">{{top}} --- {{bottom}} --- {{(top<(height / 3 * 2)) && (bottom > 0)}}</div> -->
-    <!-- <PageAdbox /> -->
     <PageFooter />
     <PageNavbar :showDialogBox="(top<(height / 3 * 2)) && (bottom > (height / 3))" />
   </div>
@@ -558,95 +716,13 @@ svg:hover path{
   background: #fff;
   position: relative;
   z-index: 1;
-  // padding-bottom: 140px;
-  // overflow: hidden;
-}
-.treatment-data{
-  margin-top: 80px;
-  &-title{
-    span{
-      color: var(--indexColor1);
-      text-align: center;
-      font-size: 35px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 160%;
-      display: block;
-    }
-  }
-  &-in{
-    margin-top: 48px;
-    display: flex;
-    flex-wrap: wrap;
-    .dataBox{
-      flex: 1;
-      .num{
-        color: var(--indexColor1);
-        text-align: center;
-        font-size: 60px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 160%;
-        display: flex;
-        justify-content: center;
-        position: relative;
-        img{
-          position: absolute;
-        }
-        .numBold{
-          font-family: initial;
-          font-weight: bold;
-          margin-top: 5px;
-        }
-        .numIn{
-          height: 96px;
-          overflow: hidden;
-          position: relative;
-          span{
-            line-height: 96px;
-            display: block;
-          }
-          .numInAnim{
-            opacity: 0;
-            transition: all .3s;
-            display: flex;
-            flex-direction: column-reverse;
-            transform: translateY(-100%);
-            &.showNumInAnim{
-              opacity: 1;
-              animation: numAnim 1s ease-in-out forwards;
-            }
-          }
-        }
-      }
-      .name{
-        color: var(--textColor);
-        text-align: center;
-        font-size: 28px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 160%; 
-        margin-top: -10px;
-      }
-    }
-  }
-  &-bText{
-    color: var(--textColor);
-    text-align: center;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 160%;
-    margin-top: 30px;
-  }
 }
 //醫生團隊
 .index-doctorTeam{
-  margin: 60px auto 50px;
+  margin: 100px auto 50px;
   &-t{
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    justify-content: center;
   }
   &-con{
     width: 70%;
@@ -903,7 +979,7 @@ svg:hover path{
 }
 //個案分享
 .index-caseSharing{
-  padding: 35px 0;
+  padding: 35px 0 60px;
   background: linear-gradient(180deg,rgba(255, 241, 240, 0) 0%,var(--indexColor2) 100%);
   margin-top: 80px;
   &-title{
@@ -929,7 +1005,11 @@ svg:hover path{
   }
 }
 .index-org{
-  margin-top: 120px;
+  margin-top: 80px;
+  &-t{
+    display: flex;
+    justify-content: center;
+  }
   &-tag{
     width: 80%;
     max-width: 804px;
@@ -982,60 +1062,294 @@ svg:hover path{
     }
   }
 }
-.index-videoBox{
-  margin-top: 0;
-  &-c{
-    display: flex;
-    align-items: center;
-    margin-top: 50px;
-    &-l{
-      flex: 1;
-      &>div{
-        &:nth-of-type(1){
-          color: #4D4D4D;
-          font-size: 20px;
-          font-style: normal;
-          font-weight: 700;
-          line-height: 160%; 
-        }
-        &:nth-of-type(2){
-          color: #FC1682;
-          font-size: 28px;
-          font-style: normal;
-          font-weight: 700;
-          line-height: 160%; 
-        }
-      }
-      &-btn{
-        margin-top: 20px;
-        display: flex;
-        justify-content: center;
-        line-height: 1.6;
-      }
-    }
-    &-r{
-      width: calc((966 / 1432) * 100%);
-      padding-left: calc((100 / 1432) * 100%);
+.sectionBox{
+  width: 100%;
+  max-width: 1406px;
+  margin: 50px auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: 52px;
+  &-l{
+    .image-t{
       img{
         width: 100%;
       }
-      a{
-        position: relative;
+    }
+    .image-b{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 14px;
+      img{
+        width: 100%;
+        cursor: pointer;
       }
-      .icon{
+    }
+  }
+  &-c{
+    .media_coverage-tab{
+      display: flex;
+      margin-top: 20px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid var(--indexColor1);
+      &>div{
+        color: var(--indexColor1);
+        display: inline-block;
+        font-size: 20px;
+        padding: 3px 25px;
+        border-radius: 50px;
+        cursor: pointer;
+        margin-left: 20px;
+        position: relative;
+        &::after{
+          content: '';
+          width: 24px;
+          height: 32px;
+          position: absolute;
+          left: 50%;
+          top: calc(100% + 5px);
+          transform: translateX(-50%);
+          box-sizing: border-box;
+          border-left: 12px solid rgba(255,255,255,0);
+          border-top: 16px solid var(--indexColor1);
+          border-right: 12px solid rgba(255,255,255,0);
+          border-bottom: 16px solid rgba(255,255,255,0);
+          display: none;
+        }
+        &.cur{
+          background: var(--indexColor1);
+          color: #fff;
+          &::after{
+            display: block;
+          }
+        }
+      }
+    }
+    .media_coverage-content{
+      margin-top: 22px;
+      .list-in{
+        margin-bottom: 12px;
+        &-t{
+          display: grid;
+          grid-template-columns: 1fr 1.6fr;
+          gap: 22px;
+          align-items: center;
+          padding-bottom: 15px;
+          &-l{
+            width: 100%;
+          }
+          &-r{
+            display: -webkit-box;  
+            -webkit-line-clamp: 2; 
+            line-clamp: 2; 
+            -webkit-box-orient: vertical;  
+            overflow: hidden;  
+            text-overflow: ellipsis;
+            img{
+              display: initial;
+              margin-right: 5px;
+              max-width: 85px;
+            }
+            span{
+              font-size: 20px;
+              font-weight: 700;
+              line-height: 200%;
+            }
+          }
+        }
+        &-b{
+          display: grid;
+          grid-template-columns: 1.7fr 1fr;
+          padding: 5px 0;
+          border-top: 1px solid #aaa;
+          border-bottom: 1px solid #aaa;
+          &-l{
+            font-size: 18px;
+            letter-spacing: 1.8px;
+            position: relative;
+            text-decoration: underline;
+            overflow: hidden;
+            white-space: nowrap;
+            span{
+              margin-right: 15px;
+            }
+            &::after{
+              content: '';
+              position: absolute;
+              top: 0;
+              right: 0;
+              width: 80px;
+              height: 100%;
+              background: linear-gradient(90deg,rgba(255, 255, 255, 0),#fff);
+            }
+          }
+          &-r{
+            background: #fff;
+            font-size: 20px;
+            color: #aaa;
+            display: flex;
+            justify-content: flex-end;
+          }
+        }
+      }
+    }
+    .media_coverage-btn{
+      border: 1px solid var(--textColor);
+      font-size: 20px;
+      font-weight: 700;
+      text-align: center;
+      padding: 7px 0;
+      cursor: pointer;
+    }
+  }
+  &-r{
+    max-width: 351px;
+  }
+}
+.Dental_knowledge{
+  margin-top: 60px;
+  &-title{
+    display: flex;
+    justify-content: center;
+  }
+  &-tab{
+    display: flex;
+    justify-content: center;
+    max-width: 1365px;
+    margin:  35px auto 0;
+    gap: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--indexColor1);
+    &-in{
+      color: var(--indexColor1);
+      display: inline-block;
+      font-size: 40px;
+      padding: 0 35px;
+      border-radius: 50px;
+      cursor: pointer;
+      position: relative;
+      &.cur{
+        background: var(--indexColor1);
+        color: #fff;
+      }
+    }
+  }
+  &-content{
+    display: grid;
+    max-width: 1365px;
+    margin: 35px auto 0;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 57px;
+    padding: 0 35px;
+    &-l{
+      img{
+        width: 100%;
+      }
+    }
+    &-c{
+      .info{
+        margin-bottom: 8px;
+        &-l{
+          display: none;
+        }
+      }
+      .title{
+        font-size: 24px;
+        color: var(--indexColor1);
+      }
+      .context{
+        font-size: 20px;
+        color: var(--textColor);
+        margin-top: 5px;
+        line-height: 1.6;
+      }
+      .lists{
+        &-in{
+          font-size: 20px;
+          color: var(--textColor);
+          padding:  16px 0;
+          border-bottom: 1px solid #aaa;
+          &:first-child{
+            border-top: 1px solid #aaa;
+          }
+        }
+      }
+    }
+    &-r{
+      img{
+        width: 100%;
+      }
+    }
+  }
+}
+.brand{
+  margin-top: 80px;
+  &-title{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 160%;
+    color: #666666;
+    display: flex;
+    justify-content: center;
+    &-in{
+      display: inline-block;
+      position: relative;
+      span{
+        text-align: center;
+        display: block;
+      }
+      &::after{
+        content: '';
+        width: 100%;
+        height: 4px;
+        background: var(--indexColor);
+        border-radius: 2px;
         position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%,-50%);
-        width: 20%;
-        height: auto;
-        transition: all .3s;
-        &:hover{
-          width: 23%;
+        left: 0;
+        bottom: 0;
+      }
+    }
+  }
+  &-context{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 160%;
+    text-align: center;
+    color: var(--indexColor);
+    margin-top: 28px;
+  }
+  &-in{
+    width: 100%;
+    max-width: 1380px;
+    margin: 61px auto 0;
+    display: flex;
+    justify-content: space-between;
+    &>div,&>a{
+      flex: 1;
+      padding: 0 15px;
+      &>div{
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 160%;
+        text-align: center;
+        color: #4C4C4C;
+        white-space: pre-wrap;
+        &:last-child{
+          padding: 0 5px;
+        }
+        img{
+          margin: 0 auto;
+          max-width: 120px;
         }
       }
     }
   }
+}
+.mbBox{
+  display: none;
 }
 @media (min-width: 768px) and (max-width: 1920px){
   .index-org{
@@ -1063,27 +1377,8 @@ svg:hover path{
       }
     }
   }
-  .index-videoBox{
-    // margin-top: 4.1667vw;
-    &-c{
-      margin-top: 2.6042vw;
-      &-l{
-        &>div{
-          &:nth-of-type(1){
-            font-size: 1.0417vw;
-          }
-          &:nth-of-type(2){
-            font-size: 1.4583vw;
-          }
-        }
-        &-btn{
-          margin-top: 1.0417vw;
-        }
-      }
-    }
-  }
   .index-caseSharing{
-    padding: 1.8229vw 0;
+    padding: 1.8229vw 0 3.125vw;
     margin-top: 4.1667vw;
     &-in{
       width: 70%;
@@ -1097,41 +1392,8 @@ svg:hover path{
       }
     }
   }
-  .treatment-data{
-    margin-top: 4.1667vw;
-    &-title{
-      span{
-        font-size: 1.8229vw;
-      }
-    }
-    &-in{
-      margin-top: 2.5vw;
-      .dataBox{
-        .num{
-          font-size: 3.125vw;
-          .numBold{
-            margin-top: .2604vw;
-          }
-          .numIn{
-            height: 5vw;
-            span{
-              line-height: 5vw;
-            }
-          }
-        }
-        .name{
-          font-size: 1.4583vw;
-          margin-top: -0.5208vw;
-        }
-      }
-    }
-    &-bText{
-      font-size: 1.0417vw;
-      margin-top: 1.5625vw;
-    }
-  }
   .index-doctorTeam{
-    margin: 3.125vw auto 2.6042vw;
+    margin: 5.2083vw auto 2.6042vw;
     &-con{
       max-width: 66.6667vw;
       margin: 1.3021vw auto 0;
@@ -1257,80 +1519,61 @@ svg:hover path{
       padding-bottom: 2.0833vw;
     }
   }
+  .brand{
+    margin-top: 4.1667vw;
+    &-title{
+      font-size: 2.6042vw;
+      &-in{
+        &::after{
+          height: .2083vw;
+          border-radius: .1042vw;
+        }
+      }
+    }
+    &-context{
+      font-size: 30px;
+      margin-top: 1.4583vw;
+    }
+    &-in{
+      max-width: 71.875vw;
+      margin: 3.1771vw auto 0;
+      &>div,&>a{
+        padding: 0 .7813vw;
+        &>div{
+          font-size: 1.0417vw;
+          &:last-child{
+            padding: 0 .2604vw;
+          }
+          img{
+            max-width: 6.25vw;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 768px) {
-  .treatment-data{
-    margin-top: 70px;
-    overflow: hidden;
-    &-title{
-      span{
-        font-size: 20px;
-      }
-    }
-    &-in{
-      padding: 0 20px;
+  .mbBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .newsListsBox{
       margin-top: 60px;
-      .dataBox{
-        width: 50%;
-        &:not(:last-child){
-          margin-bottom: 62px;
-        }
-        .num{
-          font-size: 35px;
-          img{
-            width: 100px;
-
-          }
-          .numIn{
-            height: 50px;
-            span{
-              line-height: 50px;
-            }
-          }
-        }
-        .name{
-          font-size: 24px;
-        }
-        &:nth-of-type(1){
-          img{
-            left: 15% !important;
-            top: -60% !important;
-          }
-        }
-        &:nth-of-type(2){
-          img{
-            left: -5% !important;
-            top: -30% !important;
-            width: 50%;
-          }
-        }
-        &:nth-of-type(3){
-          img{
-            left: 5% !important;
-            top: -50% !important;
-          }
-        }
-        &:nth-of-type(4){
-          img{
-            width: 70%;
-            left: 45% !important;
-            top: -10% !important;
-          }
-        }
-      }
     }
-    &-bText{
-      font-size: 16px;
-      margin-top: 0px;
+    .brandConceptBox{
+      margin-top: 60px;
+      width: 100%;
+    }
+    .AboutUsBox{
+      margin-top: 60px;
+      max-width: 100%;
     }
   }
   .indexPage {
     width: 100%;
     background: #fff;
-    // padding: 0 0 90px;
   }
-  //醫生團隊
   .index-doctorTeam{
     margin: 50px 0 0;
     width: 100%;
@@ -1341,6 +1584,7 @@ svg:hover path{
       flex-direction: column;
       align-items: flex-start;
       box-sizing: border-box;
+      padding: 0 20px;
     }
     &-tab1{
       :deep(.areaTab){
@@ -1350,7 +1594,7 @@ svg:hover path{
       }
     }
     &-tab2{
-      padding: 0 30px;
+      padding: 0 20px;
       margin-top: 20px;
       &-in{
         display: flex;
@@ -1491,11 +1735,10 @@ svg:hover path{
     }
     
   }
-  //個案分享
   .index-caseSharing{
     padding: 0;
     background:none;
-    margin-top: 90px;
+    margin-top: 30px;
     &-in{
       width: 100%;
       margin: 35px auto 0;
@@ -1532,10 +1775,14 @@ svg:hover path{
     }
   }
   .index-org{
-    margin-top: 90px;
+    margin-top: 30px;
+    &-t{
+      justify-content: flex-start;
+      padding: 0 20px;
+    }
     &-tag{
       width: 100%;
-      max-width: calc(100% - 60px);
+      max-width: calc(100% - 40px);
       margin-top: 30px;
       &-in{
         font-size: 16px;
@@ -1558,29 +1805,161 @@ svg:hover path{
       }
     }
   }
-  .index-videoBox{
-    margin-top: 20px;
-    &-c{
-      flex-direction: column-reverse;
-      text-align: center;
-      margin-top: 34px;
-      &-l{
-        width: auto;
-        margin: 19px 30px 0;
+  .brand{
+    margin-top: 50px;
+    &-title{
+      font-size: 26px;
+      &-in{
+        &::after{
+          display: none;
+        }
+      }
+    }
+    &-context{
+      margin-top: 8px;
+      font-size: 14px;
+    }
+    &-in{
+      margin: 24.68px auto 0;
+      padding: 0 21.5px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      &>div,&>a{
+        flex: initial;
+        width: calc(100% / 3);
+        padding: 0 8.5px 10px;
         &>div{
-          &:nth-of-type(1){
-            font-size: 16px;
+          font-size: 8px;
+          &:first-child{
+            img{
+              width: 80%;
+            }
           }
-          &:nth-of-type(2){
-            font-size: 18px;
+          &:last-child{
+            margin-top: 6px;
+          }
+          img{
+            width: 100%;
           }
         }
       }
-      &-r{
-        width: 100%;
-        padding-left: 0;
-        a{
-          display: block;
+    }
+  }
+  .sectionBox{
+    grid-template-columns: 1fr;
+    padding: 0 17px;
+    &-l,&-r{
+      display: none;
+    }
+    &-c{
+      .media_coverage-title{
+        padding: 0 10px;
+      }
+      .media_coverage-tab{
+        &>div{
+          font-size: 15px;
+          font-weight: 700;
+          &::after{
+            width: 12px;
+            height: 16px;
+            border-left: 6px solid rgba(255,255,255,0);
+            border-top: 8px solid var(--indexColor1);
+            border-right: 6px solid rgba(255,255,255,0);
+            border-bottom: 8px solid rgba(255,255,255,0);
+          }
+        }
+      }
+      .media_coverage-content{
+        margin-top: 18px;
+        .list-in{
+          margin-bottom: 10px;
+          &-t{
+            padding-bottom: 10px;
+            &-r{
+              img{
+                max-width: 40px;
+              }
+              span{
+                font-size: 14px;
+              }
+            }
+          }
+          &-b{
+            &-l{
+              font-size: 13px;
+            }
+            &-r{
+              font-size: 13px;
+            }
+          }
+        }
+      }
+      .media_coverage-btn{
+        display: none;
+      }
+    }
+  }
+  .Dental_knowledge{
+    padding: 0 20px;
+    &-title{
+      justify-content: flex-start;
+      padding: 0 10px;
+    }
+    &-tab{
+      gap: 20px;
+      padding-bottom: 6px;
+      margin-top: 16px;
+      &-in{
+        font-size: 15px;
+        padding: 3px 15px;
+        font-weight: 700;
+        &:nth-of-type(4){
+          display: none;
+        }
+      }
+    }
+    &-content{
+      grid-template-columns: 1fr;
+      padding: 0;
+      margin-top: 18px;
+      &-l,&-r{
+        display: none;
+      }
+      &-c{
+        .info{
+          display: flex;
+          margin-bottom: 18px;
+          &-l{
+            display: block;
+            max-width: 127px;
+            margin-right: 11px;
+            img{
+              width: 100%;
+            }
+          }
+          &-r{
+            flex: 1;
+          }
+        }
+        .title{
+          font-size: 15px;
+        }
+        .context{
+          font-size: 14px;
+          display: -webkit-box;  
+          -webkit-line-clamp: 4; 
+          line-clamp: 4; 
+          -webkit-box-orient: vertical;  
+          overflow: hidden;  
+          text-overflow: ellipsis;
+        }
+        .lists{
+          &-in{
+            padding: 5px 0;
+            font-size: 14px;
+            text-decoration: underline;
+          }
         }
       }
     }

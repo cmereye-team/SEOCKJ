@@ -201,7 +201,9 @@ const handleClick = (event,_id) =>{
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor informationPage">
-      <div class="index_title smallPageCon informationPage-title" id="information">牙齒百科</div>
+      <div class="informationPage-title" id="information">
+        <div class="index_title">牙齒百科</div>
+      </div>
       <div class="tabNav noTitle smallPageCon">
         <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
           <span>主頁</span>
@@ -528,6 +530,12 @@ const handleClick = (event,_id) =>{
         }
       }
     }
+  }
+}
+.informationPage{
+  &-title{
+    display: flex;
+    justify-content: center;
   }
 }
 @media (min-width: 768px) and (max-width: 1920px) {

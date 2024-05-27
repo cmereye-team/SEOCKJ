@@ -2,39 +2,39 @@
 //使用 var(font_family)
 :root{
   --indexColor: #FF6096;
-  --indexColor1: #FC1682;
+  --indexColor1: #E15697;
   --indexColor2: #FEE6F1;
   --indexColor3: #FEA9D1;
   --textColor: #4d4d4d;
-  --indexFontFamily: 'FakePearl-Regular','幼圆', Serif;
+  --indexColor_2: #FEE6F1;
+  --indexFontFamily: 'Noto Sans HK', Serif;
   // --contextFamily: 'Noto Serif HK', Serif;
   --contextFamily: 'Noto Sans HK', Serif;
-  --contextTitleFamily: 'youyuan', Serif;
+  --contextTitleFamily: 'Noto Sans HK', Serif;
 }
 
 // @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@300;400;500;600;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@100..900&display=swap');
 
-@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
 
 @import 'variables';
 
-@font-face {
-  font-family: 'FakePearl-Regular';
-  src: url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Regular.woff2) format("woff2")
-  , url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Regular.woff) format("woff");
-  font-display: swap;
-}
-@font-face {
-  font-family: 'youyuan';
-  // src: url(https://static.cmereye.com/static/font/QingNingYouYuan-2.ttf);
-  src: url(https://static.cmereye.com/static/font/ChillRoundGothic_Bold.ttf), url(https://static.cmereye.com/static/font/ChillRoundGothic_Medium.ttf);
-}
+// @font-face {
+//   font-family: 'FakePearl-Regular';
+//   src: url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Regular.woff2) format("woff2")
+//   , url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Regular.woff) format("woff");
+//   font-display: swap;
+// }
+// @font-face {
+//   font-family: 'youyuan';
+//   src: url(https://static.cmereye.com/static/font/ChillRoundGothic_Bold.ttf), url(https://static.cmereye.com/static/font/ChillRoundGothic_Medium.ttf);
+// }
 
 body,div,span,h1,h2,h3,h4,h5,h6,p,li{
-  // font-family: 'Noto Serif HK', Serif;
+  font-family: 'Noto Sans HK', Serif;
   // font-family: 'FakePearl-Regular','幼圆', Serif;
-  font-family: var(--indexFontFamily);
+  // font-family: var(--indexFontFamily);
 }
 
 
@@ -122,19 +122,23 @@ body{
   max-width: 1280px;
   margin: 0 auto;
 }
-.index_title {
-  font-style: normal;
+.index_title{
+  font-size: 35px;
+  color: var(--textColor);
+  text-align: center;
   position: relative;
-  font-weight: 500;
-  // font-size: 30px;
-  font-size: 24px;
-  line-height: 150%;
-  text-indent: 55px;
-  color: #666666;
-  background: url(@/assets/images/indexTitle_bg_2.png) no-repeat;
-  background-size: auto 100%;
-  // background-position: 0px 5px;
-  padding-bottom: 5px;
+  display: inline-block;
+  &::after{
+      content: '';
+      position: absolute;
+      z-index: -1;
+      width: calc(100% + 20px);
+      height: 50%;
+      border-radius: 2px;
+      background: var(--indexColor_2);
+      left: -10px;
+      bottom: 0;
+  }
 }
 .dentistryServices{
   &-title{
@@ -180,11 +184,13 @@ body{
   .smallPageCon{
     width: 70%;
   }
-}
-@media (min-width: 1450px) and (max-width: 1600px) {
-  // .pageCon{
-  //   width: 90%;
-  // }
+  .index_title{
+    font-size: 1.8229vw;
+    &::after{
+        width: calc(100% + 1.0417vw);
+        left: -0.5208vw;
+    }
+  }
 }
 @media (min-width: 768px) and (max-width: 1600px) {
   .pageIn{
@@ -192,10 +198,6 @@ body{
   }
   .pageCon{
     margin: 0 auto;
-  } 
-  .index_title {
-    font-size: 1.6vw;
-    text-indent: 3.5vw;
   }
   .dentistryServices{
     &-title{
@@ -230,13 +232,13 @@ body{
   .mbBox{
     display: block;
   }
-  .index_title {
-    width: calc(100% - 30px);
-    font-size: 18px;
-    background-size: auto 85%;
-    text-indent: 35px;
-    margin-left: 30px;
-    background-position: 0px 3px;
+  .index_title{
+    font-size: 19px;
+    font-weight: 700;
+    &::after{
+      width: calc(100% + 10px);
+      left: -5px;
+    }
   }
   .dentistryServices{
     &-title{

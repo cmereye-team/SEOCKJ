@@ -70,28 +70,7 @@ let _bool = ref(false)
 </script>
 
 <template>
-  <div class="navbar-content" :style="{'z-index': appState.isShowForm ? 100 : 50}">
-    <nuxt-link class="navbar-content-whatApp" id="navPcWhatsapp" :to="whatsapplink" title="WhatsApp" target="_blank">
-      <div class="iconDialogBox" v-if="showDialogBox">
-        <span>專業客服為你匹配適合你的醫生！</span>
-        <img class="iconDialogBox-icon" data-ord="1" src="@/assets/images/icon_42.svg" alt="">
-        <img class="iconDialogBox-icon" data-ord="2" src="@/assets/images/icon_43.svg" alt="">
-        <img class="iconDialogBox-icon" data-ord="3" src="@/assets/images/icon_44.svg" alt="">
-      </div>
-      <div class="navbar-content-whatApp-icon">
-        <img class="navbar-content-whatApp-icon-in" src="https://static.cmereye.com/imgs/2024/03/22dd0fd2c5f7164e.png" alt="">
-        <img class="navbar-content-whatApp-icon-right" src="https://static.cmereye.com/imgs/2024/03/3fee6b4b5c9a323a.png" alt="">
-      </div>
-      <div class="navbar-content-whatApp-btn">
-        <div class="navbar-content-whatApp-btn-text">立即</div>
-        <div class="navbar-content-whatApp-btn-img">
-          <div class="navbar-content-whatApp-btn-img-in">
-            <img src="@/assets/images/navIcon_2.png" alt="">
-          </div>
-        </div>
-        <div class="navbar-content-whatApp-btn-text">預約</div>
-      </div>
-    </nuxt-link>
+  <div class="navbar-content" :style="{'z-index': appState.isShowForm ? 100 : 50}"> 
     <div class="navbar-content-in" id="navPcTel" title="致電">
       <div class="navbarBox">
         <div class="navbarBox-in">
@@ -99,6 +78,9 @@ let _bool = ref(false)
         </div>
       </div>
     </div>
+    <div class="navbar-content-in" id="navPcWhatsapp"></div>
+    <div class="navbar-content-in" id="navPcWeChat"></div>
+    <div class="navbar-content-in" id="navPcFaceBook"></div>
     <div class="navbar-content-in" id="navPcContactForm" title="預約" @click="toContactUs">
     </div>
     <div class="navbar-content-in pageTop" @click="toPageTop">
@@ -441,62 +423,6 @@ let _bool = ref(false)
         }
       }
     }
-    .iconDialogBox{
-      position: absolute;
-      bottom: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #fff;
-      width: 220px;
-      font-size: 22px;
-      text-align: center;
-      opacity: 0;
-      transform: translate(-50%,20px);
-      animation: animTopIn 1s forwards;
-      padding-bottom: 20px;
-      &>span{
-        border-radius: 12px;
-        background: var(--indexColor1);
-        padding: 20px;
-        display: inline-block;
-      }
-      &-icon{
-        position: absolute;
-        opacity: 0;
-        &[data-ord="1"]{
-          left: 60%;
-          top: -30px;
-          transform: translateY(-40px);
-          animation: iconTopIn 2s .5s forwards;
-        }
-        &[data-ord="2"]{
-          bottom: 15px;
-          left: -15px;
-          transform: translateY(40px);
-          animation: iconBottomIn 2s .5s forwards;
-        }
-        &[data-ord="3"]{
-          bottom: 45px;
-          right: 10px;
-          transform: translateY(40px);
-          animation: iconBottomIn 2s .5s forwards;
-        }
-      }
-      &::after{
-        content: '';
-        position: absolute;
-        bottom: 7px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 0;
-        height: 0;
-        border-top: 15px solid;
-        border-left: 10px solid;
-        border-bottom: 0 solid;
-        border-right: 10px solid;
-        border-color: var(--indexColor1) transparent transparent  transparent ;
-      }
-    }
   }
   #navPcTel{
     background-image:url(@/assets/images/navIcon_1.png);
@@ -508,11 +434,11 @@ let _bool = ref(false)
     background-repeat: no-repeat;
     background-position: 50%;
   }
-  // #navPcWhatsapp{
-  //   background-image:url(@/assets/images/navIcon_2.png);
-  //   background-repeat: no-repeat;
-  //   background-position: 50%;
-  // }
+  #navPcWhatsapp{
+    background-image:url(@/assets/images/navIcon_2.png);
+    background-repeat: no-repeat;
+    background-position: 50%;
+  }
   #navPcFaceBook{
     background-image:url(@/assets/images/navIcon_6.png);
   }
@@ -743,6 +669,9 @@ let _bool = ref(false)
           drop-shadow(-1px -1px 0 #fff);
         }
       }
+    }
+    #navPcFaceBook{
+      display: none;
     }
     &-whatApp{
       display:none;

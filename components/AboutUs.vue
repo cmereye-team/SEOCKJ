@@ -55,14 +55,15 @@ let mouseType:any = ref('leave')
 const changemouse = (type: String) =>{
   mouseType.value = type
 }
+let aboutUs_cur_tab = ref(0)
 </script>
 
 <template>
   <div class="index-aboutUs">
-        <div class="smallPageCon">
+        <div class="index-aboutUs-title">
           <div class="index_title">{{$t('components.aboutUs.title')}}</div>
         </div>
-        <div class="index-aboutUs-swiper bigPageCon">
+        <div class="index-aboutUs-swiper">
           <Swiper
             class="index-aboutUs-swiper-in"
             :modules="[Autoplay]"
@@ -89,13 +90,15 @@ const changemouse = (type: String) =>{
             </SwiperSlide>
           </swiper>
         </div>
-        <div class="index-aboutUs-content smallPageCon">
-          <div class="contentBox">
-            <h2>科技護航，安全放心</h2>
+        <div class="index-aboutUs-content">
+          <div class="tab">
+            <div :class="{cur: aboutUs_cur_tab === 0}">科技護航<br>安全放心</div>
+            <div :class="{cur: aboutUs_cur_tab === 1}">嚴謹治療<br>為效果護航</div>
+          </div>
+          <div class="contentBox" v-if="aboutUs_cur_tab === 0">
             <span>優質的診療服務，在於醫生的專業素養，以及匹配的醫療設備的先進程度。愛康健從口腔檢查到臨床手術，全程採購主流牙科設備，與時俱進開展醫生職業技能培訓。我們信奉技術，加進口設備，才能有好的診療功效。</span>
           </div>
-          <div class="contentBox">
-            <h2>嚴謹治療，為效果護航</h2>
+          <div class="contentBox" v-else>
             <span>嚴格執行符合世界牙科聯盟(FDI)的診療標準，消毒隔離系統達到8個「一」無菌診療模式：一人一診室，一醫一助，一機一用，一次一消毒，消毒更全面。</span>
           </div>
         </div>
@@ -177,8 +180,13 @@ const changemouse = (type: String) =>{
 }
 //關於我們
 .index-aboutUs{
+  width: 100%;
+  // max-width: 390px;
   margin-top: 40px;
   // padding-bottom: 60px;
+  &-title{
+    padding-left: 10px;
+  }
   &-swiper{
     width: 100%;
     margin: 30px auto 0;
@@ -229,7 +237,7 @@ const changemouse = (type: String) =>{
     display: flex;
     .contentBox{
       flex: 1;
-      padding: calc(66 / 1000 * 100%);
+      // padding: calc(66 / 1000 * 100%);
       position: relative;
       &:first-child::after{
         content: '';
@@ -324,66 +332,6 @@ const changemouse = (type: String) =>{
     }
   }
 }
-@media (min-width: 768px) and (max-width: 1920px) {
-    .index-aboutUs{
-      margin-top: 2.0833vw;
-      // padding-bottom: 3.125vw;
-      &-swiper{
-        margin: 1.5625vw auto 0;
-        &-in{
-          max-width: 69.4792vw;
-          &-slide{
-            .el-image{
-              &:hover{
-                box-shadow: 0 .2604vw .5208vw rgba(0,0,0, .3);
-              }
-            }
-          }
-        }
-      }
-    &-content{
-      max-width: 58.3333vw;
-      .contentBox{
-        &:first-child::after{
-          width: 1.875vw;
-          right: -0.9375vw;
-        }
-        h2{
-          font-size: 1.5625vw;
-          letter-spacing: .1563vw;
-        }
-        span{
-          font-size: 1.0417vw;
-          letter-spacing: .1042vw;
-          margin-top: .7813vw;
-        }
-      }
-    }
-    .deBox{
-      &-close{
-        width: 5.1563vw;
-        height: 5.1563vw;
-        top: 2.9688vw;
-        right: 2.0833vw;
-      }
-      &-in{
-        &-swiper{
-          .el-image{
-            max-width: 60.9375vw;
-          }
-        }
-      }
-      .leftBtn{
-        left: calc((100% - 75.5208vw) / 2);
-      }
-      .rightBtn{
-        right: calc((100% - 75.5208vw) / 2);
-      }
-    }
-  }
-}
-@media screen and (max-width: 768px) {
-//關於我們
   .index-aboutUs{
     margin-top: 0;
     padding-bottom: 50px;
@@ -393,13 +341,13 @@ const changemouse = (type: String) =>{
     &-mbswiper{
       display: block;
       width: 100%;
-      margin-top: 40px;
+      margin-top: 15px;
       overflow: hidden;
       &-t{
         width: 100%;
       }
       &-b{
-        width: 80px;
+        width: 90px;
         height: 60px;
         overflow: visible;
         margin: 28px auto 0;
@@ -410,7 +358,7 @@ const changemouse = (type: String) =>{
           }
           &.swiper-slide-active{
             .el-image{
-              border: 4px solid var(--indexColor1);
+              border: 6px solid var(--indexColor1);
               transform: translateY(-14px);
               position: relative;
               overflow: initial;
@@ -418,14 +366,14 @@ const changemouse = (type: String) =>{
                 content: '';
                 width: 0px;
                 height: 0px;
-                border: 8px solid;
-                border-top: 8px solid;
-                border-left: 4px solid;
-                border-right: 4px solid;
-                border-bottom: 8px solid;
+                // border: 8px solid;
+                border-top: 12px solid;
+                border-left: 8px solid;
+                border-right: 8px solid;
+                border-bottom: 12px solid;
                 border-color: transparent transparent var(--indexColor1) transparent;
                 position: absolute;
-                top: -20px;
+                bottom: calc(100% + 4px);
                 left: 50%;
                 display: inline-block;
                 transform: translateX(-50%);
@@ -437,22 +385,90 @@ const changemouse = (type: String) =>{
     }
     &-content{
       flex-direction: column;
+      .tab{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        padding-bottom: 5px;
+        border-bottom: 1px solid var(--indexColor1);
+        &>div{
+          color: var(--indexColor1);
+          display: inline-block;
+          font-size: 20px;
+          padding: 3px 25px;
+          border-radius: 50px;
+          cursor: pointer;
+          margin-left: 20px;
+          position: relative;
+          text-align: center;
+          line-height: 1.4;
+          &::after{
+            content: '';
+            width: 24px;
+            height: 32px;
+            position: absolute;
+            left: 50%;
+            top: calc(100% + 5px);
+            transform: translateX(-50%);
+            box-sizing: border-box;
+            border-left: 12px solid rgba(255,255,255,0);
+            border-top: 16px solid var(--indexColor1);
+            border-right: 12px solid rgba(255,255,255,0);
+            border-bottom: 16px solid rgba(255,255,255,0);
+            display: none;
+          }
+          &.cur{
+            background: var(--indexColor1);
+            color: #fff;
+            &::after{
+              display: block;
+            }
+          }
+        }
+      }
       .contentBox{
-        padding: 10px 30px;
-        &:first-child::after{
-          display: none;
-        }
-        h2{
-          font-size: 18px;
-        }
+        // padding: 10px 30px;
+        margin-top: 20px;
         span{
-          font-size: 16px;
+          font-size: 18px;
           margin-top: 0;
+          letter-spacing: 1.8px;
+          display: -webkit-box;  
+          -webkit-line-clamp: 3; 
+          line-clamp: 3; 
+          -webkit-box-orient: vertical;  
+          overflow: hidden;  
+          text-overflow: ellipsis;
         }
       }
     }
   }
-}
+  @media screen and (max-width: 768px) {
+    .index-aboutUs{
+      &-title{
+        padding: 0 20px;
+      }
+      &-content{
+        padding: 0 20px;
+        .tab{
+          &>div{
+            font-size: 15px;
+          }
+        }
+        .contentBox{
+          span{
+            font-size: 16px;
+            display: initial;  
+            -webkit-line-clamp: initial; 
+            line-clamp: initial; 
+            -webkit-box-orient: initial;  
+            overflow: initial;  
+            text-overflow: initial;
+          }
+        }
+        
+      }
+    }
+  }
 
 </style>
 

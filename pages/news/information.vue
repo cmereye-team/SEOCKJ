@@ -167,7 +167,9 @@ const getPagination = (pageitem) => {
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor informationPage">
-      <div class="index_title smallPageCon informationPage-title" id="information">最新資訊</div>
+      <div class="informationPage-title" id="information">
+        <div class="index_title">最新資訊</div>
+      </div>
       <div class="tabNav noTitle smallPageCon">
         <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
           <span>主頁</span>
@@ -245,6 +247,12 @@ const getPagination = (pageitem) => {
 
 
 <style lang="scss" scoped>
+.informationPage{
+  &-title{
+    display: flex;
+    justify-content: center;
+  }
+}
 .tabNav {
   font-weight: 400;
   font-size: 1.25rem;

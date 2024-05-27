@@ -159,7 +159,7 @@ watch(
   margin: 0 auto;
   &-t{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
   &-tab{
     margin-top: 40px;
@@ -566,9 +566,6 @@ watch(
 @media screen and (max-width: 768px) {
   .index-contactUs{
     padding: 90px 0 0;
-    &-t{
-      flex-direction: column;
-    }
     &-tab{
       :deep(.areaTab){
         div{

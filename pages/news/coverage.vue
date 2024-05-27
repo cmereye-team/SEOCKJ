@@ -141,7 +141,11 @@ const getPagination = (pageitem) => {
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor coveragePage">
-      <div class="index_title smallPageCon coveragePage-title" id="coverage">媒體報導</div>
+      <div class="coveragePage-title" id="coverage">
+        <div class="index_title">
+          媒體報導
+        </div>
+      </div>
       <div class="tabNav noTitle smallPageCon">
         <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
           <span>主頁</span>
@@ -396,6 +400,12 @@ const getPagination = (pageitem) => {
         }
       }
     }
+  }
+}
+.coveragePage{
+  &-title{
+    display: flex;
+    justify-content: center;
   }
 }
 @media (min-width: 768px) and (max-width: 1200px) {

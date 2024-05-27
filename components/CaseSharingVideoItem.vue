@@ -70,7 +70,7 @@ const props = defineProps({
     }
     .name{
       font-weight: 600;
-      font-size: 30px;
+      font-size: 34px;
       line-height: 160%;
       color: #666666;
       margin-top: 9px;
@@ -79,7 +79,7 @@ const props = defineProps({
     }
     .skill{
       font-weight: 700;
-      font-size: 20px;
+      font-size: 32px;
       line-height: 160%;
       color: var(--indexColor1);
       z-index: 1;
@@ -87,7 +87,7 @@ const props = defineProps({
     }
     .process{
       font-weight: 700;
-      font-size: 20px;
+      font-size: 32px;
       line-height: 160%;
       color: #69B1FF;
       margin-top: 70px;
@@ -96,7 +96,7 @@ const props = defineProps({
     }
     .text{
       font-weight: 500;
-      font-size: 18px;
+      font-size: 24px;
       line-height: 160%;
       color: #666666;
       z-index: 1;
@@ -131,18 +131,18 @@ const props = defineProps({
         font-size: 1.7708vw;
       }
       .name{
-        font-size: 1.5625vw;
+        font-size: 1.7708vw;
         margin-top: .4688vw;
       }
       .skill{
-        font-size: 1.0417vw;
+        font-size: 1.6667vw;
       }
       .process{
-        font-size: 1.0417vw;
+        font-size: 1.6667vw;
         margin-top: 3.6458vw;
       }
       .text{
-        font-size: .9375vw;
+        font-size: 1.25vw;
       }
       .bg_box{
         width: 37.2917vw;

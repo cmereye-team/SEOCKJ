@@ -71,11 +71,11 @@ const handleAreaTab = (_idx: number) => {
 }
 @media screen and (max-width: 768px) {
   .areaTab{
-      margin-top: 34px;
+      margin-top: 20px;
       // margin-left: 30px;
       // margin-right: 30px;
       width: 100%;
-      padding: 0 30px;
+      padding: 0 20px;
       &>div{
         font-size: 1rem;
         // padding: 4px 8.5px;

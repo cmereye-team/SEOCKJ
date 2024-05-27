@@ -24,8 +24,8 @@ const servicesCardPageData = {
 <template>
   <div :class="[{'index-dentalServices':true,'isMenu': isMenu},{'index-dentalServices-indexshow': isIndexShow}]">
     <div :class="['index-dentalServices-in', 'smallPageCon', {'isIndexShow': !isIndexShow,'isMenu': isMenu}]">
-      <div class="titile">
-        <div class="index_title" v-if="isIndexShow">{{$t(servicesCardPageData.title)}}</div>
+      <div class="title">
+        <div class="index_title" v-if="isIndexShow">診療項目</div>
       </div>
       <div class="index-dentistryServices-in-title" v-if="!isIndexShow && !isMenu">
         <div class="services_title">{{$t(servicesCardPageData.dentalServicesTitleIn)}}</div>
@@ -76,6 +76,11 @@ const servicesCardPageData = {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    .title{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
     .context{
       margin-top: 35px;
       &-in{
@@ -98,13 +103,13 @@ const servicesCardPageData = {
       flex-wrap: wrap;
       margin: 46px auto 0;
       width: 100%;
-      max-width: 760px;
+      max-width: 1330px;
       &-in{
         width: 20%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 0 20px;
+        padding: 0 35px;
         box-sizing: border-box;
         a{
           width: 100%;
@@ -119,10 +124,9 @@ const servicesCardPageData = {
           position: relative;
           background: #FFF1F0;
           box-shadow: 0 2px 4px rgba(0,0,0,.25);
-          border-radius: 6px;
+          border-radius: 50%;
           transition: all .3s;
           box-sizing: border-box;
-          // border: 2px solid #FFF1F0;
           img{
             position: absolute;
             left: 50%;
@@ -139,22 +143,22 @@ const servicesCardPageData = {
         }
         &.hot{
           .servicesCard-in-image{
-            background: #F8CDCD;
-            // border: 2px solid #F8CDCD;
-            overflow: hidden;
             &::before{
               content: '熱門';
-              background: var(--indexColor1);
-              padding: 20px 30px 0;
               position: absolute;
-              left: -25%;
-              top: -20%;
-              transform: rotate(-45deg);
-              font-size: 12px;
-              color: #fff;
-              line-height: 1.6;
+              width: 80px;
+              height: 80px;
+              left: -20px;
+              top: -10px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-weight: bold;
+              font-size: 30px;
+              color: #FFF620;
+              background: url(@/assets/images/icon_70bg.svg) no-repeat;
+              background-size: 100% 100%;
               z-index: 1;
-              transform-origin: bottom;
             }
           }
         }
@@ -162,7 +166,7 @@ const servicesCardPageData = {
           padding: 10px 0 40px;
           font-style: normal;
           font-weight: 700;
-          font-size: 16px;
+          font-size: 26px;
           color: #666666;
           text-align: center;
           white-space: nowrap;
@@ -199,74 +203,64 @@ const servicesCardPageData = {
 }
 @media (min-width: 769px) and (max-width: 1920px) {
   .services_title{
-    font-size: 1.0417vw;
-    text-indent: 2.3438vw;
-    padding-bottom: .7813vw;
+  font-size: 1.0417vw;
+  text-indent: 2.3438vw;
+  padding-bottom: .7813vw;
+}
+.index-dentalServices{
+  padding: 9.8438vw 0 0;
+  &-indexshow{
+    padding: 5.2083vw 0 0;
   }
-  .index-dentalServices{
-    padding: 9.8438vw 0 0;
-    &-indexshow{
-      padding: 5.2083vw 0 0;
-    }
-    &-in{
-      .context{
-        margin-top: 1.8229vw;
-        &-in{
-          max-width: 36.4583vw;
-          font-size: 1.0417vw;
-          &.isIndex{
-            max-width: 39.5833vw;
-          }
+  &-in{
+    .context{
+      margin-top: 1.8229vw;
+      &-in{
+        font-size: 1.0417vw;
+        &.isIndex{
+          max-width: 39.5833vw;
         }
       }
-      .servicesCard{
-        margin: 2.3958vw auto 0;
-        max-width: 39.5833vw;
-        &-in{
-          padding: 0 1.0417vw;
-          a{
-            padding: 0 .5208vw;
-          }
-          &-image{
-            box-shadow: 0 .1042vw .2083vw rgba(0,0,0,.25);
-            border-radius: .3125vw;
-            // border: .1042vw solid #FFF1F0;
-            &:hover{
-              box-shadow: 0 .2604vw .2604vw rgba(0,0,0,.45);
-              transform: translateY(-0.2604vw);
+    }
+    .servicesCard{
+      margin: 2.3958vw auto 0;
+      max-width: 69.2708vw;
+      &-in{
+        padding: 0 1.8229vw;
+        a{
+          padding: 0 .5208vw;
+        }
+        &-image{
+          box-shadow: 0 .1042vw .2083vw rgba(0,0,0,.25);
+        }
+        &.hot{
+          .servicesCard-in-image{
+            &::before{
+              width: 4.1667vw;
+              height: 4.1667vw;
+              left: -1.0417vw;
+              top: -0.5208vw;
+              font-size: 1.5625vw;
             }
           }
-          &.hot{
-            .servicesCard-in-image{
-              &::before{
-                padding: 1.0417vw 1.5625vw 0;
-                font-size: .625vw;
-              }
-            }
-          }
+        }
+        &-name{
+          padding: .5208vw 0 2.0833vw;
+          font-size: 1.3542vw;
+        }
+      }
+      &.isMenu{
+        .servicesCard-in{
+          padding: 0 .3125vw;
           &-name{
-            padding: .5208vw 0 2.0833vw;
-            font-size: .8333vw;
-          }
-          &>.router-link-exact-active{
-            .servicesCard-in-image{
-              box-shadow: 0 .2604vw .2604vw rgba(0,0,0,.45);
-              transform: translateY(-0.2604vw);
-            }
-          }
-        }
-        &.isMenu{
-          .servicesCard-in{
-            padding: 0 .3125vw;
-            &-name{
-              font-size: .7813vw;
-              padding: .4167vw 0;
-            }
+            font-size: .7813vw;
+            padding: .4167vw 0;
           }
         }
       }
     }
   }
+}
 }
 @media screen and (max-width: 768px) {
   .index-dentistryServices-in-title{
@@ -284,6 +278,10 @@ const servicesCardPageData = {
   }
   .index-dentalServices{
     padding: 100px 0 0;
+    .title{
+      justify-content: flex-start;
+      padding: 0 20px;
+    }
     &-indexshow{
       padding: 0;
     }
@@ -296,19 +294,26 @@ const servicesCardPageData = {
         margin-top: 30px;
         padding: 0 30px;
         box-sizing: border-box;
+        display: none;
         &-in{
           font-weight: 500;
           font-size: 16px;
           text-align: left;
+          &.isIndex{
+            display: none;
+          }
         }
       }
       .servicesCard{
         padding: 0 15px;
-        margin: 30px auto 0;
+        margin: 20px auto 0;
         box-sizing: border-box;
         &-in{
-          width: calc(100% / 3);
+          width: calc(100% / 4);
           padding: 0 5px;
+          a{
+            padding: 0 7px;
+          }
           &-image{
             img{
               max-width: 70%;
@@ -318,17 +323,23 @@ const servicesCardPageData = {
           &.hot{
             .servicesCard-in-image{
               &::before{
-                padding: 30px 0 0;
-                left: -20px;
-                top: -25px;
-                width: 90px;
-                text-align: center;
+                font-size: 10px;
+                width: 27px;
+                height: 27px;
+                left: -5px;
+                top: -5px;
               }
             }
           }
           &-name{
-            font-size: 16px;
-            padding: 10px 0 30px;
+            font-size: 14px;
+            padding: 10px 0;
+            // white-space: pre-wrap;
+          }
+          &:nth-of-type(13){
+            .servicesCard-in-name{
+              white-space: pre-wrap;
+            }
           }
         }
       }

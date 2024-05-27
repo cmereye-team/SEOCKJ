@@ -231,7 +231,9 @@ if(process.server){
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor articlePage">
-      <div class="index_title pageCon articlePage-title">牙齒百科</div>
+      <div class="articlePage-title">
+        <div class="index_title">牙齒百科</div>
+      </div>
       <div class="tabNav noTitle pageCon">
         <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
           <span>主頁</span>
@@ -410,6 +412,10 @@ if(process.server){
   }
 }
 .articlePage{
+  &-title{ 
+    display: flex;
+    justify-content: center;
+  }
   &-err{
     padding: 100px 0;
     text-align: center;

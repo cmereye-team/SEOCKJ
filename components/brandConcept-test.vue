@@ -21,7 +21,7 @@ const onSlideChange = (swiper:any) => {
 
 <template>
 <div class="index-brandConcept">
-  <div class="smallPageCon">
+  <div class="index-brandConcept-title">
     <div class="index_title brandConceptTitle">{{$t('pages.brand.title')}}</div>
   </div>
   <swiper
@@ -77,9 +77,13 @@ const onSlideChange = (swiper:any) => {
 <style lang="scss" scoped>
 .index-brandConcept {
   width: 100%;
+  max-width: 100%;
   margin-top: 60px;
   box-sizing: border-box;
   position: relative;
+  &-title{
+    padding: 0 20px;
+  }
   .swiperBox{
     width: 100%;
   }
@@ -175,7 +179,7 @@ const onSlideChange = (swiper:any) => {
     }
     &-in{
       height: auto;
-      margin-top: 34px;
+      margin-top: 20px;
       .bgImg{
         position: initial;
         height: auto;

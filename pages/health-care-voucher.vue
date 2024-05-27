@@ -392,8 +392,8 @@ const handleLocale = (l) =>{
 <style lang="scss" scoped>
 .health-care-voucher-top{
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  justify-content: center;
+  // align-items: flex-end;
   .lang{
     display: flex;
     span{
@@ -568,8 +568,8 @@ const handleLocale = (l) =>{
 @media (min-width: 768px) and (max-width: 1452px) {}
 @media screen and (max-width: 768px) {
   .health-care-voucher-top{
-    flex-direction: column-reverse;
-    flex-wrap: wrap;
+    // flex-direction: column-reverse;
+    // flex-wrap: wrap;
     .lang{
       width: calc(100% - 30px);
       // margin-right: 30px;
