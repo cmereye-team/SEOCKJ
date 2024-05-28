@@ -37,15 +37,15 @@ const onSlideProcessSwiperChange = (swiper:any) => {
       <div class="dentistryServices-title">
         <div class="dentistryServices-title-in bb">{{processData.title}}</div>
       </div>
-      <div class="process-context pageCon" :class="processData.pageName">
+      <div class="process-context smallPageCon" :class="processData.pageName">
         <span v-for="(processContextItem,processContextIndex) in processData.context" :key="processContextIndex">{{processContextItem}}</span>
       </div>
-      <div class="process-tabs pageCon" :class="processData.pageName">
+      <div class="process-tabs smallPageCon" :class="processData.pageName">
         <div :class="{'active': processTabsActive === processTabIndex}" @click="handleProcessTabs(processTabIndex)" v-for="(processTabItem,processTabIndex) in processData.tabs" :key="processTabIndex">
           {{processTabItem}}
         </div>
       </div>
-      <div class="process-step pageCon">
+      <div class="process-step smallPageCon">
         <Swiper
           class="swiperBox"
           :loop="true"

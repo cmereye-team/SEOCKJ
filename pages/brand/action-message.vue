@@ -46,9 +46,9 @@ const introduceData = {
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor">
-      <div class="index_title pageCon">{{$t('pages.brand.title')}}</div>
+      <div class="index_title smallPageCon">{{$t('pages.brand.title')}}</div>
       <div class="introduce bigPageCon">
-        <div class="tabNav noTitle pageCon">
+        <div class="tabNav noTitle smallPageCon">
           <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
             <span>{{$t('pages.index.title')}}</span>
           </nuxt-link>
@@ -68,7 +68,7 @@ const introduceData = {
           <div class="introduce-in-t mbBox">
             <img :src="introduceData.mbImg" />
           </div>
-          <div class="introduce-in-l pageCon">
+          <div class="introduce-in-l smallPageCon">
             <div class="title">
               <span v-for="(titleItem,titleIndex) in introduceData.title" :key="titleIndex">{{titleItem}}</span>
             </div>

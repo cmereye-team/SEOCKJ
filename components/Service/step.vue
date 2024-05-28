@@ -25,7 +25,7 @@ defineProps({
       {{stepData.remark}}
     </div>
     <div :class="`${stepData.pageName}Bg`">
-      <div :class="['step-in','pageCon',stepData.pageName]">
+      <div :class="['step-in','smallPageCon',stepData.pageName]">
         <div :class="['step-in-box',stepData.stepLists.length === 1 ? 'oneBox' : '']"
           v-for="(step,stepIndex) in stepData.stepLists" :key="stepIndex">
           <div class="step-itemLists">

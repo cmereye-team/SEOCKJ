@@ -21,7 +21,7 @@ defineProps({
   <div class="introduce bigPageCon">
     <div class="introduce-in">
       <img :data-cfsrc="introduceData.pcImg" :srcset="`${introduceData.mbImg} 768w, ${introduceData.pcImg}`" :src="introduceData.pcImg" :alt="$t(introduceData.title)" :title="$t(introduceData.title)">
-      <div class="introduce-in-content pageCon">
+      <div class="introduce-in-content smallPageCon">
         <div class="introduce-in-content-in">
           <div>{{ $t(introduceData.title) }}</div>
           <div>{{ $t(introduceData.content) }}</div>

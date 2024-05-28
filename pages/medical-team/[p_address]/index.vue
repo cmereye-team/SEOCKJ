@@ -201,7 +201,7 @@ const { height } = useWindowSize()
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="doctorPage">
-      <div class="doctorPage-in pageCon">
+      <div class="doctorPage-in smallPageCon">
         <div class="index_title">{{$t('pages.medical_team.title')}}</div>
         <div class="doctorPage-in-tabNav">
           <div class="doctorPage-in-tabNav-l">

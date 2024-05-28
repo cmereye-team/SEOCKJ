@@ -349,10 +349,10 @@ const { height } = useWindowSize()
   <div>
     <PageHeader :header-config="headerConfig" />
     <div class="pageIn whitebgColor">
-      <div class="index_title pageCon">
-        {{ $t('pages.dental-service.title') }}
-      </div>
-      <div class="tabNav pageCon">
+      <div class="smallPageCon">
+      <div class="index_title">{{$t('pages.dental-service.title')}}</div>
+    </div>
+      <div class="tabNav smallPageCon">
         <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院"
           ><span>{{ $t('pages.index.title') }}</span></nuxt-link
         >
@@ -636,7 +636,7 @@ const { height } = useWindowSize()
         <div class="dentistryServices-title plague-title">
           <div class="dentistryServices-title-in bb plague-title-in">醫療滅菌設備</div>
         </div>
-        <div class="Medical_sterilization_equipment-in pageCon">
+        <div class="Medical_sterilization_equipment-in smallPageCon">
           <div class="Medical_sterilization_equipment-in-box">
             <img src="https://static.cmereye.com/imgs/2024/02/30f4f16be7ec0112.jpg" alt="">
             <div>
@@ -1620,7 +1620,7 @@ const { height } = useWindowSize()
                 &::before{
                   content: '，';
                   font-size: 16px;
-                  font-family: var(--contextFamily);
+                  
                 }
               }
               img {

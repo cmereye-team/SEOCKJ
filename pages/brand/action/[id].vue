@@ -295,8 +295,8 @@ const handlegetData = async () =>{
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor articlePage">
-      <div class="index_title pageCon articlePage-title">牙齒百科</div>
-      <div class="tabNav noTitle pageCon">
+      <div class="index_title smallPageCon articlePage-title">牙齒百科</div>
+      <div class="tabNav noTitle smallPageCon">
         <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
           <span>主頁</span>
         </nuxt-link>
@@ -534,9 +534,9 @@ const handlegetData = async () =>{
   :deep(.content-text){
     color: var(--textColor);
     font-size: 20px;
-    font-family: var(--contextFamily);
+    
     span{
-      font-family: var(--contextFamily);
+      
     }
   } 
   :deep(.content-imgMessage){

@@ -281,7 +281,7 @@ onMounted(()=>{
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor">
-      <div class="index_title pageCon">{{$t('pages.brand.title')}}</div>
+      <div class="index_title smallPageCon">{{$t('pages.brand.title')}}</div>
       <div class="introduce bigPageCon">
         <div
           class="introduce-in"
@@ -291,7 +291,7 @@ onMounted(()=>{
         backgroundSize: 'auto 100%'
         }"
         >
-          <div class="tabNav noTitle pageCon">
+          <div class="tabNav noTitle smallPageCon">
             <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
               <span>{{$t('pages.index.title')}}</span>
             </nuxt-link>
@@ -303,7 +303,7 @@ onMounted(()=>{
           <div class="introduce-in-t mbBox">
             <img :src="introduceData.mbImg" />
           </div>
-          <div class="introduce-in-l pageCon">
+          <div class="introduce-in-l smallPageCon">
             <div class="title">{{$t(introduceData.title)}}</div>
             <div class="content">{{$t(introduceData.content)}}</div>
           </div>
@@ -311,7 +311,7 @@ onMounted(()=>{
       </div>
       <div class="course">
         <div class="course-bg">
-          <div class="course-title dentistryServices-title pageCon">
+          <div class="course-title dentistryServices-title smallPageCon">
             <div class="course-title-in dentistryServices-title-in bb">
               {{$t(courseData.title)}}
             </div>

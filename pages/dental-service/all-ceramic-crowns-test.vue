@@ -117,7 +117,9 @@ const getWindowWidth = () => {
 <div>
   <PageHeader :headerConfig="headerConfig" btnText="預約免費牙齒檢查" />
   <div class="pageIn whitebgColor">
-    <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
+    <div class="smallPageCon">
+      <div class="index_title">{{$t('pages.dental-service.title')}}</div>
+    </div>
     <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
     <!-- <div class="foibles">
       <div class="dentistryServices-title">

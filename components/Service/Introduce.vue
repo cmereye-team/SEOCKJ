@@ -27,7 +27,7 @@ defineProps({
         backgroundSize: 'auto 100%',
       }"
     >
-      <div class="tabNav noTitle pageCon">
+      <div class="tabNav noTitle smallPageCon">
         <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院"
           ><span>{{ $t('pages.index.title') }}</span></nuxt-link
         >
@@ -39,7 +39,7 @@ defineProps({
       <div class="introduce-in-t mbBox">
         <img :src="introduceData.mbImg" alt="" />
       </div>
-      <div class="introduce-in-l pageCon">
+      <div class="introduce-in-l smallPageCon">
         <div :class="['title', introduceData.pageName]">
           {{ $t(introduceData.title) }}
         </div>

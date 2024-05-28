@@ -274,7 +274,7 @@ const changeSwiper = (swiper) =>{
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor">
-      <div class="index_title pageCon">{{$t('pages.brand.title')}}</div>
+      <div class="index_title smallPageCon">{{$t('pages.brand.title')}}</div>
       <div class="introduce bigPageCon">
         <div
           class="introduce-in"
@@ -284,7 +284,7 @@ const changeSwiper = (swiper) =>{
         backgroundSize: 'auto 100%'
         }"
         >
-          <div class="tabNav noTitle pageCon">
+          <div class="tabNav noTitle smallPageCon">
             <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
               <span>{{$t('pages.index.title')}}</span>
             </nuxt-link>
@@ -296,7 +296,7 @@ const changeSwiper = (swiper) =>{
           <div class="introduce-in-t mbBox">
             <img :src="introduceData.mbImg" />
           </div>
-          <div class="introduce-in-l pageCon">
+          <div class="introduce-in-l smallPageCon">
             <div class="title">品牌介紹</div>
             <div class="content">{{$t(introduceData.content)}}</div>
           </div>
@@ -606,7 +606,7 @@ const changeSwiper = (swiper) =>{
           .time{
             color: var(--textColor);
             text-align: right;
-            font-family: var(--contextFamily);
+            
             font-size: 20px;
             font-style: normal;
             font-weight: 500;

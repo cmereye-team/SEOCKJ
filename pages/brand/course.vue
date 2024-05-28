@@ -274,7 +274,9 @@ const changeSwiper = (swiper) =>{
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor">
-      <div class="index_title smallPageCon">{{$t('pages.brand.title')}}</div>
+      <div class="smallPageCon">
+        <div class="index_title">{{$t('pages.brand.title')}}</div>
+      </div>
       <div class="introduce bigPageCon">
         <div
           class="introduce-in"
@@ -606,7 +608,7 @@ const changeSwiper = (swiper) =>{
           .time{
             color: var(--textColor);
             text-align: right;
-            font-family: var(--contextFamily);
+            
             font-size: 20px;
             font-style: normal;
             font-weight: 500;

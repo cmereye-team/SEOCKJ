@@ -1,7 +1,7 @@
 
 <template>
   <div class="index-brandConcept bigPageCon">
-    <div class="brandConcept-left pageCon">
+    <div class="brandConcept-left smallPageCon">
       <div class="">
         <div class="index_title brandConceptTitle">{{$t('pages.brand.title')}}</div>
       </div>

@@ -66,7 +66,7 @@ const props = defineProps({
       display: flex;
       align-items: center;
       color: #666666;
-      font-family: var(--contextFamily);
+      
     }
     .name{
       font-weight: 600;
@@ -75,7 +75,7 @@ const props = defineProps({
       color: #666666;
       margin-top: 9px;
       z-index: 1;
-      font-family: var(--contextFamily);
+      
     }
     .skill{
       font-weight: 700;
@@ -83,7 +83,7 @@ const props = defineProps({
       line-height: 160%;
       color: var(--indexColor1);
       z-index: 1;
-      font-family: var(--contextFamily);
+      
     }
     .process{
       font-weight: 700;
@@ -92,7 +92,7 @@ const props = defineProps({
       color: #69B1FF;
       margin-top: 70px;
       z-index: 1;
-      font-family: var(--contextFamily);
+      
     }
     .text{
       font-weight: 500;
@@ -101,7 +101,7 @@ const props = defineProps({
       color: #666666;
       z-index: 1;
       text-align: justify;
-      font-family: var(--contextFamily);
+      
     }
     .bg_box{
       background: #fff;

@@ -21,7 +21,7 @@ const activeNames = ref(0)
         {{ $t(problemData.title) }}
       </div>
     </div>
-    <div class="problem-in pageCon">
+    <div class="problem-in smallPageCon">
       <el-collapse v-model="activeNames" accordion>
         <el-collapse-item
           v-for="(problemItem, problemIndex) in problemData.lists"

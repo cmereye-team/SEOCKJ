@@ -298,9 +298,9 @@ const { height } = useWindowSize()
   <div>
     <PageHeader :header-config="headerConfig" />
     <div class="pageIn whitebgColor">
-      <div class="index_title pageCon">
-        {{ $t('pages.dental-service.title') }}
-      </div>
+      <div class="smallPageCon">
+      <div class="index_title">{{$t('pages.dental-service.title')}}</div>
+    </div>
       <ServiceIntroduce :introduce-data="introduceData" />
       <div class="reason">
         <div class="dentistryServices-title reason-title">

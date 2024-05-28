@@ -391,6 +391,26 @@ const newsListsConfig_3 = {
   <div>
     <PageNewHeader :headerConfig="headerConfigData" /> 
     <div class="indexPage">
+      <div class="mbBox">
+        <div class="PromotionProject">
+          <div class="PromotionProject-title">
+            推廣項目
+          </div>
+          <div class="PromotionProject-content">
+            <Swiper :initialSlide="1" :centeredSlides="true" :slidesPerView="2" :spaceBetween="14" class="PromotionProject-swiper">
+              <Swiper-slide class="PromotionProject-swiper-slide">
+                <img src="https://static.cmereye.com/imgs/2024/05/1bde27dae0aacb0e.jpg" alt="">
+              </Swiper-slide>
+              <Swiper-slide class="PromotionProject-swiper-slide">
+                <img src="https://static.cmereye.com/imgs/2024/05/1bde27dae0aacb0e.jpg" alt="">
+              </Swiper-slide>
+              <Swiper-slide class="PromotionProject-swiper-slide">
+                <img src="https://static.cmereye.com/imgs/2024/05/1bde27dae0aacb0e.jpg" alt="">
+              </Swiper-slide>
+            </Swiper>
+          </div>
+        </div>
+      </div>
       <serviceCard :isIndexShow="true" />
       <div class="sectionBox">
         <div class="sectionBox-l">
@@ -1568,6 +1588,29 @@ svg:hover path{
     .AboutUsBox{
       margin-top: 60px;
       max-width: 100%;
+    }
+    .PromotionProject{
+      width: 100%;
+      &-title{
+        color: var(--Grey-Deep, #4D4D4D);
+        font-family: "Noto Sans TC";
+        font-size: 19px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 160%; /* 30.4px */
+        text-align: center;
+        margin: 8px 0;
+      }
+      &-content{
+        width: 100%;
+        overflow: hidden;
+        margin-bottom:8px;
+        .PromotionProject-swiper-slide{
+          img{
+            width: 100%;
+          }
+        }
+      }
     }
   }
   .indexPage {

@@ -93,7 +93,7 @@ onMounted(()=>{
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="doctorPage">
-      <div class="doctorPage-in pageCon">
+      <div class="doctorPage-in smallPageCon">
         <div class="index_title">{{$t('pages.medical_team.title')}}</div>
         <div class="doctorPage-in-text">{{$t('pages.medical_team.text')}}</div>
         <div class="doctorPage-in-content"><span>{{$t('pages.medical_team.content.span_1')}}</span><span>{{$t('pages.medical_team.content.span_2')}}</span></div>

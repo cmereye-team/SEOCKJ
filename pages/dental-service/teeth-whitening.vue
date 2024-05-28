@@ -249,7 +249,9 @@ const conditionData = {
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor">
-      <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
+      <div class="smallPageCon">
+      <div class="index_title">{{$t('pages.dental-service.title')}}</div>
+    </div>
       <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
       <ServiceReason :reasonData="reasonData" />
       <div class="condition">
@@ -261,7 +263,7 @@ const conditionData = {
         <div class="condition-text">
           牙齒美白可解決以下情況所致的<span>牙齒變色問題</span>
         </div>
-        <div class="condition-lists pageCon">
+        <div class="condition-lists smallPageCon">
           <div class="condition-lists-in" v-for="(conditionItme,conditionIndex) in conditionData.lists" :key="conditionIndex">
             <div>
               <img :src="conditionItme.imgUrl" alt="">

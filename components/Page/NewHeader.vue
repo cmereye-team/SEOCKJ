@@ -2,7 +2,7 @@
 import { zh_tran,zh_getLang,getCookie } from '~/assets/js/uselang'
 import { Autoplay } from 'swiper';
 import { useAppState } from '~/stores/appState'
-import { toWhatsApp,smallPhoneNum } from '~/assets/js/common'
+import { toWhatsApp,smallPhoneNum,whatsapplink } from '~/assets/js/common'
 import serviceLists from '~/assets/js/service'
 const route = useRoute()
 const appState = useAppState()
@@ -165,6 +165,8 @@ onMounted(() => {
   setTimeout(() => {
     if(route.path.includes('/cn')){
       changlangsfun('s')
+    }else{
+      appState.setLangs('t');
     }
   }, 500)
 })
@@ -193,31 +195,7 @@ const handleMbMenu = () => {
     })
   }
 }
-let bannerlink = ref('')
-let bannerCurrent = ref(1)
-let bannerSwiperRef ={
-  slideToLoop: (a)=>{}
-}
-const changebanner = ( swiper )=>{
-  bannerCurrent.value = (swiper.realIndex ? Number(swiper.realIndex) : 0) + 1
-  if(swiper.realIndex){
-    if(Number(swiper.realIndex)===1){
-      bannerlink.value = 'https://bit.ly/愛康健裕亨新店開業優惠'
-    }else if(Number(swiper.realIndex)===2){
-      bannerlink.value = '/medical-team'
-    }else{
-      bannerlink.value = ''
-    }
-  }else if(swiper.realIndex === 0){
-    bannerlink.value = '/health-care-voucher'
-  }
-}
-const setBannerSwiperRef = (swiper:any) => {
-  bannerSwiperRef = swiper;
-}
-const handleBannerLineCur = (_value:number) =>{
-  bannerSwiperRef.slideToLoop(_value-1)
-}
+
 
 const router = useRouter()
 const glangs = (_type) =>{
@@ -273,83 +251,53 @@ const handlecopywechatcode = () =>{
 const handleopenwechat = () =>{
   window.location.href = "weixin://"
 }
+
+const headermbNav = [
+  {
+    name: '牙科服務',
+    link: '/dental-service'
+  },
+  {
+    name: '醫院及診所',
+    link: '/contactUs'
+  },
+  {
+    name: '醫生團隊',
+    link: '/medical-team'
+  },
+  {
+    name: '關於我們',
+    link: '/contactUs'
+  },
+  {
+    name: '預約及查詢',
+    link: '/contactUs'
+  },
+  {
+    name: '長者醫療券',
+    link: '/federation-of-trade-unions-zone'
+  }
+]
 </script>
 
 <template>
   <header>
     <div class="header-content">
-      <div class="header-content-bgImg" :class="headerConfig.pageName">
-        <img class="imgBgBox pcBox" :src="headerConfig.bg" alt="" />
-        <div class="header-content-bgImg-imgInfo bigPageCon">
-          <img
-            :class="['pcBox', headerConfig.pageName]"
-            :src="headerConfig.img"
-            alt="banner"
-          />
-        </div>
-        <img
-          :class="[
-            'mbBox',
-            'header-content-bgImg-mbImg',
-            headerConfig.pageName,
-          ]"
-          :src="headerConfig.mbImg"
-          alt="banner"
-        />
-      </div>
       <div
         class="header-content-bgImg-implant"
         :class="headerConfig.pageName"
       >
-        <swiper :modules="[Autoplay]"
-            :loop="true"
-            :autoplay="{ delay: 3000 }"
-            :speed="1000"
-            @swiper="setBannerSwiperRef"
-            @slideChange="changebanner">
-          <SwiperSlide>
-            <nuxt-link to="/health-care-voucher" title="灣區長者醫療券banner" alt="灣區長者醫療券banner">
-              <img :srcset="`https://static.cmereye.com/imgs/2024/02/afdfd3c22104497f.webp 768w, https://static.cmereye.com/imgs/2024/04/02e0cbb29d86af90.webp`"  src="https://static.cmereye.com/imgs/2024/04/02e0cbb29d86af90.webp" alt="灣區長者醫療券banner" title="灣區長者醫療券banner">
-            </nuxt-link>
-          </SwiperSlide>
-          <SwiperSlide>
-            <nuxt-link to="https://bit.ly/愛康健裕亨新店開業優惠" alt="愛康健裕亨新店開業優惠banner" title="愛康健裕亨新店開業優惠banner">
-              <img :srcset="`https://static.cmereye.com/imgs/2024/02/216458f63817b47e.jpg?v=1.2.0 768w, https://static.cmereye.com/imgs/2024/04/ea3b6c9d7c7c2cc6.webp`"  src="https://static.cmereye.com/imgs/2024/04/ea3b6c9d7c7c2cc6.webp" alt="愛康健裕亨新店開業優惠banner" title="愛康健裕亨新店開業優惠banner">
-            </nuxt-link>
-          </SwiperSlide>
-          <SwiperSlide>
-            <nuxt-link to="/medical-team" alt="醫生團隊banner" title="醫生團隊banner">
-              <img :srcset="`https://static.cmereye.com/imgs/2024/03/f3f241b74364a6b7.jpg?v=1.2.0 768w, https://static.cmereye.com/imgs/2024/04/df1e63bdd93c3504.webp`"  src="https://static.cmereye.com/imgs/2024/04/df1e63bdd93c3504.webp" alt="醫生團隊banner" title="醫生團隊banner">
-            </nuxt-link>
-          </SwiperSlide>
-          <SwiperSlide>
-              <img :srcset="`https://static.cmereye.com/imgs/2024/03/4abbdd7326af4cc3.webp 768w, https://static.cmereye.com/imgs/2024/04/cf5124d2a6d53efd.webp`"  src="https://static.cmereye.com/imgs/2024/04/cf5124d2a6d53efd.webp" alt="深圳愛康健口腔醫院banner" title="深圳愛康健口腔醫院">
-          </SwiperSlide>
-        </swiper>
+        <img srcset="https://static.cmereye.com/imgs/2024/05/4ff5e989d498b5f8.webp 768w,https://static.cmereye.com/imgs/2024/05/0b20ccceba0bd119.webp" src="https://static.cmereye.com/imgs/2024/05/0b20ccceba0bd119.webp" alt="">
       </div>
       <div
         ref="imgBgHeight"
         class="header-content-bgImgBB pcBox"
         :class="headerConfig.pageName"
       >
-        <nuxt-link :to="bannerlink">
-          <img data-cfsrc="" srcset="https://static.cmereye.com/imgs/2024/02/afdfd3c22104497f.webp 768w, https://static.cmereye.com/imgs/2024/04/02e0cbb29d86af90.webp`"  src="https://static.cmereye.com/imgs/2024/04/02e0cbb29d86af90.webp" alt="">
+        <nuxt-link :to="'#'">
+          <img srcset="https://static.cmereye.com/imgs/2024/05/4ff5e989d498b5f8.webp 768w,https://static.cmereye.com/imgs/2024/05/0b20ccceba0bd119.webp" src="https://static.cmereye.com/imgs/2024/05/0b20ccceba0bd119.webp" alt="">
         </nuxt-link>
       </div>
-      <div class="header-content-btn-implant bannerLine">
-        <div class="bannerLine-in">
-          <PageSwiperPointLine :latestNewsNum="4" :latestNewsCurrent="bannerCurrent" @changeLineCur="handleBannerLineCur"></PageSwiperPointLine>
-        </div>
-      </div>
-      <div class="waterBg-implant"></div>
-      <div
-        class="header-content-text-implant"
-        :class="headerConfig.pageName"
-      >
-        <div>全程式預約一體化診療服務，</div>
-        <div>讓每一位顧客享受 <span>健康微笑之旅。</span></div>
-      </div>
-      <!-- pc菜单 -->
       <div
         :class="[
           isFiexdHeader ? 'headerBox02' : 'headerBox01',
@@ -357,7 +305,10 @@ const handleopenwechat = () =>{
           headerConfig.pageName,
         ]"
       >
-        <div ref="headerMenu" class="pageCon header-content-in">
+        <div class="headerBtn">
+          <nuxt-link :to="whatsapplink">掛號</nuxt-link>
+        </div>
+        <div ref="headerMenu" class="smallPageCon header-content-in">
           <div class="logo">
             <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院"
               ><img src="@/assets/images/logo_11.svg" alt=""
@@ -407,18 +358,22 @@ const handleopenwechat = () =>{
           </div>
           <div class="icon">
             <div class="icon-lists">
-              <nuxt-link class="icon-lists-in" to="https://www.facebook.com/ckjdental.hk/">
-                <img src="@/assets/images/icon_33.svg" alt="facebook">
+              <nuxt-link
+                class="icon-lists-in"
+                to="#"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21" fill="none">
+                <path d="M13.9922 15.6445C13.2503 16.136 12.5154 16.5066 11.721 16.7549C9.50314 17.4479 7.32315 17.3613 5.19566 16.4208C3.41845 15.6353 2.05693 14.4033 1.10765 12.7557C0.253034 11.2721 -0.099826 9.67442 0.0241054 7.97594C0.132545 6.48405 0.619665 5.11711 1.46567 3.87345C2.31339 2.62812 3.42534 1.65935 4.79288 0.96796C6.16129 0.276574 7.61749 -0.0407965 9.15889 0.00418517C11.0342 0.0583298 12.7211 0.634762 14.2177 1.72515C15.8839 2.93966 16.995 4.52818 17.5019 6.48488C18.0854 8.73563 17.7644 10.8814 16.5836 12.9039C16.396 13.2246 16.3762 13.1238 16.6533 13.3929C18.2317 14.924 19.8118 16.4533 21.3928 17.9819C21.8903 18.4625 22.1166 19.0289 21.941 19.702C21.6011 21.0023 19.934 21.4655 18.8944 20.44C18.1017 19.6579 17.2953 18.8898 16.4949 18.1152C15.71 17.3555 14.9243 16.5958 14.1411 15.8344C14.086 15.7811 14.0456 15.7145 13.9914 15.6445H13.9922ZM2.87969 8.59236C2.86764 11.7861 5.54938 14.3925 8.86885 14.4142C12.1728 14.4358 14.8942 11.8369 14.8942 8.61152C14.8942 5.36034 12.2004 2.79388 8.88865 2.79138C5.57864 2.78889 2.8926 5.38783 2.88055 8.59319L2.87969 8.59236Z" fill="#E15697"/>
+                </svg>
               </nuxt-link>
-              <nuxt-link class="icon-lists-in" to="https://www.instagram.com/ckj_hk/">
-                <img src="@/assets/images/icon_31.svg" alt="instagram">
-              </nuxt-link>
-              <div class="icon-lists-in" to="" @click="handlecopywechatcode">
-                <img src="@/assets/images/icon_34.svg" alt="weChat">
+              <div
+                class="icon-lists-in"
+                @click="glangs(appState.langs === 't'?'s':'t')"
+              >
+                <span>
+                  {{appState.langs === 't' ? '繁': '简'}}
+                </span>
               </div>
-              <nuxt-link class="icon-lists-in" to="https://www.youtube.com/channel/UC4AQD5eeOiHIGd3QYFGK4aA">
-                <img src="@/assets/images/icon_32.svg" alt="youtobe">
-              </nuxt-link>
             </div>
             <div class="icon-menuopen" @click="menuBoxBool = !menuBoxBool">
               <img v-if="!menuBoxBool" src="@/assets/images/icon_61.png" />
@@ -426,6 +381,11 @@ const handleopenwechat = () =>{
             </div>
           </div>
         </div>
+      </div>
+      <div class="headermbNav">
+        <nuxt-link :to="item.link" v-for="(item,index) in headermbNav" :key="index">
+          {{item.name}}
+        </nuxt-link>
       </div>
       <!-- mb菜单 -->
       <div class="menuBox" :style="{ top: menuBoxBool ? '0' : '-100vh' }">
@@ -476,14 +436,6 @@ const handleopenwechat = () =>{
           <img src="@/assets/images/icon_11.svg" />（852）{{ headerData.menuBoxPhone }}
         </div>
         <div class="menuBox-icon">
-          <!-- <div class="menuBox-icon-in">
-            <nuxt-link
-              to="https://www.facebook.com/ckjdental.hk/"
-              target="_blank"
-            >
-              <img src="@/assets/images/icon_01.png" />
-            </nuxt-link>
-          </div> -->
           <div class="menuBox-icon-in">
             <nuxt-link to="https://www.instagram.com/ckj_hk/" target="_blank">
               <img src="@/assets/images/icon_02.svg" />
@@ -500,7 +452,7 @@ const handleopenwechat = () =>{
         </div>
       </div>
       <!-- 水波纹盒子 -->
-      <div class="waterBg" :class="headerConfig.pageName"></div>
+      <!-- <div class="waterBg" :class="headerConfig.pageName"></div> -->
     </div>
     <div :class="['dialogBox',{show:_bool}]" @click="_bool=false">
       <div :class="['dialogBox-in',{'show-in':_bool}]" @click.stop="">
@@ -610,30 +562,6 @@ const handleopenwechat = () =>{
   width: 100%;
   box-sizing: border-box;
   position: relative;
-  &-bgImg {
-    width: 100%;
-    box-sizing: border-box;
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: -1;
-    &.course-new{
-      display: none;
-    }
-    .imgBgBox {
-      width: 100%;
-      min-height: 100%;
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: -2;
-    }
-    & > img {
-      width: 100%;
-    }
-  }
   &-bgImg-implant {
     position: fixed;
     z-index: -2;
@@ -650,37 +578,6 @@ const handleopenwechat = () =>{
     left: 0;
     z-index: 40;
     width: 100%;
-    &.bannerLine{
-      bottom: 130px;
-      z-index: 41;
-      .bannerLine-in{
-        width: 250px;
-      }
-    }
-  }
-  .waterBg-implant {
-    display: none;
-  }
-  &-text-implant {
-    position: absolute;
-    bottom: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 40;
-    width: 100%;
-    max-width: 1450px;
-    text-align: right;
-    & > div {
-      font-size: 28px;
-      font-weight: 700;
-      color: #666666;
-      span {
-        color: var(--indexColor1);
-      }
-    }
-    &.course-new{
-      display: none;
-    }
   }
   &-bgImgBB {
     position: relative;
@@ -701,7 +598,7 @@ const handleopenwechat = () =>{
     box-sizing: border-box;
     margin: 0 auto;
     padding: 20px 10px 0 30px;
-    align-items: flex-end;
+    align-items: center;
     z-index: 40;
     position: relative;
     transition: all 0.5s;
@@ -877,21 +774,6 @@ const handleopenwechat = () =>{
             &.menuChildCurrent {
               color: var(--indexColor1);
             }
-            // &>a{
-            //   &.hot{
-            //     position: relative;
-            //     color: var(--indexColor1);
-            //     &::after{
-            //       content: '·';
-            //       position: absolute;
-            //       left: 50%;
-            //       top: 0;
-            //       font-size: 30px;
-            //       color: var(--indexColor1);
-            //       margin-top: -8px;
-            //     }
-            //   }
-            // }
           }
           &::before {
             content: '';
@@ -934,6 +816,7 @@ const handleopenwechat = () =>{
                   font-size: 30px;
                   color: var(--indexColor1);
                   margin-top: -8px;
+                  transform: translateX(-50%);
                 }
               }
             }
@@ -981,17 +864,8 @@ const handleopenwechat = () =>{
       display: none;
     }
   }
-  .waterBg {
-    position: relative;
-    z-index: 35;
-    &.course-new{
-      bottom: 60px;
-    }
-  }
-  .pcMenuBox {
-    &.course-new{
-      margin-top: 60px;
-    }
+  .headermbNav{
+    display: none;
   }
   .headerBox01 {
     position: relative;
@@ -1016,28 +890,10 @@ const handleopenwechat = () =>{
         }
       }
     }
+    .headerBtn{
+      display: none;
+    }
   }
-}
-.waterBg::after {
-  content: '';
-  background-image: url(@/assets/images/back_wave01.png);
-  background-repeat: repeat-x;
-  background-position: center 20px;
-  height: 162px;
-  width: 100%;
-  position: absolute;
-  z-index: 35;
-  left: 0px;
-  bottom: 0px;
-  animation-name: wave1;
-  animation-duration: 20s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  -webkit-animation-name: wave1;
-  -webkit-animation-duration: 20s;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
-  filter: drop-shadow(0px -8px 4px rgba(77, 77, 77, 0.15));
 }
 @keyframes menuIconAnim {
   30%{
@@ -1056,60 +912,23 @@ const handleopenwechat = () =>{
     background-position-y: 10px;
   }
 }
-@keyframes wave1 {
-  0% {
-    background-position: 0px 20px;
-  }
-  100% {
-    background-position: 1080px 20px;
-  }
-}
-@-webkit-keyframes wave1 {
-  0% {
-    background-position: 0px 20px;
-  }
-  100% {
-    background-position: 1080px 20px;
-  }
-}
-.waterBg::before {
-  content: '';
-  background-image: url(@/assets/images/back_wave03.png);
-  background-repeat: repeat-x;
-  background-position: center bottom;
-  height: 162px;
-  width: 100%;
-  position: absolute;
-  z-index: 35;
-  left: 0px;
-  bottom: 0px;
-  animation-name: wave2;
-  animation-duration: 10s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  -webkit-animation-name: wave2;
-  -webkit-animation-duration: 10s;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
-}
-@keyframes wave2 {
-  0% {
-    background-position: 0px bottom;
-  }
-  100% {
-    background-position: 1080px bottom;
-  }
-}
-@-webkit-keyframes wave2 {
-  0% {
-    background-position: 0 bottom;
-  }
-  100% {
-    background-position: 1080px bottom;
-  }
-}
 .menuBox {
   display: none;
+}
+.headerBtn{
+  display: flex;
+  justify-content: center;
+  a{
+    background: #FF0302;
+    display: inline-block;
+    padding: 4px 108px;
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 160%;
+    color: #FFF620;
+    border-radius: 100px;
+    transform: translateY(-50%);
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1000px) {
@@ -1300,30 +1119,24 @@ const handleopenwechat = () =>{
 }
 
 @media screen and (max-width: 768px) {
-  .header-content {
-    // margin-top: 0;
-    &-bgImg {
-      position: relative;
-      &.course-new{
-        margin-top: 70px;
-      }
+  .headerBtn{
+    margin-top: 22px;
+    padding-bottom: 8px;
+    a{
+      transform: none;
+      font-size: 26px;
+      font-weight: 900;
+      padding: 5px 86px;
     }
+  }
+  .header-content {
     &-bgImg-implant {
       position: relative;
-      top: 60px;
+      margin-top: 120px;
       z-index: 1;
+      padding: 15px;
       &.course-new{
         padding-bottom: 5px;
-      }
-    }
-    &-btn-implant {
-      &.bannerLine{
-        position: relative;
-        bottom: -80px;
-        z-index: 2;
-        .bannerLine-in{
-          width: 150px;
-        }
       }
     }
     &-text-implant {
@@ -1341,58 +1154,14 @@ const handleopenwechat = () =>{
         margin-top: 150px;
       }
     }
-    .waterBg-implant {
-      display: block;
-      margin-top: -30px;
-      &::before {
-        content: '';
-        background-image: url(@/assets/images/back_wave03.png);
-        background-repeat: repeat-x;
-        background-position: center bottom;
-        height: 162px;
-        width: 100%;
-        position: absolute;
-        z-index: 1;
-        left: 0px;
-        bottom: 20px;
-        animation-name: wave2;
-        animation-duration: 10s;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        -webkit-animation-name: wave2;
-        -webkit-animation-duration: 10s;
-        -webkit-animation-timing-function: linear;
-        -webkit-animation-iteration-count: infinite;
-      }
-      &::after {
-        content: '';
-        background-image: url(@/assets/images/back_wave01.png);
-        background-repeat: repeat-x;
-        background-position: center 20px;
-        height: 162px;
-        width: 100%;
-        position: absolute;
-        z-index: 1;
-        left: 0px;
-        bottom: 20px;
-        animation-name: wave1;
-        animation-duration: 20s;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        -webkit-animation-name: wave1;
-        -webkit-animation-duration: 20s;
-        -webkit-animation-timing-function: linear;
-        -webkit-animation-iteration-count: infinite;
-        filter: drop-shadow(0px -8px 4px rgba(77, 77, 77, 0.15));
-      }
-    }
     &-in {
       position: fixed;
       top: 0;
       justify-content: space-between;
       align-items: center;
       margin: 0;
-      padding: 20px 0 0 20px;
+      padding: 15px;
+      box-sizing: border-box;
       .logo {
         width: 125px;
         margin-bottom: 0;
@@ -1402,23 +1171,61 @@ const handleopenwechat = () =>{
       }
       .icon {
         display: flex;
-        align-items: center;
+        // align-items: center;
         &-menuopen{
-          display: block;
-          width: 20px;
-          margin-right: 25px;
+          display: flex;
+          align-items: center;
+          width: 24px;
+          margin-left: 9px;
         }
         &-lists{
           display: flex;
           align-items: center;
-          &-in{
-            display: block;
-            margin-right: 15px;
-            img{
-              width: 20px;
+          &-in {
+            display: flex;
+            height: 80%;
+            align-items: center;
+            width: 40px;
+            padding: 0 9px;
+            border-right: 1px solid #AAA;
+            span{
+              color: #E15697;
+              text-align: center;
+              font-size: 21.135px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 160%; /* 33.816px */
+              letter-spacing: 4.227px;
+              margin-top: -3px;
             }
           }
         }
+      }
+    }
+    .headermbNav{
+      position: fixed;
+      top: 60px;
+      z-index: 40;
+      left: 0;
+      width: 100%;
+      height: 56px;
+      background: #fff;
+      color: #fff;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      grid-template-rows: repeat(2,1fr);
+      gap: 1px;
+      a{
+        width: 100%;
+        color: var(--White, #FFF);
+        font-family: "Noto Sans TC";
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 28px;
+        text-align: center;
+        box-sizing: border-box;
+        background: var(--indexColor1);
       }
     }
     &-span {
@@ -1428,27 +1235,10 @@ const handleopenwechat = () =>{
       right: 30px;
       bottom: 60px;
     }
-    .waterBg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      &.course-new{
-        bottom: auto;
-      }
-    }
     .headerBox02 {
       position: relative;
       z-index: 40;
     }
-  }
-  .waterBg::after {
-    transform: rotate(180deg);
-    top: -50px;
-  }
-  .waterBg::before {
-    transform: rotate(180deg);
-    top: -60px;
   }
   .menuBox {
     position: fixed;

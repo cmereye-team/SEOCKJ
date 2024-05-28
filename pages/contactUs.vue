@@ -142,7 +142,7 @@ onMounted(() => {
         <div class="environment-title">
           <div class="index_title">{{$t('contactUs.clinic_environment')}}</div>
         </div>
-        <div class="environment-in pageCon">
+        <div class="environment-in smallPageCon">
           <swiper
             class="environmentSwiperBox" 
             :loop="true"

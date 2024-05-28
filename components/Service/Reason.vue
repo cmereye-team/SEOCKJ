@@ -24,7 +24,7 @@ defineProps({
 
 <template>
   <div class="reason">
-    <div class="reason-in pageCon" :class="reasonData.pageName">
+    <div class="reason-in smallPageCon" :class="reasonData.pageName">
       <div class="reason-in-l">
         <div class="text_one">{{$t(reasonData.title)}}</div>
         <div class="text_two">{{$t(reasonData.text)}}</div>

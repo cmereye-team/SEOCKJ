@@ -236,7 +236,7 @@ const handleAddress = (_idx: string) => {
 
 <template>
   <div class="index-contactUs">
-      <div class="index-contactUs-t pageCon">
+      <div class="index-contactUs-t smallPageCon">
         <div class="index_title">{{$t('contactUs.title')}}</div>
         <div>
           <AreaTab :isAdPage="isAdPage" />

@@ -358,14 +358,17 @@ let privacyPolicy = ref(true)
           </el-form-item>
           <el-form-item>
             <div class="formBtn contactUsForm">
-              <div class="animbtntypetwo contactUsForm" v-loading="formLoading">
+              <button class="formBtn-in contactUsForm" @click.stop="submitForm(ruleFormRef)">
+                {{ $t('contactUs.contact_form.formItem.submit_the_form') }}
+              </button>
+              <!-- <div class="animbtntypetwo contactUsForm" v-loading="formLoading">
                 <div class="animbtntypetwo-in contactUsForm" :id="windowWidth > 768 ? 'contactUsForm' : 'navMbContactForm'" @click.stop="submitForm(ruleFormRef)">
                   <span class="contactUsForm">
                     <img class="contactUsForm" src="@/assets/images/icon_36.svg" style="margin-right: 10px;" alt="">
                     {{ $t('contactUs.contact_form.formItem.submit_the_form') }}
                   </span>
                 </div>
-              </div>
+              </div> -->
             </div>
           </el-form-item>
         </el-form>
@@ -417,13 +420,7 @@ li{
   &-bg {
     position: relative;
     padding: 71px 0 75px;
-    background: linear-gradient(
-      270deg,
-      rgba(255, 241, 240, 0) 2.6%,
-      rgba(255, 241, 240, 0.7) 23.89%,
-      rgba(255, 241, 240, 0.7) 75.33%,
-      rgba(255, 241, 240, 0) 97.4%
-    );
+    background: #FFF1F0;
   }
   &-title {
     display: flex;
@@ -456,7 +453,7 @@ li{
       margin-bottom: 30px;
     }
     :deep(.el-form-item__label) {
-      font-family: var(--contextFamily);
+      
       font-style: normal;
       font-weight: 500;
       font-size: 28px;
@@ -593,6 +590,18 @@ li{
       width: 100%;
       display: flex;
       justify-content: center;
+      &-in{
+        background: #FF0302;
+        color: #FFF620;
+        font-family: "Noto Serif CJK TC";
+        font-size: 31.02px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 160%; /* 49.633px */
+        letter-spacing: 6.204px;
+        padding: 14px 106px;
+        border-radius: 100px;
+      }
     }
     .privacyPolicy{
       width: 100%;
@@ -723,6 +732,14 @@ li{
         }
       }
     }
+    .formBtn {
+      &-in{
+        font-size: 1.6156vw;
+        letter-spacing: .3231vw;
+        padding: .7292vw 5.5208vw;
+        border-radius: 5.2083vw;
+      }
+    }
   }
 }
 }
@@ -799,10 +816,12 @@ li{
         font-size: 16px;
       }
       .formBtn {
-        // width: 137px;
-        // height: 40px;
-        // font-size: 16px;
         margin: 30px auto 0;
+        &-in{
+          padding: 9px 49px;
+          font-size: 19px;
+          letter-spacing: 3.8px;
+        }
       }
       .privacyPolicy{
         margin-top: 0px;

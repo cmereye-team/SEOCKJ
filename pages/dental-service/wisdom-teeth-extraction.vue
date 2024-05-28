@@ -233,10 +233,12 @@ const problemData = {
 <div>
   <PageHeader :headerConfig="headerConfig" />
   <div class="pageIn whitebgColor">
-    <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
+    <div class="smallPageCon">
+      <div class="index_title">{{$t('pages.dental-service.title')}}</div>
+    </div>
     <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
     <ServiceReason :reasonData="reasonData" />
-    <div class="issue pageCon">
+    <div class="issue smallPageCon">
       <div class="issue-top">
         <span v-for="(titleItem,titleIndex) in issueData.title" :key="titleIndex">{{titleItem}}</span>
       </div>

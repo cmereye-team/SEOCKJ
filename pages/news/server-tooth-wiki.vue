@@ -82,8 +82,8 @@ if(process.server){
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor informationPage">
-      <div class="index_title pageCon informationPage-title" id="information">牙齒百科</div>
-      <div class="tabNav noTitle pageCon">
+      <div class="index_title smallPageCon informationPage-title" id="information">牙齒百科</div>
+      <div class="tabNav noTitle smallPageCon">
         <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
           <span>主頁</span>
         </nuxt-link>
@@ -92,7 +92,7 @@ if(process.server){
         </nuxt-link>
         <span :title="'牙齒百科'">牙齒百科</span>
       </div>
-      <div class="pageCon">
+      <div class="smallPageCon">
         <div class="serveLink">
           <nuxt-link :to="`/news/news-tooth-wiki/${serverItem.id}`" v-for="(serverItem,serverIndex) in serverInformationLists" :key="serverIndex">
             {{serverItem.name}}

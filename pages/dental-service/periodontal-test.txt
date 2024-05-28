@@ -348,7 +348,9 @@ const reason2Data = {
 <div>
   <PageHeader :headerConfig="headerConfig" />
   <div class="pageIn whitebgColor">
-    <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
+    <div class="smallPageCon">
+      <div class="index_title">{{$t('pages.dental-service.title')}}</div>
+    </div>
     <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
     <!-- <ServiceReason :reasonData="reasonData" /> -->
     <div class="reason">
@@ -399,7 +401,7 @@ const reason2Data = {
         <div class="dentistryServices-title-in bb symptom-title-in">{{symptomData.title}}</div>
       </div>
       <div class="symptom-box">
-        <div class="symptom-lists pageCon">
+        <div class="symptom-lists smallPageCon">
           <div class="symptom-lists-in" v-for="(symptomItem,symptomIndex) in symptomData.lists" :key="symptomIndex">
             <div class="symptom-lists-in-img">
               <img :src="symptomItem.imgUrl" alt="">

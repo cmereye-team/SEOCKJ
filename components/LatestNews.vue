@@ -83,7 +83,7 @@ const setLatestNewsSwiperRef = (swiper:any) => {
 </script>
 
 <template>
-  <div class="index-latestNews pageCon">
+  <div class="index-latestNews smallPageCon">
       <div class="index-latestNews-t">
         <div class="index_title">最新優惠</div>
       </div>

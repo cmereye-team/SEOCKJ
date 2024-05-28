@@ -378,8 +378,10 @@ const differData:any = {
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor">
-      <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
-      <div class="tabNav pageCon">
+      <div class="smallPageCon">
+      <div class="index_title">{{$t('pages.dental-service.title')}}</div>
+    </div>
+      <div class="tabNav smallPageCon">
         <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院"
           ><span>{{ $t('pages.index.title') }}</span></nuxt-link
         >
@@ -682,7 +684,7 @@ const differData:any = {
     line-height: 160%; /* 32px */
     letter-spacing: 4px;
     color: var(--textColor);
-    font-family: var(--contextFamily);
+    
   }
   &-lists{
     margin-top: 17px;

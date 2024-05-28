@@ -117,7 +117,9 @@ const getWindowWidth = () => {
 <div>
   <PageHeader :headerConfig="headerConfig" />
   <div class="pageIn whitebgColor">
-    <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
+    <div class="smallPageCon">
+      <div class="index_title">{{$t('pages.dental-service.title')}}</div>
+    </div>
     <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
     <div class="foibles">
       <div class="dentistryServices-title">

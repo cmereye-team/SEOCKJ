@@ -282,7 +282,7 @@ const handleopenwechat = () =>{
           :src="headerConfig.mbImg"
           alt="banner"
         />
-        <div class="header-content-bgImg-textInfo pageCon">
+        <div class="header-content-bgImg-textInfo smallPageCon">
           <div :class="['header-content-bgImg-in', headerConfig.pageName]">
             <div :class="['bannerTitle', headerConfig.pageName]">
               <span>{{
@@ -381,7 +381,7 @@ const handleopenwechat = () =>{
           headerConfig.pageName,
         ]"
       >
-        <div ref="headerMenu" class="pageCon header-content-in">
+        <div ref="headerMenu" class="smallPageCon header-content-in">
           <div class="logo">
             <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院"
               ><img src="@/assets/images/logo_11.svg" alt=""
@@ -1108,6 +1108,7 @@ const handleopenwechat = () =>{
                   font-size: 30px;
                   color: var(--indexColor1);
                   margin-top: -8px;
+                  transform: translateX(-50%);
                 }
               }
             }

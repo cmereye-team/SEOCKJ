@@ -59,10 +59,8 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxt/content',
     '@vueuse/nuxt',
-    // '@nuxtjs/google-fonts',
-    '@zadigetvoltaire/nuxt-gtm',
+    // '@zadigetvoltaire/nuxt-gtm',
     '@nuxt/content',
-    // 'nuxt-simple-sitemap',
     'nuxt-windicss',
     'nuxt-swiper'
   ],
@@ -133,21 +131,21 @@ export default defineNuxtConfig({
       theme: 'github-dark',
     },
   },
-  runtimeConfig: {
-    public: {
-      gtm: {
-        id: 'GTM-T27LCDR',
-        defer: false,
-        compatibility: false,
-        enabled: true,
-        debug: true,
-        loadScript: true,
-        enableRouterSync: true,
-        devtools: true,
-      },
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://ckjhk.com',
-    }
-  },
+  // runtimeConfig: {
+  //   public: {
+  //     gtm: {
+  //       id: 'GTM-T27LCDR',
+  //       defer: false,
+  //       compatibility: false,
+  //       enabled: true,
+  //       debug: true,
+  //       loadScript: true,
+  //       enableRouterSync: true,
+  //       devtools: true,
+  //     },
+  //     siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://ckjhk.com',
+  //   }
+  // },
   nitro: {
     prerender: {
       crawlLinks: true,

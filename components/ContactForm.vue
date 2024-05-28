@@ -511,7 +511,7 @@ li{
       margin-bottom: 30px;
     }
     :deep(.el-form-item__label) {
-      font-family: var(--contextFamily);
+      
       font-style: normal;
       font-weight: 500;
       font-size: 28px;

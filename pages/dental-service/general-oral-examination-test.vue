@@ -153,7 +153,9 @@ const handleServicesInclude = (index) => {
   <div>
     <PageHeader :headerConfig="headerConfig" btnText="預約免費牙齒檢查" />
     <div class="pageIn whitebgColor">
-      <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
+      <div class="smallPageCon">
+      <div class="index_title">{{$t('pages.dental-service.title')}}</div>
+    </div>
       <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
       <div class="note">
         <div class="dentistryServices-title">
@@ -848,9 +850,9 @@ const handleServicesInclude = (index) => {
       padding: 24px 30px 35px;
       &-top {
         font-size: 16px;
-        font-family: var(--contextFamily);
+        
         span {
-          font-family: var(--contextFamily);
+          
           font-size: 16px;
         }
       }
@@ -969,7 +971,7 @@ const handleServicesInclude = (index) => {
             font-size: 16px;
             line-height: 2;
             span{
-              font-family: var(--contextFamily);
+              
             }
           }
         }

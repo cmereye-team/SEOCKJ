@@ -293,7 +293,9 @@ const caseLists = [
 <div>
   <PageHeader :headerConfig="headerConfig" />
   <div class="pageIn whitebgColor">
-    <div class="index_title pageCon">{{$t('pages.dental-service.title')}}</div>
+    <div class="smallPageCon">
+      <div class="index_title">{{$t('pages.dental-service.title')}}</div>
+    </div>
     <!-- 介绍 -->
     <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />
     <!-- 注意事项 -->
@@ -1345,7 +1347,7 @@ const caseLists = [
                 &::before{
                   content: '，';
                   font-size: 16px;
-                  font-family: var(--contextFamily);
+                  
                 }
               }
               img {
