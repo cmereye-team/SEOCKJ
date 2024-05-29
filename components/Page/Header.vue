@@ -31,19 +31,24 @@ const menuLists:any = [
     link: '/',
     child: [],
   },
+  // {
+  //   name: 'components.header.menuLists.menu_brand.name',
+  //   link: `/brand/${appState.brand}`,
+  //   child: [
+  //     {
+  //       name: 'components.header.menuLists.menu_brand.course',
+  //       link: '/brand/course',
+  //     },
+  //     {
+  //       name: 'components.header.menuLists.menu_brand.honor',
+  //       link: '/brand/honor',
+  //     },
+  //   ],
+  // },
   {
-    name: 'components.header.menuLists.menu_brand.name',
-    link: `/brand/${appState.brand}`,
-    child: [
-      {
-        name: 'components.header.menuLists.menu_brand.course',
-        link: '/brand/course',
-      },
-      {
-        name: 'components.header.menuLists.menu_brand.honor',
-        link: '/brand/honor',
-      },
-    ],
+    name: '關於我們',
+    link: '/aboutsUs',
+    child: [],
   },
   {
     name: 'components.header.menuLists.menu_dental_service.name',

@@ -11,20 +11,26 @@ const navLists = ref([
     show: false
   },
   {
-    name: 'components.footer.nav_brand',
-    link: `/brand/course`,
-    children: [
-      {
-        name: 'components.header.menuLists.menu_brand.course',
-        link: '/brand/course',
-      },
-      {
-        name: 'components.header.menuLists.menu_brand.honor',
-        link: '/brand/honor',
-      },
-    ],
+    name: '關於我們',
+    link: '/aboutsUs',
+    children: [],
     show: false
   },
+  // {
+  //   name: 'components.footer.nav_brand',
+  //   link: `/brand/course`,
+  //   children: [
+  //     {
+  //       name: 'components.header.menuLists.menu_brand.course',
+  //       link: '/brand/course',
+  //     },
+  //     {
+  //       name: 'components.header.menuLists.menu_brand.honor',
+  //       link: '/brand/honor',
+  //     },
+  //   ],
+  //   show: false
+  // },
   {
     name: 'components.footer.nav_dental_service',
     link: `/dental-service`,
