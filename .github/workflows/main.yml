@@ -1,0 +1,27 @@
+name: Record time and author for fix commits Main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  record_time:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Record time and author for fix commits
+        run: |
+          commit_message=$(git log -1 --pretty=format:'%s')
+          if echo "$commit_message" | grep -q "fix"; then
+            echo "时间： $(TZ='Asia/Shanghai' date +'%Y-%m-%d-%H ：%M') | 提交者： $(git log -1 --pretty=format:'%an') | 修改原因：$commit_message" >> time.md
+            echo "" >> time.md
+          fi
+      - name: Commit changes
+        run: |
+          git config --local user.email "asd540680736@outlook.com"
+          git config --local user.name "vikim540"
+          git add ./time.md
+          git commit -m "$(git log -1 --pretty=format:'%s')"
+          git push
