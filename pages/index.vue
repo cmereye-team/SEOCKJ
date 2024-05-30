@@ -569,7 +569,7 @@ const changeNewsCur_3 = async (idx) =>{
     saveData.value[`newsLists_3_${idx}`] = a
   }
 }
-
+ 
 const PromotionProject = [
   {
     img: 'https://static.cmereye.com/imgs/2024/05/9946e846e1d0eb4e.jpg',
