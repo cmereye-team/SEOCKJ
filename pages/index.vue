@@ -6,6 +6,8 @@ import { useAppState } from '~/stores/appState'
 import doctorLists_cs from '~/assets/js/doctor'
 import { toWhatsApp } from '~/assets/js/common'
 import { useElementBounding,useWindowSize } from '@vueuse/core'
+import { formatDate } from '~/assets/js/utils'
+import { json } from 'stream/consumers';
 const appState = useAppState()
 const { t } = useLang()
 useHead({
@@ -91,21 +93,22 @@ const treatmentData = [
     top: '-3%'
   }
 ]
-let showTreatment = ref(false)
-const scrollWatch = () => {
-  let _dome:any = document.getElementsByClassName('treatment-data')
-  let _offsetTop = 0
-  if(_dome && _dome.length){
-    _offsetTop = _dome[0].offsetTop
-  }
-  if(_offsetTop >= window.pageYOffset && _offsetTop + 200 <= window.pageYOffset + window.innerHeight){
-    showTreatment.value = true
-  }
-}
-onMounted(()=>{
-  scrollWatch()
-  window.addEventListener('scroll',scrollWatch)
-})
+// let showTreatment = ref(false)
+// const scrollWatch = () => {
+//   let _dome:any = document.getElementsByClassName('treatment-data')
+//   let _offsetTop = 0
+//   if(_dome && _dome.length){
+//     _offsetTop = _dome[0].offsetTop
+//   }
+//   if(_offsetTop >= window.pageYOffset && _offsetTop + 200 <= window.pageYOffset + window.innerHeight){
+//     showTreatment.value = true
+//   }
+// }
+
+// onMounted(()=>{
+  // scrollWatch()
+  // window.addEventListener('scroll',scrollWatch)
+// })
 
 watch(
   areaTabCurNum, (newValue, oldValue) => {
@@ -312,12 +315,73 @@ const onIndexOrgSlideChange = (swiper) =>{
 }
 
 const doctorTeam = ref(null)
-const { top,bottom } = useElementBounding(doctorTeam)
-const { width,height } = useWindowSize()
+// const { top,bottom } = useElementBounding(doctorTeam)
+const { width } = useWindowSize()
+
 
 onMounted(()=>{
   handletab2('101')
+  setTimeout(()=>{
+    handlemedia_coverage(0)
+    changeNewsCur_1(0)
+    changeNewsCur_3(0)
+  },0)
 })
+
+let saveData = ref({
+  media_coverage_0: [],
+  media_coverage_1: [],
+  newsLists_1_0: [],
+  newsLists_1_1: [],
+  newsLists_2_0: [],
+  newsLists_2_1: [],
+  newsLists_3_0: [],
+  newsLists_3_1: []
+})
+const handlemedia_coverage = async (idx) => {
+  if(media_coverage_cur_tab.value === idx) return
+  media_coverage_cur_tab.value = idx
+  let _lists = saveData.value[`media_coverage_${idx}`]
+  if(_lists && _lists.length){
+    media_coverage_lists.value = _lists
+  }else{
+    let _order = 'date'
+    if(idx === 0) _order = 'visits'
+    let a:any = await getNewsLists(14,5,_order)
+    media_coverage_lists.value = a
+    saveData.value[`media_coverage_${idx}`] = a
+  }
+}
+
+const getNewsLists = async (actType = 14,actPageNum = 5, order = 'date',loading = false, retuse = []) => {
+  loading = true
+  try{
+    const _res:any = await useFetch(`https://admin.ckjhk.com/api.php/list/${actType}/page/1/num/${actPageNum}/order/${order}`,{
+      method: 'post'});
+    let res = JSON.parse(_res.data.value) || null
+    if(res){
+      retuse = res.data.map(item=>{
+        let _Showpics = (item.pics.split(',')[0] === '')
+        return {
+          id: item.id || '',
+          logo: (item.ext_news_logo.indexOf('/static/upload/image') !== -1 ? `https://admin.ckjhk.com${item.ext_news_logo}`:item.ext_news_logo) || '',
+          img: (item.ico.indexOf('/static/upload/image') !== -1 ? `https://admin.ckjhk.com${item.ico}`:item.ico) || '',
+          desc: item.ext_news_desc || '',
+          name: item.title || '',
+          time: formatDate(actType === 16 ? item.update_time : item.ext_news_time) || '',
+          hashtag: [null,''].includes(item.ext_news_hashtag) ? [] : item.ext_news_hashtag.split(','),
+          pics: !_Showpics ? item.pics.split(',').map(tt=>{
+            return (tt.indexOf('/static/upload/image') !== -1 ? `https://admin.ckjhk.com${tt}`: tt) || ''
+          }) : [(item.ico.indexOf('/static/upload/image') !== -1 ? `https://admin.ckjhk.com${item.ico}`:item.ico) || ''],
+        }
+      })
+    }
+    loading = false
+  }catch(err){
+    loading = false
+  }
+  return retuse
+}
 
 const sectionBoxImage = [
   'https://static.cmereye.com/imgs/2024/05/d9ac62b96ae1454c.jpg',
@@ -325,66 +389,213 @@ const sectionBoxImage = [
   'https://static.cmereye.com/imgs/2024/05/47e396ed7c3b17ee.jpg',
   'https://static.cmereye.com/imgs/2024/05/4baebbe0a7bf99c3.png'
 ]
-let media_coverage_cur_tab = ref(0)
-
+let media_coverage_cur_tab = ref(2)
+const media_coverage_lists:any = ref([])
 const Dental_knowledge = [
   {
     name: '種植牙',
     context: '利用鈦金屬等物料製作成植體，然後植入進行牙槽骨當中，代替牙根以作支撐，然後在上面植入假牙、牙橋或假牙托來填補空缺的牙齒。隨着醫療技術的進步，現在不僅有傳統的植牙方式，還有微創植牙。',
+    img: '',
     lists: [
       {
-        q: '甚麼人不適合接受植牙治療？'
+        Q: 'pages.dental-service.implant.problem.lists[0].Q',
+        A: 'pages.dental-service.implant.problem.lists[0].A'
       },
       {
-        q: '植牙手術會痛嗎？'
+        Q: 'pages.dental-service.implant.problem.lists[1].Q',
+        A: 'pages.dental-service.implant.problem.lists[1].A'
       },
       {
-        q: '植牙有甚麼風險？'
+        Q: 'pages.dental-service.implant.problem.lists[2].Q',
+        A: 'pages.dental-service.implant.problem.lists[2].A'
       },
       {
-        q: '植牙會有甚麼後遺症？'
+        Q: 'pages.dental-service.implant.problem.lists[3].Q',
+        A: 'pages.dental-service.implant.problem.lists[3].A'
       },
       {
-        q: '可否同時接受拔牙與植牙治療？'
-      }
+        Q: 'pages.dental-service.implant.problem.lists[4].Q',
+        A: 'pages.dental-service.implant.problem.lists[4].A'
+      },
+      {
+        Q: 'pages.dental-service.implant.problem.lists[5].Q',
+        A: 'pages.dental-service.implant.problem.lists[5].A'
+      },
     ]
   },{
     name: '洗牙',
-    context: ''
+    context: '提供洗牙和深層洗牙服務，定期洗牙有效去除牙齒上的牙垢、牙菌膜和牙結石，更能預防牙周病或其他口腔問題。建議每半年至一年進行一次洗牙，為您的口腔健康護航。',
+    img: '',
+    lists: [
+      {
+        Q: '為什麼會出現牙石？',
+        A: '牙石的形成主要源於口腔內的細菌、食物殘渣以及口水相互作用，它們會在牙齒表面、牙縫和牙齦間形成一層牙菌膜。若牙菌膜未能仔細清除，便會導致牙菌膜上積聚的鈣質形成牙石。建議每半年進行一次洗牙，以保持口腔衛生。',
+      },
+      {
+        Q: '為何洗牙後會感到牙齦不適或疼痛？',
+        A: '洗牙後的幾天內可能會伴隨著口腔不適或牙齦出血的症狀，這是因為清除了牙齒的上的牙垢、牙結石及食物殘渣後，原本熟悉的口腔環境有所改變，客人初期可能需要一段時間適應。只要保持良好口腔衛生，這些現象會逐漸消失，牙齦也將恢復至健康狀態。',
+      },
+      {
+        Q: '為何洗牙後會出現牙齒敏感或牙縫變大的情況？',
+        A: '在洗牙的過程中，牙醫會清除牙齒表面或牙縫間的牙菌膜和牙結石，使原本被覆蓋的牙根會暴露出來，增加對冷熱或刺激性食物的敏感度。同時，原本受感染的牙肉會逐漸消腫，進而使牙縫變得明顯。然而，牙齒敏感情況通常會在洗牙後大約兩至三天內緩解，期間建議避免進食過於冷熱酸辣的食物，並考慮使用防敏感牙膏。如敏感症狀持續加劇，建議諮詢牙科醫生的專業意見。',
+      },
+      {
+        Q: '洗牙後應如何保持口腔清潔？',
+        A: '洗牙後，牙醫或牙齒衛生員會指導病人如何正確地保持口腔清潔，並提醒病人需要注意特別清潔的地方，並示範如何有效地使用口腔護理用品，如牙刷、牙線及牙縫刷。在某些情況下，病人需要使用抗菌漱口水或暖鹽水進一步清潔口腔，但不建議持續使用超過兩星期。',
+      },
+    ]
   },{
     name: '補牙',
-    context: ''
+    context: '亦稱為「牙體修復」，透過使用適當的物料填補因蛀牙或其他原因導致的牙齒組織缺失部位，以恢復牙齒的功能、完整性和形態。同時，補牙可用於美觀的填補，使笑容更加協調美觀。',
+    img: '',
+    lists: [
+      {
+        Q: 'pages.dental-service.fillings.problem.lists[0].Q',
+        A: 'pages.dental-service.fillings.problem.lists[0].A',
+      },
+      {
+        Q: 'pages.dental-service.fillings.problem.lists[1].Q',
+        A: 'pages.dental-service.fillings.problem.lists[1].A',
+      },
+      {
+        Q: 'pages.dental-service.fillings.problem.lists[2].Q',
+        A: 'pages.dental-service.fillings.problem.lists[2].A',
+      },
+      {
+        Q: 'pages.dental-service.fillings.problem.lists[3].Q',
+        A: 'pages.dental-service.fillings.problem.lists[3].A',
+      },
+      {
+        Q: 'pages.dental-service.fillings.problem.lists[4].Q',
+        A: 'pages.dental-service.fillings.problem.lists[4].A',
+      },
+    ]
   },{
     name: '全瓷貼片',
-    context: ''
+    context: '瓷貼片有助改善牙齒的形狀、長度、外觀及顏色，達到牙齒整齊和美白的效果。把度身訂製的纖薄瓷貼片黏附於牙齒表層，效果自然，改善外觀。',
+    img: '',
+    lists: [
+      {
+        Q: '做瓷貼片一定要磨牙嗎？',
+        A: '進行瓷貼片療程前，需進行輕微磨牙處理，以確保其穩定性和美觀度。'
+      },
+      {
+        Q: '做瓷貼片會造成牙齒敏感嗎？',
+        A: '術後牙齒可能會變得敏感，屬正常現象，一般會在數天內自行適應。'
+      },
+      {
+        Q: '瓷貼片實際效果跟期望有落差嗎？',
+        A: '透過數位模擬技術，提供清晰的術後預覽，並製作實體模擬貼片供客人試戴。'
+      },
+      {
+        Q: '全瓷貼片容易脫落嗎？',
+        A: '裝上瓷貼片後，需注意保持良好的口腔清潔習慣，避免進食過硬食物，並定期覆診檢查，確保瓷貼片的穩固性和壽命，以減低其脫落風險。一般情況下貼片壽命可長達15年或以上。我們則提供三至五年的保修期，具體期限取決於客人所選擇的瓷貼片品牌。'
+      }
+    ]
   },{
     name: '牙托',
-    context: ''
+    context: '牙托即活動式假牙，分為局部及全口牙托兩種，可改善缺牙的影響。牙托底部有金屬鉤讓牙托能固定在真牙上，代替缺去的牙齒。活動式假牙可自行配戴，適合缺齒較多的人士使用。',
+    img: '',
+    lists: [
+      {
+        Q: 'pages.dental-service.toothtray.problem.lists[0].Q',
+        A: 'pages.dental-service.toothtray.problem.lists[0].A'
+      },
+      {
+        Q: 'pages.dental-service.toothtray.problem.lists[1].Q',
+        A: 'pages.dental-service.toothtray.problem.lists[1].A'
+      },
+      {
+        Q: 'pages.dental-service.toothtray.problem.lists[2].Q',
+        A: 'pages.dental-service.toothtray.problem.lists[2].A'
+      },
+      {
+        Q: 'pages.dental-service.toothtray.problem.lists[3].Q',
+        A: 'pages.dental-service.toothtray.problem.lists[3].A'
+      },
+    ]
   }
 ]
 let Dental_knowledge_cur_tab = ref(0)
 
-const newsListsConfig_1 = {
+let changeNewsCur_1_tab = ref(2)
+const newsListsConfig_1 = ref({
   title: '牙齒百科',
   tab: ['最熱門','最新'],
   lists: [
   ]
+})
+const changeNewsCur_1 = async (idx) =>{
+  if(changeNewsCur_1_tab.value === idx) return
+  changeNewsCur_1_tab.value = idx
+  let _lists = saveData.value[`newsLists_1_${idx}`]
+  if(_lists && _lists.length){
+    newsListsConfig_1.value.lists = _lists
+  }else{
+    let _order = 'date'
+    if(idx === 0) _order = 'visits'
+    let a:any = await getNewsLists(16,5,_order)
+    newsListsConfig_1.value.lists = a
+    saveData.value[`newsLists_1_${idx}`] = a
+  }
 }
 
+let changeNewsCur_2_tab = ref(2)
 const newsListsConfig_2 = {
-  title: '牙齒百科',
+  title: '醫生分享',
   tab: ['最熱門','最新'],
   lists: [
   ]
 }
 
-const newsListsConfig_3 = {
+let changeNewsCur_3_tab = ref(2)
+const newsListsConfig_3 = ref({
   title: '最新資訊',
   tab: ['最熱門','最新'],
   lists: [
   ]
+})
+const changeNewsCur_3 = async (idx) =>{
+  if(changeNewsCur_3_tab.value === idx) return
+  changeNewsCur_3_tab.value = idx
+  let _lists = saveData.value[`newsLists_3_${idx}`]
+  if(_lists && _lists.length){
+    newsListsConfig_3.value.lists = _lists
+  }else{
+    let _order = 'date'
+    if(idx === 0) _order = 'visits'
+    let a:any = await getNewsLists(15,5,_order)
+    newsListsConfig_3.value.lists = a
+    saveData.value[`newsLists_3_${idx}`] = a
+  }
 }
 
+const PromotionProject = [
+  {
+    img: 'https://static.cmereye.com/imgs/2024/05/9946e846e1d0eb4e.jpg',
+    link: '#'
+  },
+  {
+    img: 'https://static.cmereye.com/imgs/2024/05/f4663be0c2b9aa78.jpg',
+    link: '#'
+  },
+  {
+    img: 'https://static.cmereye.com/imgs/2024/05/dddeb382b720f94f.jpg',
+    link: '#'
+  },
+  {
+    img: 'https://static.cmereye.com/imgs/2024/05/58d7b2ff7c0e8069.jpg',
+    link: '#'
+  },
+  {
+    img: 'https://static.cmereye.com/imgs/2024/05/68255af5b5d127c8.jpg',
+    link: '#'
+  },
+  {
+    img: 'https://static.cmereye.com/imgs/2024/05/3531e78ba5e86dca.jpg',
+    link: '#'
+  }
+]
 </script>
 
 <template>
@@ -397,15 +608,11 @@ const newsListsConfig_3 = {
             推廣項目
           </div>
           <div class="PromotionProject-content">
-            <Swiper :initialSlide="1" :centeredSlides="true" :slidesPerView="2" :spaceBetween="14" class="PromotionProject-swiper">
-              <Swiper-slide class="PromotionProject-swiper-slide">
-                <img src="https://static.cmereye.com/imgs/2024/05/1bde27dae0aacb0e.jpg" alt="">
-              </Swiper-slide>
-              <Swiper-slide class="PromotionProject-swiper-slide">
-                <img src="https://static.cmereye.com/imgs/2024/05/1bde27dae0aacb0e.jpg" alt="">
-              </Swiper-slide>
-              <Swiper-slide class="PromotionProject-swiper-slide">
-                <img src="https://static.cmereye.com/imgs/2024/05/1bde27dae0aacb0e.jpg" alt="">
+            <Swiper :initialSlide="0" :centeredSlides="true" :slidesPerView="2" :spaceBetween="14" class="PromotionProject-swiper">
+              <Swiper-slide class="PromotionProject-swiper-slide" v-for="(item,index) in PromotionProject" :key="index">
+                <nuxt-link :to="item.link">
+                  <img :src="item.img" alt="">
+                </nuxt-link>
               </Swiper-slide>
             </Swiper>
           </div>
@@ -428,38 +635,35 @@ const newsListsConfig_3 = {
             </div>
           </div>
           <div class="media_coverage-tab">
-            <div :class="{cur: media_coverage_cur_tab === 0}">
+            <div :class="{cur: media_coverage_cur_tab === 0}" @click="handlemedia_coverage(0)">
               最熱門
             </div>
-            <div :class="{cur: media_coverage_cur_tab === 1}">最新</div>
+            <div :class="{cur: media_coverage_cur_tab === 1}" @click="handlemedia_coverage(1)">最新</div>
           </div>
           <div class="media_coverage-content">
-            <div class="list-in" v-for="item in width>768?2:5" :key="item">
+            <div class="list-in" v-for="item in width>768?media_coverage_lists.slice(0,2):media_coverage_lists" :key="item.id">
               <div class="list-in-t">
                 <div class="list-in-t-l">
-                  <img src="https://static.cmereye.com/imgs/2024/05/3951943c2b02c42f.jpg" alt="">
+                  <img :src="item.img" alt="">
                 </div>
                 <div class="list-in-t-r">
-                  <img src="https://static.cmereye.com/imgs/2024/05/d8baabc1fdd1f406.png" alt="">
-                  <span>深圳Costco周邊食買玩一條龍｜紅山6979商場｜¥88高性價比洗牙！</span>
+                  <img :src="item.logo" alt="">
+                  <span>{{item.name}}</span>
                 </div>
               </div>
               <div class="list-in-b">
                 <div class="list-in-b-l">
-                  <span>#洗牙</span>
-                  <span>#種植牙</span>
-                  <span>#愛康健羅湖</span>
-                  <span>#愛康健</span>
+                  <span v-for="(tagItem,tagIndex) in item.hashtag" :key="tagIndex">{{tagItem}}</span>
                 </div>
                 <div class="list-in-b-r">
-                  21小時前
+                  {{item.time}}
                 </div>
               </div>
             </div>
           </div>
-          <div class="media_coverage-btn">
+          <nuxt-link to="/news/coverage" class="media_coverage-btn">
             <div>查看更多</div>
-          </div>
+          </nuxt-link>
         </div>
         <div class="sectionBox-r">
           <AboutUs />
@@ -472,7 +676,7 @@ const newsListsConfig_3 = {
           </div>
         </div>
         <div class="Dental_knowledge-tab">
-          <div class="Dental_knowledge-tab-in" :class="{cur: Dental_knowledge_cur_tab === index}" v-for="(item,index) in Dental_knowledge" :key="index">
+          <div class="Dental_knowledge-tab-in" :class="{cur: Dental_knowledge_cur_tab === index}" v-for="(item,index) in Dental_knowledge" :key="index" @click="Dental_knowledge_cur_tab = index">
             {{item.name}}
           </div>
         </div>
@@ -486,13 +690,13 @@ const newsListsConfig_3 = {
                 <img src="https://static.cmereye.com/imgs/2024/05/8a104fb9dc69d0a0.png" alt="">
               </div>
               <div class="info-r">
-                <div class="title">{{Dental_knowledge[0].name}}</div>
-                <div class="context">{{Dental_knowledge[0].context}}</div>
+                <div class="title">{{Dental_knowledge[Dental_knowledge_cur_tab].name}}</div>
+                <div class="context">{{Dental_knowledge[Dental_knowledge_cur_tab].context}}</div>
               </div>
             </div>
             <div class="lists">
-              <div class="lists-in" v-for="(item,index) in Dental_knowledge[0].lists" :key="index">
-                {{item.q}}
+              <div class="lists-in" v-for="(item,index) in Dental_knowledge[Dental_knowledge_cur_tab].lists" :key="index">
+                {{$t(item.Q)}}
               </div>
             </div>
           </div>
@@ -646,13 +850,13 @@ const newsListsConfig_3 = {
       </div>
       <div class="mbBox">
         <div class="newsListsBox">
-          <NewsLists :listsConfig="newsListsConfig_1" />
+          <NewsLists :listsConfig="newsListsConfig_1" @changeNewsCur="changeNewsCur_1" />
         </div>
         <div class="newsListsBox">
           <NewsLists :listsConfig="newsListsConfig_2" :thameType="'2'" />
         </div>
         <div class="newsListsBox">
-          <NewsLists :listsConfig="newsListsConfig_3" :thameType="'3'" />
+          <NewsLists :listsConfig="newsListsConfig_3" :thameType="'3'" @changeNewsCur="changeNewsCur_3" />
         </div>
         <div class="brandConceptBox">
           <brandConcept-test />
@@ -716,7 +920,7 @@ const newsListsConfig_3 = {
       <ContactForm-new />
     </div>
     <PageFooter />
-    <PageNavbar :showDialogBox="(top<(height / 3 * 2)) && (bottom > (height / 3))" />
+    <PageNavbar/>
   </div>
 </template>
 
@@ -1220,6 +1424,9 @@ svg:hover path{
       text-align: center;
       padding: 7px 0;
       cursor: pointer;
+      display: block;
+      border-radius: 2px;
+      color: var(--textColor);
     }
   }
   &-r{
@@ -1580,6 +1787,7 @@ svg:hover path{
     align-items: center;
     .newsListsBox{
       margin-top: 60px;
+      width: 100%;
     }
     .brandConceptBox{
       margin-top: 60px;

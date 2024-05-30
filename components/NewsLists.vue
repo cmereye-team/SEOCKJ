@@ -20,8 +20,10 @@ defineProps({
 })
 
 let newsLists_cur_tab = ref(0)
+const emits = defineEmits(['changeNewsCur'])
 const hangdleTab = (idx:number) =>{
   newsLists_cur_tab.value = idx
+  emits('changeNewsCur', idx)
 }
 </script>
 
@@ -38,14 +40,14 @@ const hangdleTab = (idx:number) =>{
       </div>
     </div>
     <div class="newsLists-content">
-      <div class="list-in" v-for="item in 5" :key="item">
+      <div class="list-in" v-for="item in listsConfig.lists" :key="item.id">
         <div class="list-in-t" v-if="thameType === '1'">
           <div class="list-in-t-l">
-            <img src="https://static.cmereye.com/imgs/2024/05/988909c80e0b0f60.png" alt="">
+            <img :src="item.img" alt="">
           </div>
           <div class="list-in-t-r">
-            <h2>全民走塑塑膠製牙齒潔具替代品一覽</h2>
-            <p>香港執行管制即棄塑膠揩施首階段，包括禁止食肆提供或銷售</p>
+            <h2>{{item.name}}</h2>
+            <p>{{item.desc}}</p>
           </div>
         </div>
         <div class="list-in-t" v-if="thameType === '2'">
@@ -58,22 +60,19 @@ const hangdleTab = (idx:number) =>{
         </div>
         <div class="list-in-t" v-if="thameType === '3'">
           <div class="list-in-t-l">
-            <img :style="{'z-index': 4-imgIndex,'margin-left': `-${imgIndex === 0 ? 0 : 33}px`}" v-for="(imgItem,imgIndex) in 4" :key="imgIndex" src="https://static.cmereye.com/imgs/2024/05/03f65aee5f7f79a6.png" alt="">
+            <img :style="{'z-index': 4-imgIndex,'margin-left': `-${imgIndex === 0 ? 0 : 33}px`}" v-for="(imgItem,imgIndex) in item.pics.slice(0,4)" :key="imgIndex" :src="imgItem" alt="">
           </div>
           <div class="list-in-t-r">
-            <h2>拯救四環素牙大行動 🦷✨️</h2>
-            <p>有四環素牙好尷尬！牙齒變色，掩嘴唔敢笑！四環素牙通常喺成長時由於長期使用四環素類藥物，與牙本質結合引起嘅內源性牙齒變色情況</p>
+            <h2>{{item.name}}</h2>
+            <p>{{item.desc}}</p>
           </div>
         </div>
         <div class="list-in-b">
           <div class="list-in-b-l">
-            <span>#洗牙</span>
-            <span>#種植牙</span>
-            <span>#愛康健羅湖</span>
-            <span>#愛康健</span>
+            <span v-for="(tagItem,tagIndex) in item.hashtag" :key="tagIndex">{{tagItem}}</span>
           </div>
           <div class="list-in-b-r">
-            21小時前
+            {{item.time}}
           </div>
         </div>
       </div>
@@ -84,6 +83,7 @@ const hangdleTab = (idx:number) =>{
 
 <style lang="scss" scoped>
 .newsLists{
+  width: 100%;
   padding: 0 17px;
   max-width: 768px;
   margin: 0 auto;

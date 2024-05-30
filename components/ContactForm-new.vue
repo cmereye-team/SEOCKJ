@@ -282,7 +282,7 @@ let privacyPolicy = ref(true)
           label-width="120px"
           label-position="top"
         >
-          <div class="firstFormItem">
+          <!-- <div class="firstFormItem"> -->
             <!-- <el-col :span="11"> -->
               <el-form-item
                 :label="`${$t('contactUs.contact_form.formItem.name')}`"
@@ -307,7 +307,7 @@ let privacyPolicy = ref(true)
                 </el-select>
               </el-form-item>
             </el-col> -->
-          </div>
+          <!-- </div> -->
           <el-form-item
             :label="`${$t(
               'contactUs.contact_form.formItem.telephone_number'

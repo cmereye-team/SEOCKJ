@@ -92,8 +92,8 @@ let aboutUs_cur_tab = ref(0)
         </div>
         <div class="index-aboutUs-content">
           <div class="tab">
-            <div :class="{cur: aboutUs_cur_tab === 0}">科技護航<br>安全放心</div>
-            <div :class="{cur: aboutUs_cur_tab === 1}">嚴謹治療<br>為效果護航</div>
+            <div :class="{cur: aboutUs_cur_tab === 0}" @click="aboutUs_cur_tab = 0">科技護航<br>安全放心</div>
+            <div :class="{cur: aboutUs_cur_tab === 1}" @click="aboutUs_cur_tab = 1">嚴謹治療<br>為效果護航</div>
           </div>
           <div class="contentBox" v-if="aboutUs_cur_tab === 0">
             <span>優質的診療服務，在於醫生的專業素養，以及匹配的醫療設備的先進程度。愛康健從口腔檢查到臨床手術，全程採購主流牙科設備，與時俱進開展醫生職業技能培訓。我們信奉技術，加進口設備，才能有好的診療功效。</span>
