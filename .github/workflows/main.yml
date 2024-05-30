@@ -1,4 +1,4 @@
-name: Record time and author for fix commits Main
+name: Record Time and Author
 
 on:
   push:
@@ -11,13 +11,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Record time and author for fix commits
+      - name: Record time and author
         run: |
-          commit_message=$(git log -1 --pretty=format:'%s')
-          if echo "$commit_message" | grep -q "fix"; then
-            echo "时间： $(TZ='Asia/Shanghai' date +'%Y-%m-%d-%H ：%M') | 提交者： $(git log -1 --pretty=format:'%an') | 修改原因：$commit_message" >> time.md
-            echo "" >> time.md
-          fi
+          echo "时间： $(TZ='Asia/Shanghai' date +'%Y-%m-%d-%H ：%M') | 提交者： $(git log -1 --pretty=format:'%an') | 修改原因：$(git log -1 --pretty=format:'%s') " >> time.md
+          echo "" >> time.md
       - name: Commit changes
         run: |
           git config --local user.email "asd540680736@outlook.com"
