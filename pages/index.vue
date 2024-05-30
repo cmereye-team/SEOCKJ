@@ -63,53 +63,6 @@ let areaTabCurNum = computed(()=>{
   return appState.areaTabCurNum
 })
 
-const treatmentData = [
-  {
-    name: '接診人數',
-    num: "259,376",
-    bg: 'https://static.cmereye.com/static/ckj/imgs/svg/icon_16_1.svg',
-    left: '30%',
-    top: '-31%'
-  },
-  {
-    name: '已修復牙冠',
-    num: "25,295",
-    bg: 'https://static.cmereye.com/static/ckj/imgs/svg/icon_16_3.svg',
-    left: '15%',
-    top: '50%'
-  },
-  {
-    name: '種植牙數',
-    num: "27,008",
-    bg: 'https://static.cmereye.com/imgs/2024/01/5bc753351f96d0d0.png',
-    left: '15%',
-    top: '-10%'
-  },
-  {
-    name: '全瓷貼面數',
-    num: "3,336",
-    bg: 'https://static.cmereye.com/static/ckj/imgs/svg/icon_16_4.svg',
-    left: '53%',
-    top: '-3%'
-  }
-]
-// let showTreatment = ref(false)
-// const scrollWatch = () => {
-//   let _dome:any = document.getElementsByClassName('treatment-data')
-//   let _offsetTop = 0
-//   if(_dome && _dome.length){
-//     _offsetTop = _dome[0].offsetTop
-//   }
-//   if(_offsetTop >= window.pageYOffset && _offsetTop + 200 <= window.pageYOffset + window.innerHeight){
-//     showTreatment.value = true
-//   }
-// }
-
-// onMounted(()=>{
-  // scrollWatch()
-  // window.addEventListener('scroll',scrollWatch)
-// })
-
 watch(
   areaTabCurNum, (newValue, oldValue) => {
     changeAreaTabCur(newValue)
@@ -324,6 +277,7 @@ onMounted(()=>{
   setTimeout(()=>{
     handlemedia_coverage(0)
     changeNewsCur_1(0)
+    changeNewsCur_2(0)
     changeNewsCur_3(0)
   },0)
 })
@@ -541,11 +495,48 @@ const changeNewsCur_1 = async (idx) =>{
 }
 
 let changeNewsCur_2_tab = ref(2)
-const newsListsConfig_2 = {
+const newsListsConfig_2 = ref({
   title: '醫生分享',
   tab: ['最熱門','最新'],
   lists: [
   ]
+})
+const getVideosLists = async (order = 'date',loading = false,retuse = []) =>{
+  loading = false
+  try{
+    const _res:any = await useFetch(`https://admin.ckjhk.com/api.php/list/18/page/1/num/3/order/${order}`,{
+      method: 'post'});
+    let res = JSON.parse(_res.data.value) || null
+    if(res){
+      retuse = res.data.map(item=>{
+        return {
+          id: item.id || '',
+          name: item.title || '',
+          time: formatDate(item.date) || '',
+          videos: item.ext_videosurl || '',
+          hashtag: [null,''].includes(item.tags) ? [] : item.tags.split(',')
+        }
+      })
+    }
+    loading = false
+  }catch(err){
+    loading = false
+  }
+  return retuse
+}
+const changeNewsCur_2 = async (idx) => {
+  if(changeNewsCur_2_tab.value === idx) return
+  changeNewsCur_2_tab.value = idx
+  let _lists = saveData.value[`newsLists_2_${idx}`]
+  if(_lists && _lists.length){
+    newsListsConfig_2.value.lists = _lists
+  }else{
+    let _order = 'date'
+    if(idx === 0) _order = 'visits'
+    let a:any = await getVideosLists(_order)
+    newsListsConfig_2.value.lists = a
+    saveData.value[`newsLists_2_${idx}`] = a
+  }
 }
 
 let changeNewsCur_3_tab = ref(2)
@@ -573,27 +564,27 @@ const changeNewsCur_3 = async (idx) =>{
 const PromotionProject = [
   {
     img: 'https://static.cmereye.com/imgs/2024/05/9946e846e1d0eb4e.jpg',
-    link: '#'
+    link: '/dental-service/veneers'
   },
   {
     img: 'https://static.cmereye.com/imgs/2024/05/f4663be0c2b9aa78.jpg',
-    link: '#'
+    link: '/dental-service/invisiblebraces'
   },
   {
     img: 'https://static.cmereye.com/imgs/2024/05/dddeb382b720f94f.jpg',
-    link: '#'
+    link: '/dental-service/orthodontics'
   },
   {
     img: 'https://static.cmereye.com/imgs/2024/05/58d7b2ff7c0e8069.jpg',
-    link: '#'
+    link: '/dental-service/implant'
   },
   {
     img: 'https://static.cmereye.com/imgs/2024/05/68255af5b5d127c8.jpg',
-    link: '#'
+    link: '/dental-service/scaling-and-polishing'
   },
   {
     img: 'https://static.cmereye.com/imgs/2024/05/3531e78ba5e86dca.jpg',
-    link: '#'
+    link: '/dental-service/fillings'
   }
 ]
 </script>
@@ -602,20 +593,18 @@ const PromotionProject = [
   <div>
     <PageNewHeader :headerConfig="headerConfigData" /> 
     <div class="indexPage">
-      <div class="mbBox">
-        <div class="PromotionProject">
-          <div class="PromotionProject-title">
-            推廣項目
-          </div>
-          <div class="PromotionProject-content">
-            <Swiper :initialSlide="0" :centeredSlides="true" :slidesPerView="2" :spaceBetween="14" class="PromotionProject-swiper">
-              <Swiper-slide class="PromotionProject-swiper-slide" v-for="(item,index) in PromotionProject" :key="index">
-                <nuxt-link :to="item.link">
-                  <img :src="item.img" alt="">
-                </nuxt-link>
-              </Swiper-slide>
-            </Swiper>
-          </div>
+      <div class="PromotionProject pageCon">
+        <div class="PromotionProject-title">
+          推廣項目
+        </div>
+        <div class="PromotionProject-content">
+          <Swiper :initialSlide="0" :centeredSlides="width < 768" :slidesPerView="width > 768 ? 4.3 : 2" :spaceBetween="14" class="PromotionProject-swiper">
+            <Swiper-slide class="PromotionProject-swiper-slide" v-for="(item,index) in PromotionProject" :key="index">
+              <nuxt-link :to="item.link">
+                <img :src="item.img" alt="">
+              </nuxt-link>
+            </Swiper-slide>
+          </Swiper>
         </div>
       </div>
       <serviceCard :isIndexShow="true" />
@@ -853,7 +842,7 @@ const PromotionProject = [
           <NewsLists :listsConfig="newsListsConfig_1" @changeNewsCur="changeNewsCur_1" />
         </div>
         <div class="newsListsBox">
-          <NewsLists :listsConfig="newsListsConfig_2" :thameType="'2'" />
+          <NewsLists :listsConfig="newsListsConfig_2" :thameType="'2'" @changeNewsCur="changeNewsCur_2" />
         </div>
         <div class="newsListsBox">
           <NewsLists :listsConfig="newsListsConfig_3" :thameType="'3'" @changeNewsCur="changeNewsCur_3" />
@@ -925,6 +914,38 @@ const PromotionProject = [
 </template>
 
 <style lang="scss" scoped>
+.PromotionProject{
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  &-title{
+    writing-mode: vertical-lr;
+    color: var(--Grey-Deep, #4D4D4D);
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 110%;
+    padding-right: 15px;
+    border-right: 3px solid var(--indexColor1);
+    letter-spacing: 4px;
+    margin-right: 18px;
+  }
+  &-content{
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    &::after{
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      right: 0;
+      width: 100px;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(0,0,0,0), #fff 70%);
+    }
+  }
+}
 @keyframes numAnim {
   100%{
     // transform: translateY(calc((100% - 96px) * -1));
@@ -1781,6 +1802,38 @@ svg:hover path{
 }
 
 @media screen and (max-width: 768px) {
+  .PromotionProject{
+      width: 100%;
+      flex-direction: column;
+      padding-top: 20px;
+      &-title{
+        color: var(--Grey-Deep, #4D4D4D);
+        writing-mode: initial;
+        font-size: 19px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 160%; /* 30.4px */
+        text-align: center;
+        margin: 8px 0;
+        letter-spacing: initial;
+        margin-right: 0;
+        padding-right: 0;
+        border-right: none;
+      }
+      &-content{
+        width: 100%;
+        overflow: hidden;
+        margin-bottom:8px;
+        .PromotionProject-swiper-slide{
+          img{
+            width: 100%;
+          }
+        }
+        &::after{
+          display: none;
+        }
+      }
+    }
   .mbBox{
     display: flex;
     flex-direction: column;
@@ -1797,29 +1850,7 @@ svg:hover path{
       margin-top: 60px;
       max-width: 100%;
     }
-    .PromotionProject{
-      width: 100%;
-      &-title{
-        color: var(--Grey-Deep, #4D4D4D);
-        font-family: "Noto Sans TC";
-        font-size: 19px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 160%; /* 30.4px */
-        text-align: center;
-        margin: 8px 0;
-      }
-      &-content{
-        width: 100%;
-        overflow: hidden;
-        margin-bottom:8px;
-        .PromotionProject-swiper-slide{
-          img{
-            width: 100%;
-          }
-        }
-      }
-    }
+    
   }
   .indexPage {
     width: 100%;

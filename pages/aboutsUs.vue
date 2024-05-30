@@ -280,9 +280,15 @@ const handleProcessBtn = (_type: string) => {
   <div>
     <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor">
-      <div class="smallPageCon">
+      <div class="smallPageCon aboutsUs-title">
         <div class="index_title">關於我們</div>
       </div>
+      <div class="tabNav noTitle smallPageCon">
+            <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
+              <span>{{$t('pages.index.title')}}</span>
+            </nuxt-link>
+            <span :title="'關於我們'">關於我們</span>
+          </div>
       <div class="introduce bigPageCon">
         <div
           class="introduce-in"
@@ -292,21 +298,13 @@ const handleProcessBtn = (_type: string) => {
         backgroundSize: 'auto 100%'
         }"
         >
-          <div class="tabNav noTitle smallPageCon">
-            <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
-              <span>{{$t('pages.index.title')}}</span>
-            </nuxt-link>
-            <nuxt-link :to="''">
-              <span>{{$t('pages.brand.title')}}</span>
-            </nuxt-link>
-            <span :title="'品牌介紹'">品牌介紹</span>
-          </div>
           <div class="introduce-in-t mbBox">
             <img :src="introduceData.mbImg" />
           </div>
           <div class="introduce-in-l smallPageCon">
-            <div class="title">品牌介紹</div>
-            <div class="content">{{$t(introduceData.content)}}</div>
+            <h2>簡介</h2>
+            <div class="title">CKJ愛康健口腔品牌連鎖專注口腔，屢獲殊榮</div>
+            <div class="content">作為深圳口腔專科醫院，深圳愛康健口腔醫院秉承著「專科·專業」的服務宗旨，對醫療資源進行了科學、合理的整合。醫師團隊是畢業於國內知名口腔學院的專業人員；醫院各專業帶頭人，包括種植醫師、美學修復醫師、牙周病醫師等共同組成，帶領一批醫護人員一起構成愛康健口腔醫院的服務團隊。全程式預約一體化診療服務，讓每一位顧客享受健康微笑之旅。</div>
           </div>
         </div>
       </div>
@@ -475,24 +473,34 @@ const handleProcessBtn = (_type: string) => {
 // 介绍
 .introduce {
   &-in {
-    margin-top: 45px;
+    margin-top: 20px;
     height: 32.709vw;
     max-height: 628px;
     &-l {
       color: #666666;
       padding-bottom: 90px;
+      h2{
+        color: var(--Grey-Deep, #4D4D4D);
+        font-size: 42px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 130%; /* 54.6px */
+        padding-top: 66px;
+      }
       .title {
         font-weight: 700;
-        font-size: 36px;
-        margin-top: 96px;
+        margin-top: 10px;
         color: var(--indexColor1);
+        width: 630px;
+        font-size: 50px;
+        letter-spacing: 5px;
       }
       .content {
         font-weight: 600;
         font-size: 20px;
-        max-width: 630px;
         width: 630px;
-        margin-top: 56px;
+        margin-top: 10px;
+        letter-spacing: 4px;
       }
     }
   }
@@ -502,7 +510,7 @@ const handleProcessBtn = (_type: string) => {
   font-size: 1.25rem;
   line-height: 160%;
   color: #cbcbcb;
-  margin-top: 83px;
+  margin-top: 43px;
   a {
     &:not(:last-child)::after {
       content: '';
@@ -866,27 +874,41 @@ const handleProcessBtn = (_type: string) => {
     }
   }
 }
-@media (min-width: 768px) and (max-width: 1452px) {
+.aboutsUs-title{
+  display: flex;
+  justify-content: center;
+  
+}
+@media (min-width: 768px) and (max-width: 1920px) {
   .introduce {
     &-in {
-      margin-top: 3.5vw;
+      margin-top: 1.0417vw;
+      height: 32.709vw;
+      max-height: 628px;
       &-l {
-        padding-bottom: 7vw;
+        padding-bottom: 4.6875vw;
+        h2{
+          font-size: 2.1875vw;
+          padding-top: 3.4375vw;
+        }
         .title {
-          font-size: 1.875vw;
-          margin-top: 6vw;
+          margin-top: .5208vw;
+          width: 32.8125vw;
+          font-size: 2.6042vw;
+          letter-spacing: .2604vw;
         }
         .content {
           font-size: 1.0417vw;
-          margin-top: 3vw;
-          width: 42vw;
+          width: 32.8125vw;
+          margin-top: .5208vw;
+          letter-spacing: .2083vw;
         }
       }
     }
   }
   .tabNav {
     font-size: 1.5vw;
-    margin-top: 6vw;
+    margin-top: 2.2396vw;
   }
   .course{
     margin-top: 120px;

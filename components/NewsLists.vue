@@ -52,10 +52,13 @@ const hangdleTab = (idx:number) =>{
         </div>
         <div class="list-in-t" v-if="thameType === '2'">
           <div class="list-in-t-l">
-            <img src="https://static.cmereye.com/imgs/2024/05/02956b6544647944.jpg" alt="">
+            <!-- <img src="https://static.cmereye.com/imgs/2024/05/02956b6544647944.jpg" alt=""> -->
+            <div class="iframeBox">
+              <iframe width="560" height="315" :src="item.videos" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
           </div>
           <div class="list-in-t-r">
-            <h2><span>醫生專享</span>｜最新種植牙新技術｜種植牙導航技術｜數字化掃描系統｜最新種植牙品牌</h2>
+            <h2><span>醫生專享</span>{{item.name}}</h2>
           </div>
         </div>
         <div class="list-in-t" v-if="thameType === '3'">
@@ -210,7 +213,6 @@ const hangdleTab = (idx:number) =>{
     padding: 22px 0;
     .newsLists-title{
       padding: 0 20px;
-      
       .index_title{
         span{
           position: relative;
@@ -226,6 +228,21 @@ const hangdleTab = (idx:number) =>{
         margin-bottom: 18px;
         &-t{
           grid-template-columns: 1fr;
+          &-l{
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: calc(315 / 560 * 100%);
+            .iframeBox{
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              iframe{
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
           &-r{
             padding: 0 18px;
             h2{
