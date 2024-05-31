@@ -22,14 +22,13 @@ useHead({
   ]
 })
 
-const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2024/05/362da8c4bba078b5.png',
-  bg: '',
-  mbImg: 'https://static.cmereye.com/imgs/2024/05/03307ff2f4b2c9dc.webp',
-  pageName: 'scaling-and-polishing-test',
-  pcText: [],
-  mbText: [],
-}
+
+const bannerConfig = [
+  {
+    pcImg: 'https://static.cmereye.com/imgs/2024/05/362da8c4bba078b5.png',
+    mbImg: 'https://static.cmereye.com/imgs/2024/05/03307ff2f4b2c9dc.webp',
+  }
+]
 
 const introduceData = {
   title: 'pages.dental-service.children-dentistry.introduce.title',
@@ -196,7 +195,7 @@ watch(
 
 <template>
 <div>
-  <PageHeader :headerConfig="headerConfig" btnText="預約免費牙齒檢查" />
+  <PageBanner :bannerConfig="bannerConfig" />
   <div class="pageIn whitebgColor">
     <div class="smallPageCon">
       <div class="index_title">{{$t('pages.dental-service.title')}}</div>
@@ -352,11 +351,8 @@ watch(
         </span>
       </div>
     </div>
-    
   </nuxt-link>
   </div>
-  <PageFooter />
-  <PageNavbar />
 </div>
 </template>
 

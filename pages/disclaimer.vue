@@ -30,7 +30,6 @@ const goBack = () =>{
 
 <template>
   <div>
-    <PageNewHeader :headerConfig="headerConfigData" /> 
     <div class="disclaimer">
       <div class="disclaimer-title">
         免責條款
@@ -52,8 +51,6 @@ const goBack = () =>{
         <span>{{'<'}}返回</span>
       </div>
     </div>
-    <PageFooter />
-    <PageNavbar />
   </div>
 </template>
 

@@ -6,13 +6,10 @@ useHead({
 
 <template>
   <div>
-    <PageHeader />
     <div class="service">
       <serviceCard :isIndexShow="true" />
       <NewAddress />
     </div>
-    <PageFooter />
-    <PageNavbar />
   </div>
 </template>
 

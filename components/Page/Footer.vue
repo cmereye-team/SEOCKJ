@@ -218,9 +218,9 @@ const handlembMenu = (navIndex) => {
           </div>
         </div>
         <div class="footer-content-Disclaimer">
-          <nuxt-link to="#">私隱政策</nuxt-link>
+          <nuxt-link to="/disclaimer">私隱政策</nuxt-link>
           &
-          <nuxt-link to="#">免責條款</nuxt-link>
+          <nuxt-link to="privacyPolicy">免責條款</nuxt-link>
         </div>
         <div class="footer-content-copyright">
           ©2024 CKJ愛康健齒科版權所有

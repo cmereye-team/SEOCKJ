@@ -16,14 +16,12 @@ useHead({
   ],
 })
 
-const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2024/02/3b281359c56b586d.jpg',
-  bg: '',
-  mbImg: 'https://static.cmereye.com/imgs/2024/02/7efb3f385ea64b26.jpg',
-  pageName: 'coverage',
-  pcText: [],
-  mbText: []
-}
+const bannerConfig = [
+  {
+    pcImg: 'https://static.cmereye.com/imgs/2024/02/3b281359c56b586d.jpg',
+    mbImg: 'https://static.cmereye.com/imgs/2024/02/7efb3f385ea64b26.jpg',
+  }
+]
 
 let errorpage = ref(false)
 let informationLists = ref([
@@ -199,7 +197,7 @@ const handleClick = (event,_id) =>{
 
 <template>
   <div>
-    <PageHeader :headerConfig="headerConfig" />
+    <PageBanner :bannerConfig="bannerConfig" />
     <div class="pageIn whitebgColor informationPage">
       <div class="informationPage-title" id="information">
         <div class="index_title">牙齒百科</div>
@@ -214,7 +212,6 @@ const handleClick = (event,_id) =>{
         <span :title="'牙齒百科'">牙齒百科</span>
       </div>
       <div class="smallPageCon">
-        <!-- <nuxt-link to="/news/news-tooth-wiki/102">测试</nuxt-link> -->
         <div class="lists" v-if="!errorpage">
           <div v-loading="loadingShow" class="listsbox">
             <nuxt-link :to="`/news/news-tooth-wiki/${item.id}`" :id="`i${item.id}`" :alt="item.name" :title="item.name" class="lists-in" v-for="(item,index) in informationLists" :key="index">
@@ -281,8 +278,6 @@ const handleClick = (event,_id) =>{
       </div>
       <NewAddress />
     </div>
-    <PageFooter />
-    <PageNavbar />
   </div>
 </template>
 

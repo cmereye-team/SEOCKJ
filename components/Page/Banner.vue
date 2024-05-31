@@ -42,7 +42,7 @@ const onSlideChange = (swiper:any) => {
               delay: 3000,
             }" class="pageBanner-swiper" @swiper="setBannerSwiperRef" @slideChange="onSlideChange">
         <Swiper-slide v-for="(item,index) in bannerConfig" :key="index">
-          <nuxtLink class="pageCon" :to="[null,undefined,''].includes(item.link) ? '#' : item.link">
+          <nuxtLink class="pageCon" :to="[null,undefined,''].includes(item.link) ? 'javaScript:void(0)' : item.link">
             <img :srcset="`${item.mbImg} 768w, ${item.pcImg}`" :src="item.pcImg" :alt="item.alt && item.alt" :title="item.title && item.title">
           </nuxtLink>
         </Swiper-slide>
@@ -73,6 +73,7 @@ const onSlideChange = (swiper:any) => {
       img{
         box-shadow: 0px 10px 8.3px 0px rgba(0, 0, 0, 0.25);
         border-radius: 10px;
+        width: 100%;
       }
     }
   }
@@ -96,12 +97,23 @@ const onSlideChange = (swiper:any) => {
     }
   }
 }
-@media (min-width: 768px) and (max-width: 1920px) {}
+@media (min-width: 768px) and (max-width: 1920px) {
+  .pageBanner{
+    &-btn{
+      margin-top: 2.6042vw;
+      a{
+        padding: .2083vw 5.625vw;
+        font-size: 1.8229vw;
+        border-radius: 5.2083vw;
+      }
+    }
+  }
+}
 @media screen and (max-width: 768px) {
   .pageBanner{
     &-swiper{
       a{
-        padding: 0 30px;
+        padding: 0 15px;
         img{
           box-shadow: 0px 3px 8.3px 0px rgba(0, 0, 0, 0.25);
         }

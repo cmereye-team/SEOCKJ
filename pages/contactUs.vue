@@ -18,14 +18,12 @@ useHead({
   ]
 })
 
-const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2024/02/fd92d954c1955f75.jpg',
-  bg: '',
-  mbImg: 'https://static.cmereye.com/imgs/2024/02/2f6494de27de8323.jpg',
-  pageName: 'coverage',
-  pcText: [],
-  mbText: []
-}
+const bannerConfig = [
+  {
+    pcImg: 'https://static.cmereye.com/imgs/2024/02/fd92d954c1955f75.jpg',
+    mbImg: 'https://static.cmereye.com/imgs/2024/02/2f6494de27de8323.jpg',
+  }
+]
 
 const handleAreaTab = (_idx: number) => {
   appState.setCurNum(_idx)
@@ -130,9 +128,8 @@ onMounted(() => {
 
 <template>
   <div>
-    <PageHeader :headerConfig="headerConfig" />
+    <PageBanner :bannerConfig="bannerConfig" />
     <div class="contactUs">
-      <!-- <NewAddress /> -->
       <NewAddress />
       <div class="serviceCard">
         <serviceCard :isIndexShow="true" />
@@ -173,8 +170,6 @@ onMounted(() => {
         </div>
       </div>
     </div>
-    <PageFooter />
-    <PageNavbar />
   </div>
 </template>
 

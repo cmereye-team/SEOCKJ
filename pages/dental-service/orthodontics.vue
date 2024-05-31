@@ -19,14 +19,12 @@ useHead({
   ]
 })
 
-const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2024/03/9089da9cf4701d92.jpg',
-  bg: '',
-  mbImg: 'https://static.cmereye.com/imgs/2024/03/77d07e1327c9261f.jpg',
-  pageName: 'orthodontics-test',
-  pcText: ['追求美學極致，展現最燦爛笑容','愛康健為愛美的您打造完美面部輪廓'],
-  mbText: ['追求美學極致','展現最燦爛笑容']
-}
+const bannerConfig = [
+  {
+    pcImg: 'https://static.cmereye.com/imgs/2024/03/9089da9cf4701d92.jpg',
+    mbImg: 'https://static.cmereye.com/imgs/2024/03/77d07e1327c9261f.jpg',
+  }
+]
 
 const orthodonticsIntroduceData = {
   title: '什麼是矯齒（箍牙）？',
@@ -54,37 +52,6 @@ const reasonData = {
   ]
 }
 
-// const stepData = {
-//   title: '矯齒(箍牙)過程',
-//   stepLists: [
-//     [
-//       {
-//         title: 'Step 1',
-//         text: '醫生會先進行檢查及評估，確認矯齒的需要'
-//       },
-//       {
-//         title: 'Step 2',
-//         text: '拍攝牙齒外觀照片，包括全口腔及側面X光照片，以印製牙模'
-//       },
-//       {
-//         title: 'Step 3',
-//         text: '醫生講解情況及治療方案'
-//       }, 
-//     ],
-//     [
-//       {
-//         title: 'Step 4',
-//         text: '配戴牙箍及定期覆診'
-//       },
-//       {
-//         title: 'Step 5',
-//         text: '矯齒完成後，需定期覆診，晚上佩戴固定器，防止牙齒移位'
-//       }
-//     ]
-//   ],
-//   isShowBottom: true,
-//   bottomText: '*不建議牙齒還沒完成發育、智慧齒還沒長出的人士接受牙齒矯正治療'
-// }
 const stepData = {
   title: '矯齒5步曲',
   lists: [
@@ -332,7 +299,7 @@ const careData = {
 
 <template>
 <div>
-  <PageHeader :headerConfig="headerConfig" /> 
+  <PageBanner :bannerConfig="bannerConfig" />
   <div class="orthodonticsPage">
     <div class="smallPageCon">
       <div class="index_title">{{$t('pages.dental-service.title')}}</div>
@@ -484,8 +451,6 @@ const careData = {
     <serviceCard />
     <NewAddress />
   </div>
-  <PageFooter />
-  <PageNavbar />
 </div>
 </template>
 

@@ -15,14 +15,12 @@ useHead({
   ],
 })
 
-const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2024/02/3b281359c56b586d.jpg',
-  bg: '',
-  mbImg: 'https://static.cmereye.com/imgs/2024/02/7efb3f385ea64b26.jpg',
-  pageName: 'coverage',
-  pcText: [],
-  mbText: []
-}
+const bannerConfig = [
+  {
+    pcImg: 'https://static.cmereye.com/imgs/2024/02/3b281359c56b586d.jpg',
+    mbImg: 'https://static.cmereye.com/imgs/2024/02/7efb3f385ea64b26.jpg',
+  }
+]
 
 let errorpage = ref(false)
 let coverageLists = ref([
@@ -139,7 +137,7 @@ const getPagination = (pageitem) => {
 
 <template>
   <div>
-    <PageHeader :headerConfig="headerConfig" />
+    <PageBanner :bannerConfig="bannerConfig" />
     <div class="pageIn whitebgColor coveragePage">
       <div class="coveragePage-title" id="coverage">
         <div class="index_title">
@@ -214,8 +212,6 @@ const getPagination = (pageitem) => {
       <!-- <div @click="getData">获取数据</div> -->
       <NewAddress />
     </div>
-    <PageFooter />
-    <PageNavbar />
   </div>
 </template>
 

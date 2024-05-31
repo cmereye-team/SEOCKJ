@@ -20,14 +20,12 @@ useHead({
   ]
 })
 
-const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2023/11/5e7d301ce4112f57.jpg',
-  bg: '',
-  mbImg: 'https://static.cmereye.com/imgs/2023/11/6e71e9d443f0ec56.jpg',
-  pageName: 'periodontal-test',
-  pcText: ['健康牙齒，從牙周病治療開始','保持清新口氣、牙肉年輕'],
-  mbText: ['健康牙齒','從牙周病治療開始']
-}
+const bannerConfig = [
+  {
+    pcImg: 'https://static.cmereye.com/imgs/2023/11/5e7d301ce4112f57.jpg',
+    mbImg: 'https://static.cmereye.com/imgs/2023/11/6e71e9d443f0ec56.jpg',
+  }
+]
 
 const orthodonticsIntroduceData = {
   title: 'pages.dental-service.periodontal.introduce.title',
@@ -295,7 +293,7 @@ const reason2Data = {
 
 <template>
 <div>
-  <PageHeader :headerConfig="headerConfig" />
+  <PageBanner :bannerConfig="bannerConfig" />
   <div class="pageIn whitebgColor">
     <div class="smallPageCon">
       <div class="index_title">{{$t('pages.dental-service.title')}}</div>
@@ -425,8 +423,6 @@ const reason2Data = {
     <serviceCard />
     <NewAddress />
   </div>
-  <PageFooter />
-  <PageNavbar />
 </div>
 </template>
 

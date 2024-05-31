@@ -19,15 +19,6 @@ useHead({
   ]
 })
 
-// const headerConfig = {
-//   img: 'https://static.cmereye.com/imgs/2023/06/e421c3bfe25668cf.png',
-//   bg: 'https://static.cmereye.com/imgs/2023/06/ac0953834f7561e4.jpg',
-//   mbImg: 'https://static.cmereye.com/imgs/2023/06/5659637e703a6559.jpg',
-//   pageName: 'toothtray',
-//   pcText: ['回歸自然微笑，恢復咀嚼功能','牙齒更加整齊、美觀、自信、舒適'],
-//   mbText: ['回歸自然微笑','恢復咀嚼功能']
-// }
-
 const orthodonticsIntroduceData = {
   title: 'pages.dental-service.toothtray.introduce.title',
   content: 'pages.dental-service.toothtray.introduce.content',
@@ -36,14 +27,12 @@ const orthodonticsIntroduceData = {
   tabNavName: 'pages.dental-service.toothtray.introduce.tabNavName',
 }
 
-const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2024/05/ef457266e4cd5f88.png',
-  bg: '',
-  mbImg: 'https://static.cmereye.com/imgs/2024/05/9d9ddc603850f8fe.webp',
-  pageName: 'scaling-and-polishing-test',
-  pcText: [],
-  mbText: [],
-}
+const bannerConfig = [
+  {
+    pcImg: 'https://static.cmereye.com/imgs/2024/05/ef457266e4cd5f88.png',
+    mbImg: 'https://static.cmereye.com/imgs/2024/05/9d9ddc603850f8fe.webp',
+  }
+]
 
 const reasonData = {
   title: '全口牙托及局部牙托',
@@ -424,7 +413,7 @@ const caseLists = [
 
 <template>
 <div>
-  <PageHeader :headerConfig="headerConfig" />
+  <PageBanner :bannerConfig="bannerConfig" />
   <div class="pageIn whitebgColor">
     <div class="smallPageCon">
       <div class="index_title">{{$t('pages.dental-service.title')}}</div>
@@ -612,8 +601,6 @@ const caseLists = [
     <serviceCard />
     <NewAddress />
   </div>
-  <PageFooter />
-  <PageNavbar />
 </div>
 </template>
 

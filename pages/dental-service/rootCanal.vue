@@ -34,6 +34,13 @@ const headerConfig = {
   mbText: ['根管治療助您解決牙痛', '恢復健康的口腔狀態'],
 }
 
+const bannerConfig = [
+  {
+    pcImg: 'https://static.cmereye.com/imgs/2023/10/34a9dd6dea8b90ae.jpg',
+    mbImg: 'https://static.cmereye.com/imgs/2023/10/586d8a109e9fe20d.jpg',
+  }
+]
+
 const introduceData = {
   title: '什麼是杜牙根(根管治療)?',
   content:
@@ -296,7 +303,7 @@ const { height } = useWindowSize()
 
 <template>
   <div>
-    <PageHeader :header-config="headerConfig" />
+    <PageBanner :bannerConfig="bannerConfig" />
     <div class="pageIn whitebgColor">
       <div class="smallPageCon">
       <div class="index_title">{{$t('pages.dental-service.title')}}</div>
@@ -464,8 +471,6 @@ const { height } = useWindowSize()
       <serviceCard />
       <NewAddress />
     </div>
-    <PageFooter />
-    <PageNavbar :showDialogBox="(top<(height / 3 * 2)) && (bottom > (height / 3))" />
   </div>
 </template>
 

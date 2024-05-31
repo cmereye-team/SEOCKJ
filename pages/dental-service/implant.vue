@@ -21,14 +21,12 @@ useHead({
   ]
 })
 
-const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2024/03/a3810742ef7ca6cf.jpg',
-  bg: '',
-  mbImg: 'https://static.cmereye.com/imgs/2024/03/b16577acd828007a.jpg',
-  pageName: 'implant',
-  pcText: ['享受失而復得的喜悅','重拾完整人生之旅'],
-  mbText: ['享受失而復得的喜悅','重拾完整人生之旅']
-}
+const bannerConfig = [
+  {
+    pcImg: 'https://static.cmereye.com/imgs/2024/03/a3810742ef7ca6cf.jpg',
+    mbImg: 'https://static.cmereye.com/imgs/2024/03/b16577acd828007a.jpg',
+  }
+]
 
 const introduceData = {
   title: 'pages.dental-service.implant.introduce.title',
@@ -587,14 +585,12 @@ const confidence_ecommendation_lists = [
 ]
 
 const doctorTeam = ref(null)
-const { top,bottom } = useElementBounding(doctorTeam)
-const { height } = useWindowSize()
 
 </script>
 
 <template>
   <div>
-    <PageHeader :headerConfig="headerConfig"/>
+    <PageBanner :bannerConfig="bannerConfig" />
     <div class="dentistryServices">
       <div class="smallPageCon">
       <div class="index_title">{{$t('pages.dental-service.title')}}</div>
@@ -859,14 +855,9 @@ const { height } = useWindowSize()
       </div>
       <ServiceCase />
       <ServiceProblem :problemData="problemData" />
-      <!-- <div class="contactForm">
-        <ContactForm-new />
-      </div> -->
       <serviceCard />
       <NewAddress />
     </div>
-    <PageFooter />
-    <PageNavbar :showDialogBox="(top<(height / 3 * 2)) && (bottom > (height / 3))" />
   </div>
 </template>
 

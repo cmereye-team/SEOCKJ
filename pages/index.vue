@@ -624,7 +624,6 @@ const bannerConfig = [
 
 <template>
   <div>
-    <PageNewHeader :headerConfig="headerConfigData" /> 
     <PageBanner :bannerConfig="bannerConfig" />
     <div class="indexPage">
       <div class="PromotionProject pageCon">
@@ -942,8 +941,6 @@ const bannerConfig = [
       <NewAddress />
       <ContactForm-new />
     </div>
-    <PageFooter />
-    <PageNavbar/>
   </div>
 </template>
 

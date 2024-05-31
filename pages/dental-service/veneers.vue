@@ -19,14 +19,12 @@ useHead({
   ]
 })
 
-const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2024/03/1aa48f3837b91f34.jpg',
-  bg: '',
-  mbImg: 'https://static.cmereye.com/imgs/2024/03/fa2f62acde3bd172.jpg',
-  pageName: 'veneers-test',
-  pcText: ['自訂零死角潔白微笑線','展現自信微笑'],
-  mbText: ['自訂零死角潔白微笑線','展現自信微笑']
-}
+const bannerConfig = [
+  {
+    pcImg: 'https://static.cmereye.com/imgs/2024/03/1aa48f3837b91f34.jpg',
+    mbImg: 'https://static.cmereye.com/imgs/2024/03/fa2f62acde3bd172.jpg',
+  }
+]
 
 const orthodonticsIntroduceData = {
   title: '全瓷貼片',
@@ -288,10 +286,9 @@ const caseLists = [
 
 </script>
 
-
 <template>
 <div>
-  <PageHeader :headerConfig="headerConfig" />
+  <PageBanner :bannerConfig="bannerConfig" />
   <div class="pageIn whitebgColor">
     <div class="smallPageCon">
       <div class="index_title">{{$t('pages.dental-service.title')}}</div>
@@ -452,12 +449,8 @@ const caseLists = [
     <serviceCard />
     <NewAddress />
   </div>
-  <PageFooter />
-  <PageNavbar />
 </div>
 </template>
-
-
 
 <style lang="scss" scoped>
 .bp{

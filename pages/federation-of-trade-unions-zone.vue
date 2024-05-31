@@ -23,19 +23,12 @@ useHead({
   ],
 })
 
-const headerConfig = ref({
-  img: 'https://static.cmereye.com/imgs/2024/03/2b040d97815234be.webp',
-  bg: '',
-  mbImg: "https://static.cmereye.com/imgs/2024/03/d4617dabf9ce5183.webp",
-  pageName: 'health-care-voucher',
-  pcText: [],
-  mbText: []
-})
-interface plist {
-  type: String,
-  text: String
-}
-
+const bannerConfig = [
+  {
+    pcImg: 'https://static.cmereye.com/imgs/2024/03/2b040d97815234be.webp',
+    mbImg: 'https://static.cmereye.com/imgs/2024/03/d4617dabf9ce5183.webp',
+  }
+]
 
 const pageDetail:any = {
   title: '',
@@ -214,7 +207,7 @@ const pageDetail:any = {
 
 <template>
   <div>
-    <PageHeader :headerConfig="headerConfig" /> 
+    <PageBanner :bannerConfig="bannerConfig" />
     <div class="health-care-voucher pageIn whitebgColor">
       <div class="smallPageCon health-care-voucher-top">
         <div class="index_title health-care-voucher-title">工聯會專區</div>
@@ -296,8 +289,6 @@ const pageDetail:any = {
       </div>
       <NewAddress />
     </div>
-    <PageFooter />
-    <PageNavbar />
   </div>
 </template>
 

@@ -25,14 +25,12 @@ const introduceJY = {
   pcImg: 'https://static.cmereye.com/imgs/2024/04/b1104af283741909.webp',
 }
 
-const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2024/03/3215d200c5bdcff0.jpg',
-  bg: '',
-  mbImg: 'https://static.cmereye.com/imgs/2024/03/427985a6c82b4c49.jpg',
-  pageName: 'invisalign-test',
-  pcText: [],
-  mbText: []
-}
+const bannerConfig = [
+  {
+    pcImg: 'https://static.cmereye.com/imgs/2024/03/3215d200c5bdcff0.jpg',
+    mbImg: 'https://static.cmereye.com/imgs/2024/03/427985a6c82b4c49.jpg',
+  }
+]
 
 const orthodonticsIntroduceData = {
   title: 'pages.dental-service.fillings.introduce.title',
@@ -376,7 +374,7 @@ const differData:any = {
 
 <template>
   <div>
-    <PageHeader :headerConfig="headerConfig" />
+    <PageBanner :bannerConfig="bannerConfig" />
     <div class="pageIn whitebgColor">
       <div class="smallPageCon">
       <div class="index_title">{{$t('pages.dental-service.title')}}</div>
@@ -664,8 +662,6 @@ const differData:any = {
       <serviceCard />
       <NewAddress />
     </div>
-    <PageFooter />
-    <PageNavbar />
   </div>
 </template>
 

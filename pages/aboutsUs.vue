@@ -19,14 +19,12 @@ useHead({
   ],
 })
 
-const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2024/01/1bc7c8742b23ae97.jpg',
-  bg: '',
-  mbImg: 'https://static.cmereye.com/imgs/2024/01/a59e0a87dfb394f1.jpg',
-  pageName: 'course-new',
-  pcText: ['健齒為本 嚴謹治療','專科 · 專業 · 實力保證'],
-  mbText: ['健齒為本 嚴謹治療','專科 · 專業 · 實力保證']
-}
+const bannerConfig = [
+  {
+    pcImg: 'https://static.cmereye.com/imgs/2024/01/1bc7c8742b23ae97.jpg',
+    mbImg: 'https://static.cmereye.com/imgs/2024/01/a59e0a87dfb394f1.jpg',
+  }
+]
 
 const introduceData = {
   title: 'pages.brand.course.introduce.title',
@@ -278,7 +276,7 @@ const handleProcessBtn = (_type: string) => {
 
 <template>
   <div>
-    <PageHeader :headerConfig="headerConfig" />
+    <PageBanner :bannerConfig="bannerConfig" />
     <div class="pageIn whitebgColor">
       <div class="smallPageCon aboutsUs-title">
         <div class="index_title">關於我們</div>
@@ -421,28 +419,6 @@ const handleProcessBtn = (_type: string) => {
           </div>
         </div>
       </div>
-      <!-- <div class="course-action">
-        <div class="course-action-in">
-          <div class="course-action-in-l">
-            <img src="https://static.cmereye.com/imgs/2024/01/84dc48aa55e716a2.jpg" alt="">
-          </div>
-          <div class="course-action-in-r">
-            <div class="t">
-              <div class=t-t>
-                <div class="title">香港工聯會參觀交流</div>
-                <div class="time">2023年12月15日</div>
-              </div>
-              <div class="context">接待香港工聯會代表團，交流牙科醫療服務發展及趨勢</div>
-            </div>
-            <div class="b">
-              <div class="btn">
-                <a href="/brand/action-message">查看全文</a>
-              </div>
-              <div class="text">團體交流</div>
-            </div>
-          </div>
-        </div>
-      </div> -->
       <div class="course">
         <div class="course-title dentistryServices-title">
           <div class="course-title-in dentistryServices-title-in bb">
@@ -574,8 +550,6 @@ const handleProcessBtn = (_type: string) => {
     </div>
       <NewAddress />
     </div>
-    <PageFooter />
-    <PageNavbar />
   </div>
 </template>
 

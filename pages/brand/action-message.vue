@@ -21,14 +21,12 @@ useHead({
   ],
 })
 
-const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2024/01/c61d17a2a11e2f5e.jpg',
-  bg: '',
-  mbImg: 'https://static.cmereye.com/imgs/2024/01/5ca99f8e9d9eaca9.jpg',
-  pageName: 'action-message',
-  pcText: [],
-  mbText: []
-}
+const bannerConfig = [
+  {
+    pcImg: 'https://static.cmereye.com/imgs/2024/01/c61d17a2a11e2f5e.jpg',
+    mbImg: 'https://static.cmereye.com/imgs/2024/01/5ca99f8e9d9eaca9.jpg',
+  }
+]
 
 const introduceData = {
   title: ['接待香港工聯會代表團','交流牙科醫療服務發展及趨勢'],
@@ -44,9 +42,11 @@ const introduceData = {
 
 <template>
   <div>
-    <PageHeader :headerConfig="headerConfig" />
+    <PageBanner :bannerConfig="bannerConfig" />
     <div class="pageIn whitebgColor">
-      <div class="index_title smallPageCon">{{$t('pages.brand.title')}}</div>
+      <div class="smallPageCon">
+        <div class="index_title">{{$t('pages.dental-service.title')}}</div>
+      </div>
       <div class="introduce bigPageCon">
         <div class="tabNav noTitle smallPageCon">
           <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">

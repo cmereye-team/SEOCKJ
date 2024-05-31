@@ -22,7 +22,6 @@ onMounted(()=>{
 
 <template>
   <div class="messagePage">
-    <!-- <PageHeader />  -->
     <div class="messagePage-in">
       <div class="messagePage-in-context">
         表單提交成功！我們會盡快回覆閣下。
@@ -34,8 +33,6 @@ onMounted(()=>{
         <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">返回首頁</nuxt-link>
       </div>
     </div>
-    <PageFooter />
-    <PageNavbar />
   </div>
 </template>
 

@@ -19,14 +19,12 @@ useHead({
   ]
 })
 
-const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2024/03/56c826da104ca7a0.jpg',
-  bg: '',
-  mbImg: 'https://static.cmereye.com/imgs/2024/03/d2587169a5d42cd0.jpg',
-  pageName: 'invisalign-test',
-  pcText: ['自由．舒適．美觀','保持自然笑容 牙齒更加美麗動人'],
-  mbText: ['保持自然笑容','牙齒更加美麗動人']
-}
+const bannerConfig = [
+  {
+    pcImg: 'https://static.cmereye.com/imgs/2024/03/56c826da104ca7a0.jpg',
+    mbImg: 'https://static.cmereye.com/imgs/2024/03/d2587169a5d42cd0.jpg',
+  }
+]
 
 const orthodonticsIntroduceData = {
   title: '什麼是隱形矯正？',
@@ -238,7 +236,7 @@ const differData = {
 
 <template>
 <div>
-  <PageHeader :headerConfig="headerConfig" />
+  <PageBanner :bannerConfig="bannerConfig" />
   <div class="pageIn whitebgColor">
     <div class="smallPageCon">
       <div class="index_title">{{$t('pages.dental-service.title')}}</div>
@@ -397,8 +395,6 @@ const differData = {
     <serviceCard />
     <NewAddress />
   </div>
-  <PageFooter />
-  <PageNavbar />
 </div>
 </template>
 

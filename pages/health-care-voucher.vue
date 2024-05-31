@@ -6,22 +6,13 @@ useHead({
 })
 
 let langCur = ref('chinese_traditional')
-// const changepcimg = () =>{
-//   return `https://static.cmereye.com/imgs/2024/02/4c1e46eab9adb6de_${locale.value}.webp`
-// }
-const headerConfig = ref({
-  img: `https://static.cmereye.com/imgs/2024/02/4c1e46eab9adb6de_${locale.value}.webp`,
-  bg: '',
-  mbImg: `https://static.cmereye.com/imgs/2024/02/9798849854855a0c_${locale.value}.webp`,
-  pageName: 'health-care-voucher',
-  pcText: [],
-  mbText: []
-})
-interface plist {
-  type: String,
-  text: String
-}
 
+const bannerConfig = [
+  {
+    pcImg: `https://static.cmereye.com/imgs/2024/02/4c1e46eab9adb6de_${locale.value}.webp`,
+    mbImg: `https://static.cmereye.com/imgs/2024/02/9798849854855a0c_${locale.value}.webp`,
+  }
+]
 
 const pageDetail:any = {
   title: '',
@@ -299,24 +290,12 @@ const pageDetail:any = {
   ]
 }
 
-const handleLocale = (l) =>{
-  locale.value = l
-  headerConfig.value.img = `https://static.cmereye.com/imgs/2024/02/4c1e46eab9adb6de_${locale.value}.webp`
-  headerConfig.value.mbImg = `https://static.cmereye.com/imgs/2024/02/9798849854855a0c_${locale.value}.webp`
-  if(l == 'zh'){
-		var _text = "微软雅黑"
-	}else{
-		var _text = "'FakePearl-Regular','幼圆', Serif"
-	}
-	document.documentElement.style.setProperty("--indexFontFamily", _text);
-} 
-
 
 </script>
 
 <template>
   <div>
-    <PageHeader :headerConfig="headerConfig" /> 
+    <PageBanner :bannerConfig="bannerConfig" />
     <div class="health-care-voucher pageIn whitebgColor">
       <div class="smallPageCon health-care-voucher-top">
         <div class="index_title health-care-voucher-title">{{$t('components.header.menuLists.health-care-voucher.name')}}</div>
@@ -383,8 +362,6 @@ const handleLocale = (l) =>{
       </div>
       <NewAddress />
     </div>
-    <PageFooter />
-    <PageNavbar :langType="langCur" />
   </div>
 </template>
 

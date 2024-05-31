@@ -37,7 +37,6 @@ const goBack = () =>{
 
 <template>
   <div>
-    <PageNewHeader :headerConfig="headerConfigData" /> 
     <div class="privacyPolicy">
       
       <div class="privacyPolicy-title">
@@ -64,8 +63,6 @@ const goBack = () =>{
         <span>{{'<'}}返回</span>
       </div>
     </div>
-    <PageFooter />
-    <PageNavbar />
   </div>
 </template>
 

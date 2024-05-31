@@ -27,15 +27,6 @@ let doctorObjs = {
   doctorLists_zh
 }
 let doctorLists = ref(doctorObjs[`doctorLists_${locale.value}`])
-// watch(
-//   locale,(newValue,oldValue)=>{
-//     doctorLists.value = doctorObjs[`doctorLists_${locale.value}`]
-//   },
-//   {
-//     deep:true
-//   }
-// )
-
 
 const route = useRoute()
 
@@ -62,14 +53,12 @@ const goAnchor = (_hash: any)=>{
   }
 }
 
-const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2024/02/1a291fb37036bf95.jpg',
-  bg: '',
-  mbImg: 'https://static.cmereye.com/imgs/2024/02/5289ce266f8e363e.jpg',
-  pageName: 'coverage',
-  pcText: [],
-  mbText: []
-}
+const bannerConfig = [
+  {
+    pcImg: `https://static.cmereye.com/imgs/2024/02/1a291fb37036bf95.jpg`,
+    mbImg: `https://static.cmereye.com/imgs/2024/02/5289ce266f8e363e.jpg`,
+  }
+]
 
 // ---------------新
 
@@ -132,32 +121,12 @@ const changeDoctorDetail = () => {
   }
   return obj
 }
-// let doctorDetail:any = ref({
-//   id: '101',
-//   dentalProfessionId: ['102','104','105'],
-//   imgUrl: 'https://static.cmereye.com/imgs/2023/05/6a7b889f6f185f2a.png',
-//   mbImg: 'https://static.cmereye.com/static/ckj/imgs/doctor/Luohu/doctor101.png',
-//   name: '鞏賢平',
-//   org: '羅湖區 深圳愛康健口腔醫院，口腔牙周病科，口腔修復科，牙體牙髓科',
-//   newOrg: '羅湖區 深圳愛康健口腔醫院',
-//   tags: ['口腔牙周病科','口腔修復科','牙體牙髓科'],
-//   newJobs: '愛康健口腔醫院院長\n口腔專業主治醫師生\n華西口腔醫學院碩士研究生',
-//   text: '醫院院長、主治醫師',
-//   posts: '主治醫師',
-//   job:'愛康健口腔醫院院長',
-//   skilled: '種植修復，微創美學修復，全口咬合重建等；熟練應用口腔顯微鏡並在顯微放大設備下進行種植手術、牙周美學手術及各類修復操作。熟練處理牙周病及牙體缺失、四環素、氟斑牙的全口美學修復工作，對於顯微治療有深入研究，具有豐富的口腔全科診療經驗。',
-//   newSkilled: '牙齒美容修復、烤瓷及全瓷修復、 各類復雜義齒修復、種植修復 等。',
-//   context: '主治醫師， 深圳愛康健口腔醫院院長， 集團口腔修復專業學科帶頭人， 華西口腔醫學院醫學碩士， 深圳電視臺第一現場《名醫直播問診》節目特邀專家。 從事口腔修復臨床、教學和科研工作近20年，多次赴香港、美國等地進行學習和學術交流，並受邀出席全國口腔修復學術研討會，在微創美學修復領域有著豐富的診療經驗，迄今已完成5000余例口腔微創美學修復。為人親和、細致認真、嫻熟的醫學素養是鞏醫生給人的印象，在簡短的交流中對顧客需求了如指掌，在結合專業技能使得顧客稱贊不已，充分發揮優秀醫務工作者的本質。',
-//   educated: '口腔醫學碩士',
-// })
 const handletab2 =(id:string)=>{
   dentalProfessionCur.value = id;
   doctorCur.value = changleDoctorLists().length>0 ? changleDoctorLists()[0].id : ''
-  // doctorDetail.value = changeDoctorDetail()
 }
 const handleDoctorItem = (id:any) =>{
   doctorCur.value = id
-  // doctorDetail.value = changeDoctorDetail()
 }
 const changeDentalProfessionList = () =>{
   let _lists:any = []
@@ -193,13 +162,11 @@ onMounted(()=>{
   }
 })
 const doctorTeam = ref(null)
-const { top,bottom } = useElementBounding(doctorTeam)
-const { height } = useWindowSize()
 </script>
 
 <template>
   <div>
-    <PageHeader :headerConfig="headerConfig" />
+    <PageBanner :bannerConfig="bannerConfig" />
     <div class="doctorPage">
       <div class="doctorPage-in smallPageCon">
         <div class="index_title">{{$t('pages.medical_team.title')}}</div>
@@ -262,8 +229,6 @@ const { height } = useWindowSize()
       </div>
       <NewAddress />
     </div>
-    <PageFooter />
-    <PageNavbar :showDialogBox="(top<(height / 3 * 2)) && (bottom > (height / 3))" />
   </div>
 </template>
 

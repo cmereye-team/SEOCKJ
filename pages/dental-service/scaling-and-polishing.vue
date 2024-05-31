@@ -22,17 +22,12 @@ useHead({
   ],
 })
 
-const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2024/03/6fcd8f2992e9550b.jpg',
-  bg: '',
-  mbImg: 'https://static.cmereye.com/imgs/2024/03/98983f4c7178e454.jpg',
-  pageName: 'scaling-and-polishing-test',
-  pcText: [
-    '定期洗牙，全方位清潔口腔盲點',
-    '愛牙愛己，愛康健細心守護您牙齒健康',
-  ],
-  mbText: ['定期洗牙', '全方位清潔口腔盲點'],
-}
+const bannerConfig = [
+  {
+    pcImg: 'https://static.cmereye.com/imgs/2024/03/6fcd8f2992e9550b.jpg',
+    mbImg: 'https://static.cmereye.com/imgs/2024/03/98983f4c7178e454.jpg',
+  }
+]
 
 const orthodonticsIntroduceData = {
   title: '洗牙服務',
@@ -101,14 +96,6 @@ const reasonData = {
 const problemData = {
   title: 'pages.dental-service.scaling-and-polishing.problem.title',
   lists: [
-    // {
-    //   Q: 'pages.dental-service.scaling-and-polishing.problem.lists[0].Q',
-    //   A: 'pages.dental-service.scaling-and-polishing.problem.lists[0].A'
-    // },
-    // {
-    //   Q: 'pages.dental-service.scaling-and-polishing.problem.lists[1].Q',
-    //   A: 'pages.dental-service.scaling-and-polishing.problem.lists[1].A'
-    // },
     {
       Q: '為什麼會出現牙石？',
       A: '牙石的形成主要源於口腔內的細菌、食物殘渣以及口水相互作用，它們會在牙齒表面、牙縫和牙齦間形成一層牙菌膜。若牙菌膜未能仔細清除，便會導致牙菌膜上積聚的鈣質形成牙石。建議每半年進行一次洗牙，以保持口腔衛生。',
@@ -341,13 +328,11 @@ const doctorData = {
 }
 
 const doctorTeam = ref(null)
-const { top,bottom } = useElementBounding(doctorTeam)
-const { height } = useWindowSize()
 </script>
 
 <template>
   <div>
-    <PageHeader :header-config="headerConfig" />
+    <PageBanner :bannerConfig="bannerConfig" />
     <div class="pageIn whitebgColor">
       <div class="smallPageCon">
       <div class="index_title">{{$t('pages.dental-service.title')}}</div>
@@ -681,8 +666,6 @@ const { height } = useWindowSize()
       <serviceCard />
       <NewAddress />
     </div>
-    <PageFooter />
-    <PageNavbar :showDialogBox="(top<(height / 3 * 2)) && (bottom > (height / 3))" />
   </div>
 </template>
 

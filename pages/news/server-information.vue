@@ -81,7 +81,6 @@ if(process.server){
 
 <template>
   <div>
-    <PageHeader :headerConfig="headerConfig" />
     <div class="pageIn whitebgColor informationPage">
       <div class="index_title smallPageCon informationPage-title" id="information">最新資訊</div>
       <div class="tabNav noTitle smallPageCon">
@@ -102,8 +101,6 @@ if(process.server){
       </div>
       <NewAddress />
     </div>
-    <PageFooter />
-    <PageNavbar />
   </div>
 </template>
 
