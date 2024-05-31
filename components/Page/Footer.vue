@@ -255,9 +255,9 @@ const handlembMenu = (navIndex) => {
       <nuxt-link :to="`tel: ${phoneNum}`" class="footer-content-text-tel">
         <img src="@/assets/images/navIcon_1.png" alt="" />
         <span>香港熱線：(852) {{ smallPhoneNum }}</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="566" height="14" viewBox="0 0 566 14" fill="none">
-        <path d="M2 12C16.0367 12 16.0367 2.71698 30.082 2.71698C44.1272 2.71698 44.1187 12 58.164 12C72.2092 12 72.2007 2.71698 86.2459 2.71698C100.291 2.71698 100.283 12 114.319 12C128.356 12 128.356 2.71698 142.401 2.71698C156.447 2.71698 156.438 12 170.475 12C184.512 12 184.512 2.71698 198.557 2.71698C212.602 2.71698 212.602 12 226.639 12C240.676 12 240.676 2.71698 254.721 2.71698C268.766 2.71698 268.766 12 282.803 12C296.84 12 296.84 2.71698 310.885 2.71698C324.93 2.71698 324.93 12 338.967 12C353.003 12 353.012 2.71698 367.049 2.71698C381.085 2.71698 381.094 12 395.131 12C409.167 12 409.176 2.71698 423.213 2.71698C437.249 2.71698 437.249 12 451.295 12C465.34 12 465.331 2.71698 479.377 2.71698C493.422 2.71698 493.422 12 507.459 12C521.495 12 521.504 2.71698 535.541 2.71698C549.577 2.71698 549.586 12 563.623 12" stroke="#FFC700" stroke-width="4" stroke-miterlimit="10" stroke-linecap="round"/>
-        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="566" height="6" viewBox="0 0 566 6" fill="none">
+<path d="M3 3H563" stroke="#FFC700" stroke-width="5" stroke-linecap="round"/>
+</svg>
       </nuxt-link>
       <div class="serviceCar">
         <div class="serviceCar-content">
@@ -399,6 +399,7 @@ const handlembMenu = (navIndex) => {
         align-items: center;
         color: #fff;
         font-size: 38px;
+        font-weight: 900;
         position: relative;
         & > img {
           width: 40px;
@@ -407,7 +408,7 @@ const handlembMenu = (navIndex) => {
         }
         &>svg{
           position: absolute;
-          bottom: -25px;
+          bottom: -10px;
           left: 0;
           width: 566px;
         }
