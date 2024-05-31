@@ -78,9 +78,9 @@ let _bool = ref(false)
         </div>
       </div>
     </div>
-    <div class="navbar-content-in" id="navPcWhatsapp"></div>
-    <div class="navbar-content-in" id="navPcWeChat"></div>
-    <div class="navbar-content-in" id="navPcFaceBook"></div>
+    <nuxtLink :to="whatsapplink" class="navbar-content-in" id="navPcWhatsapp"></nuxtLink>
+    <!-- <div class="navbar-content-in" id="navPcWeChat"></div> -->
+    <nuxtLink to="https://www.facebook.com/ckjdental.hk" class="navbar-content-in" id="navPcFaceBook"></nuxtLink>
     <div class="navbar-content-in" id="navPcContactForm" title="預約" @click="toContactUs">
     </div>
     <div class="navbar-content-in pageTop" @click="toPageTop">

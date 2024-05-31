@@ -70,7 +70,7 @@ const menuBar = ref(null)
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 101;
   &-in{
     width: 100%;
     height: 67px;
