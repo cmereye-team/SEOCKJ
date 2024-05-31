@@ -590,12 +590,42 @@ const PromotionProject = [
     link: '/dental-service/fillings'
   }
 ]
+const bannerConfig = [
+  {
+    pcImg: 'https://static.cmereye.com/imgs/2024/04/02e0cbb29d86af90.webp',
+    mbImg: 'https://static.cmereye.com/imgs/2024/02/afdfd3c22104497f.webp',
+    link: '/health-care-voucher',
+    title: '灣區長者醫療券banner',
+    alt: '灣區長者醫療券banner'
+  },
+  {
+    pcImg: 'https://static.cmereye.com/imgs/2024/04/ea3b6c9d7c7c2cc6.webp',
+    mbImg: 'https://static.cmereye.com/imgs/2024/02/216458f63817b47e.jpg?v=1.2.0',
+    link: 'https://bit.ly/愛康健裕亨新店開業優惠',
+    title: '愛康健裕亨新店開業優惠banner',
+    alt: '愛康健裕亨新店開業優惠banner'
+  },
+  {
+    pcImg: 'https://static.cmereye.com/imgs/2024/04/df1e63bdd93c3504.webp',
+    mbImg: 'https://static.cmereye.com/imgs/2024/03/f3f241b74364a6b7.jpg?v=1.2.0',
+    link: '/medical-team',
+    title: '醫生團隊banner',
+    alt: '醫生團隊banner'
+  },
+  {
+    pcImg: 'https://static.cmereye.com/imgs/2024/04/cf5124d2a6d53efd.webp',
+    mbImg: 'https://static.cmereye.com/imgs/2024/03/4abbdd7326af4cc3.webp',
+    link: '',
+    title: '深圳愛康健口腔醫院banner',
+    alt: '深圳愛康健口腔醫院banner'
+  }
+]
 </script>
 
 <template>
   <div>
     <PageNewHeader :headerConfig="headerConfigData" /> 
-    <PageBanner />
+    <PageBanner :bannerConfig="bannerConfig" />
     <div class="indexPage">
       <div class="PromotionProject pageCon">
         <div class="PromotionProject-title">

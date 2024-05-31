@@ -67,12 +67,16 @@ const menuBar = ref(null)
   height: 67px;
   display: flex;
   // position: relative;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 20;
   &-in{
     width: 100%;
     height: 67px;
     background: var(--indexColor1);
-    position: fixed;
-    z-index: 0;
+    // position: fixed;
+    // z-index: 0;
     left: 0;
     padding: 0 60px;
     display: flex;

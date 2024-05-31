@@ -286,18 +286,14 @@ const headermbNav = [
 </script>
 
 <template>
-  <header>
+  <div class="header">
     <div class="header-content">
       <div
         :class="[
-          'headerBox01',
           'pcMenuBox',
           headerConfig.pageName,
         ]"
       >
-        <!-- <div class="headerBtn">
-          <nuxt-link :to="whatsapplink">掛號</nuxt-link>
-        </div> -->
         <div ref="headerMenu" class="smallPageCon header-content-in">
           <div class="logo">
             <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院"
@@ -441,8 +437,6 @@ const headermbNav = [
           </div>
         </div>
       </div>
-      <!-- 水波纹盒子 -->
-      <!-- <div class="waterBg" :class="headerConfig.pageName"></div> -->
     </div>
     <div :class="['dialogBox',{show:_bool}]" @click="_bool=false">
       <div :class="['dialogBox-in',{'show-in':_bool}]" @click.stop="">
@@ -460,7 +454,7 @@ const headermbNav = [
         </div>
       </div>
     </div>
-  </header>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -529,17 +523,6 @@ const headermbNav = [
     }
   }
 }
-@keyframes btnAnim {
-  0% {
-    clip-path: polygon(-10% 0, 0 0, -10% 100%, -20% 100%);
-  }
-  50% {
-    clip-path: polygon(50% 0, 60% 0, 50% 100%, 40% 100%);
-  }
-  100% {
-    clip-path: polygon(110% 0, 120% 0, 110% 100%, 100% 100%);
-  }
-}
 @keyframes animBottomIn {
   from{
   }
@@ -548,38 +531,16 @@ const headermbNav = [
     transform: translate(-50%,0);
   }
 }
+.header{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 67px;
+  z-index: 100;
+}
 .header-content {
   width: 100%;
   box-sizing: border-box;
   position: relative;
-  &-bgImg-implant {
-    position: fixed;
-    z-index: -2;
-    width: 100%;
-    img {
-      width: 100%;
-    }
-  }
-  &-btn-implant {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    bottom: 240px;
-    left: 0;
-    z-index: 40;
-    width: 100%;
-  }
-  &-bgImgBB {
-    position: relative;
-    opacity: 0;
-    &.course-new {
-      max-width: 100%;
-      min-height: calc(580 / 1920 * 100vw);
-      img {
-        width: 100%;
-      }
-    }
-  }
   &-in {
     width: 100%;
     max-width: 1512px;
@@ -857,33 +818,11 @@ const headermbNav = [
   .headermbNav{
     display: none;
   }
-  .headerBox01 {
-    position: fixed;
+  .pcMenuBox {
     background: #fff;
     width: 100%;
     z-index: 100;
-  }
-  .headerBox02 {
-    position: fixed;
-    background: #fff;
-    top: 0;
-    width: 100vw;
-    z-index: 100;
-    box-shadow: 0px 4px 8px var(--indexColor3);
-    margin-top: 0 !important;
-    .header-content-in {
-      align-items: center;
-      .logo{
-        &>a{
-          img{
-            height: 30px;
-          }
-        }
-      }
-    }
-    .headerBtn{
-      display: none;
-    }
+    padding: 10px 0;
   }
 }
 @keyframes menuIconAnim {
@@ -906,248 +845,103 @@ const headermbNav = [
 .menuBox {
   display: none;
 }
-// .headerBtn{
-//   display: flex;
-//   justify-content: center;
-//   a{
-//     background: #FF0302;
-//     display: inline-block;
-//     padding: 4px 108px;
-//     font-size: 35px;
-//     font-weight: 700;
-//     line-height: 160%;
-//     color: #FFF620;
-//     border-radius: 100px;
-//     transform: translateY(-50%);
-//   }
-// }
-
-@media (min-width: 768px) and (max-width: 1000px) {
-  .header-content {
-    &-text-implant {
-      div{
-        width: calc(80%);
-        margin: 0 auto;
-      }
-    }
-    &-btn-implant{
-      bottom: auto;
-      span{
-        font-size: 2vw;
-        padding: 5px 4vw;
-      }
-    }
-    &-in{
-      width: calc(80% + 60px);
-    }
-    &-bgImgBB{
-      width: 100%;
-    }
+@media (min-width: 768px) and (max-width: 1920px) {
+  .header{
+    top: 3.4896vw;
   }
-  .waterBg::after,
-  .waterBg::before {
-    height: 160px;
-  }
-}
-@media (min-width: 1001px) and (max-width: 1452px) {
-  .header-content {
-    &-in{
-      width: calc(80% + 60px);
-      padding: 10px 10px 0 30px;
-      .logo{
-        width: 200px;
-        margin-bottom: 15px;
-      }
-    }
-    &-text-implant {
-      bottom: 80px;
-      div{
-        width: calc(80%);
-        margin: 0 auto;
-      }
-    }
-    &-bgImgBB{
-      width: 100%;
-    }
-    &-btn-implant{
-      bottom: 18vw;
-    }
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1450px) {
   .header-content {
     &-in {
-      padding: 10px 15px 0 30px;
+      max-width: 78.75vw;
+      padding: 1.0417vw .5208vw 0 1.5625vw;
       .logo {
-        width: 20%;
-        margin-bottom: 15px;
+        width: 15.1042vw;
+        margin-bottom: 1.0417vw;
       }
       .menu {
         .menuItem {
-          font-size: 100%;
-          padding: 0 0 10px;
+          padding: 0 0 1.0417vw;
+          font-size: 1.1458vw;
           & > a {
-            padding: 0 1vw;
-            box-sizing: border-box;
+            padding: 0 1.0417vw;
           }
           &.langItem{
-            padding: 0 1vw 10px;
-            &>img{
-              width: 20px;
-            }
+            padding: 0 1.0417vw 1.3021vw;
           }
           .triangleIcon:after {
-            border: 5px solid;
+            border: .5208vw solid;
             border-color: #666666 transparent transparent transparent;
           }
           .menuChild {
-            padding: 0 10px;
+            transform: translate(-50%, 1.0417vw);
+            padding: 0 1.0417vw .2604vw;
+            filter: drop-shadow(0px 0px .3125vw rgba(0, 0, 0, 0.15));
+            border-radius: .3125vw;
             &-item {
-              font-size: 1rem;
+              padding: .5208vw 0 .2604vw;
+              font-size: .9375vw;
             }
             &::before {
-              border: 5px solid;
+              border: .5208vw solid;
               border-color: transparent transparent #fff transparent;
-              position: absolute;
-              top: -10px;
-              left: 50%;
-              transform: translateX(-50%);
+              top: -0.9375vw;
             }
           }
           .serviceCard {
-            padding: 12px 6px;
+            width: 26.0417vw;
+            padding: 1.0417vw .5208vw;
+            border-radius: .8333vw;
+            .menuChild-item{
+              &>a{
+                height: 2.9167vw;
+                &.hot{
+                  &::after{
+                    font-size: 1.5625vw;
+                    margin-top: -0.4167vw;
+                  }
+                }
+              }
+            }
+            &::after{
+              width: 5.2083vw;
+              height: calc(90 / 130 * 5.2083vw);
+              right: 1.5625vw;
+              background-position-y: calc(90 / 130 * 5.2083vw);
+            }
           }
         }
       }
     }
-    &-text-implant {
-      div{
-        font-size: 100%;
-      }
+    .pcMenuBox {
+      padding: .5208vw 0;
     }
   }
-}
-
-@media (min-width: 1450px) and (max-width: 1800px) {
-  .header-content {
-    &-in {
-      width: calc(80% + 60px);
-      padding: 10px 15px 0 30px;
-      .logo {
-        width: 20%;
-        margin-bottom: 10px;
-      }
-      .menu {
-        .menuItem {
-          font-size: 1.1vw;
-          padding: 0 0 10px;
-          & > a {
-            padding: 0 1vw;
-            box-sizing: border-box;
-          }
-          &.langItem{
-            padding: 0 1vw 1vw;
-            &>img{
-              width: 1vw;
-            }
-          }
-          .triangleIcon:after {
-            border: 5px solid;
-            border-color: #666666 transparent transparent transparent;
-          }
-          .menuChild {
-            padding: 0 10px;
-            &-item {
-              font-size: 1.1vw;
-            }
-            &::before {
-              border: 5px solid;
-              border-color: transparent transparent #fff transparent;
-              position: absolute;
-              top: -10px;
-              left: 50%;
-              transform: translateX(-50%);
-            }
-          }
-          .serviceCard {
-            padding: 12px 6px;
-          }
-        }
-      }
+  @keyframes menuIconAnim {
+    30%{
+      background-position-y: .1563vw;
     }
-    .waterBg {
-      &.implant,
-      &.rootCanal-test,
-      &.periodontal-test,
-      &.orthodontics-test,
-      &.invisalign-test,
-      &.veneers-test,
-      &.health-care-voucher,
-      &.scaling-and-polishing-test {
-        bottom: 4vw;
-      }
-      &.course-new{
-        bottom: 30px;
-      }
+    55%{
+      background-position-y: .7813vw;
     }
-    &-btn-implant {
-      bottom: calc(100px + 6vw);
-      span{
-        font-size: 1.9vw;
-        padding: .3vw 3.5vw;
-      }
+    75%{
+      background-position-y: .4167vw;
     }
-    &-text-implant {
-      width: calc(80% + 60px);
-      padding: 0 30px;
-      bottom: 5vw;
-      div{
-        font-size: 100%;
-      }
+    90%{
+      background-position-y: .5729vw;
+    }
+    100%{
+      background-position-y: .5208vw;
     }
   }
 }
 
 @media screen and (max-width: 768px) {
-  .headerBtn{
-    margin-top: 22px;
-    padding-bottom: 8px;
-    a{
-      transform: none;
-      font-size: 26px;
-      font-weight: 900;
-      padding: 5px 86px;
-    }
+  .header{
+    top: 0;
   }
   .header-content {
-    &-bgImg-implant {
-      position: relative;
-      margin-top: 120px;
-      z-index: 1;
-      padding: 15px;
-      &.course-new{
-        padding-bottom: 5px;
-      }
-    }
-    &-text-implant {
-      position: relative;
-      margin-top: 25px;
-      width: calc(100% - 60px);
-      bottom: auto;
-      text-align: left;
-      z-index: 1;
-      & > div {
-        font-size: 20px;
-      }
-      &.course-new{
-        display: block;
-        margin-top: 150px;
-      }
-    }
     &-in {
-      position: fixed;
-      top: 0;
+      // position: fixed;
+      // top: 0;
       justify-content: space-between;
       align-items: center;
       margin: 0;
@@ -1194,10 +988,6 @@ const headermbNav = [
       }
     }
     .headermbNav{
-      position: fixed;
-      top: 60px;
-      z-index: 40;
-      left: 0;
       width: 100%;
       height: 56px;
       background: #fff;
@@ -1219,16 +1009,8 @@ const headermbNav = [
         background: var(--indexColor1);
       }
     }
-    &-span {
-      width: 70px;
-      font-weight: 400;
-      font-size: 20px;
-      right: 30px;
-      bottom: 60px;
-    }
-    .headerBox02 {
-      position: relative;
-      z-index: 40;
+    .pcMenuBox {
+      padding: 0;
     }
   }
   .menuBox {
