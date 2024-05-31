@@ -9,7 +9,8 @@ defineProps({
         tab: ['最熱門','最新'],
         lists: [
 
-        ]
+        ],
+        linkL: ''
       }
     }
   },
@@ -40,7 +41,7 @@ const hangdleTab = (idx:number) =>{
       </div>
     </div>
     <div class="newsLists-content">
-      <div class="list-in" v-for="item in listsConfig.lists" :key="item.id">
+      <nuxtLink :to="thameType === '2' ? '#' : `${listsConfig.linkL}${item.id}`" class="list-in" v-for="item in listsConfig.lists" :key="item.id">
         <div class="list-in-t" v-if="thameType === '1'">
           <div class="list-in-t-l">
             <img :src="item.img" alt="">
@@ -52,7 +53,6 @@ const hangdleTab = (idx:number) =>{
         </div>
         <div class="list-in-t" v-if="thameType === '2'">
           <div class="list-in-t-l">
-            <!-- <img src="https://static.cmereye.com/imgs/2024/05/02956b6544647944.jpg" alt=""> -->
             <div class="iframeBox">
               <iframe width="560" height="315" :src="item.videos" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
@@ -78,7 +78,7 @@ const hangdleTab = (idx:number) =>{
             {{item.time}}
           </div>
         </div>
-      </div>
+      </nuxtLink>
     </div>
   </div>
 </template>
@@ -132,6 +132,7 @@ const hangdleTab = (idx:number) =>{
     margin-top: 22px;
     .list-in{
       margin-bottom: 12px;
+      display: block;
       &-t{
         display: grid;
         grid-template-columns: 1fr 1.7fr;

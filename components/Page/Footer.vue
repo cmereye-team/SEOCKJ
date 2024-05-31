@@ -154,7 +154,7 @@ const handlembMenu = (navIndex) => {
             title="深圳愛康健口腔醫院"
             alt="深圳愛康健口腔醫院"
           >
-            <img src="@/assets/images/footerLogo.svg" alt="logo" />
+            <img srcset="@/assets/images/logo_2.svg 768w, @/assets/images/footerLogo.svg" src="@/assets/images/footerLogo.svg" alt="logo" />
           </nuxt-link>
         </div>
         <div class="footer-content-text">

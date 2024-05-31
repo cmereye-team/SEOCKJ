@@ -19,7 +19,7 @@ defineProps({
         mbText: ['重拾自信笑容', '愛牙愛己，由你做起'],
       }
     },
-  },
+  }
 })
 
 const menuLists:any = [
@@ -175,7 +175,7 @@ onMounted(() => {
     }
   }, 500)
 })
-const isShowLanguageBool = ref(false)
+// const isShowLanguageBool = ref(false)
 const getScrollHeight = () => {
   if(imgBgHeight.value && imgBgHeight.value.offsetHeight){
     if (imgBgHeight.value.offsetHeight < window.scrollY) {
@@ -183,11 +183,11 @@ const getScrollHeight = () => {
     } else {
       isFiexdHeader.value = false
     }
-    if (window.scrollY === 0) {
-      isShowLanguageBool.value = true
-    } else {
-      isShowLanguageBool.value = false
-    }
+    // if (window.scrollY === 0) {
+    //   isShowLanguageBool.value = true
+    // } else {
+    //   isShowLanguageBool.value = false
+    // }
   }
 }
 
@@ -289,30 +289,15 @@ const headermbNav = [
   <header>
     <div class="header-content">
       <div
-        class="header-content-bgImg-implant"
-        :class="headerConfig.pageName"
-      >
-        <img srcset="https://static.cmereye.com/imgs/2024/05/4ff5e989d498b5f8.webp 768w,https://static.cmereye.com/imgs/2024/05/0b20ccceba0bd119.webp" src="https://static.cmereye.com/imgs/2024/05/0b20ccceba0bd119.webp" alt="">
-      </div>
-      <div
-        ref="imgBgHeight"
-        class="header-content-bgImgBB pcBox"
-        :class="headerConfig.pageName"
-      >
-        <nuxt-link :to="'#'">
-          <img srcset="https://static.cmereye.com/imgs/2024/05/4ff5e989d498b5f8.webp 768w,https://static.cmereye.com/imgs/2024/05/0b20ccceba0bd119.webp" src="https://static.cmereye.com/imgs/2024/05/0b20ccceba0bd119.webp" alt="">
-        </nuxt-link>
-      </div>
-      <div
         :class="[
-          isFiexdHeader ? 'headerBox02' : 'headerBox01',
+          'headerBox01',
           'pcMenuBox',
           headerConfig.pageName,
         ]"
       >
-        <div class="headerBtn">
+        <!-- <div class="headerBtn">
           <nuxt-link :to="whatsapplink">掛號</nuxt-link>
-        </div>
+        </div> -->
         <div ref="headerMenu" class="smallPageCon header-content-in">
           <div class="logo">
             <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院"
@@ -873,9 +858,10 @@ const headermbNav = [
     display: none;
   }
   .headerBox01 {
-    position: relative;
+    position: fixed;
     background: #fff;
     width: 100%;
+    z-index: 100;
   }
   .headerBox02 {
     position: fixed;
@@ -920,21 +906,21 @@ const headermbNav = [
 .menuBox {
   display: none;
 }
-.headerBtn{
-  display: flex;
-  justify-content: center;
-  a{
-    background: #FF0302;
-    display: inline-block;
-    padding: 4px 108px;
-    font-size: 35px;
-    font-weight: 700;
-    line-height: 160%;
-    color: #FFF620;
-    border-radius: 100px;
-    transform: translateY(-50%);
-  }
-}
+// .headerBtn{
+//   display: flex;
+//   justify-content: center;
+//   a{
+//     background: #FF0302;
+//     display: inline-block;
+//     padding: 4px 108px;
+//     font-size: 35px;
+//     font-weight: 700;
+//     line-height: 160%;
+//     color: #FFF620;
+//     border-radius: 100px;
+//     transform: translateY(-50%);
+//   }
+// }
 
 @media (min-width: 768px) and (max-width: 1000px) {
   .header-content {

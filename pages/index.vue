@@ -477,7 +477,8 @@ const newsListsConfig_1 = ref({
   title: '牙齒百科',
   tab: ['最熱門','最新'],
   lists: [
-  ]
+  ],
+  linkL: '/news/news-tooth-wiki/'
 })
 const changeNewsCur_1 = async (idx) =>{
   if(changeNewsCur_1_tab.value === idx) return
@@ -499,7 +500,8 @@ const newsListsConfig_2 = ref({
   title: '醫生分享',
   tab: ['最熱門','最新'],
   lists: [
-  ]
+  ],
+  linkL: ''
 })
 const getVideosLists = async (order = 'date',loading = false,retuse = []) =>{
   loading = false
@@ -544,7 +546,8 @@ const newsListsConfig_3 = ref({
   title: '最新資訊',
   tab: ['最熱門','最新'],
   lists: [
-  ]
+  ],
+  linkL: '/news/news-information/'
 })
 const changeNewsCur_3 = async (idx) =>{
   if(changeNewsCur_3_tab.value === idx) return
@@ -592,6 +595,7 @@ const PromotionProject = [
 <template>
   <div>
     <PageNewHeader :headerConfig="headerConfigData" /> 
+    <PageBanner />
     <div class="indexPage">
       <div class="PromotionProject pageCon">
         <div class="PromotionProject-title">
@@ -630,7 +634,7 @@ const PromotionProject = [
             <div :class="{cur: media_coverage_cur_tab === 1}" @click="handlemedia_coverage(1)">最新</div>
           </div>
           <div class="media_coverage-content">
-            <div class="list-in" v-for="item in width>768?media_coverage_lists.slice(0,2):media_coverage_lists" :key="item.id">
+            <nuxtLink :to="`/news/article/${item.id}`" class="list-in" v-for="item in width>768?media_coverage_lists.slice(0,2):media_coverage_lists" :key="item.id">
               <div class="list-in-t">
                 <div class="list-in-t-l">
                   <img :src="item.img" alt="">
@@ -648,7 +652,7 @@ const PromotionProject = [
                   {{item.time}}
                 </div>
               </div>
-            </div>
+            </nuxtLink>
           </div>
           <nuxt-link to="/news/coverage" class="media_coverage-btn">
             <div>查看更多</div>
@@ -1374,6 +1378,7 @@ svg:hover path{
       margin-top: 22px;
       .list-in{
         margin-bottom: 12px;
+        display: block;
         &-t{
           display: grid;
           grid-template-columns: 1fr 1.6fr;

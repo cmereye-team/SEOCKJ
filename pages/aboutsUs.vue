@@ -283,12 +283,12 @@ const handleProcessBtn = (_type: string) => {
       <div class="smallPageCon aboutsUs-title">
         <div class="index_title">關於我們</div>
       </div>
-      <div class="tabNav noTitle smallPageCon">
-            <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
-              <span>{{$t('pages.index.title')}}</span>
-            </nuxt-link>
-            <span :title="'關於我們'">關於我們</span>
-          </div>
+      <div class="tabNav noTitle pageCon">
+        <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院">
+          <span>{{$t('pages.index.title')}}</span>
+        </nuxt-link>
+        <span :title="'關於我們'">關於我們</span>
+      </div>
       <div class="introduce bigPageCon">
         <div
           class="introduce-in"
@@ -301,14 +301,127 @@ const handleProcessBtn = (_type: string) => {
           <div class="introduce-in-t mbBox">
             <img :src="introduceData.mbImg" />
           </div>
-          <div class="introduce-in-l smallPageCon">
+          <div class="introduce-in-l pageCon">
             <h2>簡介</h2>
             <div class="title">CKJ愛康健口腔品牌連鎖專注口腔，屢獲殊榮</div>
             <div class="content">作為深圳口腔專科醫院，深圳愛康健口腔醫院秉承著「專科·專業」的服務宗旨，對醫療資源進行了科學、合理的整合。醫師團隊是畢業於國內知名口腔學院的專業人員；醫院各專業帶頭人，包括種植醫師、美學修復醫師、牙周病醫師等共同組成，帶領一批醫護人員一起構成愛康健口腔醫院的服務團隊。全程式預約一體化診療服務，讓每一位顧客享受健康微笑之旅。</div>
           </div>
         </div>
       </div>
-      <div class="course-action">
+      <div class="setionBox pageCon">
+        <div class="setionBox-l">
+          <div class="course-action-title">
+            <div class="index_title">工聯會專區</div>
+          </div>
+          <div class="course-action-in">
+            <nuxtLink :to="`/brand/action-message`" class="list-in">
+              <div class="list-in-t">
+                <div class="list-in-t-l">
+                  <img src="https://static.cmereye.com/imgs/2024/05/78b98f959d17010c.jpg" alt="">
+                </div>
+                <div class="list-in-t-r">
+                  <h2>香港工聯會參觀交流</h2>
+                  <p>接待香港工聯會代表團，交流牙科醫療服務發展及趨勢</p>
+                </div>
+              </div>
+              <div class="list-in-b">
+                <div class="list-in-b-l">
+                  <span>#團體交流</span>
+                </div>
+                <div class="list-in-b-r">
+                  2023年12月15日
+                </div>
+              </div>
+            </nuxtLink>
+            <nuxt-link to="/federation-of-trade-unions-zone" class="btn">
+              <span>查看更多</span>
+            </nuxt-link>
+          </div>
+          <div class="Medical-vouchers-title">
+            <div class="index_title">長者醫療券</div>
+          </div>
+          <div class="Medical-vouchers-in">
+            <nuxtLink :to="`/health-care-voucher`" class="list-in">
+              <div class="list-in-t">
+                <div class="list-in-t-l">
+                  <img src="https://static.cmereye.com/imgs/2024/05/5fa4444992580948.jpg" alt="">
+                </div>
+                <div class="list-in-t-r">
+                  <h2>深圳愛康健正式納入<br />灣區長者醫療券參與機構</h2>
+                  <p>2024年2月19日政府公布，深圳愛康健齒科已經正式成為「長者醫療券大灣區試點計劃」的參與機構，這個計劃旨在資助符合條件的長者跨境到愛康健齒科口腔醫院使用長者醫療券支付治療費用。政府預計今年第三季開始實施該計劃，約有170萬名合資格的長者將從中受益。</p>
+                </div>
+              </div>
+              <div class="list-in-b">
+                <div class="list-in-b-l">
+                  <span>#醫療券</span>
+                  <span>#長者</span>
+                  <span>#政府政策</span>
+                </div>
+                <div class="list-in-b-r">
+                  2023年12月15日
+                </div>
+              </div>
+            </nuxtLink>
+            <nuxt-link to="/health-care-voucher" class="btn">
+              <span>查看更多</span>
+            </nuxt-link>
+          </div>
+        </div>
+        <div class="setionBox-r">
+          <div class="brand">
+            <div class="brand-title">
+              <div class="index_title">
+                <span>愛康健口腔品牌連鎖</span>
+              </div>
+            </div>
+            <div class="brand-context">始於1995</div>
+            <div class="brand-context">- 專科 · 專業 · 專注 · 專心 - </div>
+            <div class="brand-in">
+              <div>
+                <div>
+                  <img src="https://static.cmereye.com/imgs/2023/05/d7e785a21ef31545.png" alt="">
+                </div>
+                <div>
+                  深圳老字號
+                </div>
+              </div>
+              <div>
+                <div>
+                  <img src="https://static.cmereye.com/imgs/2023/05/6b9b5cbf87f8da95.png" alt="">
+                </div>
+                <div>
+                  廣東省著名商標品牌
+                </div>
+              </div>
+              <div>
+                <div>
+                  <img src="https://static.cmereye.com/imgs/2023/05/42202884c1b63259.png" alt="">
+                </div>
+                <div>
+                中山大學光華口腔醫學院研究生課程深圳教學基地
+                </div>
+              </div>
+              <div>
+                <div>
+                  <img src="https://static.cmereye.com/imgs/2023/05/cb849eb2ad0023d4.png" alt="">
+                </div>
+                <div>
+                  最具口碑影響力企業
+                </div>
+              </div>
+              <nuxt-link to="https://www.gma-awards.hk01.group/%E5%BE%97%E7%8D%8E%E5%90%8D%E5%96%AE">
+                <div>
+                  <img src="https://static.cmereye.com/imgs/2024/05/a4cced5ce2d5c606.png" alt="">
+                </div>
+                <div>
+                  {{'香港01\n傑出大灣區牙科醫療\n服務機構'}}
+                </div>
+              </nuxt-link>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="course-action">
         <div class="course-action-in">
           <div class="course-action-in-l">
             <img src="https://static.cmereye.com/imgs/2024/01/84dc48aa55e716a2.jpg" alt="">
@@ -329,7 +442,7 @@ const handleProcessBtn = (_type: string) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="course">
         <div class="course-title dentistryServices-title">
           <div class="course-title-in dentistryServices-title-in bb">
@@ -422,7 +535,6 @@ const handleProcessBtn = (_type: string) => {
         </div>
       </div>
     </div>
-    <!-- 国际 -->
     <div class="international">
       <div class="international-title">
           <span>{{$t('pages.brand.honor.international.title.span_1')}}</span>
@@ -654,90 +766,233 @@ const handleProcessBtn = (_type: string) => {
   }
 }
 .course-action{
-  width: 100%;
-  padding: 0 30px;
-  margin: 80px auto 0;
-  max-width: 1280px;
-  &-in{
+  &-title{
     display: flex;
-    width: 100%;
-    &-l{
-      width: calc((520 / 1410) * 100%);
-      margin-right: calc((40 / 1410) * 100%);
-    }
-    &-r{
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      .t{
-        .t-t{
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          .title{
-            color: var(--indexColor1);
-            font-size: 28px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: 160%; 
-          }
-          .time{
-            color: var(--textColor);
-            text-align: right;
-            
-            font-size: 20px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 160%;
-          }
-        }
-        .context{
-          color: var(--textColor);
-          font-size: 20px;
-          font-style: normal;
-          font-weight: 500;
-          line-height: 160%; /* 32px */
-          margin-top: 14px;
-        }
+    margin-bottom: 10px;
+    padding: 0 10px;
+    .index_title{
+      &::after{
+        background: #FDE3C4;
       }
-      .b{
-        .btn{
-          background: var(--indexColor1);
-          box-shadow: 0px 3.704px 7.409px 0px rgba(252, 22, 130, 0.38);
-          // width: 157px;
-          width: calc(400 / 892 * 100%);
-          max-width: 400px;
-          height: 60px;
-          line-height: 60px;
-          color: #fff;
-          transition: all .3s;
-          border-radius: 30px;
-          text-align: center;
-          font-size: 35px;
-          &:hover{
-            background: var(--indexColor3);
-          }
-          a{
+    }
+  }
+  &-in{
+    border-top: 1px solid #E15697;
+    margin-bottom: 63px;
+    .list-in{
+      padding-top: 15px;
+      display: block;
+      &-t{
+        display: grid;
+        grid-template-columns: 1fr 1.7fr;
+        gap: 19px;
+        align-items: center;
+        padding-bottom: 15px;
+        &-l{
+          width: 100%;
+          img{
             width: 100%;
-            height: 100%;
-            display: block;
           }
         }
-        .text{
-          color: var(--textColor);
+        &-r{
+          flex: 1;
+          h2{
+            display: -webkit-box;  
+            -webkit-line-clamp: 2; 
+            line-clamp: 2; 
+            -webkit-box-orient: vertical;  
+            overflow: hidden;  
+            text-overflow: ellipsis;
+            color: var(--indexColor1);
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 200%;
+          }
+          p{
+            display: -webkit-box;  
+            -webkit-line-clamp: 2; 
+            line-clamp: 2; 
+            -webkit-box-orient: vertical;  
+            overflow: hidden;  
+            text-overflow: ellipsis;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 133%;
+            color: var(--textColor);
+          }
+        }
+      }
+      &-b{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        padding: 5px 0;
+        border-top: 1px solid #aaa;
+        border-bottom: 1px solid #aaa;
+        &-l{
+          font-size: 18px;
+          letter-spacing: 1.8px;
+          position: relative;
+          text-decoration: underline;
+          overflow: hidden;
+          white-space: nowrap;
+          span{
+            margin-right: 10px;
+            color: var(--textColor);
+          }
+          &::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 80px;
+            height: 100%;
+            background: linear-gradient(90deg,rgba(255, 255, 255, 0),#fff);
+          }
+        }
+        &-r{
+          background: #fff;
           font-size: 20px;
-          font-style: normal;
-          font-weight: 500;
-          line-height: 120%; /* 32px */
-          // text-decoration-line: underline;
-          margin-top: 22px;
-          // padding-bottom: 3px;
-          display: inline-block;
-          border-bottom: 1px solid var(--textColor);
+          color: #aaa;
+          display: flex;
+          justify-content: flex-end;
         }
       }
     }
+    .btn{
+      color: var(--Grey-Deep, #4D4D4D);
+      text-align: justify;
+      font-family: "Noto Serif CJK TC";
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 160%;
+      border-radius: 2px;
+      border: 1px solid var(--Grey-Deep, #4D4D4D);
+      display: block;
+      margin-top: 10px;
+      padding: 5px 0;
+      text-align: center;
+    }
+  }
+}
+.setionBox{
+  margin-top: 97px;
+  display: flex;
+  gap: 160px;
+  &-l{
+    flex: 1;
+    .Medical-vouchers{
+      &-title{
+        display: flex;
+        margin-bottom: 10px;
+        padding: 0 10px;
+        .index_title{
+          &::after{
+            background: #D3E9D8;
+          }
+        }
+      }
+      &-in{
+        border-top: 1px solid #E15697;
+      .list-in{
+        padding-top: 15px;
+        display: block;
+        &-t{
+          display: grid;
+          grid-template-columns: 1fr 1.7fr;
+          gap: 19px;
+          align-items: center;
+          padding-bottom: 15px;
+          &-l{
+            width: 100%;
+            img{
+              width: 100%;
+            }
+          }
+          &-r{
+            flex: 1;
+            h2{
+              display: -webkit-box;  
+              -webkit-line-clamp: 2; 
+              line-clamp: 2; 
+              -webkit-box-orient: vertical;  
+              overflow: hidden;  
+              text-overflow: ellipsis;
+              color: var(--indexColor1);
+              font-size: 20px;
+              font-weight: 700;
+              line-height: 140%;
+            }
+            p{
+              display: -webkit-box;  
+              -webkit-line-clamp: 3; 
+              line-clamp: 3; 
+              -webkit-box-orient: vertical;  
+              overflow: hidden;  
+              text-overflow: ellipsis;
+              font-size: 12px;
+              font-weight: 700;
+              line-height: 133%;
+              color: var(--textColor);
+            }
+          }
+        }
+        &-b{
+          display: grid;
+          grid-template-columns: 2fr 1fr;
+          padding: 5px 0;
+          border-top: 1px solid #aaa;
+          border-bottom: 1px solid #aaa;
+          &-l{
+            font-size: 18px;
+            letter-spacing: 1.8px;
+            position: relative;
+            text-decoration: underline;
+            overflow: hidden;
+            white-space: nowrap;
+            span{
+              margin-right: 10px;
+              color: var(--textColor);
+            }
+            &::after{
+              content: '';
+              position: absolute;
+              top: 0;
+              right: 0;
+              width: 80px;
+              height: 100%;
+              background: linear-gradient(90deg,rgba(255, 255, 255, 0),#fff);
+            }
+          }
+          &-r{
+            background: #fff;
+            font-size: 20px;
+            color: #aaa;
+            display: flex;
+            justify-content: flex-end;
+          }
+        }
+      }
+      .btn{
+      color: var(--Grey-Deep, #4D4D4D);
+      text-align: justify;
+      font-family: "Noto Serif CJK TC";
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 160%;
+      border-radius: 2px;
+      border: 1px solid var(--Grey-Deep, #4D4D4D);
+      display: block;
+      margin-top: 10px;
+      padding: 5px 0;
+      text-align: center;
+    }
+      }
+    }
+  }
+  &-r{
+    flex: 1;
   }
 }
 .honor{
@@ -879,6 +1134,47 @@ const handleProcessBtn = (_type: string) => {
   justify-content: center;
   
 }
+.brand{
+  &-title{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 28px;
+    font-weight: 900;
+  }
+  &-context{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 160%;
+    text-align: center;
+    color: var(--indexColor);
+  }
+  &-in{
+    width: 100%;
+    max-width: 1380px;
+    margin: 61px auto 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    &>div,&>a{
+      max-width: 40%;
+      padding: 0 10px;
+      &>div{
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 160%;
+        text-align: center;
+        color: #4C4C4C;
+        white-space: pre-wrap;
+        img{
+          margin: 0 auto;
+          max-width: 120px;
+        }
+      }
+    }
+  }
+}
 @media (min-width: 768px) and (max-width: 1920px) {
   .introduce {
     &-in {
@@ -931,17 +1227,22 @@ const handleProcessBtn = (_type: string) => {
       }
       &-l {
         padding-bottom: 0;
+        h2{
+          padding: 0 30px;
+          font-size: 16px;
+        }
         .title {
           padding: 0 30px;
           font-weight: 700;
-          font-size: 26px;
-          margin-top: 0;
+          font-size: 16px;
+          margin-top: 10px;
+          width: auto;
         }
         .content {
-          font-size: 1rem;
-          width: 95%;
+          font-size: 15px;
+          width: auto;
           padding: 0 30px;
-          margin-top: 30px;
+          margin-top: 10px;
         }
       }
     }
@@ -1071,53 +1372,32 @@ const handleProcessBtn = (_type: string) => {
     }
   }
   .course-action{
-    margin: 65px auto 0;
-    padding: 0;
     &-in{
-      flex-direction: column;
-      &-l{
-        width: 100%;
-        img{
-          width: 100%;
+      margin-bottom: 32px;
+      .list-in{
+        &-t{
+          padding-bottom: 10px;
+          &-r{
+            h2{
+              font-size: 14px;
+              line-height: 1.3;
+            }
+            p{
+              font-size: 12px;
+            }
+          }
+        }
+        &-b{
+          &-l{
+            font-size: 13px;
+          }
+          &-r{
+            font-size: 13px;
+          }
         }
       }
-      &-r{
-        padding: 0 30px;
-        .t{
-          .t-t{
-            justify-content: flex-start;
-            flex-direction: column;
-            align-items: flex-start;
-            .title{
-              margin-top: 17px;
-              font-size: 18px;
-            }
-            .time{
-              font-size: 16px;
-              text-align: left;
-            }
-          }
-          .context{
-            font-size: 16px;
-          }
-        }
-        .b{
-          display: flex;
-          flex-direction: column;
-          .btn{
-            order: 2;
-            margin: 13px auto 0;
-            width: 137px;
-            height: 40px;
-            line-height: 40px;
-            font-size: 18px;
-          }
-          .text{
-            order: 1;
-            font-size: 16px;
-            width: max-content;
-          }
-        }
+      .btn{
+        font-size: 13px;
       }
     }
   }
@@ -1189,6 +1469,70 @@ const handleProcessBtn = (_type: string) => {
         }
         :deep(.swiper-scrollbar){
           width: 249px;
+        }
+      }
+    }
+  }
+  .setionBox{
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 32px;
+    padding: 0 17px;
+    &-l{
+      .Medical-vouchers{
+        &-in{
+          .list-in{
+            &-t{
+              padding-bottom: 10px;
+              &-r{
+                h2{
+                  font-size: 14px;
+                  line-height: 1.3;
+                }
+                p{
+                  font-size: 12px;
+                  -webkit-line-clamp: 2; 
+                  line-clamp: 2; 
+                }
+              }
+            }
+            &-b{
+              &-l{
+                font-size: 13px;
+              }
+              &-r{
+                font-size: 13px;
+              }
+            }
+          }
+          .btn{
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+  .brand{
+    &-title{
+      margin-bottom: 12px;
+    }
+    &-context{
+      font-size: 15px;
+      font-weight: 700;
+    }
+    &-in{
+      margin: 22px auto 0;
+      &>div,&>a{
+        width: 50%;
+        max-width: 50%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 30px;
+        &>div{
+          font-size: 13px;
+          margin-top: 10px;
         }
       }
     }
