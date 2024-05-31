@@ -17,6 +17,7 @@ useHead({
   .service{
     background: #fff;
     padding-bottom: 143px;
+    padding-top: 50px;
   }
   @media screen and (max-width: 768px) {
     .service{

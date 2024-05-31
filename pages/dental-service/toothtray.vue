@@ -415,7 +415,7 @@ const caseLists = [
 <div>
   <PageBanner :bannerConfig="bannerConfig" />
   <div class="pageIn whitebgColor">
-    <div class="smallPageCon">
+    <div class="smallPageCon pageTitle">
       <div class="index_title">{{$t('pages.dental-service.title')}}</div>
     </div>
     <ServiceIntroduce :introduceData="orthodonticsIntroduceData" />

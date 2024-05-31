@@ -176,8 +176,10 @@ const doctorTeam = ref(null)
   <div>
     <PageBanner :bannerConfig="bannerConfig" />
     <div class="doctorPage">
-      <div class="doctorPage-in smallPageCon">
+      <div class="smallPageCon pageTitle">
         <div class="index_title">{{$t('pages.medical_team.title')}}</div>
+      </div>
+      <div class="doctorPage-in smallPageCon">
         <div class="doctorPage-in-tabNav">
           <div class="doctorPage-in-tabNav-l">
             <span>{{$t('pages.index.title')}}</span>
@@ -250,13 +252,14 @@ const doctorTeam = ref(null)
   .doctorPage{
     background: #fff;
     padding-bottom: 143px;
+    padding-top: 60px;
     position: relative;
     z-index: 1;
     .index_title{
       z-index: 1;
     }
     &-in{
-      padding-top: 143px;
+      padding-top: 0;
       &-text{
         font-weight: 700;
         font-size: 1.75rem;
@@ -540,8 +543,9 @@ const doctorTeam = ref(null)
 @media (min-width: 768px) and (max-width: 1920px) {
   .doctorPage{
     padding-bottom: 7.4479vw;
+    padding-top: 3.125vw;
     &-in{
-      padding-top: 7.4479vw;
+      padding-top: 0;
       &-text{
         font-size: 1.4583vw;
         margin-top: 2.2917vw;
@@ -687,6 +691,7 @@ const doctorTeam = ref(null)
   @media screen and (max-width: 768px) {
     .doctorPage{
       padding-bottom: 90px;
+      padding-top: 50px;
       &-in{
         padding-top: 0px;
         &-text{

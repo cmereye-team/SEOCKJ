@@ -132,7 +132,7 @@ const handleMenu = (_idx: number) => {
   else menuActNum.value = _idx
 }
 
-const handleMenuChild = (_menu: any, _idx: number) => {
+const handleMenuChild = (_menu: any, _idx: number) => { 
   if (_menu.link.includes('medical-team')) {
     appState.setCurNum(_idx)
     menuBoxBool.value = false
@@ -283,6 +283,10 @@ const headermbNav = [
     link: '/federation-of-trade-unions-zone'
   }
 ]
+
+watch(route,()=>{
+  menuBoxBool.value = false
+})
 </script>
 
 <template>

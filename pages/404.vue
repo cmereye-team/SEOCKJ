@@ -5,9 +5,9 @@ import { capitalize } from '~/utils/str'
 const { t } = useLang()
 
 // compiler macro
-definePageMeta({
-  layout: 'page',
-})
+// definePageMeta({
+//   layout: 'page',
+// })
 useHead(() => ({
   title: capitalize(t('pages.404.title')),
 }))
@@ -15,7 +15,9 @@ useHead(() => ({
 
 <template>
   <div>
-    <Error :code="404" />
+    <div class="flex flex-col items-center justify-center">
+      <Error :code="404" />
+    </div>
     <div style="width: 100%;margin-top:100px;">
       <serviceCard :isIndexShow="true" />
     </div>

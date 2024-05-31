@@ -225,6 +225,10 @@ body{
 
 
 @media screen and (max-width: 768px) {
+  .pageTitle{
+    display: flex;
+    justify-content: center;
+  }
   .pageCon,.smallPageCon{
     width: 100%;
   } 

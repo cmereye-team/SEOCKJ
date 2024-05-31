@@ -45,7 +45,7 @@ const introduceData = {
     <PageBanner :bannerConfig="bannerConfig" />
     <div class="pageIn whitebgColor">
       <div class="smallPageCon">
-        <div class="index_title">{{$t('pages.dental-service.title')}}</div>
+        <div class="index_title">{{$t('pages.brand.title')}}</div>
       </div>
       <div class="introduce bigPageCon">
         <div class="tabNav noTitle smallPageCon">

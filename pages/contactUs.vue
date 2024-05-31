@@ -235,7 +235,6 @@ onMounted(() => {
       padding-bottom: 90px;
     }
     .index-contactUs{
-      padding-top: 0;
       :deep(.index-contactUs-t){
         position: relative;
         z-index: 1 !important;

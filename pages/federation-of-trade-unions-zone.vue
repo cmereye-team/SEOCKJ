@@ -646,7 +646,7 @@ const pageDetail:any = {
   .health-care-voucher{
     position: relative;
     z-index: 1;
-    padding-top: 0px;
+    padding-top: 50px;
   }
   .tabNav {
     padding: 23px 30px 0;

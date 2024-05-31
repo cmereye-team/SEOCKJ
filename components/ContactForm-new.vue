@@ -282,32 +282,12 @@ let privacyPolicy = ref(true)
           label-width="120px"
           label-position="top"
         >
-          <!-- <div class="firstFormItem"> -->
-            <!-- <el-col :span="11"> -->
-              <el-form-item
-                :label="`${$t('contactUs.contact_form.formItem.name')}`"
-                prop="name"
-              >
-                <el-input v-model="form.name" name="name" maxlength="30" />
-              </el-form-item>
-            <!-- </el-col> -->
-            <!-- <el-col :span="2"></el-col> -->
-            <!-- <el-col :span="9">
-              <el-form-item
-                :label="`${$t('contactUs.contact_form.formItem.gender')}`"
-                prop="gender"
-              >
-                <el-select
-                  v-model="form.gender"
-                  :placeholder="'請選擇'"
-                >
-                  <el-option label="先生" value="先生" />
-                  <el-option label="女士" value="女士" />
-                  <el-option label="小姐" value="小姐" />
-                </el-select>
-              </el-form-item>
-            </el-col> -->
-          <!-- </div> -->
+          <el-form-item
+            :label="`${$t('contactUs.contact_form.formItem.name')}`"
+            prop="name"
+          >
+            <el-input v-model="form.name" name="name" maxlength="30" />
+          </el-form-item>
           <el-form-item
             :label="`${$t(
               'contactUs.contact_form.formItem.telephone_number'
@@ -358,9 +338,9 @@ let privacyPolicy = ref(true)
           </el-form-item>
           <el-form-item>
             <div class="formBtn contactUsForm">
-              <button class="formBtn-in contactUsForm" @click.stop="submitForm(ruleFormRef)">
+              <div class="formBtn-in contactUsForm" @click.stop="submitForm(ruleFormRef)">
                 {{ $t('contactUs.contact_form.formItem.submit_the_form') }}
-              </button>
+              </div>
               <!-- <div class="animbtntypetwo contactUsForm" v-loading="formLoading">
                 <div class="animbtntypetwo-in contactUsForm" :id="windowWidth > 768 ? 'contactUsForm' : 'navMbContactForm'" @click.stop="submitForm(ruleFormRef)">
                   <span class="contactUsForm">

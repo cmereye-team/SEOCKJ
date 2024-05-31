@@ -1106,7 +1106,6 @@ const handleProcessBtn = (_type: string) => {
 .aboutsUs-title{
   display: flex;
   justify-content: center;
-  
 }
 .brand{
   &-title{

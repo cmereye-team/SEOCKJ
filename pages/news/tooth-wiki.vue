@@ -596,7 +596,7 @@ const handleClick = (event,_id) =>{
 }
 @media screen and (max-width: 768px) {
   .informationPage{
-    padding: 0 0 90px;
+    padding: 50px 0 90px;
     &-title{
       z-index: 1;
     }
