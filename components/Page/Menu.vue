@@ -992,6 +992,7 @@ watch(route,()=>{
       grid-template-columns: repeat(3,1fr);
       grid-template-rows: repeat(2,1fr);
       gap: 1px;
+      box-shadow: 0 2px 5px 0 rgba(255, 255, 255, .5);
       a{
         width: 100%;
         color: var(--White, #FFF);

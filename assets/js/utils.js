@@ -21,7 +21,15 @@ const formatDate = (dateString) =>{
     }
 }  
 
+const toDateType = (dateString) =>{  
+  var date = new Date(dateString);  
+  var year = date.getFullYear();  
+  var month = ("0" + (date.getMonth() + 1)).slice(-2); // getMonth() is zero-based  
+  var day = ("0" + date.getDate()).slice(-2);  
+  return year + "年" + month + "月" + day + "日";  
+} 
 
 export {
-  formatDate
+  formatDate,
+  toDateType
 }

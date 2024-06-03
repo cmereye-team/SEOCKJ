@@ -6,7 +6,7 @@ import { useAppState } from '~/stores/appState'
 import doctorLists_cs from '~/assets/js/doctor'
 import { toWhatsApp } from '~/assets/js/common'
 import { useElementBounding,useWindowSize } from '@vueuse/core'
-import { formatDate } from '~/assets/js/utils'
+import { formatDate,toDateType } from '~/assets/js/utils'
 import { json } from 'stream/consumers';
 const appState = useAppState()
 const { t } = useLang()
@@ -272,15 +272,7 @@ const doctorTeam = ref(null)
 const { width } = useWindowSize()
 
 
-onMounted(()=>{
-  handletab2('101')
-  setTimeout(()=>{
-    handlemedia_coverage(0)
-    changeNewsCur_1(0)
-    changeNewsCur_2(0)
-    changeNewsCur_3(0)
-  },0)
-})
+
 
 let saveData = ref({
   media_coverage_0: [],
@@ -290,7 +282,10 @@ let saveData = ref({
   newsLists_2_0: [],
   newsLists_2_1: [],
   newsLists_3_0: [],
-  newsLists_3_1: []
+  newsLists_3_1: [],
+  newsData_0: [],
+  newsData_1: [],
+  newsData_2: []
 })
 const handlemedia_coverage = async (idx) => {
   if(media_coverage_cur_tab.value === idx) return
@@ -499,8 +494,7 @@ let changeNewsCur_2_tab = ref(2)
 const newsListsConfig_2 = ref({
   title: '醫生分享',
   tab: ['最熱門','最新'],
-  lists: [
-  ],
+  lists: [] as any,
   linkL: ''
 })
 const getVideosLists = async (order = 'date',loading = false,retuse = []) =>{
@@ -620,11 +614,72 @@ const bannerConfig = [
     alt: '深圳愛康健口腔醫院banner'
   }
 ]
+
+let youtobeBox_cur_tab = ref(0)
+const handleyoutobeTab = (idx) => {
+  youtobeBox_cur_tab.value = idx
+}
+
+const news_tab = [
+  {name: '媒體報導',num: 14,url: '/news/article/'},
+  {name: '最新資訊',num: 15,url: '/news/news-information/'},
+  {name: '牙齒百科',num: 16,url: '/news/news-tooth-wiki/'}
+]
+let news_cur_tab = ref(3)
+let newsData:any = ref([])
+const handle_news_tab = async (idx) => {
+  if(news_cur_tab.value === idx) return
+  news_cur_tab.value = idx
+  let _lists = saveData.value[`newsData_${idx}`]
+  if(_lists && _lists.length){
+    newsData.value = _lists
+  }else{
+    let _id = news_tab[idx].num
+    let _url = news_tab[idx].url
+    let a:any = await getNewsData(_id, _url)
+    newsData.value = a
+    saveData.value[`newsData_${idx}`] = a
+  }
+}
+const getNewsData = async (actType = 14,_url = '/news/article/', actPageNum = 10,retuse = []) =>{
+  try{
+    const _res:any = await useFetch(`https://admin.ckjhk.com/api.php/list/${actType}/page/1/num/${actPageNum}`,{
+      method: 'post'});
+    let res = JSON.parse(_res.data.value) || null
+    if(res){
+      retuse = res.data.map(item=>{
+        return {
+          id: item.id || '',
+          name: item.title || '',
+          tags: item.tags || '',
+          link: `${_url}${item.id}`,
+          time: toDateType(actType === 16 ? item.update_time : item.ext_news_time) || ''
+        }
+      })
+    }
+  }catch(err){
+    console.log(err)
+  }
+  return retuse
+}
+
+
+
+onMounted(()=>{
+  handletab2('101')
+  setTimeout(()=>{
+    handlemedia_coverage(0)
+    changeNewsCur_1(0)
+    changeNewsCur_2(0)
+    changeNewsCur_3(0)
+    handle_news_tab(0)
+  },0)
+})
 </script>
 
 <template>
   <div>
-    <PageBanner :bannerConfig="bannerConfig" />
+    <PageBanner :bannerConfig="bannerConfig" :smallLine="true" />
     <div class="indexPage">
       <div class="PromotionProject pageCon">
         <div class="PromotionProject-title">
@@ -833,6 +888,54 @@ const bannerConfig = [
           </Swiper>
         </div>
       </div>
+      <div class="youtobeBox pageCon">
+        <div class="youtobeBox-l">
+          <div class="youtobeBox-l-title">
+            <div class="index_title">最新優惠</div>
+          </div>
+          <div class="youtobeBox-l-in">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Hxm0arbKJbc?si=7xJZxGlpRw9GxkIZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="youtobeBox-r">
+          <div class="youtobeBox-r-title">
+            <div class="index_title">醫生分享</div>
+          </div>
+          <div class="youtobeBox-r-in">
+            <div class="youtobeBox-r-in-tab">
+              <div :class="{cur: changeNewsCur_2_tab === 0}" @click="changeNewsCur_2(0)">
+                最熱門
+              </div>
+              <div :class="{cur: changeNewsCur_2_tab === 1}" @click="changeNewsCur_2(1)">最新</div>
+            </div>
+            <div class="youtobeBox-r-in-lists">
+              <div class="list-in" v-for="(item,index) in newsListsConfig_2.lists.slice(0,2)" :key="index">
+                <div class="list-in-t">
+                  <div class="list-in-t-l">
+                    <div class="iframeBox">
+                      <iframe width="560" height="315" :src="item.videos" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                  </div>
+                  <div class="list-in-t-r">
+                    <h2><span>醫生專享</span>{{item.name}}</h2>
+                  </div>
+                </div>
+                <div class="list-in-b">
+                  <div class="list-in-b-l">
+                    <span v-for="(tagItem,tagIndex) in item.hashtag" :key="tagIndex">{{tagItem}}</span>
+                  </div>
+                  <div class="list-in-b-r">
+                    {{item.time}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <nuxtLink to="https://www.youtube.com/playlist?list=PLP24ZB2HTnRhFsJLhRt6njGKgJoIR2yTM" class="youtobeBox-r-in-btn">
+              <div>查看更多</div>
+            </nuxtLink>
+          </div>
+        </div>
+      </div>
       <div class="index-org">
         <div class="index-org-t">
           <div class="index_title">相關機構</div>
@@ -871,6 +974,20 @@ const bannerConfig = [
           </div>
         </div>
       </div>
+      <div class="news">
+        <div class="news-tab">
+          <div class="news-tab-in" :class="{cur: news_cur_tab === index}" v-for="(item,index) in news_tab" :key="index" @click="handle_news_tab(index)">
+            {{item.name}}
+          </div>
+        </div>
+        <div class="news-content">
+          <nuxtLink :to="item.link" class="list-in" v-for="(item,index) in newsData" :key="index">
+            <h3 v-if="item.tags !== ''">{{item.tags}}</h3>
+            <h2 :class="{notags: item.tags === ''}">{{item.name}}</h2>
+            <span>{{item.time}}</span>
+          </nuxtLink>
+        </div>
+      </div>
       <div class="mbBox">
         <div class="newsListsBox">
           <NewsLists :listsConfig="newsListsConfig_1" @changeNewsCur="changeNewsCur_1" />
@@ -888,59 +1005,63 @@ const bannerConfig = [
           <AboutUs />
         </div>
       </div>
-      <div class="brand">
-        <div class="brand-title">
-          <div class="brand-title-in">
-            <span>始於1995</span>
-            <span>愛康健口腔品牌連鎖</span>
-          </div>
+      <div class="setionBox pageCon">
+        <div class="setionBox-l">
+          <brandConcept-test />
         </div>
-        <div class="brand-context">- 專科 · 專業 · 專注 · 專心 - </div>
-        <div class="brand-in">
-          <div>
-            <div>
-              <img src="https://static.cmereye.com/imgs/2023/05/d7e785a21ef31545.png" alt="">
+        <div class="setionBox-r">
+          <div class="brand">
+            <div class="brand-title">
+              <div class="index_title">
+                <span>愛康健口腔品牌連鎖</span>
+              </div>
             </div>
-            <div>
-              深圳老字號
+            <div class="brand-context">始於1995</div>
+            <div class="brand-context">- 專科 · 專業 · 專注 · 專心 - </div>
+            <div class="brand-in">
+              <div>
+                <div>
+                  <img src="https://static.cmereye.com/imgs/2023/05/d7e785a21ef31545.png" alt="">
+                </div>
+                <div>
+                  深圳老字號
+                </div>
+              </div>
+              <div>
+                <div>
+                  <img src="https://static.cmereye.com/imgs/2023/05/6b9b5cbf87f8da95.png" alt="">
+                </div>
+                <div>
+                  廣東省著名商標品牌
+                </div>
+              </div>
+              <div>
+                <div>
+                  <img src="https://static.cmereye.com/imgs/2023/05/42202884c1b63259.png" alt="">
+                </div>
+                <div>中山大學光華口腔醫學院研究生課程深圳教學基地</div>
+              </div>
+              <div>
+                <div>
+                  <img src="https://static.cmereye.com/imgs/2023/05/cb849eb2ad0023d4.png" alt="">
+                </div>
+                <div>
+                  最具口碑影響力企業
+                </div>
+              </div>
+              <nuxt-link to="https://www.gma-awards.hk01.group/%E5%BE%97%E7%8D%8E%E5%90%8D%E5%96%AE">
+                <div>
+                  <img src="https://static.cmereye.com/imgs/2024/05/a4cced5ce2d5c606.png" alt="">
+                </div>
+                <div>
+                  香港01<br>傑出大灣區牙科醫療<br>服務機構
+                </div>
+              </nuxt-link>
             </div>
           </div>
-          <div>
-            <div>
-              <img src="https://static.cmereye.com/imgs/2023/05/6b9b5cbf87f8da95.png" alt="">
-            </div>
-            <div>
-              廣東省著名商標品牌
-            </div>
-          </div>
-          <div>
-            <div>
-              <img src="https://static.cmereye.com/imgs/2023/05/42202884c1b63259.png" alt="">
-            </div>
-            <div>
-              中山大學光華口腔醫學院研究生課程深圳教學基地
-            </div>
-          </div>
-          <div>
-            <div>
-              <img src="https://static.cmereye.com/imgs/2023/05/cb849eb2ad0023d4.png" alt="">
-            </div>
-            <div>
-              最具口碑影響力企業
-            </div>
-          </div>
-          <nuxt-link to="https://www.gma-awards.hk01.group/%E5%BE%97%E7%8D%8E%E5%90%8D%E5%96%AE">
-            <div>
-              <img src="https://static.cmereye.com/imgs/2024/05/a4cced5ce2d5c606.png" alt="">
-            </div>
-            <div>
-              {{'香港01\n傑出大灣區牙科醫療\n服務機構'}}
-            </div>
-          </nuxt-link>
         </div>
       </div>
       <NewAddress />
-      <!-- <ContactForm-new /> -->
     </div>
   </div>
 </template>
@@ -1567,33 +1688,11 @@ svg:hover path{
   }
 }
 .brand{
-  margin-top: 80px;
   &-title{
-    font-style: normal;
-    font-weight: 700;
-    font-size: 50px;
-    line-height: 160%;
-    color: #666666;
     display: flex;
     justify-content: center;
-    &-in{
-      display: inline-block;
-      position: relative;
-      span{
-        text-align: center;
-        display: block;
-      }
-      &::after{
-        content: '';
-        width: 100%;
-        height: 4px;
-        background: var(--indexColor);
-        border-radius: 2px;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-      }
-    }
+    margin-bottom: 28px;
+    // font-weight: 900;
   }
   &-context{
     font-style: normal;
@@ -1602,31 +1701,27 @@ svg:hover path{
     line-height: 160%;
     text-align: center;
     color: var(--indexColor);
-    margin-top: 28px;
   }
   &-in{
     width: 100%;
     max-width: 1380px;
     margin: 61px auto 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap;
     &>div,&>a{
-      flex: 1;
-      padding: 0 15px;
+      max-width: 42%;
+      padding: 0 20px;
       &>div{
         font-style: normal;
         font-weight: 700;
-        font-size: 20px;
+        font-size: 26px;
         line-height: 160%;
         text-align: center;
         color: #4C4C4C;
-        white-space: pre-wrap;
-        &:last-child{
-          padding: 0 5px;
-        }
         img{
           margin: 0 auto;
-          max-width: 120px;
+          max-width: 135px;
         }
       }
     }
@@ -1634,6 +1729,369 @@ svg:hover path{
 }
 .mbBox{
   display: none;
+}
+.youtobeBox{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 70px;
+  gap: 50px;
+  &-l{
+    &-title{
+      padding: 0 10px 20px;
+    }
+    &-in{
+      width: 100%;
+      height: 0;
+      padding-bottom: calc(315 / 560 * 100%);
+      position: relative;
+      iframe{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+      }
+    }
+  }
+  &-r{
+    &-title{
+      padding: 0 10px 20px;
+    }
+    &-in{
+      &-tab{
+        display: flex;
+        padding-bottom: 5px;
+        border-bottom: 1px solid var(--indexColor1);
+        &>div{
+          color: var(--indexColor1);
+          display: inline-block;
+          font-size: 20px;
+          padding: 3px 25px;
+          border-radius: 50px;
+          cursor: pointer;
+          margin-left: 20px;
+          position: relative;
+          &::after{
+            content: '';
+            width: 24px;
+            height: 32px;
+            position: absolute;
+            left: 50%;
+            top: calc(100% + 5px);
+            transform: translateX(-50%);
+            box-sizing: border-box;
+            border-left: 12px solid rgba(255,255,255,0);
+            border-top: 16px solid var(--indexColor1);
+            border-right: 12px solid rgba(255,255,255,0);
+            border-bottom: 16px solid rgba(255,255,255,0);
+            display: none;
+          }
+          &.cur{
+            background: var(--indexColor1);
+            color: #fff;
+            &::after{
+              display: block;
+            }
+          }
+        }
+      }
+      &-lists{
+        margin-top: 35px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        .list-in{
+          &-t{
+            grid-template-columns: 1fr;
+            &-l{
+              position: relative;
+              width: 100%;
+              height: 0;
+              padding-bottom: calc(315 / 560 * 100%);
+              .iframeBox{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                iframe{
+                  width: 100%;
+                  height: 100%;
+                }
+              }
+            }
+            &-r{
+              padding: 10px 0 5px;
+              h2{
+                color: var(--textColor);
+                font-size: 15px;
+                font-weight: 700;
+                line-height: 140%;
+                display: -webkit-box;  
+                -webkit-line-clamp: 2; 
+                line-clamp: 2; 
+                -webkit-box-orient: vertical;  
+                overflow: hidden;  
+                text-overflow: ellipsis; 
+                span{
+                  color: var(--indexColor1);
+                }
+              }
+            }
+          }
+          &-b{
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            padding: 5px 0;
+            border-top: 1px solid #aaa;
+            border-bottom: 1px solid #aaa;
+            &-l{
+              font-size: 13px;
+              font-weight: 400;
+              letter-spacing: 1.8px;
+              position: relative;
+              text-decoration: underline;
+              overflow: hidden;
+              white-space: nowrap;
+              span{
+                margin-right: 10px;
+              }
+              &::after{
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 80px;
+                height: 100%;
+                background: linear-gradient(90deg,rgba(255, 255, 255, 0),#fff);
+              }
+            }
+            &-r{
+              background: #fff;
+              font-size: 13px;
+              font-weight: 400;
+              color: #aaa;
+              display: flex;
+              justify-content: flex-end;
+            }
+          }
+        }
+      }
+      &-btn{
+        border: 1px solid var(--textColor);
+        font-size: 20px;
+        font-weight: 700;
+        text-align: center;
+        padding: 7px 0;
+        cursor: pointer;
+        display: block;
+        border-radius: 2px;
+        color: var(--textColor);
+        margin-top: 20px;
+      }
+    }
+  }
+}
+.news{
+  &-tab{
+    display: flex;
+    justify-content: center;
+    max-width: 1365px;
+    margin: 121px auto 0;
+    gap: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--indexColor1);
+    &-in{
+      color: var(--indexColor1);
+      display: inline-block;
+      font-size: 40px;
+      padding: 0 35px;
+      border-radius: 50px;
+      cursor: pointer;
+      position: relative;
+      &.cur{
+        background: var(--indexColor1);
+        color: #fff;
+      }
+    }
+  }
+  &-content{
+    display: grid;
+    max-width: 1365px;
+    margin: 32px auto 0;
+    grid-template-columns: 50% 50%;
+    .list-in{
+      color: var(--Grey-Deep, #4D4D4D);
+      font-size: 20px;
+      font-style: normal;
+      line-height: 160%;
+      display: flex;
+      max-width: 100%;
+      padding-bottom: 16px;
+      h3{
+        font-weight: 900;
+        white-space: nowrap;
+        width: 20%;
+        display: -webkit-box;  
+        -webkit-line-clamp: 1; 
+        line-clamp: 1; 
+        -webkit-box-orient: vertical;  
+        overflow: hidden;  
+        text-overflow: ellipsis; 
+      }
+      h2{
+        font-weight: 700;
+        white-space: nowrap;
+        width: 55%; 
+        -webkit-line-clamp: 1; 
+        line-clamp: 1; 
+        -webkit-box-orient: vertical;  
+        overflow: hidden;  
+        text-overflow: ellipsis; 
+        &.notags{
+          width: 75%;
+        }
+      }
+      span{
+        font-weight: 500;
+        white-space: nowrap;
+        width: 25%;
+        text-align: right;
+      }
+      &:nth-of-type(even){
+        padding-left: 20px;
+      }
+      &:nth-of-type(odd){
+        padding-right: 20px;
+        border-right: 1px solid #aaa;
+      }
+      &:nth-of-type(9){
+        padding-bottom: 0;
+      }
+      &:nth-of-type(10){
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+.setionBox{
+  margin-top: 120px;
+  display: flex;
+  gap: 63px;
+  &-l{
+    flex: 1;
+    max-width: 551px;
+    .Medical-vouchers{
+      &-title{
+        display: flex;
+        margin-bottom: 10px;
+        padding: 0 10px;
+        .index_title{
+          &::after{
+            background: #D3E9D8;
+          }
+        }
+      }
+      &-in{
+        border-top: 1px solid #E15697;
+      .list-in{
+        padding-top: 15px;
+        display: block;
+        &-t{
+          display: grid;
+          grid-template-columns: 1fr 1.7fr;
+          gap: 19px;
+          align-items: center;
+          padding-bottom: 15px;
+          &-l{
+            width: 100%;
+            img{
+              width: 100%;
+            }
+          }
+          &-r{
+            flex: 1;
+            h2{
+              display: -webkit-box;  
+              -webkit-line-clamp: 2; 
+              line-clamp: 2; 
+              -webkit-box-orient: vertical;  
+              overflow: hidden;  
+              text-overflow: ellipsis;
+              color: var(--indexColor1);
+              font-size: 20px;
+              font-weight: 700;
+              line-height: 140%;
+            }
+            p{
+              display: -webkit-box;  
+              -webkit-line-clamp: 3; 
+              line-clamp: 3; 
+              -webkit-box-orient: vertical;  
+              overflow: hidden;  
+              text-overflow: ellipsis;
+              font-size: 12px;
+              font-weight: 700;
+              line-height: 133%;
+              color: var(--textColor);
+            }
+          }
+        }
+        &-b{
+          display: grid;
+          grid-template-columns: 2fr 1fr;
+          padding: 5px 0;
+          border-top: 1px solid #aaa;
+          border-bottom: 1px solid #aaa;
+          &-l{
+            font-size: 18px;
+            letter-spacing: 1.8px;
+            position: relative;
+            text-decoration: underline;
+            overflow: hidden;
+            white-space: nowrap;
+            span{
+              margin-right: 10px;
+              color: var(--textColor);
+            }
+            &::after{
+              content: '';
+              position: absolute;
+              top: 0;
+              right: 0;
+              width: 80px;
+              height: 100%;
+              background: linear-gradient(90deg,rgba(255, 255, 255, 0),#fff);
+            }
+          }
+          &-r{
+            background: #fff;
+            font-size: 20px;
+            color: #aaa;
+            display: flex;
+            justify-content: flex-end;
+          }
+        }
+      }
+      .btn{
+      color: var(--Grey-Deep, #4D4D4D);
+      text-align: justify;
+      font-family: "Noto Serif CJK TC";
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 160%;
+      border-radius: 2px;
+      border: 1px solid var(--Grey-Deep, #4D4D4D);
+      display: block;
+      margin-top: 10px;
+      padding: 5px 0;
+      text-align: center;
+    }
+      }
+    }
+  }
+  &-r{
+    flex: 1;
+  }
 }
 @media (min-width: 768px) and (max-width: 1920px){
   .index-org{
@@ -1803,41 +2261,32 @@ svg:hover path{
       padding-bottom: 2.0833vw;
     }
   }
-  .brand{
-    margin-top: 4.1667vw;
-    &-title{
-      font-size: 2.6042vw;
-      &-in{
-        &::after{
-          height: .2083vw;
-          border-radius: .1042vw;
-        }
-      }
-    }
-    &-context{
-      font-size: 30px;
-      margin-top: 1.4583vw;
-    }
-    &-in{
-      max-width: 71.875vw;
-      margin: 3.1771vw auto 0;
-      &>div,&>a{
-        padding: 0 .7813vw;
-        &>div{
-          font-size: 1.0417vw;
-          &:last-child{
-            padding: 0 .2604vw;
-          }
-          img{
-            max-width: 6.25vw;
-          }
-        }
-      }
-    }
-  }
 }
 
 @media screen and (max-width: 768px) {
+  .setionBox{
+    gap: 0;
+    margin-top: 0;
+    &-l{
+      display: none;
+    }
+  }
+  .news{
+    display: none;
+  }
+  .youtobeBox{
+    margin-top: 0;
+    grid-template-columns: 1fr;
+    gap: 0;
+    &-l{
+      &-title{
+        padding: 0 20px 10px;
+      }
+    }
+    &-r{
+      display: none;
+    }
+  }
   .PromotionProject{
       width: 100%;
       flex-direction: column;

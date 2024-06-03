@@ -15,6 +15,10 @@ defineProps({
     default(){
       return []
     }
+  },
+  smallLine: {
+    type: Boolean,
+    default: false
   }
 })
 let bannerCur = ref(1)
@@ -49,7 +53,7 @@ const onSlideChange = (swiper:any) => {
       </Swiper>
     </div>
     <div class="pageBanner-line" v-if="bannerConfig.length > 1">
-      <PageSwiperPointLine :latestNewsNum="bannerConfig.length" :latestNewsCurrent="bannerCur" @changeLineCur="handleLineCur" />
+      <PageSwiperPointLine :smallLine="smallLine" :latestNewsNum="bannerConfig.length" :latestNewsCurrent="bannerCur" @changeLineCur="handleLineCur" />
     </div>
     <div class="pageBanner-btn">
       <nuxt-link :to="whatsapplink" title="掛號">掛號</nuxt-link>

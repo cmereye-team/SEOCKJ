@@ -36,7 +36,8 @@ const onSlideChange = (swiper:any) => {
   >
     <swiper-slide class="swiper-slide">
       <div class="index-brandConcept-in bigPageCon">
-        <img class="bgImg" alt="深圳愛康健口腔醫院_愛康健齒科連鎖品牌_29年專注你的口腔健康" title="深圳愛康健口腔醫院_愛康健齒科連鎖品牌" :data-cfsrc="'https://static.cmereye.com/imgs/2024/01/f4ba25aef63c2a5b.jpg'" :srcset="`https://static.cmereye.com/imgs/2024/01/64f1f4312e2a0f2c.jpg 768w, https://static.cmereye.com/imgs/2024/01/f4ba25aef63c2a5b.jpg`" :src="'https://static.cmereye.com/imgs/2024/01/f4ba25aef63c2a5b.jpg'" >
+        <!-- <img class="bgImg" alt="深圳愛康健口腔醫院_愛康健齒科連鎖品牌_29年專注你的口腔健康" title="深圳愛康健口腔醫院_愛康健齒科連鎖品牌" :srcset="`https://static.cmereye.com/imgs/2024/01/64f1f4312e2a0f2c.jpg 768w, https://static.cmereye.com/imgs/2024/01/f4ba25aef63c2a5b.jpg`" :src="'https://static.cmereye.com/imgs/2024/01/f4ba25aef63c2a5b.jpg'" > -->
+        <img class="bgImg" alt="深圳愛康健口腔醫院_愛康健齒科連鎖品牌_29年專注你的口腔健康" title="深圳愛康健口腔醫院_愛康健齒科連鎖品牌" :src="'https://static.cmereye.com/imgs/2024/01/64f1f4312e2a0f2c.jpg'" >
         <div class="index-brandConcept-in-box smallPageCon">
           <div class="brandConcept-title">
             <span>{{$t('components.brandConcept.title.span_1')}}</span>
@@ -50,7 +51,7 @@ const onSlideChange = (swiper:any) => {
     </swiper-slide>
     <swiper-slide class="swiper-slide">
       <div class="index-brandConcept-in bigPageCon">
-      <img class="bgImg" alt="深圳愛康健口腔醫院_接待香港工聯會代表團" title="深圳愛康健口腔醫院_接待香港工聯會代表團" :data-cfsrc="'https://static.cmereye.com/imgs/2024/01/83f687493170cb87.jpg'" :srcset="`https://static.cmereye.com/imgs/2024/01/e4c3cb0ba5a58c54.jpg 768w, https://static.cmereye.com/imgs/2024/01/83f687493170cb87.jpg`" :src="'https://static.cmereye.com/imgs/2024/01/83f687493170cb87.jpg'" >
+      <img class="bgImg" alt="深圳愛康健口腔醫院_接待香港工聯會代表團" title="深圳愛康健口腔醫院_接待香港工聯會代表團" :src="'https://static.cmereye.com/imgs/2024/01/e4c3cb0ba5a58c54.jpg'" >
       <div class="index-brandConcept-in-box smallPageCon">
         <div class="brandConcept-title act">
           <span>接待香港工聯會代表團</span>
@@ -114,6 +115,7 @@ const onSlideChange = (swiper:any) => {
       height: 100%;
       position: relative;
       z-index: 1;
+      width: 100%;
     }
     .brandConcept-title {
       font-style: normal;
@@ -144,30 +146,30 @@ const onSlideChange = (swiper:any) => {
   width: 124px;
   margin: 38px auto 0;
 }
-@media (min-width: 768px) and (max-width: 1910px) {
-  .index-brandConcept {
-    margin-top: 3.125vw;
-    .brandConceptTitle{
-      top: calc(100 / 1920 * 100vw);
-      transform: scale(.9);
-    }
-    &-in{
-      .brandConcept-title {
-        font-size: 1.4vw;
-        margin-top: calc(80 / 1920 * 100vw);
-      }
-      .content{
-        font-size: 1.05vw;
-        margin-top: calc(70 / 1920 * 100vw);
-      }
-      .btn{
-        margin-top: calc(30 / 1920 * 100vw);
-      }
-    }
-  }
-}
+// @media (min-width: 768px) and (max-width: 1910px) {
+//   .index-brandConcept {
+//     margin-top: 3.125vw;
+//     .brandConceptTitle{
+//       top: calc(100 / 1920 * 100vw);
+//       transform: scale(.9);
+//     }
+//     &-in{
+//       .brandConcept-title {
+//         font-size: 1.4vw;
+//         margin-top: calc(80 / 1920 * 100vw);
+//       }
+//       .content{
+//         font-size: 1.05vw;
+//         margin-top: calc(70 / 1920 * 100vw);
+//       }
+//       .btn{
+//         margin-top: calc(30 / 1920 * 100vw);
+//       }
+//     }
+//   }
+// }
 
-@media screen and (max-width: 768px) {
+// @media screen and (max-width: 768px) {
   .index-brandConcept {
     min-height: auto;
     display: flex;
@@ -189,19 +191,19 @@ const onSlideChange = (swiper:any) => {
         &.act{
           order: 2;
           display: block;
-          font-size: 20px;
+          font-size: 26px;
           margin-top: 0;
           width: 100%;
-          padding: 0 30px;
+          padding: 0;
           margin-bottom: 10px;
         }
       }
       .content{
         width: 100%;
-        padding: 0 30px;
+        padding: 0;
         margin-top: 0px;
         box-sizing: border-box;
-        font-size: 1rem;
+        font-size: 20px;
         order: 3;
         &.act{
           text-align: justify;
@@ -220,6 +222,22 @@ const onSlideChange = (swiper:any) => {
   .brandConcept-line{
     width: 83px;
     margin: 10px auto 0;
+  }
+// }
+@media screen and (max-width: 768px) {
+  .index-brandConcept {
+    &-in{
+      .brandConcept-title{
+        &.act{
+          font-size: 20px;
+          padding: 0 30px;
+        }
+      }
+      .content{
+        padding: 0 30px;
+        font-size: 16px;
+      }
+    }
   }
 }
 </style>

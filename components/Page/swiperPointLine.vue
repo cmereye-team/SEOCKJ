@@ -15,7 +15,11 @@ defineProps({
   isAutoWidth: {
     type: Boolean,
     default: false
-  }
+  },
+  smallLine: {
+    type: Boolean,
+    default: false
+  },
 })
 const emits = defineEmits(['changeLineCur'])
 const handleSwiperItem = (idx: Number) => {
@@ -38,7 +42,7 @@ onMounted(()=>{
 </script>
 
 <template>
-  <div class="point" :style="{width: (isAutoWidth?`calc(${lineWidth}px * ${latestNewsNum}`: '100%')}">
+  <div :class="['point',{small:smallLine}]" :style="{width: (isAutoWidth?`calc(${lineWidth}px * ${latestNewsNum}`: '100%')}">
     <div class="boxLine" v-show="latestNewsNum !== 1"></div>
     <div class="boxLine-current" v-show="latestNewsNum !== 1" :style="{width:`${ (latestNewsCurrent-1) * 100/(latestNewsNum-1) }%`}"></div>
     <div class="boxRound">
@@ -89,23 +93,40 @@ onMounted(()=>{
       }
     }
   }
-@media (min-width: 1000px) and (max-width: 1452px) {
-  .point{
-    .boxLine{
-      height: 3px;
-    }
-    .boxLine-current{
-      height: 3px;
-    }
-    .boxRound{
-      top: -8px;
-      &-in{
-        width: 20px;
-        height: 20px;
-      } 
+  @media (min-width: 768px) and (max-width: 1920px) {
+    .point{
+      .boxLine{
+        height: .2083vw;
+      }
+      .boxLine-current{
+        height: .2083vw;
+      }
+      .boxRound{
+        top: -0.5208vw;
+        &-in{
+          width: 1.25vw;
+          height: 1.25vw;
+        }
+      }
     }
   }
-}
+// @media (min-width: 1000px) and (max-width: 1452px) {
+//   .point{
+//     .boxLine{
+//       height: 3px;
+//     }
+//     .boxLine-current{
+//       height: 3px;
+//     }
+//     .boxRound{
+//       top: -8px;
+//       &-in{
+//         width: 20px;
+//         height: 20px;
+//       } 
+//     }
+//   }
+// }
 @media screen and (max-width: 1000px) {
   .point{
     .boxLine{
@@ -119,6 +140,15 @@ onMounted(()=>{
       &-in{
         width: 16px;
         height: 16px;
+      }
+    }
+    &.small{
+      .boxRound{
+        top: -3px;
+        &-in{
+          width: 8px;
+          height: 8px;
+        }
       }
     }
   }  
