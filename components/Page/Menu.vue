@@ -170,7 +170,6 @@ onMounted(() => {
     }else{
       appState.setLangs('t');
     }
-    console.log(appState)
   }, 500)
 })
 
@@ -200,9 +199,7 @@ const glangs = (_type) =>{
   let _b = _a.find(item=>item.value === _type)
   let _str = route.path.slice(0,3)
   let _arr = ['404','test','/news-tooth-wiki','/news-information','/article']
-  if(_arr.some(str => route.path?.indexOf(str) !== -1)) {
-    changlangsfun(_type)
-  }else{
+  if(!_arr.some(str => route.path?.indexOf(str) !== -1)) {
     if(_str === '/cn' || _str === '/hk'){
       let _url = route.path
       let _url_new = _url.replace(_url.slice(0,3),_b ? '/'+_b.lable : '')
@@ -211,6 +208,7 @@ const glangs = (_type) =>{
       router.push(`${_b ? '/'+_b.lable : ''}${route.path}`)
     }
   }
+  changlangsfun(_type)
 }
 const changlangsfun = (_type) =>{
   zh_tran(_type)
@@ -566,12 +564,15 @@ watch(route,()=>{
         &.langItem{
           // padding: 0 20px 25px;
           .langItem-in{
-            padding: 0 0 0 20px;
+            padding: 0 10px;
           }
           .menuChild{
             .menuChild-item{
               &>span{
                 color: var(--textColor);
+                &::before{
+                  display: none;
+                }
               }
               &.langItem-act{
                 &>span{
@@ -859,7 +860,7 @@ watch(route,()=>{
           &.langItem{
             // padding: 0 1.0417vw 1.3021vw;
             .langItem-in{
-              padding: 0 0 0 1.0417vw;
+              padding: 0 .5208vw;
             }
           }
           .triangleIcon:after {
