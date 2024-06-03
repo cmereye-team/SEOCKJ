@@ -88,7 +88,7 @@ const menuBar = ref(null)
       &>img{
         display: inline-block;
         vertical-align: middle;
-        margin-top: -5px;
+        // margin-top: -5px;
         margin-right: 5px;
       }
       p{
@@ -111,7 +111,7 @@ const menuBar = ref(null)
         margin-left: 30px;
         &>img{
           max-height: 24px;
-          margin-top: -3px;
+          // margin-top: -3px;
         }
       }
       .menuBar-icon{
@@ -175,7 +175,7 @@ const menuBar = ref(null)
       padding: 0 3.125vw;
       .menuBar-box{
         &>img{
-          margin-top: -0.2604vw;
+          // margin-top: -0.2604vw;
           margin-right: .2604vw;
         }
         p{
@@ -192,7 +192,7 @@ const menuBar = ref(null)
           margin-left: 1.5625vw;
           &>img{
             max-height: 1.25vw;
-            margin-top: -0.1563vw;
+            // margin-top: -0.1563vw;
           }
         }
         .menuBar-icon{

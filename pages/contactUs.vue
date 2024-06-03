@@ -134,7 +134,6 @@ onMounted(() => {
       <div class="serviceCard">
         <serviceCard :isIndexShow="true" />
       </div>
-      <ContactForm-new />
       <div class="environment">
         <div class="environment-title">
           <div class="index_title">{{$t('contactUs.clinic_environment')}}</div>
@@ -176,7 +175,7 @@ onMounted(() => {
 <style lang="scss" scoped>
   .contactUs{
     background: #fff;
-    padding-bottom: 143px;
+    padding-bottom: 50px;
     position: relative;
     z-index: 1;
   }
@@ -232,7 +231,7 @@ onMounted(() => {
   }
   @media screen and (max-width: 768px) {
     .contactUs{
-      padding-bottom: 90px;
+      padding-bottom: 0px;
     }
     .index-contactUs{
       :deep(.index-contactUs-t){
@@ -244,7 +243,7 @@ onMounted(() => {
       margin-top: 30px;
     }
     .environment{
-      margin-top: 0px;
+      margin-top: 60px;
       &-in{
         margin-top: 28px;
         .environmentSwiperBox{

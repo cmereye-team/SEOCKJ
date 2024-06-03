@@ -59,7 +59,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxt/content',
     '@vueuse/nuxt',
-    // '@zadigetvoltaire/nuxt-gtm',
+    '@zadigetvoltaire/nuxt-gtm',
     '@nuxt/content',
     'nuxt-windicss',
     'nuxt-swiper'
@@ -131,21 +131,21 @@ export default defineNuxtConfig({
       theme: 'github-dark',
     },
   },
-  // runtimeConfig: {
-  //   public: {
-  //     gtm: {
-  //       id: 'GTM-T27LCDR',
-  //       defer: false,
-  //       compatibility: false,
-  //       enabled: true,
-  //       debug: true,
-  //       loadScript: true,
-  //       enableRouterSync: true,
-  //       devtools: true,
-  //     },
-  //     siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://ckjhk.com',
-  //   }
-  // },
+  runtimeConfig: {
+    public: {
+      gtm: {
+        id: 'GTM-WW99DB9P',
+        defer: false,
+        compatibility: false,
+        enabled: true,
+        debug: true,
+        loadScript: true,
+        enableRouterSync: true,
+        devtools: true,
+      },
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://ckjofficial.com/',
+    }
+  },
   nitro: {
     prerender: {
       crawlLinks: true,

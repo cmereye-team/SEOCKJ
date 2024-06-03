@@ -631,7 +631,8 @@ const bannerConfig = [
           推廣項目
         </div>
         <div class="PromotionProject-content">
-          <Swiper :initialSlide="0" :centeredSlides="width < 768" :slidesPerView="width > 768 ? 4.3 : 2" :spaceBetween="14" class="PromotionProject-swiper">
+          <Swiper class="PromotionProject-swiper" :loop="true"
+            :modules="[Autoplay]" :autoplay="{ delay: 0 }" :speed="4000" :initialSlide="0" :centeredSlides="width < 768" :slidesPerView="width > 768 ? 4.3 : 2" :spaceBetween="14">
             <Swiper-slide class="PromotionProject-swiper-slide" v-for="(item,index) in PromotionProject" :key="index">
               <nuxt-link :to="item.link">
                 <img :src="item.img" alt="">
@@ -939,12 +940,15 @@ const bannerConfig = [
         </div>
       </div>
       <NewAddress />
-      <ContactForm-new />
+      <!-- <ContactForm-new /> -->
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+:deep(.PromotionProject-swiper > .swiper-wrapper) {
+  transition-timing-function: linear;
+}
 .PromotionProject{
   display: flex;
   align-items: center;

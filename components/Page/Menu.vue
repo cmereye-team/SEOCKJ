@@ -163,33 +163,16 @@ const imgBgHeight = ref({
   offsetHeight: 0,
 })
 
-const isFiexdHeader = ref(false)
 onMounted(() => {
-  getScrollHeight()
-  window.addEventListener('scroll', getScrollHeight)
   setTimeout(() => {
     if(route.path.includes('/cn')){
       changlangsfun('s')
     }else{
       appState.setLangs('t');
     }
+    console.log(appState)
   }, 500)
 })
-// const isShowLanguageBool = ref(false)
-const getScrollHeight = () => {
-  if(imgBgHeight.value && imgBgHeight.value.offsetHeight){
-    if (imgBgHeight.value.offsetHeight < window.scrollY) {
-      isFiexdHeader.value = true
-    } else {
-      isFiexdHeader.value = false
-    }
-    // if (window.scrollY === 0) {
-    //   isShowLanguageBool.value = true
-    // } else {
-    //   isShowLanguageBool.value = false
-    // }
-  }
-}
 
 const handleMbMenu = () => {
   if (!window.navigator.onLine) {
@@ -234,6 +217,7 @@ const changlangsfun = (_type) =>{
   if(getCookie('zh_choose')) {
 		var zh_choose:any = getCookie('zh_choose');
     appState.setLangs(zh_choose);
+    console.log(appState)
 	}
 }
 
@@ -298,7 +282,7 @@ watch(route,()=>{
           headerConfig.pageName,
         ]"
       >
-        <div ref="headerMenu" class="smallPageCon header-content-in">
+        <div ref="headerMenu" class="pageCon header-content-in">
           <div class="logo">
             <nuxt-link :to="'/'" title="深圳愛康健口腔醫院" alt="深圳愛康健口腔醫院"
               ><img src="@/assets/images/logo_11.svg" alt=""
@@ -335,13 +319,14 @@ watch(route,()=>{
               </div>
             </div>
             <div class="menuItem langItem">
-              <img src="@/assets/images/icon_26.svg" alt="">
+              <!-- <img src="@/assets/images/icon_26.svg" alt=""> -->
+              <div class="langItem-in">{{appState.langs === 't' ? '繁': '简'}}</div>
               <div class="menuChild">
                 <div :class="['menuChild-item',{'langItem-act': appState.langs === 't'}]">
-                  <span class="zh_click" @click="glangs('t')">繁體</span>
+                  <span class="zh_click" @click="glangs('t')">繁</span>
                 </div>
                 <div :class="['menuChild-item',{'langItem-act': appState.langs === 's'}]">
-                  <span class="zh_click" @click="glangs('s')">简体</span>
+                  <span class="zh_click" @click="glangs('s')">简</span>
                 </div>
               </div>
             </div>
@@ -366,7 +351,7 @@ watch(route,()=>{
               </div>
             </div>
             <div class="icon-menuopen" @click="menuBoxBool = !menuBoxBool">
-              <img v-if="!menuBoxBool" src="@/assets/images/icon_61.png" />
+              <img v-if="!menuBoxBool" src="@/assets/images/icon_51.svg" />
               <img v-else src="@/assets/images/icon_7.svg" />
             </div>
           </div>
@@ -547,12 +532,12 @@ watch(route,()=>{
   position: relative;
   &-in {
     width: 100%;
-    max-width: 1512px;
+    // max-width: 1512px;
     display: flex;
     background: #fff;
     box-sizing: border-box;
     margin: 0 auto;
-    padding: 20px 10px 0 30px;
+    padding: 10px 0 0;
     align-items: center;
     z-index: 40;
     position: relative;
@@ -579,10 +564,12 @@ watch(route,()=>{
           text-align: center;
         }
         &.langItem{
-          padding: 0 20px 25px;
+          // padding: 0 20px 25px;
+          .langItem-in{
+            padding: 0 0 0 20px;
+          }
           .menuChild{
             .menuChild-item{
-              
               &>span{
                 color: var(--textColor);
               }
@@ -856,7 +843,8 @@ watch(route,()=>{
   .header-content {
     &-in {
       max-width: 78.75vw;
-      padding: 1.0417vw .5208vw 0 1.5625vw;
+      // padding: 1.0417vw .5208vw 0 1.5625vw;
+      padding: .5208vw 0 0;
       .logo {
         width: 15.1042vw;
         margin-bottom: 1.0417vw;
@@ -869,7 +857,10 @@ watch(route,()=>{
             padding: 0 1.0417vw;
           }
           &.langItem{
-            padding: 0 1.0417vw 1.3021vw;
+            // padding: 0 1.0417vw 1.3021vw;
+            .langItem-in{
+              padding: 0 0 0 1.0417vw;
+            }
           }
           .triangleIcon:after {
             border: .5208vw solid;

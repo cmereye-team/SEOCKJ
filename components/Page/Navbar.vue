@@ -34,7 +34,11 @@ const navFormClose = () =>{
 }
 
 const toContactUs = () =>{
-  window.location.href = '/contactUs#contactUsFormNav'
+  // window.location.href = '/contactUs#contactUsFormNav'
+  const el = document.getElementById('contactUsFormNav');
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth' });
+  }
 }
 
 
@@ -98,7 +102,7 @@ let _bool = ref(false)
         </div>
         <span class="navbar-content-mb-in-center">(852) {{smallPhoneNum}}</span>
       </nuxt-link>
-      <div class="navbar-content-mb-in navMbContactFormBtn" id="navMbContactFormBtn" @click="handleNavFormNav">
+      <div class="navbar-content-mb-in navMbContactFormBtn" id="navMbContactFormBtn" @click="toContactUs">
         <img class="navMbContactFormBtn" src="@/assets/images/icon_30.svg" alt="">
         <span class="navMbContactFormBtn">預約表格</span>
       </div>
@@ -279,6 +283,7 @@ let _bool = ref(false)
     align-items: center;
     transition: all .3s;
     position: relative;
+    box-shadow: 2px 3px 5px 0px rgba(255, 255, 255, .5);
     .navbarBox{
       position: absolute;
       top: 0;
@@ -644,6 +649,7 @@ let _bool = ref(false)
       justify-content: center;
       align-items: center;
       display: none;
+      box-shadow: none;
       img{
         width: 24px;
       }

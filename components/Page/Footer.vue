@@ -393,6 +393,7 @@ const handlembMenu = (navIndex) => {
   }
   .footer-r{
     flex: 1;
+    max-width: 700px;
     .footer-content-text-tel{
         margin-bottom: 30px;
         display: flex;

@@ -51,6 +51,7 @@ onMounted(()=>{
         <PageMenuBar />
         <PageMenu />
         <NuxtPage />
+        <ContactForm-new />
         <PageFooter />
         <PageNavbar />
       </NuxtLayout>
