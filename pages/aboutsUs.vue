@@ -1140,7 +1140,6 @@ const handleProcessBtn = (_type: string) => {
         line-height: 160%;
         text-align: center;
         color: #4C4C4C;
-        // white-space: pre-wrap;
         img{
           margin: 0 auto;
           max-width: 135px;
@@ -1185,121 +1184,74 @@ const handleProcessBtn = (_type: string) => {
   }
   .setionBox{
     margin-top: 5.0521vw;
-    gap: 160px;
+    gap: 8.3333vw;
     &-l{
-      flex: 1;
+      max-width: 31.25vw;
       .Medical-vouchers{
         &-title{
-          display: flex;
-          margin-bottom: 10px;
-          padding: 0 10px;
-          .index_title{
-            &::after{
-              background: #D3E9D8;
-            }
-          }
+          margin-bottom: .5208vw;
+          padding: 0 .5208vw;
         }
         &-in{
-          border-top: 1px solid #E15697;
-        .list-in{
-          padding-top: 15px;
-          display: block;
-          &-t{
-            display: grid;
-            grid-template-columns: 1fr 1.7fr;
-            gap: 19px;
-            align-items: center;
-            padding-bottom: 15px;
-            &-l{
-              width: 100%;
-              img{
-                width: 100%;
+          .list-in{
+            padding-top: .7813vw;
+            &-t{
+              gap: .9896vw;
+              padding-bottom: .7813vw;
+              &-r{
+                h2{
+                  font-size: 1.0417vw;
+                }
+                p{
+                  font-size: .625vw;
+                }
               }
             }
-            &-r{
-              flex: 1;
-              h2{
-                display: -webkit-box;  
-                -webkit-line-clamp: 2; 
-                line-clamp: 2; 
-                -webkit-box-orient: vertical;  
-                overflow: hidden;  
-                text-overflow: ellipsis;
-                color: var(--indexColor1);
-                font-size: 20px;
-                font-weight: 700;
-                line-height: 140%;
+            &-b{
+              padding: .2604vw 0;
+              &-l{
+                font-size: .9375vw;
+                letter-spacing: .0938vw;
+                span{
+                  margin-right: .5208vw;
+                }
+                &::after{
+                  width: 4.1667vw;
+                }
               }
-              p{
-                display: -webkit-box;  
-                -webkit-line-clamp: 3; 
-                line-clamp: 3; 
-                -webkit-box-orient: vertical;  
-                overflow: hidden;  
-                text-overflow: ellipsis;
-                font-size: 12px;
-                font-weight: 700;
-                line-height: 133%;
-                color: var(--textColor);
+              &-r{
+                font-size: 1.0417vw;
               }
             }
           }
-          &-b{
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            padding: 5px 0;
-            border-top: 1px solid #aaa;
-            border-bottom: 1px solid #aaa;
-            &-l{
-              font-size: 18px;
-              letter-spacing: 1.8px;
-              position: relative;
-              text-decoration: underline;
-              overflow: hidden;
-              white-space: nowrap;
-              span{
-                margin-right: 10px;
-                color: var(--textColor);
-              }
-              &::after{
-                content: '';
-                position: absolute;
-                top: 0;
-                right: 0;
-                width: 80px;
-                height: 100%;
-                background: linear-gradient(90deg,rgba(255, 255, 255, 0),#fff);
-              }
-            }
-            &-r{
-              background: #fff;
-              font-size: 20px;
-              color: #aaa;
-              display: flex;
-              justify-content: flex-end;
-            }
+          .btn{
+            font-size: 1.0417vw;
+            margin-top: .5208vw;
+            padding: .2604vw 0;
           }
-        }
-        .btn{
-        color: var(--Grey-Deep, #4D4D4D);
-        text-align: justify;
-        font-family: "Noto Serif CJK TC";
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 160%;
-        border-radius: 2px;
-        border: 1px solid var(--Grey-Deep, #4D4D4D);
-        display: block;
-        margin-top: 10px;
-        padding: 5px 0;
-        text-align: center;
-      }
         }
       }
     }
-    &-r{
-      flex: 1;
+  }
+  .brand{
+    &-title{
+      margin-bottom: 1.4583vw;
+    }
+    &-context{
+      font-size: 1.5625vw;
+    }
+    &-in{
+      max-width: 71.875vw;
+      margin: 3.1771vw auto 0;
+      &>div,&>a{
+        padding: 0 .5208vw;
+        &>div{
+          font-size: 1.3542vw;
+          img{
+            max-width: 7.0313vw;
+          }
+        }
+      }
     }
   }
 }
