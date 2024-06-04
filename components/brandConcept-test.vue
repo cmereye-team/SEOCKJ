@@ -224,6 +224,20 @@ const onSlideChange = (swiper:any) => {
     margin: 10px auto 0;
   }
 // }
+@media (min-width: 768px) and (max-width: 1920px) {
+  .index-brandConcept {
+    &-in{
+      .brandConcept-title{
+        &.act{
+          font-size: 1.3542vw;
+        }
+      }
+      .content{
+        font-size: 1.0417vw;
+      }
+    }
+  }
+}
 @media screen and (max-width: 768px) {
   .index-brandConcept {
     &-in{

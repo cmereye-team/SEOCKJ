@@ -2261,6 +2261,217 @@ svg:hover path{
       padding-bottom: 2.0833vw;
     }
   }
+  .sectionBox{
+    max-width: 73.2292vw;
+    margin: 2.6042vw auto 0;
+    gap: 2.7083vw;
+    &-l{
+      .image-b{
+        gap: .8333vw;
+        margin-top: .7292vw;
+      }
+    }
+    &-c{
+      .media_coverage-tab{
+        margin-top: 1.0417vw;
+        padding-bottom: .2604vw;
+        &>div{
+          font-size: 1.0417vw;
+          padding: .1563vw 1.3021vw;
+          border-radius: 2.6042vw;
+          margin-left: 1.0417vw;
+          &::after{
+            width: 1.25vw;
+            height: 1.6667vw;
+            top: calc(100% + .2604vw);
+            border-left: .625vw solid rgba(255,255,255,0);
+            border-top: .8333vw solid var(--indexColor1);
+            border-right: .625vw solid rgba(255,255,255,0);
+            border-bottom: .8333vw solid rgba(255,255,255,0);
+          }
+        }
+      }
+      .media_coverage-content{
+        margin-top: 1.1458vw;
+        .list-in{
+          margin-bottom: .625vw;
+          &-t{
+            gap: 1.1458vw;
+            padding-bottom: .7813vw;
+            &-r{
+              img{
+                margin-right: .2604vw;
+                max-width: 4.4271vw;
+              }
+              span{
+                font-size: 1.0417vw;
+              }
+            }
+          }
+          &-b{
+            padding: .2604vw 0;
+            &-l{
+              font-size: .9375vw;
+              letter-spacing: .0938vw;
+              span{
+                margin-right: .7813vw;
+              }
+              &::after{
+                width: 4.1667vw;
+              }
+            }
+            &-r{
+              font-size: 1.0417vw;
+            }
+          }
+        }
+      }
+      .media_coverage-btn{
+        font-size: 1.0417vw;
+        padding: .3646vw 0;
+      }
+    }
+    &-r{
+      max-width: 18.2813vw;
+    }
+  }
+  .brand{
+   &-title{
+     margin-bottom: 1.4583vw;
+   }
+   &-context{
+     font-size: 1.5625vw;
+   }
+   &-in{
+     max-width: 71.875vw;
+     margin: 3.1771vw auto 0;
+     &>div,&>a{
+       padding: 0 1.0417vw;
+       &>div{
+         font-size: 1.3542vw;
+         img{
+           max-width: 7.0313vw;
+         }
+       }
+     }
+   }
+  }
+  .Dental_knowledge{
+    margin-top: 3.125vw;
+    &-tab{
+      max-width: 71.0938vw;
+      margin:  1.8229vw auto 0;
+      gap: 1.0417vw;
+      padding-bottom: .5208vw;
+      &-in{
+        font-size: 2.0833vw;
+        padding: 0 1.8229vw;
+        border-radius: 2.6042vw;
+      }
+    }
+    &-content{
+      max-width: 71.0938vw;
+      margin: 1.8229vw auto 0;
+      gap: 2.9688vw;
+      padding: 0 1.8229vw;
+      &-c{
+        .info{
+          margin-bottom: .4167vw;
+        }
+        .title{
+          font-size: 1.25vw;
+        }
+        .context{
+          font-size: 1.0417vw;
+          margin-top: .2604vw;
+        }
+        .lists{
+          &-in{
+            font-size: 1.0417vw;
+            padding: .8333vw 0;
+          }
+        }
+      }
+    }
+  }
+  .news{
+    &-tab{
+      max-width: 71.0938vw;
+      margin: 6.3021vw auto 0;
+      gap: 1.0417vw;
+      padding-bottom: .5208vw;
+      &-in{
+        font-size: 2.0833vw;
+        padding: 0 1.8229vw;
+        border-radius: 2.6042vw;
+      }
+    }
+    &-content{
+      max-width: 71.0938vw;
+      margin: 1.6667vw auto 0;
+      .list-in{
+        font-size: 1.0417vw;
+        padding-bottom: .8333vw;
+        &:nth-of-type(even){
+          padding-left: 1.0417vw;
+        }
+        &:nth-of-type(odd){
+          padding-right: 1.0417vw;
+        }
+      }
+    }
+  }
+  .setionBox{
+    margin-top: 6.25vw;
+    gap: 3.2813vw;
+    &-l{
+      max-width: 28.6979vw;
+      .Medical-vouchers{
+        &-title{
+          margin-bottom: .5208vw;
+          padding: 0 .5208vw;
+        }
+        &-in{
+          .list-in{
+            padding-top: .7813vw;
+            &-t{
+              gap: .9896vw;
+              padding-bottom: .7813vw;
+              &-r{
+                h2{
+                  font-size: 1.0417vw;
+                }
+                p{
+                  font-size: .625vw;
+                }
+              }
+            }
+            &-b{
+              padding: .2604vw 0;
+              &-l{
+                font-size: .9375vw;
+                letter-spacing: .0938vw;
+                span{
+                  margin-right: .5208vw;
+                }
+                &::after{
+                  width: 4.1667vw;
+                }
+              }
+              &-r{
+                font-size: 1.0417vw;
+              }
+            }
+          }
+          .btn{
+            font-size: 1.0417vw;
+            margin-top: .5208vw;
+            padding: .2604vw 0;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 768px) {

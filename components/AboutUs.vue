@@ -181,9 +181,7 @@ let aboutUs_cur_tab = ref(0)
 //關於我們
 .index-aboutUs{
   width: 100%;
-  // max-width: 390px;
   margin-top: 40px;
-  // padding-bottom: 60px;
   &-title{
     padding-left: 10px;
   }
@@ -426,7 +424,6 @@ let aboutUs_cur_tab = ref(0)
         }
       }
       .contentBox{
-        // padding: 10px 30px;
         margin-top: 20px;
         span{
           font-size: 18px;
@@ -439,6 +436,28 @@ let aboutUs_cur_tab = ref(0)
           overflow: hidden;  
           text-overflow: ellipsis;
         }
+      }
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1920px) {
+    .index-aboutUs{
+      &-title{
+      }
+      &-content{
+        .tab{
+          &>div{
+            font-size: 1.0417vw;
+            padding: .1563vw 1.3021vw;
+            border-radius: 2.6042vw;
+            margin-left: 1.0417vw;
+          }
+        }
+        .contentBox{
+          span{
+            font-size: .9375vw;
+          }
+        }
+        
       }
     }
   }
