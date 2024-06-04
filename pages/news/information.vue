@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-
+import { whatsapplink } from '~/assets/js/common'
 useHead({
   title: '最新資訊',
   meta: [
@@ -146,6 +146,31 @@ if(process.server){
   // getNewsLists()
 }
 
+const shareFacebook = (event,id) =>{
+  event.preventDefault();
+  window.open(`https://www.facebook.com/sharer/sharer.php?u=https://www.ckjhk.com/news/news-information/${id}`)  
+}
+function copySpecifiedText(event,text) {  
+  event.preventDefault();
+    if (navigator.clipboard) {  
+        navigator.clipboard.writeText(`https://www.ckjhk.com/news/news-information/${text}`).then(function() {  
+          ElMessage({
+            showClose: true,
+            message: '已複製到剪切板',
+            type: 'success',
+          }) 
+        }, function(err) {
+            ElMessage({
+              showClose: true,
+              message: '操作異常，請刷新頁面試試',
+              type: 'warning',
+            })
+        });  
+    } else {  
+        alert('您的瀏覽器不支持此功能，請更新瀏覽器');  
+    }  
+}
+
 const getPagination = (pageitem) => {
   if(actPageNum.value>=4 && actPageNum.value<totalPageNum.value-3){
     return actPageNum.value-3+pageitem
@@ -160,6 +185,15 @@ const getPagination = (pageitem) => {
   }
 }
 
+let actShowShare = ref('')
+const handleClick = (event,_id) =>{
+  event.preventDefault();
+  if(actShowShare.value === _id){
+    actShowShare.value = ''
+  }else{
+    actShowShare.value = _id
+  }
+}
 </script>
 
 <template>
@@ -179,7 +213,7 @@ const getPagination = (pageitem) => {
         <span :title="'最新資訊'">最新資訊</span>
       </div>
       <div class="smallPageCon">
-        <div class="lists" v-if="!errorpage">
+        <!-- <div class="lists" v-if="!errorpage">
           <div v-loading="loadingShow">
             <nuxt-link :to="`/news/news-information/${item.id}`" :id="`i${item.id}`" class="lists-in" v-for="(item,index) in informationLists" :key="index" @click="handlelink(item.id)">
               <div class="lists-in-img">
@@ -193,9 +227,6 @@ const getPagination = (pageitem) => {
                   <div class="title">
                     {{item.name}}
                   </div>
-                  <!-- <div class="time">
-                    <span>{{item.time}}</span>
-                  </div> -->
                 </div>
                 <div class="desc" v-html="item.desc">
                 </div>
@@ -234,9 +265,75 @@ const getPagination = (pageitem) => {
               </span>
             </div>
           </div>
+        </div> -->
+        <div class="lists" v-if="!errorpage">
+          <div v-loading="loadingShow" class="listsbox">
+            <nuxt-link :to="`/news/news-information/${item.id}`" :id="`i${item.id}`" :alt="item.name" :title="item.name" class="lists-in" v-for="(item,index) in informationLists" :key="index">
+              <div class="lists-in-img">
+                <img :src="item.img" alt="">
+              </div>
+              <div class="lists-in-context">
+                <div class="lists-in-context-top">
+                  <div class="title">
+                    <img :src="item.logo" alt="">
+                    <h3>{{item.name}}</h3>
+                  </div>
+                  <div class="time">
+                    <span>
+                      {{item.time}} by ckjhk
+                    </span>
+                    <div class="shareIcon" @click.stop="handleClick($event,item.id)" alt="">
+                      <div :class="['shareIcon-img',{ act: actShowShare === item.id }]" alt="分享" title="分享"><img src="@/assets/images/icon_47.svg" alt=""></div>
+                      <div class="shareIcon-in" v-if="actShowShare === item.id">
+                        <div class="shareIcon-in-item" @click="shareFacebook($event,item.id)" alt="Facebook 分享" title="Facebook 分享"><img src="@/assets/images/icon_49.svg" alt=""><span>Facebook 分享</span></div>
+                        <div class="shareIcon-in-item" @click="copySpecifiedText($event,item.id)" alt="複製連結" title="複製連結"><img src="@/assets/images/icon_48.svg" alt=""><span>複製連結</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="desc" v-html="item.desc">
+                </div>
+                <div style="flex: 1;"></div>
+                <div class="btn">
+                  <PageAnimBtnTypeTwo :link="`/news/news-information/${item.id}`" str="查看原文" />
+                </div>
+              </div>
+            </nuxt-link>
+          </div>
+          <div class="lists-btn">
+            <div @click="subNum" :class="{btndisabled: actPageNum === 1}">
+              <span class="subNum">
+                <img src="@/assets/images/icon_25.svg" alt="">
+              </span>
+            </div>
+            <div class="lists-btn-page">
+              <section v-if="totalPageNum<=7">
+                <span class="y" :class="{act: actPageNum === pageitem}" v-for="pageitem in totalPageNum" :key="pageitem" @click="toPage(pageitem)">
+                  {{ pageitem }}
+                </span>
+              </section>
+              <section v-else>
+                <span class="y" :class="{act: actPageNum === 1}" @click="toPage(1)">1</span>
+                <span v-if="actPageNum>4">...</span>
+                <span class="y" :class="{act: actPageNum === getPagination(pageitem)}" v-for="pageitem in 5" :key="pageitem" @click="toPage(getPagination(pageitem))">
+                    {{getPagination(pageitem)}}
+                </span>
+                <span v-if="actPageNum<=totalPageNum-4">...</span>
+                <span class="y" :class="{act: actPageNum === totalPageNum}" @click="toPage(totalPageNum)">{{totalPageNum}}</span>
+              </section>
+            </div>
+            <div @click="addNum" :class="{btndisabled: actPageNum === totalPageNum}">
+              <span class="addNum">
+                <img src="@/assets/images/icon_25.svg" alt="">
+              </span>
+            </div>
+          </div>
         </div>
         <div class="lists" v-else>服務異常</div>
       </div>
+      <nuxtLink :to="whatsapplink" class="bigPageCon whatsappLink">
+        <img style="width:100%;" src="https://static.cmereye.com/imgs/2024/06/71d5adf71dddd841.jpg" alt="">
+      </nuxtLink>
       <NewAddress />
     </div>
   </div>
@@ -276,27 +373,20 @@ const getPagination = (pageitem) => {
 .lists{
   margin-top: calc(77 / 1448 * 100%);
   min-height: 300px;
+  .listsbox{
+    display: flex;
+    flex-wrap: wrap;
+  }
   &-in{
     display: flex;
-    margin-bottom: calc(100 / 1448 * 100%);
+    flex-direction: column;
+    width: calc(100% / 3);
+    margin-bottom: 80px;
+    padding: 0 30px;
     &-img{
-      width: calc(500 / 1448* 100%);
-      margin-right: calc(26 / 1448* 100%);
+      width: 100%;
       img{
         width: 100%;
-      }
-      .videos{
-        width: 100%;
-        height: 0;
-        padding-bottom: 100%;
-        position: relative;
-        iframe{
-          position: absolute;
-          left: 0;
-          top: 0;
-          width: 100%;
-          height: 100%;
-        }
       }
     }
     &-context{
@@ -306,41 +396,122 @@ const getPagination = (pageitem) => {
       &-top{
         display: flex;
         justify-content: space-between;
-        margin-bottom: 23px;
+        flex-direction: column;
+        margin-bottom: 10px;
+        margin-top: 15px;
         .title{
-          color: var(--indexColor1);
-          font-size: 30px;
+          color: var(--textColor);
+          font-size: 20px;
           font-style: normal;
-          font-weight: 400;
+          font-weight: 500;
           line-height: 130%;
           display: -webkit-box;  
-          -webkit-line-clamp: 2; 
-          line-clamp: 2; 
+          -webkit-line-clamp: 1; 
+          line-clamp: 1; 
           -webkit-box-orient: vertical;  
           overflow: hidden;  
           text-overflow: ellipsis; 
         }
+        .time{
+          font-size: 15px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 160%;
+          color: #aaa;
+          margin-top: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          &>span{
+            max-width: 340px;
+            white-space: nowrap; 
+            overflow: hidden;
+            position: relative;
+            flex: 1;
+            &::after{
+              content: '';
+              height: 100%;
+              width: 30px;
+              background: linear-gradient(90deg,transparent,#fff);
+              position: absolute;
+              right: 0;
+              top: 0;
+            }
+          }
+          .shareIcon{
+            position: relative;
+            &-img{
+              width: 30px;
+              height: 30px;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              position: relative;
+              border: 2px solid #aaa;
+              z-index: 21;
+              &>img{
+                width: 16px;
+                height: auto;
+              }
+              &.act{
+                border: none;
+              }
+            }
+            &-in{
+              position: absolute;
+              z-index: 20;
+              top: 0;
+              right: 0;
+              width: 159px;
+              height: 115px;
+              background: url(https://static.cmereye.com/static/ckj/imgs/default/shareIcon.svg);
+              background-size: 100% 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-end;
+              filter: drop-shadow(0 2px 3px rgba(0,0,0,.3));
+              padding: 12px 0;
+              &-item{
+                display: flex;
+                align-items: center;
+                padding: 5px 10px;
+                margin: 0 2px;
+                border-radius: 3px;
+                &>img{
+                  width: 20px;
+                  margin-right: 5px;
+                }
+                &>span{
+                  font-size: 14px;
+                }
+                &:hover{
+                  background: #F6F6F6;
+                }
+              }
+            }
+          }
+        }
       }
       .desc{
-        font-size: 18px;
+        font-size: 16px;
         font-style: normal;
         font-weight: 400;
-        line-height: 160%; /* 32px */
+        line-height: 160%;
         letter-spacing: 2px;
-        color: var(--textColor);
+        color: #aaa;
         display: -webkit-box;  
-        -webkit-line-clamp: 10; 
-        line-clamp: 10; 
+        -webkit-line-clamp: 2; 
+        line-clamp: 2; 
         -webkit-box-orient: vertical;  
         overflow: hidden;  
         text-overflow: ellipsis;
       }
       .btn{
-        margin-top: 10px;
         display: flex;
-        // justify-content: center;
+        padding: 20px;
         a{
-          font-size: 30px;
+          font-size: 35px;
           font-style: normal;
           font-weight: 400;
           line-height: 160%; /* 56px */
@@ -420,31 +591,76 @@ const getPagination = (pageitem) => {
     }
   }
 }
-@media (min-width: 768px) and (max-width: 1452px) {
+.whatsappLink{
+  width: 100%;
+  margin-top: 65px;
+  display: block;
+}
+@media (min-width: 768px) and (max-width: 1920px) {
   .lists{
     &-in{
+      margin-bottom: 4.1667vw;
+      padding: 0 1.5625vw;
       &-context{
         &-top{
+          margin-bottom: .5208vw;
+          margin-top: .7813vw;
           .title{
-            font-size: 1.8vw;
+            font-size: 1.0417vw;
           }
-          
+          .time{
+            font-size: .7813vw;
+            margin-top: .5208vw;
+            span{
+              max-width: 17.7083vw;
+              &::after{
+                width: 1.5625vw;
+              }
+            }
+          }
         }
         .desc{
-          font-size: 1vw; 
-          -webkit-line-clamp: 5; 
-          line-clamp: 5;
+          font-size: .8333vw;
+          letter-spacing: .1042vw;
         }
         .btn{
+          padding: 1.0417vw;
           a{
-            font-size: 1.6;
+            font-size: 1.8229vw;
+            letter-spacing: .3646vw;
+            border-radius: 2.0833vw;
           }
+        }
+      }
+    }
+    &-btn{
+      &>div{
+        font-size: 1.3542vw;
+        margin: 0 .5208vw;
+      }
+      .subNum,.addNum{
+        img{
+          width: .625vw;
+        }
+      }
+      &-page{
+        &>section{
+          height: 1.5625vw;
+        }
+        .y{
+          margin: 0 .2604vw;
+          width: 1.5625vw;
+          height: 1.5625vw;
+          font-size: 1.0417vw;
         }
       }
     }
   }
 }
 @media screen and (max-width: 768px) {
+  .whatsappLink{
+    display: none;
+  }
   .informationPage{
     padding: 50px 0 90px;
     &-title{
@@ -459,7 +675,9 @@ const getPagination = (pageitem) => {
   .lists{
     &-in{
       flex-direction: column;
+      width: 100%;
       margin-bottom: 90px;
+      padding: 0;
       &-img{
         order: 1;
         width: 100%;
@@ -467,17 +685,25 @@ const getPagination = (pageitem) => {
       }
       &-context{
         order: 2;
-        padding: 24px 30px 0;
+        padding: 10px 30px 0;
         &-top{
-          margin-bottom: 23px;
+          margin-bottom: 10px;
           flex-direction: column;
           .title{
-            font-size: 26px;
+            font-size: 20px;
+            color: var(--indexColor1);
           }
           .time{
-            span{
+            &>span{
               text-align: left;
               font-size: 16px;
+            }
+            .shareIcon{
+              &-in{
+                &-item{
+                  padding: 3px 10px;
+                }
+              }
             }
           }
         }
@@ -486,7 +712,7 @@ const getPagination = (pageitem) => {
           text-align: justify;
         }
         .btn{
-          margin-top: 23px;
+          margin-top: 10px;
           display: flex;
           justify-content: center;
           a{

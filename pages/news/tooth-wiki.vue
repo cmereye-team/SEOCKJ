@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-
+import { whatsapplink } from '~/assets/js/common'
 useHead({
   title: '牙齒百科',
   meta: [
@@ -276,6 +276,9 @@ const handleClick = (event,_id) =>{
         </div>
         <div class="lists" v-else></div>
       </div>
+      <nuxtLink :to="whatsapplink" class="bigPageCon whatsappLink">
+        <img style="width:100%;" src="https://static.cmereye.com/imgs/2024/06/71d5adf71dddd841.jpg" alt="">
+      </nuxtLink>
       <NewAddress />
     </div>
   </div>
@@ -533,6 +536,11 @@ const handleClick = (event,_id) =>{
     justify-content: center;
   }
 }
+.whatsappLink{
+  width: 100%;
+  margin-top: 65px;
+  display: block;
+}
 @media (min-width: 768px) and (max-width: 1920px) {
   .lists{
     &-in{
@@ -595,6 +603,9 @@ const handleClick = (event,_id) =>{
   }
 }
 @media screen and (max-width: 768px) {
+  .whatsappLink{
+    display: none;
+  }
   .informationPage{
     padding: 50px 0 90px;
     &-title{

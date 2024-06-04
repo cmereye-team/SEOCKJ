@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { whatsapplink } from '~/assets/js/common'
 useHead({
   title: '媒體報導',
   meta: [
@@ -133,6 +134,43 @@ const getPagination = (pageitem) => {
     }
   }
 }
+
+const shareFacebook = (event,id) =>{
+  event.preventDefault();
+  window.open(`https://www.facebook.com/sharer/sharer.php?u=https://www.ckjhk.com/news/article/${id}`)  
+}
+function copySpecifiedText(event,text) {  
+  event.preventDefault();
+    if (navigator.clipboard) {  
+        navigator.clipboard.writeText(`https://www.ckjhk.com/news/article/${text}`).then(function() {  
+          ElMessage({
+            showClose: true,
+            message: '已複製到剪切板',
+            type: 'success',
+          }) 
+        }, function(err) {
+            ElMessage({
+              showClose: true,
+              message: '操作異常，請刷新頁面試試',
+              type: 'warning',
+            })
+        });  
+    } else {  
+        alert('您的瀏覽器不支持此功能，請更新瀏覽器');  
+    }  
+}
+
+let loadingShow = ref(false)
+
+let actShowShare = ref('')
+const handleClick = (event,_id) =>{
+  event.preventDefault();
+  if(actShowShare.value === _id){
+    actShowShare.value = ''
+  }else{
+    actShowShare.value = _id
+  }
+}
 </script>
 
 <template>
@@ -155,29 +193,39 @@ const getPagination = (pageitem) => {
       </div>
       <div class="smallPageCon">
         <div class="lists" v-if="!errorpage">
-          <nuxt-link :to="`/news/article/${item.id}`" class="lists-in" v-for="(item,index) in coverageLists" :key="index">
-            <div class="lists-in-img">
-              <img :src="item.img" :alt="item.name">
-            </div>
-            <div class="lists-in-context">
-              <div class="lists-in-context-top">
-                <img :src="item.logo" :alt="item.tags">
-                <div>
-                  <span>{{item.time}}</span>
-                  <span>{{item.tags}}</span>
+          <div v-loading="loadingShow" class="listsbox">
+            <nuxt-link :to="`/news/article/${item.id}`" :id="`i${item.id}`" :alt="item.name" :title="item.name" class="lists-in" v-for="(item,index) in coverageLists" :key="index">
+              <div class="lists-in-img">
+                <img :src="item.img" alt="">
+              </div>
+              <div class="lists-in-context">
+                <div class="lists-in-context-top">
+                  <div class="title">
+                    <img :src="item.logo" alt="">
+                    <h3>{{item.name}}</h3>
+                  </div>
+                  <div class="time">
+                    <span>
+                      {{item.time}} by {{item.tags}}
+                    </span>
+                    <div class="shareIcon" @click.stop="handleClick($event,item.id)" alt="">
+                      <div :class="['shareIcon-img',{ act: actShowShare === item.id }]" alt="分享" title="分享"><img src="@/assets/images/icon_47.svg" alt=""></div>
+                      <div class="shareIcon-in" v-if="actShowShare === item.id">
+                        <div class="shareIcon-in-item" @click="shareFacebook($event,item.id)" alt="Facebook 分享" title="Facebook 分享"><img src="@/assets/images/icon_49.svg" alt=""><span>Facebook 分享</span></div>
+                        <div class="shareIcon-in-item" @click="copySpecifiedText($event,item.id)" alt="複製連結" title="複製連結"><img src="@/assets/images/icon_48.svg" alt=""><span>複製連結</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="desc" v-html="item.desc">
+                </div>
+                <div style="flex: 1;"></div>
+                <div class="btn">
+                  <PageAnimBtnTypeTwo :link="`/news/article/${item.id}`" str="查看原文" />
                 </div>
               </div>
-              <div class="title">{{item.name}}</div>
-              <div class="desc">
-                <span>
-                  {{item.desc}}
-                </span>
-              </div>
-              <div class="btn">
-                <nuxt-link :to="`/news/article/${item.id}`">查看全文</nuxt-link>
-              </div>
-            </div>
-          </nuxt-link>
+            </nuxt-link>
+          </div>
           <div class="lists-btn">
             <div @click="subNum" :class="{btndisabled: actPageNum === 1}">
               <span class="subNum">
@@ -210,6 +258,9 @@ const getPagination = (pageitem) => {
         <div class="lists" v-else>服務異常</div>
       </div>
       <!-- <div @click="getData">获取数据</div> -->
+      <nuxtLink :to="whatsapplink" class="bigPageCon whatsappLink">
+        <img style="width:100%;" src="https://static.cmereye.com/imgs/2024/06/71d5adf71dddd841.jpg" alt="">
+      </nuxtLink>
       <NewAddress />
     </div>
   </div>
@@ -242,83 +293,166 @@ const getPagination = (pageitem) => {
 }
 .lists{
   margin-top: calc(77 / 1448 * 100%);
+  min-height: 300px;
+  .listsbox{
+    display: flex;
+    flex-wrap: wrap;
+  }
   &-in{
     display: flex;
+    flex-direction: column;
+    width: calc(100% / 3);
     margin-bottom: 80px;
+    padding: 0 30px;
     &-img{
-      order: 2;
-      width: calc(866 / 1448* 100%);
-      margin-left: calc(40 / 1448* 100%);
+      width: 100%;
+      position: relative;
       img{
         width: 100%;
-        background: #f3f3f3;
+      }
+      &::after{
+        content: '';
+        width: 72px;
+        height: 48.5px;
+        background: url(https://static.cmereye.com/imgs/2024/06/b99647fd68a3387b.png) no-repeat;
+        background-size: 100% 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transition: all .5s;
       }
     }
     &-context{
       flex: 1;
-      order: 1;
       display: flex;
       flex-direction: column;
       &-top{
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        margin-bottom: 23px;
-        img{
-          max-height: 78px;
-          max-width: 132px;
+        flex-direction: column;
+        margin-bottom: 10px;
+        margin-top: 15px;
+        .title{
+          color: var(--textColor);
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 130%;
+          display: flex;
+          align-items: center;
+          &>img{
+            max-height: 34px;
+            margin-right: 10px;
+          }
+          h3{
+            display: -webkit-box;  
+            -webkit-line-clamp: 1; 
+            line-clamp: 1; 
+            -webkit-box-orient: vertical;  
+            overflow: hidden;  
+            text-overflow: ellipsis;
+          }
         }
-        &>div{
-          height: 100%;
-          span{
-            display: block;
-            text-align: right;
-            font-size: 20px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 160%; /* 32px */
-            letter-spacing: 2px;
-            color: var(--textColor);
+        .time{
+          font-size: 15px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 160%;
+          color: #aaa;
+          margin-top: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          &>span{
+            max-width: 340px;
+            white-space: nowrap; 
+            overflow: hidden;
+            position: relative;
+            flex: 1;
+            &::after{
+              content: '';
+              height: 100%;
+              width: 30px;
+              background: linear-gradient(90deg,transparent,#fff);
+              position: absolute;
+              right: 0;
+              top: 0;
+            }
+          }
+          .shareIcon{
+            position: relative;
+            &-img{
+              width: 30px;
+              height: 30px;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              position: relative;
+              border: 2px solid #aaa;
+              z-index: 21;
+              &>img{
+                width: 16px;
+                height: auto;
+              }
+              &.act{
+                border: none;
+              }
+            }
+            &-in{
+              position: absolute;
+              z-index: 20;
+              top: 0;
+              right: 0;
+              width: 159px;
+              height: 115px;
+              background: url(https://static.cmereye.com/static/ckj/imgs/default/shareIcon.svg);
+              background-size: 100% 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-end;
+              filter: drop-shadow(0 2px 3px rgba(0,0,0,.3));
+              padding: 12px 0;
+              &-item{
+                display: flex;
+                align-items: center;
+                padding: 5px 10px;
+                margin: 0 2px;
+                border-radius: 3px;
+                &>img{
+                  width: 20px;
+                  margin-right: 5px;
+                }
+                &>span{
+                  font-size: 14px;
+                }
+                &:hover{
+                  background: #F6F6F6;
+                }
+              }
+            }
           }
         }
       }
-      .title{
-        margin-bottom: 14px;
-        font-size: 26px;
+      .desc{
+        font-size: 16px;
         font-style: normal;
         font-weight: 400;
-        line-height: 160%; /* 48px */
-        letter-spacing: 3px;
-        color: var(--indexColor1);
+        line-height: 160%;
+        letter-spacing: 2px;
+        color: #aaa;
         display: -webkit-box;  
-        -webkit-line-clamp: 2;  
+        -webkit-line-clamp: 2; 
+        line-clamp: 2; 
         -webkit-box-orient: vertical;  
         overflow: hidden;  
-        text-overflow: ellipsis; 
-        text-align: justify;
-      }
-      .desc{
-        flex: 1;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 160%; /* 32px */
-        letter-spacing: 2px;
-        color: var(--textColor);
-        text-align: justify;
-        span{
-          display: -webkit-box;  
-          -webkit-line-clamp: 5; 
-          line-clamp: 5; 
-          -webkit-box-orient: vertical;  
-          overflow: hidden;  
-          text-overflow: ellipsis; 
-        }
+        text-overflow: ellipsis;
       }
       .btn{
-        margin: 10px 0 5px;
+        display: flex;
+        padding: 20px;
         a{
-          font-size: 28px;
+          font-size: 35px;
           font-style: normal;
           font-weight: 400;
           line-height: 160%; /* 56px */
@@ -327,12 +461,19 @@ const getPagination = (pageitem) => {
           text-align: center;
           background: var(--indexColor1);
           border-radius: 40px;
-          padding: calc(7 / 538 * 100%) calc(40 / 538 * 100%);
+          padding: calc(7 / 922 * 100%) calc(40 / 922 * 100%);
           transition: all .3s;
           box-shadow: 3px 3px 12.4px 0px rgba(252, 22, 130, 0.50);
           &:hover{
             background: #FF85AF;
           }
+        }
+      }
+    }
+    &:hover{
+      .lists-in-img{
+        &::after{
+          opacity: .5;
         }
       }
     }
@@ -404,43 +545,80 @@ const getPagination = (pageitem) => {
     justify-content: center;
   }
 }
-@media (min-width: 768px) and (max-width: 1200px) {
+.whatsappLink{
+  width: 100%;
+  margin-top: 65px;
+  display: block;
+}
+@media (min-width: 768px) and (max-width: 1920px) {
   .lists{
     &-in{
+      margin-bottom: 4.1667vw;
+      padding: 0 1.5625vw;
       &-context{
-        min-width: 330px;
         &-top{
-          img{
-            max-width: 100px;
-            max-height: 60px;
-            
+          margin-bottom: .5208vw;
+          margin-top: .7813vw;
+          .title{
+            font-size: 1.0417vw;
+            &>img{
+              max-height: 1.7708vw;
+              margin-right: .5208vw;
+            }
           }
-          &>div{
-              span{
-                font-size: 16px;
+          .time{
+            font-size: .7813vw;
+            margin-top: .5208vw;
+            span{
+              max-width: 17.7083vw;
+              &::after{
+                width: 1.5625vw;
               }
             }
+          }
+        }
+        .desc{
+          font-size: .8333vw;
+          letter-spacing: .1042vw;
+        }
+        .btn{
+          padding: 1.0417vw;
+          a{
+            font-size: 1.8229vw;
+            letter-spacing: .3646vw;
+            border-radius: 2.0833vw;
+          }
         }
       }
-      .title{
-        font-size: 20px;
+    }
+    &-btn{
+      &>div{
+        font-size: 1.3542vw;
+        margin: 0 .5208vw;
       }
-      .desc{
-        font-size: 16px;
-        span{
-          -webkit-line-clamp: 5;
-          line-clamp: 5;
+      .subNum,.addNum{
+        img{
+          width: .625vw;
         }
       }
-      .btn{
-        a{
-          font-size: 30px;
+      &-page{
+        &>section{
+          height: 1.5625vw;
+        }
+        .y{
+          margin: 0 .2604vw;
+          width: 1.5625vw;
+          height: 1.5625vw;
+          font-size: 1.0417vw;
         }
       }
     }
   }
 }
 @media screen and (max-width: 768px) {
+  .whatsappLink{
+    display: none;
+  }
   .coveragePage{
     padding: 50px 0 90px;
     &-title{
@@ -455,7 +633,9 @@ const getPagination = (pageitem) => {
   .lists{
     &-in{
       flex-direction: column;
-      margin-bottom: 30px;
+      width: 100%;
+      margin-bottom: 90px;
+      padding: 0;
       &-img{
         order: 1;
         width: 100%;
@@ -463,24 +643,34 @@ const getPagination = (pageitem) => {
       }
       &-context{
         order: 2;
-        padding: 24px 30px 0;
+        padding: 10px 30px 0;
         &-top{
-          margin-bottom: 21px;
-          &>div{
-            span{
+          margin-bottom: 10px;
+          flex-direction: column;
+          .title{
+            font-size: 20px;
+            color: var(--indexColor1);
+          }
+          .time{
+            &>span{
+              text-align: left;
               font-size: 16px;
+            }
+            .shareIcon{
+              &-in{
+                &-item{
+                  padding: 3px 10px;
+                }
+              }
             }
           }
         }
-        .title{
-          margin-bottom: 21px;
-          font-size: 20px;
-        }
         .desc{
           font-size: 16px;
+          text-align: justify;
         }
         .btn{
-          margin-top: 24px;
+          margin-top: 10px;
           display: flex;
           justify-content: center;
           a{
