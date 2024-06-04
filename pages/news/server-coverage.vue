@@ -17,7 +17,7 @@ useHead({
 })
 
 const headerConfig = {
-  img: 'https://static.cmereye.com/imgs/2024/02/3b281359c56b586d.jpg',
+  img: 'https://static.cmereye.com/imgs/2024/06/99b4542e84f6fd1e.jpg',
   bg: '',
   mbImg: 'https://static.cmereye.com/imgs/2024/02/7efb3f385ea64b26.jpg',
   pageName: 'coverage',

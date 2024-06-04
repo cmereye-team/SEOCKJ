@@ -9,8 +9,8 @@ let langCur = ref('chinese_traditional')
 
 const bannerConfig = [
   {
-    pcImg: `https://static.cmereye.com/imgs/2024/02/4c1e46eab9adb6de_${locale.value}.webp`,
-    mbImg: `https://static.cmereye.com/imgs/2024/02/9798849854855a0c_${locale.value}.webp`,
+    pcImg: `https://static.cmereye.com/imgs/2024/06/332c30b89613ebf9.jpg`,
+    mbImg: `https://static.cmereye.com/imgs/2024/06/5d5a3802db2761df.jpg`,
   }
 ]
 

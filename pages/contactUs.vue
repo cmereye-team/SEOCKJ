@@ -20,7 +20,7 @@ useHead({
 
 const bannerConfig = [
   {
-    pcImg: 'https://static.cmereye.com/imgs/2024/02/fd92d954c1955f75.jpg',
+    pcImg: 'https://static.cmereye.com/imgs/2024/06/e95ec940e8903f32.jpg',
     mbImg: 'https://static.cmereye.com/imgs/2024/02/2f6494de27de8323.jpg',
   }
 ]

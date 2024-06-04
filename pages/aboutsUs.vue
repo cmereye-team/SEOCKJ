@@ -21,7 +21,7 @@ useHead({
 
 const bannerConfig = [
   {
-    pcImg: 'https://static.cmereye.com/imgs/2024/01/1bc7c8742b23ae97.jpg',
+    pcImg: 'https://static.cmereye.com/imgs/2024/06/26b5fe0384118903.jpg',
     mbImg: 'https://static.cmereye.com/imgs/2024/01/a59e0a87dfb394f1.jpg',
   }
 ]
@@ -412,7 +412,7 @@ const handleProcessBtn = (_type: string) => {
                   <img src="https://static.cmereye.com/imgs/2024/05/a4cced5ce2d5c606.png" alt="">
                 </div>
                 <div>
-                  {{'香港01\n傑出大灣區牙科醫療\n服務機構'}}
+                  香港01<br>傑出大灣區牙科醫療<br>服務機構
                 </div>
               </nuxt-link>
             </div>
@@ -852,9 +852,10 @@ const handleProcessBtn = (_type: string) => {
 .setionBox{
   margin-top: 97px;
   display: flex;
-  gap: 160px;
+  gap: 100px;
   &-l{
     flex: 1;
+    max-width: 600px;
     .Medical-vouchers{
       &-title{
         display: flex;
@@ -1130,19 +1131,19 @@ const handleProcessBtn = (_type: string) => {
     justify-content: center;
     flex-wrap: wrap;
     &>div,&>a{
-      max-width: 40%;
+      max-width: 41%;
       padding: 0 10px;
       &>div{
         font-style: normal;
         font-weight: 700;
-        font-size: 20px;
+        font-size: 26px;
         line-height: 160%;
         text-align: center;
         color: #4C4C4C;
-        white-space: pre-wrap;
+        // white-space: pre-wrap;
         img{
           margin: 0 auto;
-          max-width: 120px;
+          max-width: 135px;
         }
       }
     }
@@ -1181,6 +1182,125 @@ const handleProcessBtn = (_type: string) => {
   }
   .course{
     margin-top: 120px;
+  }
+  .setionBox{
+    margin-top: 5.0521vw;
+    gap: 160px;
+    &-l{
+      flex: 1;
+      .Medical-vouchers{
+        &-title{
+          display: flex;
+          margin-bottom: 10px;
+          padding: 0 10px;
+          .index_title{
+            &::after{
+              background: #D3E9D8;
+            }
+          }
+        }
+        &-in{
+          border-top: 1px solid #E15697;
+        .list-in{
+          padding-top: 15px;
+          display: block;
+          &-t{
+            display: grid;
+            grid-template-columns: 1fr 1.7fr;
+            gap: 19px;
+            align-items: center;
+            padding-bottom: 15px;
+            &-l{
+              width: 100%;
+              img{
+                width: 100%;
+              }
+            }
+            &-r{
+              flex: 1;
+              h2{
+                display: -webkit-box;  
+                -webkit-line-clamp: 2; 
+                line-clamp: 2; 
+                -webkit-box-orient: vertical;  
+                overflow: hidden;  
+                text-overflow: ellipsis;
+                color: var(--indexColor1);
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 140%;
+              }
+              p{
+                display: -webkit-box;  
+                -webkit-line-clamp: 3; 
+                line-clamp: 3; 
+                -webkit-box-orient: vertical;  
+                overflow: hidden;  
+                text-overflow: ellipsis;
+                font-size: 12px;
+                font-weight: 700;
+                line-height: 133%;
+                color: var(--textColor);
+              }
+            }
+          }
+          &-b{
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            padding: 5px 0;
+            border-top: 1px solid #aaa;
+            border-bottom: 1px solid #aaa;
+            &-l{
+              font-size: 18px;
+              letter-spacing: 1.8px;
+              position: relative;
+              text-decoration: underline;
+              overflow: hidden;
+              white-space: nowrap;
+              span{
+                margin-right: 10px;
+                color: var(--textColor);
+              }
+              &::after{
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 80px;
+                height: 100%;
+                background: linear-gradient(90deg,rgba(255, 255, 255, 0),#fff);
+              }
+            }
+            &-r{
+              background: #fff;
+              font-size: 20px;
+              color: #aaa;
+              display: flex;
+              justify-content: flex-end;
+            }
+          }
+        }
+        .btn{
+        color: var(--Grey-Deep, #4D4D4D);
+        text-align: justify;
+        font-family: "Noto Serif CJK TC";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 160%;
+        border-radius: 2px;
+        border: 1px solid var(--Grey-Deep, #4D4D4D);
+        display: block;
+        margin-top: 10px;
+        padding: 5px 0;
+        text-align: center;
+      }
+        }
+      }
+    }
+    &-r{
+      flex: 1;
+    }
   }
 }
 
