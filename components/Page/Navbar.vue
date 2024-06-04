@@ -669,10 +669,10 @@ let _bool = ref(false)
           // background-clip: text;
           // mix-blend-mode: difference;
           // box-shadow:2px 2px 0 #fff;
-          filter: drop-shadow(1px 1px 0 #fff)
-          drop-shadow(-1px 1px 0 #fff)
-          drop-shadow(1px -1px 0 #fff)
-          drop-shadow(-1px -1px 0 #fff);
+          // filter: drop-shadow(1px 1px 0 #fff)
+          // drop-shadow(-1px 1px 0 #fff)
+          // drop-shadow(1px -1px 0 #fff)
+          // drop-shadow(-1px -1px 0 #fff);
         }
       }
     }
@@ -686,7 +686,7 @@ let _bool = ref(false)
       width: 100%;
       height: auto;
       background: #FFF;
-      filter: drop-shadow(0 -3px 5px rgba(252, 22, 130, .3));
+      // filter: drop-shadow(0 -3px 5px rgba(252, 22, 130, .3));
       position: fixed;
       bottom: 0;
       left: 0;
