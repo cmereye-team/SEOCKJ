@@ -129,11 +129,14 @@ interface listTypes {
 
 let searchLists = ref([] as Array<listTypes>);
 
+const handlebgShow = () =>{
+  emits('changeStatic',false)
+}
 </script>
 
 <template>
-  <div class="search" :class="{show: showSearchBox}">
-      <div class="search-in">
+  <div class="search" :class="{show: showSearchBox}" @click.stop="handlebgShow()">
+      <div class="search-in" @click.stop="()=>{}">
         <div class="search-in-t">
           <div class="title">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21" fill="none">
