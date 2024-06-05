@@ -164,13 +164,13 @@ const imgBgHeight = ref({
 })
 
 onMounted(() => {
-  // setTimeout(() => {
-  //   if(route.path.includes('/cn')){
-  //     changlangsfun('s')
-  //   }else{
-  //     appState.setLangs('t');
-  //   }
-  // }, 500)
+  setTimeout(() => {
+    if(route.path.includes('/cn')){
+      changlangsfun('s')
+    }else{
+      appState.setLangs('t');
+    }
+  }, 500)
 })
 
 const handleMbMenu = () => {
@@ -268,12 +268,12 @@ const headermbNav = [
 watch(route,(n,o)=>{
   menuBoxBool.value = false
   showSearchBox.value = false
-  // console.log('路由變化')
+  console.log('路由變化')
   setTimeout(() => {
     if(route.path.includes('/cn')){
       changlangsfun('s')
     }else{
-      appState.setLangs('t');
+      changlangsfun('t')
     }
   }, 500)
 })
