@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { defineProps } from "vue";
-defineProps({
+const props = defineProps({
   listsConfig:{
     type: Object,
     default(){
@@ -17,6 +17,10 @@ defineProps({
   thameType: {
     type: String,
     default: '1'
+  },
+  defaultCur: {
+    type: Number,
+    default: 0
   }
 })
 
@@ -26,11 +30,15 @@ const hangdleTab = (idx:number) =>{
   newsLists_cur_tab.value = idx
   emits('changeNewsCur', idx)
 }
+onMounted(()=>{
+  console.log(props.defaultCur)
+  newsLists_cur_tab.value = props.defaultCur
+})
 </script>
 
 <template>
   <div class="newsLists" :class="`thameType${thameType}`">
-    <div class="newsLists-title">
+    <div class="newsLists-title" v-if="listsConfig.title !== ''">
       <div class="index_title">
         <span>{{listsConfig.title}}</span>
       </div>
@@ -64,6 +72,27 @@ const hangdleTab = (idx:number) =>{
         <div class="list-in-t" v-if="thameType === '3'">
           <div class="list-in-t-l">
             <img :style="{'z-index': 4-imgIndex,'margin-left': `-${imgIndex === 0 ? 0 : 33}px`}" v-for="(imgItem,imgIndex) in item.pics.slice(0,4)" :key="imgIndex" :src="imgItem" alt="">
+          </div>
+          <div class="list-in-t-r">
+            <h2>{{item.name}}</h2>
+            <p>{{item.desc}}</p>
+          </div>
+        </div>
+        <div class="list-in-t" v-if="thameType === '4'">
+          <div class="list-in-t-l">
+            <img :src="item.img" alt="">
+          </div>
+          <div class="list-in-t-r">
+            <h2>
+              <img :src="item.logo" alt="">
+              <span>{{item.name}}</span>
+            </h2>
+            <p>{{item.desc}}</p>
+          </div>
+        </div>
+        <div class="list-in-t" v-if="thameType === '5'">
+          <div class="list-in-t-l">
+            <img :src="item.img" alt="">
           </div>
           <div class="list-in-t-r">
             <h2>{{item.name}}</h2>
@@ -289,6 +318,43 @@ const hangdleTab = (idx:number) =>{
           }
           &-r{
             flex: 1;
+          }
+        }
+      }
+    }
+  }
+  &.thameType4{
+    .newsLists-content{
+      .list-in{
+        &-t{
+          &-r{
+            h2{
+              img{
+                display: inline-block;
+                max-width: 40px;
+                height: auto;
+                margin-right: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.thameType5{
+    .newsLists-content{
+      .list-in{
+        &-t{
+          grid-template-columns: 1fr 4fr;
+          &-r{
+            h2{
+              -webkit-line-clamp: 1; 
+              line-clamp: 1; 
+            }
+            p{
+              -webkit-line-clamp: 3; 
+              line-clamp: 3;  
+            }
           }
         }
       }

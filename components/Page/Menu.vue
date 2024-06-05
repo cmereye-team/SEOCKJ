@@ -268,7 +268,6 @@ const headermbNav = [
 watch(route,(n,o)=>{
   menuBoxBool.value = false
   showSearchBox.value = false
-  console.log('路由變化')
   setTimeout(() => {
     if(route.path.includes('/cn')){
       changlangsfun('s')

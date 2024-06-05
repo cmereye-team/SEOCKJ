@@ -1,5 +1,8 @@
 <script lang="ts" setup>
 import { whatsapplink } from '~/assets/js/common'
+import { useWindowSize } from '@vueuse/core'
+import { formatDate,toDateType } from '~/assets/js/utils'
+const { width } = useWindowSize()
 useHead({
   title: '最新資訊',
   meta: [
@@ -20,46 +23,40 @@ useHead({
 const bannerConfig = [
   {
     pcImg: 'https://static.cmereye.com/imgs/2024/06/99b4542e84f6fd1e.jpg',
-    mbImg: 'https://static.cmereye.com/imgs/2024/02/7efb3f385ea64b26.jpg',
+    mbImg: 'https://static.cmereye.com/imgs/2024/06/cb4c9a34a7e67357.jpg',
   }
 ]
 
 let errorpage = ref(false)
-let informationLists = ref([
-  {
-    id: '',
-    img: '',
-    desc: '',
-    name: '',
-    time: '',
-    videos: ''
-  }
-])
-const formatDate = (dateString) =>{  
-    var date = new Date(dateString);  
-    var year = date.getFullYear();  
-    var month = ("0" + (date.getMonth() + 1)).slice(-2); // getMonth() is zero-based  
-    var day = ("0" + date.getDate()).slice(-2);  
-    return year + "年" + month + "月" + day + "日";  
-}  
+let informationLists:any = ref([])
 
 let totalPageNum = ref(1)
 let actPageNum = ref(1) 
 let loadingShow = ref(false)
+let curTab = ref(2)
+let PageSize = ref(6)
+let pageType = ref('date')
+
+let saveData = ref({
+  lists_0: [],
+  actPageNum_0: 0,
+  lists_1: [],
+  actPageNum_1: 0,
+  totalPageNum: 1
+})
 
 const getNewsLists = async () => {
   loadingShow.value = true
+  PageSize.value = width.value > 768 ? 6 : 10
+  pageType.value = width.value > 768 ? 'date' : (curTab.value === 1 ? 'date' : 'visits')
+  isPc.value = width.value > 768
   try{
-    const _res:any = await useFetch(`https://admin.ckjhk.com/api.php/list/15/page/${actPageNum.value}/num/6`,{
+    const _res:any = await useFetch(`https://admin.ckjhk.com/api.php/list/15/page/${actPageNum.value}/num/${PageSize.value}/order/${pageType.value}`,{
       method: 'post',
     });
-    // const _res:any = await useFetch(`https://admin.ckjhk.com/api.php/list/15`,{
-    //   method: 'post',
-    // });
     let res = JSON.parse(_res.data.value) || null
     if(res){
-      // console.log(res)
-      totalPageNum.value = Math.ceil(res.rowtotal / 6)
+      totalPageNum.value = Math.ceil(res.rowtotal / PageSize.value)
       informationLists.value = res.data.map(item=>{
         return{
           id: item.id || '',
@@ -67,9 +64,17 @@ const getNewsLists = async () => {
           desc: item.ext_news_desc || '',
           name: item.title || '',
           time: formatDate(item.ext_news_time) || '',
-          videos: item.ext_news_videos || ''
+          videos: item.ext_news_videos || '',
+          hashtag: [null,''].includes(item.ext_news_hashtag) ? [] : item.ext_news_hashtag.split(',')
         }
       })
+      if(width.value <= 768){
+        saveData.value[`lists_${curTab.value}`] = informationLists.value
+        saveData.value[`actPageNum_${curTab.value}`] = actPageNum.value
+        saveData.value.totalPageNum = totalPageNum.value
+        mbListsConfig.value.lists = informationLists.value
+        sessionStorage.setItem('informationPageCurTab',String(curTab.value))
+      }
     }
     sessionStorage.setItem('informationPage', String(actPageNum.value))
     loadingShow.value = false
@@ -121,17 +126,15 @@ const goAnchor = (_hash: any)=>{
   }, 10);
   }
 }
-
+onBeforeMount(()=>{
+  if(sessionStorage.getItem('informationPageCurTab')){
+    curTab.value = Number(sessionStorage.getItem('informationPageCurTab')) || 0
+  }
+})
 onMounted(()=>{
   if(sessionStorage.getItem('informationPage')){
     actPageNum.value = Number(sessionStorage.getItem('informationPage')) || 1
-    // getNewsLists()
   }
-  // if(sessionStorage.getItem('informationid')){
-  //   setTimeout(()=>{
-  //     goAnchor(`#i${sessionStorage.getItem('informationid')}`)
-  //   },1000)
-  // }
   setTimeout(()=>{
     getNewsLists()
   })
@@ -194,6 +197,43 @@ const handleClick = (event,_id) =>{
     actShowShare.value = _id
   }
 }
+
+const mbListsConfig = ref({
+  title: '',
+  tab: ['最熱門','最新'],
+  lists: [],
+  linkL: '/news/article/'
+})
+const handleListsType = async (idx) => {
+  if(curTab.value === idx) return
+  curTab.value = idx
+  let _lists = saveData.value[`lists_${idx}`]
+  if(_lists && _lists.length){
+    mbListsConfig.value.lists = _lists
+    actPageNum.value = saveData.value[`actPageNum_${curTab.value}`]
+    totalPageNum.value = saveData.value.totalPageNum
+  }else{
+    actPageNum.value = 1
+    getNewsLists()
+  }
+}
+
+let isPc = ref(false)
+watch(width,(n,o)=>{
+  if(n <= 768){
+    if(isPc.value){
+      isPc.value = false
+      handleListsType(0)
+    }
+  }else{
+    if(!isPc.value){
+      isPc.value = true
+      curTab.value = 2
+      actPageNum.value = 1
+      getNewsLists()
+    }
+  }
+})
 </script>
 
 <template>
@@ -213,61 +253,8 @@ const handleClick = (event,_id) =>{
         <span :title="'最新資訊'">最新資訊</span>
       </div>
       <div class="smallPageCon">
-        <!-- <div class="lists" v-if="!errorpage">
-          <div v-loading="loadingShow">
-            <nuxt-link :to="`/news/news-information/${item.id}`" :id="`i${item.id}`" class="lists-in" v-for="(item,index) in informationLists" :key="index" @click="handlelink(item.id)">
-              <div class="lists-in-img">
-                <div class="videos" v-if="item.videos !== ''">
-                  <iframe :src="`https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fckjdental.hk%2Fvideos%2F${item.videos}%2F&show_text=false&width=476&t=0`" width="476" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay;"></iframe>
-                </div>
-                <img v-else :src="item.img" alt="">
-              </div>
-              <div class="lists-in-context">
-                <div class="lists-in-context-top">
-                  <div class="title">
-                    {{item.name}}
-                  </div>
-                </div>
-                <div class="desc" v-html="item.desc">
-                </div>
-                <div style="flex: 1;"></div>
-                <div class="btn">
-                  <nuxt-link :to="`/news/news-information/${item.id}`">查看全文</nuxt-link>
-                </div>
-              </div>
-            </nuxt-link>
-          </div>
-          <div class="lists-btn">
-            <div @click="subNum" :class="{btndisabled: actPageNum === 1}">
-              <span class="subNum">
-                <img src="@/assets/images/icon_25.svg" alt="">
-              </span>
-            </div>
-            <div class="lists-btn-page">
-              <section v-if="totalPageNum<=7">
-                <span class="y" :class="{act: actPageNum === pageitem}" v-for="pageitem in totalPageNum" :key="pageitem" @click="toPage(pageitem)">
-                  {{ pageitem }}
-                </span>
-              </section>
-              <section v-else>
-                <span class="y" :class="{act: actPageNum === 1}" @click="toPage(1)">1</span>
-                <span v-if="actPageNum>4">...</span>
-                <span class="y" :class="{act: actPageNum === getPagination(pageitem)}" v-for="pageitem in 5" :key="pageitem" @click="toPage(getPagination(pageitem))">
-                    {{getPagination(pageitem)}}
-                </span>
-                <span v-if="actPageNum<=totalPageNum-4">...</span>
-                <span class="y" :class="{act: actPageNum === totalPageNum}" @click="toPage(totalPageNum)">{{totalPageNum}}</span>
-              </section>
-            </div>
-            <div @click="addNum" :class="{btndisabled: actPageNum === totalPageNum}">
-              <span class="addNum">
-                <img src="@/assets/images/icon_25.svg" alt="">
-              </span>
-            </div>
-          </div>
-        </div> -->
-        <div class="lists" v-if="!errorpage">
-          <div v-loading="loadingShow" class="listsbox">
+        <div class="lists" v-loading="loadingShow">
+          <div v-if="width>768" class="listsbox">
             <nuxt-link :to="`/news/news-information/${item.id}`" :id="`i${item.id}`" :alt="item.name" :title="item.name" class="lists-in" v-for="(item,index) in informationLists" :key="index">
               <div class="lists-in-img">
                 <img :src="item.img" alt="">
@@ -299,6 +286,9 @@ const handleClick = (event,_id) =>{
               </div>
             </nuxt-link>
           </div>
+          <div class="listsbox" v-else>
+            <NewsLists :listsConfig="mbListsConfig" :thameType="'5'" :defaultCur="curTab" @changeNewsCur="handleListsType" />
+          </div>
           <div class="lists-btn">
             <div @click="subNum" :class="{btndisabled: actPageNum === 1}">
               <span class="subNum">
@@ -328,7 +318,7 @@ const handleClick = (event,_id) =>{
             </div>
           </div>
         </div>
-        <div class="lists" v-else>服務異常</div>
+        <div class="lists" v-if="errorpage">服務異常</div>
       </div>
       <nuxtLink :to="whatsapplink" class="bigPageCon whatsappLink">
         <img style="width:100%;" src="https://static.cmereye.com/imgs/2024/06/71d5adf71dddd841.jpg" alt="">
@@ -575,13 +565,14 @@ const handleClick = (event,_id) =>{
         width: 30px;
         height: 30px;
         display: block;
-        border: 2px solid var(--indexColor1);
+        // border: 2px solid var(--indexColor1);
         display: flex;
         justify-content: center;
         align-items: center;
         font-size: 20px;
         letter-spacing: -0.8px;
         transition: all .3s;
+        font-weight: 900;
         &.act{
           background: var(--indexColor1);
           color: #fff;

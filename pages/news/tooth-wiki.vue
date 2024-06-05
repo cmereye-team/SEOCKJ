@@ -1,5 +1,8 @@
 <script lang="ts" setup>
 import { whatsapplink } from '~/assets/js/common'
+import { useWindowSize } from '@vueuse/core'
+import { formatDate } from '~/assets/js/utils'
+const { width } = useWindowSize()
 useHead({
   title: '牙齒百科',
   meta: [
@@ -19,65 +22,57 @@ useHead({
 const bannerConfig = [
   {
     pcImg: 'https://static.cmereye.com/imgs/2024/06/99b4542e84f6fd1e.jpg',
-    mbImg: 'https://static.cmereye.com/imgs/2024/02/7efb3f385ea64b26.jpg',
+    mbImg: 'https://static.cmereye.com/imgs/2024/06/cb4c9a34a7e67357.jpg',
   }
 ]
 
 let errorpage = ref(false)
-let informationLists = ref([
-  {
-    id: '',
-    img: '',
-    desc: '',
-    name: '',
-    time: ''
-  }
-])
-const formatDate = (dateString) =>{
-  let _date = new Date(dateString);
-  if(
-    _date.getTime() > Date.now() - 86400000*2
-  ){
-    if(Math.floor((Date.now() - _date.getTime())/1000/60/60)){
-      return Math.floor((Date.now() - _date.getTime())/1000/60/60)+'小時前'
-    }else{
-      return '剛剛'
-    }
-  }else if(
-    _date.getTime() > Date.now() - 86400000*7
-  ){
-    return Math.floor((Date.now() - _date.getTime())/1000/60/60/24)+'天前'
-  }else{
-    var date = new Date(dateString);  
-    var year = date.getFullYear();  
-    var month = ("0" + (date.getMonth() + 1)).slice(-2); 
-    var day = ("0" + date.getDate()).slice(-2);  
-    return year + "年" + month + "月" + day + "日";  
-    }
-}  
+let informationLists:any = ref([]) 
 
 let totalPageNum = ref(1)
 let actPageNum = ref(1) 
 let loadingShow = ref(false)
+let curTab = ref(2)
+let PageSize = ref(6)
+let pageType = ref('date')
+
+let saveData = ref({
+  lists_0: [],
+  actPageNum_0: 0,
+  lists_1: [],
+  actPageNum_1: 0,
+  totalPageNum: 1
+})
 
 const getNewsLists = async () => {
   loadingShow.value = true
+  PageSize.value = width.value > 768 ? 6 : 10
+  pageType.value = width.value > 768 ? 'date' : (curTab.value === 1 ? 'date' : 'visits')
+  isPc.value = width.value > 768
   try{
-    const _res:any = await useFetch(`https://admin.ckjhk.com/api.php/list/16/page/${actPageNum.value}/num/6`,{
+    const _res:any = await useFetch(`https://admin.ckjhk.com/api.php/list/16/page/${actPageNum.value}/num/${PageSize.value}/order/${pageType.value}`,{
       method: 'post',
     });
     let res = JSON.parse(_res.data.value) || null
     if(res){
-      totalPageNum.value = Math.ceil(res.rowtotal / 6)
+      totalPageNum.value = Math.ceil(res.rowtotal / PageSize.value)
       informationLists.value = res.data.map(item=>{
         return{
           id: item.id || '',
           img: (item.ico.indexOf('/static/upload/image') !== -1 ? `https://admin.ckjhk.com${item.ico}`:item.ico) || '',
           desc: item.ext_news_desc || '',
           name: item.title || '',
-          time: formatDate(item.update_time) || ''
+          time: formatDate(item.update_time) || '',
+          hashtag: [null,''].includes(item.ext_news_hashtag) ? [] : item.ext_news_hashtag.split(',')
         }
       })
+      if(width.value <= 768){
+        saveData.value[`lists_${curTab.value}`] = informationLists.value
+        saveData.value[`actPageNum_${curTab.value}`] = actPageNum.value
+        saveData.value.totalPageNum = totalPageNum.value
+        mbListsConfig.value.lists = informationLists.value
+        sessionStorage.setItem('toothWikiPageCurTab',String(curTab.value))
+      }
     }
     sessionStorage.setItem('toothWikiPage', String(actPageNum.value))
     loadingShow.value = false
@@ -128,7 +123,11 @@ const goAnchor = (_hash: any)=>{
   }, 10);
   }
 }
-
+onBeforeMount(()=>{
+  if(sessionStorage.getItem('toothWikiPageCurTab')){
+    curTab.value = Number(sessionStorage.getItem('toothWikiPageCurTab')) || 0
+  }
+})
 onMounted(()=>{
   if(sessionStorage.getItem('toothWikiPage')){
     actPageNum.value = Number(sessionStorage.getItem('toothWikiPage')) || 1
@@ -192,6 +191,43 @@ const handleClick = (event,_id) =>{
   }
 }
 
+const mbListsConfig = ref({
+  title: '',
+  tab: ['最熱門','最新'],
+  lists: [],
+  linkL: '/news/news-tooth-wiki/'
+})
+const handleListsType = async (idx) => {
+  if(curTab.value === idx) return
+  curTab.value = idx
+  let _lists = saveData.value[`lists_${idx}`]
+  if(_lists && _lists.length){
+    mbListsConfig.value.lists = _lists
+    actPageNum.value = saveData.value[`actPageNum_${curTab.value}`]
+    totalPageNum.value = saveData.value.totalPageNum
+  }else{
+    actPageNum.value = 1
+    getNewsLists()
+  }
+}
+
+let isPc = ref(false)
+watch(width,(n,o)=>{
+  if(n <= 768){
+    if(isPc.value){
+      isPc.value = false
+      handleListsType(0)
+    }
+  }else{
+    if(!isPc.value){
+      isPc.value = true
+      curTab.value = 2
+      actPageNum.value = 1
+      getNewsLists()
+    }
+  }
+})
+
 
 </script>
 
@@ -212,8 +248,8 @@ const handleClick = (event,_id) =>{
         <span :title="'牙齒百科'">牙齒百科</span>
       </div>
       <div class="smallPageCon">
-        <div class="lists" v-if="!errorpage">
-          <div v-loading="loadingShow" class="listsbox">
+        <div class="lists" v-loading="loadingShow">
+          <div v-if="width>768" class="listsbox">
             <nuxt-link :to="`/news/news-tooth-wiki/${item.id}`" :id="`i${item.id}`" :alt="item.name" :title="item.name" class="lists-in" v-for="(item,index) in informationLists" :key="index">
               <div class="lists-in-img">
                 <img :src="item.img" alt="">
@@ -245,6 +281,9 @@ const handleClick = (event,_id) =>{
               </div>
             </nuxt-link>
           </div>
+          <div class="listsbox" v-else>
+            <NewsLists :listsConfig="mbListsConfig" :thameType="'1'" :defaultCur="curTab" @changeNewsCur="handleListsType" />
+          </div>
           <div class="lists-btn">
             <div @click="subNum" :class="{btndisabled: actPageNum === 1}">
               <span class="subNum">
@@ -274,7 +313,7 @@ const handleClick = (event,_id) =>{
             </div>
           </div>
         </div>
-        <div class="lists" v-else></div>
+        <div class="lists" v-if="errorpage">服務異常</div>
       </div>
       <nuxtLink :to="whatsapplink" class="bigPageCon whatsappLink">
         <img style="width:100%;" src="https://static.cmereye.com/imgs/2024/06/71d5adf71dddd841.jpg" alt="">
@@ -515,13 +554,14 @@ const handleClick = (event,_id) =>{
         width: 30px;
         height: 30px;
         display: block;
-        border: 2px solid var(--indexColor1);
+        // border: 2px solid var(--indexColor1);
         display: flex;
         justify-content: center;
         align-items: center;
         font-size: 20px;
         letter-spacing: -0.8px;
         transition: all .3s;
+        font-weight: 900;
         &.act{
           background: var(--indexColor1);
           color: #fff;
