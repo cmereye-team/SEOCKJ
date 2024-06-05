@@ -31,8 +31,7 @@ const hangdleTab = (idx:number) =>{
   emits('changeNewsCur', idx)
 }
 onMounted(()=>{
-  console.log(props.defaultCur)
-  newsLists_cur_tab.value = props.defaultCur
+  newsLists_cur_tab.value = props.defaultCur === 2 ? 0 : props.defaultCur
 })
 </script>
 
