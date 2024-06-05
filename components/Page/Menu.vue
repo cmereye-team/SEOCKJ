@@ -164,13 +164,13 @@ const imgBgHeight = ref({
 })
 
 onMounted(() => {
-  setTimeout(() => {
-    if(route.path.includes('/cn')){
-      changlangsfun('s')
-    }else{
-      appState.setLangs('t');
-    }
-  }, 500)
+  // setTimeout(() => {
+  //   if(route.path.includes('/cn')){
+  //     changlangsfun('s')
+  //   }else{
+  //     appState.setLangs('t');
+  //   }
+  // }, 500)
 })
 
 const handleMbMenu = () => {
@@ -208,7 +208,7 @@ const glangs = (_type) =>{
       router.push(`${_b ? '/'+_b.lable : ''}${route.path}`)
     }
   }
-  changlangsfun(_type)
+  // changlangsfun(_type)
 }
 const changlangsfun = (_type) =>{
   zh_tran(_type)
@@ -265,9 +265,17 @@ const headermbNav = [
   }
 ]
 
-watch(route,()=>{
+watch(route,(n,o)=>{
   menuBoxBool.value = false
   showSearchBox.value = false
+  // console.log('路由變化')
+  setTimeout(() => {
+    if(route.path.includes('/cn')){
+      changlangsfun('s')
+    }else{
+      appState.setLangs('t');
+    }
+  }, 500)
 })
 
 

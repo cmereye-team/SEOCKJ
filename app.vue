@@ -1,12 +1,8 @@
 <script lang="ts" setup>
 import { AppConfigInput } from '@nuxt/schema'
 import { AppSetup } from './utils/app'
-import { ITheme } from './utils/theme'
 AppSetup()
-const theme = useState<ITheme>('theme.current')
-const locale = useState<string>('locale.setting')
 const app = useAppConfig() as AppConfigInput
-
 useHead({
   title: app.name,
   titleTemplate: "%s | 深圳愛康健口腔醫院 | 香港官方網站",
@@ -37,9 +33,7 @@ useHead({
     { type: 'text/javascript', src: '/common.js' },
   ]
 })
-onMounted(()=>{
-  locale.value = 'hk'
-})
+
 </script>
 
 <template>

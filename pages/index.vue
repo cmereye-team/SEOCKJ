@@ -2094,6 +2094,16 @@ svg:hover path{
   }
 }
 @media (min-width: 768px) and (max-width: 1920px){
+  .PromotionProject{
+    padding-top: 2.0833vw;
+    &-title{
+      font-size: 1.8229vw;
+      padding-right: .7813vw;
+      border-right: .1563vw solid var(--indexColor1);
+      letter-spacing: .2083vw;
+      margin-right: .9375vw;
+    }
+  }
   .index-org{
     margin-top: 6.25vw;
     &-tag{
