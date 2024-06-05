@@ -275,8 +275,7 @@ const handleClick = (event,_id) =>{
               <div class="lists-in-context">
                 <div class="lists-in-context-top">
                   <div class="title">
-                    <img :src="item.logo" alt="">
-                    <h3>{{item.name}}</h3>
+                    {{item.name}}
                   </div>
                   <div class="time">
                     <span>

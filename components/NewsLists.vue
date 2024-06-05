@@ -282,6 +282,8 @@ const hangdleTab = (idx:number) =>{
             display: flex;
             position: relative;
             img{
+              width: 66px;
+              height: 66px;
               position: relative;
             }
           }

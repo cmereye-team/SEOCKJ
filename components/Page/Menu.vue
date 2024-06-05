@@ -215,7 +215,6 @@ const changlangsfun = (_type) =>{
   if(getCookie('zh_choose')) {
 		var zh_choose:any = getCookie('zh_choose');
     appState.setLangs(zh_choose);
-    console.log(appState)
 	}
 }
 
@@ -268,6 +267,21 @@ const headermbNav = [
 
 watch(route,()=>{
   menuBoxBool.value = false
+  showSearchBox.value = false
+})
+
+
+
+let showSearchBox = ref(false)
+const handleSearchIcon = () => {
+  showSearchBox.value = !showSearchBox.value
+}
+const changeStatic = ( data ) => {
+  showSearchBox.value = data
+}
+
+watch(showSearchBox,(n,o)=>{
+  document.body.style.overflow = n ? "hidden" : "auto"
 })
 </script>
 
@@ -328,17 +342,24 @@ watch(route,()=>{
                 </div>
               </div>
             </div>
+            <div class="menuItem menuItem-search">
+              <div class="menuItem-search-in" @click="handleSearchIcon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21" fill="none">
+                  <path d="M13.9922 15.6445C13.2503 16.136 12.5154 16.5066 11.721 16.7549C9.50314 17.4479 7.32315 17.3613 5.19566 16.4208C3.41845 15.6353 2.05693 14.4033 1.10765 12.7557C0.253034 11.2721 -0.099826 9.67442 0.0241054 7.97594C0.132545 6.48405 0.619665 5.11711 1.46567 3.87345C2.31339 2.62812 3.42534 1.65935 4.79288 0.96796C6.16129 0.276574 7.61749 -0.0407965 9.15889 0.00418517C11.0342 0.0583298 12.7211 0.634762 14.2177 1.72515C15.8839 2.93966 16.995 4.52818 17.5019 6.48488C18.0854 8.73563 17.7644 10.8814 16.5836 12.9039C16.396 13.2246 16.3762 13.1238 16.6533 13.3929C18.2317 14.924 19.8118 16.4533 21.3928 17.9819C21.8903 18.4625 22.1166 19.0289 21.941 19.702C21.6011 21.0023 19.934 21.4655 18.8944 20.44C18.1017 19.6579 17.2953 18.8898 16.4949 18.1152C15.71 17.3555 14.9243 16.5958 14.1411 15.8344C14.086 15.7811 14.0456 15.7145 13.9914 15.6445H13.9922ZM2.87969 8.59236C2.86764 11.7861 5.54938 14.3925 8.86885 14.4142C12.1728 14.4358 14.8942 11.8369 14.8942 8.61152C14.8942 5.36034 12.2004 2.79388 8.88865 2.79138C5.57864 2.78889 2.8926 5.38783 2.88055 8.59319L2.87969 8.59236Z" fill="#4D4D4D"/>
+                </svg>
+              </div>
+            </div>
           </div>
           <div class="icon">
             <div class="icon-lists">
-              <!-- <nuxt-link
+              <div
                 class="icon-lists-in"
-                to="#"
+                @click="handleSearchIcon"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21" fill="none">
                 <path d="M13.9922 15.6445C13.2503 16.136 12.5154 16.5066 11.721 16.7549C9.50314 17.4479 7.32315 17.3613 5.19566 16.4208C3.41845 15.6353 2.05693 14.4033 1.10765 12.7557C0.253034 11.2721 -0.099826 9.67442 0.0241054 7.97594C0.132545 6.48405 0.619665 5.11711 1.46567 3.87345C2.31339 2.62812 3.42534 1.65935 4.79288 0.96796C6.16129 0.276574 7.61749 -0.0407965 9.15889 0.00418517C11.0342 0.0583298 12.7211 0.634762 14.2177 1.72515C15.8839 2.93966 16.995 4.52818 17.5019 6.48488C18.0854 8.73563 17.7644 10.8814 16.5836 12.9039C16.396 13.2246 16.3762 13.1238 16.6533 13.3929C18.2317 14.924 19.8118 16.4533 21.3928 17.9819C21.8903 18.4625 22.1166 19.0289 21.941 19.702C21.6011 21.0023 19.934 21.4655 18.8944 20.44C18.1017 19.6579 17.2953 18.8898 16.4949 18.1152C15.71 17.3555 14.9243 16.5958 14.1411 15.8344C14.086 15.7811 14.0456 15.7145 13.9914 15.6445H13.9922ZM2.87969 8.59236C2.86764 11.7861 5.54938 14.3925 8.86885 14.4142C12.1728 14.4358 14.8942 11.8369 14.8942 8.61152C14.8942 5.36034 12.2004 2.79388 8.88865 2.79138C5.57864 2.78889 2.8926 5.38783 2.88055 8.59319L2.87969 8.59236Z" fill="#E15697"/>
                 </svg>
-              </nuxt-link> -->
+              </div>
               <div
                 class="icon-lists-in"
                 @click="glangs(appState.langs === 't'?'s':'t')"
@@ -441,10 +462,12 @@ watch(route,()=>{
         </div>
       </div>
     </div>
+    <Search :showSearchBox="showSearchBox" @changeStatic="changeStatic" />
   </div>
 </template>
 
 <style lang="scss" scoped>
+
 @keyframes contentIn {
   to{
     opacity: 1;
@@ -530,7 +553,6 @@ watch(route,()=>{
   position: relative;
   &-in {
     width: 100%;
-    // max-width: 1512px;
     display: flex;
     background: #fff;
     box-sizing: border-box;
@@ -562,9 +584,8 @@ watch(route,()=>{
           text-align: center;
         }
         &.langItem{
-          // padding: 0 20px 25px;
           .langItem-in{
-            padding: 0 10px;
+            padding: 0 20px;
           }
           .menuChild{
             .menuChild-item{
@@ -579,6 +600,15 @@ watch(route,()=>{
                   color: var(--indexColor1);
                 }
               }
+            }
+          }
+        }
+        &.menuItem-search{
+          .menuItem-search-in{
+            padding: 0 10px 7px;
+            svg{
+              width: 22px;
+              height: 21px;
             }
           }
         }
@@ -858,9 +888,17 @@ watch(route,()=>{
             padding: 0 1.0417vw;
           }
           &.langItem{
-            // padding: 0 1.0417vw 1.3021vw;
             .langItem-in{
               padding: 0 .5208vw;
+            }
+          }
+          &.menuItem-search{
+            .menuItem-search-in{
+              padding: 0 .5208vw .3646vw;
+              svg{
+                width: 1.1458vw;
+                height: 1.0938vw;
+              }
             }
           }
           .triangleIcon:after {

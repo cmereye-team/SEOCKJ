@@ -686,7 +686,7 @@ let _bool = ref(false)
       width: 100%;
       height: auto;
       background: #FFF;
-      // filter: drop-shadow(0 -3px 5px rgba(252, 22, 130, .3));
+      filter: drop-shadow(0 -3px 5px rgba(252, 22, 130, .3));
       position: fixed;
       bottom: 0;
       left: 0;
