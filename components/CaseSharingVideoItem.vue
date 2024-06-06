@@ -209,6 +209,7 @@ const props = defineProps({
         margin-top: 0;
         z-index: 1;
         color: var(--Blue-Deep, #00AEFF);
+        display: inline-block;
       }
       .text{
         font-size: 1rem;

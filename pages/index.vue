@@ -1039,7 +1039,7 @@ onMounted(()=>{
                 <div>
                   <img src="https://static.cmereye.com/imgs/2023/05/42202884c1b63259.png" alt="">
                 </div>
-                <div>中山大學光華口腔醫學院研究生課程深圳教學基地</div>
+                <div>中山大學光華口腔醫學院<br>研究生課程深圳教學基地</div>
               </div>
               <div>
                 <div>
@@ -2855,33 +2855,56 @@ svg:hover path{
   }
   .brand{
     margin-top: 50px;
+    display: flex;
+    flex-direction: column;
     &-title{
-      font-size: 26px;
-      &-in{
+      order: 2;
+      margin-bottom: 0;
+      .index_title{
+        font-size: 15px;
+        color: var(--indexColor1);
         &::after{
           display: none;
         }
       }
     }
     &-context{
-      margin-top: 8px;
-      font-size: 14px;
+      margin-top: 0px;
+      font-size: 15px;
+      color: var(--indexColor1);
+      &:nth-of-type(2){
+        order: 1;
+      }
+      &:nth-of-type(3){
+        order: 3;
+        margin-top: 4px;
+        color: var(--Blue-Deep, #00AEFF);
+      }
     }
     &-in{
+      order: 4;
       margin: 24.68px auto 0;
       padding: 0 21.5px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      padding: 0;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      overflow: hidden;
+      overflow-x: scroll;
+      max-width: 390px;
+      scroll-snap-type: x mandatory;
+      &::-webkit-scrollbar{
+        display: none;
+      }
       &>div,&>a{
-        flex: initial;
-        width: calc(100% / 3);
-        padding: 0 8.5px 10px;
+        width: 106px;
+        min-width: 106px;
+        padding: 0 12px 10px;
+        scroll-snap-align: center;
         &>div{
-          font-size: 8px;
+          font-size: 13px;
           &:first-child{
             img{
-              width: 80%;
+              width: 100%;
             }
           }
           &:last-child{

@@ -395,9 +395,7 @@ const handleProcessBtn = (_type: string) => {
                 <div>
                   <img src="https://static.cmereye.com/imgs/2023/05/42202884c1b63259.png" alt="">
                 </div>
-                <div>
-                中山大學光華口腔醫學院研究生課程深圳教學基地
-                </div>
+                <div>中山大學光華口腔醫學院<br>研究生課程深圳教學基地</div>
               </div>
               <div>
                 <div>
@@ -1522,8 +1520,9 @@ const handleProcessBtn = (_type: string) => {
     flex-direction: column;
     gap: 32px;
     margin-top: 32px;
-    padding: 0 17px;
+    padding: 0;
     &-l{
+      padding: 0 17px;
       .Medical-vouchers{
         &-in{
           .list-in{
@@ -1558,26 +1557,65 @@ const handleProcessBtn = (_type: string) => {
     }
   }
   .brand{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
     &-title{
-      margin-bottom: 12px;
+      order: 2;
+      margin-bottom: 0;
+      .index_title{
+        font-size: 15px;
+        color: var(--indexColor1);
+        &::after{
+          display: none;
+        }
+      }
     }
     &-context{
+      margin-top: 0px;
       font-size: 15px;
-      font-weight: 700;
+      color: var(--indexColor1);
+      &:nth-of-type(2){
+        order: 1;
+      }
+      &:nth-of-type(3){
+        order: 3;
+        margin-top: 4px;
+        color: var(--Blue-Deep, #00AEFF);
+      }
     }
     &-in{
-      margin: 22px auto 0;
+      order: 4;
+      margin: 24.68px auto 0;
+      padding: 0 21.5px;
+      padding: 0;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      overflow: hidden;
+      overflow-x: scroll;
+      max-width: 390px;
+      scroll-snap-type: x mandatory;
+      &::-webkit-scrollbar{
+        display: none;
+      }
       &>div,&>a{
-        width: 50%;
-        max-width: 50%;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 30px;
+        width: 106px;
+        min-width: 106px;
+        padding: 0 12px 10px;
+        scroll-snap-align: center;
         &>div{
           font-size: 13px;
-          margin-top: 10px;
+          &:first-child{
+            img{
+              width: 100%;
+            }
+          }
+          &:last-child{
+            margin-top: 6px;
+          }
+          img{
+            width: 100%;
+          }
         }
       }
     }
