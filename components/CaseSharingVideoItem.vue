@@ -171,15 +171,17 @@ const props = defineProps({
       }
     }
     &-r{
-      margin-left: 17px;
+      width: calc(100% - 150px);
       padding: 0;
+      padding-left: 17px;
+      
       display: initial;
       float: left;
       position: initial;
       .type{
         font-size: 15px;
         position: absolute;
-        bottom: 10px;
+        top: 130px;
         left: 9px;
         background: #00AEFF;
         color: #fff;
@@ -194,7 +196,6 @@ const props = defineProps({
         font-weight: 900;
         line-height: 160%; /* 24px */
         color: var(--indexColor1);
-        // width: calc(100% - 140px);
       }
       .skill{
         font-size: 15px;
@@ -209,7 +210,7 @@ const props = defineProps({
         margin-top: 0;
         z-index: 1;
         color: var(--Blue-Deep, #00AEFF);
-        display: inline-block;
+        display: inline;
       }
       .text{
         font-size: 1rem;
@@ -225,6 +226,7 @@ const props = defineProps({
       z-index: 1;
       margin-top: 0;
       float: left;
+      padding: 0;
       width: calc(100% - 150px);
       padding-left: 17px;
       .text{

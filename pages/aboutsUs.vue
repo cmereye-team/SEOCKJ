@@ -1593,7 +1593,7 @@ const handleProcessBtn = (_type: string) => {
       justify-content: flex-start;
       overflow: hidden;
       overflow-x: scroll;
-      max-width: 390px;
+      max-width: 100vw;
       scroll-snap-type: x mandatory;
       &::-webkit-scrollbar{
         display: none;
