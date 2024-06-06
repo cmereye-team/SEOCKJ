@@ -156,11 +156,14 @@ const props = defineProps({
 @media screen and (max-width: 768px) {
   .caseSaringVideoItem{
     flex-wrap: wrap;
-    padding: 0 30px;
+    padding: 0 17px;
     position: relative;
-    align-items: flex-end;
+    align-items: flex-start;
+    display: block;
     &-l{
-      width: 167px;
+      width: 150px;
+      display: inline-block;
+      float: left;
       img{
         width: 100%;
         height: auto;
@@ -168,25 +171,44 @@ const props = defineProps({
       }
     }
     &-r{
-      margin-left: 23px;
+      margin-left: 17px;
       padding: 0;
+      display: initial;
+      float: left;
+      position: initial;
       .type{
-        font-size: 20px;
+        font-size: 15px;
+        position: absolute;
+        bottom: 10px;
+        left: 9px;
+        background: #00AEFF;
+        color: #fff;
+        padding: 2px 20px 2px 10px;
+        clip-path: polygon(0 0, 100% 0, 90% 50%, 100% 100%, 0 100%);
       }
       .name{
         font-size: 20px;
         margin-top: 0;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 160%; /* 24px */
+        color: var(--indexColor1);
+        // width: calc(100% - 140px);
       }
       .skill{
-        font-size: 18px;
+        font-size: 15px;
         font-weight: 600;
-        margin-top: 3px;
+        margin-top: 0;
+        color: var(--Blue-Deep, #00AEFF);
+        display: inline-block;
       }
       .process{
-        font-size: 18px;
+        font-size: 15px;
         font-weight: 600;
-        margin-top: 9px;
+        margin-top: 0;
         z-index: 1;
+        color: var(--Blue-Deep, #00AEFF);
       }
       .text{
         font-size: 1rem;
@@ -198,15 +220,19 @@ const props = defineProps({
       }
     }
     &-mb{
-      display: block;
+      display: inline;
       z-index: 1;
-      margin-top: 23px;
+      margin-top: 0;
+      float: left;
+      width: calc(100% - 150px);
+      padding-left: 17px;
       .text{
         font-style: normal;
         font-weight: 500;
-        font-size: 16px;
+        font-size: 14px;
         line-height: 160%;
         color: #666666;
+        display: initial;
       }
     }
   }

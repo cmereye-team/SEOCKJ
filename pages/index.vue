@@ -2643,10 +2643,16 @@ svg:hover path{
     }
     &-detail{
       flex-direction: column;
-      padding: 0;
+      padding: 0 17px;
       margin-top: 30px;
+      position: relative;
       &-l{
-        width: 100%;
+        width: 169px;
+        height: 230px;
+        overflow: hidden;
+        position: absolute;
+        left: 17px;
+        top: 0;
         &-in{
           &::after{
             display: none;
@@ -2656,10 +2662,14 @@ svg:hover path{
           border-radius: 0;
           &:nth-of-type(1){
             border: none;
+            width: 169px;
+            height: 230px;
           }
           &:nth-of-type(2){
-            height: 100%;
-            max-height: 90%;
+            max-width: 130%;
+            width: 130%;
+            height: auto;
+            max-height: 100%;
             left: 50%;
             top: auto;
             bottom: 0;
@@ -2671,50 +2681,96 @@ svg:hover path{
         }
       }
       &-r{
+        // display: inline;
+        display: flex;
+        flex-direction: column;
         .detail-1{
+          order: 1;
           margin: 5px 0;
-          padding: 0 30px;
+          padding: 0;
+          // width: calc(100% - 180px);
+          width: auto;
+          padding-left: 180px;
           span{
-            font-size: 18px;
-            display: inline-block;
+            font-size: 15px;
+            display: block;
+            letter-spacing: 1.5px;
             &:nth-of-type(1){
               font-size: 30px;
-              letter-spacing: 2px;
+              letter-spacing: 6px;
               margin-right: 5px;
             }
           }
         }
         .detail-2{
+          order: 2;
+          width: auto;
+          padding-left: 180px;
           span{
             width: 100%;
-            font-size: 20px;
-            padding: 5px 75px 5px 30px;
-            clip-path: polygon(0 0, 85% 0, 90% 100%, 0 100%);
+            font-size: 15px;
+            padding: 5px 15px 5px 10px;
+            clip-path: polygon(0 0, 95% 0, 100% 100%, 0 100%);
+            display: -webkit-box;  
+            -webkit-line-clamp: 2; 
+            line-clamp: 2; 
+            -webkit-box-orient: vertical;  
+            overflow: hidden;  
+            text-overflow: ellipsis;
           }
         }
         .detail-3{
+          order: 3;
           margin-top: 10px;
-          padding: 0 30px;
-          font-size: 16px;
+          margin-bottom: 10px;
+          padding: 0;
+          font-size: 14px;
+          width: auto;
+          padding-left: 180px;
+          display: -webkit-box;  
+          -webkit-line-clamp: 1; 
+          line-clamp: 1; 
+          -webkit-box-orient: vertical;  
+          overflow: hidden;  
+          text-overflow: ellipsis; 
         }
         .detail-4{
-          font-size: 16px;
-          padding: 0 30px;
+          order: 5;
+          font-size: 14px;
+          padding: 0;
           margin-bottom: 30px;
+          margin-top: 20px;
           span{
             text-align: justify;
           }
         }
         .detail-5{
           font-size: 12px;
-          padding: 0 30px;
+          padding: 0;
           display: flex;
-          justify-content: center;
+          flex-direction: column;
+          align-items: flex-start;
+          order: 4;
+          width: auto;
+          padding-left: 180px;
+          min-height: 67px;
+          span{
+            display: inline-block;
+            &:not(:last-child){
+              margin-right: 40px;
+            }
+            margin-right: 40px;
+            &::before{
+              content: '#';
+            }
+          }
         }
         .detail-6{
+          order: 6;
           display: flex;
           justify-content: center;
           margin-left: 0;
+          margin-top: 10px;
           span{
             font-size: 28px;
           }
@@ -2727,6 +2783,10 @@ svg:hover path{
     padding: 0;
     background:none;
     margin-top: 30px;
+    &-title{
+      justify-content: flex-start;
+      padding: 0 20px;
+    }
     &-in{
       width: 100%;
       margin: 35px auto 0;

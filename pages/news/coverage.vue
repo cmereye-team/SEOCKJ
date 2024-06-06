@@ -43,6 +43,7 @@ let saveData = ref({
   actPageNum_1: 0,
   totalPageNum: 1
 })
+let isPc = ref(false)
 
 const getNewsLists = async () => {
   PageSize.value = width.value > 768 ? 6 : 10
@@ -199,7 +200,7 @@ const handleListsType = async (idx) => {
   }
 }
 
-let isPc = ref(false)
+
 watch(width,(n,o)=>{
   if(n <= 768){
     if(isPc.value){
