@@ -56,7 +56,7 @@ const goAnchor = (_hash: any)=>{
 const bannerConfig = [
   {
     pcImg: `https://static.cmereye.com/imgs/2024/06/cf7029ad23e91361.jpg`,
-    mbImg: `https://static.cmereye.com/imgs/2024/02/5289ce266f8e363e.jpg`,
+    mbImg: `https://static.cmereye.com/imgs/2024/06/7fe170de5b3fb0e8.jpg`,
   }
 ]
 
