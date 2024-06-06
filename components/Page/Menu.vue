@@ -4,6 +4,7 @@ import { Autoplay } from 'swiper';
 import { useAppState } from '~/stores/appState'
 import { toWhatsApp,smallPhoneNum,whatsapplink } from '~/assets/js/common'
 import serviceLists from '~/assets/js/service'
+import { ElLoading } from 'element-plus'
 const route = useRoute()
 const appState = useAppState()
 defineProps({
@@ -163,15 +164,7 @@ const imgBgHeight = ref({
   offsetHeight: 0,
 })
 
-onMounted(() => {
-  setTimeout(() => {
-    if(route.path.includes('/cn')){
-      changlangsfun('s')
-    }else{
-      appState.setLangs('t');
-    }
-  }, 500)
-})
+
 
 const handleMbMenu = () => {
   if (!window.navigator.onLine) {
@@ -183,40 +176,7 @@ const handleMbMenu = () => {
   }
 }
 
-
 const router = useRouter()
-const glangs = (_type) =>{
-  let _a = [
-    {
-      lable: 'hk',
-      value: 't'
-    },
-    {
-      lable: 'cn',
-      value: 's'
-    }
-  ]
-  let _b = _a.find(item=>item.value === _type)
-  let _str = route.path.slice(0,3)
-  let _arr = ['404','test','/news-tooth-wiki','/news-information','/article']
-  if(!_arr.some(str => route.path?.indexOf(str) !== -1)) {
-    if(_str === '/cn' || _str === '/hk'){
-      let _url = route.path
-      let _url_new = _url.replace(_url.slice(0,3),_b ? '/'+_b.lable : '')
-      router.push(_url_new)
-    }else{
-      router.push(`${_b ? '/'+_b.lable : ''}${route.path}`)
-    }
-  }
-  // changlangsfun(_type)
-}
-const changlangsfun = (_type) =>{
-  zh_tran(_type)
-  if(getCookie('zh_choose')) {
-		var zh_choose:any = getCookie('zh_choose');
-    appState.setLangs(zh_choose);
-	}
-}
 
 let _bool = ref(false)
 const handlecopywechatcode = () =>{
@@ -265,14 +225,69 @@ const headermbNav = [
   }
 ]
 
+
+const glangs = (_type) =>{
+  let _a = [
+    {
+      lable: 'hk',
+      value: 't'
+    },
+    {
+      lable: 'cn',
+      value: 's'
+    }
+  ]
+  let _b = _a.find(item=>item.value === _type)
+  let _str = route.path.slice(0,3)
+  let _arr = ['404','test','/news-tooth-wiki','/news-information','/article']
+  if(!_arr.some(str => route.path?.indexOf(str) !== -1)) {
+    if(_str === '/cn' || _str === '/hk'){
+      let _url = route.path
+      let _url_new = _url.replace(_url.slice(0,3),_b ? '/'+_b.lable : '')
+      router.push(_url_new)
+    }else{
+      router.push(`${_b ? '/'+_b.lable : ''}${route.path}`)
+    }
+  }else{
+    changlangsfun(_type)
+  }
+}
+const changlangsfun = (_type) =>{
+  zh_tran(_type)
+  if(getCookie('zh_choose')) {
+		var zh_choose:any = getCookie('zh_choose');
+    appState.setLangs(zh_choose);
+	}
+}
+let isT = ref(true)
+onMounted(() => {
+  setTimeout(() => {
+    if(route.path.includes('/cn')){
+      changlangsfun('s')
+      isT.value = false
+    }else{
+      appState.setLangs('t');
+    }
+  }, 500)
+})
 watch(route,(n,o)=>{
   menuBoxBool.value = false
   showSearchBox.value = false
   nextTick(()=>{
-    if(route.path.includes('/cn')){
-      changlangsfun('s')
+    if(n.path.includes('/cn')){
+      // changlangsfun('s')
+      const loading = ElLoading.service({
+        lock: true,
+        text: '簡體翻譯中...',
+        background: 'rgba(0, 0, 0, 0.7)',
+      })
+      setTimeout(()=>{
+        changlangsfun('s')
+        isT.value = false
+        loading.close()
+      },1000)
     }else{
-      changlangsfun('t')
+      if(!isT.value) changlangsfun('t')
     }
   })
 })
