@@ -361,7 +361,8 @@ const handlebgShow = () =>{
   .search{
     &-in{
       width: 90%;
-      max-height: 80vh;
+      max-height: 70%;
+      top: 10%;
       padding: 10px 15px;
       &-c{
         margin-top: 15px;
