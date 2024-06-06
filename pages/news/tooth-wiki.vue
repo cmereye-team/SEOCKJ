@@ -158,12 +158,12 @@ const getPagination = (pageitem) => {
 }
 const shareFacebook = (event,id) =>{
   event.preventDefault();
-  window.open(`https://www.facebook.com/sharer/sharer.php?u=https://www.ckjhk.com/news/news-tooth-wiki/${id}`)  
+  window.open(`https://www.facebook.com/sharer/sharer.php?u=https://www.ckjofficial.com/news/news-tooth-wiki/${id}`)  
 }
 function copySpecifiedText(event,text) {  
   event.preventDefault();
     if (navigator.clipboard) {  
-        navigator.clipboard.writeText(`https://www.ckjhk.com/news/news-tooth-wiki/${text}`).then(function() {  
+        navigator.clipboard.writeText(`https://www.ckjofficial.com/news/news-tooth-wiki/${text}`).then(function() {  
           ElMessage({
             showClose: true,
             message: '已複製到剪切板',

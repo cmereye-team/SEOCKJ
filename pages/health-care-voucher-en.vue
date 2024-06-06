@@ -243,8 +243,8 @@ const pageDetail:any = {
         },
         {
           type: 'indexColor a',
-          text: 'https://ckjhk.com/health-care-voucher',
-          link: 'https://ckjhk.com/health-care-voucher'
+          text: 'https://www.ckjofficial.com/health-care-voucher',
+          link: 'https://www.ckjofficial.com/health-care-voucher'
         }
       ],
       className: 'nob'

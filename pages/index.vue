@@ -510,6 +510,7 @@ const getVideosLists = async (order = 'date',loading = false,retuse = []) =>{
           name: item.title || '',
           time: formatDate(item.date) || '',
           videos: item.ext_videosurl || '',
+          shareUrl: item.source || '',
           hashtag: [null,''].includes(item.tags) ? [] : item.tags.split(',')
         }
       })
@@ -993,7 +994,7 @@ onMounted(()=>{
           <NewsLists :listsConfig="newsListsConfig_1" @changeNewsCur="changeNewsCur_1" />
         </div>
         <div class="newsListsBox">
-          <NewsLists :listsConfig="newsListsConfig_2" :thameType="'2'" @changeNewsCur="changeNewsCur_2" />
+          <NewsLists :listsConfig="newsListsConfig_2" :thameType="'2'" @changeNewsCur="changeNewsCur_2" :isOuterChain="true" />
         </div>
         <div class="newsListsBox">
           <NewsLists :listsConfig="newsListsConfig_3" :thameType="'3'" @changeNewsCur="changeNewsCur_3" />

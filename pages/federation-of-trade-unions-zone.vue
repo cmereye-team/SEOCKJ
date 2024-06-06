@@ -19,7 +19,7 @@ useHead({
       name: 'author',
       content: '愛康健口腔醫院',
     },
-    { property: 'og:image', content: 'https://www.ckjhk.com/favicon.ico' }
+    { property: 'og:image', content: 'https://www.ckjofficial.com/favicon.ico' }
   ],
 })
 

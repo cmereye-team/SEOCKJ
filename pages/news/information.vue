@@ -151,12 +151,12 @@ if(process.server){
 
 const shareFacebook = (event,id) =>{
   event.preventDefault();
-  window.open(`https://www.facebook.com/sharer/sharer.php?u=https://www.ckjhk.com/news/news-information/${id}`)  
+  window.open(`https://www.facebook.com/sharer/sharer.php?u=https://www.ckjofficial.com/news/news-information/${id}`)  
 }
 function copySpecifiedText(event,text) {  
   event.preventDefault();
     if (navigator.clipboard) {  
-        navigator.clipboard.writeText(`https://www.ckjhk.com/news/news-information/${text}`).then(function() {  
+        navigator.clipboard.writeText(`https://www.ckjofficial.com/news/news-information/${text}`).then(function() {  
           ElMessage({
             showClose: true,
             message: '已複製到剪切板',
@@ -202,7 +202,7 @@ const mbListsConfig = ref({
   title: '',
   tab: ['最熱門','最新'],
   lists: [],
-  linkL: '/news/article/'
+  linkL: '/news/news-information/'
 })
 const handleListsType = async (idx) => {
   if(curTab.value === idx) return

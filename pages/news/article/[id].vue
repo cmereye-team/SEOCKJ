@@ -59,7 +59,7 @@ useHead({
     {
       property: 'og:url',
       content: ()=>{
-        return 'https://www.ckjhk.com/news/article/' + coverageDeatail.value.id
+        return 'https://www.ckjofficial.com/news/article/' + coverageDeatail.value.id
       },
     },
     {
@@ -280,7 +280,7 @@ if(process.server){
               <div>更新時間︰{{coverageDeatail.time}}</div>
               <div class="righeBox">
                 <span class="copy" title="複製鏈接" @click="copyText"></span>
-                <a :href="`https://www.facebook.com/sharer/sharer.php?u=https://www.ckjhk.com/news/article/${_nid}`" target="_block" class="facebook" title="分享facebook"></a>
+                <a :href="`https://www.facebook.com/sharer/sharer.php?u=https://www.ckjofficial.com/news/article/${_nid}`" target="_block" class="facebook" title="分享facebook"></a>
               </div>
             </div>
             <div class="news" v-if="pageType === '1'">

@@ -21,6 +21,10 @@ const props = defineProps({
   defaultCur: {
     type: Number,
     default: 0
+  },
+  isOuterChain:{
+    type: Boolean,
+    default: false
   }
 })
 
@@ -33,6 +37,44 @@ const hangdleTab = (idx:number) =>{
 onMounted(()=>{
   newsLists_cur_tab.value = props.defaultCur === 2 ? 0 : props.defaultCur
 })
+
+let actShowShare = ref('')
+const handleClick = (event,_id) =>{
+  event.preventDefault();
+  if(actShowShare.value === _id){
+    actShowShare.value = ''
+  }else{
+    actShowShare.value = _id
+  }
+}
+const shareFacebook = (event,id) =>{
+  event.preventDefault();
+  let _origin = location.origin ? location.origin : 'https://www.ckjofficial.com'
+  let _url = props.isOuterChain ? `https://www.facebook.com/sharer/sharer.php?u=${id}` : `https://www.facebook.com/sharer/sharer.php?u=${_origin}${props.listsConfig.linkL}${id}`
+  window.open(_url)  
+}
+function copySpecifiedText(event,text) {
+  let _origin = location.origin ? location.origin : 'https://www.ckjofficial.com'
+  let _url = props.isOuterChain ? text : `${_origin}${props.listsConfig.linkL}${text}`
+  event.preventDefault();
+    if (navigator.clipboard) {  
+        navigator.clipboard.writeText(_url).then(function() {  
+          ElMessage({
+            showClose: true,
+            message: '已複製到剪切板',
+            type: 'success',
+          }) 
+        }, function(err) {
+            ElMessage({
+              showClose: true,
+              message: '操作異常，請刷新頁面試試',
+              type: 'warning',
+            })
+        });  
+    } else {  
+        alert('您的瀏覽器不支持此功能，請更新瀏覽器');  
+    }  
+}
 </script>
 
 <template>
@@ -103,7 +145,14 @@ onMounted(()=>{
             <span v-for="(tagItem,tagIndex) in item.hashtag" :key="tagIndex">{{tagItem}}</span>
           </div>
           <div class="list-in-b-r">
-            {{item.time}}
+            <span>{{item.time}}</span>
+            <div class="shareIcon" @click.stop="handleClick($event, item.id)" alt="">
+              <div :class="['shareIcon-img',{ act: actShowShare === item.id }]" alt="分享" title="分享"><img src="@/assets/images/icon_47.svg" alt=""></div>
+              <div class="shareIcon-in" v-if="actShowShare === item.id">
+                <div class="shareIcon-in-item" @click="shareFacebook($event,isOuterChain ? item.shareUrl : item.id)" alt="Facebook 分享" title="Facebook 分享"><img src="@/assets/images/icon_49.svg" alt=""><span>Facebook 分享</span></div>
+                <div class="shareIcon-in-item" @click="copySpecifiedText($event,isOuterChain ? item.shareUrl : item.id)" alt="複製連結" title="複製連結"><img src="@/assets/images/icon_48.svg" alt=""><span>複製連結</span></div>
+              </div>
+            </div>
           </div>
         </div>
       </nuxtLink>
@@ -203,10 +252,11 @@ onMounted(()=>{
       }
       &-b{
         display: grid;
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: 2fr 1.5fr;
         padding: 5px 0;
         border-top: 1px solid #aaa;
         border-bottom: 1px solid #aaa;
+        align-items: center;
         &-l{
           font-size: 18px;
           letter-spacing: 1.8px;
@@ -233,6 +283,63 @@ onMounted(()=>{
           color: #aaa;
           display: flex;
           justify-content: flex-end;
+          align-items: center;
+          .shareIcon{
+            position: relative;
+            margin-left: 15px;
+            padding-right: 5px;
+            &-img{
+              width: 25px;
+              height: 25px;
+              // padding: 5px;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              position: relative;
+              border: 1px solid #aaa;
+              z-index: 21;
+              &>img{
+                width: 16px;
+                height: auto;
+              }
+              &.act{
+                border: none;
+              }
+            }
+            &-in{
+              position: absolute;
+              z-index: 20;
+              top: 0;
+              right: 2.5px;
+              width: 159px;
+              height: 115px;
+              background: url(https://static.cmereye.com/static/ckj/imgs/default/shareIcon.svg);
+              background-size: 100% 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-end;
+              filter: drop-shadow(0 2px 3px rgba(0,0,0,.3));
+              padding: 12px 0;
+              &-item{
+                display: flex;
+                align-items: center;
+                padding: 5px 10px;
+                margin: 0 2px;
+                border-radius: 3px;
+                &>img{
+                  width: 20px;
+                  margin-right: 5px;
+                }
+                &>span{
+                  font-size: 14px;
+                }
+                &:hover{
+                  background: #F6F6F6;
+                }
+              }
+            }
+          }
         }
       }
     }
