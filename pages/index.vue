@@ -664,19 +664,6 @@ const getNewsData = async (actType = 14,_url = '/news/article/', actPageNum = 10
   return retuse
 }
 
-
-
-onMounted(()=>{
-  handletab2('101')
-  setTimeout(()=>{
-    handlemedia_coverage(0)
-    changeNewsCur_1(0)
-    changeNewsCur_2(0)
-    changeNewsCur_3(0)
-    handle_news_tab(0)
-  },0)
-})
-
 let actShowShare = ref('')
 const handleClick = (event,_id) =>{
   event.preventDefault();
@@ -713,6 +700,23 @@ function copySpecifiedText(event,text,link,isOuterChain = false) {
     } else {  
         alert('您的瀏覽器不支持此功能，請更新瀏覽器');  
     }  
+}
+onMounted(()=>{
+  handletab2('101')
+  setTimeout(()=>{
+    handlemedia_coverage(0)
+    changeNewsCur_1(0)
+    changeNewsCur_2(0)
+    changeNewsCur_3(0)
+    handle_news_tab(0)
+  },0)
+})
+if(process.server){
+  handlemedia_coverage(0)
+  changeNewsCur_1(0)
+  changeNewsCur_2(0)
+  changeNewsCur_3(0)
+  handle_news_tab(0)
 }
 </script>
 
