@@ -268,13 +268,13 @@ const headermbNav = [
 watch(route,(n,o)=>{
   menuBoxBool.value = false
   showSearchBox.value = false
-  setTimeout(() => {
+  nextTick(()=>{
     if(route.path.includes('/cn')){
       changlangsfun('s')
     }else{
       changlangsfun('t')
     }
-  }, 500)
+  })
 })
 
 
