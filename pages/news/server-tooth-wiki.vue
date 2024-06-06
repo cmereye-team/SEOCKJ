@@ -71,7 +71,7 @@ onMounted(()=>{
   // })
 })
 if(process.server){
-  // getServerNewsLists()
+  getServerNewsLists()
 }else{
   // getServerNewsLists()
 }

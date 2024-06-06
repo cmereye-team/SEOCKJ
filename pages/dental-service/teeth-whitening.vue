@@ -444,10 +444,10 @@ const handley = (bool = false) => {
             </div>
             <div class="effect-r-t-b">
               <div class="l" @click="handley(true)">
-                <img src="https://static.cmereye.com/imgs/2024/05/cf4e7a6037ff4d3c.png" alt="">
+                <img src="https://static.cmereye.com/imgs/2024/06/67272a02cb6e14d1.png" alt="">
               </div>
               <div class="r" @click="handley()">
-                <img src="https://static.cmereye.com/imgs/2024/05/688a272087d1bced.png" alt="">
+                <img src="https://static.cmereye.com/imgs/2024/06/dfa0cb5fd7e63c4e.png" alt="">
               </div>
             </div>
             <div class="effect-r-t-h" v-if="effectImgCur === '5'">
@@ -1017,24 +1017,78 @@ const handley = (bool = false) => {
       }
       &-b{
         position: absolute;
-        bottom: 40px;
-        right: 40px;
+        bottom: 50px;
+        right: 50px;
         display: flex;
         align-items: flex-end;
         z-index: 3;
         .l{
           cursor: pointer;
-          width: 63px;
+          width: 57px;
+          position: relative;
           img{
+            position: relative;
             width: 100%;
+            z-index: 1;
+            transition: all .3s;
+          }
+          &::after{
+            content: '';
+            position: absolute;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--indexColor1);
+            border-radius: 50%;
+            left: 8px;
+            top: 8px;
+          }
+          &:hover{
+            img{
+              transform: translate(3px,3px);
+            }
+          }
+          &:active{
+            img{
+              transform: translate(6px,6px);
+            }
           }
         }
         .r{
           cursor: pointer;
-          width: 104px;
+          width: 96px;
           margin-left: 6px;
+          position: relative;
           img{
             width: 100%;
+            transition: all .3s;
+            position: relative;
+            z-index: 1;
+            animation: effectbia 4s infinite;
+            animation-delay: 1s;
+          }
+          &::after{
+            content: '';
+            position: absolute;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--indexColor1);
+            border-radius: 50%;
+            left: 8px;
+            top: 8px;
+          }
+          &:hover{
+            img{
+              transform: translate(3px,3px);
+              animation: none;
+            }
+          }
+          &:active{
+            img{
+              transform: translate(6px,6px);
+              animation: none;
+            }
           }
         } 
       }
@@ -1073,6 +1127,26 @@ const handley = (bool = false) => {
     height: 212px;
     background: #F8CDCD;
     z-index: -1;
+  }
+}
+@keyframes effectbia {
+  0%{
+    transform: translate(0,0);
+  }
+  10%{
+    transform: translate(3px,3px);
+  }
+  20%{
+    transform: translate(0,0);
+  }
+  30%{
+    transform: translate(3px,3px);
+  }
+  40%{
+    transform: translate(0,0);
+  }
+  100%{
+    transform: translate(0,0);
   }
 }
 @keyframes hanim {
@@ -1338,14 +1412,42 @@ const handley = (bool = false) => {
           }
         }
         &-b{
-          bottom: 2.0833vw;
-          right: 2.0833vw;
+          bottom: 2.6042vw;
+          right: 2.6042vw;
           .l{
-            width: 3.2813vw;
+            width: 2.9688vw;
+            &::after{
+              left: .4167vw;
+              top: .4167vw;
+            }
+            &:hover{
+              img{
+                transform: translate(.1563vw,.1563vw);
+              }
+            }
+            &:active{
+              img{
+                transform: translate(.3125vw,.3125vw);
+              }
+            }
           }
           .r{
-            width: 5.4167vw;
+            width: 5vw;
             margin-left: .3125vw;
+            &::after{
+              left: .4167vw;
+              top: .4167vw;
+            }
+            &:hover{
+              img{
+                transform: translate(.1563vw,.1563vw);
+              }
+            }
+            &:active{
+              img{
+                transform: translate(6px,6px);
+              }
+            }
           } 
         }
         &-h{
@@ -1363,6 +1465,26 @@ const handley = (bool = false) => {
       height: 11.0417vw;
     }
   }
+  @keyframes effectbia {
+  0%{
+    transform: translate(0,0);
+  }
+  10%{
+    transform: translate(.1563vw,.1563vw);
+  }
+  20%{
+    transform: translate(0,0);
+  }
+  30%{
+    transform: translate(.1563vw,.1563vw);
+  }
+  40%{
+    transform: translate(0,0);
+  }
+  100%{
+    transform: translate(0,0);
+  }
+}
 }
 
 @media only screen and (max-width: 768px) {
@@ -1738,11 +1860,41 @@ const handley = (bool = false) => {
           }
         }
         &-b{
+          right: 40px;
+          bottom: 40px;
           .l{
-            width: 46px;
+            width: 40px;
+            &::after{
+              left: 5px;
+              top: 5px;
+            }
+            &:hover{
+              img{
+                transform: none;
+              }
+            }
+            &:active{
+              img{
+                transform: translate(4px,4px);
+              }
+            }
           }
           .r{
-            width: 76px;
+            width: 68px;
+            &::after{
+              left: 5px;
+              top: 5px;
+            }
+            &:hover{
+              img{
+                transform: none;
+              }
+            }
+            &:active{
+              img{
+                transform: translate(4px,4px);
+              }
+            }
           }
         }
         &-h{
@@ -1764,5 +1916,25 @@ const handley = (bool = false) => {
 
     }
   }
+  @keyframes effectbia {
+  0%{
+    transform: translate(0,0);
+  }
+  10%{
+    transform: translate(3px,3px);
+  }
+  20%{
+    transform: translate(0,0);
+  }
+  30%{
+    transform: translate(3px,3px);
+  }
+  40%{
+    transform: translate(0,0);
+  }
+  100%{
+    transform: translate(0,0);
+  }
+}
 }
 </style>
