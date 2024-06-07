@@ -272,6 +272,40 @@ const setSwiperRef = (swiper:any) => {
 const handleProcessBtn = (_type: string) => {
   swiperRef[_type]();
 }
+
+let actShowShare = ref('')
+const handleClick = (event,_id) =>{
+  event.preventDefault();
+  if(actShowShare.value === _id){
+    actShowShare.value = ''
+  }else{
+    actShowShare.value = _id
+  }
+}
+const shareFacebook = (event,id,link) =>{
+  event.preventDefault();
+  window.open(`https://www.facebook.com/sharer/sharer.php?u=https://www.ckjofficial.com${link}`)  
+}
+function copySpecifiedText(event,id,link) {  
+  event.preventDefault();
+    if (navigator.clipboard) {  
+        navigator.clipboard.writeText(`https://www.ckjofficial.com${link}`).then(function() {  
+          ElMessage({
+            showClose: true,
+            message: '已複製到剪切板',
+            type: 'success',
+          }) 
+        }, function(err) {
+            ElMessage({
+              showClose: true,
+              message: '操作異常，請刷新頁面試試',
+              type: 'warning',
+            })
+        });  
+    } else {  
+        alert('您的瀏覽器不支持此功能，請更新瀏覽器');  
+    }  
+}
 </script>
 
 <template>
@@ -327,7 +361,14 @@ const handleProcessBtn = (_type: string) => {
                   <span>#團體交流</span>
                 </div>
                 <div class="list-in-b-r">
-                  2023年12月15日
+                  <span>2023年12月15日</span>
+                  <div class="shareIcon" @click.stop="handleClick($event,'1')" alt="">
+                    <div :class="['shareIcon-img',{ act: actShowShare === '1' }]" alt="分享" title="分享"><img src="@/assets/images/icon_47.svg" alt=""></div>
+                    <div class="shareIcon-in" v-if="actShowShare === '1'">
+                      <div class="shareIcon-in-item" @click="shareFacebook($event,'1','/brand/action-message')" alt="Facebook 分享" title="Facebook 分享"><img src="@/assets/images/icon_49.svg" alt=""><span>Facebook 分享</span></div>
+                      <div class="shareIcon-in-item" @click="copySpecifiedText($event,'1','/brand/action-message')" alt="複製連結" title="複製連結"><img src="@/assets/images/icon_48.svg" alt=""><span>複製連結</span></div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </nuxtLink>
@@ -356,7 +397,14 @@ const handleProcessBtn = (_type: string) => {
                   <span>#政府政策</span>
                 </div>
                 <div class="list-in-b-r">
-                  2023年12月15日
+                  <span>2024年2月19日</span>
+                  <div class="shareIcon" @click.stop="handleClick($event,'2')" alt="">
+                    <div :class="['shareIcon-img',{ act: actShowShare === '2' }]" alt="分享" title="分享"><img src="@/assets/images/icon_47.svg" alt=""></div>
+                    <div class="shareIcon-in" v-if="actShowShare === '2'">
+                      <div class="shareIcon-in-item" @click="shareFacebook($event,'2','/health-care-voucher')" alt="Facebook 分享" title="Facebook 分享"><img src="@/assets/images/icon_49.svg" alt=""><span>Facebook 分享</span></div>
+                      <div class="shareIcon-in-item" @click="copySpecifiedText($event,'2','/health-care-voucher')" alt="複製連結" title="複製連結"><img src="@/assets/images/icon_48.svg" alt=""><span>複製連結</span></div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </nuxtLink>
@@ -796,10 +844,11 @@ const handleProcessBtn = (_type: string) => {
       }
       &-b{
         display: grid;
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: 2fr 1.5fr;
         padding: 5px 0;
         border-top: 1px solid #aaa;
         border-bottom: 1px solid #aaa;
+        align-items: center;
         &-l{
           font-size: 18px;
           letter-spacing: 1.8px;
@@ -827,6 +876,63 @@ const handleProcessBtn = (_type: string) => {
           color: #aaa;
           display: flex;
           justify-content: flex-end;
+          align-items: center;
+          .shareIcon{
+              position: relative;
+              margin-left: 15px;
+              padding-right: 5px;
+              &-img{
+                width: 25px;
+                height: 25px;
+                // padding: 5px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                border: 1px solid #aaa;
+                z-index: 21;
+                &>img{
+                  width: 16px;
+                  height: auto;
+                }
+                &.act{
+                  border: none;
+                }
+              }
+              &-in{
+                position: absolute;
+                z-index: 20;
+                top: 0;
+                right: 2.5px;
+                width: 159px;
+                height: 115px;
+                background: url(https://static.cmereye.com/static/ckj/imgs/default/shareIcon.svg);
+                background-size: 100% 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                filter: drop-shadow(0 2px 3px rgba(0,0,0,.3));
+                padding: 12px 0;
+                &-item{
+                  display: flex;
+                  align-items: center;
+                  padding: 5px 10px;
+                  margin: 0 2px;
+                  border-radius: 3px;
+                  &>img{
+                    width: 20px;
+                    margin-right: 5px;
+                  }
+                  &>span{
+                    font-size: 14px;
+                  }
+                  &:hover{
+                    background: #F6F6F6;
+                  }
+                }
+              }
+            }
         }
       }
     }
@@ -867,100 +973,158 @@ const handleProcessBtn = (_type: string) => {
       }
       &-in{
         border-top: 1px solid #E15697;
-      .list-in{
-        padding-top: 15px;
-        display: block;
-        &-t{
-          display: grid;
-          grid-template-columns: 1fr 1.7fr;
-          gap: 19px;
-          align-items: center;
-          padding-bottom: 15px;
-          &-l{
-            width: 100%;
-            img{
+        .list-in{
+          padding-top: 15px;
+          display: block;
+          &-t{
+            display: grid;
+            grid-template-columns: 1fr 1.7fr;
+            gap: 19px;
+            align-items: center;
+            padding-bottom: 15px;
+            &-l{
               width: 100%;
+              img{
+                width: 100%;
+              }
+            }
+            &-r{
+              flex: 1;
+              h2{
+                display: -webkit-box;  
+                -webkit-line-clamp: 2; 
+                line-clamp: 2; 
+                -webkit-box-orient: vertical;  
+                overflow: hidden;  
+                text-overflow: ellipsis;
+                color: var(--indexColor1);
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 140%;
+              }
+              p{
+                display: -webkit-box;  
+                -webkit-line-clamp: 3; 
+                line-clamp: 3; 
+                -webkit-box-orient: vertical;  
+                overflow: hidden;  
+                text-overflow: ellipsis;
+                font-size: 12px;
+                font-weight: 700;
+                line-height: 133%;
+                color: var(--textColor);
+              }
             }
           }
-          &-r{
-            flex: 1;
-            h2{
-              display: -webkit-box;  
-              -webkit-line-clamp: 2; 
-              line-clamp: 2; 
-              -webkit-box-orient: vertical;  
-              overflow: hidden;  
-              text-overflow: ellipsis;
-              color: var(--indexColor1);
+          &-b{
+            display: grid;
+            grid-template-columns: 2fr 1.5fr;
+            padding: 5px 0;
+            border-top: 1px solid #aaa;
+            border-bottom: 1px solid #aaa;
+            align-items: center;
+            &-l{
+              font-size: 18px;
+              letter-spacing: 1.8px;
+              position: relative;
+              text-decoration: underline;
+              overflow: hidden;
+              white-space: nowrap;
+              span{
+                margin-right: 10px;
+                color: var(--textColor);
+              }
+              &::after{
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 80px;
+                height: 100%;
+                background: linear-gradient(90deg,rgba(255, 255, 255, 0),#fff);
+              }
+            }
+            &-r{
+              background: #fff;
               font-size: 20px;
-              font-weight: 700;
-              line-height: 140%;
-            }
-            p{
-              display: -webkit-box;  
-              -webkit-line-clamp: 3; 
-              line-clamp: 3; 
-              -webkit-box-orient: vertical;  
-              overflow: hidden;  
-              text-overflow: ellipsis;
-              font-size: 12px;
-              font-weight: 700;
-              line-height: 133%;
-              color: var(--textColor);
+              color: #aaa;
+              display: flex;
+              justify-content: flex-end;
+              align-items: center;
+              .shareIcon{
+              position: relative;
+              margin-left: 15px;
+              padding-right: 5px;
+              &-img{
+                width: 25px;
+                height: 25px;
+                // padding: 5px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                border: 1px solid #aaa;
+                z-index: 21;
+                &>img{
+                  width: 16px;
+                  height: auto;
+                }
+                &.act{
+                  border: none;
+                }
+              }
+              &-in{
+                position: absolute;
+                z-index: 20;
+                top: 0;
+                right: 2.5px;
+                width: 159px;
+                height: 115px;
+                background: url(https://static.cmereye.com/static/ckj/imgs/default/shareIcon.svg);
+                background-size: 100% 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                filter: drop-shadow(0 2px 3px rgba(0,0,0,.3));
+                padding: 12px 0;
+                &-item{
+                  display: flex;
+                  align-items: center;
+                  padding: 5px 10px;
+                  margin: 0 2px;
+                  border-radius: 3px;
+                  &>img{
+                    width: 20px;
+                    margin-right: 5px;
+                  }
+                  &>span{
+                    font-size: 14px;
+                  }
+                  &:hover{
+                    background: #F6F6F6;
+                  }
+                }
+              }
+              }
             }
           }
         }
-        &-b{
-          display: grid;
-          grid-template-columns: 2fr 1fr;
+        .btn{
+          color: var(--Grey-Deep, #4D4D4D);
+          text-align: justify;
+          font-family: "Noto Serif CJK TC";
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 160%;
+          border-radius: 2px;
+          border: 1px solid var(--Grey-Deep, #4D4D4D);
+          display: block;
+          margin-top: 10px;
           padding: 5px 0;
-          border-top: 1px solid #aaa;
-          border-bottom: 1px solid #aaa;
-          &-l{
-            font-size: 18px;
-            letter-spacing: 1.8px;
-            position: relative;
-            text-decoration: underline;
-            overflow: hidden;
-            white-space: nowrap;
-            span{
-              margin-right: 10px;
-              color: var(--textColor);
-            }
-            &::after{
-              content: '';
-              position: absolute;
-              top: 0;
-              right: 0;
-              width: 80px;
-              height: 100%;
-              background: linear-gradient(90deg,rgba(255, 255, 255, 0),#fff);
-            }
-          }
-          &-r{
-            background: #fff;
-            font-size: 20px;
-            color: #aaa;
-            display: flex;
-            justify-content: flex-end;
-          }
+          text-align: center;
         }
-      }
-      .btn{
-      color: var(--Grey-Deep, #4D4D4D);
-      text-align: justify;
-      font-family: "Noto Serif CJK TC";
-      font-size: 20px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 160%;
-      border-radius: 2px;
-      border: 1px solid var(--Grey-Deep, #4D4D4D);
-      display: block;
-      margin-top: 10px;
-      padding: 5px 0;
-      text-align: center;
-    }
       }
     }
   }

@@ -420,6 +420,7 @@ function copySpecifiedText(event,text) {
               width: 66px;
               height: 66px;
               position: relative;
+              box-shadow: 1px 1px 3px rgba(0, 0, 0, .5);
             }
           }
           &-r{
