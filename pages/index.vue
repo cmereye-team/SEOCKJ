@@ -701,6 +701,9 @@ function copySpecifiedText(event,text,link,isOuterChain = false) {
         alert('您的瀏覽器不支持此功能，請更新瀏覽器');  
     }  
 }
+
+const activeNames = ref(0)
+
 onMounted(()=>{
   handletab2('101')
   setTimeout(()=>{
@@ -823,9 +826,20 @@ if(process.server){
               </div>
             </div>
             <div class="lists">
-              <div class="lists-in" v-for="(item,index) in Dental_knowledge[Dental_knowledge_cur_tab].lists" :key="index">
+              <el-collapse v-model="activeNames" accordion>
+                <el-collapse-item v-for="(item,index) in Dental_knowledge[Dental_knowledge_cur_tab].lists" :key="index" :name="index">
+                  <template #title>
+                    <div class="lists-title">{{$t(item.Q)}}</div>
+                  </template>
+                  <div class="lists-context">
+                    <!-- <span>A</span> -->
+                    <span>{{$t(item.A)}}</span>
+                  </div>
+                </el-collapse-item>
+              </el-collapse>
+              <!-- <div class="lists-in" v-for="(item,index) in Dental_knowledge[Dental_knowledge_cur_tab].lists" :key="index">
                 {{$t(item.Q)}}
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="Dental_knowledge-content-r">
@@ -1785,13 +1799,22 @@ svg:hover path{
       }
       .lists{
         &-in{
+          // font-size: 20px;
+          // color: var(--textColor);
+          // padding:  16px 0;
+          // border-bottom: 1px solid #aaa;
+          // &:first-child{
+          //   border-top: 1px solid #aaa;
+          // }
+        }
+        &-title{
           font-size: 20px;
           color: var(--textColor);
-          padding:  16px 0;
-          border-bottom: 1px solid #aaa;
-          &:first-child{
-            border-top: 1px solid #aaa;
-          }
+        }
+        &-context{
+          font-size: 14px;
+          color: var(--textColor);
+          white-space: pre-wrap;
         }
       }
     }
@@ -2573,6 +2596,12 @@ svg:hover path{
             font-size: 1.0417vw;
             padding: .8333vw 0;
           }
+          &-title{
+            font-size: 1.0417vw;
+          }
+          &-context{
+            font-size: .7292vw;
+          }
         }
       }
     }
@@ -3203,6 +3232,12 @@ svg:hover path{
             padding: 5px 0;
             font-size: 14px;
             text-decoration: underline;
+          }
+          &-title{
+            font-size: 14px;
+          }
+          &-context{
+            font-size: 12px;
           }
         }
       }
