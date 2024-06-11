@@ -135,7 +135,7 @@ const pageDetail:any = {
     {
       type: 'img',
       list: [
-        'https://static.cmereye.com/imgs/2024/04/327adc16a8cc097b.jpg',
+        'https://static.cmereye.com/imgs/2024/06/3333f1a2e79eeb16.webp',
       ],
       className: 'imgone'
     },

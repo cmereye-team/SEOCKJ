@@ -585,7 +585,7 @@ const PromotionProject = [
     link: '/dental-service/fillings'
   }
 ]
-const bannerConfig = [
+const bannerConfig = ref([
   {
     pcImg: 'https://static.cmereye.com/imgs/2024/04/02e0cbb29d86af90.webp',
     mbImg: 'https://static.cmereye.com/imgs/2024/02/afdfd3c22104497f.webp',
@@ -614,7 +614,7 @@ const bannerConfig = [
     title: '深圳愛康健口腔醫院banner',
     alt: '深圳愛康健口腔醫院banner'
   }
-]
+])
 
 let youtobeBox_cur_tab = ref(0)
 const handleyoutobeTab = (idx) => {
@@ -713,6 +713,9 @@ onMounted(()=>{
     changeNewsCur_3(0)
     handle_news_tab(0)
   },0)
+  bannerConfig.value.sort(function(){
+    return Math.random() - 0.5
+  })
 })
 if(process.server){
   handlemedia_coverage(0)
