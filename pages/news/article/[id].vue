@@ -26,6 +26,10 @@ let coverageDeatail = ref({
   btnText: '',
   btnLink: '',
   hashtag: [],
+  nextId: '',
+  nextTitle: '',
+  preId: '',
+  preTitle: ''
 })
 useHead({
   title: pageType.value === '1'?'媒體報導': '最新資訊',
@@ -146,6 +150,10 @@ const getDetail = async () => {
         btnText: _data.ext_news_btn_text || '',
         btnLink: _data.ext_news_btn_link || '',
         hashtag: _data.ext_news_hashtag.split(',') || [],
+        nextId: _data.nextId || '',
+        nextTitle: _data.nextTitle || '',
+        preId: _data.preId || '',
+        preTitle: _data.preTitle || ''
       }
       changeassociationData(JSON.parse(_data.ext_news_association || "[]"))
     }
@@ -160,19 +168,15 @@ const toassociation = (_id) => {
 }
 
 const changeassociationData = (_data:any) =>{
+  associationData.value.isshowprev = coverageDeatail.value.preId !== ''
+  associationData.value.isshownext = coverageDeatail.value.nextId !== ''
+  associationData.value.prev_id = coverageDeatail.value.preId
+  associationData.value.next_id = coverageDeatail.value.nextId
+  associationData.value.prev_title = coverageDeatail.value.preTitle
+  associationData.value.next_title = coverageDeatail.value.nextTitle
   if(Array.isArray(_data)){
     _data.forEach(item=>{
-      if(item.type === 'prev'){
-        if(item.id){
-          associationData.value.isshowprev = true
-          associationData.value.prev_id = item.id
-        }
-      }else if(item.type === 'next'){
-        if(item.id){
-          associationData.value.isshownext = true
-          associationData.value.next_id = item.id
-        }
-      }else if(item.type === 'association'){
+      if(item.type === 'association'){
         associationData.value.lists = [
           ...item.lists
         ]
@@ -185,7 +189,9 @@ let associationData = ref({
   isshowprev: false,
   isshownext: false,
   prev_id: '',
+  prev_title: '',
   next_id: '',
+  next_title: '',
   lists: <any>[]
 })
 
@@ -215,10 +221,6 @@ const handlegetData = () =>{
 
 
 if(process.server){
-  // console.log('server');
-  getDetail()
-}else{
-  // console.log('client');
   getDetail()
 }
 </script>
@@ -291,9 +293,9 @@ if(process.server){
               <span>{{coverageDeatail.news_tag}}</span>
             </div>
             <div class="btn">
-              <el-button :style="{background: (!associationData.isshowprev ? '#FF85AF': '#FC1682')}" :disabled="!associationData.isshowprev" @click="toassociation(associationData.prev_id)">上一篇</el-button>
+              <el-button :title="associationData.prev_title" :style="{background: (!associationData.isshowprev ? '#FF85AF': '#FC1682')}" :disabled="!associationData.isshowprev" @click="toassociation(associationData.prev_id)">上一篇</el-button>
               <nuxt-link :to="pageType === '1' ? '/news/coverage': '/news/information'">返回所有文章目錄</nuxt-link>
-              <el-button :style="{background: (!associationData.isshownext ? '#FF85AF': '#FC1682')}" :disabled="!associationData.isshownext" @click="toassociation(associationData.next_id)">下一篇</el-button>
+              <el-button :title="associationData.next_title" :style="{background: (!associationData.isshownext ? '#FF85AF': '#FC1682')}" :disabled="!associationData.isshownext" @click="toassociation(associationData.next_id)">下一篇</el-button>
               <!-- <a href="#" v-disabled="true">下一篇</a> -->
             </div>
           </div>

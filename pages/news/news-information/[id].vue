@@ -21,7 +21,11 @@ let coverageDeatail = ref({
   pics: [],
   btnText: '',
   btnLink: '',
-  videos: ''
+  videos: '',
+  nextId: '',
+  nextTitle: '',
+  preId: '',
+  preTitle: ''
 })
 useHead({
   title: '最新資訊',
@@ -141,9 +145,12 @@ const getDetail = async () => {
         }) || [],
         btnText: _data.ext_news_btn_text || '',
         btnLink: _data.ext_news_btn_link || '',
-        videos: _data.ext_news_videos || ''
+        videos: _data.ext_news_videos || '',
+        nextId: _data.nextId || '',
+        nextTitle: _data.nextTitle || '',
+        preId: _data.preId || '',
+        preTitle: _data.preTitle || ''
       }
-      
       changeassociationData(JSON.parse(_data.ext_news_association || "[]"))
     }
   }catch{
@@ -155,43 +162,16 @@ const getDetail = async () => {
 const toassociation = (_id) => {
   router.push(`/news/news-information/${_id}`)
 }
-  // [
-  //   {
-  //     type: 'prev',
-  //     id: '31',
-  //   },
-  //   {
-  //     type: 'next',
-  //     id: '32',
-  //   },
-  //   {
-  //     type: 'association',
-  //     lists: [
-  //       {
-  //         id: '31',
-  //         title: 'hahahahaha'
-  //       },
-  //       {
-  //         id: '32',
-  //         title: 'hahahahah'
-  //       }
-  //     ]
-  //   }
-  // ]
 const changeassociationData = (_data:any) =>{
+  associationData.value.isshowprev = coverageDeatail.value.preId !== ''
+  associationData.value.isshownext = coverageDeatail.value.nextId !== ''
+  associationData.value.prev_id = coverageDeatail.value.preId
+  associationData.value.next_id = coverageDeatail.value.nextId
+  associationData.value.prev_title = coverageDeatail.value.preTitle
+  associationData.value.next_title = coverageDeatail.value.nextTitle
   if(Array.isArray(_data)){
     _data.forEach(item=>{
-      if(item.type === 'prev'){
-        if(item.id){
-          associationData.value.isshowprev = true
-          associationData.value.prev_id = item.id
-        }
-      }else if(item.type === 'next'){
-        if(item.id){
-          associationData.value.isshownext = true
-          associationData.value.next_id = item.id
-        }
-      }else if(item.type === 'association'){
+      if(item.type === 'association'){
         associationData.value.lists = [
           ...item.lists
         ]
@@ -204,7 +184,9 @@ let associationData = ref({
   isshowprev: false,
   isshownext: false,
   prev_id: '',
+  prev_title: '',
   next_id: '',
+  next_title: '',
   lists: <any>[]
 })
 
@@ -301,9 +283,9 @@ if(process.server){
               </div>
             </div>
             <div class="btn">
-              <el-button :style="{background: (!associationData.isshowprev ? '#FF85AF': '#FC1682')}" :disabled="!associationData.isshowprev" @click="toassociation(associationData.prev_id)">上一篇</el-button>
+              <el-button :title="associationData.prev_title" :style="{background: (!associationData.isshowprev ? '#FF85AF': '#FC1682')}" :disabled="!associationData.isshowprev" @click="toassociation(associationData.prev_id)">上一篇</el-button>
               <nuxt-link :to="'/news/information'">返回所有文章目錄</nuxt-link>
-              <el-button :style="{background: (!associationData.isshownext ? '#FF85AF': '#FC1682')}" :disabled="!associationData.isshownext" @click="toassociation(associationData.next_id)">下一篇</el-button>
+              <el-button :title="associationData.next_title" :style="{background: (!associationData.isshownext ? '#FF85AF': '#FC1682')}" :disabled="!associationData.isshownext" @click="toassociation(associationData.next_id)">下一篇</el-button>
               <!-- <a href="#" v-disabled="true">下一篇</a> -->
             </div>
           </div>
