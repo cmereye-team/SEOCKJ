@@ -55,6 +55,11 @@ let linkConfig = [
     name: '醫生分享',
     scode: '18',
     link: ''
+  },
+  {
+    name: '頁面配置',
+    scode: '19',
+    link: ''
   }
 ]
 
@@ -68,11 +73,21 @@ const getUrl = (data) => {
     _a.type = obj.name
     if(obj.scode === '18'){
       _a.link = data.ext_videosurl
+    }else if(obj.scode === '19'){
+      _a.link = data.source
     }else{
       _a.link = `${obj.link}${data.id}`
     }
   }
   return _a
+}
+
+const getImg = (data) => {
+  if(data.scode === '19'){
+    return data.ext_banner_mb.indexOf('/static/upload/') !== -1 ? `https://admin.ckjhk.com${data.ext_banner_mb}`:data.ext_banner_mb
+  }else{
+    return data.ico.indexOf('/static/upload/') !== -1 ? `https://admin.ckjhk.com${data.ico}`:data.ico
+  }
 }
 
 const getData = async () => {
@@ -92,7 +107,7 @@ const getData = async () => {
       let _searchLists = res.data.map(item=>{
         return{
           id: item.id || '',
-          img: (item.ico.indexOf('/static/upload/image') !== -1 ? `https://admin.ckjhk.com${item.ico}`:item.ico) || '',
+          img: getImg(item) || '',
           name: item.title || '',
           // time: formatDate(item.update_time) || '',
           scode: item.scode,

@@ -583,6 +583,30 @@ const PromotionProject = [
   {
     img: 'https://static.cmereye.com/imgs/2024/05/3531e78ba5e86dca.jpg',
     link: '/dental-service/fillings'
+  },
+  {
+    img: 'https://static.cmereye.com/imgs/2024/05/9946e846e1d0eb4e.jpg',
+    link: '/dental-service/veneers'
+  },
+  {
+    img: 'https://static.cmereye.com/imgs/2024/05/f4663be0c2b9aa78.jpg',
+    link: '/dental-service/invisiblebraces'
+  },
+  {
+    img: 'https://static.cmereye.com/imgs/2024/05/dddeb382b720f94f.jpg',
+    link: '/dental-service/orthodontics'
+  },
+  {
+    img: 'https://static.cmereye.com/imgs/2024/05/58d7b2ff7c0e8069.jpg',
+    link: '/dental-service/implant'
+  },
+  {
+    img: 'https://static.cmereye.com/imgs/2024/05/68255af5b5d127c8.jpg',
+    link: '/dental-service/scaling-and-polishing'
+  },
+  {
+    img: 'https://static.cmereye.com/imgs/2024/05/3531e78ba5e86dca.jpg',
+    link: '/dental-service/fillings'
   }
 ]
 const bannerConfig = ref([

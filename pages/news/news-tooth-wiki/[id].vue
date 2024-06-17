@@ -235,7 +235,7 @@ if(process.server){
 
 <template>
   <div>
-    <PageBanner :bannerConfig="bannerConfig" />
+    <PageBanner :isApiConfig="true" :apiId="'186'" />
     <div class="pageIn whitebgColor articlePage">
       <div class="articlePage-title">
         <div class="index_title">牙齒百科</div>
@@ -296,9 +296,9 @@ if(process.server){
               </div>
             </div>
             <div class="btn">
-              <el-button :title="associationData.prev_title" :style="{background: (!associationData.isshowprev ? '#FF85AF': '#FC1682'),opacity:(associationData.isshowprev?1:0)}" :disabled="!associationData.isshowprev" @click="toassociation(associationData.prev_id)">上一篇</el-button>
+              <el-button :title="associationData.prev_title" :style="{background: (!associationData.isshowprev ? '#FF85AF': '#E15697'),opacity:(associationData.isshowprev?1:0)}" :disabled="!associationData.isshowprev" @click="toassociation(associationData.prev_id)">上一篇</el-button>
               <nuxt-link :to="'/news/tooth-wiki'">返回所有文章目錄</nuxt-link>
-              <el-button :title="associationData.next_title" :style="{background: (!associationData.isshownext ? '#FF85AF': '#FC1682'),opacity:(associationData.isshownext?1:0)}" :disabled="!associationData.isshownext" @click="toassociation(associationData.next_id)">下一篇</el-button>
+              <el-button :title="associationData.next_title" :style="{background: (!associationData.isshownext ? '#FF85AF': '#E15697'),opacity:(associationData.isshownext?1:0)}" :disabled="!associationData.isshownext" @click="toassociation(associationData.next_id)">下一篇</el-button>
               <!-- <a href="#" v-disabled="true">下一篇</a> -->
             </div>
           </div>

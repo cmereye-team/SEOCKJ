@@ -207,7 +207,7 @@ const pageDetail:any = {
 
 <template>
   <div>
-    <PageBanner :bannerConfig="bannerConfig" />
+    <PageBanner :isApiConfig="true" :apiId="'185'" />
     <div class="health-care-voucher pageIn whitebgColor">
       <div class="smallPageCon health-care-voucher-top">
         <div class="index_title health-care-voucher-title">工聯會專區</div>

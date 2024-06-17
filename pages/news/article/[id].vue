@@ -227,7 +227,7 @@ if(process.server){
 
 <template>
   <div>
-    <PageBanner :bannerConfig="bannerConfig" />
+    <PageBanner :isApiConfig="true" :apiId="'186'" />
     <div class="pageIn whitebgColor articlePage">
       <div class="articlePage-title">
         <div class="index_title">{{pageType.value === '2'?'最新資訊': '媒體報導'}}</div>
@@ -293,9 +293,9 @@ if(process.server){
               <span>{{coverageDeatail.news_tag}}</span>
             </div>
             <div class="btn">
-              <el-button :title="associationData.prev_title" :style="{background: (!associationData.isshowprev ? '#FF85AF': '#FC1682')}" :disabled="!associationData.isshowprev" @click="toassociation(associationData.prev_id)">上一篇</el-button>
+              <el-button :title="associationData.prev_title" :style="{background: (!associationData.isshowprev ? '#FF85AF': '#E15697')}" :disabled="!associationData.isshowprev" @click="toassociation(associationData.prev_id)">上一篇</el-button>
               <nuxt-link :to="pageType === '1' ? '/news/coverage': '/news/information'">返回所有文章目錄</nuxt-link>
-              <el-button :title="associationData.next_title" :style="{background: (!associationData.isshownext ? '#FF85AF': '#FC1682')}" :disabled="!associationData.isshownext" @click="toassociation(associationData.next_id)">下一篇</el-button>
+              <el-button :title="associationData.next_title" :style="{background: (!associationData.isshownext ? '#FF85AF': '#E15697')}" :disabled="!associationData.isshownext" @click="toassociation(associationData.next_id)">下一篇</el-button>
               <!-- <a href="#" v-disabled="true">下一篇</a> -->
             </div>
           </div>

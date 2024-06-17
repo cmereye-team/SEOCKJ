@@ -172,7 +172,7 @@ const problemData = {
 
 <template>
 <div>
-  <PageBanner :bannerConfig="bannerConfig" />
+  <PageBanner :isApiConfig="true" :apiId="'180'" />
   <div class="pageIn whitebgColor">
     <div class="smallPageCon pageTitle">
       <div class="index_title">{{$t('pages.dental-service.title')}}</div>

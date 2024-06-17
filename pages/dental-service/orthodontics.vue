@@ -299,7 +299,7 @@ const careData = {
 
 <template>
 <div>
-  <PageBanner :bannerConfig="bannerConfig" />
+  <PageBanner :isApiConfig="true" :apiId="'173'" />
   <div class="orthodonticsPage">
     <div class="smallPageCon pageTitle">
       <div class="index_title">{{$t('pages.dental-service.title')}}</div>

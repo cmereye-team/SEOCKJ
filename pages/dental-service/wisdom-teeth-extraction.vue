@@ -19,13 +19,6 @@ useHead({
   ]
 })
 
-const bannerConfig = [
-  {
-    pcImg: 'https://static.cmereye.com/imgs/2024/05/76485b8792a5142e.png',
-    mbImg: 'https://static.cmereye.com/imgs/2024/06/2059e886af41a326.jpg',
-  }
-]
-
 const orthodonticsIntroduceData = {
   title: 'pages.dental-service.wisdom-teeth-extraction.introduce.title',
   content: 'pages.dental-service.wisdom-teeth-extraction.introduce.content',
@@ -429,7 +422,7 @@ const caseLists = [
 
 <template>
 <div>
-  <PageBanner :bannerConfig="bannerConfig" />
+  <PageBanner :isApiConfig="true" :apiId="'168'" />
   <div class="pageIn whitebgColor">
     <div class="smallPageCon pageTitle">
       <div class="index_title">{{$t('pages.dental-service.title')}}</div>

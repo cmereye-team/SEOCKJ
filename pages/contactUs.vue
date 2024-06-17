@@ -128,7 +128,7 @@ onMounted(() => {
 
 <template>
   <div>
-    <PageBanner :bannerConfig="bannerConfig" />
+    <PageBanner :isApiConfig="true" :apiId="'184'" />
     <div class="contactUs">
       <NewAddress />
       <div class="serviceCard">

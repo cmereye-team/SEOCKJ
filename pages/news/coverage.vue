@@ -220,7 +220,7 @@ watch(width,(n,o)=>{
 
 <template>
   <div>
-    <PageBanner :bannerConfig="bannerConfig" />
+    <PageBanner :isApiConfig="true" :apiId="'186'" />
     <div class="pageIn whitebgColor coveragePage">
       <div class="coveragePage-title" id="coverage">
         <div class="index_title">

@@ -166,7 +166,7 @@ const doctorTeam = ref(null)
 
 <template>
   <div>
-    <PageBanner :bannerConfig="bannerConfig" />
+    <PageBanner :isApiConfig="true" :apiId="'183'" />
     <div class="doctorPage">
       <div class="doctorPage-in smallPageCon">
         <div class="index_title">{{$t('pages.medical_team.title')}}</div>

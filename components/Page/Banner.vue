@@ -9,7 +9,7 @@ interface bannerInterface {
   title: string,
   alt: string
 }
-defineProps({
+const props = defineProps({
   bannerConfig:{
     type: Array<bannerInterface>,
     default(){
@@ -19,6 +19,14 @@ defineProps({
   smallLine: {
     type: Boolean,
     default: false
+  },
+  isApiConfig: {
+    type: Boolean,
+    default: false
+  },
+  apiId: {
+    type: String,
+    default: ''
   }
 })
 let bannerCur = ref(1)
@@ -35,6 +43,19 @@ const setBannerSwiperRef = (swiper:any) => {
 const onSlideChange = (swiper:any) => {
   bannerCur.value = (swiper.realIndex ? Number(swiper.realIndex) : 0) + 1
 }
+
+let apiBannerConfig:any = ref([])
+const getBanner = async () => {
+  const res = await bannerApi(props.apiId)
+  apiBannerConfig.value = [res]
+}
+onMounted(()=>{
+  if(props.isApiConfig){
+    setTimeout(()=>{
+      getBanner()
+    }, 0)
+  }
+})
 </script>
 
 <template>
@@ -45,7 +66,7 @@ const onSlideChange = (swiper:any) => {
             :autoplay="{
               delay: 3000,
             }" class="pageBanner-swiper" @swiper="setBannerSwiperRef" @slideChange="onSlideChange">
-        <Swiper-slide v-for="(item,index) in bannerConfig" :key="index">
+        <Swiper-slide v-for="(item,index) in isApiConfig ? apiBannerConfig : bannerConfig" :key="index">
           <nuxtLink class="pageCon" :to="[null,undefined,''].includes(item.link) ? 'javaScript:void(0)' : item.link">
             <img :srcset="`${item.mbImg} 768w, ${item.pcImg}`" :src="item.pcImg" :alt="item.alt && item.alt" :title="item.title && item.title">
           </nuxtLink>

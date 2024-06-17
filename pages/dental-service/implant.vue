@@ -3,6 +3,8 @@ import { useAppState } from '~/stores/appState'
 import { Autoplay } from 'swiper';
 import { toWhatsApp } from '~/assets/js/common'
 import { useElementBounding,useWindowSize } from '@vueuse/core'
+import { bannerApi } from '~/utils/bannerApi'
+
 const appState = useAppState()
 appState.setDentistryService('implant')
 useHead({
@@ -20,13 +22,6 @@ useHead({
    },
   ]
 })
-
-const bannerConfig = [
-  {
-    pcImg: 'https://static.cmereye.com/imgs/2024/06/c7331d32919bcad4.jpg',
-    mbImg: 'https://static.cmereye.com/imgs/2024/03/b16577acd828007a.jpg',
-  }
-]
 
 const introduceData = {
   title: 'pages.dental-service.implant.introduce.title',
@@ -339,22 +334,15 @@ const onSlideChange = (swiper:any) => {
   noticeCurrent.value = swiper.realIndex + 1
 }
 
-let windowWidth = ref(1920)
 
 let showYaAnim = ref(false)
 
 
 onMounted(()=>{
-  getWindowWidth()
-  window.addEventListener('resize',getWindowWidth)
   window.addEventListener('contextmenu', function(e) {  
     e.preventDefault();  
   });
 })
-
-const getWindowWidth = () => {
-  windowWidth.value = window.innerWidth
-}
 
 let implantCaseCurrent = ref(1)
 
@@ -590,7 +578,7 @@ const doctorTeam = ref(null)
 
 <template>
   <div>
-    <PageBanner :bannerConfig="bannerConfig" />
+    <PageBanner :isApiConfig="true" :apiId="'167'" />
     <div class="dentistryServices">
       <div class="smallPageCon pageTitle">
       <div class="index_title">{{$t('pages.dental-service.title')}}</div>

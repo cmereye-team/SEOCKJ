@@ -238,7 +238,7 @@ watch(width,(n,o)=>{
 
 <template>
   <div>
-    <PageBanner :bannerConfig="bannerConfig" />
+    <PageBanner :isApiConfig="true" :apiId="'186'" />
     <div class="pageIn whitebgColor informationPage">
       <div class="informationPage-title" id="information">
         <div class="index_title">最新資訊</div>

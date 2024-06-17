@@ -310,7 +310,7 @@ function copySpecifiedText(event,id,link) {
 
 <template>
   <div>
-    <PageBanner :bannerConfig="bannerConfig" />
+    <PageBanner :isApiConfig="true" :apiId="'187'" />
     <div class="pageIn whitebgColor">
       <div class="smallPageCon aboutsUs-title">
         <div class="index_title">關於我們</div>
@@ -1343,6 +1343,46 @@ function copySpecifiedText(event,id,link) {
   }
   .course{
     margin-top: 120px;
+  }
+  .course-action{
+    &-in{
+      margin-bottom: 3.2813vw;
+      .list-in{
+        padding-top: .7813vw;
+        &-t{
+          gap: .9896vw;
+          padding-bottom: .7813vw;
+          &-r{
+            h2{
+              font-size: 1.0417vw;
+            }
+            p{
+              font-size: .625vw;
+            }
+          }
+        }
+        &-b{
+          padding: .2604vw 0;
+          &-l{
+            font-size: .9375vw;
+            span{
+              margin-right: .5208vw;
+            }
+            &::after{
+              width: 4.1667vw;
+            }
+          }
+          &-r{
+            font-size: 1.0417vw;
+          }
+        }
+      }
+      .btn{
+        font-size: 1.0417vw;
+        margin-top: .5208vw;
+        padding: .2604vw 0;
+      }
+    }
   }
   .setionBox{
     margin-top: 5.0521vw;
