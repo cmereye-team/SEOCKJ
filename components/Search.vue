@@ -147,6 +147,14 @@ let searchLists = ref([] as Array<listTypes>);
 const handlebgShow = () =>{
   emits('changeStatic',false)
 }
+
+onMounted(()=>{
+
+})
+
+//监听时候按下回车键
+
+
 </script>
 
 <template>
@@ -164,7 +172,7 @@ const handlebgShow = () =>{
           </div>
         </div>
         <div class="search-in-c">
-          <input type="text" v-model="Keywords" maxlength="30" placeholder="輸入搜索内容">
+          <input type="text" v-model="Keywords" maxlength="30" placeholder="輸入搜索内容" @keyup.enter="handleSearchBtn">
           <div class="btn" @click.stop="handleSearchBtn">
             搜索
           </div>
@@ -192,8 +200,8 @@ const handlebgShow = () =>{
           <div class="message">
             <section v-if="!searchLists.length">暫無搜索内容</section>
             <section v-else>
-              <!-- 已顯示 <span>{{searchLists.length}}</span> 條記錄， -->
-              共 <span>{{totalPageNum}}</span> 條搜索結果
+              已顯示 <span>{{searchLists.length}}</span> 條記錄
+              <!-- 共 <span>{{totalPageNum}}</span> 條搜索結果 -->
             </section>
           </div>
         </div>
