@@ -27,7 +27,6 @@ const bannerApi = async (apiId = '', params = {}) => {
   return result
 }
 
-//接口封裝
 export {
   bannerApi
 }

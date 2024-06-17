@@ -609,36 +609,7 @@ const PromotionProject = [
     link: '/dental-service/fillings'
   }
 ]
-const bannerConfig = ref([
-  {
-    pcImg: 'https://static.cmereye.com/imgs/2024/04/02e0cbb29d86af90.webp',
-    mbImg: 'https://static.cmereye.com/imgs/2024/02/afdfd3c22104497f.webp',
-    link: '/health-care-voucher',
-    title: '灣區長者醫療券banner',
-    alt: '灣區長者醫療券banner'
-  },
-  {
-    pcImg: 'https://static.cmereye.com/imgs/2024/04/ea3b6c9d7c7c2cc6.webp',
-    mbImg: 'https://static.cmereye.com/imgs/2024/02/216458f63817b47e.jpg?v=1.2.0',
-    link: 'https://bit.ly/愛康健裕亨新店開業優惠',
-    title: '愛康健裕亨新店開業優惠banner',
-    alt: '愛康健裕亨新店開業優惠banner'
-  },
-  {
-    pcImg: 'https://static.cmereye.com/imgs/2024/04/df1e63bdd93c3504.webp',
-    mbImg: 'https://static.cmereye.com/imgs/2024/03/f3f241b74364a6b7.jpg?v=1.2.0',
-    link: '/medical-team',
-    title: '醫生團隊banner',
-    alt: '醫生團隊banner'
-  },
-  {
-    pcImg: 'https://static.cmereye.com/imgs/2024/04/cf5124d2a6d53efd.webp',
-    mbImg: 'https://static.cmereye.com/imgs/2024/03/4abbdd7326af4cc3.webp',
-    link: '',
-    title: '深圳愛康健口腔醫院banner',
-    alt: '深圳愛康健口腔醫院banner'
-  }
-])
+const bannerConfig = ref([])
 
 let youtobeBox_cur_tab = ref(0)
 const handleyoutobeTab = (idx) => {
@@ -728,9 +699,35 @@ function copySpecifiedText(event,text,link,isOuterChain = false) {
 
 const activeNames = ref(0)
 
+let banner_type = ref(1)
+const getBanner = async () => {
+  try{
+    const _res:any = await useFetch(`https://admin.ckjhk.com/api.php/cms/slide/gid/${banner_type.value}`,{
+      method: 'post',
+    });
+    let res = JSON.parse(_res.data.value) || null
+    if(res){
+      let _data = res.data
+      bannerConfig.value = _data.map(item=>{
+        return {
+          pcImg: (item.pic.indexOf('/static/upload/') !== -1 ? `https://admin.ckjhk.com${item.pic}`:item.pic) || '',
+          mbImg: (item.pic.indexOf('/static/upload/') !== -1 ? `https://admin.ckjhk.com${item.pic}`:item.pic) || '',
+          link: item.link || '',
+          title: item.title || '',
+          alt: item.subtitle === '' ? item.title : item.subtitle
+        }
+      })
+    }
+  }catch(e){
+    console.log(e)
+  }
+}
+
 onMounted(()=>{
   handletab2('101')
+  banner_type.value = width.value>768?1:2
   setTimeout(()=>{
+    getBanner()
     handlemedia_coverage(0)
     changeNewsCur_1(0)
     changeNewsCur_2(0)
