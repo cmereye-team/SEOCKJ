@@ -10,7 +10,9 @@ const allAddressLists = addressLists
 
 
 const handleAddress = (_idx:any) => {
+  if(currentAddress.value === _idx) return
   currentAddress.value = _idx
+  imgcur.value = 0
   changeImgCurTime()
 }
 

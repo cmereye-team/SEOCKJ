@@ -19,13 +19,13 @@ export default [
   },
   {
     name: 'service.veneers',
-    imgUrl: 'https://static.cmereye.com/imgs/2024/03/7d185f6b12c595d6.png',
+    imgUrl: 'https://static.cmereye.com/imgs/2024/06/bcb673f2ee240eaa.png',
     link: '/dental-service/veneers',
     isHot: true
   },
   {
     name: 'service.toothtray',
-    imgUrl: 'https://static.cmereye.com/imgs/2024/03/9a75f911d1492e41.png',
+    imgUrl: 'https://static.cmereye.com/imgs/2024/06/1e6c96d45a76e78c.png',
     link: '/dental-service/toothtray',
     isHot: true
   },

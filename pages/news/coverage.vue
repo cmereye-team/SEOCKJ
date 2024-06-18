@@ -307,7 +307,7 @@ watch(width,(n,o)=>{
       </div>
       <!-- <div @click="getData">获取数据</div> -->
       <nuxtLink :to="whatsapplink" class="bigPageCon whatsappLink">
-        <img style="width:100%;" src="https://static.cmereye.com/imgs/2024/06/71d5adf71dddd841.jpg" alt="">
+        <img style="width:100%;" srcset="https://static.cmereye.com/imgs/2024/06/efe552a37181d177.png 768w,https://static.cmereye.com/imgs/2024/06/71d5adf71dddd841.jpg" src="https://static.cmereye.com/imgs/2024/06/2712bd5db3f82a5b.jpg" alt="">
       </nuxtLink>
       <NewAddress />
     </div>
