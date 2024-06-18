@@ -42,9 +42,9 @@ onMounted(()=>{
 </script>
 
 <template>
-  <div :class="['point',{small:smallLine}]" :style="{width: (isAutoWidth?`calc(${lineWidth}px * ${latestNewsNum}`: '100%')}">
+  <div :class="['point',{small:smallLine}]" :style="{width: (isAutoWidth?`calc(${lineWidth}px * ${latestNewsNum} - 5px)`: 'calc(100% - 5px)')}">
     <div class="boxLine" v-show="latestNewsNum !== 1"></div>
-    <div class="boxLine-current" v-show="latestNewsNum !== 1" :style="{width:`${ (latestNewsCurrent-1) * 100/(latestNewsNum-1) }%`}"></div>
+    <div class="boxLine-current" v-show="latestNewsNum !== 1" :style="{width:`calc(${ (latestNewsCurrent-1) * 100/(latestNewsNum-1) }% - 5px)`}"></div>
     <div class="boxRound">
       <div class="boxRound-in" v-for="boxRoundIndex in latestNewsNum" :key="boxRoundIndex" @click="handleSwiperItem(boxRoundIndex)">
         <div v-show="boxRoundIndex <= latestNewsCurrent" class="current"></div>
@@ -57,9 +57,10 @@ onMounted(()=>{
     position: relative;
     width: 100%;
     .boxLine{
-      width: 100%;
+      width: calc(100% - 5px);
       height: 4px;
       background: var(--indexColor2);
+      margin: 0 auto;
     }
     .boxLine-current{
       height: 4px;
@@ -67,7 +68,7 @@ onMounted(()=>{
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      left: 0;
+      left: 2.5px;
       transition: all .5s;
     }
     .boxRound{
