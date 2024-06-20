@@ -662,9 +662,11 @@ function copySpecifiedText(event,id,link) {
 }
 .course{
   margin-top: 100px;
+  
   &-in{
     width: 100%;
     margin: 36px auto 0;
+    overflow-x: hidden;
     .courseSwiperT{
       width: 732px;
       overflow: visible;

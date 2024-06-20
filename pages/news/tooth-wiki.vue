@@ -260,7 +260,7 @@ watch(width,(n,o)=>{
                   </div>
                   <div class="time">
                     <span>
-                      {{item.time}} by ckjhk - Leave a comment
+                      {{item.time}}
                     </span>
                     <div class="shareIcon" @click.stop="handleClick($event,item.id)" alt="">
                       <div :class="['shareIcon-img',{ act: actShowShare === item.id }]" alt="分享" title="分享"><img src="@/assets/images/icon_47.svg" alt=""></div>
@@ -315,7 +315,7 @@ watch(width,(n,o)=>{
         <div class="lists" v-if="errorpage">服務異常</div>
       </div>
       <nuxtLink :to="whatsapplink" class="bigPageCon whatsappLink">
-        <img style="width:100%;" srcset="https://static.cmereye.com/imgs/2024/06/efe552a37181d177.png 768w,https://static.cmereye.com/imgs/2024/06/71d5adf71dddd841.jpg" src="https://static.cmereye.com/imgs/2024/06/2712bd5db3f82a5b.jpg" alt="">
+        <img style="width:100%;" srcset="https://static.cmereye.com/imgs/2024/06/efe552a37181d177.png 768w, https://static.cmereye.com/imgs/2024/06/2712bd5db3f82a5b.jpg" src="https://static.cmereye.com/imgs/2024/06/2712bd5db3f82a5b.jpg" alt="">
       </nuxtLink>
       <NewAddress />
     </div>

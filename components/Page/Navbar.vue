@@ -88,7 +88,7 @@ let _bool = ref(false)
     <div class="navbar-content-in" id="navPcContactForm" title="預約" @click="toContactUs">
     </div>
     <div class="navbar-content-in pageTop" @click="toPageTop">
-      <img srcset="@/assets/images/icon_50.svg 768w, @/assets/images/navIcon_4.png" src="@/assets/images/navIcon_4.png" alt="toTop" />
+      <img srcset="https://static.cmereye.com/imgs/2024/06/31e5ffd3567a9dd4.png 768w, @/assets/images/navIcon_4.png" src="@/assets/images/navIcon_4.png" alt="toTop" />
     </div>
     <div class="navbar-content-mb">
       <nuxt-link class="navbar-content-mb-in" id="navMbWhatsapp" :to="whatsapplink">

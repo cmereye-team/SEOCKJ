@@ -136,11 +136,13 @@ onMounted(()=>{
 }
 @media screen and (max-width: 768px) {
   .pageBanner{
+    margin-top: 0;
     &-swiper{
       a{
-        padding: 0 15px;
+        padding: 0;
         img{
-          box-shadow: 0px 3px 8.3px 0px rgba(0, 0, 0, 0.25);
+          box-shadow: none;
+          border-radius: 0;
         }
       }
     }
