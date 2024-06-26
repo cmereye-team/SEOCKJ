@@ -140,7 +140,7 @@ const handletab2 = async (id:string,dpc:Boolean = false)=>{
   }, 500);
 }
 const changeAreaTabCur = (_idx:any) => {
-  if(_idx === 4){
+  if(_idx === 3){
     handletab2('102',true)
   }else{
     handletab2('101',true)
@@ -770,10 +770,10 @@ if(process.server){
       <div class="sectionBox">
         <div class="sectionBox-l">
           <div class="image-t">
-            <img src="https://static.cmereye.com/imgs/2024/05/4f0ef4264fabb9ee.jpg" alt="">
+            <img loading="lazy" src="https://static.cmereye.com/imgs/2024/05/4f0ef4264fabb9ee.jpg" alt="">
           </div>
           <div class="image-b">
-            <img :src="item" v-for="(item,index) in sectionBoxImage" :key="index" alt="">
+            <img loading="lazy" :src="item" v-for="(item,index) in sectionBoxImage" :key="index" alt="">
           </div>
         </div>
         <div class="sectionBox-c">
@@ -792,10 +792,10 @@ if(process.server){
             <nuxtLink :to="`/news/article/${item.id}`" class="list-in" v-for="item in width>768?media_coverage_lists.slice(0,2):media_coverage_lists" :key="item.id">
               <div class="list-in-t">
                 <div class="list-in-t-l">
-                  <img :src="item.img" alt="">
+                  <img loading="lazy" :src="item.img" alt="">
                 </div>
                 <div class="list-in-t-r">
-                  <img :src="item.logo" alt="">
+                  <img loading="lazy" :src="item.logo" alt="">
                   <span>{{item.name}}</span>
                 </div>
               </div>
@@ -837,12 +837,12 @@ if(process.server){
         </div>
         <div class="Dental_knowledge-content">
           <div class="Dental_knowledge-content-l">
-            <img src="https://static.cmereye.com/imgs/2024/05/e2d21aaaf391c909.png" alt="">
+            <img loading="lazy" src="https://static.cmereye.com/imgs/2024/05/e2d21aaaf391c909.png" alt="">
           </div>
           <div class="Dental_knowledge-content-c">
             <div class="info">
               <div class="info-l">
-                <img src="https://static.cmereye.com/imgs/2024/05/8a104fb9dc69d0a0.png" alt="">
+                <img loading="lazy" src="https://static.cmereye.com/imgs/2024/05/8a104fb9dc69d0a0.png" alt="">
               </div>
               <div class="info-r">
                 <div class="title">{{Dental_knowledge[Dental_knowledge_cur_tab].name}}</div>
@@ -867,7 +867,7 @@ if(process.server){
             </div>
           </div>
           <div class="Dental_knowledge-content-r">
-            <img src="https://static.cmereye.com/imgs/2024/05/758fa03eda0cc4ff.png" alt="">
+            <img loading="lazy" src="https://static.cmereye.com/imgs/2024/05/758fa03eda0cc4ff.png" alt="">
           </div>
         </div>
       </div>
@@ -890,7 +890,7 @@ if(process.server){
             <section v-if="actDoctorListd.length < 7">
               <div class="pcLists-in" :class="{acitve:doctorCur===doctorItem.id}" v-for="doctorItem in actDoctorListd" :key="doctorItem.id" @click="handleDoctorItem(doctorItem.id)">
                 <div class="pcLists-in-img">
-                  <img :src="doctorItem.mbImg || ''" :alt="doctorItem.name" :title="doctorItem.name">
+                  <img loading="lazy" :src="doctorItem.mbImg || ''" :alt="doctorItem.name" :title="doctorItem.name">
                 </div>
               </div>
             </section>
@@ -902,7 +902,7 @@ if(process.server){
               >
                 <SwiperSlide class="swiperpcLists-in-slide" v-for="doctorItem in actDoctorListd" :key="doctorItem.id">
                   <div class="swiperpcLists-in-img" :class="{acitve:doctorCur===doctorItem.id}" @click="handleDoctorItem(doctorItem.id)">
-                    <img :src="doctorItem.mbImg || ''" :alt="doctorItem.name" :title="doctorItem.name">
+                    <img loading="lazy" :src="doctorItem.mbImg || ''" :alt="doctorItem.name" :title="doctorItem.name">
                   </div>
                 </SwiperSlide>
               </Swiper>
@@ -916,7 +916,7 @@ if(process.server){
             >
               <SwiperSlide class="mbLists-in-slide" v-for="doctorItem in actDoctorListd" :key="doctorItem.id">
                 <div class="mbLists-in-img" :class="{acitve:doctorCur===doctorItem.id}" @click="handleDoctorItem(doctorItem.id)">
-                  <img :src="doctorItem.mbImg || ''" :alt="doctorItem.name" :title="doctorItem.name">
+                  <img loading="lazy" :src="doctorItem.mbImg || ''" :alt="doctorItem.name" :title="doctorItem.name">
                 </div>
               </SwiperSlide>
             </Swiper>
@@ -938,8 +938,8 @@ if(process.server){
               <div class="index-doctorTeam-detail index-doctorTeam-con" :id="`d${doctorItem.id}`">
                 <div class="index-doctorTeam-detail-l">
                   <div class="index-doctorTeam-detail-l-in">
-                    <img :srcset="'https://static.cmereye.com/imgs/2024/02/3305056d2ab78db8.webp 768w, https://static.cmereye.com/imgs/2024/02/d9ed594b3c173297.webp'" src="https://static.cmereye.com/imgs/2024/02/d9ed594b3c173297.webp" alt="">
-                    <img :srcset="`${doctorItem.mbImg} 768w, ${doctorItem.imgUrl}`" :src="doctorItem.imgUrl" :alt="doctorItem.name" :title="doctorItem.name"> 
+                    <img loading="lazy" :srcset="'https://static.cmereye.com/imgs/2024/02/3305056d2ab78db8.webp 768w, https://static.cmereye.com/imgs/2024/02/d9ed594b3c173297.webp'" src="https://static.cmereye.com/imgs/2024/02/d9ed594b3c173297.webp" alt="">
+                    <img loading="lazy" :srcset="`${doctorItem.mbImg} 768w, ${doctorItem.imgUrl}`" :src="doctorItem.imgUrl" :alt="doctorItem.name" :title="doctorItem.name"> 
                   </div>
                   <div class="index-doctorTeam-detail-l-btn">
                     <PageAnimBtnTypeTwo str="線上咨詢" />
@@ -1015,7 +1015,7 @@ if(process.server){
                   <div class="list-in-b-r">
                     <span>{{item.time}}</span>
                     <div class="shareIcon" @click.stop="handleClick($event, item.id)" alt="">
-                      <div :class="['shareIcon-img',{ act: actShowShare === item.id }]" alt="分享" title="分享"><img src="@/assets/images/icon_47.svg" alt=""></div>
+                      <div :class="['shareIcon-img',{ act: actShowShare === item.id }]" alt="分享" title="分享"><img loading="lazy" src="@/assets/images/icon_47.svg" alt=""></div>
                       <div class="shareIcon-in" v-if="actShowShare === item.id">
                         <div class="shareIcon-in-item" @click="shareFacebook($event,item.id,item.shareUrl,true)" alt="Facebook 分享" title="Facebook 分享"><img src="@/assets/images/icon_49.svg" alt=""><span>Facebook 分享</span></div>
                         <div class="shareIcon-in-item" @click="copySpecifiedText($event,item.id,item.shareUrl,true)" alt="複製連結" title="複製連結"><img src="@/assets/images/icon_48.svg" alt=""><span>複製連結</span></div>
@@ -1053,7 +1053,7 @@ if(process.server){
           >
             <Swiper-slide class="index-org-content-swiper-slie" v-for="(orgListItem,orgListIndex) in orgLists" :key="orgListIndex">
               <div class="index-org-content-in" :class="`index-org-content-${orgTabCur}`" v-for="(orgItem,orgIndex) in orgListItem" :key="orgIndex">
-                <img :src="orgItem" alt="">
+                <img loading="lazy" :src="orgItem" alt="">
               </div>
             </Swiper-slide>
           </Swiper>
@@ -1116,7 +1116,7 @@ if(process.server){
             <div class="brand-in">
               <div>
                 <div>
-                  <img src="https://static.cmereye.com/imgs/2023/05/d7e785a21ef31545.png" alt="">
+                  <img loading="lazy" src="https://static.cmereye.com/imgs/2023/05/d7e785a21ef31545.png" alt="">
                 </div>
                 <div>
                   深圳老字號
@@ -1124,7 +1124,7 @@ if(process.server){
               </div>
               <div>
                 <div>
-                  <img src="https://static.cmereye.com/imgs/2023/05/6b9b5cbf87f8da95.png" alt="">
+                  <img loading="lazy" src="https://static.cmereye.com/imgs/2023/05/6b9b5cbf87f8da95.png" alt="">
                 </div>
                 <div>
                   廣東省著名商標品牌
@@ -1132,13 +1132,13 @@ if(process.server){
               </div>
               <div>
                 <div>
-                  <img src="https://static.cmereye.com/imgs/2023/05/42202884c1b63259.png" alt="">
+                  <img loading="lazy" src="https://static.cmereye.com/imgs/2023/05/42202884c1b63259.png" alt="">
                 </div>
                 <div>中山大學光華口腔醫學院<br>研究生課程深圳教學基地</div>
               </div>
               <div>
                 <div>
-                  <img src="https://static.cmereye.com/imgs/2023/05/cb849eb2ad0023d4.png" alt="">
+                  <img loading="lazy" src="https://static.cmereye.com/imgs/2023/05/cb849eb2ad0023d4.png" alt="">
                 </div>
                 <div>
                   最具口碑影響力企業
@@ -1146,7 +1146,7 @@ if(process.server){
               </div>
               <nuxt-link to="https://www.gma-awards.hk01.group/%E5%BE%97%E7%8D%8E%E5%90%8D%E5%96%AE">
                 <div>
-                  <img src="https://static.cmereye.com/imgs/2024/05/a4cced5ce2d5c606.png" alt="">
+                  <img loading="lazy" src="https://static.cmereye.com/imgs/2024/05/a4cced5ce2d5c606.png" alt="">
                 </div>
                 <div>
                   香港01<br>傑出大灣區牙科醫療<br>服務機構

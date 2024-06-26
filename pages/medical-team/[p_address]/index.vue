@@ -139,7 +139,7 @@ const changeDentalProfessionList = () =>{
   return dentalProfessionList.filter(item => _lists.includes(item.id)) || []
 }
 const changeAreaTabCur = (_idx:any) => {
-  if(_idx === 4){
+  if(_idx === 3){
     handletab2('102')
   }else{
     handletab2('101')

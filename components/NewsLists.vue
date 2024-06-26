@@ -93,7 +93,7 @@ function copySpecifiedText(event,text) {
       <nuxtLink :to="thameType === '2' ? '#' : `${listsConfig.linkL}${item.id}`" class="list-in" v-for="item in listsConfig.lists" :key="item.id">
         <div class="list-in-t" v-if="thameType === '1'">
           <div class="list-in-t-l">
-            <img :src="item.img" alt="">
+            <img loading="lazy" :src="item.img" alt="">
           </div>
           <div class="list-in-t-r">
             <h2>{{item.name}}</h2>
@@ -112,7 +112,7 @@ function copySpecifiedText(event,text) {
         </div>
         <div class="list-in-t" v-if="thameType === '3'">
           <div class="list-in-t-l">
-            <img :style="{'z-index': 4-imgIndex,'margin-left': `-${imgIndex === 0 ? 0 : 33}px`}" v-for="(imgItem,imgIndex) in item.pics.slice(0,4)" :key="imgIndex" :src="imgItem" alt="">
+            <img loading="lazy" :style="{'z-index': 4-imgIndex,'margin-left': `-${imgIndex === 0 ? 0 : 33}px`}" v-for="(imgItem,imgIndex) in item.pics.slice(0,4)" :key="imgIndex" :src="imgItem" alt="">
           </div>
           <div class="list-in-t-r">
             <h2>{{item.name}}</h2>
@@ -121,11 +121,11 @@ function copySpecifiedText(event,text) {
         </div>
         <div class="list-in-t" v-if="thameType === '4'">
           <div class="list-in-t-l">
-            <img :src="item.img" alt="">
+            <img loading="lazy" :src="item.img" alt="">
           </div>
           <div class="list-in-t-r">
             <h2>
-              <img :src="item.logo" alt="">
+              <img loading="lazy" :src="item.logo" alt="">
               <span>{{item.name}}</span>
             </h2>
             <p>{{item.desc}}</p>
@@ -133,7 +133,7 @@ function copySpecifiedText(event,text) {
         </div>
         <div class="list-in-t" v-if="thameType === '5'">
           <div class="list-in-t-l">
-            <img :src="item.img" alt="">
+            <img loading="lazy" :src="item.img" alt="">
           </div>
           <div class="list-in-t-r">
             <h2>{{item.name}}</h2>
