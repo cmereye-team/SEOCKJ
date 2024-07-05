@@ -80,7 +80,7 @@ export default [
   },
   {
     name: 'service.children_dentistry',
-    imgUrl: 'https://static.cmereye.com/imgs/2024/03/1c8586701fba6af8.png',
+    imgUrl: 'https://static.cmereye.com/imgs/2024/07/4feb204172b310b6.png',
     link: '/dental-service/children-dentistry',
     isHot: false
   },
