@@ -1186,7 +1186,9 @@ if (process.server) {
       font-size: 35px;
       font-style: normal;
       font-weight: 400;
-      line-height: 160%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       letter-spacing: 4px;
       flex: 2;
       border: none !important;
@@ -1205,7 +1207,9 @@ if (process.server) {
       font-size: 35px;
       font-style: normal;
       font-weight: 400;
-      line-height: 180%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       letter-spacing: 7px;
       flex: 4;
     }
@@ -1250,6 +1254,9 @@ if (process.server) {
       font-weight: 400;
       line-height: 160%;
       letter-spacing: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       ul {
         list-style-type: disc;
         margin: 0;
