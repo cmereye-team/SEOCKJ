@@ -1187,10 +1187,10 @@ if (process.server) {
       font-style: normal;
       font-weight: 400;
       line-height: 160%;
-      letter-spacing: 7px;
+      letter-spacing: 4px;
       flex: 2;
       border: none !important;
-      padding: 8px 20px;
+      padding: 8px 0px;
     }
 
     .twenty-three-container-header-two-only {
@@ -1231,7 +1231,7 @@ if (process.server) {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px 40px;
+      padding: 24px 8px;
       letter-spacing: 4px;
     }
 
@@ -1242,7 +1242,7 @@ if (process.server) {
 
     .twenty-three-container-content-two-three {
       flex: 4;
-      padding: 24px 40px;
+      padding: 24px 15px 24px 20px;
       color: var(--Grey-Deep, #4d4d4d);
       font-family: 'Noto Sans HK';
       font-size: 20px;
@@ -1250,6 +1250,11 @@ if (process.server) {
       font-weight: 400;
       line-height: 160%;
       letter-spacing: 4px;
+      ul{
+        list-style-type: disc;
+        margin: 0;
+        width: 100%;
+      }
     }
   }
 }
