@@ -755,7 +755,7 @@ watch(showSearchBox,(n,o)=>{
           &-item {
             width: 100%;
             text-align: center;
-            padding: 10px 0 5px;
+            padding: 0;
             font-weight: 500;
             font-size: 18px;
             color: #666666;
@@ -768,6 +768,10 @@ watch(showSearchBox,(n,o)=>{
             }
             &.menuChildCurrent {
               color: var(--indexColor1);
+            }
+            &>a {
+              display: block;
+              padding: 10px 0 5px;
             }
           }
           &::before {
