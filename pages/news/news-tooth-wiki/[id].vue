@@ -1162,7 +1162,7 @@ if (process.server) {
     }
   }
 }
-.articlePage-in{
+.articlePage-in {
   :deep(.content) {
     .twenty-three-container {
       max-width: 960px;
@@ -1250,7 +1250,7 @@ if (process.server) {
       font-weight: 400;
       line-height: 160%;
       letter-spacing: 4px;
-      ul{
+      ul {
         list-style-type: disc;
         margin: 0;
         width: 100%;
@@ -1938,30 +1938,46 @@ if (process.server) {
       }
 
       .twenty-three-container-header-one {
-        padding: 8px 15px;
+        padding: 8px 0;
         letter-spacing: 1px;
-        font-size: 14px;
+        font-size: 15px;
         line-height: 160%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .twenty-three-container-header-two-three {
-        font-size: 20px;
         line-height: 160%;
+        font-size: 15px;
         letter-spacing: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .twenty-three-container-content-one {
-        padding: 8px 20px;
+        padding: 8px 5px;
         letter-spacing: 1px;
-        font-size: 14px;
+        font-size: 12px;
         line-height: 160%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
       }
 
       .twenty-three-container-content-two-three {
-        padding: 4px 10px;
+        padding: 10px;
         letter-spacing: 1px;
-        font-size: 14px;
-        line-height: 120%;
+        font-size: 12px;
+        line-height: 140%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        ul {
+          padding-left: 15px;
+        }
       }
     }
   }
