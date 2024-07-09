@@ -498,6 +498,7 @@ watch(width,(n,o)=>{
       }
       .btn{
         display: flex;
+        justify-content: center;
         padding: 20px;
         a{
           font-size: 35px;
