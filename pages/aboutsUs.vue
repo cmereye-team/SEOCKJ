@@ -307,8 +307,8 @@ const summaryOfAnActivity = ref<Activity[]>([
     text: '2024年5月22日，我們接待了香港華人牙醫公會的訪問團隊，此次訪問旨在進一步加强與香港在口腔醫療領域的學習與交流。作為大灣區的領先口腔醫療機構，愛康健口腔集團致力於提升醫療服務質量，此次交流將有助於推動地區醫療服務的共同發展。',
     tagLink: ['#團體交流'],
     date: '2024年5月30日',
-    link: '',
-    moreLink: '',
+    link: '/brand/visit-and-exchange-with-the-Hong-Kong-chinese-dental-association',
+    moreLink: '/brand/visit-and-exchange-with-the-Hong-Kong-chinese-dental-association',
     isShare: false,
   },
   {
@@ -319,8 +319,8 @@ const summaryOfAnActivity = ref<Activity[]>([
     text: '與立法會議員、香港中旅集團及社福團體，為過千位長者及有需要人士提供免費基層牙科醫療及交通接送服務',
     tagLink: ['#公益活動'],
     date: '2024年5月30日',
-    link: '',
-    moreLink: '',
+    link: '/brand/love-teeth-wash-launching-ceremony-public-welfare-activity',
+    moreLink: '/brand/love-teeth-wash-launching-ceremony-public-welfare-activity',
     isShare: false,
   },
   {
@@ -431,7 +431,7 @@ onMounted(() => {
               </div>
             </div>
             <div class="course-action-in">
-              <nuxtLink :to="`/brand/action-message`" class="list-in">
+              <nuxtLink :to="item.link" class="list-in">
                 <div class="list-in-t">
                   <div class="list-in-t-l">
                     <img :src="item.img" :alt="item.titleName" />
@@ -490,7 +490,7 @@ onMounted(() => {
                   </div>
                 </div>
               </nuxtLink>
-              <nuxt-link to="/federation-of-trade-unions-zone" class="btn">
+              <nuxt-link :to="item.moreLink" class="btn">
                 <span>查看更多</span>
               </nuxt-link>
             </div>
