@@ -1591,7 +1591,9 @@ const problemData = {
           </div>
         </div>
       </div>
-      <ServiceProblem :problem-data="problemData" />
+      <div class="problem-data">
+        <ServiceProblem :problem-data="problemData" />
+      </div>
       <NewAddress />
     </div>
   </div>
@@ -2766,6 +2768,29 @@ svg:hover path {
     flex: 1;
   }
 }
+.problem-data {
+  :deep(.problem) {
+    .dentistryServices-title-in {
+      color: var(--textColor);
+      display: inline-block;
+      font-size: 35px;
+      position: relative;
+      text-align: center;
+      font-weight: 400;
+    }
+    .bb {
+      padding-bottom: 0;
+    }
+    .bb::after {
+      border-radius: 2px;
+      background: var(--indexColor_2);
+      width: calc(100% + 20px);
+      left: -10px;
+      height: 50%;
+      z-index: -1;
+    }
+  }
+}
 @media (min-width: 768px) and (max-width: 1920px) {
   .PromotionProject {
     padding-top: 2.0833vw;
@@ -3165,6 +3190,29 @@ svg:hover path {
 }
 
 @media screen and (max-width: 768px) {
+  .problem-data {
+    :deep(.problem) {
+      .dentistryServices-title-in {
+        color: var(--textColor);
+        display: inline-block;
+        font-size: 19px;
+        position: relative;
+        text-align: center;
+        font-weight: 700;
+      }
+      .bb {
+        padding-bottom: 0;
+      }
+      .bb::after {
+        border-radius: 2px;
+        background: var(--indexColor_2);
+        width: calc(100% + 20px);
+        left: -10px;
+        height: 50%;
+        z-index: -1;
+      }
+    }
+  }
   .setionBox {
     gap: 0;
     margin-top: 0;
