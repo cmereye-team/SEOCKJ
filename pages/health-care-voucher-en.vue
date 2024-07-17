@@ -228,8 +228,8 @@ const pageDetail:any = {
         },
         {
           type: 'indexColor a',
-          text: '+852 69338128',
-          link: 'tel: +852 69338128'
+          text: '+852 38925049',
+          link: 'tel: +852 38925049'
         }
       ],
       className: 'nob'
