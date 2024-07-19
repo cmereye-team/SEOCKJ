@@ -236,9 +236,9 @@ if(process.server){
         <nuxt-link :to="''">
           <span>睇牙新資訊</span>
         </nuxt-link>
-        <nuxt-link :to="'/news/information'">
+        <!-- <nuxt-link :to="'/news/information'">
           <span :title="'最新資訊'">最新資訊</span>
-        </nuxt-link>
+        </nuxt-link> -->
         <span>{{coverageDeatail.name}}</span>
       </div>
       <div class="articlePage-in" v-if="!errorpage" v-loading="pageLoading">

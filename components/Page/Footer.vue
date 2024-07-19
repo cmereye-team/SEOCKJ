@@ -59,10 +59,10 @@ const navLists = ref([
         name: 'components.header.menuLists.menu_news.coverage',
         link: '/news/coverage',
       },
-      {
-        name: 'components.header.menuLists.menu_news.information',
-        link: '/news/information',
-      },
+      // {
+      //   name: 'components.header.menuLists.menu_news.information',
+      //   link: '/news/information',
+      // },
       {
         name: 'components.header.menuLists.menu_news.tooth-wiki',
         link: '/news/tooth-wiki',
