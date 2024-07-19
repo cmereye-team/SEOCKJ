@@ -55,11 +55,11 @@ const menuLists:any = [
       ...serviceLists
     ],
   },
-  {
-    name: 'components.header.menuLists.health-care-voucher.name',
-    link: `/health-care-voucher`,
-    child: []
-  },
+  // {
+  //   name: 'components.header.menuLists.health-care-voucher.name',
+  //   link: `/health-care-voucher`,
+  //   child: []
+  // },
   {
     name: 'components.header.menuLists.federation-of-trade-unions-zone.name',
     link: `/federation-of-trade-unions-zone`,
@@ -219,10 +219,10 @@ const headermbNav = [
     name: '預約及查詢',
     link: '/contactUs'
   },
-  {
-    name: '長者醫療券',
-    link: '/federation-of-trade-unions-zone'
-  }
+  // {
+  //   name: '長者醫療券',
+  //   link: '/federation-of-trade-unions-zone'
+  // }
 ]
 
 

@@ -335,18 +335,18 @@ const summaryOfAnActivity = ref<Activity[]>([
     moreLink: '/federation-of-trade-unions-zone',
     isShare: false,
   },
-  {
-    id: 102,
-    titleName: '長者醫療券',
-    img: 'https://static.cmereye.com/imgs/2024/05/5fa4444992580948.jpg',
-    title: ['深圳愛康健正式納入', '灣區長者醫療券參與機構'],
-    text: '2024年2月19日政府公布，深圳愛康健齒科已經正式成為「長者醫療券大灣區試點計劃」的參與機構，這個計劃旨在資助符合條件的長者跨境到愛康健齒科口腔醫院使用長者醫療券支付治療費用。政府預計今年第三季開始實施該計劃，約有170萬名合資格的長者將從中受益。',
-    tagLink: ['#醫療券', '#長者', '#政府政策'],
-    date: '2024年2月19日',
-    link: '/brand/action-message',
-    moreLink: '/federation-of-trade-unions-zone',
-    isShare: false,
-  },
+  // {
+  //   id: 102,
+  //   titleName: '長者醫療券',
+  //   img: 'https://static.cmereye.com/imgs/2024/05/5fa4444992580948.jpg',
+  //   title: ['深圳愛康健正式納入', '灣區長者醫療券參與機構'],
+  //   text: '2024年2月19日政府公布，深圳愛康健齒科已經正式成為「長者醫療券大灣區試點計劃」的參與機構，這個計劃旨在資助符合條件的長者跨境到愛康健齒科口腔醫院使用長者醫療券支付治療費用。政府預計今年第三季開始實施該計劃，約有170萬名合資格的長者將從中受益。',
+  //   tagLink: ['#醫療券', '#長者', '#政府政策'],
+  //   date: '2024年2月19日',
+  //   link: '/brand/action-message',
+  //   moreLink: '/federation-of-trade-unions-zone',
+  //   isShare: false,
+  // },
 ])
 
 interface Activity {

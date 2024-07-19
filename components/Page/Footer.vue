@@ -39,12 +39,12 @@ const navLists = ref([
     ],
     show: false
   },
-  {
-    name: 'components.header.menuLists.health-care-voucher.name',
-    link: `/health-care-voucher`,
-    children: [],
-    show: false
-  },
+//  {
+//    name: 'components.header.menuLists.health-care-voucher.name',
+//    link: `/health-care-voucher`,
+//    children: [],
+//    show: false
+//  },
   {
     name: 'components.header.menuLists.federation-of-trade-unions-zone.name',
     link: `/federation-of-trade-unions-zone`,
