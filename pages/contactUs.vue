@@ -107,7 +107,7 @@ const environmentLists = [
   ],
   [
     'https://static.cmereye.com/static/ckj/imgs/environment/Longhua/5001.jpg',
-    'https://static.cmereye.com/static/ckj/imgs/environment/Longhua/5002.jpg',
+    // 'https://static.cmereye.com/static/ckj/imgs/environment/Longhua/5002.jpg',
     'https://static.cmereye.com/static/ckj/imgs/environment/Longhua/5003.jpg',
     'https://static.cmereye.com/static/ckj/imgs/environment/Longhua/5004.jpg',
   ],
@@ -130,7 +130,7 @@ const environmentLists02 = [
   'https://static.cmereye.com/static/ckj/imgs/environment/Baoan/4003.jpg',
   'https://static.cmereye.com/static/ckj/imgs/environment/Baoan/4004.jpg',
   'https://static.cmereye.com/static/ckj/imgs/environment/Longhua/5001.jpg',
-  'https://static.cmereye.com/static/ckj/imgs/environment/Longhua/5002.jpg',
+  // 'https://static.cmereye.com/static/ckj/imgs/environment/Longhua/5002.jpg',
   'https://static.cmereye.com/static/ckj/imgs/environment/Longhua/5003.jpg',
   'https://static.cmereye.com/static/ckj/imgs/environment/Longhua/5004.jpg',
 ]
