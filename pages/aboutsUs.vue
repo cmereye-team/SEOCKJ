@@ -304,7 +304,7 @@ const summaryOfAnActivity = ref<Activity[]>([
     titleName: '活動剪影',
     img: 'https://static.cmereye.com/imgs/2024/07/8efd3b557840d9de.jpg',
     title: ['香港華人牙醫公會參觀交流'],
-    text: '2024年5月22日，我們接待了香港華人牙醫公會的訪問團隊，此次訪問旨在進一步加强與香港在口腔醫療領域的學習與交流。作為大灣區的領先口腔醫療機構，愛康健口腔集團致力於提升醫療服務質量，此次交流將有助於推動地區醫療服務的共同發展。',
+    text: '2024年5月22日，我們接待了香港華人牙醫公會的訪問團隊，此次訪問旨在進一步加強與香港在口腔醫療領域的學習與交流。作為大灣區的領先口腔醫療機構，愛康健口腔集團致力於提升醫療服務質量，此次交流將有助於推動地區醫療服務的共同發展。',
     tagLink: ['#團體交流'],
     date: '2024年5月30日',
     link: '/brand/visit-and-exchange-with-the-Hong-Kong-chinese-dental-association',
