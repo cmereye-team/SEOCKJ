@@ -28,7 +28,8 @@ useHead(() => ({
   border transition-color duration-300
   focus:outline-none focus:ring-1 focus:ring-offset-1 focus:dark:ring-offset-gray-50 focus:dark:ring-gray-400 focus:ring-gray-600/[0.6] focus:ring-offset-gray-800/[0.6]
   flex items-center justify-center font-semibold
- text-white bg-primary-500 hover:bg-primary-400 border-primary-500 h-9 px-4 text-sm rounded" >返回首頁</nuxt-link>
+ text-white bg-primary-500 hover:bg-primary-400 border-primary-500 h-9 px-4 text-sm rounded"  style="    max-width: 300px;
+    margin: 0 auto 30px;" >返回首頁</nuxt-link>
     </div> 
    
       <serviceCard :isIndexShow="true" />
