@@ -19,6 +19,13 @@ useHead(() => ({
       <Error :code="404" />
     </div>
     <div style="width: 100%;margin-top:100px;">
+      <div class="img_err">
+      <img
+        src="https://static.cmereye.com/imgs/2024/07/ce0c4dabdd6a15f8.png"
+        alt=""
+      />
+    </div>
+    <nuxt-link to="/" class="black">返回首頁</nuxt-link>
       <serviceCard :isIndexShow="true" />
     </div>
   </div>
