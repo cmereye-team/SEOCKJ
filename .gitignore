@@ -9,8 +9,11 @@ node_modules
 
 # build or generate
 .nuxt
-dist
 .output
+
+dist
+dist.zip
+generate_and_zip.sh
 
 # IDE
 .idea
